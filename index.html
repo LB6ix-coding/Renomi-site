@@ -24,7 +24,7 @@
 .browser{position:absolute;left:0;top:30px;width:min(520px,92%);background:#f7f3ec;border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow);color:#2a1e14}
 .bar{height:34px;background:#e8e2d8;display:flex;align-items:center;gap:6px;padding:0 12px}.bar i{width:9px;height:9px;border-radius:50%;background:#c9c0b2}
 .bar span{margin-left:12px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#8a7f70;background:#f7f3ec;padding:3px 10px;border-radius:6px}
-.site{display:grid;grid-template-columns:1fr 1fr;height:300px}
+.site{display:block;width:100%;height:300px;object-fit:cover;object-position:top}
 .site .t{padding:30px 26px}.site .t small{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;color:#a0522d}
 .site .t .mh{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:40px;line-height:1;letter-spacing:-.01em;margin:10px 0 12px}
 .site .t p{font-size:12px;line-height:1.5;color:#6b5e50}.site .t b{display:inline-block;margin-top:16px;background:#2a1e14;color:#f7f3ec;font-size:12px;padding:9px 14px;border-radius:999px}
@@ -32,7 +32,7 @@
 .phone{position:absolute;right:20px;top:0;width:220px;height:450px;border-radius:34px;background:#000;padding:9px;box-shadow:var(--shadow);transform:rotate(4deg)}
 .reel{height:100%;border-radius:26px;overflow:hidden;position:relative;background:linear-gradient(170deg,#3b3bf2 0%,#141a70 55%,#0a0e2e 100%)}
 .reelvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.reel .big{text-shadow:0 2px 12px rgba(0,0,0,.5);position:absolute;left:18px;top:120px;font-weight:900;font-size:44px;line-height:.95;letter-spacing:-.04em;color:#fff}.reel .big em{font-style:normal;color:var(--lichen)}
+.reel .big{text-shadow:0 2px 12px rgba(0,0,0,.5);position:absolute;left:16px;top:110px;font-weight:900;font-size:30px;line-height:.95;letter-spacing:-.04em;color:#fff}.reel .big em{font-style:normal;color:var(--lichen)}
 .reel .play{position:absolute;left:50%;top:58%;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.2);transform:translate(-50%,-50%);display:grid;place-items:center}
 .reel .play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
 .reel .who{position:absolute;left:14px;bottom:30px;font-size:12px;font-weight:700;display:flex;gap:8px;align-items:center;color:#fff}.reel .who i{width:24px;height:24px;border-radius:50%;background:var(--lichen)}
@@ -104,7 +104,7 @@
   </div>
   <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu, Instagram-videomainos ja Google-karttalistaus" role="img"><div class="stage-in">
     <div class="browser"><div class="bar"><i></i><i></i><i></i><span>kahvila-aamu.fi</span></div>
-      <div class="site"><div class="t"><small>TIKKURILA · AVOINNA 7–16</small><div class="mh">Aamun paras hetki.</div><p>Tuoretta leipää, hyvää kahvia ja lounas arkisin.</p><b>Katso menu</b></div><div class="pic"></div></div></div>
+      <img class="site" src="demo/kahvila-aamu.png" alt="" width="1200" height="750"></div>
     <div class="phone"><div class="reel"><video class="reelvid" src="assets/kahvila-aamu.mp4" poster="assets/kahvila-aamu-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Esimerkki: 3D-tuotevideo kahvilan Instagram-mainokseen"></video><div class="big">AAMIAINEN<br><em>7–11</em></div><div class="play"></div><div class="side-ic"><i></i><i></i><i></i></div><div class="who"><i></i>kahvila.aamu</div><div class="prog"></div></div></div>
     <div class="maps"><svg width="310" height="110" viewBox="0 0 310 110" aria-hidden="true"><rect width="310" height="110" fill="#e8eee9"/><path d="M0 70 C80 60 120 90 310 50" stroke="#fff" stroke-width="10" fill="none"/><path d="M90 0 L130 110 M220 0 L200 110" stroke="#fff" stroke-width="7"/><rect x="230" y="70" width="70" height="40" rx="8" fill="#cfe0a6"/><path d="M0 20 h60" stroke="#fff" stroke-width="5"/><g transform="translate(160 40)"><path d="M0 -26c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16z" fill="#3b3bf2"/><circle cy="-10" r="6" fill="#fff"/></g></svg>
       <div class="info"><b>Kahvila Aamu</b><div class="st"><span>★★★★★</span> · Kahvila · Avoinna</div></div></div>
