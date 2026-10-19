@@ -38,7 +38,7 @@ p{margin:0}
 .muted{color:var(--muted)}
 
 /* header */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 86%,transparent);
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 97%,transparent);
   backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
 .top.scrolled{border-bottom-color:var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
@@ -158,11 +158,11 @@ section{padding:96px 0}
 
 /* services */
 .svc{border-top:1.5px solid var(--ink)}
-.svc-row{display:grid;grid-template-columns:1.1fr 1.4fr auto;gap:32px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);
+.svc-row{display:grid;grid-template-columns:1.1fr 1.4fr 230px;gap:32px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);
   text-decoration:none;transition:padding .25s ease,background .25s}
 .svc-row h3{font-size:clamp(24px,2.6vw,32px)}
 .svc-row p{color:var(--muted);font-size:18px}
-.svc-row .price{font-weight:700;white-space:nowrap;font-size:16px}
+.svc-row .price{font-weight:700;white-space:nowrap;font-size:16px;text-align:right}
 .svc-row .price.ask{color:var(--cobalt)}
 .svc-row:hover{padding-left:14px;background:linear-gradient(90deg,color-mix(in srgb,var(--lichen) 45%,transparent),transparent 70%)}
 
@@ -225,13 +225,16 @@ footer .logo{font-size:18px;color:var(--ink)}
 @media (max-width:960px){
   .hero .wrap,.story-grid,.contact .wrap,.proof .wrap{grid-template-columns:1fr}
   .hero{padding:36px 0 72px}.hero .wrap{gap:40px}
-  .stage-wrap{order:-1;position:sticky;top:76px;z-index:2;height:330px}
-  .stage{position:relative;top:0;height:330px}
+  .stage-wrap{order:-1;position:sticky;top:68px;z-index:2;height:350px;background:var(--ink);padding:10px 0 20px;
+    box-shadow:0 18px 18px -6px var(--ink)}
+  .stage{position:relative;top:0;height:320px;background:#212A27}
   .story-grid{gap:0}
   .step{min-height:62vh}
   .prices{grid-template-columns:1fr}
   .proc{grid-template-columns:1fr 1fr;row-gap:44px}
   .svc-row{grid-template-columns:1fr;gap:8px}
+  .svc-row .price{text-align:left}
+  .ad{width:auto;height:92%}
   .proof .wrap{gap:20px}
 }
 @media (max-width:560px){
