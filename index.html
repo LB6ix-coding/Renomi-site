@@ -2,754 +2,183 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
-<script>document.documentElement.classList.add("js")</script>
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Marktic – markkinointi, joka näkyy Googlessa, tekoälyssä ja somessa</title>
-<meta name="description" content="Marktic rakentaa pienyritysten markkinoinnin uusiksi: näkyvyys Googlessa ja tekoälyhauissa, somen hallinta, mainosvideot, tekoälymallit ja verkkosivut. Maksuton näkyvyysraportti.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marktic – markkinointitoimisto paikallisille yrityksille | Vantaa</title>
+<meta name="description" content="Videomainokset, somen ylläpito, kotisivut ja näkyvyys Googlessa ja hakupalveluissa pienille yrityksille. Hinnat näkyvillä, ei pitkiä sopimuksia, raportti selkokielellä.">
+<link rel="canonical" href="https://marktic.fi/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Marktic – näyttäkää yhtä hyvältä kuin työnne on">
+<meta property="og:description" content="Videomainokset, some, kotisivut ja Google-näkyvyys pienille yrityksille. Hinnat näkyvillä, ei pitkiä sopimuksia.">
+<meta property="og:url" content="https://marktic.fi/">
+<meta property="og:locale" content="fi_FI">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style>
+.hero{padding:var(--s6) 0 var(--s5)}
+.hero .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--s5);align-items:center}
+.hero h1{font-size:var(--t-5xl);margin:var(--s3) 0 var(--s4)} .hero h1 span{color:var(--lichen)}
+.hero .cta{display:flex;gap:var(--s3);margin-top:var(--s5);flex-wrap:wrap}
+.stage{position:relative;height:560px}
+.cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);text-transform:none;letter-spacing:0}
+.browser{position:absolute;left:0;top:30px;width:min(520px,92%);background:#f7f3ec;border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow);color:#2a1e14}
+.bar{height:34px;background:#e8e2d8;display:flex;align-items:center;gap:6px;padding:0 12px}.bar i{width:9px;height:9px;border-radius:50%;background:#c9c0b2}
+.bar span{margin-left:12px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#8a7f70;background:#f7f3ec;padding:3px 10px;border-radius:6px}
+.site{display:grid;grid-template-columns:1fr 1fr;height:300px}
+.site .t{padding:30px 26px}.site .t small{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;color:#a0522d}
+.site .t .mh{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:40px;line-height:1;letter-spacing:-.01em;margin:10px 0 12px}
+.site .t p{font-size:12px;line-height:1.5;color:#6b5e50}.site .t b{display:inline-block;margin-top:16px;background:#2a1e14;color:#f7f3ec;font-size:12px;padding:9px 14px;border-radius:999px}
+.pic{background:radial-gradient(circle at 35% 40%,#e9b872 0 18%,transparent 19%),radial-gradient(circle at 62% 58%,#7a4a2a 0 22%,transparent 23%),radial-gradient(circle at 50% 50%,#f2e6d3 0 34%,#c98b4f 35% 37%,transparent 38%),linear-gradient(160deg,#d9a066,#8c5a35)}
+.phone{position:absolute;right:20px;top:0;width:220px;height:450px;border-radius:34px;background:#000;padding:9px;box-shadow:var(--shadow);transform:rotate(4deg)}
+.reel{height:100%;border-radius:26px;overflow:hidden;position:relative;background:linear-gradient(170deg,#3b3bf2 0%,#141a70 55%,#0a0e2e 100%)}
+.reel .big{position:absolute;left:18px;top:120px;font-weight:900;font-size:44px;line-height:.95;letter-spacing:-.04em;color:#fff}.reel .big em{font-style:normal;color:var(--lichen)}
+.reel .play{position:absolute;left:50%;top:58%;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.2);transform:translate(-50%,-50%);display:grid;place-items:center}
+.reel .play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
+.reel .who{position:absolute;left:14px;bottom:30px;font-size:12px;font-weight:700;display:flex;gap:8px;align-items:center;color:#fff}.reel .who i{width:24px;height:24px;border-radius:50%;background:var(--lichen)}
+.reel .prog{position:absolute;left:12px;right:12px;bottom:14px;height:3px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden}.reel .prog::after{content:"";display:block;width:62%;height:100%;background:#fff;border-radius:3px;animation:prog 6s linear infinite}
+@keyframes prog{from{width:0}to{width:100%}}
+.side-ic{position:absolute;right:10px;bottom:80px;display:flex;flex-direction:column;gap:16px}.side-ic i{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.13)}
+.maps{position:absolute;left:150px;bottom:10px;width:310px;background:#fff;color:#1e2422;border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow)}
+.maps .info{padding:12px 16px}.maps b{font-size:15px}.maps .st{font-size:12px;color:#5e6662;margin-top:3px}.maps .st span{color:#b7791f}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.how{counter-reset:step}
+.how .card{position:relative}
+.rep{background:#fff;border:1px solid var(--paper-line);border-radius:var(--r2);padding:var(--s4);color:var(--paper-ink)}
+.rep .h{display:flex;justify-content:space-between;font-size:var(--t-xs);color:var(--paper-mut)} .rep .h b{color:var(--paper-ink);font-size:var(--t-sm)}
+.bars{display:flex;align-items:flex-end;gap:12px;height:150px;margin:var(--s4) 0 var(--s2);border-bottom:1px solid var(--paper-line)}
+.bars div{flex:1;background:var(--paper-2);border-radius:4px 4px 0 0}.bars div:last-child{background:var(--brand)}
+.months{display:flex;gap:12px;font-size:var(--t-xs);color:var(--paper-mut)}.months span{flex:1;text-align:center}
+.rows{margin-top:var(--s3)}.rows div{display:flex;justify-content:space-between;padding:var(--s2) 0;border-top:1px solid var(--paper-line);font-size:var(--t-sm)}
+.ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%}
+  .stage{height:0;padding-bottom:84%}
+  .stage>*{transform-origin:top left}
+  .stage-in{position:absolute;inset:0;transform:scale(.6);transform-origin:top left;width:166%;height:166%}
+  .svc{grid-template-columns:1fr}
+}
+</style>
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "ProfessionalService",
-   "@id": "https://marktic.fi/#org",
-   "name": "Marktic",
-   "url": "https://marktic.fi/",
-   "email": "hei@marktic.fi",
-   "areaServed": {
-    "@type": "Country",
-    "name": "Suomi"
-   },
-   "availableLanguage": "fi",
-   "description": "Suomalainen markkinointipalvelu pienyrityksille: näkyvyys Googlessa ja tekoälyhauissa (ChatGPT, Perplexity, Googlen tekoäly), somen hallinta, mainosvideot, tekoälymallit ja verkkosivut.",
-   "knowsAbout": [
-    "paikallinen näkyvyys",
-    "tekoälyhakujen näkyvyys",
-    "Google-yritysprofiili",
-    "somemarkkinointi",
-    "mainosvideot",
-    "verkkosivut"
-   ],
-   "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Palvelut",
-    "itemListElement": [
-     {
-      "@type": "Offer",
-      "itemOffered": {
-       "@type": "Service",
-       "name": "Näkyvyys Googlessa ja tekoälyssä",
-       "description": "Mittaus kymmenillä vastauksilla, korjaukset ja kuukausiraportti päivämäärineen.",
-       "offers": [
-        {
-         "@type": "Offer",
-         "name": "Näkyvyysraportti",
-         "price": "0",
-         "priceCurrency": "EUR"
-        },
-        {
-         "@type": "Offer",
-         "name": "Korjauspaketti",
-         "price": "190",
-         "priceCurrency": "EUR",
-         "description": "Kertamaksu, laskutetaan kun työ on valmis"
-        },
-        {
-         "@type": "Offer",
-         "name": "Ylläpito",
-         "price": "149",
-         "priceCurrency": "EUR",
-         "description": "Kuukausihinta, perustajahinta (normaalisti 190 €/kk), ei määräaikaa"
-        },
-        {
-         "@type": "Offer",
-         "name": "Aktiivinen kehitys",
-         "price": "290",
-         "priceCurrency": "EUR",
-         "description": "Kuukausihinta, perustajahinta (normaalisti 349 €/kk)"
-        }
-       ]
-      }
-     },
-     {
-      "@type": "Offer",
-      "itemOffered": {
-       "@type": "Service",
-       "name": "Somen hallinta",
-       "description": "Suunnitelma, julkaisut ja kommentteihin vastaaminen puolestanne."
-      }
-     },
-     {
-      "@type": "Offer",
-      "itemOffered": {
-       "@type": "Service",
-       "name": "Mainosvideot",
-       "description": "3D- ja animaatiovideot tuotteista ja palveluista someen ja mainoksiin."
-      }
-     },
-     {
-      "@type": "Offer",
-      "itemOffered": {
-       "@type": "Service",
-       "name": "Tekoälymallit ja -sisältö",
-       "description": "Tuotteet tekoälymallin päällä ilman kuvauksia; merkitään aina tekoälyllä tehdyksi."
-      }
-     },
-     {
-      "@type": "Offer",
-      "itemOffered": {
-       "@type": "Service",
-       "name": "Verkkosivut",
-       "description": "Nopeat, mitattavat ja hyvännäköiset verkkosivut."
-      }
-     },
-     {
-      "@type": "Offer",
-      "itemOffered": {
-       "@type": "Service",
-       "name": "Markkinoinnin uudelleenrakennus",
-       "description": "Nykyisen markkinoinnin läpikäynti ja uusi, mitattava suunnitelma."
-      }
-     }
-    ]
-   }
-  },
-  {
-   "@type": "WebSite",
-   "@id": "https://marktic.fi/#site",
-   "url": "https://marktic.fi/",
-   "name": "Marktic",
-   "inLanguage": "fi",
-   "publisher": {
-    "@id": "https://marktic.fi/#org"
-   }
-  },
-  {
-   "@type": "FAQPage",
-   "mainEntity": [
-    {
-     "@type": "Question",
-     "name": "Onko tämä hakukoneoptimointia?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Osittain. Samat perusasiat auttavat sekä Googlessa että tekoälyhauissa. Erona on mittaus: kerromme myös, kuinka usein teidät mainitaan tekoälyn vastauksissa."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Teettekö myös somea, videoita ja verkkosivuja?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Kyllä. Voitte ottaa yhden palvelun tai koko paketin. Kertokaa, mitä tarvitsette, niin lähetämme tarjouksen."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Mistä saitte yrityksemme tiedot?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "PRH:n avoimesta YTJ-tietopalvelusta, Googlen yritystiedoista ja yrityksenne omilta verkkosivuilta. Voitte kieltää yhteydenotot milloin tahansa vastaamalla \"ei kiitos\"."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Pitääkö meidän tehdä jotain?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Kutsu Google-yritysprofiilin hallintaan ja pääsy verkkosivuille tai yhteystieto sivujanne ylläpitävään yritykseen. Hyväksytte kaikki tekstit ennen julkaisua."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Käytättekö tekoälyä sisällöissä?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Kyllä, kun se sopii tehtävään, esimerkiksi tuotekuvissa ja mainosvideoissa. Tekoälyllä tehty sisältö merkitään aina selvästi."
-     }
-    },
-    {
-     "@type": "Question",
-     "name": "Mitä jos tulos ei parane?",
-     "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "Raportoimme mitatun tuloksen joka kuukausi rehellisesti, myös silloin kun se laskee. Jos ensimmäinen kuukausi ei tyydytä, palautamme sen hinnan ja lopetamme."
-     }
-    }
-   ]
-  }
+ "@context":"https://schema.org",
+ "@graph":[
+  {"@type":"ProfessionalService","@id":"https://marktic.fi/#org","name":"Marktic","url":"https://marktic.fi/","email":"info@marktic.fi",
+   "address":{"@type":"PostalAddress","addressLocality":"Vantaa","addressCountry":"FI"},
+   "areaServed":{"@type":"Country","name":"Suomi"},"availableLanguage":"fi",
+   "description":"Markkinointitoimisto pienille ja keskisuurille yrityksille: videomainokset, somen ylläpito, kotisivut, mainonta sekä näkyvyys Googlessa ja hakupalveluissa (mukaan lukien tekoälyhaut). Hinnat näkyvillä, ei pitkiä sopimuksia, kuukausiraportti selkokielellä.",
+   "knowsAbout":["paikallinen näkyvyys","Google-yritysprofiili","hakupalvelut ja tekoälyhaut","somemarkkinointi","videomainokset","verkkosivut","Google Ads","Meta-mainonta"],
+   "makesOffer":{"@type":"Offer","name":"Maksuton nykytilan kartoitus","price":"0","priceCurrency":"EUR"}},
+  {"@type":"WebSite","@id":"https://marktic.fi/#site","url":"https://marktic.fi/","name":"Marktic","inLanguage":"fi","publisher":{"@id":"https://marktic.fi/#org"}},
+  {"@type":"FAQPage","mainEntity":[
+   {"@type":"Question","name":"Mitä Marktic tekee?","acceptedAnswer":{"@type":"Answer","text":"Hoidamme pienen yrityksen markkinoinnin: videomainokset, somen ylläpidon, kotisivut, mainonnan Googlessa ja Metassa sekä näkyvyyden Googlessa, kartalla ja hakupalveluissa. Raportoimme kerran kuussa selkokielellä."}},
+   {"@type":"Question","name":"Onko sopimuksessa määräaikaa?","acceptedAnswer":{"@type":"Answer","text":"Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan kun työ on valmis."}},
+   {"@type":"Question","name":"Mitä maksuton nykytilan kartoitus sisältää?","acceptedAnswer":{"@type":"Answer","text":"Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista, miltä some ja kotisivut näyttävät asiakkaan silmin, ja kerromme kolme tärkeintä korjausta. Kartoitus ei sido mihinkään."}},
+   {"@type":"Question","name":"Lupaatteko tietyn sijan hakutuloksissa?","acceptedAnswer":{"@type":"Answer","text":"Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy."}}
+  ]}
  ]
 }
 </script>
-<meta property="og:type" content="website">
-<meta property="og:title" content="Marktic – markkinointi, joka näkyy Googlessa, tekoälyssä ja somessa">
-<meta property="og:description" content="Pienyritysten markkinointi: näkyvyys Googlessa ja tekoälyhauissa, some, mainosvideot ja verkkosivut. Maksuton näkyvyysraportti.">
-<meta property="og:locale" content="fi_FI">
-<meta name="theme-color" content="#3B3BF2">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#F4F6F3; --surface:#FFFFFF; --ink:#17201D; --muted:#56625D; --line:#D9DFDA;
-  --cobalt:#3B3BF2; --cobalt-ink:#2626B8; --lichen:#CFE0A6; --lichen-ink:#3E5212;
-  --radius-lg:22px; --radius-sm:10px;
-  --brand:#3B3BF2; --brand-hover:#2626B8; --night:#17201D; --snow:#F4F6F3;
-  --font:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#101614; --surface:#18201D; --ink:#EEF2EF; --muted:#A3AFA9; --line:#2A3430;
-  --cobalt:#7B7BFF; --cobalt-ink:#A9A9FF; --lichen:#4D6320; --lichen-ink:#DDEBB8; color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#101614;--surface:#18201D;--ink:#EEF2EF;--muted:#A3AFA9;--line:#2A3430;
-  --cobalt:#7B7BFF;--cobalt-ink:#A9A9FF;--lichen:#4D6320;--lichen-ink:#DDEBB8;color-scheme:dark}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:6px}
-.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-h1,h2,h3{font-weight:800;letter-spacing:-.025em;line-height:1.02;margin:0}
-p{margin:0}
-.muted{color:var(--muted)}
-
-/* header */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 97%,transparent);
-  backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
-.top.scrolled{border-bottom-color:var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
-.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:23px;letter-spacing:-.04em;text-decoration:none}
-.logo i{width:12px;height:12px;background:var(--cobalt);border-radius:3px;display:inline-block;transform:translateY(1px)}
-.nav{display:flex;gap:26px;align-items:center;font-size:16px}
-.nav a{text-decoration:none;color:var(--muted)}
-.nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;
-  font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;border:0;transition:transform .15s,background .15s}
-.btn.primary{background:var(--brand);color:#fff}
-.btn.primary:hover{background:var(--brand-hover)}
-.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
-.btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
-.btn:active{transform:scale(.98)}
-.nav .btn{min-height:42px;padding:0 18px;color:#fff}
-@media (max-width:860px){.nav a:not(.btn){display:none}}
-
-/* hero */
-.hero{padding:64px 0 96px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-.hero h1{font-size:clamp(46px,7.4vw,96px);font-weight:900;letter-spacing:-.045em;line-height:.95}
-.hero h1 span{display:block}
-.hero .lede{font-size:clamp(18px,1.6vw,21px);color:var(--muted);max-width:34em;margin-top:26px}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.channels{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px;padding:0;list-style:none}
-.channels li{font-size:14px;padding:6px 12px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--muted)}
-
-/* AI chat demo */
-.chat{background:var(--surface);border-radius:var(--radius-lg);box-shadow:0 1px 0 var(--line),0 30px 60px -30px rgba(23,32,29,.35);
-  border:1px solid var(--line);overflow:hidden}
-.chat-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;color:var(--muted)}
-.chat-bar b{color:var(--ink);font-weight:700}
-.chat-bar .dots{display:flex;gap:6px}.chat-bar .dots span{width:9px;height:9px;border-radius:50%;background:var(--line)}
-.chat-body{padding:22px 20px 18px;min-height:390px;display:flex;flex-direction:column;gap:16px}
-.q{align-self:flex-end;max-width:88%;background:var(--paper);border-radius:16px 16px 4px 16px;padding:11px 15px;font-weight:500;min-height:48px}
-.q .caret{display:inline-block;width:2px;height:1.05em;background:var(--cobalt);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-.a{display:flex;flex-direction:column;gap:8px}
-.a .intro{color:var(--muted);font-size:16px}
-.a ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
-.a li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--paper);font-weight:500}
-.js .a li{opacity:0;transform:translateY(8px)}
-.js .a .intro{opacity:0}
-.a li .n{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:13px;font-weight:700;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--muted)}
-.a li.you{background:var(--lichen);color:var(--lichen-ink);font-weight:800}
-.a li.you .n{background:var(--cobalt);color:#fff;box-shadow:none}
-.a li.you .tag{margin-left:auto;font-size:13px;font-weight:700;background:var(--surface);color:var(--ink);padding:3px 9px;border-radius:999px}
-.js .a li.show{opacity:1;transform:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
-.a li.you.show{animation:rise .9s cubic-bezier(.2,.8,.2,1)}
-@keyframes rise{0%{opacity:0;transform:translateY(40px) scale(.96)}60%{opacity:1;transform:translateY(-4px) scale(1.02)}100%{transform:none}}
-.chat-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
-.replay{font:inherit;font-size:13px;font-weight:700;background:none;border:0;color:var(--cobalt);cursor:pointer;padding:6px 0;visibility:hidden}
-
-/* sections */
-section{padding:96px 0;scroll-margin-top:68px}
-.sec-head{max-width:760px;margin-bottom:48px}
-.sec-head h2{font-size:clamp(34px,4.6vw,58px)}
-.sec-head p{margin-top:16px;font-size:19px;color:var(--muted);max-width:40em}
-
-/* scroll story */
-.story{background:var(--night);color:var(--snow)}
-.story .sec-head p{color:color-mix(in srgb,var(--snow) 70%,transparent)}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
-.steps{display:flex;flex-direction:column}
-.step{min-height:72vh;display:flex;flex-direction:column;justify-content:center;gap:14px;transition:opacity .35s}
-.js .step{opacity:.32}
-.js .step.on{opacity:1}
-.step .k{font-size:15px;font-weight:700;color:#CFE0A6}
-.step h3{font-size:clamp(28px,3.2vw,40px)}
-.step p{font-size:19px;color:color-mix(in srgb,var(--snow) 78%,transparent);max-width:30em}
-.stage-wrap{position:relative}
-.stage{position:sticky;top:calc(50vh - 220px);height:440px;border-radius:28px;background:#212A27;
-  box-shadow:inset 0 0 0 1px rgba(244,246,243,.14);overflow:hidden}
-.scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(24px) scale(.97);
-  transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
-.stage[data-step="0"] .s0,.stage[data-step="1"] .s1,.stage[data-step="2"] .s2,.stage[data-step="3"] .s3{opacity:1;transform:none}
-.card{background:#fff;color:#17201D;border-radius:18px;width:min(330px,82%);box-shadow:0 30px 60px -20px rgba(0,0,0,.5);overflow:hidden}
-/* s0 map */
-.map{height:150px;position:relative;background:
-  linear-gradient(90deg,transparent 48%,#E3E8E4 48% 52%,transparent 52%),
-  linear-gradient(0deg,transparent 60%,#E3E8E4 60% 64%,transparent 64%),
-  linear-gradient(35deg,transparent 30%,#EEF1EE 30% 33%,transparent 33%),#F1F4F0}
-.pin{position:absolute;left:50%;top:44%;width:30px;height:30px;background:var(--cobalt);border-radius:50% 50% 50% 0;transform:translate(-50%,-50%) rotate(-45deg);
-  box-shadow:0 8px 16px -6px rgba(59,59,242,.7)}
-.stage[data-step="0"] .pin{animation:drop .7s cubic-bezier(.2,.8,.2,1)}
-@keyframes drop{from{top:-10%}to{top:44%}}
-.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px}
-.card .name{font-weight:800;font-size:19px}
-.stars{display:flex;gap:3px}.stars i{width:15px;height:15px;background:#F2B53A;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.chips span{font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px;background:#EEF0FF;color:#2626B8}
-/* s1 ai mention */
-.bubble{background:#fff;color:#17201D;border-radius:18px 18px 18px 4px;padding:18px 20px;width:min(340px,84%);font-size:16px;line-height:1.5;box-shadow:0 30px 60px -20px rgba(0,0,0,.5)}
-.bubble mark{background:#CFE0A6;color:#3E5212;font-weight:800;padding:1px 6px;border-radius:6px}
-.bubble small{display:block;margin-top:10px;color:#56625D;font-size:13px}
-/* s2 social */
-.phone{width:230px;height:400px;border-radius:34px;background:#0D1210;padding:10px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
-.screen{width:100%;height:100%;border-radius:26px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
-.ph-top{display:flex;align-items:center;gap:8px;padding:12px;font-size:12px;font-weight:700;color:#17201D}
-.ph-top i{width:24px;height:24px;border-radius:50%;background:conic-gradient(var(--cobalt),#CFE0A6,var(--cobalt))}
-.post{flex:1;margin:0 0 0;background:radial-gradient(circle at 30% 30%,#CFE0A6,transparent 45%),radial-gradient(circle at 75% 70%,#3B3BF2,transparent 50%),#E9ECFF;
-  display:grid;place-items:end start;padding:14px;color:#fff;font-weight:900;font-size:22px;letter-spacing:-.03em;line-height:1}
-.ph-bot{padding:10px 12px;display:flex;gap:12px;font-size:12px;color:#56625D}
-.heart{color:#E5484D}
-.stage[data-step="2"] .heart{display:inline-block;animation:pop .6s .4s both}
-@keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.4)}100%{transform:scale(1)}}
-/* s3 video ad on a phone */
-.vid{flex:1;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 42%,#3A3A9E,#101236 72%)}
-.vid .zoom{position:absolute;inset:0;display:grid;place-items:center}
-.stage[data-step="3"] .vid .zoom{animation:kb 6s ease-in-out infinite alternate}
-@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
-.watch{position:relative;width:118px;height:118px}
-.watch .strap{position:absolute;left:50%;width:54px;height:74px;transform:translateX(-50%);background:linear-gradient(90deg,#2B2B2B,#4A4A4A,#2B2B2B);border-radius:10px}
-.watch .strap.t{top:-58px}.watch .strap.b{bottom:-58px}
-.watch .case{position:absolute;inset:0;border-radius:50%;background:conic-gradient(#F7E7B4,#B8913C,#FFF3CF,#9C7A2A,#F7E7B4);padding:8px;
-  box-shadow:0 20px 40px -12px rgba(0,0,0,.7)}
-.watch .face{position:relative;width:100%;height:100%;border-radius:50%;background:
-  repeating-conic-gradient(from -1.5deg,#E9E2C9 0 3deg,transparent 3deg 30deg),radial-gradient(circle,#1B2340 55%,#10152A)}
-.watch .face::after{content:"";position:absolute;inset:10px;border-radius:50%;background:radial-gradient(circle,#1B2340 62%,#141B33)}
-.hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;border-radius:3px;z-index:2;background:#F3E3B0}
-.hand.h{width:5px;height:28px;margin-left:-2.5px;transform:rotate(40deg)}
-.hand.m{width:3px;height:40px;margin-left:-1.5px}
-.stage[data-step="3"] .hand.m{animation:turn 6s linear infinite}
-.stage[data-step="3"] .hand.h{animation:turnh 72s linear infinite}
-@keyframes turn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-@keyframes turnh{from{transform:rotate(40deg)}to{transform:rotate(400deg)}}
-.watch .pivot{position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px;border-radius:50%;background:#F3E3B0;z-index:3}
-.vid .shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%);transform:translateX(-100%)}
-.stage[data-step="3"] .vid .shine{animation:shine 3s 1s ease-in-out infinite}
-@keyframes shine{to{transform:translateX(100%)}}
-.prog{position:absolute;top:8px;left:10px;right:10px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden;z-index:3}
-.prog i{display:block;height:100%;width:0;background:#fff}
-.stage[data-step="3"] .prog i{animation:prog 6s linear infinite}
-@keyframes prog{to{width:100%}}
-.vid .over{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;color:#fff;display:flex;flex-direction:column;gap:8px}
-.vid .over b{font-size:20px;font-weight:900;letter-spacing:-.03em;line-height:1}
-.vid .over span{align-self:flex-start;font-size:12px;font-weight:800;background:#fff;color:#17201D;padding:6px 12px;border-radius:999px}
-.spons{color:#56625D;font-weight:500}
-
-.step-pic{display:none;position:relative;top:0;height:300px;border-radius:24px;background:#212A27;
-  box-shadow:inset 0 0 0 1px rgba(244,246,243,.14);overflow:hidden;margin-bottom:22px}
-.step-pic .scene{opacity:1;transform:none}
-
-/* services */
-.svc{border-top:1.5px solid var(--ink)}
-.svc-row{display:grid;grid-template-columns:1.1fr 1.4fr 230px;gap:32px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);
-  text-decoration:none;transition:padding .25s ease,background .25s}
-.svc-row h3{font-size:clamp(24px,2.6vw,32px)}
-.svc-row p{color:var(--muted);font-size:18px}
-.svc-row .price{font-weight:700;white-space:nowrap;font-size:16px;text-align:right}
-.svc-row .price.ask{color:var(--cobalt)}
-.svc-row:hover{padding-left:14px;background:linear-gradient(90deg,color-mix(in srgb,var(--lichen) 45%,transparent),transparent 70%)}
-
-/* process */
-.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:p;list-style:none;margin:0;padding:0}
-.proc li{position:relative;padding:28px 0 0;border-top:3px solid var(--ink)}
-.proc li::before{counter-increment:p;content:counter(p);position:absolute;top:-17px;left:0;width:32px;height:32px;border-radius:50%;
-  background:var(--cobalt);color:#fff;font-weight:800;font-size:15px;display:grid;place-items:center}
-.proc h3{font-size:24px;margin-bottom:10px}
-.proc p{color:var(--muted);font-size:17px}
-
-/* proof */
-.proof{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.proof .wrap{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
-.big{font-size:clamp(84px,13vw,180px);font-weight:900;letter-spacing:-.06em;line-height:.85;color:var(--cobalt)}
-.proof h2{font-size:clamp(30px,3.6vw,46px);margin-bottom:16px}
-.proof p{font-size:19px;color:var(--muted);max-width:36em}
-.proof p+p{margin-top:12px}
-
-/* pricing */
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
-.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:14px}
-.plan.hl{border:2px solid var(--cobalt)}
-.plan .tag{align-self:flex-start;font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--lichen);color:var(--lichen-ink)}
-.plan h3{font-size:22px}
-.plan .amt{font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1}
-.plan .amt small{font-size:18px;font-weight:500;color:var(--muted);letter-spacing:0}
-.plan ul{margin:0;padding-left:20px;color:var(--muted);font-size:16px;display:flex;flex-direction:column;gap:6px}
-.fine{margin-top:22px;font-size:15px;color:var(--muted);max-width:60em}
-.others{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;border-radius:var(--radius-lg);
-  background:var(--night);color:var(--snow)}
-.others b{font-size:20px}
-.others .btn.primary{background:var(--lichen);color:#17201D}
-
-/* facts */
-.facts{padding-top:24px}
-.facts h2{font-size:clamp(28px,3vw,38px);margin-bottom:20px}
-.facts dl{margin:0;border-top:1.5px solid var(--ink);max-width:980px}
-.facts dl>div{display:grid;grid-template-columns:180px 1fr;gap:24px;padding:16px 0;border-bottom:1px solid var(--line)}
-.facts dt{font-weight:700}
-.facts dd{margin:0;color:var(--muted)}
-@media (max-width:560px){.facts dl>div{grid-template-columns:1fr;gap:4px}}
-
-/* faq */
-.faq{max-width:820px}
-.faq details{border-bottom:1px solid var(--line);padding:4px 0}
-.faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:20px;padding:18px 40px 18px 0;position:relative}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";position:absolute;right:6px;top:50%;width:14px;height:14px;margin-top:-9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);
-  transform:rotate(45deg);transition:transform .25s}
-.faq details[open] summary::after{transform:rotate(225deg);margin-top:-2px}
-.faq details p{padding:0 0 20px;color:var(--muted);max-width:40em}
-
-/* contact */
-.contact{background:var(--brand);color:#fff}
-.contact .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
-.contact h2{font-size:clamp(36px,5vw,64px)}
-.contact p{font-size:19px;opacity:.88;margin-top:16px;max-width:30em}
-.mailbox{background:#fff;color:#17201D;border-radius:var(--radius-lg);padding:26px;display:flex;flex-direction:column;gap:14px}
-.mailbox .muted{color:#56625D}
-.mailbox .addr{font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;word-break:break-all}
-.mailbox .row{display:flex;flex-wrap:wrap;gap:10px}
-.mailbox .btn.ghost{color:#17201D;box-shadow:inset 0 0 0 1.5px #D9DFDA}
-
-footer{padding:36px 0 48px;font-size:15px;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center}
-footer .logo{font-size:18px;color:var(--ink)}
-
-/* responsive */
-@media (max-width:960px){
-  .hero .wrap,.story-grid,.contact .wrap,.proof .wrap{grid-template-columns:1fr}
-  .hero{padding:36px 0 72px}.hero .wrap{gap:40px}
-  .stage-wrap{display:none}
-  .step-pic{display:block}
-  .step{min-height:0;padding:28px 0 40px}
-  .js .step{opacity:1}
-  .story-grid{gap:0}
-  .prices{grid-template-columns:1fr}
-  .proc{grid-template-columns:1fr 1fr;row-gap:44px}
-  .svc-row{grid-template-columns:1fr;gap:8px}
-  .svc-row .price{text-align:left}
-  .proof .wrap{gap:20px}
-}
-@media (max-width:560px){
-  body{font-size:17px}
-  .wrap{padding:0 16px}
-  section{padding:72px 0}
-  .proc{grid-template-columns:1fr}
-  .chat-body{min-height:360px;padding:18px 14px}
-  .phone{width:180px;height:300px;border-radius:28px;padding:8px}
-  .screen{border-radius:21px}
-  .watch{transform:scale(.8)}
-  .post{font-size:18px}
-  .ad,.card,.bubble{transform-origin:center}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .a li,.js .a .intro{opacity:1;transform:none}
-}
-</style>
 </head>
 <body>
-<header class="top" id="top">
-  <div class="wrap">
-    <a class="logo" href="#" aria-label="Marktic, etusivu"><i aria-hidden="true"></i>Marktic</a>
-    <nav class="nav" aria-label="Päävalikko">
-      <a href="#palvelut">Palvelut</a>
-      <a href="#prosessi">Näin toimimme</a>
-      <a href="#hinnat">Hinnat</a>
-      <a href="#ukk">Kysymykset</a>
-      <a class="btn primary" href="#yhteys">Maksuton raportti</a>
-    </nav>
-  </div>
-</header>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html" aria-label="Marktic, etusivu">Markt<span class="i">ı</span>c</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Valikko">≡</button>
+  <nav class="nav" id="nav" aria-label="Päävalikko">
+    <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
+    <a class="btn btn-lichen btn-sm" href="yhteys.html">Pyydä tarjous</a>
+  </nav>
+</div></header>
 
-<main>
-<section class="hero" aria-labelledby="h1">
-  <div class="wrap">
+<main id="main">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="mono eyebrow rise">Markkinointitoimisto · Vantaa · koko Suomi</p>
+    <h1 class="rise d1">Näyttäkää yhtä hyvältä <span>kuin työnne on.</span></h1>
+    <p class="lead rise d2">Videomainokset, some, kotisivut ja näkyvyys Googlessa. Suunniteltuna, tehtynä ja mitattuna, ilman pitkiä sopimuksia.</p>
+    <div class="cta rise d3">
+      <a class="btn btn-brand" href="yhteys.html">Pyydä maksuton kartoitus</a>
+      <a class="btn btn-ghost" href="tyot.html">Katso töitämme</a>
+    </div>
+  </div>
+  <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu, Instagram-videomainos ja Google-karttalistaus" role="img"><div class="stage-in">
+    <div class="browser"><div class="bar"><i></i><i></i><i></i><span>kahvila-aamu.fi</span></div>
+      <div class="site"><div class="t"><small>TIKKURILA · AVOINNA 7–16</small><div class="mh">Aamun paras hetki.</div><p>Tuoretta leipää, hyvää kahvia ja lounas arkisin.</p><b>Katso menu</b></div><div class="pic"></div></div></div>
+    <div class="phone"><div class="reel"><div class="big">UUSI<br>LOUNAS<br><em>11–14</em></div><div class="play"></div><div class="side-ic"><i></i><i></i><i></i></div><div class="who"><i></i>kahvila.aamu</div><div class="prog"></div></div></div>
+    <div class="maps"><svg width="310" height="110" viewBox="0 0 310 110" aria-hidden="true"><rect width="310" height="110" fill="#e8eee9"/><path d="M0 70 C80 60 120 90 310 50" stroke="#fff" stroke-width="10" fill="none"/><path d="M90 0 L130 110 M220 0 L200 110" stroke="#fff" stroke-width="7"/><rect x="230" y="70" width="70" height="40" rx="8" fill="#cfe0a6"/><path d="M0 20 h60" stroke="#fff" stroke-width="5"/><g transform="translate(160 40)"><path d="M0 -26c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16z" fill="#3b3bf2"/><circle cy="-10" r="6" fill="#fff"/></g></svg>
+      <div class="info"><b>Kahvila Aamu</b><div class="st"><span>★★★★★</span> · Kahvila · Avoinna</div></div></div>
+  </div><p class="mono cap">Esimerkki, kuvitteellinen yritys</p></div>
+</div></section>
+
+<div class="strip"><div class="wrap"><b>Mitä teemme:</b><span>Videomainokset</span><span>Somen ylläpito</span><span>Kotisivut</span><span>Google-näkyvyys</span><span>Mainonta</span></div></div>
+
+<section><div class="wrap">
+  <div class="head"><p class="mono eyebrow">Palvelut</p><h2>Yksi kumppani koko markkinoinnille.</h2><p class="lead">Voitte ottaa yhden palvelun tai kaikki. Jokaisessa on kiinteä kuukausihinta tai kertahinta, ja kerromme etukäteen, mitä se sisältää.</p></div>
+  <div class="svc">
+    <a class="card" href="palvelut.html#nakyvyys"><p class="num">01</p><h3>Näkyvyys Googlessa ja hakupalveluissa</h3><p>Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden vastaukset kuntoon. Mittaamme joka arkipäivä, miten yrityksenne löytyy.</p></a>
+    <a class="card" href="palvelut.html#some"><p class="num">02</p><h3>Somen ylläpito</h3><p>Suunnitelma, julkaisut ja vastaukset kommentteihin. Te hyväksytte, me julkaisemme.</p></a>
+    <a class="card" href="palvelut.html#video"><p class="num">03</p><h3>Videomainokset</h3><p>Lyhyet 3D- ja animaatiovideot tuotteista ja palveluista someen ja mainoksiin. Ei kuvauspäiviä.</p></a>
+    <a class="card" href="palvelut.html#sivut"><p class="num">04</p><h3>Kotisivut ja mainonta</h3><p>Nopeat kotisivut, jotka toimivat puhelimessa, ja Google- ja Meta-mainonta, jonka tulokset näette raportissa.</p></a>
+  </div>
+</div></section>
+
+<section class="paper"><div class="wrap">
+  <div class="grid grid-2" style="align-items:center">
     <div>
-      <h1 id="h1"><span>Näy siellä,</span><span>missä asiakkaat</span><span>kysyvät.</span></h1>
-      <p class="lede">Marktic rakentaa pienyritysten markkinoinnin uusiksi: näkyvyys Googlessa ja tekoälyhauissa, some, mainosvideot ja verkkosivut. Mittaamme tulokset, emme arvaa niitä.</p>
-      <div class="ctas">
-        <a class="btn primary" href="#yhteys">Tilaa maksuton näkyvyysraportti</a>
-        <a class="btn ghost" href="#palvelut">Katso palvelut</a>
-      </div>
-      <ul class="channels" aria-label="Kanavat">
-        <li>Google</li><li>ChatGPT</li><li>Perplexity</li><li>Instagram</li><li>TikTok</li><li>Mainosvideot</li>
+      <p class="mono eyebrow">Raportti kerran kuussa</p>
+      <h2>Tiedätte aina, mitä rahallanne tehtiin.</h2>
+      <p class="lead" style="margin-top:var(--s3)">Joka kuukausi saatte yhden sivun: mitä tehtiin, mitä se tuotti ja mitä teemme seuraavaksi. Ilman markkinointijargonia.</p>
+      <ul class="list" style="margin-top:var(--s4)">
+        <li>Hinnat näkyvillä: alkaen €/kk, ei piilokuluja</li>
+        <li>Ei pitkiä sopimuksia: kuukausipalvelut voi irtisanoa milloin vain</li>
+        <li>Ensimmäinen kuukausi: jos ette ole tyytyväisiä, palautamme maksun</li>
       </ul>
     </div>
-
-    <figure class="chat" aria-label="Havainnollistus: tekoäly vastaa asiakkaan kysymykseen" style="margin:0">
-      <div class="chat-bar"><span><b>Tekoälyhaku</b></span><span class="dots" aria-hidden="true"><span></span><span></span><span></span></span></div>
-      <div class="chat-body">
-        <div class="q" id="q" aria-live="off">Mikä on hyvä tilitoimisto Tampereella?</div>
-        <div class="a" id="a">
-          <p class="intro" id="intro">Tässä muutama hyvä vaihtoehto Tampereella:</p>
-          <ol>
-            <li><span class="n">1</span>Tilitoimisto A</li>
-            <li><span class="n">2</span>Tilitoimisto B</li>
-            <li class="you"><span class="n">3</span>Teidän yrityksenne<span class="tag">Löytyi</span></li>
-            <li><span class="n">4</span>Tilitoimisto C</li>
-          </ol>
-        </div>
-      </div>
-      <figcaption class="chat-foot"><span>Havainnollistus. Mittaamme oikeat vastaukset Googlen tekoälystä, ChatGPT:stä ja Perplexitystä.</span><button class="replay" id="replay" type="button">Toista</button></figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="story" id="kanavat" aria-labelledby="story-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="story-h">Yksi yritys, neljä paikkaa tulla löydetyksi.</h2>
-      <p>Asiakas voi löytää teidät kartalta, tekoälyn vastauksesta, somesta tai mainoksesta. Me hoidamme ne kaikki, ja ne tukevat toisiaan.</p>
-    </div>
-    <div class="story-grid">
-      <div class="steps">
-        <article class="step" data-step="0">
-          <span class="k">Google</span>
-          <h3>Kartalla ensimmäisten joukossa</h3>
-          <p>Kun joku hakee "lähellä minua", yritysprofiili ratkaisee. Laitamme kuntoon kategorian, palvelut, kuvat ja arvostelupyynnöt.</p>
-        </article>
-        <article class="step" data-step="1">
-          <span class="k">Tekoälyhaku</span>
-          <h3>Mainittuna, kun tekoälyltä kysytään</h3>
-          <p>ChatGPT, Perplexity ja Googlen tekoäly suosittelevat yrityksiä nimeltä. Mittaamme, kuinka usein teidät mainitaan, ja korjaamme lähteet, joista ne vastauksensa poimivat.</p>
-        </article>
-        <article class="step" data-step="2">
-          <span class="k">Some</span>
-          <h3>Sisältöä, joka pysäyttää selaamisen</h3>
-          <p>Suunnittelemme ja julkaisemme puolestanne. Tarvittaessa tuotteenne kuvataan tekoälymallin päällä ilman kuvauspäivää, ja sisältö merkitään aina tekoälyllä tehdyksi.</p>
-        </article>
-        <article class="step" data-step="3">
-          <span class="k">Mainosvideot</span>
-          <h3>Tuote ruudulla kuin studiossa</h3>
-          <p>3D- ja animaatiovideot koruista, kelloista, autoista tai palveluista. Valmiina someen, verkkosivuille ja mainoksiin.</p>
-        </article>
-      </div>
-      <div class="stage-wrap" aria-hidden="true">
-        <div class="stage" id="stage" data-step="0">
-          <div class="scene s0"><div class="card"><div class="map"><span class="pin"></span></div>
-            <div class="body"><span class="name">Teidän yrityksenne</span><span class="stars"><i></i><i></i><i></i><i></i><i></i></span>
-            <span class="chips"><span>Avoinna</span><span>Reittiohjeet</span><span>Soita</span></span></div></div></div>
-          <div class="scene s1"><div class="bubble">Hyviä vaihtoehtoja ovat esimerkiksi <mark>Teidän yrityksenne</mark>, jolla on hyvät arviot ja selkeät palvelukuvaukset.<small>Tekoälyn vastaus, havainnollistus</small></div></div>
-          <div class="scene s2"><div class="phone"><div class="screen"><div class="ph-top"><i></i>teidan.yrityksenne</div>
-            <div class="post">Uusi<br>mallisto</div><div class="ph-bot"><span class="heart">♥</span><span>Kommentoi</span><span>Jaa</span></div></div></div></div>
-          <div class="scene s3"><div class="phone"><div class="screen">
-            <div class="ph-top"><i></i><span>teidan.yrityksenne<br><span class="spons">Sponsoroitu</span></span></div>
-            <div class="vid"><div class="prog"><i></i></div>
-              <div class="zoom"><div class="watch"><span class="strap t"></span><span class="strap b"></span>
-                <div class="case"><div class="face"><span class="hand h"></span><span class="hand m"></span><span class="pivot"></span></div></div></div></div>
-              <div class="shine"></div>
-              <div class="over"><b>Uusi mallisto</b><span>Osta nyt</span></div></div>
-            <div class="ph-bot"><span>▶ Mainosvideo</span><span>0:06</span></div></div></div></div>
-        </div>
-      </div>
+    <div class="rep" aria-label="Esimerkki kuukausiraportista">
+      <div class="h"><div><b>Kuukausiraportti</b><br>Esimerkkiyritys, Vantaa</div><span class="tag" style="margin:0">Esimerkki</span></div>
+      <div class="bars" aria-hidden="true"><div style="height:30%"></div><div style="height:38%"></div><div style="height:52%"></div><div style="height:61%"></div><div style="height:78%"></div></div>
+      <div class="months" aria-hidden="true"><span>kesä</span><span>heinä</span><span>elo</span><span>syys</span><span>loka</span></div>
+      <div class="rows"><div>Löytyy Googlen kartalta<span class="ok">Kyllä</span></div><div>Hakupalvelut mainitsevat<span class="ok">2/3 kysymyksessä</span></div><div>Hakemistoissa oikeat tiedot<span class="todo">Korjattavana</span></div></div>
     </div>
   </div>
-</section>
+</div></section>
 
-<section id="palvelut" aria-labelledby="svc-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="svc-h">Kaikki markkinointi yhdeltä tekijältä</h2>
-      <p>Aloittakaa yhdestä palvelusta tai rakentakaa koko markkinointi uusiksi. Hinnat kerromme etukäteen.</p>
-    </div>
-    <div class="svc">
-      <a class="svc-row" href="#hinnat"><h3>Näkyvyys Googlessa ja tekoälyssä</h3><p>Mittaus kymmenillä vastauksilla, korjaukset ja kuukausiraportti päivämäärineen.</p><span class="price">Raportti 0 €, korjaus 190 €</span></a>
-      <a class="svc-row" href="#yhteys"><h3>Somen hallinta</h3><p>Suunnitelma, julkaisut ja kommentteihin vastaaminen puolestanne.</p><span class="price ask">Pyydä tarjous</span></a>
-      <a class="svc-row" href="#yhteys"><h3>Mainosvideot</h3><p>3D- ja animaatiovideot tuotteista ja palveluista someen ja mainoksiin.</p><span class="price ask">Pyydä tarjous</span></a>
-      <a class="svc-row" href="#yhteys"><h3>Tekoälymallit ja -sisältö</h3><p>Tuotteenne tekoälymallin päällä ilman kuvauksia. Merkitään aina tekoälyllä tehdyksi.</p><span class="price ask">Pyydä tarjous</span></a>
-      <a class="svc-row" href="#yhteys"><h3>Verkkosivut</h3><p>Nopeat, mitattavat ja hyvännäköiset sivut. Kuten tämä.</p><span class="price ask">Pyydä tarjous</span></a>
-      <a class="svc-row" href="#yhteys"><h3>Markkinoinnin uudelleenrakennus</h3><p>Käymme nykyisen markkinointinne läpi ja teemme uuden suunnitelman, jonka tulokset mitataan.</p><span class="price ask">Pyydä tarjous</span></a>
-    </div>
+<section><div class="wrap">
+  <div class="head"><p class="mono eyebrow">Miten se etenee</p><h2>Kolme askelta, ei yllätyksiä.</h2></div>
+  <div class="grid grid-3 how">
+    <div class="card"><p class="num">1</p><h3>Maksuton kartoitus</h3><p>Katsomme, miten yrityksenne löytyy ja miltä se näyttää asiakkaan silmin. Saatte kolme tärkeintä korjausta kirjallisena, sitoumuksetta.</p></div>
+    <div class="card"><p class="num">2</p><h3>Selkeä tarjous</h3><p>Valitsette palvelut ja näette hinnan ennen kuin mitään tehdään. Kertatyöt laskutetaan vasta, kun työ on valmis.</p></div>
+    <div class="card"><p class="num">3</p><h3>Työ ja raportti</h3><p>Teemme sovitut työt, ja kerran kuussa saatte raportin siitä, mitä tapahtui. Jatkatte, jos se kannattaa.</p></div>
   </div>
-</section>
+</div></section>
 
-<section id="prosessi" aria-labelledby="proc-h" style="padding-top:24px">
-  <div class="wrap">
-    <div class="sec-head"><h2 id="proc-h">Näin toimimme</h2></div>
-    <ol class="proc">
-      <li><h3>Mittaus</h3><p>Selvitämme, missä teidät nyt löydetään ja missä kilpailijat. Maksutta.</p></li>
-      <li><h3>Suunnitelma</h3><p>Kerromme, mitä kannattaa korjata ensin ja mitä se maksaa. Te päätätte.</p></li>
-      <li><h3>Toteutus</h3><p>Teemme työt. Hyväksytte kaikki tekstit ja julkaisut ennen kuin ne näkyvät.</p></li>
-      <li><h3>Raportti</h3><p>Joka kuukausi mittaus samoilla kysymyksillä: mitä teimme ja mitä muuttui.</p></li>
-    </ol>
+<section class="paper"><div class="wrap">
+  <div class="head"><p class="mono eyebrow">Usein kysyttyä</p><h2>Rehelliset vastaukset.</h2></div>
+  <div style="max-width:760px">
+    <details><summary>Lupaatteko tietyn sijan Googlessa?</summary><p>Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat päivästä toiseen. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy.</p></details>
+    <details><summary>Onko sopimuksessa määräaikaa?</summary><p>Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan kun työ on valmis.</p></details>
+    <details><summary>Mitä maksuton kartoitus sisältää?</summary><p>Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista, miltä some ja kotisivut näyttävät, ja kerromme kolme tärkeintä korjausta. Kartoitus ei sido mihinkään.</p></details>
+    <details><summary>Tarvitseeko minun tehdä itse jotain?</summary><p>Hyvin vähän. Tarvitsemme alussa pääsyn Google-yritysprofiiliin ja some-tileihin sekä muutaman kuvan tai tiedon tuotteistanne. Sen jälkeen hyväksytte julkaisut, me hoidamme loput.</p></details>
   </div>
-</section>
+</div></section>
 
-<section class="proof" id="miksi" aria-labelledby="proof-h">
-  <div class="wrap">
-    <div class="big">14–67&nbsp;%</div>
-    <div>
-      <h2 id="proof-h">Mittaamme, emme arvaa.</h2>
-      <p>Kun kysyimme tekoälyltä saman kysymyksen kahdesti, vain 14–67 % mainituista yrityksistä oli samoja (Tampere, 5 kysymystä, 8.10.2026). Yksittäinen testi voi siis näyttää mitä tahansa.</p>
-      <p>Siksi esitämme jokaisen kysymyksen kymmeniä kertoja ja raportoimme osuuden. Emme lupaa kärkisijaa, koska kukaan ei voi luvata sitä rehellisesti.</p>
-    </div>
-  </div>
-</section>
-
-<section id="hinnat" aria-labelledby="price-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="price-h">Aloittakaa maksuttomalla raportilla</h2>
-      <p>Ensin näette tilanteen, sitten päätätte. Hintoihin ei lisätä arvonlisäveroa.</p>
-    </div>
-    <div class="prices">
-      <div class="plan">
-        <h3>Näkyvyysraportti</h3><div class="amt">0 €</div>
-        <p class="muted">Maksuton, ei sitoumuksia</p>
-        <ul><li>Mittaus useilla tekoälyillä, kymmenillä vastauksilla</li><li>Mainitut kilpailijat</li><li>Lähteet, joista tekoäly vastauksensa poimii</li><li>Korjauslista</li></ul>
-      </div>
-      <div class="plan hl">
-        <span class="tag">Aloita tästä</span>
-        <h3>Korjauspaketti</h3><div class="amt">190 €</div>
-        <p class="muted">Kertamaksu, laskutetaan vasta kun työ on valmis</p>
-        <ul><li>Google-yritysprofiili kuntoon</li><li>Verkkosivujen perustiedot ja rakenteinen tieto</li><li>Yritys niihin tekoälyn lähteinä käyttämiin hakemistoihin, joihin pääsee maksutta</li><li>Valmis noin viikossa</li></ul>
-      </div>
-      <div class="plan">
-        <span class="tag">Perustajahinta</span>
-        <h3>Ylläpito</h3><div class="amt">149 €<small> /kk</small></div>
-        <p class="muted">Normaalisti 190 €/kk</p>
-        <ul><li>Kuukausittainen mittaus ja raportti</li><li>Arvostelupyynnöt asiakkaillenne</li><li>Hakemistot ajan tasalla</li><li>Aktiivinen kehitys 290 €/kk (normaalisti 349): uutta sisältöä kuukausittain</li></ul>
-      </div>
-    </div>
-    <div class="others"><b>Some, mainosvideot, tekoälymallit ja verkkosivut</b><a class="btn primary" href="#yhteys">Pyydä tarjous</a></div>
-    <p class="fine">Kuukausipalvelut ilman määräaikaa: voitte lopettaa minkä tahansa kuukauden lopussa. Jos ensimmäinen kuukausi ei tyydytä, palautamme sen hinnan. Perustajahinta kymmenelle ensimmäiselle asiakkaalle, voimassa 12 kuukautta. Emme lupaa tiettyä sijaa hakutuloksissa tai tekoälyn vastauksissa, koska vastaukset vaihtelevat.</p>
-  </div>
-</section>
-
-<section class="facts" id="lyhyesti" aria-labelledby="facts-h">
-  <div class="wrap">
-    <h2 id="facts-h">Marktic lyhyesti</h2>
-    <dl>
-      <div><dt>Mikä</dt><dd>Suomalainen markkinointipalvelu pienyrityksille.</dd></div>
-      <div><dt>Mitä teemme</dt><dd>Näkyvyys Googlessa ja tekoälyhauissa (ChatGPT, Perplexity, Googlen tekoäly), somen hallinta, mainosvideot, tekoälymallit ja -sisältö, verkkosivut ja markkinoinnin uudelleenrakennus.</dd></div>
-      <div><dt>Kenelle</dt><dd>Paikallisille palveluyrityksille ja kaupoille, esimerkiksi tilitoimistoille, LVI- ja sähköyrityksille, kiinteistönvälittäjille sekä koru-, kello- ja vaateliikkeille.</dd></div>
-      <div><dt>Missä</dt><dd>Koko Suomessa, etänä. Palvelemme suomeksi.</dd></div>
-      <div><dt>Hinnat</dt><dd>Näkyvyysraportti 0 €, korjauspaketti 190 €, ylläpito 149 €/kk (perustajahinta). Muut palvelut tarjouksen mukaan. Hintoihin ei lisätä arvonlisäveroa.</dd></div>
-      <div><dt>Yhteys</dt><dd><a href="mailto:hei@marktic.fi">hei@marktic.fi</a></dd></div>
-    </dl>
-  </div>
-</section>
-
-<section id="ukk" aria-labelledby="faq-h" style="padding-top:24px">
-  <div class="wrap">
-    <div class="sec-head"><h2 id="faq-h">Usein kysyttyä</h2></div>
-    <div class="faq">
-      <details><summary>Onko tämä hakukoneoptimointia?</summary><p>Osittain. Samat perusasiat auttavat sekä Googlessa että tekoälyhauissa. Erona on mittaus: kerromme myös, kuinka usein teidät mainitaan tekoälyn vastauksissa.</p></details>
-      <details><summary>Teettekö myös somea, videoita ja verkkosivuja?</summary><p>Kyllä. Voitte ottaa yhden palvelun tai koko paketin. Kertokaa, mitä tarvitsette, niin lähetämme tarjouksen.</p></details>
-      <details><summary>Mistä saitte yrityksemme tiedot?</summary><p>PRH:n avoimesta YTJ-tietopalvelusta, Googlen yritystiedoista ja yrityksenne omilta verkkosivuilta. Voitte kieltää yhteydenotot milloin tahansa vastaamalla "ei kiitos".</p></details>
-      <details><summary>Pitääkö meidän tehdä jotain?</summary><p>Kutsu Google-yritysprofiilin hallintaan ja pääsy verkkosivuille tai yhteystieto sivujanne ylläpitävään yritykseen. Hyväksytte kaikki tekstit ennen julkaisua.</p></details>
-      <details><summary>Käytättekö tekoälyä sisällöissä?</summary><p>Kyllä, kun se sopii tehtävään, esimerkiksi tuotekuvissa ja mainosvideoissa. Tekoälyllä tehty sisältö merkitään aina selvästi.</p></details>
-      <details><summary>Mitä jos tulos ei parane?</summary><p>Raportoimme mitatun tuloksen joka kuukausi rehellisesti, myös silloin kun se laskee. Jos ensimmäinen kuukausi ei tyydytä, palautamme sen hinnan ja lopetamme.</p></details>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="yhteys" aria-labelledby="contact-h">
-  <div class="wrap">
-    <div>
-      <h2 id="contact-h">Kertokaa yrityksenne nimi ja paikkakunta.</h2>
-      <p>Lähetämme maksuttoman näkyvyysraportin samana arkipäivänä. Tarjouspyynnöt somesta, videoista ja verkkosivuista samaan osoitteeseen.</p>
-    </div>
-    <div class="mailbox">
-      <span class="muted">Sähköposti</span>
-      <span class="addr" id="addr">hei@marktic.fi</span>
-      <div class="row">
-        <a class="btn primary" href="mailto:hei@marktic.fi?subject=N%C3%A4kyvyysraportti">Lähetä sähköpostia</a>
-        <button class="btn ghost" id="copy" type="button">Kopioi osoite</button>
-      </div>
-    </div>
-  </div>
-</section>
+<div class="cta-band"><div class="wrap">
+  <h2>Katsotaan, mitä asiakkaanne näkevät.</h2>
+  <a class="btn btn-lichen" href="yhteys.html">Pyydä maksuton kartoitus</a>
+</div></div>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span class="logo"><i aria-hidden="true" style="width:10px;height:10px;background:var(--cobalt);border-radius:3px;display:inline-block"></i>Marktic</span>
-    <span>[Etunimi Sukunimi] (toiminimi)</span><span>Y-tunnus [1234567-8]</span><span>[Postiosoite]</span>
-    <a href="tietosuoja.html">Tietosuojaseloste</a>
-  </div>
-</footer>
-
+<footer><div class="wrap">
+  <div><a class="logo" href="index.html">Markt<span class="i">ı</span>c</a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Hintoihin ei lisätä arvonlisäveroa.</p></div>
+  <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
+  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li><li><a href="llms.txt">llms.txt</a></li></ul>
+</div></footer>
 <script>
-(function () {
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // header border once scrolled
-  var top = document.getElementById('top');
-  addEventListener('scroll', function () { top.classList.toggle('scrolled', scrollY > 8); }, {passive: true});
-
-  // hero: the AI answer plays once when visible; "Toista" replays it
-  var Q = 'Mikä on hyvä tilitoimisto Tampereella?';
-  var q = document.getElementById('q'), intro = document.getElementById('intro'),
-      items = [].slice.call(document.querySelectorAll('#a li')), replay = document.getElementById('replay'), timers = [];
-  function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
-  function reset() { timers.forEach(clearTimeout); timers = []; q.textContent = ''; intro.style.opacity = 0;
-    items.forEach(function (li) { li.classList.remove('show'); }); replay.style.visibility = 'hidden'; }
-  function showAll() { q.textContent = Q; intro.style.opacity = 1; items.forEach(function (li) { li.classList.add('show'); }); }
-  function play() {
-    reset();
-    if (reduce) { showAll(); return; }
-    var caret = document.createElement('span'); caret.className = 'caret'; q.appendChild(caret);
-    var i = 0;
-    (function type() {
-      if (i < Q.length) { caret.insertAdjacentText('beforebegin', Q[i++]); later(type, 38 + Math.random() * 40); return; }
-      later(function () { caret.remove(); intro.style.transition = 'opacity .4s'; intro.style.opacity = 1; }, 350);
-      var order = [0, 1, 3, 2], t = 900;           // the others first, then "Teidän yrityksenne" rises into place
-      order.forEach(function (k, n) { later(function () { items[k].classList.add('show'); }, t + n * (n === 3 ? 700 : 380)); });
-      later(function () { replay.style.visibility = 'visible'; }, t + 2600);
-    })();
-  }
-  replay.addEventListener('click', play);
-  var chat = document.querySelector('.chat'), played = false;
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && !played) { played = true; play(); } }); },
-      {threshold: .4}).observe(chat);
-  } else { showAll(); }
-
-  // scroll story: the visible step decides which scene the stage shows
-  var stage = document.getElementById('stage'), steps = [].slice.call(document.querySelectorAll('.step'));
-  function activate(s) { stage.setAttribute('data-step', s); steps.forEach(function (el) { el.classList.toggle('on', el.dataset.step === s); }); }
-  steps.forEach(function (el) {
-    var scene = stage.querySelector('.s' + el.dataset.step); if (!scene) return;
-    var pic = document.createElement('div'); pic.className = 'step-pic stage'; pic.setAttribute('data-step', el.dataset.step);
-    pic.setAttribute('aria-hidden', 'true'); pic.appendChild(scene.cloneNode(true)); el.insertBefore(pic, el.firstChild);
-  });
-  activate('0');
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) activate(e.target.dataset.step); });
-    }, {rootMargin: '-45% 0px -45% 0px'});
-    steps.forEach(function (s) { io.observe(s); });
-  }
-
-  // copy e-mail address
-  document.getElementById('copy').addEventListener('click', function () {
-    var btn = this, text = document.getElementById('addr').textContent;
-    function done() { btn.textContent = 'Kopioitu'; setTimeout(function () { btn.textContent = 'Kopioi osoite'; }, 1800); }
-    if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done, function () {}); }
-  });
-})();
+const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'≡'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='≡';b.focus()}});
+const here=location.pathname.split('/').pop()||'index.html';
+document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
 </script>
 </body>
 </html>

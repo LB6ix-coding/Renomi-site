@@ -1,28 +1,30 @@
 # Marktic
 
-> Marktic on suomalainen markkinointipalvelu pienyrityksille. Teemme yrityksistä näkyviä Googlessa ja tekoälyhauissa (ChatGPT, Perplexity, Googlen tekoäly) sekä somessa, mainosvideoissa ja verkkosivuilla. Mittaamme tulokset emmekä lupaa sijoituksia.
+> Marktic on vantaalainen markkinointitoimisto pienille ja keskisuurille yrityksille koko Suomessa. Teemme videomainokset, somen ylläpidon, kotisivut ja mainonnan sekä pidämme huolta, että yritys löytyy Googlesta, kartalta ja hakupalveluista (myös tekoälyhauista). Hinnat ovat näkyvillä, kuukausipalveluissa ei ole määräaikaa, ja asiakas saa kerran kuussa raportin selkokielellä. Emme lupaa sijoituksia hakutuloksissa; raportoimme mitatut tulokset päivämäärineen.
 
-## Palvelut
-- Näkyvyys Googlessa ja tekoälyssä: mittaus kymmenillä tekoälyn vastauksilla, korjaukset (Google-yritysprofiili, rakenteinen tieto, hakemistot) ja kuukausiraportti päivämäärineen.
-- Somen hallinta: suunnitelma, julkaisut ja kommentteihin vastaaminen.
-- Mainosvideot: 3D- ja animaatiovideot tuotteista ja palveluista.
-- Tekoälymallit ja -sisältö: tuotteet tekoälymallin päällä ilman kuvauksia, aina merkittynä tekoälyllä tehdyksi.
-- Verkkosivut: nopeat, mitattavat sivut.
-- Markkinoinnin uudelleenrakennus: nykyisen markkinoinnin läpikäynti ja uusi suunnitelma.
-
-## Hinnat
-- Näkyvyysraportti: 0 €
-- Korjauspaketti: 190 € kertamaksu, laskutetaan kun työ on valmis
-- Ylläpito: 149 €/kk (perustajahinta, normaalisti 190 €/kk), aktiivinen kehitys 290 €/kk (normaalisti 349 €/kk); ei määräaikaa
-- Muut palvelut: tarjouksen mukaan
-- Hintoihin ei lisätä arvonlisäveroa.
+## Palvelut ja hinnat (hintoihin ei lisätä arvonlisäveroa)
+- Näkyvyysraportti: 0 €. Maksuton kartoitus: miten yritys löytyy Googlesta, kartalta, hakemistoista ja hakupalveluista, ja kolme tärkeintä korjausta.
+- Korjauspaketti (näkyvyys): 190 € kertamaksu, valmis 7 arkipäivässä, laskutetaan kun työ on valmis.
+- Näkyvyyden ylläpito: 149 €/kk (perustajahinta 10 ensimmäiselle asiakkaalle, normaalisti 190 €/kk). Mittaus joka arkipäivä, korjaukset, kuukausiraportti. Ei määräaikaa.
+- Näkyvyyden aktiivinen kehitys: 290 €/kk (perustajahinta, normaalisti 349 €/kk). Ylläpito + yksi uusi sisältö kuukaudessa.
+- Some Perus: 290 €/kk. 1 kanava, 4 julkaisua/kk + storyt, kuukausiraportti.
+- Some Plus: 590 €/kk. 2 kanavaa, 8 julkaisua/kk, 1 lyhytvideo/kk, kommentteihin vastaaminen.
+- Videomainos: alkaen 390 €/video (15–30 s, 3D tai animaatio, pysty- ja vaakaversio). Kolmen videon sarja 990 €.
+- Kotisivut: alkaen 1 490 € (enintään 5 sivua, mobiili ensin, rakenteinen tieto). Ylläpito 39 €/kk, valinnainen.
+- Mainonnan hallinta (Google ja Meta): alkaen 290 €/kk, mainosbudjetti maksetaan suoraan alustoille.
+- Marktic Kumppani: 790 €/kk. Näkyvyys (aktiivinen kehitys) + Some Perus + mainonnan hallinta.
+- Ehdot: ei aloitusmaksua, ei määräaikaa, ensimmäisen kuukauden maksu palautetaan jos asiakas ei ole tyytyväinen.
 
 ## Alue ja kieli
-Koko Suomi, etänä. Palvelu suomeksi.
+Vantaa; koko Suomi etänä. Palvelu suomeksi.
 
 ## Yhteys
-hei@marktic.fi
+info@marktic.fi. Vastaamme kahden arkipäivän kuluessa.
 
 ## Sivut
-- [Etusivu](https://marktic.fi/): palvelut, hinnat, usein kysytyt kysymykset
+- [Etusivu](https://marktic.fi/): palvelut lyhyesti, raporttiesimerkki, usein kysytyt kysymykset
+- [Palvelut ja hinnat](https://marktic.fi/palvelut.html): kaikki hinnat ja sisällöt
+- [Työt](https://marktic.fi/tyot.html): konseptitöitä (kuvitteellisia asiakkaita; yritys on uusi)
+- [Meistä](https://marktic.fi/meista.html): tiimi ja periaatteet
+- [Ota yhteyttä](https://marktic.fi/yhteys.html): sähköposti, WhatsApp, puhelin
 - [Tietosuojaseloste](https://marktic.fi/tietosuoja.html)
