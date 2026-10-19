@@ -5,71 +5,110 @@
 <title>Kahvila Aamu – Tikkurila (demo, kuvitteellinen yritys)</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Schibsted+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300&family=Schibsted+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#f7f3ec;--cream-2:#efe8dc;--ink:#2a1e14;--mut:#6b5e50;--rust:#a0522d;--amber:#d9a066;--line:#e3dbcd}
+:root{--paper:#f6f1e8;--paper-2:#ede5d6;--ink:#241a12;--mut:#6d5f50;--rust:#9a4e2a;--line:#dfd5c4;--s:8px}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--cream);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.5}
-h1,h2{font-family:Fraunces,Georgia,serif;font-weight:400;letter-spacing:-.01em;line-height:1.02}
-.wrap{width:min(1100px,100% - 48px);margin-inline:auto}
-header{border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
-.brand{font-family:Fraunces,Georgia,serif;font-size:26px;text-decoration:none;color:var(--ink)}
-nav{display:flex;gap:26px;font-weight:600;font-size:15px}nav a{color:var(--mut);text-decoration:none}nav a:hover{color:var(--ink)}
-nav .b{background:var(--ink);color:var(--cream);padding:10px 16px;border-radius:999px}
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
-.hero .t{padding:72px 0 64px}
-.kick{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.12em;color:var(--rust);text-transform:uppercase}
-.hero h1{font-size:72px;margin:18px 0 20px}
-.hero p{color:var(--mut);max-width:40ch;font-size:19px}
-.hero .cta{margin-top:30px;display:flex;gap:14px}
-.btn{display:inline-block;background:var(--ink);color:var(--cream);font-weight:700;padding:16px 24px;border-radius:999px;text-decoration:none}
-.btn.o{background:none;border:1.5px solid var(--ink);color:var(--ink)}
-.art{position:relative;background:linear-gradient(160deg,#d9a066,#8c5a35);overflow:hidden}
-.art .cup{position:absolute;left:50%;top:50%;width:340px;height:340px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 50% 50%,#f2e6d3 0 58%,#c98b4f 59% 63%,#e9d9c2 64% 70%,transparent 71%);box-shadow:0 40px 80px rgba(42,30,20,.35)}
-.art .latte{position:absolute;left:50%;top:50%;width:200px;height:200px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle at 50% 50%,#7a4a2a 0 100%)}
-.art .leaf{position:absolute;left:50%;top:50%;width:70px;height:140px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;transform:translate(-50%,-55%);background:#f2e6d3;opacity:.9}
-.art .leaf::after{content:"";position:absolute;left:50%;top:10%;width:2px;height:80%;background:#7a4a2a;transform:translateX(-50%)}
-.art .bun{position:absolute;right:40px;bottom:40px;width:150px;height:150px;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#c98b4f 0 10px,#a86a35 10px 20px);box-shadow:0 20px 40px rgba(42,30,20,.3)}
-section{padding:72px 0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Schibsted Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.55}
+h1,h2,.serif{font-family:Fraunces,Georgia,serif;font-weight:300;letter-spacing:-.015em;line-height:1}
+img{display:block;max-width:100%}
+.wrap{width:min(1120px,100% - 48px);margin-inline:auto}
+header{position:absolute;inset:0 0 auto;z-index:5;color:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:76px}
+.brand{font-family:Fraunces,Georgia,serif;font-size:28px;text-decoration:none;color:#fff;font-weight:500}
+nav{display:flex;gap:28px;align-items:center;font-weight:600;font-size:15px}nav a{color:#fff;text-decoration:none;opacity:.9}nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+nav .b{background:#fff;color:var(--ink);padding:11px 18px;border-radius:999px;opacity:1}
+.hero{position:relative;min-height:92vh;display:grid;align-items:end;color:#fff;isolation:isolate}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(20,12,6,.5) 0%,rgba(20,12,6,0) 55%),linear-gradient(180deg,rgba(20,12,6,.35) 0%,rgba(20,12,6,0) 35%,rgba(20,12,6,.7) 100%)}
+.hero .wrap{padding:0 0 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+.kick{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.9}
+.hero h1{font-size:clamp(56px,8vw,112px);margin:14px 0 18px}
+.hero h1 em{font-style:italic;font-weight:300}
+.hero p{font-size:19px;max-width:44ch;opacity:.95}
+.hero .cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-block;background:#fff;color:var(--ink);font-weight:700;padding:16px 24px;border-radius:999px;text-decoration:none;transition:transform .2s}
+.btn:hover{transform:translateY(-1px)} .btn.o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.8)}
+.hours{justify-self:end;border-left:1px solid rgba(255,255,255,.4);padding-left:24px;font-size:15px;display:grid;gap:4px}
+.hours b{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:22px;margin-bottom:6px}
+section{padding:96px 0}
+.intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.intro h2{font-size:clamp(36px,4.5vw,56px);margin-bottom:20px}
+.intro p{color:var(--mut);font-size:18px;max-width:48ch}
+.intro img{border-radius:4px;aspect-ratio:1;object-fit:cover;width:100%}
 .menu{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-h2{font-size:40px;margin-bottom:28px}
-.items{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.item{border-top:1px solid var(--line);padding-top:16px}
-.item b{display:flex;justify-content:space-between;font-family:Fraunces,Georgia,serif;font-weight:600;font-size:20px}
-.item p{color:var(--mut);font-size:15px;margin-top:6px}
-.info{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;font-size:16px}dt{color:var(--mut)}
-.map{background:#e8eee9;border-radius:16px;height:240px;position:relative;overflow:hidden}
-.map svg{width:100%;height:100%}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--mut);font-size:14px}
+.menu .head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:40px;gap:24px;flex-wrap:wrap}
+.menu h2{font-size:clamp(36px,4.5vw,56px)} .menu .head p{color:var(--mut)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+.group h3{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--rust);margin:24px 0 8px;font-weight:700}
+.row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.row b{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:21px;display:block}
+.row small{display:block;color:var(--mut);font-size:15px;margin-top:2px}
+.row span{font-weight:600;font-variant-numeric:tabular-nums}
+.lunch{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.lunch img{border-radius:4px;aspect-ratio:16/10;object-fit:cover;width:100%}
+.lunch h2{font-size:clamp(36px,4.5vw,56px);margin-bottom:16px}.lunch p{color:var(--mut);font-size:18px;max-width:46ch}
+.lunch ul{margin:20px 0 0 18px;color:var(--mut)}.lunch li{margin:4px 0}
+.find{background:var(--paper-2)}
+.find .g{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.find h2{font-size:clamp(36px,4.5vw,56px);margin-bottom:24px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;font-size:16px}dt{color:var(--mut)}dd a{color:var(--ink)}
+.map{background:#e8eee9;border-radius:4px;height:300px;overflow:hidden}.map svg{width:100%;height:100%}
+footer{padding:32px 0;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-@media (max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:46px}.art{min-height:320px}.items,.info{grid-template-columns:1fr}nav a:not(.b){display:none}}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-bottom:40px}.hours{justify-self:start;border:0;padding:0}.intro,.cols,.lunch,.find .g{grid-template-columns:1fr}.intro img{order:-1}nav a:not(.b){display:none}section{padding:64px 0}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><a class="brand" href="#">Kahvila Aamu</a><nav><a href="#menu">Menu</a><a href="#lounas">Lounas</a><a href="#tiedot">Aukioloajat</a><a class="b" href="#tiedot">Tilaa pöytä</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="#">Kahvila Aamu</a><nav><a href="#menu">Menu</a><a href="#aamiainen">Aamiainen</a><a href="#tiedot">Löydät meidät</a><a class="b" href="#tiedot">Varaa pöytä</a></nav></div></header>
 <main>
-<section class="hero wrap" style="padding:0">
-  <div class="t"><p class="kick">Tikkurila · avoinna 7–16</p><h1>Aamun paras hetki.</h1><p>Tuoretta leipää omasta uunista, hyvää kahvia ja lounas arkisin klo 11–14. Kävelymatkan päässä Tikkurilan asemalta.</p>
-  <div class="cta"><a class="btn" href="#menu">Katso menu</a><a class="btn o" href="#tiedot">Reittiohjeet</a></div></div>
-  <div class="art" aria-hidden="true"><div class="cup"></div><div class="latte"></div><div class="leaf"></div><div class="bun"></div></div>
+<section class="hero" style="padding:0">
+  <img src="aamu-hero.jpg" alt="Latte ja voisarvi liuskekivialustalla aamuauringossa ikkunan edessä" width="720" height="1280" fetchpriority="high">
+  <div class="wrap">
+    <div><p class="kick">Tikkurila · leipomokahvila</p><h1>Aamu alkaa <em>täältä.</em></h1><p>Voisarvet paistetaan kuudelta, kahvi jauhetaan tilauksesta. Kahden minuutin kävely asemalta, aamiaista koko aukioloajan.</p>
+    <div class="cta"><a class="btn" href="#menu">Katso menu</a><a class="btn o" href="#tiedot">Reittiohjeet</a></div></div>
+    <div class="hours"><b>Avoinna tänään 7–16</b><span>ma–pe 7–16</span><span>la 9–15</span><span>su suljettu</span></div>
+  </div>
 </section>
-<section class="menu" id="menu"><div class="wrap"><h2>Menu</h2>
-<div class="items">
-<div class="item"><b>Korvapuusti <span>3,90 €</span></b><p>Paistettu aamulla, kanelia ja raesokeria.</p></div>
-<div class="item"><b>Kauralimppu <span>5,50 €</span></b><p>Koko leipä, hapanjuureen leivottu.</p></div>
-<div class="item"><b>Latte <span>4,60 €</span></b><p>Paahtimon papu, kaura- tai lehmänmaito.</p></div>
-<div class="item"><b>Aamiaislautanen <span>9,90 €</span></b><p>Muna, juusto, leipä ja hedelmät, klo 7–10.</p></div>
-<div class="item"><b>Lounaskeitto <span>11,90 €</span></b><p>Vaihtuu päivittäin, leipä ja kahvi kuuluvat.</p></div>
-<div class="item"><b>Päivän piirakka <span>4,20 €</span></b><p>Suolainen tai makea, kysy tiskiltä.</p></div>
-</div></div></section>
-<section id="lounas"><div class="wrap"><h2>Lounas arkisin 11–14</h2><p style="max-width:60ch;color:var(--mut)">Keitto, salaatti tai lämmin ruoka. Viikon lista Instagramissa joka maanantai: <b>@kahvila.aamu</b>. Lounas 11,90 €, sisältää leivän, kahvin ja pienen jälkiruoan.</p></div></section>
-<section class="menu" id="tiedot"><div class="wrap"><h2>Löydät meidät</h2>
-<div class="info">
-<dl><dt>Osoite</dt><dd>Esimerkkikatu 3, 01300 Vantaa (Tikkurila)</dd><dt>Avoinna</dt><dd>ma–pe 7–16, la 9–15, su suljettu</dd><dt>Puhelin</dt><dd>[esimerkki]</dd><dt>Pöytävaraus</dt><dd>Soita tai tule paikalle. Ryhmille yli 8 henkeä soita etukäteen.</dd></dl>
-<div class="map" aria-hidden="true"><svg viewBox="0 0 520 240" preserveAspectRatio="xMidYMid slice"><rect width="520" height="240" fill="#e8eee9"/><path d="M0 150 C120 130 220 190 520 110" stroke="#fff" stroke-width="16" fill="none"/><path d="M150 0 L210 240 M380 0 L350 240" stroke="#fff" stroke-width="10"/><rect x="400" y="160" width="100" height="60" rx="10" fill="#cfe0a6"/><g transform="translate(270 105)"><path d="M0 -30c-10 0-18 8-18 18 0 14 18 30 18 30s18-16 18-30c0-10-8-18-18-18z" fill="#a0522d"/><circle cy="-12" r="7" fill="#fff"/></g></svg></div>
-</div></div></section>
+
+<section><div class="wrap intro">
+  <div><h2>Pieni paikka, oma uuni.</h2><p>Leivomme kaiken itse: voisarvet, korvapuustit ja hapanjuurileivät. Kahvi tulee helsinkiläiseltä paahtimolta, maito läheltä. Aamulla hiljaista, lounaalla vilkasta, iltapäivällä sopivasti.</p></div>
+  <img src="aamu-square.jpg" alt="Lähikuva lattesta ja voisarvesta" width="720" height="720" loading="lazy">
+</div></section>
+
+<section class="menu" id="menu"><div class="wrap">
+  <div class="head"><h2>Menu</h2><p>Hinnat paikan päällä. Mukaan 10 % edullisemmin.</p></div>
+  <div class="cols">
+    <div class="group"><h3>Kahvit</h3>
+      <div class="row"><div><b>Latte</b><small>Kaura- tai lehmänmaito</small></div><span>4,60 €</span></div>
+      <div class="row"><div><b>Cappuccino</b></div><span>4,40 €</span></div>
+      <div class="row"><div><b>Suodatinkahvi</b><small>Päivän papu, santsikuppi kuuluu</small></div><span>3,20 €</span></div>
+      <div class="row"><div><b>Kaakao</b><small>Tumma suklaa, kermavaahto</small></div><span>4,20 €</span></div>
+    </div>
+    <div class="group"><h3>Uunista</h3>
+      <div class="row"><div><b>Voisarvi</b><small>Paistettu aamulla</small></div><span>3,60 €</span></div>
+      <div class="row"><div><b>Korvapuusti</b><small>Kanelia ja raesokeria</small></div><span>3,90 €</span></div>
+      <div class="row"><div><b>Hapanjuurileipä</b><small>Koko leipä, kaura tai ruis</small></div><span>5,50 €</span></div>
+      <div class="row"><div><b>Päivän piirakka</b><small>Suolainen tai makea, kysy tiskiltä</small></div><span>4,20 €</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="aamiainen"><div class="wrap lunch">
+  <img src="aamu-wide.jpg" alt="Voisarvi ja kahvikuppi lähikuvassa" width="720" height="450" loading="lazy">
+  <div><p class="kick" style="color:var(--rust)">Aamiainen 7–11</p><h2>Aamiaislautanen 9,90 €</h2><p>Voisarvi tai leipä, keitetty muna, juustoa, hedelmää ja kahvi tai tee. Viikonloppuisin lisäksi pannukakkua.</p>
+  <ul><li>Vegaaninen vaihtoehto aina saatavilla</li><li>Gluteeniton leipä pyydettäessä</li><li>Ryhmille yli 8 henkeä: soita etukäteen</li></ul></div>
+</div></section>
+
+<section class="find" id="tiedot"><div class="wrap">
+  <h2>Löydät meidät</h2>
+  <div class="g">
+    <dl><dt>Osoite</dt><dd>Esimerkkikatu 3, 01300 Vantaa (Tikkurila)</dd><dt>Avoinna</dt><dd>ma–pe 7–16, la 9–15, su suljettu</dd><dt>Puhelin</dt><dd>[esimerkki]</dd><dt>Instagram</dt><dd><a href="#">@kahvila.aamu</a></dd><dt>Pöytävaraus</dt><dd>Soita tai tule paikalle.</dd></dl>
+    <div class="map" aria-hidden="true"><svg viewBox="0 0 560 300" preserveAspectRatio="xMidYMid slice"><rect width="560" height="300" fill="#e8eee9"/><path d="M0 190 C120 170 230 230 560 140" stroke="#fff" stroke-width="18" fill="none"/><path d="M160 0 L230 300 M410 0 L380 300" stroke="#fff" stroke-width="10"/><rect x="430" y="200" width="110" height="70" rx="10" fill="#cfe0a6"/><g transform="translate(290 135)"><path d="M0 -32c-11 0-20 9-20 20 0 15 20 32 20 32s20-17 20-32c0-11-9-20-20-20z" fill="#9a4e2a"/><circle cy="-13" r="7" fill="#fff"/></g></svg></div>
+  </div>
+</div></section>
 </main>
 <footer><div class="wrap"><span>Kahvila Aamu · Tikkurila</span><span>Demo: kuvitteellinen yritys. Sivun teki Marktic.</span></div></footer>
 </body>
