@@ -2,6 +2,7 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Marktic – markkinointi, joka näkyy Googlessa, tekoälyssä ja somessa</title>
 <meta name="description" content="Marktic rakentaa pienyritysten markkinoinnin uusiksi: näkyvyys Googlessa ja tekoälyhauissa, somen hallinta, mainosvideot, tekoälymallit ja verkkosivut. Maksuton näkyvyysraportti.">
@@ -184,6 +185,7 @@
 <meta property="og:description" content="Pienyritysten markkinointi: näkyvyys Googlessa ja tekoälyhauissa, some, mainosvideot ja verkkosivut. Maksuton näkyvyysraportti.">
 <meta property="og:locale" content="fi_FI">
 <meta name="theme-color" content="#3B3BF2">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
@@ -254,13 +256,14 @@ p{margin:0}
 .a{display:flex;flex-direction:column;gap:8px}
 .a .intro{color:var(--muted);font-size:16px}
 .a ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
-.a li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--paper);font-weight:500;
-  opacity:0;transform:translateY(8px)}
+.a li{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--paper);font-weight:500}
+.js .a li{opacity:0;transform:translateY(8px)}
+.js .a .intro{opacity:0}
 .a li .n{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-size:13px;font-weight:700;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--muted)}
 .a li.you{background:var(--lichen);color:var(--lichen-ink);font-weight:800}
 .a li.you .n{background:var(--cobalt);color:#fff;box-shadow:none}
 .a li.you .tag{margin-left:auto;font-size:13px;font-weight:700;background:var(--surface);color:var(--ink);padding:3px 9px;border-radius:999px}
-.a li.show{opacity:1;transform:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.js .a li.show{opacity:1;transform:none;transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
 .a li.you.show{animation:rise .9s cubic-bezier(.2,.8,.2,1)}
 @keyframes rise{0%{opacity:0;transform:translateY(40px) scale(.96)}60%{opacity:1;transform:translateY(-4px) scale(1.02)}100%{transform:none}}
 .chat-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
@@ -277,8 +280,9 @@ section{padding:96px 0;scroll-margin-top:68px}
 .story .sec-head p{color:color-mix(in srgb,var(--paper) 70%,transparent)}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
 .steps{display:flex;flex-direction:column}
-.step{min-height:72vh;display:flex;flex-direction:column;justify-content:center;gap:14px;opacity:.32;transition:opacity .35s}
-.step.on{opacity:1}
+.step{min-height:72vh;display:flex;flex-direction:column;justify-content:center;gap:14px;transition:opacity .35s}
+.js .step{opacity:.32}
+.js .step.on{opacity:1}
 .step .k{font-size:15px;font-weight:700;color:var(--lichen)}
 .step h3{font-size:clamp(28px,3.2vw,40px)}
 .step p{font-size:19px;color:color-mix(in srgb,var(--paper) 78%,transparent);max-width:30em}
@@ -454,7 +458,7 @@ footer .logo{font-size:18px;color:var(--ink)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .a li{opacity:1;transform:none}
+  .js .a li,.js .a .intro{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -492,7 +496,7 @@ footer .logo{font-size:18px;color:var(--ink)}
       <div class="chat-body">
         <div class="q" id="q" aria-live="off">Mikä on hyvä tilitoimisto Tampereella?</div>
         <div class="a" id="a">
-          <p class="intro" id="intro" style="opacity:0">Tässä muutama hyvä vaihtoehto Tampereella:</p>
+          <p class="intro" id="intro">Tässä muutama hyvä vaihtoehto Tampereella:</p>
           <ol>
             <li><span class="n">1</span>Tilitoimisto A</li>
             <li><span class="n">2</span>Tilitoimisto B</li>
