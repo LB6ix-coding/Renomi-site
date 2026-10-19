@@ -32,11 +32,11 @@ img,svg{display:block;max-width:100%}
 /* header */
 .top{position:sticky;top:0;z-index:40;background:rgba(16,21,19,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:var(--s4)}
-.logo{font-weight:900;font-size:26px;letter-spacing:-.045em;text-decoration:none;display:inline-flex}
+.logo{font-weight:900;font-size:26px;letter-spacing:-.045em;text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
 .logo .i{position:relative}
 .logo .i::after{content:"";position:absolute;left:50%;top:.19em;width:.19em;height:.19em;border-radius:50%;background:var(--lichen);transform:translateX(-50%)}
 .nav{display:flex;gap:var(--s4);align-items:center}
-.nav a{text-decoration:none;font-weight:600;font-size:var(--t-sm);color:var(--ink-2);padding:12px 0;min-height:44px;display:inline-flex;align-items:center;border-bottom:2px solid transparent;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.nav a{text-decoration:none;font-weight:600;font-size:var(--t-sm);color:var(--ink-2);padding:0;min-height:44px;display:inline-flex;align-items:center;box-sizing:border-box;border-bottom:2px solid transparent;transition:color .2s var(--ease),border-color .2s var(--ease)}
 .nav a:hover{color:var(--ink)} .nav a[aria-current=page]{color:var(--ink);border-color:var(--lichen)}
 .nav a.btn{color:var(--lichen-ink);border-bottom:0;padding:0 var(--s3)} .nav a.btn:hover{color:var(--lichen-ink)}
 .menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--ink);border-radius:var(--r1);width:44px;height:44px;cursor:pointer;font-size:22px;line-height:1}
@@ -64,7 +64,8 @@ section{padding:var(--s7) 0}
 .card:hover{border-color:var(--line-2)}
 a.card{text-decoration:none;display:block} a.card:hover{transform:translateY(-2px)}
 .paper .card{background:#fff;border-color:var(--paper-line)} .paper .card:hover{border-color:#b9c3bc}
-.card h3{margin-bottom:var(--s2)} .card p{font-size:var(--t-sm);color:var(--mut)} .paper .card p{color:var(--paper-mut)}
+.card h3,.card h2.h3{margin-bottom:var(--s2)} h2.h3{font-size:var(--t-xl);letter-spacing:-.02em}
+.ilink{display:inline-flex;align-items:center;min-height:44px} .card p{font-size:var(--t-sm);color:var(--mut)} .paper .card p{color:var(--paper-mut)}
 .num{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:var(--t-xs);color:var(--lichen);margin-bottom:var(--s3)} .paper .num{color:var(--brand)}
 .list{display:grid;gap:var(--s2);list-style:none}
 .list li{display:flex;gap:var(--s2);align-items:flex-start;font-size:var(--t-sm)}
@@ -87,7 +88,7 @@ a.card{text-decoration:none;display:block} a.card:hover{transform:translateY(-2p
 .plan .was{font-size:var(--t-sm);color:var(--paper-mut);margin-top:var(--s1)}
 .plan .what{font-size:var(--t-sm);color:var(--paper-mut)}
 .plan h3{margin-bottom:var(--s1)}
-.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--lichen);color:var(--lichen-ink);margin-left:var(--s2);vertical-align:middle}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:var(--lichen);color:var(--lichen-ink);margin-left:var(--s2);vertical-align:middle}
 
 /* faq */
 details{border-top:1px solid var(--line)} details:last-child{border-bottom:1px solid var(--line)}
@@ -99,8 +100,8 @@ details p{padding:0 0 var(--s4);color:var(--ink-2)}
 /* footer */
 footer{border-top:1px solid var(--line);padding:var(--s5) 0;font-size:var(--t-sm);color:var(--mut)}
 footer .wrap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:var(--s4)}
-footer a{color:var(--ink-2);text-decoration:none;display:inline-block;padding:6px 0} footer a:hover{color:var(--ink);text-decoration:underline}
-footer ul{list-style:none;display:grid;gap:var(--s1)}
+footer a{color:var(--ink-2);text-decoration:none;display:inline-flex;align-items:center;min-height:44px} footer a:hover{color:var(--ink);text-decoration:underline}
+footer ul{list-style:none;display:grid;gap:0}
 
 /* motion */
 .rise{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease) forwards}
