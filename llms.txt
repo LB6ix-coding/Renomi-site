@@ -1,0 +1,28 @@
+# Marktic
+
+> Marktic on suomalainen markkinointipalvelu pienyrityksille. Teemme yrityksistä näkyviä Googlessa ja tekoälyhauissa (ChatGPT, Perplexity, Googlen tekoäly) sekä somessa, mainosvideoissa ja verkkosivuilla. Mittaamme tulokset emmekä lupaa sijoituksia.
+
+## Palvelut
+- Näkyvyys Googlessa ja tekoälyssä: mittaus kymmenillä tekoälyn vastauksilla, korjaukset (Google-yritysprofiili, rakenteinen tieto, hakemistot) ja kuukausiraportti päivämäärineen.
+- Somen hallinta: suunnitelma, julkaisut ja kommentteihin vastaaminen.
+- Mainosvideot: 3D- ja animaatiovideot tuotteista ja palveluista.
+- Tekoälymallit ja -sisältö: tuotteet tekoälymallin päällä ilman kuvauksia, aina merkittynä tekoälyllä tehdyksi.
+- Verkkosivut: nopeat, mitattavat sivut.
+- Markkinoinnin uudelleenrakennus: nykyisen markkinoinnin läpikäynti ja uusi suunnitelma.
+
+## Hinnat
+- Näkyvyysraportti: 0 €
+- Korjauspaketti: 190 € kertamaksu, laskutetaan kun työ on valmis
+- Ylläpito: 149 €/kk (perustajahinta, normaalisti 190 €/kk), aktiivinen kehitys 290 €/kk (normaalisti 349 €/kk); ei määräaikaa
+- Muut palvelut: tarjouksen mukaan
+- Hintoihin ei lisätä arvonlisäveroa.
+
+## Alue ja kieli
+Koko Suomi, etänä. Palvelu suomeksi.
+
+## Yhteys
+hei@marktic.fi
+
+## Sivut
+- [Etusivu](https://marktic.fi/): palvelut, hinnat, usein kysytyt kysymykset
+- [Tietosuojaseloste](https://marktic.fi/tietosuoja.html)
