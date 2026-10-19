@@ -12,6 +12,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
+.shot{display:block;margin-top:var(--s3);border-radius:var(--r2);overflow:hidden;border:1px solid var(--paper-line)} .shot img{width:100%;height:auto;display:block;transition:transform .3s var(--ease)} .shot:hover img{transform:scale(1.02)}
+.rep2{margin-top:var(--s3);border:1px solid var(--paper-line);border-radius:var(--r2);padding:var(--s3);background:#fff}
+.rh{display:flex;justify-content:space-between;align-items:center;font-size:var(--t-sm);margin-bottom:var(--s2)}
+.rep2 table{width:100%;border-collapse:collapse;font-size:var(--t-sm)} .rep2 th,.rep2 td{text-align:left;padding:var(--s2) 0;border-top:1px solid var(--paper-line);vertical-align:top} .rep2 thead th{border:0;color:var(--paper-mut);font-weight:600;font-size:var(--t-xs)} .rep2 tbody th{font-weight:600;color:var(--paper-ink);padding-right:var(--s2)}
+.rep2 .ok{color:#1f6b3a;font-weight:700} .rep2 .no{color:#9a4a1a;font-weight:700}
 .vidwrap{position:relative;max-width:260px;aspect-ratio:9/16;margin-top:var(--s3);border-radius:var(--r2);overflow:hidden;background:#000}
 .vid{width:100%;height:100%;object-fit:cover;display:block}
 .vidtxt{position:absolute;left:18px;top:24px;font-weight:900;font-size:36px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .vidtxt em{font-style:normal;color:var(--lichen)}
@@ -39,11 +44,19 @@
 <section class="paper" style="padding-top:0"><div class="wrap">
 <div class="grid grid-2">
 <article class="card"><p class="mono" style="color:var(--paper-mut)">Konseptityö · kuvitteellinen asiakas</p><h3 style="margin-top:var(--s2)">Kahvila Aamu, Tikkurila</h3><p>Kotisivu, Instagram-videomainos ja Google-karttalistaus yhdessä paketissa. Sama esimerkki kuin etusivulla.</p>
-<div class="ph" style="aspect-ratio:16/10;margin-top:var(--s3)">kotisivun kuvakaappaus (1200×750)</div></article>
+<a class="shot" href="demo/kahvila-aamu.html" aria-label="Avaa Kahvila Aamu -demosivu"><img src="demo/kahvila-aamu.png" alt="Kahvila Aamun kotisivun etusivu: otsikko Aamun paras hetki, menu-painike ja kahvikuppikuvitus" width="1200" height="750" loading="lazy"></a><a class="btn btn-ghost btn-sm" style="margin-top:var(--s3)" href="demo/kahvila-aamu.html">Avaa demosivu →</a></article>
 <article class="card"><p class="mono" style="color:var(--paper-mut)">Konseptityö · kuvitteellinen asiakas</p><h3 style="margin-top:var(--s2)">LVI-liike, Vantaa</h3><p>Näkyvyyden korjauspaketti: Google-yritysprofiili, hakemistot ja palvelusivut, joista hakupalvelut löytävät yrityksen.</p>
-<div class="ph" style="aspect-ratio:16/10;margin-top:var(--s3)">ennen–jälkeen-raportti (1200×750)</div></article>
-<article class="card"><p class="mono" style="color:var(--paper-mut)">Konseptityö · kuvitteellinen asiakas</p><h3 style="margin-top:var(--s2)">Kahvila Aamu: Instagram-mainosvideo</h3><p>8 sekunnin 3D-tuotevideo ilman kuvauksia: kahvi ja korvapuusti, hidas kamera-ajo, teksti päälle. Sama kuvitteellinen kahvila kuin kotisivussa.</p>
-<div class="vidwrap"><video class="vid" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261019_205743_62400a19-f965-4851-9dff-f9704a0b2dce.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Esimerkki: 3D-tuotevideo kahvilan Instagram-mainokseen"></video><div class="vidtxt">UUSI<br>LOUNAS<br><em>11–14</em></div></div></article>
+<div class="rep2" aria-label="Esimerkki näkyvyysraportista ennen ja jälkeen korjauspaketin">
+<div class="rh"><b>LVI-Esimerkki Oy, Vantaa</b><span class="tag" style="margin:0">Esimerkki</span></div>
+<table><thead><tr><th scope="col"></th><th scope="col">Ennen</th><th scope="col">Jälkeen (30 pv)</th></tr></thead><tbody>
+<tr><th scope="row">Google-yritysprofiili</th><td class="no">Puutteellinen</td><td class="ok">Kunnossa</td></tr>
+<tr><th scope="row">Hakemistot, joita hakupalvelut käyttävät</th><td class="no">1 / 5</td><td class="ok">5 / 5</td></tr>
+<tr><th scope="row">Hakupalvelut mainitsevat yrityksen</th><td class="no">0 / 3 kysymyksessä</td><td class="ok">2 / 3 kysymyksessä</td></tr>
+<tr><th scope="row">Kotisivuilla rakenteinen tieto</th><td class="no">Ei</td><td class="ok">Kyllä</td></tr>
+</tbody></table>
+<p class="mono" style="color:var(--paper-mut);text-transform:none;letter-spacing:0;margin-top:var(--s3)">Luvut ovat esimerkki siitä, miltä raportti näyttää, eivät mittaustulos.</p></div></article>
+<article class="card"><p class="mono" style="color:var(--paper-mut)">Konseptityö · kuvitteellinen asiakas</p><h3 style="margin-top:var(--s2)">Kahvila Aamu: Instagram-mainosvideo</h3><p>4 sekunnin 3D-tuotevideo ilman kuvauksia: kahvi ja croissant, hidas kamera-ajo, teksti päälle. Toistuu silmukkana. Sama kuvitteellinen kahvila kuin kotisivussa.</p>
+<div class="vidwrap"><video class="vid" src="assets/kahvila-aamu.mp4" poster="assets/kahvila-aamu-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Esimerkki: 3D-tuotevideo kahvilan Instagram-mainokseen"></video><div class="vidtxt">UUSI<br>LOUNAS<br><em>11–14</em></div></div></article>
 <article class="card"><p class="mono" style="color:var(--paper-mut)">Oma työ</p><h3 style="margin-top:var(--s2)">Tämä sivusto</h3><p>Marktic.fi on tehty samalla tavalla kuin asiakkaiden sivut: nopea, toimii puhelimessa, rakenteinen tieto hakupalveluille, ei seurantaevästeitä. Jos pidätte tästä, saatte samanlaisen.</p>
 <ul class="list" style="margin-top:var(--s3)"><li>Latautuu alle sekunnissa</li><li>Toimii ilman evästeitä</li><li>Luettavissa myös hakupalveluille (llms.txt, schema.org)</li></ul></article>
 </div></div></section>
