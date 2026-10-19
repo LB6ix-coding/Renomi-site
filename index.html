@@ -194,6 +194,7 @@
   --paper:#F4F6F3; --surface:#FFFFFF; --ink:#17201D; --muted:#56625D; --line:#D9DFDA;
   --cobalt:#3B3BF2; --cobalt-ink:#2626B8; --lichen:#CFE0A6; --lichen-ink:#3E5212;
   --radius-lg:22px; --radius-sm:10px;
+  --brand:#3B3BF2; --brand-hover:#2626B8; --night:#17201D; --snow:#F4F6F3;
   --font:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
@@ -225,8 +226,8 @@ p{margin:0}
 .nav a:hover{color:var(--ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;
   font:inherit;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;border:0;transition:transform .15s,background .15s}
-.btn.primary{background:var(--cobalt);color:#fff}
-.btn.primary:hover{background:var(--cobalt-ink)}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-hover)}
 .btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
 .btn.ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
 .btn:active{transform:scale(.98)}
@@ -276,19 +277,19 @@ section{padding:96px 0;scroll-margin-top:68px}
 .sec-head p{margin-top:16px;font-size:19px;color:var(--muted);max-width:40em}
 
 /* scroll story */
-.story{background:var(--ink);color:var(--paper)}
-.story .sec-head p{color:color-mix(in srgb,var(--paper) 70%,transparent)}
+.story{background:var(--night);color:var(--snow)}
+.story .sec-head p{color:color-mix(in srgb,var(--snow) 70%,transparent)}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px}
 .steps{display:flex;flex-direction:column}
 .step{min-height:72vh;display:flex;flex-direction:column;justify-content:center;gap:14px;transition:opacity .35s}
 .js .step{opacity:.32}
 .js .step.on{opacity:1}
-.step .k{font-size:15px;font-weight:700;color:var(--lichen)}
+.step .k{font-size:15px;font-weight:700;color:#CFE0A6}
 .step h3{font-size:clamp(28px,3.2vw,40px)}
-.step p{font-size:19px;color:color-mix(in srgb,var(--paper) 78%,transparent);max-width:30em}
+.step p{font-size:19px;color:color-mix(in srgb,var(--snow) 78%,transparent);max-width:30em}
 .stage-wrap{position:relative}
-.stage{position:sticky;top:calc(50vh - 220px);height:440px;border-radius:28px;background:color-mix(in srgb,var(--paper) 7%,transparent);
-  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--paper) 14%,transparent);overflow:hidden}
+.stage{position:sticky;top:calc(50vh - 220px);height:440px;border-radius:28px;background:#212A27;
+  box-shadow:inset 0 0 0 1px rgba(244,246,243,.14);overflow:hidden}
 .scene{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transform:translateY(24px) scale(.97);
   transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
 .stage[data-step="0"] .s0,.stage[data-step="1"] .s1,.stage[data-step="2"] .s2,.stage[data-step="3"] .s3{opacity:1;transform:none}
@@ -354,6 +355,10 @@ section{padding:96px 0;scroll-margin-top:68px}
 .vid .over span{align-self:flex-start;font-size:12px;font-weight:800;background:#fff;color:#17201D;padding:6px 12px;border-radius:999px}
 .spons{color:#56625D;font-weight:500}
 
+.step-pic{display:none;position:relative;top:0;height:300px;border-radius:24px;background:#212A27;
+  box-shadow:inset 0 0 0 1px rgba(244,246,243,.14);overflow:hidden;margin-bottom:22px}
+.step-pic .scene{opacity:1;transform:none}
+
 /* services */
 .svc{border-top:1.5px solid var(--ink)}
 .svc-row{display:grid;grid-template-columns:1.1fr 1.4fr 230px;gap:32px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line);
@@ -391,7 +396,7 @@ section{padding:96px 0;scroll-margin-top:68px}
 .plan ul{margin:0;padding-left:20px;color:var(--muted);font-size:16px;display:flex;flex-direction:column;gap:6px}
 .fine{margin-top:22px;font-size:15px;color:var(--muted);max-width:60em}
 .others{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 26px;border-radius:var(--radius-lg);
-  background:var(--ink);color:var(--paper)}
+  background:var(--night);color:var(--snow)}
 .others b{font-size:20px}
 .others .btn.primary{background:var(--lichen);color:#17201D}
 
@@ -415,11 +420,12 @@ section{padding:96px 0;scroll-margin-top:68px}
 .faq details p{padding:0 0 20px;color:var(--muted);max-width:40em}
 
 /* contact */
-.contact{background:var(--cobalt);color:#fff}
+.contact{background:var(--brand);color:#fff}
 .contact .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
 .contact h2{font-size:clamp(36px,5vw,64px)}
 .contact p{font-size:19px;opacity:.88;margin-top:16px;max-width:30em}
 .mailbox{background:#fff;color:#17201D;border-radius:var(--radius-lg);padding:26px;display:flex;flex-direction:column;gap:14px}
+.mailbox .muted{color:#56625D}
 .mailbox .addr{font-weight:800;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.02em;word-break:break-all}
 .mailbox .row{display:flex;flex-wrap:wrap;gap:10px}
 .mailbox .btn.ghost{color:#17201D;box-shadow:inset 0 0 0 1.5px #D9DFDA}
@@ -432,11 +438,11 @@ footer .logo{font-size:18px;color:var(--ink)}
 @media (max-width:960px){
   .hero .wrap,.story-grid,.contact .wrap,.proof .wrap{grid-template-columns:1fr}
   .hero{padding:36px 0 72px}.hero .wrap{gap:40px}
-  .stage-wrap{order:-1;position:sticky;top:68px;z-index:2;height:350px;background:var(--ink);padding:10px 0 20px;
-    box-shadow:0 18px 18px -6px var(--ink)}
-  .stage{position:relative;top:0;height:320px;background:#212A27}
+  .stage-wrap{display:none}
+  .step-pic{display:block}
+  .step{min-height:0;padding:28px 0 40px}
+  .js .step{opacity:1}
   .story-grid{gap:0}
-  .step{min-height:62vh}
   .prices{grid-template-columns:1fr}
   .proc{grid-template-columns:1fr 1fr;row-gap:44px}
   .svc-row{grid-template-columns:1fr;gap:8px}
@@ -724,6 +730,11 @@ footer .logo{font-size:18px;color:var(--ink)}
   // scroll story: the visible step decides which scene the stage shows
   var stage = document.getElementById('stage'), steps = [].slice.call(document.querySelectorAll('.step'));
   function activate(s) { stage.setAttribute('data-step', s); steps.forEach(function (el) { el.classList.toggle('on', el.dataset.step === s); }); }
+  steps.forEach(function (el) {
+    var scene = stage.querySelector('.s' + el.dataset.step); if (!scene) return;
+    var pic = document.createElement('div'); pic.className = 'step-pic stage'; pic.setAttribute('data-step', el.dataset.step);
+    pic.setAttribute('aria-hidden', 'true'); pic.appendChild(scene.cloneNode(true)); el.insertBefore(pic, el.firstChild);
+  });
   activate('0');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) {
