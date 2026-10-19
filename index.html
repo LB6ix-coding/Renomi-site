@@ -143,18 +143,38 @@ section{padding:96px 0}
 .heart{color:#E5484D}
 .stage[data-step="2"] .heart{display:inline-block;animation:pop .6s .4s both}
 @keyframes pop{0%{transform:scale(0)}70%{transform:scale(1.4)}100%{transform:scale(1)}}
-/* s3 3D ad */
-.ad{position:relative;width:min(340px,84%);aspect-ratio:4/5;border-radius:22px;overflow:hidden;
-  background:radial-gradient(circle at 50% 40%,#2E2E8F,#0D1030 70%);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);display:grid;place-items:center;perspective:700px}
-.ring{width:150px;height:150px;border-radius:50%;transform-style:preserve-3d;animation:spin 6s linear infinite;
-  background:conic-gradient(from 0deg,#F7E7B4,#C8A24A,#FFF5D6,#9C7A2A,#F7E7B4);
-  -webkit-mask:radial-gradient(circle,transparent 52%,#000 53%);mask:radial-gradient(circle,transparent 52%,#000 53%)}
-.gem{position:absolute;top:calc(50% - 98px);left:50%;width:34px;height:34px;transform:translateX(-50%) rotate(45deg);
-  background:linear-gradient(135deg,#fff,#BFD4FF 40%,#6C7BFF);box-shadow:0 0 30px #9fb2ff}
-@keyframes spin{from{transform:rotateX(64deg) rotateY(0)}to{transform:rotateX(64deg) rotateY(360deg)}}
-.ad .label{position:absolute;left:16px;bottom:14px;right:16px;display:flex;justify-content:space-between;align-items:end;color:#fff}
-.ad .label b{font-size:22px;letter-spacing:-.03em}
-.ad .label span{font-size:12px;background:rgba(255,255,255,.16);padding:4px 9px;border-radius:999px}
+/* s3 video ad on a phone */
+.vid{flex:1;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 42%,#3A3A9E,#101236 72%)}
+.vid .zoom{position:absolute;inset:0;display:grid;place-items:center}
+.stage[data-step="3"] .vid .zoom{animation:kb 6s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+.watch{position:relative;width:118px;height:118px}
+.watch .strap{position:absolute;left:50%;width:54px;height:74px;transform:translateX(-50%);background:linear-gradient(90deg,#2B2B2B,#4A4A4A,#2B2B2B);border-radius:10px}
+.watch .strap.t{top:-58px}.watch .strap.b{bottom:-58px}
+.watch .case{position:absolute;inset:0;border-radius:50%;background:conic-gradient(#F7E7B4,#B8913C,#FFF3CF,#9C7A2A,#F7E7B4);padding:8px;
+  box-shadow:0 20px 40px -12px rgba(0,0,0,.7)}
+.watch .face{position:relative;width:100%;height:100%;border-radius:50%;background:
+  repeating-conic-gradient(from -1.5deg,#E9E2C9 0 3deg,transparent 3deg 30deg),radial-gradient(circle,#1B2340 55%,#10152A)}
+.watch .face::after{content:"";position:absolute;inset:10px;border-radius:50%;background:radial-gradient(circle,#1B2340 62%,#141B33)}
+.hand{position:absolute;left:50%;bottom:50%;transform-origin:50% 100%;border-radius:3px;z-index:2;background:#F3E3B0}
+.hand.h{width:5px;height:28px;margin-left:-2.5px;transform:rotate(40deg)}
+.hand.m{width:3px;height:40px;margin-left:-1.5px}
+.stage[data-step="3"] .hand.m{animation:turn 6s linear infinite}
+.stage[data-step="3"] .hand.h{animation:turnh 72s linear infinite}
+@keyframes turn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes turnh{from{transform:rotate(40deg)}to{transform:rotate(400deg)}}
+.watch .pivot{position:absolute;left:50%;top:50%;width:9px;height:9px;margin:-4.5px;border-radius:50%;background:#F3E3B0;z-index:3}
+.vid .shine{position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.18) 50%,transparent 65%);transform:translateX(-100%)}
+.stage[data-step="3"] .vid .shine{animation:shine 3s 1s ease-in-out infinite}
+@keyframes shine{to{transform:translateX(100%)}}
+.prog{position:absolute;top:8px;left:10px;right:10px;height:3px;border-radius:2px;background:rgba(255,255,255,.3);overflow:hidden;z-index:3}
+.prog i{display:block;height:100%;width:0;background:#fff}
+.stage[data-step="3"] .prog i{animation:prog 6s linear infinite}
+@keyframes prog{to{width:100%}}
+.vid .over{position:absolute;left:12px;right:12px;bottom:12px;z-index:3;color:#fff;display:flex;flex-direction:column;gap:8px}
+.vid .over b{font-size:20px;font-weight:900;letter-spacing:-.03em;line-height:1}
+.vid .over span{align-self:flex-start;font-size:12px;font-weight:800;background:#fff;color:#17201D;padding:6px 12px;border-radius:999px}
+.spons{color:#56625D;font-weight:500}
 
 /* services */
 .svc{border-top:1.5px solid var(--ink)}
@@ -234,7 +254,6 @@ footer .logo{font-size:18px;color:var(--ink)}
   .proc{grid-template-columns:1fr 1fr;row-gap:44px}
   .svc-row{grid-template-columns:1fr;gap:8px}
   .svc-row .price{text-align:left}
-  .ad{width:auto;height:92%}
   .proof .wrap{gap:20px}
 }
 @media (max-width:560px){
@@ -243,7 +262,10 @@ footer .logo{font-size:18px;color:var(--ink)}
   section{padding:72px 0}
   .proc{grid-template-columns:1fr}
   .chat-body{min-height:360px;padding:18px 14px}
-  .phone{transform:scale(.78)}
+  .phone{width:180px;height:300px;border-radius:28px;padding:8px}
+  .screen{border-radius:21px}
+  .watch{transform:scale(.8)}
+  .post{font-size:18px}
   .ad,.card,.bubble{transform-origin:center}
 }
 @media (prefers-reduced-motion:reduce){
@@ -338,8 +360,14 @@ footer .logo{font-size:18px;color:var(--ink)}
           <div class="scene s1"><div class="bubble">Hyviä vaihtoehtoja ovat esimerkiksi <mark>Teidän yrityksenne</mark>, jolla on hyvät arviot ja selkeät palvelukuvaukset.<small>Tekoälyn vastaus, havainnollistus</small></div></div>
           <div class="scene s2"><div class="phone"><div class="screen"><div class="ph-top"><i></i>teidan.yrityksenne</div>
             <div class="post">Uusi<br>mallisto</div><div class="ph-bot"><span class="heart">♥</span><span>Kommentoi</span><span>Jaa</span></div></div></div></div>
-          <div class="scene s3"><div class="ad"><div class="ring"></div><div class="gem"></div>
-            <div class="label"><b>Mainos</b><span>3D-video</span></div></div></div>
+          <div class="scene s3"><div class="phone"><div class="screen">
+            <div class="ph-top"><i></i><span>teidan.yrityksenne<br><span class="spons">Sponsoroitu</span></span></div>
+            <div class="vid"><div class="prog"><i></i></div>
+              <div class="zoom"><div class="watch"><span class="strap t"></span><span class="strap b"></span>
+                <div class="case"><div class="face"><span class="hand h"></span><span class="hand m"></span><span class="pivot"></span></div></div></div></div>
+              <div class="shine"></div>
+              <div class="over"><b>Uusi mallisto</b><span>Osta nyt</span></div></div>
+            <div class="ph-bot"><span>▶ Mainosvideo</span><span>0:06</span></div></div></div></div>
         </div>
       </div>
     </div>
