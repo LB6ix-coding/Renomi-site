@@ -9,7 +9,7 @@ d.innerHTML=`<form method="dialog" class="maild-f">
   <label>Yrityksen nimi<input name="y" autocomplete="organization" required></label>
   <label>Paikkakunta<input name="p" autocomplete="address-level2" required></label>
   <label><span>Viesti <small>(valinnainen)</small></span><textarea name="m" rows="3"></textarea></label>
-  <div class="maild-b"><button type="button" class="btn btn-brand" data-send>Avaa sähköposti</button><button type="button" class="btn btn-ghost" data-copy>Kopioi osoite</button></div>
+  <div class="maild-b"><button type="button" class="btn btn-brand" data-send>Avatkaa sähköposti</button><button type="button" class="btn btn-ghost" data-copy>Kopioikaa osoite</button></div>
   <p class="maild-a">Tai kirjoittakaa suoraan: <a href="mailto:${A}">${A}</a></p>
 </form>`;
 document.body.appendChild(d);
@@ -19,7 +19,7 @@ function build(){const y=f.y.value.trim(),p=f.p.value.trim(),m=f.m.value.trim();
   const b='Hei,\n\nhaluaisin maksuttoman kartoituksen.\n\nYritys: '+y+'\nPaikkakunta: '+p+(m?'\n\n'+m:'')+'\n';
   return 'mailto:'+A+'?subject='+encodeURIComponent(s)+'&body='+encodeURIComponent(b);}
 d.querySelector('[data-send]').addEventListener('click',()=>{if(!f.reportValidity())return;location.href=build();});
-d.querySelector('[data-copy]').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(A);e.target.textContent='Kopioitu';setTimeout(()=>e.target.textContent='Kopioi osoite',1500)}catch(_){location.href='mailto:'+A}});
+d.querySelector('[data-copy]').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(A);e.target.textContent='Kopioitu';setTimeout(()=>e.target.textContent='Kopioikaa osoite',1500)}catch(_){location.href='mailto:'+A}});
 d.addEventListener('click',e=>{if(e.target===d)d.close()});
 d.querySelector('[data-close]').addEventListener('click',()=>d.close());
 f.addEventListener('submit',e=>e.preventDefault());
