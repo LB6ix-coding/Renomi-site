@@ -12,6 +12,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
+.cases{display:grid;gap:var(--s6)} .case{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s5);align-items:center;padding-top:var(--s5);border-top:1px solid var(--paper-line)} .case:first-child{border:0;padding-top:0} .case .ct p{color:var(--paper-mut);margin:var(--s2) 0 var(--s3)} .case .cv .shot{margin:0} .case .vidwrap{margin:0;justify-self:center} .case .rep2{margin:0}
+@media (max-width:900px){.case{grid-template-columns:1fr;gap:var(--s4)} .case .cv{order:-1}}
 .shot{display:block;margin-top:var(--s3);border-radius:var(--r2);overflow:hidden;border:1px solid var(--paper-line)} .shot img{width:100%;height:auto;display:block;transition:transform .3s var(--ease)} .shot:hover img{transform:scale(1.02)}
 .rep2{margin-top:var(--s3);border:1px solid var(--paper-line);border-radius:var(--r2);padding:var(--s3);background:#fff}
 .rh{display:flex;justify-content:space-between;align-items:center;font-size:var(--t-sm);margin-bottom:var(--s2)}
@@ -42,12 +44,13 @@
 <p class="eyebrow">Työt</p><h1>Mitä teemme ja miltä se näyttää.</h1>
 <p class="lead">Marktic on uusi toimisto, joten täällä ei ole vielä asiakastöitä. Sen sijaan näytämme rehellisesti, millaista jälkeä teemme: alla on konseptitöitä kuvitteellisille yrityksille. Ensimmäiset asiakkaat saavat perustajahinnan ja paikan tällä sivulla, jos haluavat.</p>
 </div></div></section>
-<section class="paper" style="padding-top:0"><div class="wrap">
-<div class="grid grid-2">
-<article class="card"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3" style="margin-top:var(--s2)">Kahvila Aamu, Tikkurila</h2><p>Kotisivu, Instagram-videomainos ja Google-karttalistaus yhdessä paketissa. Sama esimerkki kuin etusivulla.</p>
-<a class="shot" href="demo/kahvila-aamu.html" aria-label="Avaa Kahvila Aamu -demosivu"><img src="demo/kahvila-aamu.png" alt="Kahvila Aamun kotisivun etusivu: otsikko Aamun paras hetki, menu-painike ja kahvikuppikuvitus" width="1200" height="750" loading="lazy"></a><a class="btn btn-ghost btn-sm" style="margin-top:var(--s3)" href="demo/kahvila-aamu.html">Avaa demosivu →</a></article>
-<article class="card"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3" style="margin-top:var(--s2)">LVI-liike, Vantaa</h2><p>Näkyvyyden korjauspaketti: Google-yritysprofiili, hakemistot ja palvelusivut, joista hakupalvelut löytävät yrityksen.</p>
-<div class="rep2" aria-label="Esimerkki näkyvyysraportista ennen ja jälkeen korjauspaketin">
+<section class="paper" style="padding-top:0"><div class="wrap cases">
+<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kahvila Aamu, Tikkurila: kotisivut</h2><p>Yksi sivu, jolla on kaikki mitä kahvilan asiakas kysyy: aukioloajat, menu, aamiainen ja reitti. Avoinna-merkki päivittyy kellon mukaan. Ei raskaita kirjastoja, pelkkää HTML:ää ja CSS:ää.</p><a class="btn btn-ghost btn-sm" href="demo/kahvila-aamu.html">Avaa demosivu →</a></div>
+<a class="cv shot" href="demo/kahvila-aamu.html" aria-label="Avaa Kahvila Aamu -demosivu"><img src="demo/kahvila-aamu.png" alt="Kahvila Aamun kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
+<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kahvila Aamu: Instagram-mainosvideo</h2><p>11 sekunnin mainosvideo kolmesta valokuvasta: hidas kamera-ajo, ristihäivytykset ja tekstit. Sopii Instagramiin ja Metan mainontaan sellaisenaan. Sama kuvitteellinen kahvila kuin kotisivussa.</p></div>
+<div class="cv vidwrap"><video class="vid" src="assets/kahvila-aamu-ad.mp4" poster="assets/kahvila-aamu-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-label="Esimerkki: Kahvila Aamun Instagram-mainosvideo"></video></div></article>
+<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">LVI-liike, Vantaa: näkyvyyden korjauspaketti</h2><p>Google-yritysprofiili, hakemistot ja palvelusivut, joista hakupalvelut löytävät yrityksen. Raportti näyttää tilanteen ennen ja 30 päivää korjausten jälkeen.</p></div>
+<div class="cv"><div class="rep2" aria-label="Esimerkki näkyvyysraportista ennen ja jälkeen korjauspaketin">
 <div class="rh"><b>LVI-Esimerkki Oy, Vantaa</b><span class="tag" style="margin:0">Esimerkki</span></div>
 <table><thead><tr><th scope="col"></th><th scope="col">Ennen</th><th scope="col">Jälkeen (30 pv)</th></tr></thead><tbody>
 <tr><th scope="row">Google-yritysprofiili</th><td class="no">Puutteellinen</td><td class="ok">Kunnossa</td></tr>
@@ -56,11 +59,10 @@
 <tr><th scope="row">Kotisivuilla rakenteinen tieto</th><td class="no">Ei</td><td class="ok">Kyllä</td></tr>
 </tbody></table>
 <p style="color:var(--paper-mut);font-size:var(--t-sm);margin-top:var(--s3)">Luvut ovat esimerkki siitä, miltä raportti näyttää, eivät mittaustulos.</p></div></article>
-<article class="card"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3" style="margin-top:var(--s2)">Kahvila Aamu: Instagram-mainosvideo</h2><p>11 sekunnin mainosvideo kolmesta valokuvasta: hidas kamera-ajo, ristihäivytykset ja tekstit. Sopii Instagramiin ja Metan mainontaan sellaisenaan. Sama kuvitteellinen kahvila kuin kotisivussa.</p>
-<div class="vidwrap"><video class="vid" src="assets/kahvila-aamu-ad.mp4" poster="assets/kahvila-aamu-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-label="Esimerkki: Kahvila Aamun Instagram-mainosvideo"></video></div></article>
-<article class="card"><p class="eyebrow">Oma työ</p><h2 class="h3" style="margin-top:var(--s2)">Tämä sivusto</h2><p>Marktic.fi on tehty samalla tavalla kuin asiakkaiden sivut: nopea, toimii puhelimessa, rakenteinen tieto hakupalveluille, ei seurantaevästeitä. Jos pidätte tästä, saatte samanlaisen.</p>
-<ul class="list" style="margin-top:var(--s3)"><li>Ei raskaita kirjastoja: pelkkää HTML:ää ja CSS:ää</li><li>Toimii ilman evästeitä</li><li>Luettavissa myös hakupalveluille (llms.txt, schema.org)</li></ul></article>
-</div></div></section>
+<article class="case"><div class="ct"><p class="eyebrow">Oma työ</p><h2 class="h3">Tämä sivusto</h2><p>Marktic.fi on tehty samalla tavalla kuin asiakkaiden sivut: nopea, toimii puhelimessa, rakenteinen tieto hakupalveluille, ei seurantaevästeitä. Jos pidätte tästä, saatte samanlaisen.</p>
+<ul class="list" style="margin-top:var(--s3)"><li>Ei raskaita kirjastoja: pelkkää HTML:ää ja CSS:ää</li><li>Toimii ilman evästeitä</li><li>Luettavissa myös hakupalveluille (schema.org)</li></ul></div>
+<div class="cv"><img class="shot" src="demo/marktic-puhelin.jpg" alt="Marktic.fi:n etusivu puhelimen näytöllä" width="514" height="928" loading="lazy" style="max-width:360px;margin:0 auto;border:0;box-shadow:none;background:none"></div></article>
+</div></section>
 <section class="close"><div class="wrap">
   <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
   <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>

@@ -12,6 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
+.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s6);align-items:start} .contact h1{margin:var(--s2) 0 var(--s3)} .contact .mail{display:inline-block;margin-top:var(--s4);font-size:clamp(26px,3.6vw,44px);font-weight:700;letter-spacing:-.03em;text-decoration:none;border-bottom:3px solid var(--brand);line-height:1.2} .contact .mail:hover{color:var(--brand-2)}
+.ways{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s4);padding-top:var(--s2);border-top:1px solid var(--line);font-size:var(--t-sm);margin-top:var(--s5)} .facts dt{color:var(--mut)} .facts a{color:var(--ink)}
+@media (max-width:900px){.contact{grid-template-columns:1fr} .facts{margin-top:var(--s3)}}
 .ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
 
 </style>
@@ -29,15 +33,26 @@
 </div></header>
 
 <main id="main">
-<section class="ph1"><div class="wrap"><div class="grid grid-2" style="gap:var(--s5);align-items:start">
-<div><p class="eyebrow">Ota yhteyttä</p><h1>Kerrotaan, mitä asiakkaanne näkevät.</h1>
-<p class="lead">Lähettäkää yrityksenne nimi ja paikkakunta. Teemme maksuttoman kartoituksen ja vastaamme kahden arkipäivän kuluessa kolmella tärkeimmällä korjauksella. Kartoitus ei sido mihinkään.</p>
-<ul class="list" style="margin-top:var(--s4)"><li>Vastaamme kahden arkipäivän kuluessa</li><li>Ei myyntipuheluita, ellette pyydä soittoa</li><li>Hinnat ovat samat kuin sivuillamme</li></ul></div>
-<div class="grid" style="gap:var(--s3)">
-<a class="card" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A"><p class="eyebrow">Sähköposti</p><h2 class="h3" style="margin-top:var(--s2)">info@marktic.fi</h2><p>Nopein tapa. Painikkeesta aukeaa valmis viestipohja.</p></a>
-<a class="card" href="https://wa.me/358XXXXXXXXX?text=Hei%2C%20haluaisin%20maksuttoman%20kartoituksen." rel="noopener"><p class="eyebrow">WhatsApp</p><h2 class="h3" style="margin-top:var(--s2)">Kirjoittakaa WhatsAppissa</h2><p>Vastaamme arkisin klo 9–17. [PUUTTUU: numero]</p></a>
-<a class="card" href="tel:+358XXXXXXXXX"><p class="eyebrow">Puhelin</p><h2 class="h3" style="margin-top:var(--s2)">[PUUTTUU: puhelinnumero]</h2><p>Arkisin klo 9–17. Jos emme vastaa, soitamme takaisin saman päivän aikana.</p></a>
-</div></div></div></section>
+<section class="ph1"><div class="wrap contact">
+  <div>
+    <p class="eyebrow">Ota yhteyttä</p>
+    <h1>Lähettäkää yrityksenne nimi ja paikkakunta.</h1>
+    <p class="lead">Muuta ei tarvita. Teemme maksuttoman kartoituksen ja vastaamme kahden arkipäivän kuluessa kolmella tärkeimmällä korjauksella. Ei myyntipuheluita, ellette pyydä soittoa.</p>
+    <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+    <div class="ways">
+      <a class="btn btn-brand" href="https://wa.me/358XXXXXXXXX?text=Hei%2C%20haluaisin%20maksuttoman%20kartoituksen." rel="noopener">WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+358XXXXXXXXX">Soita [PUUTTUU: numero]</a>
+    </div>
+    <p class="mut" style="margin-top:var(--s3);font-size:var(--t-sm)">Arkisin klo 9–17. Jos emme vastaa, soitamme takaisin saman päivän aikana.</p>
+  </div>
+  <dl class="facts">
+    <dt>Sähköposti</dt><dd><a class="ilink" href="mailto:info@marktic.fi">info@marktic.fi</a></dd>
+    <dt>Kotipaikka</dt><dd>Vantaa. Palvelemme koko Suomea etänä.</dd>
+    <dt>Y-tunnus</dt><dd>3664036-8</dd>
+    <dt>Vastausaika</dt><dd>Kaksi arkipäivää</dd>
+    <dt>Hinnat</dt><dd><a href="palvelut.html">Samat kuin sivuillamme</a></dd>
+  </dl>
+</div></section>
 <section class="paper"><div class="wrap tl">
   <div><p class="eyebrow">Mitä tapahtuu seuraavaksi</p><h2>Kartoituksesta tarjoukseen</h2></div>
   <ol>

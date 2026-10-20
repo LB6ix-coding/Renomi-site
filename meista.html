@@ -12,6 +12,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
+.letter{max-width:680px} .letter h1{margin:var(--s2) 0 var(--s4)} .letter p{font-size:var(--t-lg);color:var(--ink-2);margin-bottom:var(--s3);line-height:1.6} .letter .list{margin-top:var(--s3)} .letter .list li{font-size:var(--t-base)}
+.sig{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line)} .sig b{display:block;margin-top:var(--s2);font-size:var(--t-lg)} .sig span{color:var(--mut);font-size:var(--t-sm)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s4);margin-top:var(--s5);padding-top:var(--s3);border-top:1px solid var(--line);font-size:var(--t-sm)} .facts dt{color:var(--mut)}
+@media (max-width:900px){.sig{grid-template-columns:1fr}}
 .ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
 
 </style>
@@ -29,26 +33,26 @@
 </div></header>
 
 <main id="main">
-<section class="ph1"><div class="wrap"><div class="grid grid-2" style="gap:var(--s5);align-items:start">
-<div><p class="eyebrow">Meistä</p><h1>Pieni toimisto, joka tekee itse.</h1>
-<p class="lead">Marktic on vantaalainen markkinointitoimisto. Emme myy kampanjoita, joita joku muu toteuttaa: suunnittelemme, teemme ja mittaamme työn itse, ja puhutte aina samalle ihmiselle.</p>
-<p class="lead" style="margin-top:var(--s3)">Aloitimme, koska pienet yritykset saavat usein joko kalliita toimistoja tai halpoja lupauksia. Me haluamme olla kolmas vaihtoehto: kiinteät hinnat, ei määräaikaa ja raportti, jonka ymmärtää ilman ammattisanastoa.</p></div>
-<div class="grid" style="gap:var(--s3)">
-<div class="card"><div class="grid" style="grid-template-columns:96px 1fr;gap:var(--s3);align-items:center"><div class="ph" style="width:96px;height:96px;border-radius:50%;padding:0;font-size:10px">kuva</div><div><h2 class="h3">Laura</h2><p>Markkinointipäällikkö. Vastaa asiakkaista, somesta ja raporteista. Teidän yhteyshenkilönne.</p></div></div></div>
-<div class="card"><div class="grid" style="grid-template-columns:96px 1fr;gap:var(--s3);align-items:center"><div class="ph" style="width:96px;height:96px;border-radius:50%;padding:0;font-size:10px">kuva</div><div><h2 class="h3">[Nimi]</h2><p>Perustaja. Vastaa näkyvyyden mittauksesta, kotisivuista ja videoista.</p></div></div></div>
-</div></div></div></section>
-<section class="paper"><div class="wrap"><div class="head"><p class="eyebrow">Miten toimimme</p><h2>Kolme periaatetta.</h2></div>
-<div class="grid grid-3">
-<div class="card"><p class="num">1</p><h3>Sanomme, mitä emme voi luvata</h3><p>Hakutulokset vaihtelevat. Emme lupaa sijoituksia, vaan sovittuja töitä ja mitattuja tuloksia päivämäärineen.</p></div>
-<div class="card"><p class="num">2</p><h3>Te päätätte joka kuukausi</h3><p>Ei määräaikaa. Jos raportti ei vakuuta, lopetatte. Se pitää meidät ahkerina.</p></div>
-<div class="card"><p class="num">3</p><h3>Teemme itse</h3><p>Sama ihminen suunnittelee, tekee ja raportoi. Mitään ei ulkoisteta tietämättänne.</p></div>
-</div></div></section>
-<section><div class="wrap"><div class="head"><p class="eyebrow">Tiedot</p><h2>Marktic</h2></div>
-<dl class="grid grid-3" style="gap:var(--s4)">
-<div><dt class="eyebrow" style="margin:0">Kotipaikka</dt><dd style="margin-top:var(--s2)">Vantaa. Palvelemme koko Suomea etänä.</dd></div>
-<div><dt class="eyebrow" style="margin:0">Y-tunnus</dt><dd style="margin-top:var(--s2)">3664036-8</dd></div>
-<div><dt class="eyebrow" style="margin:0">Yhteys</dt><dd style="margin-top:var(--s2)"><a class="ilink" href="mailto:info@marktic.fi">info@marktic.fi</a></dd></div>
-</dl></div></section>
+<section class="ph1"><div class="wrap letter">
+  <p class="eyebrow">Vantaa, lokakuu 2026</p>
+  <h1>Pieni toimisto, joka tekee itse.</h1>
+  <p>Hyvä yrittäjä,</p>
+  <p>Marktic on vantaalainen kahden hengen markkinointitoimisto. Teemme pienille yrityksille sen, mihin isoilla toimistoilla ei ole aikaa ja mihin ”halpa some-paketti” ei riitä: katsomme, miten yrityksenne löytyy ja miltä se näyttää, korjaamme sen ja kerromme kerran kuussa, mitä tapahtui.</p>
+  <p>Aloitimme, koska näimme saman kuvion yhä uudelleen: hyvä putkimies, tilitoimisto tai kahvila, jota kukaan ei löydä, koska Google-profiili on puolityhjä, kotisivut on tehty 2014 ja somessa on kaksi julkaisua. Kilpailija, jonka työ on heikompaa, saa asiakkaat, koska se näkyy.</p>
+  <p>Siksi hinnat ovat näkyvillä, sopimuksissa ei ole määräaikaa, ja raportin ymmärtää ilman ammattisanastoa. Jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun. Haluamme, että jatkatte, koska se kannattaa, ei koska sopimus pakottaa.</p>
+  <h2 class="h3" style="margin-top:var(--s4)">Mitä emme tee</h2>
+  <ul class="list">
+    <li>Emme tee 12 kuukauden sopimuksia.</li>
+    <li>Emme lupaa sijoituksia hakutuloksissa; raportoimme mitatut tulokset päivämäärineen.</li>
+    <li>Emme ulkoista työtä tietämättänne; sama ihminen suunnittelee, tekee ja raportoi.</li>
+    <li>Emme keksi suosituksia. Kun meillä on asiakkaita, kysymme heiltä luvan ja näytämme oikeat luvut.</li>
+  </ul>
+  <div class="sig">
+    <div><div class="ph" style="width:88px;height:88px;border-radius:50%;padding:0;font-size:10px">kuva</div><b>Laura</b><span>Markkinointipäällikkö. Asiakkaat, some ja raportit. Teidän yhteyshenkilönne.</span></div>
+    <div><div class="ph" style="width:88px;height:88px;border-radius:50%;padding:0;font-size:10px">kuva</div><b>[Nimi]</b><span>Perustaja. Näkyvyyden mittaus, kotisivut ja videot.</span></div>
+  </div>
+  <dl class="facts"><dt>Kotipaikka</dt><dd>Vantaa. Palvelemme koko Suomea etänä.</dd><dt>Y-tunnus</dt><dd>3664036-8</dd><dt>Yhteys</dt><dd><a class="ilink" href="mailto:info@marktic.fi">info@marktic.fi</a></dd></dl>
+</div></section>
 <section class="close"><div class="wrap">
   <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
   <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
