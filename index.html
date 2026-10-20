@@ -17,7 +17,14 @@
 <style>
 .hero{padding:var(--s6) 0 var(--s5)}
 .hero .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--s5);align-items:center}
-.hero h1{font-size:var(--t-5xl);margin:var(--s3) 0 var(--s4)} .hero h1 span{color:var(--lichen)}
+.hero h1{font-size:var(--t-5xl);margin:var(--s3) 0 var(--s4)}
+.words .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.words .w i{display:inline-block;font-style:normal;transform:translateY(110%);animation:wordup .8s var(--ease) forwards}
+.words .w.lic i{color:var(--lichen)}
+.words .w:nth-child(1) i{animation-delay:.05s}.words .w:nth-child(2) i{animation-delay:.13s}.words .w:nth-child(3) i{animation-delay:.21s}.words .w:nth-child(4) i{animation-delay:.29s}.words .w:nth-child(5) i{animation-delay:.37s}.words .w:nth-child(6) i{animation-delay:.45s}
+@keyframes wordup{to{transform:none}}
+@media (prefers-reduced-motion:reduce){.words .w i{transform:none;animation:none}}
+
 .hero .cta{display:flex;gap:var(--s3);margin-top:var(--s5);flex-wrap:wrap}
 .stage{position:relative;height:560px}
 .cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);text-transform:none;letter-spacing:0}
@@ -95,7 +102,7 @@
 <section class="hero"><div class="wrap">
   <div>
     <p class="mono eyebrow rise">Markkinointitoimisto · Vantaa · koko Suomi</p>
-    <h1 class="rise d1">Näyttäkää yhtä hyvältä <span>kuin työnne on.</span></h1>
+    <h1 class="words" aria-label="Näyttäkää yhtä hyvältä kuin työnne on."><span class="w"><i>Näyttäkää</i></span> <span class="w"><i>yhtä</i></span> <span class="w"><i>hyvältä</i></span> <span class="w lic"><i>kuin</i></span> <span class="w lic"><i>työnne</i></span> <span class="w lic"><i>on.</i></span></h1>
     <p class="lead rise d2">Videomainokset, some, kotisivut ja näkyvyys Googlessa. Suunniteltuna, tehtynä ja mitattuna, ilman pitkiä sopimuksia.</p>
     <div class="cta rise d3">
       <a class="btn btn-brand" href="yhteys.html">Pyydä maksuton kartoitus</a>
