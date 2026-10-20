@@ -26,44 +26,27 @@
 @media (prefers-reduced-motion:reduce){.words .w i{transform:none;animation:none}}
 
 .hero .cta{display:flex;gap:var(--s3);margin-top:var(--s5);flex-wrap:wrap}
-.stage{position:relative;height:560px}
-.cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);text-transform:none;letter-spacing:0}
-.browser{position:absolute;left:0;top:30px;width:min(520px,92%);background:#f7f3ec;border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow);color:#2a1e14}
-.bar{height:34px;background:#e8e2d8;display:flex;align-items:center;gap:6px;padding:0 12px}.bar i{width:9px;height:9px;border-radius:50%;background:#c9c0b2}
-.bar span{margin-left:12px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#8a7f70;background:#f7f3ec;padding:3px 10px;border-radius:6px}
-.site{display:block;width:100%;height:300px;object-fit:cover;object-position:top}
-.site .t{padding:30px 26px}.site .t small{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;color:#a0522d}
-.site .t .mh{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:40px;line-height:1;letter-spacing:-.01em;margin:10px 0 12px}
-.site .t p{font-size:12px;line-height:1.5;color:#6b5e50}.site .t b{display:inline-block;margin-top:16px;background:#2a1e14;color:#f7f3ec;font-size:12px;padding:9px 14px;border-radius:999px}
-.pic{background:radial-gradient(circle at 35% 40%,#e9b872 0 18%,transparent 19%),radial-gradient(circle at 62% 58%,#7a4a2a 0 22%,transparent 23%),radial-gradient(circle at 50% 50%,#f2e6d3 0 34%,#c98b4f 35% 37%,transparent 38%),linear-gradient(160deg,#d9a066,#8c5a35)}
-.phone{position:absolute;right:20px;top:0;width:220px;height:450px;border-radius:34px;background:#000;padding:9px;box-shadow:var(--shadow);transform:rotate(4deg)}
-.reel{height:100%;border-radius:26px;overflow:hidden;position:relative;background:linear-gradient(170deg,#3b3bf2 0%,#141a70 55%,#0a0e2e 100%)}
-.reelvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.reel .big{text-shadow:0 2px 12px rgba(0,0,0,.5);position:absolute;left:16px;top:110px;font-weight:900;font-size:30px;line-height:.95;letter-spacing:-.04em;color:#fff}.reel .big em{font-style:normal;color:var(--lichen)}
-.reel .play{position:absolute;left:50%;top:58%;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.2);transform:translate(-50%,-50%);display:grid;place-items:center}
-.reel .play::after{content:"";border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
-.reel .who{position:absolute;left:14px;bottom:30px;font-size:12px;font-weight:700;display:flex;gap:8px;align-items:center;color:#fff}.reel .who i{width:24px;height:24px;border-radius:50%;background:var(--lichen)}
-.reel .prog{position:absolute;left:12px;right:12px;bottom:14px;height:3px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden}.reel .prog::after{content:"";display:block;width:62%;height:100%;background:#fff;border-radius:3px;animation:prog 6s linear infinite}
-@keyframes prog{from{width:0}to{width:100%}}
-.side-ic{position:absolute;right:10px;bottom:80px;display:flex;flex-direction:column;gap:16px}.side-ic i{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.13)}
-.maps{position:absolute;left:150px;bottom:10px;width:310px;background:#fff;color:#1e2422;border-radius:var(--r2);overflow:hidden;box-shadow:var(--shadow)}
-.maps .info{padding:12px 16px}.maps b{font-size:15px}.maps .st{font-size:12px;color:#5e6662;margin-top:3px}.maps .st span{color:#b7791f}
+.stage{position:relative;height:520px}
+.cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);font-size:var(--t-sm)}
+.stage .shot{position:absolute;left:0;top:24px;width:min(560px,86%);height:auto;border-radius:var(--r1);box-shadow:var(--shadow);border:1px solid var(--line)}
+.stage .phone{position:absolute;right:0;bottom:0;width:210px;height:430px;border-radius:30px;background:#000;padding:8px;box-shadow:var(--shadow)}
+.reelvid{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block}
+.stage .big{position:absolute;left:24px;top:100px;font-weight:900;font-size:28px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .stage .big em{font-style:normal;color:var(--lichen)}
 .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
 .nums{padding:var(--s6) 0;border-top:1px solid var(--paper-line)} .n{border-top:2px solid var(--paper-ink);padding-top:var(--s3)} .n b{display:block;font-size:var(--t-4xl);font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:var(--s2)} .n span{color:var(--paper-mut);font-size:var(--t-sm)}
 .how{counter-reset:step}
 .how .card{position:relative}
 .rep{background:#fff;border:1px solid var(--paper-line);border-radius:var(--r2);padding:var(--s4);color:var(--paper-ink)}
 .rep .h{display:flex;justify-content:space-between;font-size:var(--t-xs);color:var(--paper-mut)} .rep .h b{color:var(--paper-ink);font-size:var(--t-sm)}
-.bars{display:flex;align-items:flex-end;gap:12px;height:150px;margin:var(--s4) 0 var(--s2);border-bottom:1px solid var(--paper-line)}
-.bars div{flex:1;background:var(--paper-2);border-radius:4px 4px 0 0}.bars div:last-child{background:var(--brand)}
-.months{display:flex;gap:12px;font-size:var(--t-xs);color:var(--paper-mut)}.months span{flex:1;text-align:center}
+.rq{font-size:var(--t-sm);color:var(--paper-mut);margin:var(--s3) 0 var(--s2)} .rq em{font-style:normal;color:var(--paper-ink)}
+.rn{font-size:var(--t-sm);color:var(--paper-mut);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--paper-line)} .rn b{color:var(--paper-ink)}
 .rows{margin-top:var(--s3)}.rows div{display:flex;justify-content:space-between;padding:var(--s2) 0;border-top:1px solid var(--paper-line);font-size:var(--t-sm)}
 .ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%}
-  .stage{height:0;padding-bottom:84%}
-  .stage>*{transform-origin:top left}
-  .stage-in{position:absolute;inset:0;transform:scale(.6);transform-origin:top left;width:166%;height:166%}
+  .stage{height:auto;display:grid;grid-template-columns:1fr 120px;gap:var(--s3);align-items:end}
+  .stage .shot,.stage .phone{position:static;width:100%} .stage .phone{position:relative;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px} .stage .big{font-size:16px;left:12px;top:40px}
+  .cap{position:static;margin-top:var(--s2);grid-column:1/-1}
   .svc{grid-template-columns:1fr}
 }
 </style>
@@ -102,7 +85,7 @@
 <main id="main">
 <section class="hero"><div class="wrap">
   <div>
-    <p class="mono eyebrow rise">Markkinointitoimisto · Vantaa · koko Suomi</p>
+    <p class="eyebrow rise">Markkinointitoimisto, Vantaa. Palvelemme koko Suomea.</p>
     <h1 class="words" aria-label="Näyttäkää yhtä hyvältä kuin työnne on."><span class="w"><i>Näyttäkää</i></span> <span class="w"><i>yhtä</i></span> <span class="w"><i>hyvältä</i></span> <span class="w lic"><i>kuin</i></span> <span class="w lic"><i>työnne</i></span> <span class="w lic"><i>on.</i></span></h1>
     <p class="lead rise d2">Videomainokset, some, kotisivut ja näkyvyys Googlessa. Suunniteltuna, tehtynä ja mitattuna, ilman pitkiä sopimuksia.</p>
     <div class="cta rise d3">
@@ -110,19 +93,15 @@
       <a class="btn btn-ghost" href="tyot.html">Katso töitämme</a>
     </div>
   </div>
-  <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu, Instagram-videomainos ja Google-karttalistaus" role="img"><div class="stage-in">
-    <div class="browser"><div class="bar"><i></i><i></i><i></i><span>kahvila-aamu.fi</span></div>
-      <img class="site" src="demo/kahvila-aamu.png" alt="" width="1200" height="750"></div>
-    <div class="phone"><div class="reel"><video class="reelvid" src="assets/kahvila-aamu.mp4" poster="assets/kahvila-aamu-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Esimerkki: 3D-tuotevideo kahvilan Instagram-mainokseen"></video><div class="big">AAMIAINEN<br><em>7–11</em></div><div class="play"></div><div class="side-ic"><i></i><i></i><i></i></div><div class="who"><i></i>kahvila.aamu</div><div class="prog"></div></div></div>
-    <div class="maps"><svg width="310" height="110" viewBox="0 0 310 110" aria-hidden="true"><rect width="310" height="110" fill="#e8eee9"/><path d="M0 70 C80 60 120 90 310 50" stroke="#fff" stroke-width="10" fill="none"/><path d="M90 0 L130 110 M220 0 L200 110" stroke="#fff" stroke-width="7"/><rect x="230" y="70" width="70" height="40" rx="8" fill="#cfe0a6"/><path d="M0 20 h60" stroke="#fff" stroke-width="5"/><g transform="translate(160 40)"><path d="M0 -26c-9 0-16 7-16 16 0 12 16 26 16 26s16-14 16-26c0-9-7-16-16-16z" fill="#3b3bf2"/><circle cy="-10" r="6" fill="#fff"/></g></svg>
-      <div class="info"><b>Kahvila Aamu</b><div class="st"><span>★★★★★</span> · Kahvila · Avoinna</div></div></div>
-  </div><p class="mono cap">Esimerkki, kuvitteellinen yritys</p></div>
+  <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu ja Instagram-videomainos" role="img">
+    <img class="shot" src="demo/kahvila-aamu.png" alt="" width="1200" height="750">
+    <div class="phone"><video class="reelvid" src="assets/kahvila-aamu.mp4" poster="assets/kahvila-aamu-poster.jpg" autoplay muted loop playsinline preload="metadata"></video><div class="big">AAMIAINEN<br><em>7–11</em></div></div>
+  <p class="cap">Esimerkki, kuvitteellinen yritys</p></div>
 </div></section>
 
-<div class="strip"><div class="wrap"><b>Mitä teemme:</b><span>Videomainokset</span><span>Somen ylläpito</span><span>Kotisivut</span><span>Google-näkyvyys</span><span>Mainonta</span></div></div>
 
 <section><div class="wrap">
-  <div class="head"><p class="mono eyebrow">Palvelut</p><h2>Yksi kumppani koko markkinoinnille.</h2><p class="lead">Voitte ottaa yhden palvelun tai kaikki. Jokaisessa on kiinteä kuukausihinta tai kertahinta, ja kerromme etukäteen, mitä se sisältää.</p></div>
+  <div class="head"><p class="eyebrow">Palvelut</p><h2>Neljä asiaa, jotka hoidamme puolestanne</h2><p class="lead">Yhden tai kaikki. Jokaisessa on kiinteä hinta, ja kerromme etukäteen, mitä se sisältää.</p></div>
   <div class="svc">
     <a class="card" href="palvelut.html#nakyvyys"><p class="num">01</p><h3>Näkyvyys Googlessa ja hakupalveluissa</h3><p>Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden vastaukset kuntoon. Mittaamme joka arkipäivä, miten yrityksenne löytyy.</p></a>
     <a class="card" href="palvelut.html#some"><p class="num">02</p><h3>Somen ylläpito</h3><p>Suunnitelma, julkaisut ja vastaukset kommentteihin. Te hyväksytte, me julkaisemme.</p></a>
@@ -134,16 +113,21 @@
 <section class="paper"><div class="wrap">
   <div class="grid grid-2" style="align-items:center">
     <div>
-      <p class="mono eyebrow">Raportti kerran kuussa</p>
-      <h2>Tiedätte aina, mitä rahallanne tehtiin.</h2>
-      <p class="lead" style="margin-top:var(--s3)">Joka kuukausi saatte yhden sivun: mitä tehtiin, mitä se tuotti ja mitä teemme seuraavaksi. Ilman markkinointijargonia.</p>
-      <p class="lead" style="margin-top:var(--s3)">Hinnat ovat näkyvillä etukäteen, ja jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun.</p>
+      <p class="eyebrow">Raportti kerran kuussa</p>
+      <h2>Mitä raportissa lukee</h2>
+      <p class="lead" style="margin-top:var(--s3)">Yksi sivu kuukaudessa: mitä kysyimme ja milloin, missä yrityksenne mainittiin, mitä korjasimme ja mitä teemme seuraavaksi. Päivämäärineen, ilman markkinointijargonia.</p>
+      <p class="lead" style="margin-top:var(--s3)">Jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun.</p>
     </div>
     <div class="rep" aria-label="Esimerkki kuukausiraportista">
-      <div class="h"><div><b>Kuukausiraportti</b><br>Esimerkkiyritys, Vantaa</div><span class="tag" style="margin:0">Esimerkki</span></div>
-      <div class="bars" aria-hidden="true"><div style="height:30%"></div><div style="height:38%"></div><div style="height:52%"></div><div style="height:61%"></div><div style="height:78%"></div></div>
-      <div class="months" aria-hidden="true"><span>kesä</span><span>heinä</span><span>elo</span><span>syys</span><span>loka</span></div>
-      <div class="rows"><div>Löytyy Googlen kartalta<span class="ok">Kyllä</span></div><div>Hakupalvelut mainitsevat<span class="ok">2/3 kysymyksessä</span></div><div>Hakemistoissa oikeat tiedot<span class="todo">Korjattavana</span></div></div>
+      <div class="h"><div><b>Kuukausiraportti · lokakuu 2026</b><br>Esimerkkiyritys Oy, Vantaa</div><span class="tag" style="margin:0">Esimerkki</span></div>
+      <p class="rq">Kysyimme 1.10., 8.10., 15.10. ja 22.10.: <em>”hyvä tilitoimisto Vantaalla”</em>, <em>”tilitoimisto Tikkurila”</em>, <em>”kirjanpitäjä pienyritykselle Vantaa”</em>.</p>
+      <div class="rows">
+        <div><span>Google-yritysprofiili kunnossa</span><span class="ok">Kyllä, 3.10. alkaen</span></div>
+        <div><span>Yritys mainittiin vastauksissa</span><span class="ok">2 / 3 kysymyksessä</span></div>
+        <div><span>Hakemistoissa oikeat tiedot</span><span class="todo">4 / 5, yksi korjattavana</span></div>
+        <div><span>Uusi sisältö</span><span>Palvelusivu: tilinpäätös</span></div>
+      </div>
+      <p class="rn"><b>Seuraavaksi:</b> viimeinen hakemisto kuntoon ja usein kysytyt kysymykset sivuille. Jos marraskuun luvut eivät parane, kerromme miksi.</p>
     </div>
   </div>
 </div></section>
@@ -156,17 +140,19 @@
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <div class="head"><p class="mono eyebrow">Miten se etenee</p><h2>Kolme askelta, ei yllätyksiä.</h2></div>
-  <div class="grid grid-3 how">
-    <div class="card"><p class="num">1</p><h3>Maksuton kartoitus</h3><p>Katsomme, miten yrityksenne löytyy ja miltä se näyttää asiakkaan silmin. Saatte kolme tärkeintä korjausta kirjallisena, sitoumuksetta.</p></div>
-    <div class="card"><p class="num">2</p><h3>Selkeä tarjous</h3><p>Valitsette palvelut ja näette hinnan ennen kuin mitään tehdään. Kertatyöt laskutetaan vasta, kun työ on valmis.</p></div>
-    <div class="card"><p class="num">3</p><h3>Työ ja raportti</h3><p>Teemme sovitut työt, ja kerran kuussa saatte raportin siitä, mitä tapahtui. Jatkatte, jos se kannattaa.</p></div>
-  </div>
+<section><div class="wrap tl">
+  <div><p class="eyebrow">Ensimmäinen kuukausi</p><h2>Mitä tapahtuu, kun otatte yhteyttä</h2><p class="lead" style="margin-top:var(--s3)">Ei myyntipalavereita. Ensimmäinen viikko on kartoitusta ja korjauksia, ja kuukauden lopussa näette paperilla, mitä se tuotti.</p></div>
+  <ol>
+    <li><b>Päivä 0</b><p><strong>Lähetätte nimen ja paikkakunnan.</strong> Sähköpostilla tai WhatsAppissa, muuta ei tarvita.</p></li>
+    <li><b>Päivä 1–2</b><p><strong>Kartoitus.</strong> Katsomme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista ja miltä se näyttää asiakkaan silmin. Saatte kolme tärkeintä korjausta kirjallisena.</p></li>
+    <li><b>Päivä 3</b><p><strong>Tarjous, jos haluatte.</strong> Valitsette palvelut ja näette hinnan ennen kuin mitään tehdään.</p></li>
+    <li><b>Päivä 7</b><p><strong>Korjauspaketti valmis.</strong> Google-yritysprofiili, hakemistot ja sivujen perustiedot kunnossa. Laskutetaan vasta nyt.</p></li>
+    <li><b>Päivä 30</b><p><strong>Ensimmäinen raportti.</strong> Yksi sivu: mitä tehtiin, mitä se tuotti, mitä seuraavaksi. Jatkatte, jos se kannattaa.</p></li>
+  </ol>
 </div></section>
 
 <section class="paper"><div class="wrap">
-  <div class="head"><p class="mono eyebrow">Usein kysyttyä</p><h2>Rehelliset vastaukset.</h2></div>
+  <div class="head"><p class="eyebrow">Usein kysyttyä</p><h2>Mitä meiltä kysytään ennen tilausta</h2></div>
   <div style="max-width:760px">
     <details><summary>Lupaatteko tietyn sijan Googlessa?</summary><p>Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat päivästä toiseen. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy.</p></details>
     <details><summary>Onko sopimuksessa määräaikaa?</summary><p>Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan kun työ on valmis.</p></details>
@@ -175,16 +161,17 @@
   </div>
 </div></section>
 
-<div class="cta-band"><div class="wrap">
-  <h2>Katsotaan, mitä asiakkaanne näkevät.</h2>
-  <a class="btn btn-lichen" href="yhteys.html">Pyydä maksuton kartoitus</a>
-</div></div>
+<section class="close"><div class="wrap">
+  <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
+  <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+  <p>Vastaamme kahden arkipäivän kuluessa kolmella tärkeimmällä korjauksella. Kartoitus ei sido mihinkään.</p>
+</div></section>
 </main>
 
 <footer><div class="wrap">
   <div><a class="logo" href="index.html">Markt<span class="i">ı</span>c</a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Hintoihin ei lisätä arvonlisäveroa.</p></div>
   <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
-  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li><li><a href="llms.txt">llms.txt</a></li></ul>
+  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
 </div></footer>
 <script>
 const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
