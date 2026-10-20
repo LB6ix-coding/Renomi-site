@@ -47,7 +47,7 @@
   <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Valikko">≡</button>
   <nav class="nav" id="nav" aria-label="Päävalikko">
     <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
-    <a class="btn btn-lichen btn-sm" href="yhteys.html">Pyydä kartoitus</a>
+    <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
   </nav>
 </div></header>
 
@@ -128,5 +128,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contain
 const here=location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
 </script>
+<script src="mail.js" defer></script>
 </body>
 </html>
