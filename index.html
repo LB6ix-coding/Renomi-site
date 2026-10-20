@@ -36,18 +36,22 @@
 .nums{padding:var(--s6) 0;border-top:1px solid var(--paper-line)} .n{border-top:2px solid var(--paper-ink);padding-top:var(--s3)} .n b{display:block;font-size:var(--t-4xl);font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:var(--s2)} .n span{color:var(--paper-mut);font-size:var(--t-sm)}
 .how{counter-reset:step}
 .how .card{position:relative}
-.rep{background:#fff;border:1px solid var(--paper-line);border-radius:var(--r2);padding:var(--s4);color:var(--paper-ink)}
-.rep .h{display:flex;justify-content:space-between;font-size:var(--t-xs);color:var(--paper-mut)} .rep .h b{color:var(--paper-ink);font-size:var(--t-sm)}
-.rq{font-size:var(--t-sm);color:var(--paper-mut);margin:var(--s3) 0 var(--s2)} .rq em{font-style:normal;color:var(--paper-ink)}
-.rn{font-size:var(--t-sm);color:var(--paper-mut);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--paper-line)} .rn b{color:var(--paper-ink)}
-.rows{margin-top:var(--s3)}.rows div{display:flex;justify-content:space-between;padding:var(--s2) 0;border-top:1px solid var(--paper-line);font-size:var(--t-sm)}
+.rep{background:#fff;border:1px solid var(--paper-line);border-radius:6px;padding:var(--s4);color:var(--paper-ink);box-shadow:0 20px 50px rgba(23,32,29,.10);font-size:var(--t-sm)}
+.rh{display:flex;justify-content:space-between;gap:var(--s3);padding-bottom:var(--s3);border-bottom:2px solid var(--paper-ink);line-height:1.45} .rh b{font-size:var(--t-base)} .rr{text-align:right;color:var(--paper-mut)}
+.rlogo{font-weight:900;font-size:var(--t-lg);letter-spacing:-.045em} .rlogo .i{position:relative} .rlogo .i::after{content:"";position:absolute;left:50%;top:.19em;width:.19em;height:.19em;border-radius:50%;background:var(--brand);transform:translateX(-50%)}
+.tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin:var(--s3) 0}
+.tiles3 div{border:1px solid var(--paper-line);border-radius:var(--r1);padding:var(--s2) var(--s3)} .tiles3 small{display:block;color:var(--paper-mut);font-size:var(--t-xs)} .tiles3 b{display:block;font-size:var(--t-xl);font-weight:700;letter-spacing:-.02em;margin:2px 0} .tiles3 span{color:var(--paper-mut);font-size:var(--t-xs)}
+.grid4{width:100%;border-collapse:collapse;margin-top:var(--s2)} .grid4 caption{text-align:left;color:var(--paper-mut);font-size:var(--t-xs);padding-bottom:var(--s2)}
+.grid4 th,.grid4 td{padding:8px 0;border-top:1px solid var(--paper-line);text-align:center;font-weight:600;font-size:var(--t-xs);color:var(--paper-mut)} .grid4 tbody th{text-align:left;font-weight:500;color:var(--paper-ink);font-size:var(--t-sm)} .grid4 thead th{border:0}
+.grid4 i{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--paper-line)} .grid4 i.y{background:var(--brand);border-color:var(--brand)}
+.rcols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--paper-line)} .rcols small{display:block;font-weight:700;color:var(--paper-ink);margin-bottom:var(--s1)} .rcols ul{margin-left:18px;color:var(--paper-mut)} .rcols li{margin:3px 0}
 .ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%}
   .stage{height:auto;display:grid;grid-template-columns:1fr 120px;gap:var(--s3);align-items:end}
   .stage .shot,.stage .phone{position:static;width:100%} .stage .phone{position:relative;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px} .stage .big{font-size:16px;left:12px;top:40px}
   .cap{position:static;margin-top:var(--s2);grid-column:1/-1}
-  .svc{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr} .tiles3{grid-template-columns:1fr} .rcols{grid-template-columns:1fr} .rep{padding:var(--s3)} .grid4 tbody th{font-size:var(--t-xs)}
 }
 </style>
 <script type="application/ld+json">
@@ -119,15 +123,23 @@
       <p class="lead" style="margin-top:var(--s3)">Jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun.</p>
     </div>
     <div class="rep" aria-label="Esimerkki kuukausiraportista">
-      <div class="h"><div><b>Kuukausiraportti · lokakuu 2026</b><br>Esimerkkiyritys Oy, Vantaa</div><span class="tag" style="margin:0">Esimerkki</span></div>
-      <p class="rq">Kysyimme 1.10., 8.10., 15.10. ja 22.10.: <em>”hyvä tilitoimisto Vantaalla”</em>, <em>”tilitoimisto Tikkurila”</em>, <em>”kirjanpitäjä pienyritykselle Vantaa”</em>.</p>
-      <div class="rows">
-        <div><span>Google-yritysprofiili kunnossa</span><span class="ok">Kyllä, 3.10. alkaen</span></div>
-        <div><span>Yritys mainittiin vastauksissa</span><span class="ok">2 / 3 kysymyksessä</span></div>
-        <div><span>Hakemistoissa oikeat tiedot</span><span class="todo">4 / 5, yksi korjattavana</span></div>
-        <div><span>Uusi sisältö</span><span>Palvelusivu: tilinpäätös</span></div>
+      <div class="rh"><div><span class="rlogo">Markt<span class="i">ı</span>c</span><br><b>Kuukausiraportti · lokakuu 2026</b></div><div class="rr">Esimerkkiyritys Oy, Vantaa<br><span class="tag" style="margin:0">Esimerkki</span></div></div>
+      <div class="tiles3">
+        <div><small>Google-yritysprofiili</small><b class="ok">Kunnossa</b><span>3.10. alkaen</span></div>
+        <div><small>Mainittu vastauksissa</small><b>2 / 3</b><span>kysymyksessä</span></div>
+        <div><small>Hakemistot oikein</small><b class="todo">4 / 5</b><span>yksi korjattavana</span></div>
       </div>
-      <p class="rn"><b>Seuraavaksi:</b> viimeinen hakemisto kuntoon ja usein kysytyt kysymykset sivuille. Jos marraskuun luvut eivät parane, kerromme miksi.</p>
+      <table class="grid4"><caption>Kysyimme hakupalveluilta neljänä päivänä. Piste = yrityksenne mainittiin.</caption>
+        <thead><tr><th scope="col"></th><th scope="col">1.10.</th><th scope="col">8.10.</th><th scope="col">15.10.</th><th scope="col">22.10.</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">”hyvä tilitoimisto Vantaalla”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
+          <tr><th scope="row">”tilitoimisto Tikkurila”</th><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
+          <tr><th scope="row">”kirjanpitäjä pienyritykselle Vantaa”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="n"></i></td></tr>
+        </tbody></table>
+      <div class="rcols">
+        <div><small>Tehty tässä kuussa</small><ul><li>3.10. Google-yritysprofiili: aukioloajat, kuvat, palvelut</li><li>7.10. Neljä hakemistoa korjattu</li><li>14.10. Uusi palvelusivu: tilinpäätös</li></ul></div>
+        <div><small>Seuraavaksi</small><ul><li>Viimeinen hakemisto kuntoon</li><li>Usein kysytyt kysymykset sivuille</li><li>Jos marraskuun luvut eivät parane, kerromme miksi</li></ul></div>
+      </div>
     </div>
   </div>
 </div></section>
