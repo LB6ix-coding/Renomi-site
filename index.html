@@ -24,6 +24,7 @@
 @media (prefers-reduced-motion:reduce){.words .w i{transform:none;animation:none}}
 
 .hero .cta{display:flex;gap:var(--s3);margin-top:var(--s5);flex-wrap:wrap}
+.hero .pl{margin:var(--s4) 0 0;display:flex;flex-wrap:wrap;color:var(--ink-2);font-size:var(--t-sm);font-weight:600} .hero .pl span{padding:6px 14px 6px 0;margin-right:14px;border-right:1px solid var(--line-2)} .hero .pl span:last-child{border:0;margin:0;padding-right:0} .hero .pl b{color:var(--ink);font-weight:700}
 .stage{position:relative;height:520px}
 .cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);font-size:var(--t-sm)}
 .stage .shot{position:absolute;left:0;top:24px;width:min(560px,86%);height:auto;border-radius:var(--r1);box-shadow:var(--shadow);border:1px solid var(--line)}
@@ -48,7 +49,7 @@
 .rcols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--paper-line)} .rcols small{display:block;font-weight:700;color:var(--paper-ink);margin-bottom:var(--s1)} .rcols ul{margin-left:18px;color:var(--paper-mut)} .rcols li{margin:3px 0}
 .ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
 @media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%}
+  .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%} .hero .pl{gap:4px 0} .hero .pl span{padding:4px 10px 4px 0;margin-right:10px}
   .stage{height:auto;padding-bottom:72px}
   .stage .shot{position:static;width:100%} .stage .phone{position:absolute;right:0;bottom:0;width:34%;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px}
   .cap{position:static;margin-top:var(--s2);max-width:60%}
@@ -97,6 +98,7 @@
       <a class="btn btn-brand" href="yhteys.html">Pyydä maksuton kartoitus</a>
       <a class="btn btn-ghost" href="tyot.html">Katso töitämme</a>
     </div>
+    <p class="pl rise d3"><span>Kotisivut <b>490 €</b></span><span>Some <b>249 €/kk</b></span><span>Näkyvyys <b>149 €/kk</b></span><span>Ei määräaikaa</span></p>
   </div>
   <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu ja Instagram-videomainos" role="img">
     <img class="shot" src="demo/kahvila-aamu.jpg" alt="" width="1200" height="750">
