@@ -3,7 +3,7 @@
 const A='info@marktic.fi';
 const d=document.createElement('dialog');d.className='maild';d.setAttribute('aria-labelledby','maild-t');
 d.innerHTML=`<form method="dialog" class="maild-f">
-  <button type="submit" class="maild-x" aria-label="Sulje" value="close">✕</button>
+  <button type="button" class="maild-x" aria-label="Sulje" data-close>✕</button>
   <h2 id="maild-t">Lähettäkää viesti</h2>
   <p>Täyttäkää nimi ja paikkakunta, niin avaamme valmiin viestin sähköpostiohjelmaanne. Vastaamme kahden arkipäivän kuluessa.</p>
   <label>Yrityksen nimi<input name="y" autocomplete="organization" required></label>
@@ -21,5 +21,7 @@ function build(){const y=f.y.value.trim(),p=f.p.value.trim(),m=f.m.value.trim();
 d.querySelector('[data-send]').addEventListener('click',()=>{if(!f.reportValidity())return;location.href=build();});
 d.querySelector('[data-copy]').addEventListener('click',async e=>{try{await navigator.clipboard.writeText(A);e.target.textContent='Kopioitu';setTimeout(()=>e.target.textContent='Kopioi osoite',1500)}catch(_){location.href='mailto:'+A}});
 d.addEventListener('click',e=>{if(e.target===d)d.close()});
+d.querySelector('[data-close]').addEventListener('click',()=>d.close());
+f.addEventListener('submit',e=>e.preventDefault());
 document.querySelectorAll('[data-mail]').forEach(a=>a.addEventListener('click',e=>{if(typeof d.showModal!=='function')return;e.preventDefault();d.showModal();f.y.focus()}));
 })();
