@@ -42,7 +42,7 @@
 .tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin:var(--s3) 0}
 .tiles3 div{border:1px solid var(--paper-line);border-radius:var(--r1);padding:var(--s2) var(--s3)} .tiles3 small{display:block;color:var(--paper-mut);font-size:var(--t-xs)} .tiles3 b{display:block;font-size:var(--t-xl);font-weight:700;letter-spacing:-.02em;margin:2px 0} .tiles3 span{color:var(--paper-mut);font-size:var(--t-xs)}
 .grid4{width:100%;border-collapse:collapse;margin-top:var(--s2)} .grid4 caption{text-align:left;color:var(--paper-mut);font-size:var(--t-xs);padding-bottom:var(--s2)}
-.grid4 th,.grid4 td{padding:8px 0;border-top:1px solid var(--paper-line);text-align:center;font-weight:600;font-size:var(--t-xs);color:var(--paper-mut)} .grid4 tbody th{text-align:left;font-weight:500;color:var(--paper-ink);font-size:var(--t-sm)} .grid4 thead th{border:0}
+.grid4 th,.grid4 td{padding:8px 4px;border-top:1px solid var(--paper-line);text-align:center;font-weight:600;font-size:var(--t-xs);color:var(--paper-mut)} .grid4 tbody th{text-align:left;font-weight:500;color:var(--paper-ink);font-size:var(--t-sm)} .grid4 thead th{border:0}
 .grid4 i{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--paper-line)} .grid4 i.y{background:var(--brand);border-color:var(--brand)}
 .rcols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--paper-line)} .rcols small{display:block;font-weight:700;color:var(--paper-ink);margin-bottom:var(--s1)} .rcols ul{margin-left:18px;color:var(--paper-mut)} .rcols li{margin:3px 0}
 .ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
@@ -51,7 +51,7 @@
   .stage{height:auto;display:grid;grid-template-columns:1fr 120px;gap:var(--s3);align-items:end}
   .stage .shot,.stage .phone{position:static;width:100%} .stage .phone{position:relative;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px} .stage .big{font-size:16px;left:12px;top:40px}
   .cap{position:static;margin-top:var(--s2);grid-column:1/-1}
-  .svc{grid-template-columns:1fr} .tiles3{grid-template-columns:1fr} .rcols{grid-template-columns:1fr} .rep{padding:var(--s3)} .grid4 tbody th{font-size:var(--t-xs)}
+  .svc{grid-template-columns:1fr} .tiles3{grid-template-columns:1fr} .rcols{grid-template-columns:1fr} .rep{padding:var(--s3)} .grid4 tbody th{font-size:var(--t-xs)} .grid4 thead th span{display:inline-block;transform:rotate(-45deg);transform-origin:center;font-size:11px}
 }
 </style>
 <script type="application/ld+json">
@@ -130,7 +130,7 @@
         <div><small>Hakemistot oikein</small><b class="todo">4 / 5</b><span>yksi korjattavana</span></div>
       </div>
       <table class="grid4"><caption>Kysyimme hakupalveluilta neljänä päivänä. Piste = yrityksenne mainittiin.</caption>
-        <thead><tr><th scope="col"></th><th scope="col">1.10.</th><th scope="col">8.10.</th><th scope="col">15.10.</th><th scope="col">22.10.</th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col"><span>1.10.</span></th><th scope="col"><span>8.10.</span></th><th scope="col"><span>15.10.</span></th><th scope="col"><span>22.10.</span></th></tr></thead>
         <tbody>
           <tr><th scope="row">”hyvä tilitoimisto Vantaalla”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
           <tr><th scope="row">”tilitoimisto Tikkurila”</th><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
