@@ -3,16 +3,16 @@
 > Marktic on vantaalainen markkinointitoimisto pienille ja keskisuurille yrityksille koko Suomessa. Teemme videomainokset, somen ylläpidon, kotisivut ja mainonnan sekä pidämme huolta, että yritys löytyy Googlesta, kartalta ja hakupalveluista (myös tekoälyhauista). Hinnat ovat näkyvillä, kuukausipalveluissa ei ole määräaikaa, ja asiakas saa kerran kuussa raportin selkokielellä. Emme lupaa sijoituksia hakutuloksissa; raportoimme mitatut tulokset päivämäärineen.
 
 ## Palvelut ja hinnat (hintoihin ei lisätä arvonlisäveroa)
-- Maksuton kartoitus: 0 €. miten yritys löytyy Googlesta, kartalta, hakemistoista ja hakupalveluista, ja kolme tärkeintä korjausta.
+- Maksuton kartoitus: 0 €. miten yritys löytyy Googlesta, kartalta, hakemistoista ja hakupalveluista, ja mitä korjaisimme ensin.
 - Korjauspaketti (näkyvyys): 190 € kertamaksu, valmis 7 arkipäivässä, laskutetaan kun työ on valmis.
 - Näkyvyyden ylläpito: 149 €/kk (perustajahinta 10 ensimmäiselle asiakkaalle, normaalisti 190 €/kk). Mittaus joka arkipäivä, korjaukset, kuukausiraportti. Ei määräaikaa.
 - Näkyvyyden aktiivinen kehitys: 290 €/kk (perustajahinta, normaalisti 349 €/kk). Ylläpito + yksi uusi sisältö kuukaudessa.
-- Some Perus: 290 €/kk. 1 kanava, 4 julkaisua/kk + storyt, kuukausiraportti.
-- Some Plus: 590 €/kk. 2 kanavaa, 8 julkaisua/kk, 1 lyhytvideo/kk, kommentteihin vastaaminen.
-- Videomainos: alkaen 390 €/video (15–30 s, 3D tai animaatio, pysty- ja vaakaversio). Kolmen videon sarja 990 €.
-- Kotisivut: alkaen 1 490 € (enintään 5 sivua, mobiili ensin, rakenteinen tieto). Ylläpito 39 €/kk, valinnainen.
-- Mainonnan hallinta (Google ja Meta): alkaen 290 €/kk, mainosbudjetti maksetaan suoraan alustoille.
-- Marktic Kumppani: 790 €/kk. Näkyvyys (aktiivinen kehitys) + Some Perus + mainonnan hallinta.
+- Some Perus: 249 €/kk. 1 kanava, 4 julkaisua/kk + storyt, kuukausiraportti.
+- Some Plus: 490 €/kk. 2 kanavaa, 8 julkaisua/kk, 1 lyhytvideo/kk, kommentteihin vastaaminen.
+- Videomainos: alkaen 290 €/video (15–30 s, valokuvista, animaationa tai 3D-mallista, pysty- ja vaakaversio). Kolmen videon sarja 690 €.
+- Kotisivut: yksi sivu 490 €, viisi sivua 990 € (mobiili ensin, rakenteinen tieto). Ylläpito 19 €/kk, valinnainen.
+- Mainonnan hallinta (Google ja Meta): alkaen 249 €/kk, mainosbudjetti maksetaan suoraan alustoille.
+- Marktic Kumppani: 690 €/kk. Näkyvyys (aktiivinen kehitys) + Some Perus + mainonnan hallinta.
 - Ehdot: ei aloitusmaksua, ei määräaikaa, ensimmäisen kuukauden maksu palautetaan jos asiakas ei ole tyytyväinen.
 
 ## Alue ja kieli
