@@ -1,6 +1,6 @@
 # Marktic
 
-> Marktic on vantaalainen markkinointitoimisto pienille ja keskisuurille yrityksille koko Suomessa. Teemme videomainokset, somen ylläpidon, kotisivut ja mainonnan sekä pidämme huolta, että yritys löytyy Googlesta, kartalta ja hakupalveluista (myös tekoälyhauista). Hinnat ovat näkyvillä, kuukausipalveluissa ei ole määräaikaa, ja asiakas saa kerran kuussa raportin selkokielellä. Emme lupaa sijoituksia hakutuloksissa; raportoimme mitatut tulokset päivämäärineen.
+> Marktic on suomalainen markkinointitoimisto pienille ja keskisuurille yrityksille koko Suomessa. Teemme videomainokset, somen ylläpidon, kotisivut ja mainonnan sekä pidämme huolta, että yritys löytyy Googlesta, kartalta ja hakupalveluista (myös tekoälyhauista). Hinnat ovat näkyvillä, kuukausipalveluissa ei ole määräaikaa, ja asiakas saa kerran kuussa raportin selkokielellä. Emme lupaa sijoituksia hakutuloksissa; raportoimme mitatut tulokset päivämäärineen.
 
 ## Palvelut ja hinnat (hintoihin ei lisätä arvonlisäveroa)
 - Maksuton kartoitus: 0 €. miten yritys löytyy Googlesta, kartalta, hakemistoista ja hakupalveluista, ja mitä korjaisimme ensin.
