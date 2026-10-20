@@ -14,6 +14,16 @@
 <style>
 .ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
 .plan .amt .from{display:block;font-weight:700;font-size:var(--t-sm);letter-spacing:0;margin-bottom:var(--s1)} .plan .amt{white-space:nowrap}
+
+
+.plan{grid-template-columns:44px 1fr 1.2fr 1.4fr;align-items:start} .plan.sel{background:rgba(75,75,255,.06);margin:0 calc(-1*var(--s3));padding-left:var(--s3);padding-right:var(--s3);border-radius:var(--r1)}
+.pick{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;margin-top:-10px} .pick input{position:absolute;opacity:0;width:1px;height:1px}
+.pick span:first-of-type{width:24px;height:24px;border:2px solid var(--line-2);border-radius:6px;display:grid;place-items:center;transition:background .2s var(--ease),border-color .2s var(--ease)} .paper .pick span:first-of-type{border-color:#b9c3bc}
+.pick input:checked+span{background:var(--brand);border-color:var(--brand)} .pick input:checked+span::after{content:"";width:12px;height:7px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:translateY(-2px) rotate(-45deg)}
+.pick input:focus-visible+span{outline:3px solid var(--lichen);outline-offset:3px} .paper .pick input:focus-visible+span{outline-color:var(--brand)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tot{position:sticky;bottom:0;z-index:30;background:var(--ink);color:var(--bg);border-top:1px solid var(--line-2);padding:var(--s3) 0} .tot .wrap{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap} .tot b{font-size:var(--t-lg);margin-right:var(--s2)} .tot .mut{color:#56625d;margin-left:var(--s2)} .tot .btn-ghost{border-color:#56625d;color:var(--bg)}
+@media (max-width:900px){.plan{grid-template-columns:44px 1fr} .plan>div:nth-child(3),.plan>div:nth-child(4){grid-column:2} .plan.sel{margin:0;padding-left:var(--s2);padding-right:var(--s2)}}
 .paper .price .plan{border-color:var(--paper-line)} .price .plan{border-color:var(--line)} .price .what,.price .was,.plan .amt small{color:var(--mut)} .paper .price .what,.paper .price .was,.paper .plan .amt small{color:var(--paper-mut)}
 </style>
 <script type="application/ld+json">
@@ -45,39 +55,40 @@
 <section class="ph1"><div class="wrap"><div class="head">
 <p class="eyebrow">Palvelut ja hinnat</p><h1>Hinnat näkyvillä, ennen kuin soitatte.</h1>
 <p class="lead">Jokaisella palvelulla on kiinteä hinta. Kuukausipalveluissa ei ole määräaikaa, ja kertatyöt laskutetaan vasta kun työ on valmis. Jos ette ole tyytyväisiä ensimmäiseen kuukauteen, palautamme sen maksun.</p>
+<p class="mut" style="margin-top:var(--s2)">Voitte rastittaa palvelut, jolloin sivun alareunaan laskee yhteissumma. Siitä lähtee tarjouspyyntö yhdellä painalluksella.</p>
 <nav aria-label="Palvelut" style="display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s2)"><a class="btn btn-ghost btn-sm" href="#nakyvyys">Näkyvyys Googlessa ja hakupalveluissa</a><a class="btn btn-ghost btn-sm" href="#some">Somen ylläpito</a><a class="btn btn-ghost btn-sm" href="#video">Videomainokset</a><a class="btn btn-ghost btn-sm" href="#sivut">Kotisivut ja mainonta</a><a class="btn btn-ghost btn-sm" href="#kumppani">Kumppanipaketti</a></nav>
 </div></div></section>
 <section class="paper" id="nakyvyys" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid grid-2" style="gap:var(--s5)"><div><p class="num">01</p><h2>Näkyvyys Googlessa ja hakupalveluissa</h2><p class="lead" style="margin-top:var(--s3)">Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden vastaukset kuntoon. Mittaamme joka arkipäivä, miten yrityksenne löytyy teidän alallanne ja kaupungissanne, ja korjaamme syyt.</p></div>
 <div class="price">
-<div class="plan"><div><h3>Näkyvyysraportti</h3></div><div><div class="amt">0 €</div></div><div class="what">Mitä asiakkaat näkevät, kun he etsivät teidän alanne yritystä: Google, kartta, hakemistot ja hakupalvelut. Kolme tärkeintä korjausta kirjallisena.</div></div>
-<div class="plan"><div><h3>Korjauspaketti</h3></div><div><div class="amt">190 € <small>kertamaksu</small></div></div><div class="what">Google-yritysprofiili, rakenteinen tieto sivuille, oikeat tiedot hakemistoihin, joita hakupalvelut käyttävät. Valmis 7 arkipäivässä, laskutetaan kun työ on tehty.</div></div>
-<div class="plan"><div><h3>Ylläpito <span class="tag">Perustajahinta</span></h3></div><div><div class="amt">149 € <small>/kk</small></div><div class="was">Normaalisti 190 €/kk. 10 ensimmäiselle asiakkaalle.</div></div><div class="what">Mittaus joka arkipäivä, korjaukset kun jokin muuttuu, kuukausiraportti päivämäärineen. Ei määräaikaa.</div></div>
-<div class="plan"><div><h3>Aktiivinen kehitys <span class="tag">Perustajahinta</span></h3></div><div><div class="amt">290 € <small>/kk</small></div><div class="was">Normaalisti 349 €/kk.</div></div><div class="what">Ylläpito + joka kuukausi yksi uusi sisältö (esim. palvelusivu tai usein kysytyt kysymykset), jolla näkyvyys kasvaa. Ei määräaikaa.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Näkyvyysraportti" data-mo="0" data-once="0"><span></span><span class="sr">Valitse Näkyvyysraportti</span></label><div><h3>Näkyvyysraportti</h3></div><div><div class="amt">0 €</div></div><div class="what">Mitä asiakkaat näkevät, kun he etsivät teidän alanne yritystä: Google, kartta, hakemistot ja hakupalvelut. Kolme tärkeintä korjausta kirjallisena.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Korjauspaketti" data-mo="0" data-once="190"><span></span><span class="sr">Valitse Korjauspaketti</span></label><div><h3>Korjauspaketti</h3></div><div><div class="amt">190 € <small>kertamaksu</small></div></div><div class="what">Google-yritysprofiili, rakenteinen tieto sivuille, oikeat tiedot hakemistoihin, joita hakupalvelut käyttävät. Valmis 7 arkipäivässä, laskutetaan kun työ on tehty.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Ylläpito" data-mo="149" data-once="0"><span></span><span class="sr">Valitse Ylläpito</span></label><div><h3>Ylläpito <span class="tag">Perustajahinta</span></h3></div><div><div class="amt">149 € <small>/kk</small></div><div class="was">Normaalisti 190 €/kk. 10 ensimmäiselle asiakkaalle.</div></div><div class="what">Mittaus joka arkipäivä, korjaukset kun jokin muuttuu, kuukausiraportti päivämäärineen. Ei määräaikaa.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Aktiivinen kehitys" data-mo="290" data-once="0"><span></span><span class="sr">Valitse Aktiivinen kehitys</span></label><div><h3>Aktiivinen kehitys <span class="tag">Perustajahinta</span></h3></div><div><div class="amt">290 € <small>/kk</small></div><div class="was">Normaalisti 349 €/kk.</div></div><div class="what">Ylläpito + joka kuukausi yksi uusi sisältö (esim. palvelusivu tai usein kysytyt kysymykset), jolla näkyvyys kasvaa. Ei määräaikaa.</div></div>
 </div></div></div></section>
 <section class="" id="some" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid grid-2" style="gap:var(--s5)"><div><p class="num">02</p><h2>Somen ylläpito</h2><p class="lead" style="margin-top:var(--s3)">Suunnittelemme, teemme ja julkaisemme. Te hyväksytte julkaisut etukäteen, ja vastaamme kommentteihin puolestanne. Kuvat ja videot teemme teidän materiaalistanne tai tuotamme itse.</p></div>
 <div class="price">
-<div class="plan"><div><h3>Some Perus</h3></div><div><div class="amt">290 € <small>/kk</small></div></div><div class="what">1 kanava (Instagram tai Facebook), 4 julkaisua kuukaudessa + storyt, sisältösuunnitelma, kuukausiraportti.</div></div>
-<div class="plan"><div><h3>Some Plus</h3></div><div><div class="amt">590 € <small>/kk</small></div></div><div class="what">2 kanavaa, 8 julkaisua kuukaudessa, 1 lyhytvideo kuukaudessa, kommentteihin vastaaminen, kuukausiraportti.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Some Perus" data-mo="290" data-once="0"><span></span><span class="sr">Valitse Some Perus</span></label><div><h3>Some Perus</h3></div><div><div class="amt">290 € <small>/kk</small></div></div><div class="what">1 kanava (Instagram tai Facebook), 4 julkaisua kuukaudessa + storyt, sisältösuunnitelma, kuukausiraportti.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Some Plus" data-mo="590" data-once="0"><span></span><span class="sr">Valitse Some Plus</span></label><div><h3>Some Plus</h3></div><div><div class="amt">590 € <small>/kk</small></div></div><div class="what">2 kanavaa, 8 julkaisua kuukaudessa, 1 lyhytvideo kuukaudessa, kommentteihin vastaaminen, kuukausiraportti.</div></div>
 </div></div></div></section>
 <section class="paper" id="video" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid grid-2" style="gap:var(--s5)"><div><p class="num">03</p><h2>Videomainokset</h2><p class="lead" style="margin-top:var(--s3)">Lyhyet 3D- ja animaatiovideot tuotteista ja palveluista someen, mainoksiin ja kotisivuille. Ei kuvauspäiviä: tarvitsemme tuotteen kuvat tai mallin, ja teemme loput.</p></div>
 <div class="price">
-<div class="plan"><div><h3>Videomainos</h3></div><div><div class="amt"><small class="from">alkaen</small>390 € <small>/video</small></div></div><div class="what">15–30 sekuntia, pysty- ja vaakaversio, tekstit ja musiikki, kaksi korjauskierrosta. Laskutetaan kun video on hyväksytty.</div></div>
-<div class="plan"><div><h3>Kolmen videon sarja</h3></div><div><div class="amt">990 € <small>kertamaksu</small></div></div><div class="what">Kolme videota samasta tuotteesta tai palvelusta eri kulmista, someen ja mainontaan. Säästö 180 €.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Videomainos" data-mo="0" data-once="390"><span></span><span class="sr">Valitse Videomainos</span></label><div><h3>Videomainos</h3></div><div><div class="amt"><small class="from">alkaen</small>390 € <small>/video</small></div></div><div class="what">15–30 sekuntia, pysty- ja vaakaversio, tekstit ja musiikki, kaksi korjauskierrosta. Laskutetaan kun video on hyväksytty.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Kolmen videon sarja" data-mo="0" data-once="990"><span></span><span class="sr">Valitse Kolmen videon sarja</span></label><div><h3>Kolmen videon sarja</h3></div><div><div class="amt">990 € <small>kertamaksu</small></div></div><div class="what">Kolme videota samasta tuotteesta tai palvelusta eri kulmista, someen ja mainontaan. Säästö 180 €.</div></div>
 </div></div></div></section>
 <section class="" id="sivut" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid grid-2" style="gap:var(--s5)"><div><p class="num">04</p><h2>Kotisivut ja mainonta</h2><p class="lead" style="margin-top:var(--s3)">Nopeat kotisivut, jotka toimivat puhelimessa ja löytyvät Googlesta. Google- ja Meta-mainonta, jonka tulokset näette raportissa eurojen tarkkuudella.</p></div>
 <div class="price">
-<div class="plan"><div><h3>Kotisivut</h3></div><div><div class="amt"><small class="from">alkaen</small>1 490 € <small>kertamaksu</small></div></div><div class="what">Enintään 5 sivua, mobiili ensin, Google-perusteet ja rakenteinen tieto, tietosuojaseloste, yhteydenottotavat. 25 % alussa, loput kun sivut ovat valmiit.</div></div>
-<div class="plan"><div><h3>Sivujen ylläpito</h3></div><div><div class="amt">39 € <small>/kk</small></div></div><div class="what">Päivitykset, varmuuskopiot, pienet muutokset (enintään 1 h/kk). Valinnainen, ei määräaikaa.</div></div>
-<div class="plan"><div><h3>Mainonnan hallinta</h3></div><div><div class="amt"><small class="from">alkaen</small>290 € <small>/kk</small></div></div><div class="what">Google- ja Meta-mainosten suunnittelu, seuranta ja optimointi. Mainosbudjetin maksatte itse suoraan Googlelle ja Metalle; ehdotamme sopivan summan.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Kotisivut" data-mo="0" data-once="1490"><span></span><span class="sr">Valitse Kotisivut</span></label><div><h3>Kotisivut</h3></div><div><div class="amt"><small class="from">alkaen</small>1 490 € <small>kertamaksu</small></div></div><div class="what">Enintään 5 sivua, mobiili ensin, Google-perusteet ja rakenteinen tieto, tietosuojaseloste, yhteydenottotavat. 25 % alussa, loput kun sivut ovat valmiit.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Sivujen ylläpito" data-mo="39" data-once="0"><span></span><span class="sr">Valitse Sivujen ylläpito</span></label><div><h3>Sivujen ylläpito</h3></div><div><div class="amt">39 € <small>/kk</small></div></div><div class="what">Päivitykset, varmuuskopiot, pienet muutokset (enintään 1 h/kk). Valinnainen, ei määräaikaa.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Mainonnan hallinta" data-mo="290" data-once="0"><span></span><span class="sr">Valitse Mainonnan hallinta</span></label><div><h3>Mainonnan hallinta</h3></div><div><div class="amt"><small class="from">alkaen</small>290 € <small>/kk</small></div></div><div class="what">Google- ja Meta-mainosten suunnittelu, seuranta ja optimointi. Mainosbudjetin maksatte itse suoraan Googlelle ja Metalle; ehdotamme sopivan summan.</div></div>
 </div></div></div></section>
 <section class="paper" id="kumppani" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid grid-2" style="gap:var(--s5)"><div><p class="num">05</p><h2>Kumppanipaketti</h2><p class="lead" style="margin-top:var(--s3)">Kun haluatte yhden kumppanin koko markkinoinnille. Sama sisältö kuin erikseen ostettuna, yhdellä laskulla ja yhdellä yhteyshenkilöllä.</p></div>
 <div class="price">
-<div class="plan"><div><h3>Marktic Kumppani</h3></div><div><div class="amt">790 € <small>/kk</small></div></div><div class="what">Näkyvyys (Aktiivinen kehitys) + Some Perus + mainonnan hallinta. Erikseen 870 €/kk. Ei määräaikaa.</div></div>
+<div class="plan"><label class="pick"><input type="checkbox" data-name="Marktic Kumppani" data-mo="790" data-once="0"><span></span><span class="sr">Valitse Marktic Kumppani</span></label><div><h3>Marktic Kumppani</h3></div><div><div class="amt">790 € <small>/kk</small></div></div><div class="what">Näkyvyys (Aktiivinen kehitys) + Some Perus + mainonnan hallinta. Erikseen 870 €/kk. Ei määräaikaa.</div></div>
 </div></div></div></section>
 <section><div class="wrap"><div class="head"><p class="eyebrow">Mitä hintoihin kuuluu</p><h2>Ei piilokuluja.</h2></div>
 <div class="grid grid-3">
@@ -92,6 +103,17 @@
   <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
   <p>Vastaamme kahden arkipäivän kuluessa kolmella tärkeimmällä korjauksella. Kartoitus ei sido mihinkään.</p>
 </div></section>
+<div class="tot" id="tot" hidden><div class="wrap"><div><b id="tmo">0 €/kk</b><span id="tonce"></span><span id="tn" class="mut"></span></div><a class="btn btn-brand btn-sm" id="tsend" href="mailto:info@marktic.fi">Lähetä tämä valinta</a><button class="btn btn-ghost btn-sm" id="tclr" type="button">Tyhjennä</button></div></div>
+<script>
+const boxes=[...document.querySelectorAll('.pick input')],tot=document.getElementById('tot'),tmo=document.getElementById('tmo'),tonce=document.getElementById('tonce'),tn=document.getElementById('tn'),tsend=document.getElementById('tsend');
+const fmt=n=>n.toLocaleString('fi-FI')+' €';
+function upd(){const sel=boxes.filter(b=>b.checked);let mo=0,on=0;sel.forEach(b=>{mo+=+b.dataset.mo;on+=+b.dataset.once});
+ tot.hidden=sel.length===0;tmo.textContent=fmt(mo)+'/kk';tonce.textContent=on?' + '+fmt(on)+' kertamaksu':'';tn.textContent=sel.length+' valittu';
+ const names=sel.map(b=>b.dataset.name).join(', ');
+ tsend.href='mailto:info@marktic.fi?subject='+encodeURIComponent('Tarjouspyyntö: '+names)+'&body='+encodeURIComponent('Valitsin sivuiltanne: '+names+'.\nYhteensä '+fmt(mo)+'/kk'+(on?' + '+fmt(on)+' kertamaksu':'')+'.\n\nYritys:\nPaikkakunta:\nKotisivut:\n');
+ boxes.forEach(b=>b.closest('.plan').classList.toggle('sel',b.checked))}
+boxes.forEach(b=>b.addEventListener('change',upd));document.getElementById('tclr').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);upd()});
+</script>
 </main>
 <footer><div class="wrap">
   <div><a class="logo" href="index.html">Markt<span class="i">ı</span>c</a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Hintoihin ei lisätä arvonlisäveroa.</p></div>
