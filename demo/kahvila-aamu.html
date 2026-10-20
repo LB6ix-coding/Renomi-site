@@ -5,9 +5,17 @@
 <title>Kahvila Aamu – leipomokahvila Tikkurilassa (demo)</title>
 <meta name="description" content="Kahvila Aamu, Tikkurila: oma uuni, hyvä kahvi ja aamiaista koko aukioloajan. Demo-sivu, kuvitteellinen yritys.">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Schibsted+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+@font-face{font-family:"Fraunces";font-weight:400;font-display:swap;src:url(../fonts/fraunces-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:"Fraunces";font-weight:400;font-display:swap;src:url(../fonts/fraunces-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
+@font-face{font-family:"Fraunces";font-weight:500;font-display:swap;src:url(../fonts/fraunces-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:"Fraunces";font-weight:500;font-display:swap;src:url(../fonts/fraunces-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
+@font-face{font-family:"Schibsted Grotesk";font-weight:400;font-display:swap;src:url(../fonts/schibsted-grotesk-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:"Schibsted Grotesk";font-weight:400;font-display:swap;src:url(../fonts/schibsted-grotesk-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
+@font-face{font-family:"Schibsted Grotesk";font-weight:600;font-display:swap;src:url(../fonts/schibsted-grotesk-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:"Schibsted Grotesk";font-weight:600;font-display:swap;src:url(../fonts/schibsted-grotesk-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
+@font-face{font-family:"Schibsted Grotesk";font-weight:700;font-display:swap;src:url(../fonts/schibsted-grotesk-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+2000-206F,U+20AC,U+2122}
+@font-face{font-family:"Schibsted Grotesk";font-weight:700;font-display:swap;src:url(../fonts/schibsted-grotesk-latin-ext-700-normal.woff2) format("woff2");unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0}
 :root{--paper:#f5f1ea;--paper-2:#ece6da;--ink:#241a12;--mut:#6d6054;--rust:#9a4e2a;--line:#dcd3c4;--s1:8px;--s2:16px;--s3:24px;--s4:40px;--s5:64px;--s6:96px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -160,7 +168,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(-
 </div></section>
 
 <section class="ig"><div class="wrap">
-  <div class="head rv"><h2>Viikon lista maanantaisin</h2><a href="#">@kahvila.aamu</a></div>
+  <div class="head rv"><h2>Viikon lista maanantaisin</h2><span style="font-weight:700;border-bottom:2px solid var(--rust)">@kahvila.aamu</span></div>
   <div class="tiles rv">
     <img src="ig-2.jpg" alt="" width="600" height="600" loading="lazy">
     <video src="../assets/kahvila-aamu-ad.mp4" poster="../assets/kahvila-aamu-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-label="Lyhyt mainosvideo"></video>
@@ -182,7 +190,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(-
   </div>
 </div></section>
 </main>
-<footer><div class="wrap"><span>Kahvila Aamu · Tikkurila · Esimerkkikatu 3</span><span>Demo: kuvitteellinen yritys. Sivun teki Marktic.</span></div></footer>
+<footer><div class="wrap"><span>Kahvila Aamu · Tikkurila · Esimerkkikatu 3</span><span>Demo: kuvitteellinen yritys, kuvat tuotettu tekoälyllä esimerkkiä varten. Sivun teki Marktic.</span></div></footer>
 <script>
 // opening status from the real clock (Helsinki time)
 const H={1:[7,16],2:[7,16],3:[7,16],4:[7,16],5:[7,16],6:[9,15],0:null};
@@ -195,5 +203,6 @@ document.querySelectorAll('#hours li').forEach(li=>li.classList.toggle('now',+li
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
+<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("video[autoplay]").forEach(v=>{v.removeAttribute("autoplay");v.pause()})}</script>
 </body>
 </html>

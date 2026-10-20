@@ -11,8 +11,6 @@
 <meta property="og:description" content="Videomainokset, some, kotisivut ja Google-näkyvyys pienille yrityksille. Hinnat näkyvillä, ei pitkiä sopimuksia.">
 <meta property="og:url" content="https://marktic.fi/">
 <meta property="og:locale" content="fi_FI">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css">
 <style>
 .hero{padding:var(--s6) 0 var(--s5)}
@@ -32,7 +30,7 @@
 .stage .phone{position:absolute;right:0;bottom:0;width:210px;height:430px;border-radius:30px;background:#000;padding:8px;box-shadow:var(--shadow)}
 .reelvid{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block}
 .stage .big{position:absolute;left:24px;top:100px;font-weight:900;font-size:28px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .stage .big em{font-style:normal;color:var(--lichen)}
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)} .svc .card{display:flex;flex-direction:column} .svc .price{margin-top:auto;padding-top:var(--s3);font-weight:700;color:var(--lichen);font-size:var(--t-sm)} .mtr .nw{white-space:nowrap}
 .nums{padding:var(--s6) 0;border-top:1px solid var(--paper-line)} .n{border-top:2px solid var(--paper-ink);padding-top:var(--s3)} .n b{display:block;font-size:var(--t-4xl);font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:var(--s2)} .n span{color:var(--paper-mut);font-size:var(--t-sm)}
 .how{counter-reset:step}
 .how .card{position:relative}
@@ -51,9 +49,9 @@
 .ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%}
-  .stage{height:auto;display:grid;grid-template-columns:1fr 120px;gap:var(--s3);align-items:end}
-  .stage .shot,.stage .phone{position:static;width:100%} .stage .phone{position:relative;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px} .stage .big{font-size:16px;left:12px;top:40px}
-  .cap{position:static;margin-top:var(--s2);grid-column:1/-1}
+  .stage{height:auto;padding-bottom:72px}
+  .stage .shot{position:static;width:100%} .stage .phone{position:absolute;right:0;bottom:0;width:34%;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px}
+  .cap{position:static;margin-top:var(--s2);max-width:60%}
   .svc{grid-template-columns:1fr} .tiles3{grid-template-columns:1fr} .rcols{grid-template-columns:1fr} .rep{padding:var(--s3)} .grid4 tbody th{font-size:var(--t-xs)} .grid4 thead th span{display:inline-block;transform:rotate(-45deg);transform-origin:center;font-size:11px}
 }
 </style>
@@ -71,7 +69,7 @@
   {"@type":"FAQPage","mainEntity":[
    {"@type":"Question","name":"Mitä Marktic tekee?","acceptedAnswer":{"@type":"Answer","text":"Hoidamme pienen yrityksen markkinoinnin: videomainokset, somen ylläpidon, kotisivut, mainonnan Googlessa ja Metassa sekä näkyvyyden Googlessa, kartalla ja hakupalveluissa. Raportoimme kerran kuussa selkokielellä."}},
    {"@type":"Question","name":"Onko sopimuksessa määräaikaa?","acceptedAnswer":{"@type":"Answer","text":"Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan kun työ on valmis."}},
-   {"@type":"Question","name":"Mitä maksuton nykytilan kartoitus sisältää?","acceptedAnswer":{"@type":"Answer","text":"Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista, miltä some ja kotisivut näyttävät asiakkaan silmin, ja kerromme kolme tärkeintä korjausta. Kartoitus ei sido mihinkään."}},
+   {"@type":"Question","name":"Mitä maksuton kartoitus sisältää?","acceptedAnswer":{"@type":"Answer","text":"Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista (Google, ChatGPT ja vastaavat), miltä some ja kotisivut näyttävät, ja kerromme, mitä korjaisimme ensin. Kartoitus ei sido mihinkään."}},
    {"@type":"Question","name":"Lupaatteko tietyn sijan hakutuloksissa?","acceptedAnswer":{"@type":"Answer","text":"Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy."}}
   ]}
  ]
@@ -85,7 +83,7 @@
   <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Valikko">≡</button>
   <nav class="nav" id="nav" aria-label="Päävalikko">
     <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
-    <a class="btn btn-lichen btn-sm" href="yhteys.html">Pyydä tarjous</a>
+    <a class="btn btn-lichen btn-sm" href="yhteys.html">Pyydä kartoitus</a>
   </nav>
 </div></header>
 
@@ -94,14 +92,14 @@
   <div>
     <p class="eyebrow rise">Markkinointitoimisto, Vantaa. Palvelemme koko Suomea.</p>
     <h1 class="words" aria-label="Näyttäkää yhtä hyvältä kuin työnne on."><span class="w"><i>Näyttäkää</i></span> <span class="w"><i>yhtä</i></span> <span class="w"><i>hyvältä</i></span> <span class="w lic"><i>kuin</i></span> <span class="w lic"><i>työnne</i></span> <span class="w lic"><i>on.</i></span></h1>
-    <p class="lead rise d2">Videomainokset, some, kotisivut ja näkyvyys Googlessa. Suunniteltuna, tehtynä ja mitattuna, ilman pitkiä sopimuksia.</p>
+    <p class="lead rise d2">Videomainokset, some, kotisivut ja näkyvyys Googlessa putkiliikkeille, tilitoimistoille, kahviloille ja muille paikallisille yrityksille. Me suunnittelemme, teemme ja mittaamme. Ei pitkiä sopimuksia.</p>
     <div class="cta rise d3">
       <a class="btn btn-brand" href="yhteys.html">Pyydä maksuton kartoitus</a>
       <a class="btn btn-ghost" href="tyot.html">Katso töitämme</a>
     </div>
   </div>
   <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu ja Instagram-videomainos" role="img">
-    <img class="shot" src="demo/kahvila-aamu.png" alt="" width="1200" height="750">
+    <img class="shot" src="demo/kahvila-aamu.jpg" alt="" width="1200" height="750">
     <div class="phone"><video class="reelvid" src="assets/kahvila-aamu-ad.mp4" poster="assets/kahvila-aamu-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div>
   <p class="cap">Esimerkki, kuvitteellinen yritys</p></div>
 </div></section>
@@ -110,10 +108,10 @@
 <section><div class="wrap">
   <div class="head"><p class="eyebrow">Palvelut</p><h2>Neljä asiaa, jotka hoidamme puolestanne</h2><p class="lead">Yhden tai kaikki. Jokaisessa on kiinteä hinta, ja kerromme etukäteen, mitä se sisältää.</p></div>
   <div class="svc">
-    <a class="card" href="palvelut.html#nakyvyys"><p class="num">01</p><h3>Näkyvyys Googlessa ja hakupalveluissa</h3><p>Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden vastaukset kuntoon. Mittaamme joka arkipäivä, miten yrityksenne löytyy.</p></a>
-    <a class="card" href="palvelut.html#some"><p class="num">02</p><h3>Somen ylläpito</h3><p>Suunnitelma, julkaisut ja vastaukset kommentteihin. Te hyväksytte, me julkaisemme.</p></a>
-    <a class="card" href="palvelut.html#video"><p class="num">03</p><h3>Videomainokset</h3><p>Lyhyet 3D- ja animaatiovideot tuotteista ja palveluista someen ja mainoksiin. Ei kuvauspäiviä.</p></a>
-    <a class="card" href="palvelut.html#sivut"><p class="num">04</p><h3>Kotisivut ja mainonta</h3><p>Nopeat kotisivut, jotka toimivat puhelimessa, ja Google- ja Meta-mainonta, jonka tulokset näette raportissa.</p></a>
+    <a class="card" href="palvelut.html#nakyvyys"><h3>Näkyvyys Googlessa ja hakupalveluissa</h3><p>Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden (Google, ChatGPT ja vastaavat) vastaukset kuntoon. Mittaamme viikoittain, miten yrityksenne löytyy.</p><span class="price">alkaen 149 €/kk</span></a>
+    <a class="card" href="palvelut.html#some"><h3>Somen ylläpito</h3><p>Suunnitelma, julkaisut ja vastaukset kommentteihin. Te hyväksytte, me julkaisemme.</p><span class="price">alkaen 290 €/kk</span></a>
+    <a class="card" href="palvelut.html#video"><h3>Videomainokset</h3><p>Lyhyet mainosvideot valokuvista, animaatiosta tai 3D-mallista someen ja mainoksiin. Ei kuvauspäiviä.</p><span class="price">alkaen 390 €/video</span></a>
+    <a class="card" href="palvelut.html#sivut"><h3>Kotisivut ja mainonta</h3><p>Nopeat kotisivut, jotka toimivat puhelimessa, ja Google- ja Meta-mainonta, jonka tulokset näette raportissa.</p><span class="price">sivut alkaen 1 490 €</span></a>
   </div>
 </div></section>
 
@@ -126,33 +124,34 @@
       <p class="lead" style="margin-top:var(--s3)">Jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun.</p>
     </div>
     <div class="rep" aria-label="Esimerkki kuukausiraportista">
-      <div class="rh"><div><span class="rlogo">Markt<span class="i">ı</span>c</span><br><b>Kuukausiraportti · lokakuu 2026</b></div><div class="rr">Esimerkkiyritys Oy, Vantaa<br><span class="tag" style="margin:0">Esimerkki</span></div></div>
+      <div class="rh"><div><span class="rlogo">Markt<span class="i">ı</span>c</span><br><b>Kuukausiraportti · syyskuu 2026</b></div><div class="rr">Esimerkkiyritys Oy, Vantaa<br><span class="tag" style="margin:0">Esimerkki</span></div></div>
       <div class="tiles3">
-        <div><small>Google-yritysprofiili</small><b class="ok">Kunnossa</b><span>3.10. alkaen</span></div>
+        <div><small>Google-yritysprofiili</small><b class="ok">Kunnossa</b><span>5.9. alkaen</span></div>
         <div><small>Mainittu vastauksissa</small><b>2 / 3</b><span>kysymyksessä</span></div>
         <div><small>Hakemistot oikein</small><b class="todo">4 / 5</b><span>yksi korjattavana</span></div>
       </div>
       <table class="grid4"><caption>Kysyimme hakupalveluilta neljänä päivänä. Piste = yrityksenne mainittiin.</caption>
-        <thead><tr><th scope="col"></th><th scope="col"><span>1.10.</span></th><th scope="col"><span>8.10.</span></th><th scope="col"><span>15.10.</span></th><th scope="col"><span>22.10.</span></th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col"><span>3.9.</span></th><th scope="col"><span>10.9.</span></th><th scope="col"><span>17.9.</span></th><th scope="col"><span>24.9.</span></th></tr></thead>
         <tbody>
           <tr><th scope="row">”hyvä tilitoimisto Vantaalla”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
           <tr><th scope="row">”tilitoimisto Tikkurila”</th><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
           <tr><th scope="row">”kirjanpitäjä pienyritykselle Vantaa”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="n"></i></td></tr>
         </tbody></table>
       <table class="mtr"><caption>Mittarit (Googlen yritysprofiili, verkkosivut, Instagram)</caption>
-        <thead><tr><th scope="col"></th><th scope="col">syyskuu</th><th scope="col">lokakuu</th><th scope="col">muutos</th></tr></thead>
+        <thead><tr><th scope="col"></th><th scope="col">elokuu</th><th scope="col">syyskuu</th><th scope="col">muutos</th></tr></thead>
         <tbody>
-          <tr><th scope="row">Sija kartalla, ”tilitoimisto Tikkurila”</th><td>6.</td><td>2.</td><td class="up">+4</td></tr>
-          <tr><th scope="row">Yritysprofiilin katselut</th><td>218</td><td>347</td><td class="up">+59 %</td></tr>
-          <tr><th scope="row">Soitot ja reittihaut profiilista</th><td>9</td><td>21</td><td class="up">+12</td></tr>
-          <tr><th scope="row">Arvostelut (keskiarvo)</th><td>11 (4,5)</td><td>16 (4,6)</td><td class="up">+5</td></tr>
-          <tr><th scope="row">Kotisivujen kävijät</th><td>140</td><td>232</td><td class="up">+66 %</td></tr>
-          <tr><th scope="row">Instagram: julkaisut / tavoittavuus</th><td>0 / –</td><td>4 / 2 300</td><td class="up">uusi</td></tr>
+          <tr><th scope="row">Sija kartalla, ”tilitoimisto Tikkurila”</th><td>6.</td><td>3.</td><td class="up">+3</td></tr>
+          <tr><th scope="row">Yritysprofiilin katselut</th><td>218</td><td>281</td><td class="up">+29 %</td></tr>
+          <tr><th scope="row">Soitot ja reittihaut profiilista</th><td>9</td><td>14</td><td class="up">+5</td></tr>
+          <tr><th scope="row">Arvostelut (keskiarvo)</th><td>11 (4,5)</td><td>13 (4,5)</td><td class="up">+2</td></tr>
+          <tr><th scope="row">Kotisivujen kävijät</th><td>140</td><td>138</td><td>±0</td></tr>
+          <tr><th scope="row">Instagram: julkaisut / tavoittavuus</th><td class="nw">0 / –</td><td class="nw">4 / 1 100</td><td class="up">uusi</td></tr>
         </tbody></table>
       <p class="cmp">Vertailu: kolme lähintä kilpailijaa mainittiin hakupalveluissa keskimäärin 1 / 3 kysymyksessä, teidät 2 / 3. Kilpailijoita ei nimetä raportissa.</p>
+      <p class="cmp"><b>Luvut ovat esimerkki raportin muodosta, eivät mittaustulos.</b> Kotisivujen kävijämäärä ei noussut syyskuussa; se on normaalia ennen kuin uusi sisältö on ollut Googlessa muutaman viikon.</p>
       <div class="rcols">
-        <div><small>Tehty tässä kuussa</small><ul><li>3.10. Google-yritysprofiili: aukioloajat, kuvat, palvelut</li><li>7.10. Neljä hakemistoa korjattu</li><li>14.10. Uusi palvelusivu: tilinpäätös</li></ul></div>
-        <div><small>Seuraavaksi</small><ul><li>Viimeinen hakemisto kuntoon</li><li>Usein kysytyt kysymykset sivuille</li><li>Jos marraskuun luvut eivät parane, kerromme miksi</li></ul></div>
+        <div><small>Tehty tässä kuussa</small><ul><li>5.9. Google-yritysprofiili: aukioloajat, kuvat, palvelut</li><li>9.9. Neljä hakemistoa korjattu</li><li>16.9. Uusi palvelusivu: tilinpäätös</li></ul></div>
+        <div><small>Seuraavaksi</small><ul><li>Viimeinen hakemisto kuntoon</li><li>Usein kysytyt kysymykset sivuille</li><li>Jos lokakuun luvut eivät parane, kerromme miksi</li></ul></div>
       </div>
     </div>
   </div>
@@ -160,9 +159,9 @@
 
 <section class="paper nums"><div class="wrap">
   <div class="grid grid-3">
-    <div class="n"><b>0 €</b><span>Maksuton kartoitus: miten yrityksenne löytyy ja näyttää, kolme tärkeintä korjausta kirjallisena.</span></div>
-    <div class="n"><b>0 kk</b><span>Määräaikaa. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa.</span></div>
-    <div class="n"><b>1 sivu</b><span>Raportti kerran kuussa: mitä tehtiin, mitä se tuotti, mitä seuraavaksi.</span></div>
+    <div class="n"><b>0 €</b><span>maksaa kartoitus: miten yrityksenne löytyy ja näyttää, ja mitä korjaisimme ensin.</span></div>
+    <div class="n"><b>0 kk</b><span>määräaikaa: kuukausipalvelut voi irtisanoa minä kuukautena tahansa.</span></div>
+    <div class="n"><b>1 sivu</b><span>raporttia kuukaudessa: mitä tehtiin, mitä se tuotti, mitä seuraavaksi.</span></div>
   </div>
 </div></section>
 
@@ -170,9 +169,9 @@
   <div><p class="eyebrow">Ensimmäinen kuukausi</p><h2>Mitä tapahtuu, kun otatte yhteyttä</h2><p class="lead" style="margin-top:var(--s3)">Ei myyntipalavereita. Ensimmäinen viikko on kartoitusta ja korjauksia, ja kuukauden lopussa näette paperilla, mitä se tuotti.</p></div>
   <ol>
     <li><b>Päivä 0</b><p><strong>Lähetätte nimen ja paikkakunnan.</strong> Sähköpostilla tai WhatsAppissa, muuta ei tarvita.</p></li>
-    <li><b>Päivä 1–2</b><p><strong>Kartoitus.</strong> Katsomme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista ja miltä se näyttää asiakkaan silmin. Saatte kolme tärkeintä korjausta kirjallisena.</p></li>
+    <li><b>Päivä 1–2</b><p><strong>Kartoitus.</strong> Katsomme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista ja miltä se näyttää asiakkaan silmin. Saatte kirjallisena, mitä korjaisimme ensin.</p></li>
     <li><b>Päivä 3</b><p><strong>Tarjous, jos haluatte.</strong> Valitsette palvelut ja näette hinnan ennen kuin mitään tehdään.</p></li>
-    <li><b>Päivä 7</b><p><strong>Korjauspaketti valmis.</strong> Google-yritysprofiili, hakemistot ja sivujen perustiedot kunnossa. Laskutetaan vasta nyt.</p></li>
+    <li><b>Viikko 2</b><p><strong>Korjauspaketti valmis.</strong> Google-yritysprofiili, hakemistot ja sivujen perustiedot kunnossa. Laskutetaan vasta nyt.</p></li>
     <li><b>Päivä 30</b><p><strong>Ensimmäinen raportti.</strong> Yksi sivu: mitä tehtiin, mitä se tuotti, mitä seuraavaksi. Jatkatte, jos se kannattaa.</p></li>
   </ol>
 </div></section>
@@ -182,20 +181,21 @@
   <div style="max-width:760px">
     <details><summary>Lupaatteko tietyn sijan Googlessa?</summary><p>Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat päivästä toiseen. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy.</p></details>
     <details><summary>Onko sopimuksessa määräaikaa?</summary><p>Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan kun työ on valmis.</p></details>
-    <details><summary>Mitä maksuton kartoitus sisältää?</summary><p>Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista, miltä some ja kotisivut näyttävät, ja kerromme kolme tärkeintä korjausta. Kartoitus ei sido mihinkään.</p></details>
+    <details><summary>Mitä tarkoittaa ”ensimmäisen kuukauden maksu takaisin”?</summary><p>Jos ette ole tyytyväisiä kuukausipalvelun ensimmäiseen kuukauteen, palautamme sen kuukauden maksun ja lopetamme. Se koskee kuukausipalveluita, ei kertatöitä, jotka laskutetaan vasta valmiina.</p></details>
+    <details><summary>Mitä maksuton kartoitus sisältää?</summary><p>Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista (Google, ChatGPT ja vastaavat), miltä some ja kotisivut näyttävät, ja kerromme, mitä korjaisimme ensin. Kartoitus ei sido mihinkään.</p></details>
     <details><summary>Tarvitseeko minun tehdä itse jotain?</summary><p>Hyvin vähän. Tarvitsemme alussa pääsyn Google-yritysprofiiliin ja some-tileihin sekä muutaman kuvan tai tiedon tuotteistanne. Sen jälkeen hyväksytte julkaisut, me hoidamme loput.</p></details>
   </div>
 </div></section>
 
-<section class="close"><div class="wrap">
+<section class="close" id="yhteys"><div class="wrap">
   <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
   <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
-  <p>Vastaamme kahden arkipäivän kuluessa kolmella tärkeimmällä korjauksella. Kartoitus ei sido mihinkään.</p>
+  <p>Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
 </div></section>
 </main>
 
 <footer><div class="wrap">
-  <div><a class="logo" href="index.html">Markt<span class="i">ı</span>c</a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Hintoihin ei lisätä arvonlisäveroa.</p></div>
+  <div><a class="logo" href="index.html">Markt<span class="i">ı</span>c</a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Emme ole alv-velvollisia, joten laskuun ei lisätä arvonlisäveroa.</p></div>
   <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
   <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
 </div></footer>
@@ -206,5 +206,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contain
 const here=location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
 </script>
+<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("video[autoplay]").forEach(v=>{v.removeAttribute("autoplay");v.pause()})}</script>
 </body>
 </html>
