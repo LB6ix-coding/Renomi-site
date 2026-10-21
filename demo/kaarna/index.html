@@ -14,16 +14,19 @@
 /* index: page-specific layout only; components (.hero, .bake, .week, .steps, .hours, .exc, .ig, .photo) come from kaarna.css */
 .ix-name{display:block;font:600 var(--t-md,20px)/1.2 var(--display);letter-spacing:-.01em;margin-bottom:.35em}
 .hero h1{max-width:none}
-.hero-text > .status{align-self:flex-start}
 .hero-foot .k-facts.row{--n:3}
 .hero-foot .k-facts dd{font-size:var(--t-base,17px)}
+#uunista{padding-bottom:calc(var(--sec) * .6)}
 .ix-week .day-name{font-size:clamp(22px,1vw + 14px,28px)}
 .ix-week .dish-name{font-size:var(--t-sm,15px)}
 .lunch-foot{display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;margin-top:24px}
 .lunch-foot p{max-width:none}
-.rye-top{margin-bottom:clamp(40px,5vw,72px)}
-.rye-top .price{display:block;margin-top:18px;font-size:var(--t-md,20px)}
-.rye-foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:clamp(32px,4vw,56px)}
+.rye-h{max-width:none;font-size:clamp(44px,6.4vw,124px);line-height:.92}
+.rye-line{display:flex;flex-wrap:wrap;gap:6px 0;max-width:none;margin-top:clamp(24px,3vw,44px);padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font:700 clamp(19px,1.1vw + 13px,28px)/1.3 var(--display);letter-spacing:-.015em}
+.rye-line span:not(:last-child)::after{content:"·";margin:0 .55em;color:var(--rye-deco);font-weight:900}
+.rye-foot{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin-top:clamp(24px,3vw,40px)}
+.rye-foot p{max-width:44ch}
+.rye-foot .price{display:block;font-size:var(--t-md,20px)}
 .short-vid{max-width:360px;width:100%;justify-self:end}
 .short-vid .ph{aspect-ratio:540/960;background:#3B322B}
 .short .prose{max-width:52ch}
@@ -32,10 +35,9 @@
 .visit h3{font:600 var(--t-xs,13px)/1.3 var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--lenticel);margin:36px 0 10px}
 .visit .cta{margin-top:36px}
 @media (max-width:899px){
-  .short-vid{justify-self:start;max-width:300px}
+  .short-vid{justify-self:stretch;max-width:none;width:100%}
   .hero-foot .k-facts.row{--n:1}
 }
-@media (max-width:1099px){.hero-text>.status{display:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -137,7 +139,7 @@
     </a>
     <nav class="nav" id="nav" aria-label="Päävalikko">
       <ul class="nav-list">
-        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="index.html" aria-current="page">Etusivu</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="lounas.html">Lounas</a></li>
         <li><a href="meista.html">Meistä</a></li>
@@ -145,9 +147,8 @@
       </ul>
       <a class="btn nav-cta" href="yhteys.html#tilaa">Tilaa ennakkoon<svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-arrow"/></svg></a>
       <div class="nav-meta">
-        <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
         <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-pin"/></svg>Esimerkkikatu 3, Tikkurila</p>
-        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09 123 4567</a></p>
+        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09&nbsp;123&nbsp;4567</a></p>
       </div>
     </nav>
     <p class="status top-status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
@@ -160,7 +161,6 @@
   <!-- HERO: text + signature photo (steam rig) -->
   <section class="hero" aria-labelledby="hero-h">
     <div class="hero-text">
-      <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
       <h1 id="hero-h"><span class="ix-name">Leipomokahvila</span>Kaarna</h1>
       <p class="lead">Hapanjuuri- ja ruisleipomo Tikkurilassa.</p>
       <p class="note">Ensimmäiset korvapuustit tulevat uunista 6.30. Arkisin ovi aukeaa seitsemältä, ja leipää on niin kauan kuin sitä riittää.</p>
@@ -190,32 +190,29 @@
           </defs>
           <g class="steam-sway">
             <g class="wisp w1" style="--dur:5.2s;--del:-1.2s">
-              <path class="sa" pathLength="1" d="M827 678 C790 574 880 522 842 425 C805 328 894 261 857 164 C835 112 865 75 850 30"/>
-              <path class="sb" pathLength="1" d="M827 678 C790 574 880 522 842 425 C805 328 894 261 857 164 C835 112 865 75 850 30"/>
-              <path class="sc" pathLength="1" d="M827 678 C790 574 880 522 842 425 C805 328 894 261 857 164 C835 112 865 75 850 30"/>
-              <path class="sd" pathLength="1" d="M827 678 C790 574 880 522 842 425 C805 328 894 261 857 164 C835 112 865 75 850 30"/>
+              <path class="sa" pathLength="1" d="M760 660 C730 570 820 520 785 430 C750 340 840 280 805 190 C785 135 820 100 805 50"/>
+              <path class="sb" pathLength="1" d="M760 660 C730 570 820 520 785 430 C750 340 840 280 805 190 C785 135 820 100 805 50"/>
+              <path class="sc" pathLength="1" d="M760 660 C730 570 820 520 785 430 C750 340 840 280 805 190 C785 135 820 100 805 50"/>
             </g>
             <g class="wisp w2" style="--dur:6.1s;--del:-3.9s">
-              <path class="sa" pathLength="1" d="M961 619 C1006 522 917 455 969 358 C1014 268 932 201 976 104 C999 60 976 30 991 0"/>
-              <path class="sb" pathLength="1" d="M961 619 C1006 522 917 455 969 358 C1014 268 932 201 976 104 C999 60 976 30 991 0"/>
-              <path class="sc" pathLength="1" d="M961 619 C1006 522 917 455 969 358 C1014 268 932 201 976 104 C999 60 976 30 991 0"/>
-              <path class="sd" pathLength="1" d="M961 619 C1006 522 917 455 969 358 C1014 268 932 201 976 104 C999 60 976 30 991 0"/>
+              <path class="sa" pathLength="1" d="M880 625 C925 530 840 465 890 370 C935 280 855 215 900 120 C920 75 900 45 915 15"/>
+              <path class="sb" pathLength="1" d="M880 625 C925 530 840 465 890 370 C935 280 855 215 900 120 C920 75 900 45 915 15"/>
+              <path class="sc" pathLength="1" d="M880 625 C925 530 840 465 890 370 C935 280 855 215 900 120 C920 75 900 45 915 15"/>
             </g>
             <g class="wisp w3" style="--dur:4.6s;--del:-2.4s">
-              <path class="sa" pathLength="1" d="M1088 641 C1125 559 1081 499 1118 417 C1148 343 1103 283 1140 209 C1163 164 1140 127 1163 89"/>
-              <path class="sb" pathLength="1" d="M1088 641 C1125 559 1081 499 1118 417 C1148 343 1103 283 1140 209 C1163 164 1140 127 1163 89"/>
-              <path class="sc" pathLength="1" d="M1088 641 C1125 559 1081 499 1118 417 C1148 343 1103 283 1140 209 C1163 164 1140 127 1163 89"/>
-              <path class="sd" pathLength="1" d="M1088 641 C1125 559 1081 499 1118 417 C1148 343 1103 283 1140 209 C1163 164 1140 127 1163 89"/>
+              <path class="sa" pathLength="1" d="M1000 640 C1035 560 990 500 1025 420 C1055 345 1010 285 1045 210 C1067 165 1045 130 1067 90"/>
+              <path class="sb" pathLength="1" d="M1000 640 C1035 560 990 500 1025 420 C1055 345 1010 285 1045 210 C1067 165 1045 130 1067 90"/>
+              <path class="sc" pathLength="1" d="M1000 640 C1035 560 990 500 1025 420 C1055 345 1010 285 1045 210 C1067 165 1045 130 1067 90"/>
             </g>
           </g>
         </svg>
         <div class="puffs">
-          <i class="puff" style="--dur:4.8s;--del:-0.2s;--dx:-4cqw;--s:1.8;--r:-10deg"></i>
+          <i class="puff" style="--dur:4.8s;--del:-0.2s;--dx:-2cqw;--s:1.8;--r:-10deg"></i>
           <i class="puff" style="--dur:5.4s;--del:-1.3s;--dx:3cqw;--s:2.2;--r:12deg"></i>
-          <i class="puff" style="--dur:4.4s;--del:-2.5s;--dx:-1cqw;--s:1.6;--r:6deg"></i>
+          <i class="puff" style="--dur:4.4s;--del:-2.5s;--dx:1cqw;--s:1.6;--r:6deg"></i>
           <i class="puff" style="--dur:5.9s;--del:-3.4s;--dx:5cqw;--s:2.4;--r:14deg"></i>
-          <i class="puff" style="--dur:5.1s;--del:-4.3s;--dx:-6cqw;--s:2;--r:-14deg"></i>
-          <i class="puff" style="--dur:4.6s;--del:-0.9s;--dx:7cqw;--s:1.7;--r:18deg"></i>
+          <i class="puff" style="--dur:5.1s;--del:-4.3s;--dx:-3cqw;--s:2;--r:-14deg"></i>
+          <i class="puff" style="--dur:4.6s;--del:-0.9s;--dx:6cqw;--s:1.7;--r:18deg"></i>
         </div>
       </div>
     </div>
@@ -258,11 +255,11 @@
         <p>Viikko 43, 19.–23.10. Joka päivä keitto, lämmin ruoka ja vegaaninen vaihtoehto.</p>
       </div>
       <ol class="week ix-week" data-week>
-        <li class="day" data-day="1"><p class="day-name">ma <span class="day-date">19.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Bataatti-porkkanasosekeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Karjalanpaisti</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Punajuuri-linssipihvit</span></p></div></li>
-        <li class="day" data-day="2"><p class="day-name">ti <span class="day-date">20.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Lohikeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Broileria kermakastikkeessa</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Kikherne-pinaattikastike</span></p></div></li>
-        <li class="day" data-day="3"><p class="day-name">ke <span class="day-date">21.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Metsäsienikeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Uunilohi</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Linssibolognese-lasagne</span></p></div></li>
-        <li class="day" data-day="4"><p class="day-name">to <span class="day-date">22.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Hernekeitto, jälkiruokana pannukakku</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Lihapullat ja ruskea kastike</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Kasvishernekeitto</span></p></div></li>
-        <li class="day" data-day="5"><p class="day-name">pe <span class="day-date">23.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Kukkakaalikeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Porsaan ulkofilee</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Tofu-kasviswok</span></p></div></li>
+        <li class="day" data-day="1" data-date="2026-10-19"><p class="day-name">ma <span class="day-date">19.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Bataatti-porkkanasosekeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Karjalanpaisti</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Punajuuri-linssipihvit</span></p></div></li>
+        <li class="day" data-day="2" data-date="2026-10-20"><p class="day-name">ti <span class="day-date">20.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Lohikeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Broileria kermakastikkeessa</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Kikherne-pinaattikastike</span></p></div></li>
+        <li class="day" data-day="3" data-date="2026-10-21"><p class="day-name">ke <span class="day-date">21.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Metsäsienikeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Uunilohi</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Linssibolognese-lasagne</span></p></div></li>
+        <li class="day" data-day="4" data-date="2026-10-22"><p class="day-name">to <span class="day-date">22.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Hernekeitto, jälkiruokana pannukakku</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Lihapullat ja ruskea kastike</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Kasvishernekeitto</span></p></div></li>
+        <li class="day" data-day="5" data-date="2026-10-23"><p class="day-name">pe <span class="day-date">23.10.</span></p><div class="dishes"><p class="dish"><span class="dish-kind">Keitto</span><span class="dish-name">Kukkakaalikeitto</span></p><p class="dish"><span class="dish-kind">Lämmin ruoka</span><span class="dish-name">Porsaan ulkofilee</span></p><p class="dish"><span class="dish-kind">Vegaaninen</span><span class="dish-name">Tofu-kasviswok</span></p></div></li>
       </ol>
       <div class="lunch-foot">
         <p><b>Lounas 13,90&nbsp;€</b> · keittolounas 11,90&nbsp;€ · mukaan 12,50&nbsp;€ · eläkeläiset 12,40&nbsp;€ · Liha: Suomi</p>
@@ -271,37 +268,16 @@
     </div>
   </section>
 
-  <!-- SIGNATURE LOAF: 3 numbered steps -->
+  <!-- SIGNATURE LOAF: type only (the 3-number process lives on meista.html) -->
   <section class="sec rv" id="ruisleipa" aria-labelledby="rye-h">
     <div class="wrap">
-      <div class="split end rye-top">
-        <figure class="photo r-32"><div class="ph"><img src="img/tiski.jpg" width="1600" height="1073" alt="Leipiä ja korvapuusteja lasivitriinissä, taustalla espressokone ja sateinen ikkuna" loading="lazy" decoding="async"></div></figure>
-        <div>
-          <p class="kicker eyebrow">Kaarnan ruisleipä</p>
-          <h2 id="rye-h">Yksi leipä, kaksi päivää työtä.</h2>
-          <span class="price">600&nbsp;g · 6,50&nbsp;€ · ti ja pe</span>
-        </div>
-      </div>
-      <ol class="steps k-steps">
-        <li>
-          <span class="step-k">7 <small>vuotta</small></span>
-          <h3>Juuri</h3>
-          <p>Sama ruisjuuri on ollut käytössä vuodesta 2019. Se saa ruisjauhoja ja vettä kahdesti päivässä, lomillakin.</p>
-        </li>
-        <li>
-          <span class="step-k">18 <small>tuntia</small></span>
-          <h3>Kypsytys</h3>
-          <p>Taikina tehdään iltapäivällä ja paistetaan seuraavana aamuna. Maku tulee ajasta, ei lisäaineista.</p>
-        </li>
-        <li>
-          <span class="step-k">250<small>&nbsp;°C</small></span>
-          <h3>Uuni, 60 minuuttia</h3>
-          <p>Kuori paistuu tummaksi ja paksuksi. Leipä saa jäähtyä rauhassa ennen kuin se menee tiskiin.</p>
-        </li>
-      </ol>
+      <p class="kicker eyebrow">Kaarnan ruisleipä</p>
+      <h2 id="rye-h" class="rye-h">Yksi leipä, kaksi päivää työtä.</h2>
+      <p class="rye-line"><span>600&nbsp;g</span><span>seitsemän vuotta vanha juuri</span><span>18&nbsp;h</span><span>250&nbsp;°C</span></p>
       <div class="rye-foot">
-        <p>Ruisleipä loppuu usein jo puoliltapäivin, perjantaisin varsinkin.</p>
+        <p><span class="price">6,50&nbsp;€ · ti ja pe</span> Ruisleipä loppuu usein jo puoliltapäivin, perjantaisin varsinkin.</p>
         <a class="btn btn-dark" href="yhteys.html#tilaa">Varaa ruisleipä</a>
+        <a class="more" href="meista.html">Miten leipä syntyy <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -319,7 +295,7 @@
         <p style="margin-top:20px"><a class="more" href="meista.html">Lue meistä <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
       </div>
       <figure class="photo short-vid">
-        <div class="ph"><video src="../../assets/kaarna-ad.mp4" poster="../../assets/kaarna-ad-poster.jpg" width="540" height="960" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div>
+        <div class="ph"><video poster="../../assets/kaarna-ad-poster.jpg" width="540" height="960" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"><source src="../../assets/kaarna-ad-360.mp4" type="video/mp4" media="(max-width: 760px)"><source src="../../assets/kaarna-ad.mp4" type="video/mp4"></video></div>
       </figure>
     </div>
   </section>
@@ -351,24 +327,10 @@
         </ul>
         <p class="note" data-exceptions-empty hidden>Ei poikkeuksia tiedossa.</p>
         <div class="cta">
-          <a class="btn btn-dark" href="tel:+35891234567"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Soita 09 123 4567</a>
+          <a class="btn btn-dark" href="tel:+35891234567"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Soita 09&nbsp;123&nbsp;4567</a>
           <a class="btn btn-line" href="yhteys.html"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Reitti ja yhteystiedot</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- INSTAGRAM (plain images, no links) -->
-  <section class="sec rv" aria-label="Instagram">
-    <div class="wrap">
-      <figure>
-        <ul class="ig k-ig">
-          <li><img src="img/ig-1.jpg" width="600" height="600" alt="Vitriini täynnä pullaa ja leipää" loading="lazy" decoding="async"></li>
-          <li><img src="img/ig-2.jpg" width="600" height="600" alt="Pelti korvapuusteja tulee uunista" loading="lazy" decoding="async"></li>
-          <li><img src="img/ig-3.jpg" width="600" height="600" alt="Kahvi ja korvapuusti ikkunapöydässä" loading="lazy" decoding="async"></li>
-        </ul>
-        <figcaption class="ig-cap k-ig-cap"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-insta"/></svg>Instagramissa @kaarna.leipomo</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -393,7 +355,7 @@
       <div class="foot-col">
         <h2 class="foot-h">Ota yhteyttä</h2>
         <ul class="foot-contact">
-          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09 123 4567</a></li>
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09&nbsp;123&nbsp;4567</a></li>
           <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-mail"/></svg><a href="mailto:moi@kaarna.example">moi@kaarna.example</a></li>
           <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-insta"/></svg><span>Instagramissa @kaarna.leipomo</span></li>
         </ul>
@@ -419,7 +381,7 @@
   </div>
   <p class="foot-word" aria-hidden="true">Kaarna</p>
 </footer>
-<style>video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls{display:none!important;-webkit-appearance:none}</style><script>(function(){var vs=[].slice.call(document.querySelectorAll("video"));function go(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");var p=v.play();if(p&&p.catch)p.catch(function(){});}vs.forEach(function(v){if(v.preload!=="auto")v.preload="auto";go(v);v.addEventListener("loadeddata",function(){go(v)});v.addEventListener("pause",function(){if(!document.hidden&&!v.ended)setTimeout(function(){go(v)},300)});});function kick(){vs.forEach(go);}["touchstart","touchend","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});document.addEventListener("visibilitychange",function(){if(!document.hidden)kick()});if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)go(x.target)})});vs.forEach(function(v){io.observe(v)})}})();</script>
+<script>(function(){var vs=[].slice.call(document.querySelectorAll("video"));function go(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");var p=v.play();if(p&&p.catch)p.catch(function(){});}vs.forEach(function(v){if(v.preload!=="auto")v.preload="auto";go(v);v.addEventListener("loadeddata",function(){go(v)});v.addEventListener("pause",function(){if(!document.hidden&&!v.ended)setTimeout(function(){go(v)},300)});});function kick(){vs.forEach(go);}["touchstart","touchend","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});document.addEventListener("visibilitychange",function(){if(!document.hidden)kick()});if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)go(x.target)})});vs.forEach(function(v){io.observe(v)})}})();</script>
 <script src="kaarna.js" defer></script>
 <div class="callbar">
   <a class="btn" href="tel:+35891234567"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-phone"/></svg>Soita</a>

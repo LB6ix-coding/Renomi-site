@@ -60,6 +60,8 @@
   }
   function whenWord(k, d) { return k === 1 ? 'huomenna' : ADESS[d.wd]; }
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  // minutes left as "1 h 20 min" / "40 min" / "2 h"
+  function fmtLeft(m) { var h = Math.floor(m / 60), mm = m % 60; return (h ? h + ' h' : '') + (h && mm ? ' ' : '') + (mm || !h ? mm + ' min' : ''); }
 
   /* 1. reveal on scroll. html.js (which hides .rv) is added only once the observer exists; CSS failsafe after 2.5 s */
   block('reveal', function () {
@@ -92,7 +94,7 @@
     if ('ResizeObserver' in win) new ResizeObserver(set).observe(top);
   });
 
-  /* 3. mobile menu: full panel under the header, background inert, focus first link, Esc closes */
+  /* 3. mobile menu: full panel under the header, background inert, focus first link, Tab loops inside, Esc closes */
   block('menu', function () {
     var btn = $('.menu-btn'), nav = $('#nav'), top = $('.top');
     if (!btn || !nav) return;
@@ -119,7 +121,16 @@
       else if (focusBtn) btn.focus();
     }
     btn.addEventListener('click', function () { set(!isOpen(), true); });
-    doc.addEventListener('keydown', function (e) { if ((e.key === 'Escape' || e.key === 'Esc') && isOpen()) set(false, true); });
+    doc.addEventListener('keydown', function (e) {
+      if (!isOpen()) return;
+      if (e.key === 'Escape' || e.key === 'Esc') { set(false, true); return; }
+      if (e.key !== 'Tab') return;
+      // focus trap: the open panel + the menu button form one loop
+      var f = [btn].concat($$('a[href], button:not([disabled])', nav).filter(function (el) { return el.offsetParent !== null || el === btn; }));
+      var first = f[0], last = f[f.length - 1], at = doc.activeElement;
+      if (e.shiftKey && (at === first || f.indexOf(at) < 0)) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (at === last || f.indexOf(at) < 0)) { e.preventDefault(); first.focus(); }
+    });
     nav.addEventListener('click', function (e) { if (isOpen() && e.target.closest && e.target.closest('a')) set(false); });
     win.addEventListener('resize', function () { if (!isOpen()) return; if (win.innerWidth > 1100) set(false); else place(); });
   });
@@ -208,15 +219,15 @@
   });
 
   /* 9. bake strip <ol class="bake" data-bake><li data-time="06:30"> ...: labels from the real clock.
-        fresh (0-90 min): steam glyph + "Uunista n min sitten"; next one: "Uunista klo 11.00" + progress bar;
-        older: "Tiskissä, kunnes loppuu"; closed: "Huomenna uunista klo 6.30" / "Maanantaina ...".
+        fresh (0-90 min): steam glyph + "Uunista n min sitten"; next one: "Uunista klo 11 · 1 h 20 min" + progress bar;
+        older: "Tiskissä, kunnes loppuu"; closed: "Huomenna uunista klo 6.30", or "Huomenna tiskissä klo 9 alkaen" when we open after the bake.
         Optional li[data-days="2,5"] (ISO weekdays) + data-days-label="ti ja pe" for day-specific items. */
   block('bake', function () {
     var lists = $$('[data-bake]');
     if (!lists.length) return;
-    var GLYPH = '<svg class="bake-glyph" viewBox="0 0 22 28" aria-hidden="true" focusable="false">' +
-      '<path pathLength="1" d="M5 26 C1 20 9 16 5 9 C3 5 6 3 5 1"/><path pathLength="1" d="M11 26 C15 20 7 15 11 9 C13 5 10 3 11 1"/>' +
-      '<path pathLength="1" d="M17 26 C13 20 21 16 17 9 C15 5 18 3 17 1"/></svg>';
+    var GLYPH = '<svg class="bake-glyph" viewBox="0 0 22 30" aria-hidden="true" focusable="false">' +
+      '<path pathLength="1" d="M5 28 C1 21 9 17 5 10 C3 6 6 3 5 1.5"/><path pathLength="1" d="M11 28 C15 21 7 16 11 10 C13 6 10 3 11 1.5"/>' +
+      '<path pathLength="1" d="M17 28 C13 21 21 17 17 10 C15 6 18 3 17 1.5"/></svg>';
     var rows = [];
     lists.forEach(function (ol) {
       $$(':scope > li[data-time]', ol).forEach(function (li) {
@@ -248,7 +259,7 @@
         var nx = nextOpen(n), word = nx ? cap(whenWord(nx.k, nx.d)) : 'Seuraavaksi';
         rows.forEach(function (r) {
           if (r.days && nx && r.days.indexOf(nx.d.wd) < 0) set(r, 'is-off', 'Paistetaan ' + (r.daysLabel || 'tiettyinä päivinä'));
-          else set(r, 'is-later', word + ' uunista klo ' + fmtTime(r.t));
+          else set(r, 'is-later', nx && r.t < nx.h[0] ? word + ' tiskissä klo ' + fmtTime(nx.h[0]) + ' alkaen' : word + ' uunista klo ' + fmtTime(r.t));
         });
         return;
       }
@@ -267,7 +278,7 @@
           } else if (!nextDone) {
             nextDone = true;
             var span = Math.max(1, r.t - prev);
-            set(r, 'is-next', 'Uunista klo ' + fmtTime(r.t), Math.max(0, Math.min(1, (n.m - prev) / span)));
+            set(r, 'is-next', 'Uunista klo ' + fmtTime(r.t) + ' · ' + fmtLeft(r.t - n.m), Math.max(0, Math.min(1, (n.m - prev) / span)));
           } else {
             set(r, 'is-later', 'Uunista klo ' + fmtTime(r.t));
           }
@@ -280,16 +291,18 @@
     setInterval(function () { block('bake tick', update); }, 30000);
   });
 
-  /* 10. lunch week <ol class="week" data-week><li class="day" data-day="1..5">: today gets .is-today + aria-current="date";
+  /* 10. lunch week <ol class="week" data-week><li class="day" data-day="1..5" data-date="YYYY-MM-DD">: today gets .is-today + aria-current="date";
          <details class="day"> opens for today; [data-scroll-today] scrolls today into view on phones if it is below the fold */
   block('week', function () {
     var weeks = $$('[data-week], .week').filter(function (w, i, all) { return all.indexOf(w) === i && !(w.parentElement && w.parentElement.closest('[data-week], .week')); });
     if (!weeks.length) return;
-    var wd = now().wd;
+    var n = now(), wd = n.wd, today = key(n);
     weeks.forEach(function (w) {
       var hit = null;
       $$('[data-day]', w).forEach(function (day) {
-        var on = +day.getAttribute('data-day') === wd;
+        // with data-date="2026-10-21" the day must also be this calendar date (an old week never lights up)
+        var dd = day.getAttribute('data-date');
+        var on = +day.getAttribute('data-day') === wd && (!dd || dd === today);
         day.classList.toggle('is-today', on);
         if (on) { day.setAttribute('aria-current', 'date'); hit = day; } else day.removeAttribute('aria-current');
         var name = $('.day-name', day);

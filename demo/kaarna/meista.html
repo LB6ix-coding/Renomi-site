@@ -15,9 +15,9 @@
 .m-intro h1{max-width:14ch;font-size:clamp(44px,5.6vw,84px)}
 .m-lead{margin-top:28px;max-width:52ch;font-size:clamp(18px,1.6vw,21px)}
 .m-photo{margin:0 0 64px}
-.m-photo > img,.m-pair .photo > img{height:auto}
-.m-photo img,.m-pair img{background:#cfc9bf;width:100%;height:auto;aspect-ratio:1600/1073;object-fit:cover}
-.m-photo figcaption,.m-pair figcaption{margin-top:10px;font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-size:13px;color:var(--lenticel,#6B6A63)}
+.m-photo .ph{background:#C9C2B7;aspect-ratio:1600/1073}
+.m-photo img{width:100%;height:100%;aspect-ratio:1600/1073;object-fit:cover}
+.m-photo figcaption{margin-top:10px;font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-size:13px;color:var(--lenticel,#6B6A63)}
 .proc{list-style:none;display:grid;gap:0;margin-top:48px;border-top:1px solid rgba(236,237,232,.22)}
 .proc>li{display:grid;gap:10px;padding:32px 0;border-bottom:1px solid rgba(236,237,232,.22)}
 .proc .n{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
@@ -30,21 +30,18 @@
 .people b{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:900;font-size:clamp(26px,3vw,40px);letter-spacing:-.04em;line-height:1.05}
 .people .role{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:var(--rye,#7A5A3B)}
 .people p{color:var(--lenticel,#6B6A63);max-width:48ch}
-.m-two{display:grid;gap:56px}
+.m-two{display:grid;grid-template-columns:minmax(0,1fr);gap:56px}
 .m-two h2{font-size:clamp(26px,3vw,36px);margin-bottom:20px}
 .sup{list-style:none;border-top:1px solid var(--line,#CFD0C9)}
-.sup li{display:grid;grid-template-columns:8.5em 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line,#CFD0C9)}
+.sup li{display:grid;grid-template-columns:minmax(0,8.5em) minmax(0,1fr);gap:16px;overflow-wrap:anywhere;padding:14px 0;border-bottom:1px solid var(--line,#CFD0C9)}
 .sup li span:first-child{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:700}
 .sup li span:last-child{color:var(--lenticel,#6B6A63)}
 .tl{list-style:none;border-left:1px solid var(--line,#CFD0C9);margin-left:4px}
-.tl li{position:relative;display:grid;grid-template-columns:4.2em 1fr;gap:12px;padding:0 0 22px 20px}
+.tl li{position:relative;display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:12px;padding:0 0 22px 20px}
 .tl li::before{content:"";position:absolute;left:-4px;top:.55em;width:7px;height:7px;background:var(--bark,#2B241F);border-radius:50%}
 .tl time{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:700}
-.m-pair{display:grid;gap:24px}
-.m-pair figure{margin:0}
-.m-pair img{width:100%;height:auto;aspect-ratio:1600/1073;object-fit:cover}
-.m-end h2{max-width:18ch;font-size:clamp(26px,3vw,36px)}
-.m-end p{margin:16px 0 24px;color:var(--lenticel,#6B6A63)}
+.m-end h2{max-width:16ch;font-size:var(--t-h2)}
+.m-end p{margin:24px 0 28px;color:var(--lenticel,#6B6A63)}
 .m-end .acts{display:flex;flex-wrap:wrap;gap:12px}
 .people{margin-top:40px}
 .m-after{padding-top:0}
@@ -55,8 +52,7 @@
   .proc>li{padding:40px 32px 40px 0;border-bottom:0}
   .proc>li+li{padding-left:32px;border-left:1px solid rgba(236,237,232,.22)}
   .people li{grid-template-columns:minmax(0,1.1fr) minmax(0,.7fr) minmax(0,1.4fr);align-items:baseline}
-  .m-two{grid-template-columns:1.3fr 1fr;gap:96px}
-  .m-pair{grid-template-columns:1.4fr 1fr;align-items:end}
+  .m-two{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:96px}
 }
 </style>
 <script type="application/ld+json">
@@ -136,14 +132,13 @@
         <li><a href="index.html">Etusivu</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="lounas.html">Lounas</a></li>
-        <li><a href="meista.html">Meistä</a></li>
+        <li><a href="meista.html" aria-current="page">Meistä</a></li>
         <li><a href="yhteys.html">Yhteystiedot</a></li>
       </ul>
       <a class="btn nav-cta" href="yhteys.html#tilaa">Tilaa ennakkoon<svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-arrow"/></svg></a>
       <div class="nav-meta">
-        <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
         <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-pin"/></svg>Esimerkkikatu 3, Tikkurila</p>
-        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09 123 4567</a></p>
+        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09&nbsp;123&nbsp;4567</a></p>
       </div>
     </nav>
     <p class="status top-status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
@@ -165,7 +160,7 @@
 
 <div class="wrap">
   <figure class="photo m-photo">
-    <img src="img/tiski.jpg" width="1600" height="1073" loading="lazy" decoding="async" alt="Kaarnan tiski: lasivitriinissä korvapuusteja ja hapanjuurileipiä, taustalla espressokeitin ja sateinen ikkuna.">
+    <div class="ph"><img src="img/tiski.jpg" width="1600" height="1073" fetchpriority="high" decoding="async" alt="Kaarnan tiski: lasivitriinissä korvapuusteja ja hapanjuurileipiä, taustalla espressokeitin ja sateinen ikkuna."></div>
     <figcaption>Tiski aamulla puoli kahdeksalta. Ensimmäiset pullat ja piirakat ovat jo vitriinissä.</figcaption>
   </figure>
 </div>
@@ -236,19 +231,13 @@
   </div>
 </section>
 
-<section class="sec m-after" aria-label="Kuvia kahvilasta">
-  <div class="wrap m-pair">
-    <figure class="photo">
-      <img src="img/ikkuna.jpg" width="1600" height="1073" loading="lazy" decoding="async" alt="Ikkunapöytä Kaarnassa: kuppi kahvia ja korvapuusti, ulkona sateinen katu.">
-      <figcaption>Ikkunapöytä täyttyy ensimmäisenä, sadepäivinäkin.</figcaption>
-    </figure>
-    <div class="m-end">
-      <h2>Tule maistamaan, tai tilaa leipä valmiiksi.</h2>
-      <p>Ruisleipä 600&nbsp;g 6,50&nbsp;€. Uunista tiistaisin ja perjantaisin.</p>
-      <div class="acts">
-        <a class="btn btn-dark" href="yhteys.html#tilaa">Tilaa ennakkoon</a>
-        <a class="btn btn-line" href="menu.html">Katso menu</a>
-      </div>
+<section class="sec sec-paper m-cta" aria-labelledby="cta-h">
+  <div class="wrap m-end">
+    <h2 id="cta-h">Tule maistamaan, tai tilaa leipä valmiiksi.</h2>
+    <p>Ruisleipä 600&nbsp;g 6,50&nbsp;€. Uunista tiistaisin ja perjantaisin.</p>
+    <div class="acts">
+      <a class="btn btn-dark" href="yhteys.html#tilaa">Tilaa ennakkoon</a>
+      <a class="btn btn-line" href="menu.html">Katso menu</a>
     </div>
   </div>
 </section>
@@ -274,7 +263,7 @@
       <div class="foot-col">
         <h2 class="foot-h">Ota yhteyttä</h2>
         <ul class="foot-contact">
-          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09 123 4567</a></li>
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09&nbsp;123&nbsp;4567</a></li>
           <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-mail"/></svg><a href="mailto:moi@kaarna.example">moi@kaarna.example</a></li>
           <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-insta"/></svg><span>Instagramissa @kaarna.leipomo</span></li>
         </ul>
