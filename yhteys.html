@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ottakaa yhteyttä – Marktic</title>
-<meta name="description" content="Pyytäkää maksuton kartoitus: sähköposti, WhatsApp tai puhelin. Vastaamme kahden arkipäivän kuluessa.">
+<meta name="description" content="Pyytäkää maksuton kartoitus sähköpostilla: lähettäkää yrityksen nimi ja paikkakunta. Vastaamme kahden arkipäivän kuluessa.">
 <link rel="canonical" href="https://marktic.fi/yhteys.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Ottakaa yhteyttä – Marktic"><meta property="og:description" content="Pyytäkää maksuton kartoitus: sähköposti, WhatsApp tai puhelin. Vastaamme kahden arkipäivän kuluessa."><meta property="og:url" content="https://marktic.fi/yhteys.html"><meta property="og:locale" content="fi_FI">
+<meta property="og:title" content="Ottakaa yhteyttä – Marktic"><meta property="og:description" content="Pyytäkää maksuton kartoitus sähköpostilla. Vastaamme kahden arkipäivän kuluessa."><meta property="og:url" content="https://marktic.fi/yhteys.html"><meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="stylesheet" href="site.css">
 <style>
 @media (max-width:900px){.ways .btn{flex:1 1 100%}}
@@ -24,7 +24,7 @@
 <a class="skip" href="#main">Siirry sisältöön</a>
 <header class="top"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Valikko">≡</button>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
   <nav class="nav" id="nav" aria-label="Päävalikko">
     <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
     <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
@@ -37,12 +37,11 @@
     <p class="eyebrow">Ottakaa yhteyttä</p>
     <h1>Lähettäkää yrityksenne nimi ja paikkakunta.</h1>
     <p class="lead">Muuta ei tarvita. Teemme maksuttoman kartoituksen ja vastaamme kahden arkipäivän kuluessa. Ei myyntipuheluita, ellette pyydä soittoa.</p>
-    <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+    <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A" data-mail>info@marktic.fi</a>
     <div class="ways">
-      <span class="btn btn-brand" aria-disabled="true" style="opacity:.55;cursor:default">WhatsApp [PUUTTUU: numero]</span>
-      <span class="btn btn-ghost" aria-disabled="true" style="opacity:.55;cursor:default">Soittakaa [PUUTTUU: numero]</span>
+      <!-- PUUTTUU: WhatsApp- ja puhelinpainikkeet lisätään, kun numero on -->
     </div>
-    <p class="mut" style="margin-top:var(--s3);font-size:var(--t-sm)">Arkisin klo 9–17. Jos emme vastaa, soitamme takaisin saman päivän aikana.</p>
+    <p class="mut" style="margin-top:var(--s3);font-size:var(--t-sm)">Vastaamme arkisin. Jos haluatte, että soitamme, kirjoittakaa numeronne viestiin.</p>
   </div>
   <dl class="facts">
     <dt>Sähköposti</dt><dd><a class="ilink" href="mailto:info@marktic.fi">info@marktic.fi</a></dd>
@@ -62,14 +61,14 @@
 </div></section>
 </main>
 <footer><div class="wrap">
-  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Emme ole alv-velvollisia, joten laskuun ei lisätä arvonlisäveroa.</p></div>
+  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
   <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
   <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
 </div></footer>
 <script>
 const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
-b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'≡'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='≡';b.focus()}});
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
 const here=location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
 </script>

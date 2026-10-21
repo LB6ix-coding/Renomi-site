@@ -7,7 +7,7 @@
 <meta name="description" content="Näkyvyys, somen ylläpito, videomainokset, kotisivut ja mainonta kiinteillä hinnoilla. Ei määräaikaa, ei aloitusmaksua, raportti kerran kuussa.">
 <link rel="canonical" href="https://marktic.fi/palvelut.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Palvelut ja hinnat – Marktic"><meta property="og:description" content="Näkyvyys, somen ylläpito, videomainokset, kotisivut ja mainonta kiinteillä hinnoilla. Ei määräaikaa, ei aloitusmaksua, raportti kerran kuussa."><meta property="og:url" content="https://marktic.fi/palvelut.html"><meta property="og:locale" content="fi_FI">
+<meta property="og:title" content="Palvelut ja hinnat – Marktic"><meta property="og:description" content="Näkyvyys, somen ylläpito, videomainokset, kotisivut ja mainonta kiinteillä hinnoilla. Ei määräaikaa, ei aloitusmaksua, raportti kerran kuussa."><meta property="og:url" content="https://marktic.fi/palvelut.html"><meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="stylesheet" href="site.css">
 <style>
 .ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
@@ -21,7 +21,10 @@
 .pick input:checked+span{background:var(--brand);border-color:var(--brand)} .pick input:checked+span::after{content:"";width:12px;height:7px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:translateY(-2px) rotate(-45deg)}
 .pick input:focus-visible+span{outline:3px solid var(--lichen);outline-offset:3px} .paper .pick input:focus-visible+span{outline-color:var(--brand)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
-.tot{position:sticky;bottom:0;z-index:30;background:var(--ink);color:var(--bg);border-top:1px solid var(--line-2);padding:var(--s3) 0} .tot .wrap{display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap} .tot b{font-size:var(--t-lg);margin-right:var(--s2)} .tot .mut{color:#56625d;margin-left:var(--s2)} .tot .btn-ghost{border-color:#56625d;color:var(--bg)}
+.tot{position:sticky;bottom:0;z-index:30;background:var(--ink);color:var(--bg);border-top:1px solid var(--line-2);padding:12px 0} .tot .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--s3)} .tsum{display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap;min-width:0} .tot b{font-size:var(--t-lg);white-space:nowrap} .tot .mut{color:#56625d} .tclr{background:none;border:0;color:#56625d;font:inherit;font-size:var(--t-sm);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:8px 4px} .tclr:hover{color:var(--bg)} .tot .btn{min-height:46px;padding:0 var(--s4);white-space:nowrap}
+.jump{display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--s3);font-weight:600;font-size:var(--t-sm);color:var(--ink-2)} .jump a{color:var(--ink-2);text-decoration:none;padding:11px 0;display:inline-block} .jump a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px} .jump span{color:var(--mut)}
+.plan.free{opacity:.85}
+@media (max-width:900px){.tot .wrap{gap:var(--s2)} .tot b{font-size:var(--t-base)} .tot #tn{display:none} .tot .btn{padding:0 var(--s3);min-height:44px}}
 @media (max-width:900px){.plan{grid-template-columns:44px 1fr} .plan>div:nth-child(3){grid-column:2} .plan .what{grid-column:2} .plan.sel{margin:0;padding-left:var(--s2);padding-right:var(--s2)}}
 .paper .price .plan{border-color:var(--paper-line)} .price .plan{border-color:var(--line)} .price .what,.price .was,.plan .amt small{color:var(--mut)} .paper .price .what,.paper .price .was,.paper .plan .amt small{color:var(--paper-mut)}
 </style>
@@ -34,8 +37,10 @@
 {"@type":"Offer","name":"Some Perus","price":"249","priceCurrency":"EUR","description":"Kuukausihinta: 1 kanava, 4 julkaisua/kk"},
 {"@type":"Offer","name":"Some Plus","price":"490","priceCurrency":"EUR","description":"Kuukausihinta: 2 kanavaa, 8 julkaisua/kk, 1 lyhytvideo/kk"},
 {"@type":"Offer","name":"Videomainos","price":"290","priceCurrency":"EUR","description":"Alkaen, per video (10–30 s)"},
+{"@type":"Offer","name":"Kolmen videon sarja","price":"690","priceCurrency":"EUR","description":"Kertamaksu, kolme videota"},
 {"@type":"Offer","name":"Kotisivut, yksi sivu","price":"490","priceCurrency":"EUR","description":"Kertamaksu"},
 {"@type":"Offer","name":"Kotisivut, viisi sivua","price":"990","priceCurrency":"EUR","description":"Kertamaksu, enintään 5 sivua"},
+{"@type":"Offer","name":"Sivujen ylläpito","price":"19","priceCurrency":"EUR","description":"Kuukausihinta, valinnainen, ei määräaikaa"},
 {"@type":"Offer","name":"Mainonnan hallinta","price":"249","priceCurrency":"EUR","description":"Alkaen, kuukausihinta, mainosbudjetti erikseen"},
 {"@type":"Offer","name":"Marktic Kumppani","price":"690","priceCurrency":"EUR","description":"Kuukausihinta: näkyvyys + some + mainonnan hallinta"}]}
 </script>
@@ -44,7 +49,7 @@
 <a class="skip" href="#main">Siirry sisältöön</a>
 <header class="top"><div class="wrap">
   <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Valikko">≡</button>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
   <nav class="nav" id="nav" aria-label="Päävalikko">
     <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
     <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
@@ -53,20 +58,20 @@
 
 <main id="main">
 <section class="ph1"><div class="wrap"><div class="head">
-<p class="eyebrow">Palvelut ja hinnat</p><h1>Hinnat näkyvillä, ennen kuin soitatte.</h1>
+<p class="eyebrow">Palvelut ja hinnat</p><h1>Hinnat näkyvillä, ennen kuin otatte yhteyttä.</h1>
 <p class="lead">Jokaisella palvelulla on hinta näkyvillä. Kuukausipalveluissa ei ole määräaikaa, ja kertatyöt laskutetaan vasta kun työ on valmis. </p>
 <p class="mut" style="margin-top:var(--s2)">Voitte rastittaa palvelut, jolloin sivun alareunassa näkyy yhteissumma. Siitä lähtee tarjouspyyntö yhdellä painalluksella.</p>
-<nav aria-label="Palvelut" style="display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s2)"><a class="btn btn-ghost btn-sm" href="#nakyvyys">Näkyvyys Googlessa ja hakupalveluissa</a><a class="btn btn-ghost btn-sm" href="#some">Somen ylläpito</a><a class="btn btn-ghost btn-sm" href="#video">Videomainokset</a><a class="btn btn-ghost btn-sm" href="#sivut">Kotisivut ja mainonta</a><a class="btn btn-ghost btn-sm" href="#kumppani">Kumppanipaketti</a></nav>
+<nav class="jump" aria-label="Palvelut"><a href="#nakyvyys">Näkyvyys</a><span aria-hidden="true">·</span><a href="#some">Some</a><span aria-hidden="true">·</span><a href="#video">Videot</a><span aria-hidden="true">·</span><a href="#sivut">Kotisivut ja mainonta</a><span aria-hidden="true">·</span><a href="#kumppani">Kumppanipaketti</a></nav>
 </div></div></section>
 <section class="paper" id="nakyvyys" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid psec" style="gap:var(--s5)"><div><p class="num">01</p><h2>Näkyvyys Googlessa ja hakupalveluissa</h2><p class="lead" style="margin-top:var(--s3)">Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden vastaukset kuntoon. Mittaamme viikoittain, miten yrityksenne löytyy alallanne ja kaupungissanne, ja korjaamme puutteet.</p></div>
 <div class="price">
-<div class="plan"><label class="pick"><input type="checkbox" data-name="Maksuton kartoitus" data-mo="0" data-once="0" disabled><span></span><span class="sr">Maksuton kartoitus, ei valittavissa</span></label><div><h3>Maksuton kartoitus</h3></div><div><div class="amt">0 €</div></div><div class="what">Mitä asiakkaat näkevät, kun he etsivät alanne yritystä: Google, kartta, hakemistot ja hakupalvelut (ChatGPT, Googlen tekoälyvastaukset ja vastaavat). Kirjallisena, mitä korjaisimme ensin. Ei sido mihinkään.</div></div>
+<div class="plan free"><div aria-hidden="true"></div><div><h3>Maksuton kartoitus</h3></div><div><div class="amt">0 €</div></div><div class="what">Mitä asiakkaat näkevät, kun he etsivät alanne yritystä: Google, kartta, hakemistot ja hakupalvelut (ChatGPT, Googlen tekoälyvastaukset ja vastaavat). Kirjallisena, mitä korjaisimme ensin. Ei sido mihinkään.</div></div>
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Korjauspaketti" data-mo="0" data-once="190"><span></span><span class="sr">Valitkaa Korjauspaketti</span></label><div><h3>Korjauspaketti</h3></div><div><div class="amt">190 € <small>kertamaksu</small></div></div><div class="what">Google-yritysprofiili, rakenteinen tieto sivuille, oikeat tiedot hakemistoihin, joita hakupalvelut käyttävät. Valmis 7 arkipäivässä, laskutetaan, kun työ on tehty.</div></div>
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Näkyvyyden ylläpito" data-mo="149" data-once="0"><span></span><span class="sr">Valitkaa Näkyvyyden ylläpito</span></label><div><h3>Näkyvyyden ylläpito <span class="tag">Perustajahinta</span></h3></div><div><div class="amt">149 €<small>/kk</small></div><div class="was">Normaalisti 190 €/kk. 10 ensimmäiselle asiakkaalle.</div></div><div class="what">Mittaus viikoittain, korjaukset, kun jokin muuttuu, kuukausiraportti päivämäärineen. Ei määräaikaa.</div></div>
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Näkyvyyden aktiivinen kehitys" data-mo="290" data-once="0"><span></span><span class="sr">Valitkaa Näkyvyyden aktiivinen kehitys</span></label><div><h3>Näkyvyyden aktiivinen kehitys <span class="tag">Perustajahinta</span></h3></div><div><div class="amt">290 €<small>/kk</small></div><div class="was">Normaalisti 349 €/kk. 10 ensimmäiselle asiakkaalle.</div></div><div class="what">Ylläpito + joka kuukausi yksi uusi sisältö (esim. palvelusivu tai usein kysytyt kysymykset), jolla haetaan lisää näkyvyyttä. Ei määräaikaa.</div></div>
 </div></div></div></section>
-<section class="" id="some" style="scroll-margin-top:80px"><div class="wrap">
+<section class="paper" id="some" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid psec" style="gap:var(--s5)"><div><p class="num">02</p><h2>Somen ylläpito</h2><p class="lead" style="margin-top:var(--s3)">Suunnittelemme, teemme ja julkaisemme. Te hyväksytte julkaisut etukäteen, ja vastaamme kommentteihin puolestanne. Kuvat ja videot teemme teidän materiaalistanne tai tuotamme itse.</p></div>
 <div class="price">
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Some Perus" data-mo="249" data-once="0"><span></span><span class="sr">Valitkaa Some Perus</span></label><div><h3>Some Perus</h3></div><div><div class="amt">249 €<small>/kk</small></div></div><div class="what">1 kanava (Instagram tai Facebook), 4 julkaisua kuukaudessa + storyt, sisältösuunnitelma, kommentteihin vastaaminen, kuukausiraportti.</div></div>
@@ -78,7 +83,7 @@
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Videomainos" data-mo="0" data-once="290"><span></span><span class="sr">Valitkaa Videomainos</span></label><div><h3>Videomainos</h3></div><div><div class="amt"><small class="from">alkaen</small> 290 €<small>/video</small></div></div><div class="what">10–30 sekuntia, pysty- ja vaakaversio, tekstit ja musiikki, kaksi korjauskierrosta. Laskutetaan, kun video on hyväksytty.</div></div>
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Kolmen videon sarja" data-mo="0" data-once="690"><span></span><span class="sr">Valitkaa Kolmen videon sarja</span></label><div><h3>Kolmen videon sarja</h3></div><div><div class="amt">690 € <small>kertamaksu</small></div></div><div class="what">Kolme videota samasta tuotteesta tai palvelusta eri kulmista, someen ja mainontaan. Säästö 180 €.</div></div>
 </div></div></div></section>
-<section class="" id="sivut" style="scroll-margin-top:80px"><div class="wrap">
+<section class="paper" id="sivut" style="scroll-margin-top:80px"><div class="wrap">
 <div class="grid psec" style="gap:var(--s5)"><div><p class="num">04</p><h2>Kotisivut ja mainonta</h2><p class="lead" style="margin-top:var(--s3)">Nopeat kotisivut, jotka toimivat puhelimessa ja löytyvät Googlesta. Google- ja Meta-mainonta, jonka tulokset näette raportissa eurojen tarkkuudella.</p></div>
 <div class="price">
 <div class="plan"><label class="pick"><input type="checkbox" data-name="Kotisivut, yksi sivu" data-mo="0" data-once="490"><span></span><span class="sr">Valitkaa Kotisivut, yksi sivu</span></label><div><h3>Kotisivut, yksi sivu</h3></div><div><div class="amt">490 € <small>kertamaksu</small></div></div><div class="what">Yksi sivu, jolla on kaikki, mitä asiakas kysyy: palvelut, hinnat, aukioloajat, reitti ja yhteydenotto. Toimii puhelimessa, Google-perusteet, tietosuojaseloste. Kuten Kahvila Aamun esimerkki.</div></div>
@@ -97,34 +102,36 @@
 <div class="card"><h3>Ei määräaikaa</h3><p>Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun. Kertatyöt laskutetaan, kun ne ovat valmiit.</p></div>
 <div class="card"><h3>Ei lupauksia sijoituksista</h3><p>Emme lupaa tiettyä sijaa Googlessa tai hakupalveluissa, koska tulokset vaihtelevat. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen.</p></div>
 </div>
-<p class="mut" style="margin-top:var(--s4);font-size:var(--t-sm)">Emme ole alv-velvollisia, joten laskuun ei lisätä arvonlisäveroa. Mainosbudjetit maksetaan suoraan Googlelle ja Metalle, eivätkä ne sisälly hintoihin.</p>
+<p class="mut" style="margin-top:var(--s4);font-size:var(--t-sm)">Hinnat ovat ilman arvonlisäveroa. Marktic ei ole toistaiseksi arvonlisäverovelvollinen, joten laskuun ei lisätä arvonlisäveroa. Mainosbudjetit maksetaan suoraan Googlelle ja Metalle, eivätkä ne sisälly hintoihin.</p>
 </div></section>
 <section class="close"><div class="wrap">
   <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
-  <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+  <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A" data-mail>info@marktic.fi</a>
   <p>Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
 </div></section>
-<div class="tot" id="tot" hidden aria-live="polite"><div class="wrap"><div><b id="tmo">0 €/kk</b><span id="tonce"></span><span id="tn" class="mut"></span></div><a class="btn btn-brand btn-sm" id="tsend" href="mailto:info@marktic.fi">Lähettäkää tämä valinta</a><button class="btn btn-ghost btn-sm" id="tclr" type="button">Tyhjentäkää</button></div></div>
+<div class="tot" id="tot" hidden aria-live="polite"><div class="wrap"><div class="tsum"><b id="tmo">0 €/kk</b><span id="tonce"></span><span id="tn" class="mut"></span><button class="tclr" id="tclr" type="button">Tyhjentäkää</button></div><a class="btn btn-brand" id="tsend" href="mailto:info@marktic.fi">Lähettäkää valinta</a></div></div>
 <script>
 const boxes=[...document.querySelectorAll('.pick input')],tot=document.getElementById('tot'),tmo=document.getElementById('tmo'),tonce=document.getElementById('tonce'),tn=document.getElementById('tn'),tsend=document.getElementById('tsend');
 const fmt=n=>n.toLocaleString('fi-FI')+' €';
 function upd(){const sel=boxes.filter(b=>b.checked);let mo=0,on=0;sel.forEach(b=>{mo+=+b.dataset.mo;on+=+b.dataset.once});
- tot.hidden=sel.length===0;document.body.style.paddingBottom=sel.length?'96px':'';tmo.textContent=fmt(mo)+'/kk';tonce.textContent=on?' + '+fmt(on)+' kertamaksu':'';tn.textContent=sel.length+' valittu';
+ tot.hidden=sel.length===0;document.body.style.paddingBottom=sel.length?(tot.offsetHeight+16)+'px':'';tmo.textContent=fmt(mo)+'/kk';tonce.textContent=on?' + '+fmt(on)+' kertamaksu':'';tn.textContent=sel.length+' valittu';
  const names=sel.map(b=>b.dataset.name).join(', ');
  tsend.href='mailto:info@marktic.fi?subject='+encodeURIComponent('Tarjouspyyntö: '+names)+'&body='+encodeURIComponent('Valitsin sivuiltanne: '+names+'.\nYhteensä '+fmt(mo)+'/kk'+(on?' + '+fmt(on)+' kertamaksu':'')+'.\n\nYritys:\nPaikkakunta:\nKotisivut:\n');
  boxes.forEach(b=>b.closest('.plan').classList.toggle('sel',b.checked))}
-boxes.forEach(b=>b.addEventListener('change',upd));document.getElementById('tclr').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);upd()});
+const parts=['Näkyvyyden aktiivinen kehitys','Some Perus','Mainonnan hallinta'];
+boxes.forEach(b=>b.addEventListener('change',e=>{const n=b.dataset.name;if(b.checked&&n==='Marktic Kumppani'){boxes.filter(x=>parts.includes(x.dataset.name)).forEach(x=>x.checked=false)}else if(b.checked&&parts.includes(n)){boxes.filter(x=>x.dataset.name==='Marktic Kumppani').forEach(x=>x.checked=false)}upd()}));
+window.addEventListener('resize',()=>{if(!tot.hidden)document.body.style.paddingBottom=(tot.offsetHeight+16)+'px'});document.getElementById('tclr').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);upd()});
 </script>
 </main>
 <footer><div class="wrap">
-  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Y-tunnus 3664036-8 · Emme ole alv-velvollisia, joten laskuun ei lisätä arvonlisäveroa.</p></div>
+  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
   <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
   <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
 </div></footer>
 <script>
 const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
-b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'✕':'≡'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='≡';b.focus()}});
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
 const here=location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
 </script>

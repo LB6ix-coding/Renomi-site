@@ -2,38 +2,32 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tietosuojaseloste · Marktic</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tietosuojaseloste – Marktic</title>
 <meta name="robots" content="noindex">
 <meta name="description" content="Marktic-palvelun tietosuojaseloste: mitä tietoja käsittelemme yritysten yhteydenotoissa ja asiakkuuksissa, millä perusteella ja kuinka kauan.">
-<meta name="theme-color" content="#3B3BF2">
+<link rel="canonical" href="https://marktic.fi/tietosuoja.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Tietosuojaseloste – Marktic"><meta property="og:type" content="website"><meta property="og:url" content="https://marktic.fi/tietosuoja.html"><meta property="og:locale" content="fi_FI">
+<link rel="stylesheet" href="site.css">
 <style>
-:root{--paper:#F4F6F3;--surface:#FFFFFF;--ink:#17201D;--muted:#56625D;--line:#D9DFDA;--cobalt:#3B3BF2;
-  --font:"Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
-@media (prefers-color-scheme:dark){:root{--paper:#101614;--surface:#18201D;--ink:#EEF2EF;--muted:#A3AFA9;--line:#2A3430;--cobalt:#7B7BFF;color-scheme:dark}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:var(--cobalt)}
-:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px;border-radius:6px}
-.top{border-bottom:1px solid var(--line)}
-.top .in{max-width:820px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:9px;font-weight:900;font-size:22px;letter-spacing:-.04em;text-decoration:none;color:var(--ink)}
-.logo i{width:12px;height:12px;background:var(--cobalt);border-radius:3px;display:inline-block}
-.back{font-size:15px;color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;min-height:44px}.back:hover{color:var(--ink)}
-.doc{max-width:820px;margin:0 auto;padding:40px 20px 72px;display:flex;flex-direction:column;gap:14px}
-.doc h1{font-size:clamp(32px,5vw,48px);font-weight:900;letter-spacing:-.035em;line-height:1.05;margin:0 0 10px}
-.doc h2,.doc h3{font-size:21px;font-weight:700;letter-spacing:-.01em;margin:22px 0 0}
-.doc p{margin:0}
-.doc ul{margin:0;padding-left:22px;color:var(--muted)}
-.doc strong{font-weight:700}
-footer{border-top:1px solid var(--line)}
-footer .in{max-width:820px;margin:0 auto;padding:24px 20px 40px;font-size:15px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center} footer a{display:inline-flex;align-items:center;min-height:44px}
+.doc{max-width:680px;padding:var(--s6) 0 var(--s7);display:flex;flex-direction:column;gap:var(--s3)}
+.doc h1{font-size:var(--t-3xl);margin-bottom:var(--s2)} .doc h2,.doc h3{font-size:var(--t-lg);margin-top:var(--s4)}
+.doc p,.doc li{color:var(--paper-mut)} .doc strong{color:var(--paper-ink)} .doc ul{padding-left:22px}
 </style>
 </head>
 <body>
-<header class="top"><div class="in"><a class="logo" href="index.html"><i aria-hidden="true"></i>Marktic</a><a class="back" href="index.html">Etusivulle</a></div></header>
-<main class="doc">
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
+  <nav class="nav" id="nav" aria-label="Päävalikko">
+    <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
+    <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
+  </nav>
+</div></header>
+<section class="paper"><div class="wrap">
+<main class="doc" id="main">
 <h1>Tietosuojaseloste: yritysten yhteydenotot ja asiakkuudet</h1>
 <p>Päivitetty: 21.10.2026.</p>
 <p><strong>Rekisterinpitäjä:</strong> Marktic (toiminimi, elinkeinonharjoittaja Laura Chache), Y-tunnus 3664036-8, Vantaa.
@@ -59,7 +53,6 @@ estolistamerkinnän, jotta kielto pysyy voimassa. Jos pyydätte myös tietojen p
 haluatteko poistaa myös estolistamerkinnän.</p>
 <p><strong>Säilytys:</strong></p>
 <ul><li>yhteydenottotiedot: poistetaan [12] kuukauden kuluttua viimeisestä yhteydenotosta, ellei asiakassuhdetta synny</li><li>vastausviestit: säilyvät vain sähköpostilaatikossa [säilytysaika]; niitä ei tallenneta muualle</li><li>estolista: niin kauan kuin yhteydenottoja tehdään</li><li>asiakas- ja laskutustiedot: kirjanpitolain mukaiset ajat</li></ul>
-<p>[Kirjoita tähän vain sellaiset ajat, jotka toteutuvat myös versionhallinnan historiassa ja varmuuskopioissa.]</p>
 <p><strong>Vastaanottajat ja käsittelijät:</strong> tietoja ei myydä eikä luovuteta markkinointiin. Teknisinä käsittelijöinä:
 Zoho Corporation (sähköpostipalvelu, palvelimet EU:ssa), GitHub Inc. (tietojen tallennus yksityisessä säilössä ja hyväksyntätiketit, USA),
 Google (yritystietohaut ja tekoälytarkistukset, USA/EU), Perplexity AI (tekoälytarkistukset, USA), OpenAI (ChatGPT-tekoälytarkistukset, USA) ja, jos käytössä,
@@ -72,7 +65,19 @@ vakiosopimuslausekkeet: GitHub (tietosuojakehys ja vakiosopimuslausekkeet), Goog
 <p><strong>Oikeutenne:</strong> oikeus saada pääsy tietoihin, oikaista ja poistaa ne, rajoittaa käsittelyä ja vastustaa
 käsittelyä (ks. yllä), sekä oikeus tehdä valitus tietosuojavaltuutetun toimistolle (tietosuoja.fi).</p>
 </main>
-<footer><div class="in"><span>Marktic</span><span>Toiminimi Marktic, Laura Chache</span><span>Y-tunnus 3664036-8</span><a href="mailto:info@marktic.fi">info@marktic.fi</a></div></footer>
+</div></section>
+<footer><div class="wrap">
+  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
+  <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
+  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
+</div></footer>
+<script>
+const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
+const here=location.pathname.split('/').pop()||'index.html';
+document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
+</script>
 <script src="mail.js" defer></script>
 </body>
 </html>

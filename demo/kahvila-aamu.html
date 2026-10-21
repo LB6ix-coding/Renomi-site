@@ -92,7 +92,7 @@ section{padding:var(--s6) 0}
 .find .g{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:start}
 .hours{list-style:none;border-top:1px solid var(--line);margin-top:var(--s3)}
 .hours li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:16px}
-.hours li.now{font-weight:700}.hours li.now::after{content:"tänään";font-weight:600;font-size:13px;color:var(--rust);margin-left:12px}
+.hours li.now{font-weight:700}.hours li.now span:first-child::after{content:"tänään";font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--rust);margin-left:10px}
 dl{display:grid;grid-template-columns:auto 1fr;gap:12px 24px;font-size:17px;margin-top:var(--s3)}dt{color:var(--mut)}dd a{text-underline-offset:3px}
 .map{border-radius:6px;overflow:hidden;background:#e8eee9;aspect-ratio:4/3}
 .map svg{width:100%;height:100%;display:block}
@@ -112,7 +112,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(-
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
-<header><div class="wrap"><a class="brand" href="#">Kahvila Aamu</a><nav><a href="#menu">Menu</a><a href="#aamiainen">Aamiainen</a><a href="#tiedot">Löydät meidät</a><span class="status" id="status"><i></i><span>Avoinna</span></span></nav></div></header>
+<header><div class="wrap"><a class="brand" href="kahvila-aamu.html">Kahvila Aamu</a><nav><a href="#menu">Menu</a><a href="#aamiainen">Aamiainen</a><a href="#tiedot">Löydät meidät</a><span class="status" id="status"><i></i><span>Avoinna</span></span></nav></div></header>
 <main id="main">
 
 <section class="hero wrap" style="padding:0">
@@ -171,7 +171,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(-
   <div class="head rv"><h2>Viikon lista maanantaisin</h2><span style="font-weight:700;border-bottom:2px solid var(--rust)">@kahvila.aamu</span></div>
   <div class="tiles rv">
     <img src="ig-2.jpg" alt="" width="600" height="600" loading="lazy">
-    <video src="../assets/kahvila-aamu-ad.mp4" poster="../assets/kahvila-aamu-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-label="Lyhyt mainosvideo"></video>
+    <video src="../assets/kahvila-aamu-ad-360.mp4" poster="../assets/kahvila-aamu-ad-poster-s.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-label="Lyhyt mainosvideo"></video>
     <img src="ig-1.jpg" alt="" width="600" height="600" loading="lazy">
     <img src="ig-3.jpg" alt="" width="600" height="600" loading="lazy">
   </div>
@@ -181,7 +181,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(-
   <h2 class="rv">Löydät meidät</h2>
   <div class="g">
     <div class="rv">
-      <dl><dt>Osoite</dt><dd>Esimerkkikatu 3, 01300 Vantaa (Tikkurila)</dd><dt>Puhelin</dt><dd>[esimerkki]</dd><dt>Pöytävaraus</dt><dd>Soita tai tule paikalle.</dd></dl>
+      <dl><dt>Osoite</dt><dd>Esimerkkikatu 3, 01300 Vantaa (Tikkurila)</dd><dt>Puhelin</dt><dd>09 123 4567 (esimerkki)</dd><dt>Pöytävaraus</dt><dd>Soita tai tule paikalle.</dd></dl>
       <ul class="hours" id="hours">
         <li data-d="1"><span>Maanantai</span><span>7–16</span></li><li data-d="2"><span>Tiistai</span><span>7–16</span></li><li data-d="3"><span>Keskiviikko</span><span>7–16</span></li><li data-d="4"><span>Torstai</span><span>7–16</span></li><li data-d="5"><span>Perjantai</span><span>7–16</span></li><li data-d="6"><span>Lauantai</span><span>9–15</span></li><li data-d="0"><span>Sunnuntai</span><span>suljettu</span></li>
       </ul>
@@ -190,13 +190,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(-
   </div>
 </div></section>
 </main>
-<footer><div class="wrap"><span>Kahvila Aamu · Tikkurila · Esimerkkikatu 3</span><span>Demo: kuvitteellinen yritys, kuvat tuotettu tekoälyllä esimerkkiä varten. Sivun teki Marktic.</span></div></footer>
+<footer><div class="wrap"><span>Kahvila Aamu · Tikkurila · Esimerkkikatu 3</span><span>Demo: kuvitteellinen yritys, kuvat tuotettu tekoälyllä esimerkkiä varten. Sivun teki <a href="../index.html" style="color:inherit;display:inline-block;padding:13px 0;margin:-13px 0">Marktic</a>.</span></div></footer>
 <script>
 // opening status from the real clock (Helsinki time)
 const H={1:[7,16],2:[7,16],3:[7,16],4:[7,16],5:[7,16],6:[9,15],0:null};
 const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/Helsinki'}));const d=now.getDay(),h=now.getHours()+now.getMinutes()/60;const o=H[d];
 const open=o&&h>=o[0]&&h<o[1];const st=document.getElementById('status');st.classList.toggle('closed',!open);
-st.querySelector('span').textContent=open?`Avoinna nyt, klo ${o[1]} asti`:(o?`Suljettu, avataan klo ${o[0]}`:'Suljettu tänään');
+const names=['su','ma','ti','ke','to','pe','la'];let nx='';if(!open){if(o&&h<o[0])nx=`avataan klo ${o[0]}`;else{for(let i=1;i<=7;i++){const dd=(d+i)%7;if(H[dd]){nx=(i===1?'avataan huomenna klo ':'avataan '+names[dd]+' klo ')+H[dd][0];break}}}}
+st.querySelector('span').textContent=open?`Avoinna nyt, klo ${o[1]} asti`:`Suljettu, ${nx}`;
 document.querySelector('#today b').textContent=o?`Avoinna tänään ${o[0]}–${o[1]}`:'Tänään suljettu';
 document.querySelectorAll('#hours li').forEach(li=>li.classList.toggle('now',+li.dataset.d===d));
 // reveal
