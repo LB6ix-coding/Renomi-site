@@ -35,25 +35,13 @@
 .nums{padding:var(--s6) 0;border-top:1px solid var(--paper-line)} .n{border-top:2px solid var(--paper-ink);padding-top:var(--s3)} .n b{display:block;font-size:var(--t-4xl);font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:var(--s2)} .n span{color:var(--paper-mut);font-size:var(--t-sm)}
 .how{counter-reset:step}
 .how .card{position:relative}
-.rep{background:#fff;border:1px solid var(--paper-line);border-radius:6px;padding:var(--s4);color:var(--paper-ink);box-shadow:0 20px 50px rgba(23,32,29,.10);font-size:var(--t-sm)}
-.rh{display:flex;justify-content:space-between;gap:var(--s3);padding-bottom:var(--s3);border-bottom:2px solid var(--paper-ink);line-height:1.45} .rh b{font-size:var(--t-base)} .rr{text-align:right;color:var(--paper-mut)}
-.rlogo{font-weight:900;font-size:var(--t-lg);letter-spacing:-.045em} .rlogo .i{position:relative} .rlogo .i::after{content:"";position:absolute;left:50%;top:.19em;width:.19em;height:.19em;border-radius:50%;background:var(--brand);transform:translateX(-50%)}
-.tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin:var(--s3) 0}
-.tiles3 div{border:1px solid var(--paper-line);border-radius:var(--r1);padding:var(--s2) var(--s3)} .tiles3 small{display:block;color:var(--paper-mut);font-size:var(--t-xs)} .tiles3 b{display:block;font-size:var(--t-xl);font-weight:700;letter-spacing:-.02em;margin:2px 0} .tiles3 span{color:var(--paper-mut);font-size:var(--t-xs)}
-.grid4{width:100%;border-collapse:collapse;margin-top:var(--s2)} .grid4 caption{text-align:left;color:var(--paper-mut);font-size:var(--t-xs);padding-bottom:var(--s2)}
-.grid4 th,.grid4 td{padding:8px 4px;border-top:1px solid var(--paper-line);text-align:center;font-weight:600;font-size:var(--t-xs);color:var(--paper-mut)} .grid4 tbody th{text-align:left;font-weight:500;color:var(--paper-ink);font-size:var(--t-sm)} .grid4 thead th{border:0}
-.grid4 i{display:inline-block;width:14px;height:14px;border-radius:50%;border:2px solid var(--paper-line)} .grid4 i.y{background:var(--brand);border-color:var(--brand)}
-.mtr{width:100%;border-collapse:collapse;margin-top:var(--s3)} .mtr caption{text-align:left;font-weight:700;color:var(--paper-ink);font-size:var(--t-sm);padding:var(--s3) 0 var(--s2);border-top:1px solid var(--paper-line)}
-.mtr th,.mtr td{padding:7px 4px;border-top:1px solid var(--paper-line);font-size:var(--t-xs);text-align:right;color:var(--paper-mut);font-variant-numeric:tabular-nums} .mtr thead th{border:0;font-weight:600} .mtr tbody th{text-align:left;color:var(--paper-ink);font-weight:500;font-size:var(--t-sm)} .mtr td.up{color:#1f6b3a;font-weight:700}
-.cmp{margin-top:var(--s2);font-size:var(--t-xs);color:var(--paper-mut)}
-.rcols{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s3);padding-top:var(--s3);border-top:1px solid var(--paper-line)} .rcols small{display:block;font-weight:700;color:var(--paper-ink);margin-bottom:var(--s1)} .rcols ul{margin-left:18px;color:var(--paper-mut)} .rcols li{margin:3px 0}
-.ok{color:#1f6b3a;font-weight:700}.todo{color:#9a4a1a;font-weight:700}
+
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%} .hero .pl{gap:4px 0} .hero .pl span{padding:4px 10px 4px 0;margin-right:10px}
   .stage{height:auto;padding-bottom:72px}
   .stage .shot{position:static;width:100%} .stage .phone{position:absolute;right:0;bottom:0;width:34%;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px}
   .cap{position:static;margin-top:var(--s2);max-width:60%}
-  .svc{grid-template-columns:1fr} .tiles3{grid-template-columns:1fr} .rcols{grid-template-columns:1fr} .rep{padding:var(--s3)} .grid4 tbody th{font-size:var(--t-xs)} .grid4 thead th span{display:inline-block;transform:rotate(-45deg);transform-origin:center;font-size:11px}
+  .svc{grid-template-columns:1fr}
 }
 </style>
 <script type="application/ld+json">
@@ -98,7 +86,7 @@
       <a class="btn btn-brand" href="yhteys.html">Pyytäkää maksuton kartoitus</a>
       <a class="btn btn-ghost" href="tyot.html">Katsokaa töitämme</a>
     </div>
-    <p class="pl rise d3"><span>Kotisivut <b>490 €</b></span><span>Some <b>249 €/kk</b></span><span>Näkyvyys <b>149 €/kk</b></span><span>Ei määräaikaa</span></p>
+    <p class="pl rise d3"><span>Kotisivut <b>alk. 490 €</b></span><span>Some <b>alk. 249 €/kk</b></span><span>Näkyvyys <b>alk. 149 €/kk</b></span><span>Ei määräaikaa</span></p>
   </div>
   <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu ja Instagram-videomainos" role="img">
     <img class="shot" src="demo/kahvila-aamu.jpg" alt="" width="1200" height="750">
