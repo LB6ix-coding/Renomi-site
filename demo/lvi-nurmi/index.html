@@ -19,6 +19,9 @@
 .kv{list-style:none;display:grid;gap:10px;color:var(--ink-2)} .kv li{display:flex;gap:10px;align-items:flex-start} .kv .ico{width:22px;height:22px;flex:none;color:var(--ok);margin-top:2px}
 .pt caption{text-align:left;font-weight:700;padding:0 0 12px;color:var(--ink)}
 .more{margin-top:var(--s3);display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.rating .stars{color:#f5a524;letter-spacing:2px} .rating strong{color:var(--ink)}
+.em .eyebrow.em-eye{color:var(--water-2)} .em a.em-link{color:#fff;font-weight:600}
+.mut{color:var(--mut);font-weight:400} .kv-h{margin-top:var(--s3)} .kv-p{color:var(--ink-2);margin-top:8px}
 @media (max-width:960px){.split{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
@@ -56,12 +59,7 @@
       "opens": "07:00",
       "closes": "17:00"
     }
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "LVI-päivystys 24/7",
-    "url": "https://marktic.fi/demo/lvi-nurmi/hataapu.html"
-  }
+  ]
 }
 </script>
 </head>
@@ -77,11 +75,6 @@
     <div class="wrap">
       <div>
         <p class="kicker"><svg class="ico" aria-hidden="true" width="16" height="16"><use href="#i-pin"/></svg> Vantaa · Helsinki · Espoo · Kerava · Tuusula</p>
-        <!--
-          Headline alternatives:
-          A) Hana vuotaa tai viemäri tukossa? Putkimies Vantaalta, <em>ajallaan</em> paikalla.
-          B) Vantaan putkimies, joka kertoo hinnan <em>ennen</em> työtä.
-        -->
         <h1 id="hero-h">Putkimies Vantaalta. Hinta <em>tiedossa</em> ennen työtä.</h1>
         <p class="lead">Hanat, WC-istuimet, viemärit, vesivuodot ja varaajat. Tuntityö 74 €/h ja minimiveloitus vain 1 tunti, ei kahta. Vantaalla ilman matkakulua. Tulemme sovittuna aikana ja laskutamme työn jälkeen.</p>
         <div class="cta">
@@ -89,8 +82,8 @@
           <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
         </div>
         <div class="proof">
-          <div><b><span class="star" aria-hidden="true">★</span> 4,9</b><span data-count="128">128</span> arvostelua Googlessa</div>
-          <div><b>Sovittuna aikana</b>paikalla, tai ilmoitamme etukäteen</div>
+          <div><b><span class="star" aria-hidden="true">★</span> <span data-count="4.9" data-decimals="1">4,9</span></b><span data-count="128">128</span> arvostelua Googlessa</div>
+          <div><b>Paikalla sovittuna aikana</b>tai soitamme etukäteen</div>
           <div><b>Hinnat näkyvillä</b>sis. alv 25,5 %, ei piilokuluja</div>
         </div>
       </div>
@@ -226,8 +219,8 @@
           <div class="ph">
             <img src="img/hands-copper.jpg" width="1200" height="896" alt="Kupariputken liitos kiristetään" loading="lazy">
           </div>
-          <h3 style="margin-top:var(--s3)">Kotitalousvähennys 40 % työn osuudesta</h3>
-          <p style="color:var(--ink-2);margin-top:8px">Hanan vaihto 189 €, josta saat 40 % eli 76 € takaisin verotuksessa (omavastuun jälkeen). Olemme ennakkoperintärekisterissä ja erittelemme työn osuuden laskuun.</p>
+          <h3 class="kv-h">Kotitalousvähennys 40 % työn osuudesta</h3>
+          <p class="kv-p">Hanan vaihto 189 €, josta saat 40 % eli 76 € takaisin verotuksessa (omavastuun jälkeen). Olemme ennakkoperintärekisterissä ja erittelemme työn osuuden laskuun.</p>
           <p class="note">Vuonna 2026 vähennys on 40 % työn osuudesta, enintään 2 100 € per henkilö. Vuotuinen omavastuu 150 € vähennetään ensin, joten yhdestä pienestä työstä saat vähennystä vain omavastuun ylittävältä osalta. Haet vähennyksen itse OmaVerossa.</p>
         </div>
       </div>
@@ -245,7 +238,7 @@
       <div class="area">
         <div>
           <ul>
-            <li>Vantaa <span style="color:var(--mut);font-weight:400">(0 € matkakulu)</span></li>
+            <li>Vantaa <span class="mut">(0 € matkakulu)</span></li>
             <li>Helsinki</li>
             <li>Espoo</li>
             <li>Kerava</li>
@@ -271,8 +264,8 @@
         <h2 id="arv-h">Mitä asiakkaat sanovat</h2>
       </div>
       <div class="rating">
-        <b>4,9</b>
-        <span><span class="stars" style="color:#f5a524;letter-spacing:2px" aria-hidden="true">★★★★★</span><br><b data-count="128">128</b> arvostelua Googlessa</span>
+        <b data-count="4.9" data-decimals="1">4,9</b>
+        <span><span class="stars" aria-hidden="true">★★★★★</span><br><strong data-count="128">128</strong> arvostelua Googlessa</span>
       </div>
       <div class="rev">
         <blockquote>
@@ -296,14 +289,14 @@
   </section>
 
   <!-- EMERGENCY BAND -->
-  <section id="paivystys" class="em" aria-labelledby="em-h">
+  <section id="paivystys" class="em rv" aria-labelledby="em-h">
     <div class="wrap">
       <div>
-        <p class="eyebrow" style="color:#8cc5ff">Päivystys 24/7, myös pyhinä</p>
+        <p class="eyebrow em-eye">Päivystys 24/7, myös pyhinä</p>
         <h2 id="em-h">Vesivahinko kesken yön?</h2>
         <p>Sulje ensin päävesihana, sitten soita. Päivystäjä vastaa ja kertoo hinnan ennen lähtöä.</p>
         <a class="big" href="tel:+358401234567">040 123 4567</a>
-        <p><a href="hataapu.html" style="color:#fff;font-weight:600">Mitä tehdä heti, hinnat ja saapumisaika</a></p>
+        <p><a class="em-link" href="hataapu.html">Mitä tehdä heti, hinnat ja saapumisaika</a></p>
       </div>
       <ul>
         <li>Vantaalla paikalla yleensä alle tunnissa, muualla 1–2 tuntia. Vahvistamme ajan puhelimessa.</li>
