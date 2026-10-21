@@ -136,6 +136,7 @@
     var cta = $('.cta', hero), text = fig.previousElementSibling;
     var paths = $$('.hp-p', svg), start = $('.hp-start', svg), collar = $('.hp-collar', svg), nut = $('.hp-nut', svg);
     var entry = parseFloat(svg.getAttribute('data-entry')) || 0.29, endF = parseFloat(svg.getAttribute('data-end')) || 0.19;
+    var img = $('img', fig), tap = (svg.getAttribute('data-tap') || '').split(/[\s,]+/).map(parseFloat).filter(function (n) { return !isNaN(n); });
     var R = 28, drawn = false;
     function rect(el, x, y, w, h) { el.setAttribute('x', x); el.setAttribute('y', y); if (w) el.setAttribute('width', w); if (h) el.setAttribute('height', h); }
     function layout() {
@@ -144,6 +145,17 @@
       if (!W || !H) return false;
       var gap = text ? Math.max(24, F.left - text.getBoundingClientRect().right) : 64;
       var gx = Math.round(-gap / 2), ey = Math.round(H * entry), ex = Math.round(W * endF);
+      if (img && tap.length === 2) {
+        // tap point is given in image pixels; map it through object-fit: cover and object-position
+        var iw = +img.getAttribute('width') || img.naturalWidth, ih = +img.getAttribute('height') || img.naturalHeight;
+        if (iw && ih) {
+          var k = Math.max(W / iw, H / ih), pos = (getComputedStyle(img).objectPosition || '50% 50%').split(' ');
+          var px = parseFloat(pos[0]) / 100, py = parseFloat(pos[1] || pos[0]) / 100;
+          if (isNaN(px)) px = 0.5; if (isNaN(py)) py = 0.5;
+          ex = Math.round((W - iw * k) * px + tap[0] * k);
+          ey = Math.round((H - ih * k) * py + tap[1] * k);
+        }
+      }
       var sx = gx - 150, sy = Math.round(H * 0.72);
       if (cta) {
         var C = cta.getBoundingClientRect(), right = C.left;
@@ -260,7 +272,7 @@
     var gauges = $$('.rate-gauge');
     if (!gauges.length) return;
     var stops = [74, 118, 138, 168, 178], angles = [-120, -60, 0, 60, 120];
-    var subs = { 74: 'arki 7–17', 118: 'arki-ilta 17–22', 138: 'lauantai', 168: 'yö 22–7', 178: 'su ja pyhät' };
+    var subs = { 74: 'arki 7–17', 118: 'arki-ilta', 138: 'lauantai', 168: 'yö 22–7', 178: 'su ja pyhät' };
     function angleFor(v) {
       if (v <= stops[0]) return angles[0] - Math.min(15, (stops[0] - v) / 4);
       for (var i = 1; i < stops.length; i++) {
@@ -399,49 +411,85 @@
     update();
   });
 
-  /* 11. emergency band: hairline crack draws across, drops spray, then the phone number is underlined once */
+  /* 11. emergency band: a hairline crack runs across from where the gutter pipe ends (or the left edge),
+         drops spray out of the crack, then the big phone number is underlined once */
   block('em', function () {
     var bands = $$('.em');
     if (!bands.length || reduce || !hasIO) return;
     var NS = 'http://www.w3.org/2000/svg';
+    function crack(w, ox) {
+      // deterministic jagged line + three short forks; coordinates in px, y around 14
+      var seed = 7, x = ox, y = 14, d = 'M' + ox + ' 14', forks = [];
+      function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+      var n = 0;
+      while (x < w) {
+        x += 14 + rnd() * 34;
+        y = 14 + (rnd() - 0.5) * 7;
+        d += ' L' + Math.round(Math.min(x, w)) + ' ' + y.toFixed(1);
+        n++;
+        if (n === 3 || n === 9 || n === 16) {
+          var fx = Math.round(x), fy = y, len = 16 + rnd() * 22, up = n % 2 ? -1 : 1;
+          forks.push('M' + fx + ' ' + fy.toFixed(1) + ' l' + Math.round(len * 0.6) + ' ' + (up * (5 + rnd() * 6)).toFixed(1) + ' l' + Math.round(len * 0.5) + ' ' + (up * (2 + rnd() * 4)).toFixed(1));
+        }
+      }
+      return { main: d, forks: forks.join(' ') };
+    }
     bands.forEach(function (em) {
       var fx = doc.createElement('div');
       fx.className = 'em-fx';
       fx.setAttribute('aria-hidden', 'true');
-      var svg = doc.createElementNS(NS, 'svg');
-      svg.setAttribute('class', 'em-crack');
-      svg.setAttribute('viewBox', '0 0 1000 28');
-      svg.setAttribute('preserveAspectRatio', 'none');
-      var path = doc.createElementNS(NS, 'path');
-      path.setAttribute('pathLength', '1');
-      path.setAttribute('d', 'M0 14 L70 13 L118 16 L160 11 L214 15 L262 9 L298 17 L340 12 L392 14 L446 10 L498 16 L552 12 L606 15 L660 11 L716 14 L772 12 L830 16 L884 13 L940 15 L1000 13');
-      svg.appendChild(path);
-      fx.appendChild(svg);
-      // spray point: above the big phone number when there is one, else 30 % across
-      var big = $('.big', em), er = em.getBoundingClientRect();
-      var ox = big ? (big.getBoundingClientRect().left - er.left + Math.min(120, big.offsetWidth * 0.35)) : er.width * 0.3;
-      var oy = 44;
-      var spray = [[-34, 26], [-18, 46], [-4, 58], [10, 52], [24, 40], [40, 22], [-26, 6], [30, 4]];
-      spray.forEach(function (s, i) {
-        var d = doc.createElement('i');
-        d.className = 'em-drop';
-        d.style.left = Math.round(ox) + 'px';
-        d.style.top = oy + 'px';
-        d.style.setProperty('--dx', s[0] + 'px');
-        d.style.setProperty('--dy', s[1] + 'px');
-        d.style.setProperty('--i', i);
-        fx.appendChild(d);
-      });
       em.insertBefore(fx, em.firstChild);
+      function build() {
+        fx.innerHTML = '';
+        var er = em.getBoundingClientRect(), w = Math.round(er.width);
+        var gp = $('.gutter-pipe'), ox = 0;
+        if (gp && gp.offsetWidth) ox = Math.round(gp.getBoundingClientRect().left - er.left + 3);
+        var svg = doc.createElementNS(NS, 'svg');
+        svg.setAttribute('class', 'em-crack');
+        svg.setAttribute('viewBox', '0 0 ' + w + ' 28');
+        svg.setAttribute('width', w);
+        svg.setAttribute('height', 28);
+        var c = crack(Math.round(ox + (w - ox) * 0.72), ox);
+        var gid = 'em-crack-g' + bands.indexOf(em);
+        svg.innerHTML = '<defs><linearGradient id="' + gid + '" gradientUnits="userSpaceOnUse" x1="' + ox + '" y1="0" x2="' + Math.round(ox + (w - ox) * 0.72) + '" y2="0">' +
+          '<stop offset="0" stop-color="#d6e6ff" stop-opacity=".75"/><stop offset=".6" stop-color="#d6e6ff" stop-opacity=".35"/><stop offset="1" stop-color="#d6e6ff" stop-opacity="0"/></linearGradient></defs>';
+        svg.style.setProperty('--crack', 'url(#' + gid + ')');
+        [['em-c-main', c.main], ['em-c-fork', c.forks]].forEach(function (p) {
+          if (!p[1]) return;
+          var path = doc.createElementNS(NS, 'path');
+          path.setAttribute('class', p[0]);
+          path.setAttribute('pathLength', '1');
+          path.setAttribute('d', p[1]);
+          svg.appendChild(path);
+        });
+        fx.appendChild(svg);
+        // drops burst out of the crack at its start, falling into the band
+        var sx = ox ? ox : Math.round(Math.max(24, (w - 1180) / 2 + 24)), sy = 8;
+        var spray = [[-30, 34], [-14, 58], [2, 70], [16, 62], [30, 44], [46, 24], [-22, 12], [60, 8]];
+        spray.forEach(function (s, i) {
+          var dr = doc.createElement('i');
+          dr.className = 'em-drop';
+          dr.style.left = (sx + (ox ? 0 : 0)) + 'px';
+          dr.style.top = sy + 'px';
+          dr.style.setProperty('--dx', (ox ? Math.abs(s[0]) + 4 : s[0]) + 'px');
+          dr.style.setProperty('--dy', s[1] + 'px');
+          dr.style.setProperty('--i', i);
+          fx.appendChild(dr);
+        });
+      }
+      build();
       em.classList.add('fx-armed');
       var io = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
           io.disconnect();
-          em.classList.add('fx-run');
+          // wait for the section's own reveal fade to finish
+          setTimeout(function () { em.classList.add('fx-run'); }, em.classList.contains('rv') ? 520 : 60);
         });
-      }, { threshold: 0.35 });
+      }, { threshold: 0.4 });
       io.observe(em);
+      var rt;
+      win.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { block('em build', build); }, 200); });
     });
   });
 
