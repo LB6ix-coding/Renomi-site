@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu ja hinnat | Leipomokahvila Kaarna, Tikkurila</title>
+<meta name="description" content="Kaarnan menu hintoineen: hapanjuuri- ja ruisleivät painoineen ja paistopäivineen, pullat, karjalanpiirakat, aamiainen ja kahvit. Merkinnät selitetty.">
+<link rel="canonical" href="https://marktic.fi/demo/kaarna/menu.html">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#2B241F">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kaarna.css">
+<style>
+/* menu: page-specific layout only. Row look (.mlist, .mrow) comes from kaarna.css. */
+.mn-hero{padding-bottom:clamp(24px,3vw,40px)}
+.mn-hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:end}
+.mn-hero h1{font-size:clamp(48px,7vw,112px);line-height:.9;letter-spacing:-.05em;margin:12px 0 0;max-width:11ch}
+.mn-hero .lead{margin:24px 0 0;max-width:40ch;font-size:clamp(19px,1.6vw,22px)}
+.legend{border-top:1px solid var(--line,#CFD0C9);padding-top:16px;font-size:15px}
+.legend h2{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+.legend dl{display:flex;flex-wrap:wrap;gap:4px 20px;margin:0}
+.legend dl div{display:flex;gap:6px;align-items:baseline}
+.legend dt{font-weight:700;font-variant-numeric:tabular-nums}
+.legend dd{margin:0;color:var(--lenticel,#6B6A63)}
+.legend p{margin:14px 0 0;max-width:56ch}
+.legend .trace{color:var(--lenticel,#6B6A63)}
+
+.mnav{position:sticky;top:var(--hdr-h,0px);z-index:20;background:var(--birch,#ECEDE8);border-top:1px solid var(--line,#CFD0C9);border-bottom:1px solid var(--line,#CFD0C9)}
+.mnav ul{list-style:none;margin:0 auto;padding:0;display:flex;gap:0 clamp(16px,3vw,40px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.mnav ul::-webkit-scrollbar{display:none}
+.mnav a{display:flex;align-items:center;min-height:52px;white-space:nowrap;font-weight:600;font-size:16px;color:inherit;text-decoration:none;border-bottom:2px solid transparent;margin-bottom:-1px}
+.mnav a:hover,.mnav a[aria-current="true"]{border-bottom-color:var(--rye,#8A6644)}
+.mnav a:focus-visible{outline:2px solid var(--lichen,#B7C2AE);outline-offset:2px}
+
+.msec{scroll-margin-top:calc(var(--hdr-h,0px) + 64px)}
+.msec .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:clamp(24px,5vw,80px);align-items:start}
+.msec-head{position:sticky;top:calc(var(--hdr-h,0px) + 84px)}
+.msec-head h2{margin:0}
+.msec-head p{margin:10px 0 0;color:var(--lenticel,#6B6A63);max-width:28ch}
+.msec + .msec{padding-top:0}
+.vat{margin:24px 0 0;font-weight:600}
+
+.pre{border-top:1px solid var(--line,#CFD0C9)}
+.pre .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:start}
+.pre h2{margin:0;max-width:16ch}
+.pre p{margin:0 0 14px;max-width:48ch}
+.pre .slots{list-style:none;padding:0;margin:0 0 20px;display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line,#CFD0C9);border-bottom:1px solid var(--line,#CFD0C9);font-variant-numeric:tabular-nums;font-weight:600}
+.pre .slots li{padding:12px 20px;border-left:1px solid var(--line,#CFD0C9)}
+.pre .slots li:first-child{border-left:0;padding-left:0}
+.pre .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+@media (max-width:960px){
+  .mn-hero .wrap,.msec .wrap,.pre .wrap{grid-template-columns:minmax(0,1fr)}
+  .msec-head{position:static}
+}
+@media (max-width:520px){
+  .legend dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pre .slots li{padding:12px 14px}
+  .pre .cta .btn{flex:1 1 100%;justify-content:center}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Menu",
+  "name": "Leipomokahvila Kaarnan menu",
+  "url": "https://marktic.fi/demo/kaarna/menu.html",
+  "inLanguage": "fi",
+  "provider": {
+    "@type": "Bakery",
+    "name": "Leipomokahvila Kaarna",
+    "url": "https://marktic.fi/demo/kaarna/index.html"
+  },
+  "hasMenuSection": [
+    {
+      "@type": "MenuSection",
+      "name": "Leivät",
+      "url": "https://marktic.fi/demo/kaarna/menu.html#leivat",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Hapanjuurileipä 750 g",
+          "description": "Vehnää ja vähän ruista, rapea kuori. Joka päivä.",
+          "offers": {
+            "@type": "Offer",
+            "price": "7.50",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/VeganDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kaarnan ruisleipä 600 g",
+          "description": "100 % ruista, 7 vuotta vanha juuri, 18 tuntia kypsytys. Ti ja pe.",
+          "offers": {
+            "@type": "Offer",
+            "price": "6.50",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/VeganDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Siemenruisleipä 500 g",
+          "description": "Ruista, auringonkukan- ja pellavansiemeniä, seesamia. Ke ja la.",
+          "offers": {
+            "@type": "Offer",
+            "price": "6.20",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/VeganDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kauraleipä 700 g",
+          "description": "Kauraa ja hapanjuurta, kostea sisus. La.",
+          "offers": {
+            "@type": "Offer",
+            "price": "6.90",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Hapanjuuripatonki 300 g",
+          "description": "Ohut kuori, isot kolot. Joka päivä.",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.90",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/VeganDiet"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Pullat ja makeat",
+      "url": "https://marktic.fi/demo/kaarna/menu.html#makeat",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Korvapuusti",
+          "description": "Kardemummaa, kanelia ja voita, raesokeri päällä.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.60",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Voisarvi",
+          "description": "Laminoitu voitaikina, vaniljaa ja voita.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.20",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kardemummasolmu",
+          "description": "Pullataikinaa ja kardemummasokeria.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.40",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Omenapiirakka, pala",
+          "description": "Kotimaisia omenoita ja kanelia, murotaikinapohja.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.90",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/LowLactoseDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Mantelitorttu",
+          "description": "Mantelia, munaa ja voita, ei vehnäjauhoja.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.80",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/GlutenFreeDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Taatelikakku, pala",
+          "description": "Mehevä kahvikakku.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.20",
+            "priceCurrency": "EUR"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Suolaiset",
+      "url": "https://marktic.fi/demo/kaarna/menu.html#suolaiset",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Karjalanpiirakka",
+          "description": "Ohut ruiskuori ja riisipuuro.",
+          "offers": {
+            "@type": "Offer",
+            "price": "2.40",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/LowLactoseDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Karjalanpiirakka munavoilla",
+          "description": "Munavoi tehdään joka aamu.",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.60",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/LowLactoseDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Päivän piirakka, pala",
+          "description": "Uunista 11.00. Täyte vaihtuu päivittäin, kysy tiskiltä.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.80",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kinkkuvoileipä",
+          "description": "Ruisleipä, keitetty kinkku, juusto ja kurkku. Liha: Suomi.",
+          "offers": {
+            "@type": "Offer",
+            "price": "7.90",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/LowLactoseDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Savulohivoileipä",
+          "description": "Hapanjuurileipä, kylmäsavulohi, tuorejuusto ja tilli.",
+          "offers": {
+            "@type": "Offer",
+            "price": "8.90",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/LowLactoseDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Juureshummusvoileipä",
+          "description": "Siemenruisleipä, hummus ja paahdetut juurekset.",
+          "offers": {
+            "@type": "Offer",
+            "price": "7.50",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/VeganDiet"
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Aamiainen",
+      "url": "https://marktic.fi/demo/kaarna/menu.html#aamiainen",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Aamiaislautanen",
+          "description": "Hapanjuurileipää, voita, juustoa, kananmuna, jogurttia ja marjoja, mehu sekä kahvi tai tee.",
+          "offers": {
+            "@type": "Offer",
+            "price": "12.90",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kaurapuuro",
+          "description": "Vedellä keitetty, mustikkakeitto tai voisilmä.",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.90",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Jogurtti ja mysli",
+          "description": "Laktoositon jogurtti, kauramysli ja kauden marjat.",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.50",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/LowLactoseDiet"
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Aamukahvi ja voisarvi",
+          "description": "Suodatinkahvi ja voisarvi.",
+          "offers": {
+            "@type": "Offer",
+            "price": "6.90",
+            "priceCurrency": "EUR"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "MenuSection",
+      "name": "Juomat",
+      "url": "https://marktic.fi/demo/kaarna/menu.html#juomat",
+      "hasMenuItem": [
+        {
+          "@type": "MenuItem",
+          "name": "Suodatinkahvi",
+          "description": "Vaalea paahto, keitetään pieninä erinä.",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.50",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Santsikuppi",
+          "description": "Suodatinkahvia samaan kuppiin.",
+          "offers": {
+            "@type": "Offer",
+            "price": "1.00",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Espresso",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.40",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Cappuccino",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.20",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Latte",
+          "offers": {
+            "@type": "Offer",
+            "price": "5.40",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Kaakao",
+          "description": "Tumma suklaa ja maito.",
+          "offers": {
+            "@type": "Offer",
+            "price": "4.60",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Tee",
+          "description": "Musta, vihreä tai yrttitee.",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.20",
+            "priceCurrency": "EUR"
+          }
+        },
+        {
+          "@type": "MenuItem",
+          "name": "Omenamehu",
+          "description": "Puristettua, uusimaalaiselta tilalta.",
+          "offers": {
+            "@type": "Offer",
+            "price": "3.90",
+            "priceCurrency": "EUR"
+          },
+          "suitableForDiet": "https://schema.org/VeganDiet"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="menu">
+<!--SPRITE-->
+<!--HEADER-->
+<main id="main">
+
+  <section class="sec mn-hero" aria-labelledby="menu-h">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Menu</p>
+        <h1 id="menu-h">Leivät, pullat ja kahvit</h1>
+        <p class="lead">Kaikki, mitä tiskistä saa, hintoineen. Leipää on niin kauan kuin sitä riittää. Lounas on omalla sivullaan: <a href="lounas.html">katso viikon lounas</a>.</p>
+      </div>
+      <div class="legend">
+        <h2>Merkinnät</h2>
+        <dl>
+          <div><dt>L</dt><dd>laktoositon</dd></div>
+          <div><dt>VL</dt><dd>vähälaktoosinen</dd></div>
+          <div><dt>M</dt><dd>maidoton</dd></div>
+          <div><dt>G</dt><dd>gluteeniton</dd></div>
+          <div><dt>VE</dt><dd>vegaaninen</dd></div>
+        </dl>
+        <p>Lisätietoja elintarvikkeiden allergeeneista saa henkilökunnalta.</p>
+        <p class="trace">Leivomme samassa tilassa vehnää, ruista ja seesamia. Gluteenittomissa tuotteissa voi olla jäämiä.</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="mnav" aria-label="Menun osiot">
+    <div class="wrap">
+      <ul>
+        <li><a href="#leivat">Leivät</a></li>
+        <li><a href="#makeat">Pullat ja makeat</a></li>
+        <li><a href="#suolaiset">Suolaiset</a></li>
+        <li><a href="#aamiainen">Aamiainen</a></li>
+        <li><a href="#juomat">Juomat</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="mbody">
+    <section class="sec msec" id="leivat" aria-labelledby="leivat-h">
+      <div class="wrap">
+        <div class="msec-head"><h2 id="leivat-h">Leivät</h2><p>Kokonaiset leivät. Viipaloimme pyydettäessä.</p></div>
+        <div class="mcol">
+        <ul class="mlist">
+          <li class="mrow"><span class="mrow-n">Hapanjuurileipä 750 g</span><span class="mrow-d">Vehnää ja vähän ruista, rapea kuori. Joka päivä.</span><span class="mrow-c"><abbr title="vegaaninen">VE</abbr></span><span class="mrow-p">7,50 €</span></li>
+          <li class="mrow"><span class="mrow-n">Kaarnan ruisleipä 600 g</span><span class="mrow-d">100 % ruista, 7 vuotta vanha juuri, 18 tuntia kypsytys. Ti ja pe.</span><span class="mrow-c"><abbr title="vegaaninen">VE</abbr></span><span class="mrow-p">6,50 €</span></li>
+          <li class="mrow"><span class="mrow-n">Siemenruisleipä 500 g</span><span class="mrow-d">Ruista, auringonkukan- ja pellavansiemeniä, seesamia. Ke ja la.</span><span class="mrow-c"><abbr title="vegaaninen">VE</abbr></span><span class="mrow-p">6,20 €</span></li>
+          <li class="mrow"><span class="mrow-n">Kauraleipä 700 g</span><span class="mrow-d">Kauraa ja hapanjuurta, kostea sisus. La.</span><span class="mrow-c"><abbr title="maidoton">M</abbr></span><span class="mrow-p">6,90 €</span></li>
+          <li class="mrow"><span class="mrow-n">Hapanjuuripatonki 300 g</span><span class="mrow-d">Ohut kuori, isot kolot. Joka päivä.</span><span class="mrow-c"><abbr title="vegaaninen">VE</abbr></span><span class="mrow-p">3,90 €</span></li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec msec" id="makeat" aria-labelledby="makeat-h">
+      <div class="wrap">
+        <div class="msec-head"><h2 id="makeat-h">Pullat ja makeat</h2><p>Pullat leivotaan aamulla, uunista 6.30.</p></div>
+        <div class="mcol">
+        <ul class="mlist">
+          <li class="mrow"><span class="mrow-n">Korvapuusti</span><span class="mrow-d">Kardemummaa, kanelia ja voita, raesokeri päällä.</span><span class="mrow-c"></span><span class="mrow-p">4,60 €</span></li>
+          <li class="mrow"><span class="mrow-n">Voisarvi</span><span class="mrow-d">Laminoitu voitaikina, vaniljaa ja voita.</span><span class="mrow-c"></span><span class="mrow-p">4,20 €</span></li>
+          <li class="mrow"><span class="mrow-n">Kardemummasolmu</span><span class="mrow-d">Pullataikinaa ja kardemummasokeria.</span><span class="mrow-c"></span><span class="mrow-p">4,40 €</span></li>
+          <li class="mrow"><span class="mrow-n">Omenapiirakka, pala</span><span class="mrow-d">Kotimaisia omenoita ja kanelia, murotaikinapohja.</span><span class="mrow-c"><abbr title="vähälaktoosinen">VL</abbr></span><span class="mrow-p">4,90 €</span></li>
+          <li class="mrow"><span class="mrow-n">Mantelitorttu</span><span class="mrow-d">Mantelia, munaa ja voita, ei vehnäjauhoja.</span><span class="mrow-c"><abbr title="gluteeniton">G</abbr></span><span class="mrow-p">4,80 €</span></li>
+          <li class="mrow"><span class="mrow-n">Taatelikakku, pala</span><span class="mrow-d">Mehevä kahvikakku.</span><span class="mrow-c"><abbr title="maidoton">M</abbr></span><span class="mrow-p">4,20 €</span></li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec msec" id="suolaiset" aria-labelledby="suolaiset-h">
+      <div class="wrap">
+        <div class="msec-head"><h2 id="suolaiset-h">Suolaiset</h2><p>Voileivät tehdään omalle leivälle.</p></div>
+        <div class="mcol">
+        <ul class="mlist">
+          <li class="mrow"><span class="mrow-n">Karjalanpiirakka</span><span class="mrow-d">Ohut ruiskuori ja riisipuuro.</span><span class="mrow-c"><abbr title="laktoositon">L</abbr></span><span class="mrow-p">2,40 €</span></li>
+          <li class="mrow"><span class="mrow-n">Karjalanpiirakka munavoilla</span><span class="mrow-d">Munavoi tehdään joka aamu.</span><span class="mrow-c"><abbr title="laktoositon">L</abbr></span><span class="mrow-p">3,60 €</span></li>
+          <li class="mrow"><span class="mrow-n">Päivän piirakka, pala</span><span class="mrow-d">Uunista 11.00. Täyte vaihtuu päivittäin, kysy tiskiltä.</span><span class="mrow-c"></span><span class="mrow-p">4,80 €</span></li>
+          <li class="mrow"><span class="mrow-n">Kinkkuvoileipä</span><span class="mrow-d">Ruisleipä, keitetty kinkku, juusto ja kurkku. Liha: Suomi.</span><span class="mrow-c"><abbr title="laktoositon">L</abbr></span><span class="mrow-p">7,90 €</span></li>
+          <li class="mrow"><span class="mrow-n">Savulohivoileipä</span><span class="mrow-d">Hapanjuurileipä, kylmäsavulohi, tuorejuusto ja tilli.</span><span class="mrow-c"><abbr title="laktoositon">L</abbr></span><span class="mrow-p">8,90 €</span></li>
+          <li class="mrow"><span class="mrow-n">Juureshummusvoileipä</span><span class="mrow-d">Siemenruisleipä, hummus ja paahdetut juurekset.</span><span class="mrow-c"><abbr title="vegaaninen">VE</abbr></span><span class="mrow-p">7,50 €</span></li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec msec" id="aamiainen" aria-labelledby="aamiainen-h">
+      <div class="wrap">
+        <div class="msec-head"><h2 id="aamiainen-h">Aamiainen</h2><p>Aamiainen ma–pe 7–11, la 9–12.</p></div>
+        <div class="mcol">
+        <ul class="mlist">
+          <li class="mrow"><span class="mrow-n">Aamiaislautanen</span><span class="mrow-d">Hapanjuurileipää, voita, juustoa, kananmuna, jogurttia ja marjoja, mehu sekä kahvi tai tee.</span><span class="mrow-c"></span><span class="mrow-p">12,90 €</span></li>
+          <li class="mrow"><span class="mrow-n">Kaurapuuro</span><span class="mrow-d">Vedellä keitetty, mustikkakeitto tai voisilmä.</span><span class="mrow-c"><abbr title="maidoton">M</abbr></span><span class="mrow-p">5,90 €</span></li>
+          <li class="mrow"><span class="mrow-n">Jogurtti ja mysli</span><span class="mrow-d">Laktoositon jogurtti, kauramysli ja kauden marjat.</span><span class="mrow-c"><abbr title="laktoositon">L</abbr></span><span class="mrow-p">5,50 €</span></li>
+          <li class="mrow"><span class="mrow-n">Aamukahvi ja voisarvi</span><span class="mrow-d">Suodatinkahvi ja voisarvi.</span><span class="mrow-c"></span><span class="mrow-p">6,90 €</span></li>
+        </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec msec" id="juomat" aria-labelledby="juomat-h">
+      <div class="wrap">
+        <div class="msec-head"><h2 id="juomat-h">Juomat</h2><p>Kaura- tai laktoositon maito ilman lisähintaa.</p></div>
+        <div class="mcol">
+        <ul class="mlist">
+          <li class="mrow"><span class="mrow-n">Suodatinkahvi</span><span class="mrow-d">Vaalea paahto, keitetään pieninä erinä.</span><span class="mrow-c"></span><span class="mrow-p">3,50 €</span></li>
+          <li class="mrow"><span class="mrow-n">Santsikuppi</span><span class="mrow-d">Suodatinkahvia samaan kuppiin.</span><span class="mrow-c"></span><span class="mrow-p">1,00 €</span></li>
+          <li class="mrow"><span class="mrow-n">Espresso</span><span class="mrow-d"></span><span class="mrow-c"></span><span class="mrow-p">3,40 €</span></li>
+          <li class="mrow"><span class="mrow-n">Cappuccino</span><span class="mrow-d"></span><span class="mrow-c"></span><span class="mrow-p">5,20 €</span></li>
+          <li class="mrow"><span class="mrow-n">Latte</span><span class="mrow-d"></span><span class="mrow-c"></span><span class="mrow-p">5,40 €</span></li>
+          <li class="mrow"><span class="mrow-n">Kaakao</span><span class="mrow-d">Tumma suklaa ja maito.</span><span class="mrow-c"></span><span class="mrow-p">4,60 €</span></li>
+          <li class="mrow"><span class="mrow-n">Tee</span><span class="mrow-d">Musta, vihreä tai yrttitee.</span><span class="mrow-c"></span><span class="mrow-p">3,20 €</span></li>
+          <li class="mrow"><span class="mrow-n">Omenamehu</span><span class="mrow-d">Puristettua, uusimaalaiselta tilalta.</span><span class="mrow-c"><abbr title="vegaaninen">VE</abbr></span><span class="mrow-p">3,90 €</span></li>
+        </ul>
+        <p class="vat">Hinnat sisältävät arvonlisäveron.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="sec pre" id="ennakkoon" aria-labelledby="pre-h">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Tilaa ennakkoon</p>
+        <h2 id="pre-h">Leipä tai pullapelti valmiina tiskissä.</h2>
+      </div>
+      <div>
+        <p>Tilaa leivät ja pullapellit klo 14 mennessä edellisenä päivänä. Nouda ne tiskiltä valitsemanasi aikana.</p>
+        <ul class="slots" aria-label="Noutoajat">
+          <li>7–9</li>
+          <li>9–11</li>
+          <li>11–14</li>
+          <li>14–16</li>
+        </ul>
+        <p>20 voisarvea tai enemmän: tilaa kaksi päivää ennen.</p>
+        <div class="cta">
+          <a class="btn btn-dark" href="yhteys.html#tilaa">Tee ennakkotilaus</a>
+          <a class="btn btn-line" href="tel:+35891234567">Soita 09 123 4567</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!--FOOTER-->
+<script>(function(){var nav=document.querySelector(".mnav");if(!nav)return;var ul=nav.querySelector("ul"),links=[].slice.call(nav.querySelectorAll("a")),secs=links.map(function(a){return document.getElementById(a.getAttribute("href").slice(1))}),cur=-1,tick=false;function upd(){tick=false;var y=innerHeight*0.35,k=-1;secs.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<y)k=i});if(k===cur)return;cur=k;links.forEach(function(a,i){if(i===k)a.setAttribute("aria-current","true");else a.removeAttribute("aria-current")});if(k>-1&&ul.scrollWidth>ul.clientWidth)ul.scrollTo({left:links[k].parentNode.offsetLeft-16,behavior:"smooth"})}addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});upd()})();</script>
+<script src="kaarna.js" defer></script>
+<!--CALLBAR-->
+</body>
+</html>
