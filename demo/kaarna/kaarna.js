@@ -125,8 +125,8 @@
       if (!isOpen()) return;
       if (e.key === 'Escape' || e.key === 'Esc') { set(false, true); return; }
       if (e.key !== 'Tab') return;
-      // focus trap: the open panel + the menu button form one loop
-      var f = [btn].concat($$('a[href], button:not([disabled])', nav).filter(function (el) { return el.offsetParent !== null || el === btn; }));
+      // focus trap: the open panel's links + the menu button (last in DOM order) form one loop
+      var f = $$('a[href], button:not([disabled])', nav).filter(function (el) { return el.offsetParent !== null; }).concat([btn]);
       var first = f[0], last = f[f.length - 1], at = doc.activeElement;
       if (e.shiftKey && (at === first || f.indexOf(at) < 0)) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && (at === last || f.indexOf(at) < 0)) { e.preventDefault(); first.focus(); }
