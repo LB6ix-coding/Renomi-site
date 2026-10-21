@@ -155,9 +155,10 @@ section{padding:var(--sec-m) 0}
 .hero-dark h1 em{color:#fff;background-image:linear-gradient(var(--water-2),var(--water-2))}
 
 /* ---------- valve (parts/valve.html, hataapu hero) ---------- */
-.valve-fig{margin:0;width:220px;max-width:100%;display:grid;justify-items:center;gap:10px}
+.valve-fig{position:relative;margin:0;width:220px;max-width:100%;display:grid;justify-items:center;gap:14px;isolation:isolate}
+.valve-fig::before{content:"";position:absolute;z-index:-1;left:50%;top:44%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(closest-side,rgba(140,197,255,.16),rgba(140,197,255,.05) 70%,transparent);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
 .valve-fig svg{width:220px;height:auto;overflow:visible}
-.valve-fig figcaption{font-size:var(--t-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:8px}
+.valve-fig figcaption{font-size:var(--t-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:8px;white-space:nowrap}
 .valve-fig figcaption::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--water-2)}
 .v-pipe{stroke:var(--steel);stroke-width:22;fill:none}
 .v-pipe-hi{stroke:var(--steel-hi);stroke-width:4;fill:none;opacity:.9}
