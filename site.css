@@ -173,7 +173,9 @@ h1,h2,h3{text-wrap:balance}
 
 /* mallikuvat gallery */
 .mallit{margin-top:var(--s6)} .mg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:var(--s3)}
-.mg figure{margin:0;aspect-ratio:4/5;background:#d9dcd8;border-radius:10px;overflow:hidden} .mg img{width:100%;height:100%;object-fit:cover;display:block}
+.mg figure{margin:0} .mg .mi{aspect-ratio:4/5;background:#d9dcd8;border-radius:6px;overflow:hidden} .mg img{width:100%;height:100%;object-fit:cover;display:block}
+.mg figcaption{display:flex;flex-direction:column;gap:2px;padding-top:10px;font-size:var(--t-sm);line-height:1.35} .mg figcaption b{font-weight:600} .mg figcaption span{color:var(--paper-mut,#5d6661)}
+.mh h3{font-size:var(--t-2xl,28px);letter-spacing:-.02em;margin-top:4px} .mh+.mg{margin-top:var(--s4)} .mcap{margin-top:var(--s4)!important} .mg{row-gap:28px}
 .mcap{margin-top:var(--s2);font-size:var(--t-sm)}
 @media (max-width:700px){.mg{grid-template-columns:repeat(2,1fr);gap:8px}}
-.mg3{grid-template-columns:repeat(3,1fr)!important;gap:8px;margin-top:0;align-self:start} .mg3 figure{border-radius:8px}
+.mg3{grid-template-columns:repeat(3,1fr)!important;gap:8px;margin-top:0;align-self:start} .mg3 figure{border-radius:6px;overflow:hidden;aspect-ratio:4/5;background:#d9dcd8}
