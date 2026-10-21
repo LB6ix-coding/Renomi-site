@@ -15,7 +15,7 @@
 
 :root{
   --navy:#0b2a5b; --navy-2:#113a7a; --navy-3:#0a1f44; --ink:#111827; --ink-2:#374151; --mut:#5b6472;
-  --bg:#ffffff; --bg-2:#eef3f9; --zebra:#f7f9fc; --line:#e3e8f0; --line-2:#c9d2e0; --edge:#7d8fab;
+  --bg:#ffffff; --bg-2:#eef3f9; --zebra:#f7f9fc; --line:#e3e8f0; --line-2:#c9d2e0; --edge:#7d8fab; --edge-g:#7489a6;
   --orange:#c2410c; --orange-h:#9a3412; --orange-ink:#ffffff;
   --water:#2f8df5; --water-2:#8cc5ff; --water-3:#e3f0fe; --ok:#1f8a4c;
   --steel:#9aa8bb; --steel-2:#c5cfdc; --steel-hi:#e6ecf3; --steel-d:#6f7f96;
@@ -88,7 +88,7 @@ section{padding:var(--sec-m) 0}
 .btn:active{transform:translateY(1px)}
 .btn-o{background:var(--orange);color:#fff} .btn-o:hover{background:var(--orange-h)}
 .btn-n{background:var(--navy);color:#fff} .btn-n:hover{background:var(--navy-2)}
-.btn-g{border-color:var(--edge);color:var(--ink);background:#fff} .btn-g:hover{border-color:var(--navy);color:var(--navy)}
+.btn-g{border-color:var(--edge-g);color:var(--ink);background:#fff} .btn-g:hover{border-color:var(--navy);color:var(--navy)}
 .em .btn-n,.hero-dark .btn-n,.on-dark .btn-n,.kv-ex .btn-n{border-color:#fff}
 .em .btn-g,.hero-dark .btn-g,.on-dark .btn-g{background:transparent;color:#fff;border-color:#9fb3d4} .em .btn-g:hover,.hero-dark .btn-g:hover,.on-dark .btn-g:hover{border-color:#fff;color:#fff}
 .btn svg{width:20px;height:20px}
@@ -188,7 +188,8 @@ section{padding:var(--sec-m) 0}
 main{position:relative}
 .gutter-pipe{display:none}
 @media (min-width:1100px){
-  .gutter-pipe{display:block;position:absolute;z-index:1;pointer-events:none;width:6px;border-radius:3px;
+  .gutter-pipe[style]{display:block}
+  .gutter-pipe{position:absolute;z-index:1;pointer-events:none;width:6px;border-radius:3px;
     left:max(12px,calc(50% - 590px - 30px));top:var(--gp-top,760px);height:var(--gp-h,0px);
     background:linear-gradient(90deg,transparent 1px,rgba(255,255,255,.75) 1px 3px,transparent 3px),var(--steel)}
   .gutter-pipe::after{content:"";position:absolute;left:1px;right:1px;top:0;bottom:0;border-radius:2px;
@@ -250,9 +251,9 @@ a:hover .fill i::before,a:focus-visible .fill i::before,.fill.is-on i::before{tr
 .pt tr.is-rate td:first-child{box-shadow:inset 4px 0 0 var(--water)}
 .note{font-size:var(--t-sm);color:var(--mut);margin-top:var(--s2)}
 /* table + gauge side by side: <div class="pt-gauge"><div class="pt-wrap">table</div><!--GAUGE--></div> */
-.pt-gauge{display:flex;flex-wrap:wrap-reverse;gap:var(--s3) var(--s4);align-items:flex-start;max-width:920px}
+.pt-gauge{display:flex;flex-wrap:wrap-reverse;gap:var(--s3) var(--s4);align-items:flex-end;max-width:920px} /* wrap-reverse: the gauge sits above the table when it wraps; flex-end = top */
 .pt-gauge > .pt-wrap,.pt-gauge > .pt{flex:1 1 400px;min-width:0}
-.pt-gauge .rate-gauge{align-self:flex-start}
+.pt-gauge .rate-gauge{align-self:flex-end}
 
 /* ---------- rate gauge (parts/gauge.html) ---------- */
 .rate-gauge{margin:0;width:200px;flex:none}
@@ -410,7 +411,7 @@ footer .f-c li:first-child .ico{color:#ff8a4c}
 footer .f-trust{gap:6px;color:var(--on-dark)} footer .f-trust li{display:flex;align-items:center;gap:10px}
 footer .f-trust li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--water-2)}
 footer .f-area{line-height:1.7;margin-bottom:6px} footer .f-area span{color:#fff;font-weight:600;white-space:nowrap}
-footer .demo{grid-column:1/-1;border-top:1px solid #1f3663;padding-top:var(--s3);color:#9fb1cf;font-size:var(--t-xs);max-width:none} footer .demo a{color:var(--on-dark);text-decoration:underline;display:inline-flex;align-items:center;min-height:44px}
+footer .demo{grid-column:1/-1;border-top:1px solid #1f3663;padding-top:var(--s3);color:#9fb1cf;font-size:var(--t-xs);max-width:none} footer .demo a{color:var(--on-dark);text-decoration:underline;padding:12px 0}
 
 /* ---------- sticky call bar (mobile); hataapu shows one full-width call button ---------- */
 .callbar{display:none}

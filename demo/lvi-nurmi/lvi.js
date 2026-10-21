@@ -235,7 +235,7 @@
       tees = [];
       $$(':scope > section', main).forEach(function (sec) {
         var y = offTop(sec);
-        if (y <= top + 20 || y >= end - 20) return;
+        if (y < top - 2 || y >= end - 20) return;
         var mark = $('.eyebrow', sec) || $('h2', sec);
         var ty = mark ? offTop(mark) + mark.offsetHeight / 2 : y + 80;
         var t = doc.createElement('i');

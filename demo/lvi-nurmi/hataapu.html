@@ -99,8 +99,105 @@
 </script>
 </head>
 <body data-page="hataapu">
-<!--SPRITE-->
-<!--HEADER-->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
+  <defs>
+    <symbol id="i-tap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7.5v6"/><path d="M7 5h6M10 5v4"/>
+      <path d="M3 9h10a4 4 0 0 1 4 4v1h-4v-.5a1.5 1.5 0 0 0-1.5-1.5H3"/>
+      <path d="M15 21a1.6 1.6 0 0 1-1.6-1.6c0-1 1.6-2.7 1.6-2.7s1.6 1.7 1.6 2.7A1.6 1.6 0 0 1 15 21z"/>
+    </symbol>
+    <symbol id="i-wc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="3" width="6.5" height="8" rx="1.5"/>
+      <path d="M4 11h16a6 6 0 0 1-6 6H9.5A5.5 5.5 0 0 1 4 11.5z"/>
+      <path d="M9.5 17 8.5 21h6.5l-1-4"/>
+      <path d="M8 6h1"/>
+    </symbol>
+    <symbol id="i-drain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="4.5"/>
+      <circle cx="12" cy="12" r="5.5"/>
+      <path d="M9.8 10.2h4.4M9 12h6M9.8 13.8h4.4"/>
+    </symbol>
+    <symbol id="i-heater" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="2" width="12" height="17" rx="3.5"/>
+      <path d="M9 19v3M15 19v3"/>
+      <circle cx="12" cy="7" r="1.8"/>
+      <path d="M9 13.5c1-1 2-1 3 0s2 1 3 0"/>
+    </symbol>
+    <symbol id="i-dishwasher" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2.5" width="16" height="19" rx="2.5"/>
+      <path d="M4 7.5h16"/><path d="M7.5 5h2M15.5 5h1"/>
+      <circle cx="12" cy="14.5" r="3.5"/>
+    </symbol>
+    <symbol id="i-shower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 21V6a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1"/>
+      <path d="M10 11a4 4 0 0 1 8 0z"/>
+      <path d="M11 14.5v1M14 14.5v2M17 14.5v1M12.5 19v1M15.5 19v1"/>
+    </symbol>
+    <symbol id="i-leak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 5h8.5l1.5 2.5L13.5 5H22M2 10h9.5L13 8l1 2h8"/>
+      <path d="M12 13.5s2.6 2.9 2.6 4.7a2.6 2.6 0 0 1-5.2 0c0-1.8 2.6-4.7 2.6-4.7z"/>
+    </symbol>
+    <symbol id="i-heating" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="11" rx="2"/>
+      <path d="M7.5 7v11M12 7v11M16.5 7v11"/>
+      <path d="M5.5 18v2.5M18.5 18v2.5"/>
+      <path d="M9 2.5c-.8.8-.8 1.7 0 2.5M14 2.5c-.8.8-.8 1.7 0 2.5"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 3h3l2 5-2.5 1.6a11 11 0 0 0 6.9 6.9L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 12.5l4.5 4.5L19.5 6.5"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21.5s-7-6.1-7-11.7A7 7 0 0 1 19 9.8c0 5.6-7 11.7-7 11.7z"/>
+      <circle cx="12" cy="9.8" r="2.5"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>
+    </symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.8 3.2a5 5 0 0 0-5 6.7L3.6 16.1a2.1 2.1 0 0 0 3 3l6.2-6.2a5 5 0 0 0 6.7-5l-3 3-2.7-.7-.7-2.7z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<div class="tb">
+  <div class="wrap">
+    <span class="open"><i aria-hidden="true"></i><span data-status>Päivystys 24/7</span></span>
+    <a class="tb-tel" href="tel:+358401234567"><svg class="ico" aria-hidden="true" width="16" height="16"><use href="#i-phone"/></svg>040 123 4567</a>
+  </div>
+</div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="LVI Nurmi, etusivu">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M4 10h13a10 10 0 0 1 10 10v2" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 10h12a10 10 0 0 1 10 10" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="20" y="21" width="14" height="5" rx="1.5" fill="currentColor"/>
+        <rect x="2" y="4" width="5" height="12" rx="1.5" fill="currentColor"/>
+        <path d="M27 28.5s-4.6 5-4.6 7.4a4.6 4.6 0 0 0 9.2 0c0-2.4-4.6-7.4-4.6-7.4z" fill="#2f8df5"/>
+      </svg>
+      <span>LVI Nurmi<small>Putkimies · Vantaa</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false"><span class="bars" aria-hidden="true"><i></i></span>Valikko</button>
+    <nav class="nav" id="nav" aria-label="Päävalikko">
+      <a href="index.html">Etusivu</a>
+      <a href="palvelut.html">Palvelut ja hinnat</a>
+      <a href="hataapu.html">Päivystys 24/7</a>
+      <a href="meista.html">Meistä</a>
+      <a href="yhteys.html">Yhteystiedot</a>
+      <a class="call" href="tel:+358401234567"><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg>Soita 040 123 4567</a>
+      <p class="nav-meta"><span data-status>Päivystys 24/7</span><span>ma–pe 7–17 toimisto</span></p>
+    </nav>
+  </div>
+</header>
 
 <main id="main">
 
@@ -122,7 +219,27 @@
         </div>
       </div>
       <div class="valve-col">
-        <!--VALVE-->
+        <figure class="valve-fig">
+  <svg viewBox="0 0 220 196" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <path class="v-pipe" d="M0 156 H220"/>
+    <path class="v-pipe-hi" d="M0 151 H220"/>
+    <path class="v-core" d="M0 156 H220"/>
+    <path class="v-slug" d="M0 156 H220"/>
+    <rect class="v-flange" x="62" y="134" width="12" height="44" rx="3"/>
+    <rect class="v-flange" x="146" y="134" width="12" height="44" rx="3"/>
+    <path class="v-body" d="M74 140 Q74 132 82 130 L96 126 H124 L138 130 Q146 132 146 140 V172 Q146 180 138 182 L124 186 H96 L82 182 Q74 180 74 172 Z"/>
+    <rect class="v-bonnet" x="96" y="104" width="28" height="24" rx="4"/>
+    <rect class="v-stem" x="106" y="66" width="8" height="40" rx="2"/>
+    <path class="v-arrow" d="M67.1 30 A56 56 0 0 1 146 23.1 M143.5 26.2 L151.4 27.6 L148.6 20.1"/>
+    <g class="v-wheel">
+      <circle class="v-rim" cx="110" cy="66" r="40"/>
+      <path class="v-spoke" d="M110 57 L110 26 M117.8 70.5 L144.6 86 M102.2 70.5 L75.4 86"/>
+      <circle class="v-hub" cx="110" cy="66" r="10"/>
+      <circle class="v-knob" cx="110" cy="24" r="7"/>
+    </g>
+  </svg>
+  <figcaption>Sulje päävesihana ensin</figcaption>
+</figure>
       </div>
     </div>
   </section>
@@ -264,7 +381,28 @@
         </div>
         <div>
           <div class="gauge-box">
-            <!--GAUGE-->
+            <figure class="rate-gauge" aria-hidden="true" data-rest="74">
+  <svg viewBox="0 0 200 172" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <circle class="g-face" cx="100" cy="92" r="58"/>
+    <circle class="g-bezel" cx="100" cy="92" r="53.5"/>
+    <path class="g-track" d="M58.4 116 A48 48 0 1 1 141.6 116"/>
+    <path class="g-fill" pathLength="100" d="M58.4 116 A48 48 0 1 1 141.6 116"/>
+    <path class="g-tick" d="M69.7 109.5 L63.6 113 M69.7 74.5 L63.6 71 M100 57 L100 50 M130.3 74.5 L136.4 71 M130.3 109.5 L136.4 113"/>
+    <path class="g-mtick" d="M62.8 102 L59.4 102.9 M61.5 92 L58 92 M62.8 82 L59.4 81.1 M72.8 64.8 L70.3 62.3 M80.8 58.7 L79 55.6 M90 54.8 L89.1 51.4 M110 54.8 L110.9 51.4 M119.2 58.7 L121 55.6 M127.2 64.8 L129.7 62.3 M137.2 82 L140.6 81.1 M138.5 92 L142 92 M137.2 102 L140.6 102.9"/>
+    <g class="g-lbl">
+      <text x="34.2" y="135">arki</text>
+      <text x="34.2" y="59">ilta</text>
+      <text x="100" y="21">la</text>
+      <text x="165.8" y="59">yö</text>
+      <text x="165.8" y="135">pyhä</text>
+    </g>
+    <text class="g-val" x="100" y="127">74&#160;€/h</text>
+    <text class="g-sub" x="100" y="140">arki 7–17</text>
+    <path class="g-needle" d="M100 54 L103.6 92 L100 102 L96.4 92 Z"/>
+    <circle class="g-pivot" cx="100" cy="92" r="6.5"/>
+    <circle class="g-pin" cx="100" cy="92" r="2.2"/>
+  </svg>
+</figure>
           </div>
           <div class="calcs">
             <div class="calc">
@@ -336,8 +474,65 @@
 
 </main>
 
-<!--FOOTER-->
+<footer>
+  <div class="wrap">
+    <div class="f-co">
+      <a class="logo" href="index.html" aria-label="LVI Nurmi, etusivu">
+        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M4 10h13a10 10 0 0 1 10 10v2" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="20" y="21" width="14" height="5" rx="1.5" fill="currentColor"/>
+          <rect x="2" y="4" width="5" height="12" rx="1.5" fill="currentColor"/>
+          <path d="M27 28.5s-4.6 5-4.6 7.4a4.6 4.6 0 0 0 9.2 0c0-2.4-4.6-7.4-4.6-7.4z" fill="#8cc5ff"/>
+        </svg>
+        <span>LVI Nurmi<small>Putkimies · Vantaa</small></span>
+      </a>
+      <address>
+        LVI Nurmi Oy<br>
+        Tikkurilantie 12, 01300 Vantaa<br>
+        Y-tunnus 1234567-8
+      </address>
+      <p><b>Avoinna</b> ma–pe 7–17<br><b>Päivystys</b> 24/7, myös pyhinä</p>
+      <ul class="f-trust">
+        <li>Vastuuvakuutus voimassa</li>
+        <li>Ennakkoperintärekisterissä</li>
+        <li>Hinnat päivitetty 10/2026</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-h">Palvelut</h2>
+      <ul>
+        <li><a href="palvelut.html#hanat">Hanat ja sekoittajat</a></li>
+        <li><a href="palvelut.html#wc">WC-istuimet</a></li>
+        <li><a href="palvelut.html#viemarit">Viemärin avaus</a></li>
+        <li><a href="palvelut.html#vesivuodot">Vesivuodot</a></li>
+        <li><a href="palvelut.html#lammitys-ja-varaajat">Lämmitys ja varaajat</a></li>
+        <li><a href="palvelut.html#kodinkoneet">Kodinkoneiden kytkentä</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-h">Yhteys</h2>
+      <ul class="f-c">
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+358401234567">040 123 4567</a></li>
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-mail"/></svg><a href="mailto:info@lvinurmi.fi">info@lvinurmi.fi</a></li>
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-clock"/></svg><a href="hataapu.html">Päivystys 24/7: mitä tehdä heti</a></li>
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-pin"/></svg><a href="yhteys.html">Yhteystiedot ja ajanvaraus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-h">Toimialue</h2>
+      <p class="f-area">Vantaa <span>0&nbsp;€</span><br>Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo, Nurmijärvi <span>39&nbsp;€</span></p>
+      <ul>
+        <li><a href="index.html#alue">Toimialue ja matkakulut</a></li>
+        <li><a href="yhteys.html">Kartta ja ajanvaraus</a></li>
+      </ul>
+    </div>
+    <p class="demo">Demo: LVI Nurmi Oy on kuvitteellinen yritys. Arvostelut, luvut ja Y-tunnus ovat esimerkkejä, kuvat on tuotettu tekoälyllä. Sivun teki <a href="../../index.html">Marktic</a>.</p>
+  </div>
+</footer>
 <script src="lvi.js" defer></script>
-<!--CALLBAR-->
+<div class="callbar">
+  <a class="btn btn-o" href="tel:+358401234567"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-phone"/></svg><span class="cb-a">Soita nyt</span><span class="cb-b">Soita päivystäjälle 040 123 4567</span></a>
+  <a class="btn btn-n" href="yhteys.html#tilaa"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-clock"/></svg>Tilaa aika</a>
+</div>
 </body>
 </html>
