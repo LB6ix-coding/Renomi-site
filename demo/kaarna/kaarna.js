@@ -82,6 +82,16 @@
     check();
   });
 
+  /* 2b. --hdr-h = real sticky header height (pages use it for their own sticky bars) */
+  block('hdr-h', function () {
+    var top = $('.top');
+    if (!top) return;
+    function set() { root.style.setProperty('--hdr-h', Math.round(top.getBoundingClientRect().height) + 'px'); }
+    set();
+    win.addEventListener('resize', set);
+    if ('ResizeObserver' in win) new ResizeObserver(set).observe(top);
+  });
+
   /* 3. mobile menu: full panel under the header, background inert, focus first link, Esc closes */
   block('menu', function () {
     var btn = $('.menu-btn'), nav = $('#nav'), top = $('.top');
@@ -133,12 +143,12 @@
       var k = el.getAttribute('data-exception'), h = el.getAttribute('data-hours');
       if (h !== null && parseKey(k)) { var r = parseRange(h); if (r !== undefined) EXC[k] = r; }
     });
-    $$('[data-exception],[data-expires]').forEach(function (el) {
-      var k = el.getAttribute('data-expires') || el.getAttribute('data-exception');
+    $$('[data-exception],[data-expires],[data-until]').forEach(function (el) {
+      var k = el.getAttribute('data-until') || el.getAttribute('data-expires') || el.getAttribute('data-exception');
       if (parseKey(k) && k < today) el.hidden = true;
     });
     $$('[data-exceptions]').forEach(function (box) {
-      var left = $$('[data-exception]', box).filter(function (el) { return !el.hidden; }).length;
+      var left = $$('[data-exception],[data-until]', box).filter(function (el) { return !el.hidden; }).length;
       box.classList.toggle('is-empty', !left);
       var empty = $('[data-exceptions-empty]', box) || (box.nextElementSibling && box.nextElementSibling.hasAttribute('data-exceptions-empty') ? box.nextElementSibling : null);
       if (empty) empty.hidden = !!left;
@@ -212,7 +222,11 @@
       $$(':scope > li[data-time]', ol).forEach(function (li) {
         var t = toMin(li.getAttribute('data-time'));
         if (isNaN(t)) return;
-        var st = $('.bake-state', li);
+        var st = $('.bake-state', li) || $('.bake-l', li);
+        if (st && !$('.bake-label', st)) {
+          st.classList.add('bake-state');
+          st.innerHTML = GLYPH + '<span class="bake-label"></span><span class="bake-bar" aria-hidden="true"><i></i></span>';
+        }
         if (!st) {
           st = doc.createElement('p');
           st.className = 'bake-state';
@@ -269,7 +283,7 @@
   /* 10. lunch week <ol class="week" data-week><li class="day" data-day="1..5">: today gets .is-today + aria-current="date";
          <details class="day"> opens for today; [data-scroll-today] scrolls today into view on phones if it is below the fold */
   block('week', function () {
-    var weeks = $$('[data-week]');
+    var weeks = $$('[data-week], .week').filter(function (w, i, all) { return all.indexOf(w) === i && !(w.parentElement && w.parentElement.closest('[data-week], .week')); });
     if (!weeks.length) return;
     var wd = now().wd;
     weeks.forEach(function (w) {
@@ -339,7 +353,7 @@
   /* 12. in-page category nav spy: <nav class="cats" data-spy> with links to #ids */
   block('spy', function () {
     if (!hasIO) return;
-    $$('[data-spy]').forEach(function (nav) {
+    $$('[data-spy], .mnav').forEach(function (nav) {
       var links = $$('a[href^="#"]', nav), map = {};
       links.forEach(function (a) { var t = doc.getElementById(decodeURIComponent(a.getAttribute('href').slice(1))); if (t) map[t.id] = a; });
       var ids = Object.keys(map);

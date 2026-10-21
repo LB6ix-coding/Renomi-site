@@ -123,8 +123,64 @@
 </script>
 </head>
 <body data-page="yhteys">
-<!--SPRITE-->
-<!--HEADER-->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.6 3.5h2.6l1.4 4-1.9 1.3a11 11 0 0 0 6.5 6.5l1.3-1.9 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="m4 6.5 8 6.5 8-6.5"/>
+    </symbol>
+    <symbol id="i-bread" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 14.5C3 9.8 7 7 12 7s9 2.8 9 7.5c0 1.7-1.3 2.5-3 2.5H6c-1.7 0-3-.8-3-2.5z"/><path d="m8 10.5 1.5 3M12 9.8l1.2 3.4M15.8 10.5l1 2.8"/>
+    </symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 9.5h12v4.5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16.5 11h1.3a2.2 2.2 0 0 1 0 4.4h-1.6"/><path d="M8.5 3.5c-.7.9-.7 1.8 0 2.7M12.5 3.5c-.7.9-.7 1.8 0 2.7"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 19c0-8 5-13.5 14-14 .4 9-5 14-12 14z"/><path d="M5 19c3-4 6-6.5 9.5-8.5"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h15.5M13.5 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 8.5a1.5 1.5 0 0 1 1.5-1.5h2.6l1.6-2.5h5.6L16.4 7H19a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 19H5a1.5 1.5 0 0 1-1.5-1.5z"/><circle cx="12" cy="12.6" r="3.4"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="top">
+  <div class="wrap top-row">
+    <a class="logo" href="index.html" aria-label="Leipomokahvila Kaarna, etusivu">
+      <svg class="logo-mark" viewBox="0 0 64 64" width="40" height="40" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="6" fill="currentColor"/><path d="M11 43c0-13.5 9.4-22 21-22s21 8.5 21 22c0 2.4-1.6 4-4 4H15c-2.4 0-4-1.6-4-4z" fill="#ECEDE8"/><g fill="none" stroke="#2B241F" stroke-width="3.6" stroke-linecap="round"><path d="M21 37l5-7"/><path d="M29.5 38l5-8"/><path d="M38 37l5-7"/></g></svg>
+      <span class="logo-word">Kaarna<small>Leipomokahvila, Tikkurila</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Päävalikko">
+      <ul class="nav-list">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="lounas.html">Lounas</a></li>
+        <li><a href="meista.html">Meistä</a></li>
+        <li><a href="yhteys.html">Yhteystiedot</a></li>
+      </ul>
+      <a class="btn nav-cta" href="yhteys.html#tilaa">Tilaa ennakkoon<svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-arrow"/></svg></a>
+      <div class="nav-meta">
+        <p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
+        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-pin"/></svg>Esimerkkikatu 3, Tikkurila</p>
+        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09 123 4567</a></p>
+      </div>
+    </nav>
+    <p class="status top-status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
+    <a class="btn top-cta" href="yhteys.html#tilaa">Tilaa ennakkoon</a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false"><span class="bars" aria-hidden="true"><i></i></span><span class="menu-lbl">Valikko</span></button>
+  </div>
+</header>
 <main id="main">
 
 <section class="sec y-intro" aria-labelledby="y-h">
@@ -135,7 +191,7 @@
       <p class="y-lead">Olemme Tikkurilassa, kahden minuutin kävelymatkan päässä asemalta. Leipää on tiskissä, kunnes se loppuu.</p>
     </div>
     <div>
-      <div class="y-status"><!--STATUS--></div>
+      <div class="y-status"><p class="status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p></div>
       <h2 class="y-h3" id="auki-h">Aukioloajat</h2>
       <dl class="hrs" aria-labelledby="auki-h">
         <dt>Maanantai–perjantai</dt><dd class="big">7–16</dd>
@@ -154,7 +210,7 @@
   </div>
 </section>
 
-<section class="sec" aria-labelledby="tanne-h">
+<section class="sec" id="reitti" aria-labelledby="tanne-h">
   <div class="wrap visit">
     <div>
       <h2 class="eyebrow" id="tanne-h">Osoite ja yhteystiedot</h2>
@@ -287,8 +343,56 @@
 </section>
 
 </main>
-<!--FOOTER-->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h2 class="foot-h">Käy meillä</h2>
+        <address>Leipomokahvila Kaarna<br>Esimerkkikatu 3<br>01300 Vantaa (Tikkurila)</address>
+        <p class="foot-note">2 minuuttia kävellen Tikkurilan asemalta.</p>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Aukioloajat</h2>
+        <dl class="hours hours-sm">
+          <div data-days="1-5"><dt>ma–pe</dt><dd>7–16</dd></div>
+          <div data-days="6"><dt>la</dt><dd>9–15</dd></div>
+          <div data-days="7"><dt>su</dt><dd>suljettu</dd></div>
+        </dl>
+        <p class="foot-note">Lounas ma–pe 10.30–14. Leipomo: kunnes loppuu.</p>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Ota yhteyttä</h2>
+        <ul class="foot-contact">
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09 123 4567</a></li>
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-mail"/></svg><a href="mailto:moi@kaarna.example">moi@kaarna.example</a></li>
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-insta"/></svg><span>Instagramissa @kaarna.leipomo</span></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Sivut</h2>
+        <ul class="foot-links">
+          <li><a href="menu.html">Menu ja hinnat</a></li>
+          <li><a href="lounas.html">Viikon lounas</a></li>
+          <li><a href="yhteys.html#tilaa">Tilaa ennakkoon</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteys.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
+    </div>
+    <ul class="foot-trust">
+      <li>Oiva-raportti: Oivallinen</li>
+      <li>Ruis ja kaura pirkanmaalaiselta tilalta</li>
+      <li>Maito ja voi lähimeijeriltä</li>
+      <li>Hinnat sisältävät arvonlisäveron.</li>
+    </ul>
+    <p class="foot-demo">Demo: Leipomokahvila Kaarna on kuvitteellinen yritys. Henkilöt, yhteystiedot, Oiva-raportti ja Y-tunnus 1234567-8 ovat esimerkkejä. Kuvat on tuotettu tekoälyllä esimerkkiä varten. Sivun teki <a href="../../index.html">Marktic</a>.</p>
+  </div>
+  <p class="foot-word" aria-hidden="true">Kaarna</p>
+</footer>
 <script src="kaarna.js" defer></script>
-<!--CALLBAR-->
+<div class="callbar">
+  <a class="btn" href="tel:+35891234567"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-phone"/></svg>Soita</a>
+  <a class="btn btn-line" href="yhteys.html#reitti"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-pin"/></svg>Reitti</a>
+</div>
 </body>
 </html>
