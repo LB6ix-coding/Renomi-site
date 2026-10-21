@@ -7,7 +7,7 @@
 <meta name="description" content="Konseptitöitä ja esimerkkejä siitä, millaista jälkeä Marktic tekee: kotisivut, videomainokset ja näkyvyyden korjaukset.">
 <link rel="canonical" href="https://marktic.fi/tyot.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Työt – Marktic"><meta property="og:description" content="Konseptitöitä ja esimerkkejä siitä, millaista jälkeä Marktic tekee: kotisivut, videomainokset ja näkyvyyden korjaukset."><meta property="og:url" content="https://marktic.fi/tyot.html"><meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:title" content="Työt – Marktic"><meta property="og:description" content="Konseptitöitä ja esimerkkejä siitä, millaista jälkeä Marktic tekee: kotisivut, videomainokset ja näkyvyyden korjaukset."><meta property="og:url" content="https://marktic.fi/tyot.html"><meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="stylesheet" href="site.css">
 <style>
 .cases{display:grid;gap:var(--s6)} .case{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s5);align-items:center;padding-top:var(--s5);border-top:1px solid var(--paper-line)} .case:first-child{border:0;padding-top:0} .case .ct p{color:var(--paper-mut);margin:var(--s2) 0 var(--s3)} .case .cv .shot{margin:0} .case .vidwrap{margin:0;justify-self:center} .case .rep{margin:0}
@@ -96,7 +96,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('
 const here=location.pathname.split('/').pop()||'index.html';
 document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
 </script>
-<script>if(matchMedia("(prefers-reduced-motion: reduce)").matches){document.querySelectorAll("video[autoplay]").forEach(v=>{v.removeAttribute("autoplay");v.pause()})}</script>
+<style>video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls{display:none!important;-webkit-appearance:none}</style><script>(function(){var vs=[].slice.call(document.querySelectorAll("video"));function go(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");var p=v.play();if(p&&p.catch)p.catch(function(){});}vs.forEach(function(v){if(v.preload!=="auto")v.preload="auto";go(v);v.addEventListener("loadeddata",function(){go(v)});v.addEventListener("pause",function(){if(!document.hidden&&!v.ended)setTimeout(function(){go(v)},300)});});function kick(){vs.forEach(go);}["touchstart","touchend","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});document.addEventListener("visibilitychange",function(){if(!document.hidden)kick()});if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)go(x.target)})});vs.forEach(function(v){io.observe(v)})}})();</script>
 <script src="mail.js" defer></script>
 </body>
 </html>
