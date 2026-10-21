@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Putkimiespäivystys 24/7 Vantaa | LVI Nurmi Oy</title>
+<meta name="description" content="Vesivuoto tai viemäri tukossa? Päivystys 24/7 Vantaalla ja lähialueilla. Näin suljet päävesihanan, mitä päivystys maksaa ja milloin olemme paikalla.">
+<link rel="canonical" href="https://marktic.fi/demo/lvi-nurmi/hataapu.html">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="lvi.css">
+<style>
+/* page-specific layout (päivystys). Shared look comes from lvi.css. */
+.sos .wrap{min-height:0;padding-top:var(--s6);padding-bottom:var(--s6);grid-template-columns:1.3fr .7fr;align-items:center}
+.sos h1{font-size:var(--t-4xl)}
+.sos .first{font-size:var(--t-lg);font-weight:600;max-width:46ch;margin-bottom:var(--s3)}
+.sos .cta{margin-bottom:var(--s3)}
+.btn.xl{min-height:96px;padding:12px 32px;flex-direction:row;gap:16px;text-align:left;line-height:1.05}
+.btn.xl svg{width:36px;height:36px;flex:none}
+.btn.xl .lbl{display:block;font-size:var(--t-base);font-weight:600}
+.btn.xl .num{display:block;font-size:64px;font-weight:800;letter-spacing:-.03em;white-space:nowrap;font-variant-numeric:tabular-nums}
+.sos .lead{max-width:52ch}
+.sos .proof{gap:20px 32px}
+.valve-col{display:grid;justify-items:center;align-content:center;min-height:240px}
+.where{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:var(--s2)}
+.where div{background:#fff;border:1px solid var(--line);border-radius:var(--r1);padding:14px 16px;font-size:var(--t-sm);color:var(--ink-2)}
+.where h3{font-size:var(--t-sm);color:var(--ink);margin-bottom:4px}
+.steps p+p{margin-top:8px}
+.steps .tip{font-size:var(--t-sm);color:var(--mut)}
+.after{margin-top:var(--s3)}
+.side .card{padding:var(--s3) var(--s4)}
+.side h3{font-size:var(--t-lg);display:flex;gap:10px;align-items:center}
+.side h3 .ico{width:22px;height:22px;flex:none;color:var(--water)}
+.side p{font-size:var(--t-sm);color:var(--ink-2)}
+.ask{list-style:none;display:grid;gap:6px;font-size:var(--t-sm);color:var(--ink-2)}
+.ask li{display:flex;gap:8px;align-items:flex-start}
+.ask .ico{width:18px;height:18px;flex:none;color:var(--ok);margin-top:3px}
+.urg .card h3{display:flex;gap:10px;align-items:center}
+.urg .card h3 .ico{width:22px;height:22px;flex:none}
+.urg .now{border-top:6px solid var(--navy)} .urg .now h3 .ico{color:var(--navy)}
+.urg .wait{border-top:6px solid var(--water)} .urg .wait h3 .ico{color:var(--water)}
+.urg ul{list-style:none;display:grid;gap:10px;color:var(--ink-2);font-size:var(--t-sm)}
+.urg li{padding-left:18px;position:relative}
+.urg li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;background:var(--water)}
+.urg .now li::before{background:var(--navy)}
+.prices{display:grid;grid-template-columns:minmax(0,680px) minmax(0,1fr);gap:var(--s5);align-items:start}
+.gauge-box{display:grid;justify-items:center;gap:8px;text-align:center}
+.pt tr.base td{color:var(--mut)} .pt tr.base td.n{color:var(--ink-2)}
+.calcs{display:grid;gap:var(--s3);margin-top:var(--s3)}
+.calc{background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:var(--s3) var(--s4);font-size:var(--t-sm);color:var(--ink-2)}
+.calc b{color:var(--ink)}
+.more{display:flex;gap:12px;flex-wrap:wrap;margin-top:var(--s3)}
+.em .eyebrow.em-eye{color:var(--water-2)}
+@media (max-width:960px){
+  .sos .wrap{grid-template-columns:1fr;padding-top:var(--s4);padding-bottom:var(--s5)}
+  .sos h1{font-size:var(--t-3xl)}
+  .valve-col{min-height:0;justify-items:start}
+  .where,.prices{grid-template-columns:1fr}
+  .gauge-box{justify-items:start;text-align:left}
+  .btn.xl{width:100%;min-height:80px;padding:10px 20px}
+  .btn.xl .num{font-size:40px}
+  .em .big{font-size:var(--t-3xl)}
+}
+@media (max-width:380px){.btn.xl .num{font-size:34px}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "url": "https://marktic.fi/demo/lvi-nurmi/hataapu.html",
+      "mainEntity": [
+        {"@type": "Question", "name": "Milloin kannattaa soittaa päivystykseen?", "acceptedAnswer": {"@type": "Answer", "text": "Soita päivystykseen, kun kyseessä on vuoto, joka ei lopu tai jota et saa suljettua, vesi, joka valuu rakenteisiin tai alakertaan, viemäri, joka tulvii takaisin lattiakaivosta tai WC:stä, tai jäätynyt tai haljennut putki. Tippuva hana, hitaasti vetävä viemäri tai kodinkoneen kytkentä voivat odottaa aamuun. Jos et ole varma, soita: kerromme suoraan, kannattaako odottaa arkiaamuun (ma–pe 7–17), jolloin tuntityö maksaa 74 €/h."}},
+        {"@type": "Question", "name": "Kuinka nopeasti päivystäjä on paikalla?", "acceptedAnswer": {"@type": "Answer", "text": "Vantaalla olemme paikalla yleensä alle tunnissa, muualla 1–2 tunnissa. Aika riippuu kellonajasta, liikenteestä ja siitä, onko päivystäjä jo toisella keikalla. Kerromme arvion puhelimessa ennen lähtöä, emmekä lupaa aikaa, jota emme pysty pitämään."}},
+        {"@type": "Question", "name": "Paljonko päivystyskäynti maksaa?", "acceptedAnswer": {"@type": "Answer", "text": "Päivystyksen lähtömaksu on 89 €. Tuntihinta on arki-iltaisin (17–22) 118 €/h, yöllä (22–7) 168 €/h, lauantaina 138 €/h sekä sunnuntaina ja pyhinä 178 €/h. Vantaalla ei ole matkakulua, muualla se on 39 €. Tarvikkeet laskutetaan eriteltynä. Hinnat sisältävät arvonlisäveron 25,5 %. Auto ei lähde, ennen kuin tiedät lähtömaksun, tuntihinnan ja arvion kokonaishinnasta."}},
+        {"@type": "Question", "name": "Asun kerrostalossa. Soitanko teille vai isännöitsijälle?", "acceptedAnswer": {"@type": "Answer", "text": "Jos vesi tulee yläkerrasta, seinän sisältä tai taloyhtiön yhteisistä putkista, soita ensin huoltoyhtiön päivystykseen ja ilmoita isännöitsijälle. Jos vuoto on asunnon sisällä, esimerkiksi hanassa, WC-istuimessa tai astianpesukoneen liitännässä, voit soittaa meille suoraan. Ilmoita isännöitsijälle silti, koska vesi voi levitä rakenteisiin ja naapuriin."}},
+        {"@type": "Question", "name": "Asun vuokralla. Kenelle soitan?", "acceptedAnswer": {"@type": "Answer", "text": "Vuotavan tai rikkinäisen kalusteen korjaus kuuluu yleensä vuokranantajalle. Ilmoita hänelle tai huoltoyhtiölle ensin. Hätätilanteessa sulje vesi ja soita huoltoyhtiön päivystykseen tai meille."}},
+        {"@type": "Question", "name": "Korvaako kotivakuutus vesivahingon?", "acceptedAnswer": {"@type": "Answer", "text": "Se riippuu vakuutuksestasi ja siitä, mistä vuoto johtui. Kuvaa vahingot ennen siivoamista, kirjaa kellonaika ja ilmoita vakuutusyhtiölle mahdollisimman pian. Laskustamme näkyy, mitä korjattiin ja milloin, joten voit liittää sen vahinkoilmoitukseen."}}
+      ]
+    },
+    {
+      "@type": "Plumber",
+      "name": "LVI Nurmi Oy",
+      "url": "https://marktic.fi/demo/lvi-nurmi/index.html",
+      "telephone": "+358401234567",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "name": "Päivystys",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "00:00",
+          "closes": "23:59"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="hataapu">
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
+  <defs>
+    <symbol id="i-tap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 7.5v6"/><path d="M7 5h6M10 5v4"/>
+      <path d="M3 9h10a4 4 0 0 1 4 4v1h-4v-.5a1.5 1.5 0 0 0-1.5-1.5H3"/>
+      <path d="M15 21a1.6 1.6 0 0 1-1.6-1.6c0-1 1.6-2.7 1.6-2.7s1.6 1.7 1.6 2.7A1.6 1.6 0 0 1 15 21z"/>
+    </symbol>
+    <symbol id="i-wc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="5" y="3" width="6.5" height="8" rx="1.5"/>
+      <path d="M4 11h16a6 6 0 0 1-6 6H9.5A5.5 5.5 0 0 1 4 11.5z"/>
+      <path d="M9.5 17 8.5 21h6.5l-1-4"/>
+      <path d="M8 6h1"/>
+    </symbol>
+    <symbol id="i-drain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="3" width="18" height="18" rx="4.5"/>
+      <circle cx="12" cy="12" r="5.5"/>
+      <path d="M9.8 10.2h4.4M9 12h6M9.8 13.8h4.4"/>
+    </symbol>
+    <symbol id="i-heater" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="6" y="2" width="12" height="17" rx="3.5"/>
+      <path d="M9 19v3M15 19v3"/>
+      <circle cx="12" cy="7" r="1.8"/>
+      <path d="M9 13.5c1-1 2-1 3 0s2 1 3 0"/>
+    </symbol>
+    <symbol id="i-dishwasher" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="4" y="2.5" width="16" height="19" rx="2.5"/>
+      <path d="M4 7.5h16"/><path d="M7.5 5h2M15.5 5h1"/>
+      <circle cx="12" cy="14.5" r="3.5"/>
+    </symbol>
+    <symbol id="i-shower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 21V6a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1"/>
+      <path d="M10 11a4 4 0 0 1 8 0z"/>
+      <path d="M11 14.5v1M14 14.5v2M17 14.5v1M12.5 19v1M15.5 19v1"/>
+    </symbol>
+    <symbol id="i-leak" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 5h8.5l1.5 2.5L13.5 5H22M2 10h9.5L13 8l1 2h8"/>
+      <path d="M12 13.5s2.6 2.9 2.6 4.7a2.6 2.6 0 0 1-5.2 0c0-1.8 2.6-4.7 2.6-4.7z"/>
+    </symbol>
+    <symbol id="i-heating" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="11" rx="2"/>
+      <path d="M7.5 7v11M12 7v11M16.5 7v11"/>
+      <path d="M5.5 18v2.5M18.5 18v2.5"/>
+      <path d="M9 2.5c-.8.8-.8 1.7 0 2.5M14 2.5c-.8.8-.8 1.7 0 2.5"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 3h3l2 5-2.5 1.6a11 11 0 0 0 6.9 6.9L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 12.5l4.5 4.5L19.5 6.5"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21.5s-7-6.1-7-11.7A7 7 0 0 1 19 9.8c0 5.6-7 11.7-7 11.7z"/>
+      <circle cx="12" cy="9.8" r="2.5"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>
+    </symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.8 3.2a5 5 0 0 0-5 6.7L3.6 16.1a2.1 2.1 0 0 0 3 3l6.2-6.2a5 5 0 0 0 6.7-5l-3 3-2.7-.7-.7-2.7z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<div class="tb">
+  <div class="wrap">
+    <span class="open"><i aria-hidden="true"></i><span data-status>Päivystys 24/7</span></span>
+    <a class="tb-tel" href="tel:+358401234567"><svg class="ico" aria-hidden="true" width="16" height="16"><use href="#i-phone"/></svg>040 123 4567</a>
+  </div>
+</div>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="LVI Nurmi, etusivu">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M4 10h13a10 10 0 0 1 10 10v2" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 10h12a10 10 0 0 1 10 10" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="20" y="21" width="14" height="5" rx="1.5" fill="currentColor"/>
+        <rect x="2" y="4" width="5" height="12" rx="1.5" fill="currentColor"/>
+        <path d="M27 28.5s-4.6 5-4.6 7.4a4.6 4.6 0 0 0 9.2 0c0-2.4-4.6-7.4-4.6-7.4z" fill="#2f8df5"/>
+      </svg>
+      <span>LVI Nurmi<small>Putkimies · Vantaa</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false"><span class="bars" aria-hidden="true"><i></i></span>Valikko</button>
+    <nav class="nav" id="nav" aria-label="Päävalikko">
+      <a href="index.html">Etusivu</a>
+      <a href="palvelut.html">Palvelut ja hinnat</a>
+      <a href="hataapu.html">Päivystys 24/7</a>
+      <a href="meista.html">Meistä</a>
+      <a href="yhteys.html">Yhteystiedot</a>
+      <a class="call" href="tel:+358401234567"><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg>Soita 040 123 4567</a>
+      <p class="nav-meta"><span data-status>Päivystys 24/7</span><span>ma–pe 7–17 toimisto</span></p>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO: situation + phone first -->
+  <section class="hero hero-dark sos" aria-labelledby="sos-h">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Päivystys 24/7, myös viikonloppuisin ja pyhinä</p>
+        <h1 id="sos-h">Vesivuoto tai viemäri tukossa? Soita päivystäjälle <em>nyt</em>.</h1>
+        <p class="first">Sulje päävesihana ja soita. Jos et löydä hanaa, soita heti, neuvomme puhelimessa.</p>
+        <div class="cta">
+          <a class="btn btn-o xl" href="tel:+358401234567"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> <span><span class="lbl">Soita päivystäjälle</span> <span class="num">040 123 4567</span></span></a>
+        </div>
+        <p class="lead">Päivystäjä vastaa ympäri vuorokauden. Auto ei lähde, ennen kuin tiedät lähtömaksun, tuntihinnan ja arvion kokonaishinnasta.</p>
+        <div class="proof">
+          <div><b>Vantaalla yleensä alle 1&nbsp;h</b>muualla 1–2&nbsp;h</div>
+          <div><b>Hinta puhelimessa</b>ennen kuin lähdemme</div>
+          <div><b>Lähtömaksu 89&nbsp;€</b>kerran käyntiä kohden</div>
+        </div>
+      </div>
+      <div class="valve-col">
+        <figure class="valve-fig">
+  <svg viewBox="0 0 220 196" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <path class="v-pipe" d="M0 156 H220"/>
+    <path class="v-pipe-hi" d="M0 151 H220"/>
+    <path class="v-core" d="M0 156 H220"/>
+    <path class="v-slug" d="M0 156 H220"/>
+    <rect class="v-flange" x="62" y="134" width="12" height="44" rx="3"/>
+    <rect class="v-flange" x="146" y="134" width="12" height="44" rx="3"/>
+    <path class="v-body" d="M74 140 Q74 132 82 130 L96 126 H124 L138 130 Q146 132 146 140 V172 Q146 180 138 182 L124 186 H96 L82 182 Q74 180 74 172 Z"/>
+    <rect class="v-bonnet" x="96" y="104" width="28" height="24" rx="4"/>
+    <rect class="v-stem" x="106" y="66" width="8" height="40" rx="2"/>
+    <path class="v-arrow" d="M67.1 30 A56 56 0 0 1 146 23.1 M143.5 26.2 L151.4 27.6 L148.6 20.1"/>
+    <g class="v-wheel">
+      <circle class="v-rim" cx="110" cy="66" r="40"/>
+      <path class="v-spoke" d="M110 57 L110 26 M117.8 70.5 L144.6 86 M102.2 70.5 L75.4 86"/>
+      <circle class="v-hub" cx="110" cy="66" r="10"/>
+      <circle class="v-knob" cx="110" cy="24" r="7"/>
+    </g>
+  </svg>
+  <figcaption>Sulje päävesihana ensin</figcaption>
+</figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DO THIS NOW -->
+  <section id="tee-heti" class="alt rv sp-s" aria-labelledby="tee-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span>01</span> Odottaessasi asentajaa</p>
+        <h2 id="tee-h">Tee nämä heti</h2>
+        <p>Nämä neljä asiaa pienentävät vahinkoa eniten. Ne vievät yhteensä muutaman minuutin.</p>
+      </div>
+      <ol class="steps">
+        <li>
+          <b>1. Sulje päävesihana</b>
+          <p>Käännä venttiiliä myötäpäivään, kunnes se pysähtyy. Avaa sen jälkeen jokin hana, niin näet, loppuiko veden tulo. Jos vuoto on vain yhdessä laitteessa, esimerkiksi WC-istuimessa tai astianpesukoneessa, riittää sen oma sulkuventtiili.</p>
+          <div class="where">
+            <div>
+              <h3>Kerrostalo</h3>
+              Usein keittiön altaan alla, kylpyhuoneen vesimittarin vieressä tai WC:n takana huoltoluukun sisällä. Jos asunnossa ei ole omaa venttiiliä, veden sulkee huoltoyhtiö.
+            </div>
+            <div>
+              <h3>Rivitalo</h3>
+              Yleensä kylpyhuoneessa, kodinhoitohuoneessa tai teknisessä tilassa vesimittarin luona. Joskus koko rivin venttiili on yhteisessä teknisessä tilassa.
+            </div>
+            <div>
+              <h3>Omakotitalo</h3>
+              Siinä kohdassa, jossa vesijohto tulee taloon: tekninen tila, kodinhoitohuone tai kellari, yleensä vesimittarin vieressä.
+            </div>
+          </div>
+        </li>
+        <li>
+          <b>2. Katkaise sähköt, jos vesi on lähellä pistorasioita</b>
+          <p>Jos vettä on lattialla pistorasioiden, jatkojohtojen tai kodinkoneiden lähellä, katkaise sähköt sähkökeskuksesta, ennen kuin menet veteen. Vuotavan lämminvesivaraajan sähköt katkaistaan samasta paikasta.</p>
+          <p class="tip">Älä koske märkiin sähkölaitteisiin. Jos et tiedä, mikä sulake on oikea, käännä pääkytkin pois päältä.</p>
+        </li>
+        <li>
+          <b>3. Kuvaa vahingot ja kerää vesi</b>
+          <p>Kuvaa vuotokohta, lattia ja seinät, ennen kuin siivoat. Kirjaa kellonaika. Kerää sitten vesi pyyhkeillä ja ämpärillä ja nosta matot ja tavarat kuivaan.</p>
+          <p class="tip">Viemäritukoksessa älä huuhtele WC:tä äläkä käytä pesukoneita, ettei vesi nouse lattiakaivosta.</p>
+        </li>
+        <li>
+          <b>4. Ilmoita taloyhtiölle ja vuokranantajalle</b>
+          <p>Taloyhtiössä vesi voi levitä rakenteisiin ja alakerran naapuriin. Ilmoita isännöitsijälle tai huoltoyhtiön päivystykseen, ja kerro alakerran naapurille. Jos asut vuokralla, ilmoita myös vuokranantajalle.</p>
+        </li>
+      </ol>
+      <div class="more">
+        <a class="btn btn-o" href="tel:+358401234567"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Soita päivystäjälle 040 123 4567</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARRIVAL + WHAT WE ASK -->
+  <section id="puhelu" class="rv sp-s" aria-labelledby="puhelu-h">
+    <div class="wrap">
+      <h2 id="puhelu-h" class="sr">Saapumisaika ja puhelu</h2>
+      <div class="grid g2 side">
+        <div class="card">
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg> Milloin olemme paikalla</h3>
+          <p>Vantaalla yleensä alle tunnissa, muualla 1–2 tunnissa; kerromme arvion puhelimessa. Jos päivystäjä on toisella keikalla, sanomme sen suoraan.</p>
+        </div>
+        <div class="card">
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Puhelimessa kysymme</h3>
+          <ul class="ask">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Osoite ja talotyyppi</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Mistä vesi tulee ja saitko sen suljettua</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Onko vettä lähellä sähköjä</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY OR NOT -->
+  <section id="hatatapaus" class="alt rv urg sp-m" aria-labelledby="hata-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span>02</span> Heti vai aamulla?</p>
+        <h2 id="hata-h">Soita heti, vai voiko odottaa aamuun?</h2>
+        <p>Päivystys maksaa enemmän kuin arkityö. Jos asia voi odottaa, sanomme sen puhelimessa suoraan.</p>
+      </div>
+      <div class="grid g2">
+        <div class="card now">
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-leak"/></svg> Soita heti, myös yöllä</h3>
+          <ul>
+            <li>Vuoto ei lopu, tai et saa vettä suljettua</li>
+            <li>Vesi valuu lattialle, seinän sisään tai alakertaan</li>
+            <li>Viemäri tulvii takaisin lattiakaivosta tai WC:stä</li>
+            <li>Putki on haljennut tai jäätynyt</li>
+            <li>Lämminvesivaraaja vuotaa</li>
+            <li>Kodin ainoa WC on tukossa</li>
+          </ul>
+        </div>
+        <div class="card wait">
+          <h3><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg> Voi yleensä odottaa aamuun</h3>
+          <ul>
+            <li>Hana tippuu</li>
+            <li>Viemäri vetää hitaasti, mutta vesi ei nouse</li>
+            <li>WC-istuin valuu, mutta sen oman venttiilin saa kiinni</li>
+            <li>Vuoto loppui, kun suljit koneen tai hanan venttiilin</li>
+            <li>Uuden astianpesukoneen tai pesukoneen kytkentä</li>
+          </ul>
+          <p class="note">Arkisin 7–17 tuntityö on 74&nbsp;€/h, minimi 1&nbsp;h. <a href="yhteys.html#tilaa">Tilaa aika</a> tai soita aamulla.</p>
+        </div>
+      </div>
+      <p class="note">Jos et ole varma, soita. Puhelu ei sido sinua mihinkään, ja kerromme rehellisesti, kannattaako odottaa.</p>
+    </div>
+  </section>
+
+  <!-- PRICES -->
+  <section id="hinnat" class="rv sp-m" aria-labelledby="hinnat-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span>03</span> Päivystyksen hinnat</p>
+        <h2 id="hinnat-h">Mitä päivystys maksaa</h2>
+        <p>Hinnat sisältävät arvonlisäveron 25,5&nbsp;%. Tarvikkeet laskutetaan eriteltyinä, ei pientarvikkeiden möhkälesummana. Isompien tarvikkeiden hinnan kerromme ennen työtä.</p>
+      </div>
+      <div class="prices">
+        <div>
+          <div class="pt-wrap">
+            <table class="pt">
+              <caption class="sr">Päivystyksen hinnat</caption>
+              <thead>
+                <tr><th scope="col">Aika</th><th scope="col">Hinta</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Päivystyksen lähtömaksu <small>kerran käyntiä kohden</small></td><td class="n">89&nbsp;€</td></tr>
+                <tr data-rate="118" tabindex="0"><td>Arki-ilta ma–pe 17–22</td><td class="n">118&nbsp;€/h</td></tr>
+                <tr data-rate="138" tabindex="0"><td>Lauantai</td><td class="n">138&nbsp;€/h</td></tr>
+                <tr data-rate="168" tabindex="0"><td>Yö 22–7</td><td class="n">168&nbsp;€/h</td></tr>
+                <tr data-rate="178" tabindex="0"><td>Sunnuntai ja pyhät</td><td class="n">178&nbsp;€/h</td></tr>
+                <tr><td>Matkakulu <small>Vantaa 0&nbsp;€. Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo ja Nurmijärvi 39&nbsp;€. Yli 30&nbsp;km:n päähän Tikkurilasta lisäksi 1,20&nbsp;€ jokaiselta ylittävältä kilometriltä.</small></td><td class="n">0&nbsp;€ / 39&nbsp;€</td></tr>
+                <tr class="base" data-rate="74" tabindex="0"><td>Vertailu: arkisin ma–pe 7–17 <small>ei lähtömaksua, minimi 1&nbsp;h</small></td><td class="n">74&nbsp;€/h</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Päivystyksessä työ laskutetaan päivystyksen tuntihinnoilla. Kattohinnat koskevat arkipäiviä ma–pe 7–17.</p>
+          <p class="note"><b>Auto ei lähde, ennen kuin tiedät lähtömaksun, tuntihinnan ja arvion kokonaishinnasta.</b></p>
+        </div>
+        <div>
+          <div class="gauge-box">
+            <figure class="rate-gauge" aria-hidden="true" data-rest="74">
+  <svg viewBox="0 0 200 172" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <circle class="g-face" cx="100" cy="92" r="58"/>
+    <circle class="g-bezel" cx="100" cy="92" r="53.5"/>
+    <path class="g-track" d="M58.4 116 A48 48 0 1 1 141.6 116"/>
+    <path class="g-fill" pathLength="100" d="M58.4 116 A48 48 0 1 1 141.6 116"/>
+    <path class="g-tick" d="M69.7 109.5 L63.6 113 M69.7 74.5 L63.6 71 M100 57 L100 50 M130.3 74.5 L136.4 71 M130.3 109.5 L136.4 113"/>
+    <path class="g-mtick" d="M62.8 102 L59.4 102.9 M61.5 92 L58 92 M62.8 82 L59.4 81.1 M72.8 64.8 L70.3 62.3 M80.8 58.7 L79 55.6 M90 54.8 L89.1 51.4 M110 54.8 L110.9 51.4 M119.2 58.7 L121 55.6 M127.2 64.8 L129.7 62.3 M137.2 82 L140.6 81.1 M138.5 92 L142 92 M137.2 102 L140.6 102.9"/>
+    <g class="g-lbl">
+      <text x="34.2" y="135">arki</text>
+      <text x="34.2" y="59">ilta</text>
+      <text x="100" y="21">la</text>
+      <text x="165.8" y="59">yö</text>
+      <text x="165.8" y="135">pyhä</text>
+    </g>
+    <text class="g-val" x="100" y="127">74&#160;€/h</text>
+    <text class="g-sub" x="100" y="140">arki 7–17</text>
+    <path class="g-needle" d="M100 54 L103.6 92 L100 102 L96.4 92 Z"/>
+    <circle class="g-pivot" cx="100" cy="92" r="6.5"/>
+    <circle class="g-pin" cx="100" cy="92" r="2.2"/>
+  </svg>
+</figure>
+          </div>
+          <div class="calcs">
+            <div class="calc">
+              <p><b>Esimerkki:</b> viemärin avaus Vantaalla arki-iltana, työ kestää tunnin.</p>
+              <p>Lähtömaksu 89&nbsp;€ + työ 118&nbsp;€ + matkakulu 0&nbsp;€ = <b>207&nbsp;€</b>.</p>
+            </div>
+            <div class="calc">
+              <p>Sama viemärin avaus arkisin maksaa Vantaalla enintään 169&nbsp;€. Jos tilanne ei pahene yön aikana, odottaminen aamuun säästää tässä esimerkissä vähintään 38&nbsp;€. Vuotavan putken kanssa ei kannata odottaa.</p>
+            </div>
+          </div>
+          <div class="more">
+            <a class="btn btn-g" href="palvelut.html#hinnasto">Koko hinnasto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHONE AGAIN -->
+  <section id="soita" class="em rv sp-m" aria-labelledby="soita-h">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow em-eye"><span>04</span> Päivystys 24/7, myös pyhinä</p>
+        <h2 id="soita-h">Päivystäjä vastaa nyt</h2>
+        <a class="big" href="tel:+358401234567">040 123 4567</a>
+        <p>Sulje päävesihana ja soita. Jos et löydä hanaa, soita heti, neuvomme puhelimessa.</p>
+      </div>
+      <ul>
+        <li>Vantaalla yleensä alle tunnissa, muualla 1–2 tunnissa; kerromme arvion puhelimessa.</li>
+        <li>Lähtömaksu 89&nbsp;€, arki-ilta 118&nbsp;€/h, yö 168&nbsp;€/h, lauantai 138&nbsp;€/h, sunnuntai ja pyhät 178&nbsp;€/h.</li>
+        <li>Lasku tulee työn jälkeen, ja siitä näkyy, mitä korjattiin.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="ukk" class="rv sp-m" aria-labelledby="ukk-h">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow"><span>05</span> Usein kysyttyä päivystyksestä</p>
+        <h2 id="ukk-h">Kysymyksiä hätätilanteessa</h2>
+      </div>
+      <details>
+        <summary>Milloin kannattaa soittaa päivystykseen?</summary>
+        <p>Soita päivystykseen, kun kyseessä on vuoto, joka ei lopu tai jota et saa suljettua, vesi, joka valuu rakenteisiin tai alakertaan, viemäri, joka tulvii takaisin lattiakaivosta tai WC:stä, tai jäätynyt tai haljennut putki. Tippuva hana, hitaasti vetävä viemäri tai kodinkoneen kytkentä voivat odottaa aamuun. Jos et ole varma, soita: kerromme suoraan, kannattaako odottaa arkiaamuun (ma–pe 7–17), jolloin tuntityö maksaa 74&nbsp;€/h.</p>
+      </details>
+      <details>
+        <summary>Kuinka nopeasti päivystäjä on paikalla?</summary>
+        <p>Vantaalla olemme paikalla yleensä alle tunnissa, muualla 1–2 tunnissa. Aika riippuu kellonajasta, liikenteestä ja siitä, onko päivystäjä jo toisella keikalla. Kerromme arvion puhelimessa ennen lähtöä, emmekä lupaa aikaa, jota emme pysty pitämään.</p>
+      </details>
+      <details>
+        <summary>Paljonko päivystyskäynti maksaa?</summary>
+        <p>Päivystyksen lähtömaksu on 89&nbsp;€. Tuntihinta on arki-iltaisin (17–22) 118&nbsp;€/h, yöllä (22–7) 168&nbsp;€/h, lauantaina 138&nbsp;€/h sekä sunnuntaina ja pyhinä 178&nbsp;€/h. Vantaalla ei ole matkakulua, muualla se on 39&nbsp;€. Tarvikkeet laskutetaan eriteltynä. Hinnat sisältävät arvonlisäveron 25,5&nbsp;%. Auto ei lähde, ennen kuin tiedät lähtömaksun, tuntihinnan ja arvion kokonaishinnasta.</p>
+      </details>
+      <details>
+        <summary>Asun kerrostalossa. Soitanko teille vai isännöitsijälle?</summary>
+        <p>Jos vesi tulee yläkerrasta, seinän sisältä tai taloyhtiön yhteisistä putkista, soita ensin huoltoyhtiön päivystykseen ja ilmoita isännöitsijälle. Jos vuoto on asunnon sisällä, esimerkiksi hanassa, WC-istuimessa tai astianpesukoneen liitännässä, voit soittaa meille suoraan. Ilmoita isännöitsijälle silti, koska vesi voi levitä rakenteisiin ja naapuriin.</p>
+      </details>
+      <details>
+        <summary>Asun vuokralla. Kenelle soitan?</summary>
+        <p>Vuotavan tai rikkinäisen kalusteen korjaus kuuluu yleensä vuokranantajalle. Ilmoita hänelle tai huoltoyhtiölle ensin. Hätätilanteessa sulje vesi ja soita huoltoyhtiön päivystykseen tai meille.</p>
+      </details>
+      <details>
+        <summary>Korvaako kotivakuutus vesivahingon?</summary>
+        <p>Se riippuu vakuutuksestasi ja siitä, mistä vuoto johtui. Kuvaa vahingot ennen siivoamista, kirjaa kellonaika ja ilmoita vakuutusyhtiölle mahdollisimman pian. Laskustamme näkyy, mitä korjattiin ja milloin, joten voit liittää sen vahinkoilmoitukseen.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-co">
+      <a class="logo" href="index.html" aria-label="LVI Nurmi, etusivu">
+        <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+          <path d="M4 10h13a10 10 0 0 1 10 10v2" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="20" y="21" width="14" height="5" rx="1.5" fill="currentColor"/>
+          <rect x="2" y="4" width="5" height="12" rx="1.5" fill="currentColor"/>
+          <path d="M27 28.5s-4.6 5-4.6 7.4a4.6 4.6 0 0 0 9.2 0c0-2.4-4.6-7.4-4.6-7.4z" fill="#8cc5ff"/>
+        </svg>
+        <span>LVI Nurmi<small>Putkimies · Vantaa</small></span>
+      </a>
+      <address>
+        LVI Nurmi Oy<br>
+        Tikkurilantie 12, 01300 Vantaa<br>
+        Y-tunnus 1234567-8
+      </address>
+      <p><b>Avoinna</b> ma–pe 7–17<br><b>Päivystys</b> 24/7, myös pyhinä</p>
+      <ul class="f-trust">
+        <li>Vastuuvakuutus voimassa</li>
+        <li>Ennakkoperintärekisterissä</li>
+        <li>Hinnat päivitetty 10/2026</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-h">Palvelut</h2>
+      <ul>
+        <li><a href="palvelut.html#hanat">Hanat ja sekoittajat</a></li>
+        <li><a href="palvelut.html#wc">WC-istuimet</a></li>
+        <li><a href="palvelut.html#viemarit">Viemärin avaus</a></li>
+        <li><a href="palvelut.html#vesivuodot">Vesivuodot</a></li>
+        <li><a href="palvelut.html#lammitys-ja-varaajat">Lämmitys ja varaajat</a></li>
+        <li><a href="palvelut.html#kodinkoneet">Kodinkoneiden kytkentä</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-h">Yhteys</h2>
+      <ul class="f-c">
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+358401234567">040 123 4567</a></li>
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-mail"/></svg><a href="mailto:info@lvinurmi.fi">info@lvinurmi.fi</a></li>
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-clock"/></svg><a href="hataapu.html">Päivystys 24/7: mitä tehdä heti</a></li>
+        <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-pin"/></svg><a href="yhteys.html">Yhteystiedot ja ajanvaraus</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="f-h">Toimialue</h2>
+      <p class="f-area">Vantaa <span>0&nbsp;€</span><br>Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo, Nurmijärvi <span>39&nbsp;€</span></p>
+      <ul>
+        <li><a href="index.html#alue">Toimialue ja matkakulut</a></li>
+        <li><a href="yhteys.html">Kartta ja ajanvaraus</a></li>
+      </ul>
+    </div>
+    <p class="demo">Demo: LVI Nurmi Oy on kuvitteellinen yritys. Arvostelut, luvut, yhteystiedot ja Y-tunnus ovat esimerkkejä, kuvat on tuotettu tekoälyllä. Sivun teki <a href="../../index.html">Marktic</a>.</p>
+  </div>
+</footer>
+<script src="lvi.js" defer></script>
+<div class="callbar">
+  <a class="btn btn-o" href="tel:+358401234567"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-phone"/></svg><span class="cb-a">Soita nyt</span><span class="cb-b">Soita päivystäjälle 040 123 4567</span></a>
+  <a class="btn btn-n" href="yhteys.html#tilaa"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-clock"/></svg>Tilaa aika</a>
+</div>
+</body>
+</html>

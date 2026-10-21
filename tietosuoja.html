@@ -2,151 +2,42 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tietosuojaseloste · Marktic</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tietosuojaseloste – Marktic</title>
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Marktic-palvelun tietosuojaseloste: mitä tietoja käsittelemme yritysten yhteydenotoissa ja asiakkuuksissa, millä perusteella ja kuinka kauan.">
+<link rel="canonical" href="https://marktic.fi/tietosuoja.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Tietosuojaseloste – Marktic"><meta property="og:type" content="website"><meta property="og:url" content="https://marktic.fi/tietosuoja.html"><meta property="og:locale" content="fi_FI">
+<link rel="stylesheet" href="site.css">
 <style>
-/* Layout: one column of argument, with a single "measurement sheet" as the hero object; Nordic snow + lingonberry. */
-:root{
-  --bg:#f3f5f7; --surface:#ffffff; --ink:#132033; --muted:#55627a; --line:#d9dfe7;
-  --berry:#a8243a; --berry-soft:#f6e3e7; --moss:#3e5a48; --moss-soft:#e3ece6;
-  --display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --body:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --step-1:clamp(15px,1.1vw,16px); --step-2:clamp(18px,1.6vw,20px); --step-3:clamp(24px,2.6vw,30px); --step-4:clamp(34px,5vw,56px);
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0d131c; --surface:#151d29; --ink:#e7ecf2; --muted:#9aa6b8; --line:#26313f;
-  --berry:#e4637a; --berry-soft:#3a1d25; --moss:#8fbf9f; --moss-soft:#1c2a22; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0d131c; --surface:#151d29; --ink:#e7ecf2; --muted:#9aa6b8; --line:#26313f;
-  --berry:#e4637a; --berry-soft:#3a1d25; --moss:#8fbf9f; --moss-soft:#1c2a22; color-scheme:dark}
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:var(--step-1);line-height:1.6;margin:0}
-.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
-a{color:var(--berry)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--berry);outline-offset:3px;border-radius:4px}
-h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0;letter-spacing:-.015em}
-h1{font-size:var(--step-4);font-weight:700}
-h2{font-size:var(--step-3);font-weight:700}
-h3{font-size:var(--step-2);font-weight:600}
-p{margin:0;max-width:62ch}
-.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:22px}
-.brand{font-family:var(--display);font-weight:700;font-size:24px;letter-spacing:-.02em;display:flex;align-items:baseline;gap:2px}
-.brand i{font-style:normal;color:var(--berry)}
-nav{display:flex;gap:20px;flex-wrap:wrap}
-nav a{color:var(--muted);text-decoration:none;font-size:15px}
-nav a:hover{color:var(--ink)}
-
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:start;padding-block:40px 64px}
-.hero-copy{display:flex;flex-direction:column;gap:20px;min-width:0}
-.lead{font-size:var(--step-2);color:var(--muted);max-width:34em}
-.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid var(--berry);font-size:16px}
-.btn.primary{background:var(--berry);color:var(--surface)}
-.btn.ghost{color:var(--berry);background:transparent}
-
-/* the measurement sheet */
-.sheet{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 22px 18px;display:flex;flex-direction:column;gap:16px;min-width:0;box-shadow:0 24px 48px -32px rgba(19,32,51,.35)}
-.sheet-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.q{font-family:var(--mono);font-size:14px;background:var(--bg);border-radius:8px;padding:10px 12px;color:var(--ink)}
-.rows{display:flex;flex-direction:column;gap:10px}
-.row{display:grid;grid-template-columns:minmax(0,1fr) 64px;gap:12px;align-items:center}
-.row .name{font-size:15px;display:flex;flex-direction:column;gap:5px;min-width:0}
-.bar{height:8px;border-radius:4px;background:var(--bg);overflow:hidden}
-.bar span{display:block;height:100%;background:var(--moss);border-radius:4px}
-.row .n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;font-size:14px;color:var(--muted)}
-.row.you .name{font-weight:600}
-.row.you .bar{outline:1px dashed var(--berry);outline-offset:2px}
-.row.you .n{color:var(--berry);font-weight:500}
-.sheet-foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
-
-section{padding-block:56px;border-top:1px solid var(--line)}
-.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.sec-head p{color:var(--muted)}
-
-/* variance: same question twice */
-.twice{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.ask{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.ask ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
-.ask li.same{color:var(--moss);font-weight:600}
-.callout{margin-top:18px;background:var(--moss-soft);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
-.callout b{font-family:var(--mono);font-size:22px;color:var(--moss)}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
-.step{display:flex;flex-direction:column;gap:8px;padding-top:14px;border-top:2px solid var(--ink);min-width:0}
-.step::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);color:var(--berry);font-size:13px}
-.step p{color:var(--muted)}
-
-/* fixes */
-.fixes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 28px;list-style:none;margin:0;padding:0}
-.fixes li{display:flex;flex-direction:column;gap:4px;padding-block:12px;border-bottom:1px solid var(--line);min-width:0}
-.fixes li span{color:var(--muted);font-size:15px}
-
-/* pricing */
-.prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:stretch}
-.price{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.price.main{border:2px solid var(--berry)}
-.tag{align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;background:var(--berry-soft);color:var(--berry);border-radius:999px;padding:4px 10px}
-.amount{font-family:var(--display);font-size:40px;font-weight:700;letter-spacing:-.02em;display:flex;align-items:baseline;gap:6px}
-.amount small{font-family:var(--body);font-size:15px;font-weight:400;color:var(--muted)}
-.was{font-size:14px;color:var(--muted)}
-.price ul{margin:0;padding-left:18px;color:var(--muted);display:flex;flex-direction:column;gap:4px;font-size:15px}
-.terms{margin-top:18px;color:var(--muted);font-size:15px}
-
-/* faq */
-details{border-bottom:1px solid var(--line);padding-block:14px}
-summary{cursor:pointer;font-weight:600;font-size:17px}
-details p{color:var(--muted);margin-top:8px}
-
-/* contact */
-.contact{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:32px;align-items:center}
-.mailbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.addr{font-family:var(--mono);font-size:18px;word-break:break-all}
-.copy{align-self:flex-start;font:inherit;font-size:14px;background:transparent;border:1.5px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
-footer{padding-block:32px 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px}
-footer a{color:var(--muted)}
-
-@media (max-width:860px){
-  .hero,.contact{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:24px 48px}
-  .steps,.prices,.fixes{grid-template-columns:minmax(0,1fr)}
-  nav a:not(.cta){display:none}
-}
-@media (max-width:560px){.twice{grid-template-columns:minmax(0,1fr)}}
-@media (prefers-reduced-motion:no-preference){
-  .bar span{transform-origin:left;animation:grow .9s cubic-bezier(.2,.7,.2,1) both}
-  .row:nth-child(2) .bar span{animation-delay:.08s}.row:nth-child(3) .bar span{animation-delay:.16s}.row:nth-child(4) .bar span{animation-delay:.24s}
-  @keyframes grow{from{transform:scaleX(.15)}to{transform:scaleX(1)}}
-}
+.doc{max-width:680px;padding:var(--s6) 0 var(--s7);display:flex;flex-direction:column;gap:var(--s3)}
+.doc h1{font-size:var(--t-3xl);margin-bottom:var(--s2)} .doc h2,.doc h3{font-size:var(--t-lg);margin-top:var(--s4)}
+.doc p,.doc li{color:var(--paper-mut)} .doc strong{color:var(--paper-ink)} .doc ul{padding-left:22px}
 </style>
-<style>.doc{max-width:760px;padding-block:24px 64px;display:flex;flex-direction:column;gap:14px}.doc h1{font-size:var(--step-3)}.doc ul{margin:0;padding-left:20px;color:var(--muted)}.doc p{color:var(--ink)}</style>
 </head>
 <body>
-<div class="wrap">
-<header class="top"><a class="brand" href="index.html" style="text-decoration:none;color:inherit">Marktic<i>.</i></a></header>
-<main class="doc">
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="top"><div class="wrap">
+  <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
+  <nav class="nav" id="nav" aria-label="Päävalikko">
+    <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
+    <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
+  </nav>
+</div></header>
+<section class="paper"><div class="wrap">
+<main class="doc" id="main">
 <h1>Tietosuojaseloste: yritysten yhteydenotot ja asiakkuudet</h1>
-<p>Päivitetty: [pp.kk.vvvv]. </p>
-<p><strong>Rekisterinpitäjä:</strong> [Etunimi Sukunimi] ([toiminimi / yhtiö], Y-tunnus [1234567-8] — TAI: kevytyrittäjä, ei omaa
-Y-tunnusta; laskutus UKKO.fi:n kautta), [postiosoite], [sähköposti]. Tietosuojavastaavaa ei ole nimitetty.</p>
+<p>Päivitetty: 21.10.2026.</p>
+<p><strong>Rekisterinpitäjä:</strong> Marktic (toiminimi, elinkeinonharjoittaja Laura Chache), Y-tunnus 3664036-8, Vantaa.
+Yhteydenotot tietosuoja-asioissa: <a href="mailto:info@marktic.fi">info@marktic.fi</a>. Tietosuojavastaavaa ei ole nimitetty.</p>
 <p><strong>Keihin yhteydenotot kohdistuvat:</strong> yrityksiin, jotka ovat oikeushenkilöitä (esim. Oy, Ky, Ay), niiden yleiseen
 sähköpostiosoitteeseen (esim. info@). Emme lähetä markkinointia toiminimille (yksityisille elinkeinonharjoittajille)
 emmekä henkilöiden nimellä yksilöityihin osoitteisiin.</p>
-<p><strong>Mitä tietoja käsittelemme:</strong>
-- yrityksen nimi, Y-tunnus, yritysmuoto, toimiala, osoite ja rekisteröintipäivä (PRH)
-- verkkosivun osoite ja Googlen paikkatunniste (Google)
-- yrityksen yleinen sähköpostiosoite (yrityksen omat verkkosivut)
-- havainnot yrityksen verkkosivuista ja siitä, mainitaanko yritys tekoälyavustajien vastauksissa
-- lähetettyjen viestien päivämäärät ja tunnisteet sekä saamamme vastaukset
-- estolista osoitteista, jotka ovat kieltäneet yhteydenotot
-- asiakkuuden syntyessä tilaus-, laskutus- ja yhteydenpitotiedot
-Jos yrityksen nimessä on henkilön nimi, myös se on henkilötieto.</p>
+<p><strong>Mitä tietoja käsittelemme:</strong></p>
+<ul><li>yrityksen nimi, Y-tunnus, yritysmuoto, toimiala, osoite ja rekisteröintipäivä (PRH)</li><li>verkkosivun osoite ja Googlen paikkatunniste (Google)</li><li>yrityksen yleinen sähköpostiosoite (yrityksen omat verkkosivut)</li><li>havainnot yrityksen verkkosivuista ja siitä, mainitaanko yritys tekoälyavustajien vastauksissa</li><li>lähetettyjen viestien päivämäärät ja tunnisteet sekä saamamme vastaukset</li><li>estolista osoitteista, jotka ovat kieltäneet yhteydenotot</li><li>asiakkuuden syntyessä tilaus-, laskutus- ja yhteydenpitotiedot</li></ul>
+<p>Jos yrityksen nimessä on henkilön nimi, myös se on henkilötieto.</p>
 <p><strong>Mistä tiedot saadaan:</strong> PRH:n avoin YTJ-data, Google Places -rajapinta (Googlen julkiset yritystiedot),
 yrityksen omat julkiset verkkosivut sekä yrityksen itse antamat tiedot ja vastaukset.</p>
 <p><strong>Mihin tietoja käytetään:</strong> yrityksille suunnattuun suoramarkkinointiin palvelusta, joka koskee yrityksen
@@ -156,28 +47,37 @@ palveluamme yrityksille, joiden toimintaan se liittyy. Olemme arvioineet, että 
 julkisia yritystietoja, enintään kolme viestiä, kielto lopettaa kaiken) eikä se syrjäytä vastaanottajan etuja.
 Estolistan säilyttämisen peruste on kiellon noudattaminen. Asiakassuhteessa peruste on sopimus ja kirjanpitolaki.</p>
 <p><strong>Oikeus vastustaa suoramarkkinointia:</strong> voitte milloin tahansa kieltää suoramarkkinoinnin ja vastustaa
-tietojenne käsittelyä siihen tarkoitukseen vastaamalla viestiin (esim. "ei kiitos") tai sähköpostitse [sähköposti].
+tietojenne käsittelyä siihen tarkoitukseen vastaamalla viestiin (esim. "ei kiitos") tai sähköpostitse osoitteeseen info@marktic.fi.
 Kielto on voimassa heti, eikä sitä tarvitse perustella. Sen jälkeen emme lähetä yhtään viestiä; säilytämme vain
 estolistamerkinnän, jotta kielto pysyy voimassa. Jos pyydätte myös tietojen poistamista, varmistamme ensin,
 haluatteko poistaa myös estolistamerkinnän.</p>
-<p><strong>Säilytys:</strong>
-- yhteydenottotiedot: poistetaan [12] kuukauden kuluttua viimeisestä yhteydenotosta, ellei asiakassuhdetta synny
-- vastausviestit: säilyvät vain sähköpostilaatikossa [säilytysaika]; niitä ei tallenneta muualle
-- estolista: niin kauan kuin yhteydenottoja tehdään
-- asiakas- ja laskutustiedot: kirjanpitolain mukaiset ajat
-[Kirjoita tähän vain sellaiset ajat, jotka toteutuvat myös versionhallinnan historiassa ja varmuuskopioissa.]</p>
+<p><strong>Säilytys:</strong></p>
+<ul><li>yhteydenottotiedot: poistetaan 12 kuukauden kuluttua viimeisestä yhteydenotosta, ellei asiakassuhdetta synny</li><li>vastausviestit: säilyvät vain sähköpostilaatikossa 12 kuukautta viimeisestä viestistä, ellei asiakassuhdetta synny; niitä ei tallenneta muualle</li><li>estolista: niin kauan kuin yhteydenottoja tehdään</li><li>asiakas- ja laskutustiedot: kirjanpitolain mukaiset ajat (tositteet 6 vuotta, tilinpäätös 10 vuotta tilikauden päättymisestä)</li></ul>
 <p><strong>Vastaanottajat ja käsittelijät:</strong> tietoja ei myydä eikä luovuteta markkinointiin. Teknisinä käsittelijöinä:
-[sähköpostipalvelu ja sen maa], GitHub Inc. (tietojen tallennus yksityisessä säilössä ja hyväksyntätiketit, USA),
+Zoho Corporation (sähköpostipalvelu, palvelimet EU:ssa), GitHub Inc. (tietojen tallennus yksityisessä säilössä ja hyväksyntätiketit, USA),
 Google (yritystietohaut ja tekoälytarkistukset, USA/EU), Perplexity AI (tekoälytarkistukset, USA), OpenAI (ChatGPT-tekoälytarkistukset, USA) ja, jos käytössä,
 Anthropic (vastausluonnosten laatiminen saapuneisiin viesteihin, USA). Tekoälypalveluille
 lähetetään vain yleisiä hakukysymyksiä, ei yrityskohtaisia yhteystietoja.</p>
 <p><strong>Siirrot EU:n ja ETA:n ulkopuolelle:</strong> tietoja voidaan käsitellä Yhdysvalloissa. Siirtojen perusteena on
 EU:n ja Yhdysvaltojen välinen tietosuojakehys (Data Privacy Framework) tai Euroopan komission
-vakiosopimuslausekkeet: GitHub (tietosuojakehys ja vakiosopimuslausekkeet), Google (vakiosopimuslausekkeet), Perplexity AI (tietosuojakehys), OpenAI (vakiosopimuslausekkeet). [Sähköpostipalvelu ja Anthropic: täydennä.]</p>
+vakiosopimuslausekkeet: GitHub (tietosuojakehys ja vakiosopimuslausekkeet), Google (vakiosopimuslausekkeet), Perplexity AI (tietosuojakehys), OpenAI (vakiosopimuslausekkeet). Zoho (EU-palvelimet, ei siirtoa EU:n ulkopuolelle), Anthropic (vakiosopimuslausekkeet).</p>
 <p><strong>Automaattinen päätöksenteko:</strong> ei ole. Jokaisen viestin hyväksyy ihminen.</p>
 <p><strong>Oikeutenne:</strong> oikeus saada pääsy tietoihin, oikaista ja poistaa ne, rajoittaa käsittelyä ja vastustaa
 käsittelyä (ks. yllä), sekä oikeus tehdä valitus tietosuojavaltuutetun toimistolle (tietosuoja.fi).</p>
 </main>
-</div>
+</div></section>
+<footer><div class="wrap">
+  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
+  <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
+  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
+</div></footer>
+<script>
+const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
+const here=location.pathname.split('/').pop()||'index.html';
+document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
+</script>
+<script src="mail.js" defer></script>
 </body>
 </html>
