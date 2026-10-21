@@ -170,3 +170,10 @@ footer p{color:var(--ink-2)}
 h1,h2,h3{text-wrap:balance}
 @media (max-width:900px){.mtr{font-size:14px} .mtr tbody th{width:52%} .hero .cta .btn-ghost{background:none;border:0;min-height:44px;text-decoration:underline;text-underline-offset:5px} .menu-btn{display:inline-flex;align-items:center}}
 .doc a{display:inline-block;padding:11px 0;margin:-11px 0}
+
+/* mallikuvat gallery */
+.mallit{margin-top:var(--s6)} .mg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:var(--s3)}
+.mg figure{margin:0;aspect-ratio:4/5;background:#d9dcd8;border-radius:10px;overflow:hidden} .mg img{width:100%;height:100%;object-fit:cover;display:block}
+.mcap{margin-top:var(--s2);font-size:var(--t-sm)}
+@media (max-width:700px){.mg{grid-template-columns:repeat(2,1fr);gap:8px}}
+.mg3{grid-template-columns:repeat(3,1fr)!important;gap:8px;margin-top:0;align-self:start} .mg3 figure{border-radius:8px}
