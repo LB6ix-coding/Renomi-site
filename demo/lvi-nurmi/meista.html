@@ -14,35 +14,42 @@
 .intro{padding-top:var(--s5);padding-bottom:var(--s4);background:linear-gradient(180deg,#f7f9fd 0%,#fff 100%)}
 .intro h1{font-size:var(--t-4xl);margin-bottom:var(--s3);max-width:20ch}
 .intro .lead{font-size:var(--t-lg);color:var(--ink-2);max-width:56ch}
-.letter .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--s5);align-items:start}
-.letter .txt p{color:var(--ink-2);margin-bottom:var(--s2);font-size:var(--t-lg);line-height:1.6}
-.letter .txt p.sig{color:var(--ink);font-weight:700;margin-top:var(--s3)}
-.letter .txt p.sig small{display:block;font-weight:400;color:var(--mut);font-size:var(--t-sm)}
+.letter .col{max-width:640px}
+.letter h2{margin-bottom:var(--s3)}
+.letter .col::after{content:"";display:block;clear:both}
+.letter p{color:var(--ink-2);margin-bottom:var(--s2);font-size:var(--t-lg);line-height:1.6;max-width:none}
+.letter p.sig{color:var(--ink);font-weight:700;margin-top:var(--s3);font-size:var(--t-base)}
+.van{float:right;width:280px;margin:6px 0 var(--s3) var(--s4)}
 .ph{background:#dfe6f0;border-radius:var(--r2);overflow:hidden;aspect-ratio:1200/896}
 .ph img{width:100%;height:100%;object-fit:cover}
-figure figcaption{font-size:var(--t-xs);color:var(--mut);margin-top:8px}
-.team .card{gap:6px}
-.team .av{width:56px;height:56px;border-radius:50%;background:#e8f0fd;color:var(--navy);display:grid;place-items:center;font-weight:800;font-size:var(--t-lg);margin-bottom:6px}
-.team .role{color:var(--navy);font-weight:600;font-size:var(--t-sm)}
+figure figcaption{font-size:var(--t-xs);color:var(--mut);margin-top:8px;line-height:1.45}
+.team-list{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.team-list li{border-top:2px solid var(--steel,#a9b8cc);padding-top:var(--s3);display:grid;gap:4px;align-content:start}
+.team-list h3{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.team-list .role{color:var(--navy);font-weight:600;font-size:var(--t-sm)}
+.team-list .what{color:var(--ink-2);font-size:var(--t-sm);margin-top:4px}
+.team-list .yrs{color:var(--mut);font-size:var(--t-sm);margin-top:8px;font-variant-numeric:tabular-nums}
 .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s3)}
 .facts-wrap .wrap{display:grid;grid-template-columns:1fr 1fr;gap:var(--s5);align-items:start}
 .facts{background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:var(--s4)}
-.facts dd small{display:block;font-weight:400;color:var(--mut)}
-.nolist{list-style:none;display:grid;gap:12px}
+.facts dd small{display:block;font-weight:400;color:var(--mut);margin-top:2px}
+.nolist{list-style:none;display:grid;gap:14px}
 .nolist li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-2)}
 .nolist li b{color:var(--ink);display:block}
-.nolist li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:#fde7da url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M7 7l8 8M15 7l-8 8' stroke='%23d9530a' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/22px no-repeat}
+.nolist li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:#e6ecf5 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M7 7l8 8M15 7l-8 8' stroke='%230b2a5b' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/22px no-repeat}
 .cta-end .wrap{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;justify-content:space-between}
 .cta-end .btns{display:flex;gap:12px;flex-wrap:wrap}
+.cta-end .wrap>div>p{color:var(--ink-2);margin-top:var(--s2)}
 @media (max-width:960px){
-  .letter .wrap,.facts-wrap .wrap{grid-template-columns:1fr}
-  .gal{grid-template-columns:1fr}
-  .team .g4{grid-template-columns:1fr 1fr;gap:12px}
-  .team .card{padding:var(--s3);min-width:0;overflow-wrap:break-word;hyphens:auto}
-  .team h3{font-size:var(--t-lg)}
-  .team .card p{font-size:var(--t-xs)}
+  .facts-wrap .wrap{grid-template-columns:1fr}
+  .team-list{grid-template-columns:1fr 1fr;gap:var(--s3)}
   .intro h1{font-size:var(--t-3xl)}
-  .letter .txt p{font-size:var(--t-base)}
+  .letter p{font-size:var(--t-base)}
+}
+@media (max-width:600px){
+  .van{float:none;width:100%;margin:0 0 var(--s3)}
+  .team-list{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr}
 }
 </style>
 <script type="application/ld+json">
@@ -86,124 +93,130 @@ figure figcaption{font-size:var(--t-xs);color:var(--mut);margin-top:8px}
 
 <section class="intro">
   <div class="wrap">
-    <p class="eyebrow">Meistä</p>
+    <p class="eyebrow"><span>01</span> Meistä</p>
     <h1>Pieni putkiliike Tikkurilasta, vuodesta 2014</h1>
-    <p class="lead">Meitä on neljä: kolme asentajaa ja toimisto. Arkisin puhelimeen vastaa Heidi, muulloin päivystäjä. Paikalle tulee aina joku kolmesta asentajastamme.</p>
+    <p class="lead">Meitä on neljä: kolme asentajaa ja Heidi toimistossa. Arkisin puhelimeen vastaa Heidi, muulloin päivystäjä. Paikalle tulee aina joku kolmesta asentajastamme.</p>
   </div>
 </section>
 
-<section class="letter rv" aria-labelledby="kirje-h">
+<section class="letter sp-m rv" aria-labelledby="kirje-h">
   <div class="wrap">
-    <div class="txt">
-      <h2 id="kirje-h" style="margin-bottom:var(--s3)">Miksi hinnat ovat sivuilla</h2>
+    <div class="col">
+      <h2 id="kirje-h">Miksi kerromme hinnat etukäteen</h2>
+      <figure class="van">
+        <div class="ph"><img src="img/van.jpg" width="1200" height="896" alt="LVI Nurmen pakettiauto rivitalon edessä" loading="lazy"></div>
+        <figcaption>Jarnon pakettiauto. Työkalut ja yleisimmät osat kulkevat mukana.</figcaption>
+      </figure>
       <p>Olen Jarno Nurmi, LVI-asentaja. Perustin LVI Nurmen vuonna 2014.</p>
       <p>Ennen sitä olin töissä isommassa liikkeessä. Eräänä talvena äitini soitti Korsosta: keittiön hana tippui. Hän kysyi toisesta liikkeestä hintaa, ja vastaus oli "katsotaan paikan päällä".</p>
-      <p>Hanan vaihto kesti alle tunnin. Laskussa oli kaksi tuntia minimiveloitusta, lähtömaksu ja rivi nimeltä "pientarvikkeet". Kukaan ei ollut kertonut niistä etukäteen. Äiti maksoi, mutta soitti minulle ja kysyi, onko tämä normaalia.</p>
-      <p>Se jäi mieleen. Kun aloitin oman liikkeen, päätin että hinta kerrotaan ennen työtä. Siksi hinnasto on tällä sivustolla kokonaan, myös päivystyksen hinnat, ja minimiveloitus on yksi tunti, ei kaksi.</p>
-      <p>Jos työ osoittautuu isommaksi kuin puhelimessa luultiin, asentaja pysähtyy ja kysyy sinulta ennen kuin jatkaa. Lasku tulee työn jälkeen, ja siinä on työn osuus eriteltynä kotitalousvähennystä varten.</p>
-      <p>Soita, kun tarvitset apua. Kerron hinnan heti.</p>
-      <p class="sig">Jarno Nurmi<small>Perustaja, LVI-asentaja</small></p>
+      <p>Hanan vaihto kesti alle tunnin. Laskussa oli rivejä, joista kukaan ei ollut kertonut etukäteen. Äiti maksoi, mutta soitti minulle ja kysyi, onko tämä normaalia.</p>
+      <p>Se jäi mieleen. Kun aloitin oman liikkeen, päätin, että hinta kerrotaan ennen työtä. Siksi hinnasto on tällä sivustolla kokonaan, myös päivystyksen hinnat.</p>
+      <p>Jos työ osoittautuu isommaksi, kuin puhelimessa luultiin, asentaja pysähtyy ja kysyy sinulta, ennen kuin jatkaa. Lasku tulee työn jälkeen, ja siinä on työn osuus eriteltynä kotitalousvähennystä varten.</p>
+      <p>Soita, kun tarvitset apua. Kerromme hinnan heti.</p>
+      <p class="sig">Jarno Nurmi, LVI-asentaja, perustaja</p>
     </div>
-    <figure>
-      <div class="ph">
-        <img src="img/plumber-bathroom.jpg" width="1200" height="896" alt="Asentaja korjaa hanaa kylpyhuoneessa" loading="lazy">
-      </div>
-    </figure>
   </div>
 </section>
 
-<section class="team alt rv" aria-labelledby="tiimi-h">
+<section class="team alt sp-m rv" aria-labelledby="tiimi-h">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Tiimi</p>
+      <p class="eyebrow"><span>02</span> Tiimi</p>
       <h2 id="tiimi-h">Ketkä tulevat paikalle</h2>
-      <p>Kolme asentajaa ja yksi ihminen, joka vastaa puhelimeen ja hoitaa laskut.</p>
+      <p>Kolme asentajaa ja Heidi, joka vastaa puhelimeen ja hoitaa laskut.</p>
     </div>
-    <div class="grid g4">
-      <div class="card">
-        <span class="av" aria-hidden="true">JN</span>
+    <ul class="team-list">
+      <li>
         <h3>Jarno Nurmi</h3>
-        <p class="role">Perustaja, LVI-asentaja</p>
-        <p>Perusti liikkeen 2014. Tekee asennuksia ja vastaa tarjouksista.</p>
-      </div>
-      <div class="card">
-        <span class="av" aria-hidden="true">ML</span>
+        <p class="role">LVI-asentaja, perustaja</p>
+        <p class="what">Tekee asennuksia ja vastaa tarjouksista.</p>
+        <p class="yrs">Alalla vuodesta 2006</p>
+      </li>
+      <li>
         <h3>Mikko Lahti</h3>
         <p class="role">LVI-asentaja</p>
-        <p>Hanat, WC:t, viemärit ja varaajat. Myös päivystää.</p>
-      </div>
-      <div class="card">
-        <span class="av" aria-hidden="true">SK</span>
+        <p class="what">Hanat, WC:t, viemärit ja varaajat. Päivystää myös.</p>
+        <p class="yrs">Alalla vuodesta 2012</p>
+      </li>
+      <li>
         <h3>Sami Koskinen</h3>
         <p class="role">LVI-asentaja</p>
-        <p>Vesivuodot, kodinkoneiden kytkennät ja remonttien LVI-työt. Myös päivystää.</p>
-      </div>
-      <div class="card">
-        <span class="av" aria-hidden="true">HN</span>
+        <p class="what">Vesivuodot, kodinkoneiden kytkennät ja remonttien LVI-työt. Päivystää myös.</p>
+        <p class="yrs">Alalla vuodesta 2018</p>
+      </li>
+      <li>
         <h3>Heidi Nurmi</h3>
         <p class="role">Toimisto ja laskutus</p>
-        <p>Vastaa puhelimeen arkisin 7–17, sopii ajat ja hoitaa laskut.</p>
-      </div>
-    </div>
+        <p class="what">Vastaa puhelimeen arkisin 7–17, sopii ajat ja hoitaa laskut.</p>
+        <p class="yrs">Toimistossa 2014 alkaen</p>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="rv" aria-labelledby="kuvat-h">
+<section class="sp-m rv" aria-labelledby="kuvat-h">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Työmailta</p>
-      <h2 id="kuvat-h">Näin työ näyttää</h2>
+      <p class="eyebrow"><span>03</span> Työmailta</p>
+      <h2 id="kuvat-h">Tältä työmme näyttää</h2>
     </div>
     <div class="gal">
-      <div class="ph"><img src="img/van.jpg" width="1200" height="896" alt="LVI Nurmen pakettiauto rivitalon edessä" loading="lazy"></div>
-      <div class="ph"><img src="img/hands-copper.jpg" width="1200" height="896" alt="Kupariputken liitos kiristetään" loading="lazy"></div>
+      <figure>
+        <div class="ph"><img src="img/plumber-bathroom.jpg" width="1200" height="896" alt="Asentaja korjaa hanaa kylpyhuoneessa" loading="lazy"></div>
+        <figcaption>Hanan vaihto kylpyhuoneessa.</figcaption>
+      </figure>
+      <figure>
+        <div class="ph"><img src="img/hands-copper.jpg" width="1200" height="896" alt="Kupariputken liitos kiristetään" loading="lazy"></div>
+        <figcaption>Kupariputken liitos ennen tiiveyden tarkastusta.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<section class="facts-wrap alt rv" aria-labelledby="tiedot-h">
+<section class="facts-wrap alt sp-m rv" aria-labelledby="tiedot-h">
   <div class="wrap">
     <div>
       <div class="head">
-        <p class="eyebrow">Yritystiedot</p>
-        <h2 id="tiedot-h">Faktat lyhyesti</h2>
+        <p class="eyebrow"><span>04</span> Yritystiedot</p>
+        <h2 id="tiedot-h">Yritys lyhyesti</h2>
       </div>
       <dl class="facts">
         <dt>Yritys</dt><dd>LVI Nurmi Oy</dd>
         <dt>Perustettu</dt><dd>2014, Vantaa</dd>
-        <dt>Y-tunnus</dt><dd>1234567-8<small>Fiktiivinen, tämä on demosivu</small></dd>
+        <dt>Y-tunnus</dt><dd>1234567-8</dd>
         <dt>Osoite</dt><dd>Tikkurilantie 12, 01300 Vantaa</dd>
         <dt>Vakuutus</dt><dd>Vastuuvakuutus voimassa</dd>
-        <dt>Työtakuu</dt><dd>2 vuotta asennuksille</dd>
-        <dt>Verotus</dt><dd>Ennakkoperintärekisterissä<small>Työstä voi hakea kotitalousvähennyksen</small></dd>
+        <dt>Työtakuu</dt><dd>2 vuotta asennuksille<small>Jos asentamamme liitos tai osa pettää kahden vuoden takuuaikana työvirheen vuoksi, korjaamme sen veloituksetta. Laitteilla on valmistajan takuu.</small></dd>
+        <dt>Verotus</dt><dd>Ennakkoperintärekisterissä<small>Työstä voi saada kotitalousvähennyksen, kun muut ehdot täyttyvät.</small></dd>
         <dt>Laskutus</dt><dd>Työn jälkeen, työn osuus eriteltynä</dd>
       </dl>
     </div>
     <div>
       <div class="head">
-        <p class="eyebrow">Lupaus</p>
+        <p class="eyebrow"><span>05</span> Lupaus</p>
         <h2 id="emme-h">Mitä emme tee</h2>
       </div>
       <ul class="nolist" aria-labelledby="emme-h">
-        <li><span><b>Emme pidä tuntihintaa salassa.</b>74 €/h arkisin, päivystyksen hinnat näkyvät <a href="hataapu.html">päivystyssivulla</a>.</span></li>
+        <li><span><b>Emme pidä tuntihintaa salassa.</b>74 €/h arkisin, päivystyksen hinnat näkyvät <a href="hataapu.html">päivystyssivulla</a>.</span></li>
         <li><span><b>Emme lisää laskuun mitään, mistä ei ole sovittu.</b>Jos työ kasvaa, kysymme ensin.</span></li>
+        <li><span><b>Tarvikkeet laskutetaan eriteltynä, ei möhkälesummana pientarvikkeita.</b>Kerromme isommat tarvikkeet ennen työtä.</span></li>
         <li><span><b>Emme veloita kahta tuntia viiden minuutin työstä.</b>Minimiveloitus on yksi tunti, sen jälkeen alkavalta puolelta tunnilta.</span></li>
         <li><span><b>Emme pyydä maksua etukäteen.</b>Lasku tulee työn jälkeen.</span></li>
-        <li><span><b>Emme lähetä päivystäjää ilman hintaa.</b>Kerromme päivystyksen hinnan puhelimessa ennen lähtöä.</span></li>
+        <li><span><b>Emme lähetä päivystäjää ilman hintaa.</b>Kerromme puhelimessa lähtömaksun, tuntihinnan ja arvion kestosta, ennen kuin auto lähtee.</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<section class="cta-end rv" aria-labelledby="cta-h">
+<section class="cta-end sp-s rv" aria-labelledby="cta-h">
   <div class="wrap">
     <div>
       <h2 id="cta-h">Tarvitsetko putkimiehen?</h2>
-      <p class="note" style="font-size:var(--t-base);color:var(--ink-2)">Katso <a href="palvelut.html#hinnasto">hinnasto</a> tai soita, niin kerromme hinnan heti.</p>
+      <p>Katso <a href="palvelut.html#hinnasto">hinnasto</a> tai soita, niin kerromme hinnan heti.</p>
     </div>
     <div class="btns">
       <a class="btn btn-o" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>Soita 040 123 4567</a>
-      <a class="btn btn-g" href="yhteys.html#tilaa">Tilaa aika</a>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </div>
   </div>
 </section>

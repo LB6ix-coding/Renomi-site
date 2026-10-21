@@ -4,51 +4,68 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yhteystiedot ja ajanvaraus | LVI Nurmi Oy, Vantaa</title>
-<meta name="description" content="Soita 040 123 4567 tai tilaa putkimies lomakkeella. LVI Nurmi Oy, Tikkurilantie 12, Vantaa. Toimisto ma–pe 7–17, päivystys 24/7 myös pyhinä.">
+<meta name="description" content="Soita 040 123 4567 tai jätä ajanvarauspyyntö lomakkeella. LVI Nurmi Oy, Tikkurilantie 12, Vantaa. Toimisto ma–pe 7–17, päivystys 24/7 myös pyhinä.">
 <link rel="canonical" href="https://marktic.fi/demo/lvi-nurmi/yhteys.html">
 <meta name="robots" content="noindex">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="lvi.css">
 <style>
 /* yhteys.html: page-specific */
-.intro{padding-top:var(--s5);padding-bottom:var(--s5);background:linear-gradient(180deg,#f7f9fd 0%,#fff 100%)}
+.intro{padding-top:var(--s5);padding-bottom:var(--s4);background:linear-gradient(180deg,#f7f9fd 0%,#fff 100%)}
 .intro h1{font-size:var(--t-4xl);margin-bottom:var(--s2)}
-.intro .lead{font-size:var(--t-lg);color:var(--ink-2);max-width:56ch;margin-bottom:var(--s4)}
-.bigtel{display:inline-flex;align-items:center;gap:14px;font-size:var(--t-5xl);font-weight:800;letter-spacing:-.03em;color:var(--navy);text-decoration:none;line-height:1;font-variant-numeric:tabular-nums;min-height:44px}
+.intro .lead{font-size:var(--t-lg);color:var(--ink-2);max-width:56ch;margin-bottom:var(--s3)}
+.bigtel{display:inline-flex;align-items:center;gap:14px;font-size:var(--t-5xl);font-weight:800;letter-spacing:-.03em;color:var(--navy);text-decoration:none;line-height:1;font-variant-numeric:tabular-nums;min-height:44px;white-space:nowrap}
 .bigtel svg{width:.75em;height:.75em;color:var(--orange);flex:none}
 .bigtel:hover{color:var(--orange)}
 .telnote{color:var(--mut);font-size:var(--t-sm);margin-top:var(--s2)}
-.ci{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s4)}
-.ci .card{gap:6px}
-.ci .card .ico{width:28px;height:28px}
-.ci .card .ico svg{width:28px;height:28px}
-.ci .card a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:var(--navy);text-decoration:none;overflow-wrap:anywhere}
-.ci .card a:hover{text-decoration:underline}
-.ci .card p{font-size:var(--t-base);color:var(--ink)}
-.ci .card small{color:var(--mut);font-size:var(--t-sm)}
-#tilaa{scroll-margin-top:96px}
-.contact>div>p{color:var(--ink-2)}
+.telnote a{display:inline-flex;align-items:center;min-height:44px}
+
+#tilaa{scroll-margin-top:24px}
+.bk{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:var(--s5);align-items:start}
+.bk-f h2{margin-bottom:var(--s2)}
+.bk-f>p{color:var(--ink-2);margin-bottom:var(--s3)}
 .form .lt{display:block}
-.form .req{color:var(--orange)}
-.form .hint{font-weight:400;font-size:var(--t-xs);color:var(--mut)}
+.form .req{color:var(--navy)}
+.form .hint{display:block;font-weight:400;font-size:var(--t-xs);color:var(--mut)}
 .form .btn{width:100%}
+.form .reqnote{font-size:var(--t-sm);color:var(--ink-2)}
 .form .err{color:#b42318;font-size:var(--t-sm);font-weight:600}
-.form .ok{color:var(--ok);font-size:var(--t-sm);font-weight:600}
-.form [aria-invalid=true]{border-color:#b42318}
-.or{display:flex;align-items:center;gap:12px;color:var(--mut);font-size:var(--t-sm)}
+.form .ok{background:#eaf6ef;border:1px solid #b7dfc6;color:#14532d;border-radius:var(--r1);padding:12px 14px;font-size:var(--t-sm);font-weight:600}
+.form .ok a{color:inherit}
+.form [aria-invalid=true]{border-color:#b42318;box-shadow:0 0 0 1px #b42318}
+.form select{-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 7.5l5 5 5-5' fill='none' stroke='%230b2a5b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center/18px 18px;padding-right:44px;color:var(--ink);cursor:pointer}
+.form select::-ms-expand{display:none}
+.or{display:flex;align-items:center;gap:12px;color:var(--mut);font-size:var(--t-sm);max-width:none}
 .or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
-.side .kv{list-style:none;display:grid;gap:12px;color:var(--ink-2);margin-top:var(--s3)}
-.side .kv li{display:flex;gap:10px;align-items:flex-start}
-.side .kv .ico{width:22px;height:22px;flex:none;color:var(--ok);margin-top:2px}
-.hours{display:grid;grid-template-columns:auto 1fr;gap:8px 20px;font-size:var(--t-sm);margin-top:var(--s3)}
-.hours dt{color:var(--mut)} .hours dd{font-weight:600}
+
+.side{display:grid;gap:var(--s3)}
+.side h2{font-size:var(--t-xl);letter-spacing:-.01em}
+.crow{display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--line-2)}
+.crow dt,.crow dd{padding:12px 0;border-bottom:1px solid var(--line-2)}
+.crow dt{display:flex;align-items:flex-start;gap:8px;color:var(--mut);font-size:var(--t-sm);padding-right:16px;padding-top:15px}
+.crow dt .ico{width:18px;height:18px;color:var(--navy);margin-top:1px}
+.crow dd{font-weight:600}
+.crow dd a{display:inline-flex;align-items:center;min-height:32px;color:var(--navy);overflow-wrap:anywhere}
+.crow dd small{display:block;font-weight:400;color:var(--mut);font-size:var(--t-sm)}
+.side .note{margin-top:0;padding:14px 16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--water);border-radius:var(--r1);color:var(--ink-2)}
+
+.area-l{list-style:none;display:grid;gap:0;max-width:420px;border-top:1px solid var(--line)}
+.area-l li{display:flex;justify-content:space-between;gap:16px;padding:10px 8px;border-bottom:1px solid var(--line);font-weight:600;border-radius:4px;cursor:default}
+.area-l li span:last-child{font-variant-numeric:tabular-nums;color:var(--navy)}
+.area-l li:hover,.area-l li:focus-visible{background:#eef3f9}
+.area-l li.home span:last-child{color:var(--ok)}
+.area .note{color:var(--ink-2)}
+
 .privacy{max-width:72ch;color:var(--ink-2);font-size:var(--t-sm)}
 .privacy h2{font-size:var(--t-xl);margin-bottom:var(--s2);color:var(--ink)}
 .privacy p{margin-bottom:var(--s2)}
 @media (max-width:960px){
-  .ci{grid-template-columns:1fr}
+  .bk{grid-template-columns:1fr;gap:var(--s4)}
   .intro h1{font-size:var(--t-3xl)}
   .bigtel{font-size:40px}
+}
+@media (max-width:600px){
+  .form{padding:var(--s3)}
 }
 </style>
 <script type="application/ld+json">
@@ -71,13 +88,22 @@
       "addressLocality": "Vantaa",
       "addressCountry": "FI"
     },
-    "areaServed": ["Vantaa", "Helsinki", "Espoo", "Kerava", "Tuusula", "Järvenpää", "Sipoo", "Nurmijärvi"],
+    "areaServed": [
+      {"@type": "City", "name": "Vantaa"},
+      {"@type": "City", "name": "Helsinki"},
+      {"@type": "City", "name": "Espoo"},
+      {"@type": "City", "name": "Kerava"},
+      {"@type": "City", "name": "Tuusula"},
+      {"@type": "City", "name": "Järvenpää"},
+      {"@type": "City", "name": "Sipoo"},
+      {"@type": "City", "name": "Nurmijärvi"}
+    ],
     "openingHoursSpecification": [
-      {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "17:00"}
+      {"@type": "OpeningHoursSpecification", "name": "Toimisto", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "17:00"}
     ],
     "contactPoint": [
       {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+358401234567", "email": "info@lvinurmi.fi", "availableLanguage": "fi", "areaServed": "FI"},
-      {"@type": "ContactPoint", "contactType": "emergency", "telephone": "+358401234567", "availableLanguage": "fi", "hoursAvailable": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}}
+      {"@type": "ContactPoint", "contactType": "emergency", "telephone": "+358401234567", "availableLanguage": "fi", "hoursAvailable": {"@type": "OpeningHoursSpecification", "name": "Päivystys", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "00:00", "closes": "23:59"}}
     ]
   }
 }
@@ -90,120 +116,114 @@
 
 <section class="intro" aria-labelledby="yht-h">
   <div class="wrap">
-    <p class="eyebrow">Yhteystiedot</p>
-    <h1 id="yht-h">Soita, niin kerromme hinnan heti</h1>
-    <p class="lead">Nopein tapa on puhelu. Arkisin vastaa toimisto, muulloin päivystäjä. Kiireettömän työn voit tilata myös lomakkeella.</p>
+    <p class="eyebrow"><span>01</span> Yhteystiedot</p>
+    <h1 id="yht-h">Soita tai varaa aika</h1>
+    <p class="lead">Nopein tapa on puhelu. Arkisin vastaa toimisto, muulloin päivystäjä. Kiireettömän työn voit varata myös lomakkeella.</p>
     <a class="bigtel" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>040 123 4567</a>
     <p class="telnote">Päivystys 24/7 samasta numerosta, myös pyhinä. <a href="hataapu.html">Mitä tehdä vesivuodossa heti</a></p>
-
-    <div class="ci">
-      <div class="card">
-        <span class="ico"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
-        <h2 class="sr">Sähköposti</h2>
-        <small>Sähköposti</small>
-        <a href="mailto:info@lvinurmi.fi">info@lvinurmi.fi</a>
-      </div>
-      <div class="card">
-        <span class="ico"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
-        <h2 class="sr">Osoite</h2>
-        <small>Osoite</small>
-        <p>Tikkurilantie 12<br>01300 Vantaa</p>
-        <small>Teemme työt asiakkaan luona.</small>
-      </div>
-      <div class="card">
-        <span class="ico"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
-        <h2 class="sr">Aukioloajat</h2>
-        <small>Aukioloajat</small>
-        <dl class="hours" style="margin-top:0">
-          <dt>Toimisto</dt><dd>ma–pe 7–17</dd>
-          <dt>Päivystys</dt><dd>24/7, joka päivä, myös pyhät</dd>
-        </dl>
-      </div>
-    </div>
   </div>
 </section>
 
-<section id="tilaa" class="alt rv" aria-labelledby="tilaa-h">
-  <div class="wrap contact">
-    <div class="side">
-      <p class="eyebrow">Ajanvaraus</p>
-      <h2 id="tilaa-h">Tilaa aika</h2>
-      <p style="margin-top:var(--s2)">Kerro lyhyesti mikä on vialla. Soitamme takaisin, kerromme hinnan tai hinta-arvion ja sovimme ajan.</p>
-      <ul class="kv">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Viisi kenttää, ei rekisteröitymistä</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tuntityö 74 €/h, minimi 1 h. Vantaalla ei matkakulua.</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Hinta vahvistetaan ennen työn aloitusta</li>
-      </ul>
-      <p class="note">Vesi tulee läpi tai sitä ei saa suljettua? Älä täytä lomaketta, vaan soita päivystykseen <a href="tel:+358401234567">040 123 4567</a>.</p>
+<section id="tilaa" class="alt sp-m rv" aria-labelledby="tilaa-h">
+  <div class="wrap bk">
+    <div class="bk-f">
+      <p class="eyebrow"><span>02</span> Ajanvaraus</p>
+      <h2 id="tilaa-h">Jätä ajanvarauspyyntö</h2>
+      <p>Kerro, mikä on vialla. Soitamme takaisin, kerromme hinnan tai hinta-arvion ja sovimme ajan.</p>
+
+      <form class="form" id="bookform" action="mailto:info@lvinurmi.fi" method="post" enctype="text/plain" novalidate>
+        <label for="f-vika"><span class="lt">Mikä on vialla? <span class="req" aria-hidden="true">*</span></span>
+          <textarea id="f-vika" name="vika" required aria-describedby="f-vika-h" placeholder="Esim. keittiön hana tippuu, kerrostalo, hana noin 10 vuotta vanha"></textarea>
+          <span class="hint" id="f-vika-h">Kuva viasta auttaa arvioimaan työn. Voit liittää kuvan sähköpostiin, joka avautuu seuraavaksi.</span>
+        </label>
+        <div class="row">
+          <label for="f-puh"><span class="lt">Puhelin <span class="req" aria-hidden="true">*</span></span>
+            <input id="f-puh" name="puhelin" type="tel" autocomplete="tel" inputmode="tel" required>
+          </label>
+          <label for="f-nimi"><span class="lt">Nimi <span class="req" aria-hidden="true">*</span></span>
+            <input id="f-nimi" name="nimi" type="text" autocomplete="name" required>
+          </label>
+        </div>
+        <label for="f-osoite"><span class="lt">Osoite tai postinumero <span class="req" aria-hidden="true">*</span></span>
+          <input id="f-osoite" name="osoite" type="text" autocomplete="street-address" required>
+        </label>
+        <div class="row">
+          <label for="f-milloin"><span class="lt">Milloin</span>
+            <select id="f-milloin" name="milloin">
+              <option>Mahdollisimman pian arkisin</option>
+              <option>Tällä viikolla</option>
+              <option>Ensi viikolla</option>
+              <option>Sovitaan puhelimessa</option>
+            </select>
+          </label>
+          <label for="f-aika"><span class="lt">Mihin aikaan</span>
+            <select id="f-aika" name="aika">
+              <option>Aamupäivä 7–12</option>
+              <option>Iltapäivä 12–17</option>
+              <option>Kumpi tahansa</option>
+            </select>
+          </label>
+        </div>
+        <p class="err" id="f-err" role="alert" hidden></p>
+        <p class="reqnote">Tähdellä (*) merkityt kentät ovat pakollisia. Painike avaa sähköpostiohjelmasi valmiilla viestillä osoitteeseen info@lvinurmi.fi.</p>
+        <button class="btn btn-n" type="submit"><svg aria-hidden="true"><use href="#i-mail"/></svg>Avaa valmis sähköposti</button>
+        <p class="ok" id="f-ok" role="status" hidden></p>
+        <p class="or">tai</p>
+        <a class="btn btn-o" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>Soita 040 123 4567</a>
+      </form>
     </div>
 
-    <form class="form" id="bookform" action="mailto:info@lvinurmi.fi" method="post" enctype="text/plain" novalidate>
-      <label for="f-nimi"><span class="lt">Nimi <span class="req" aria-hidden="true">*</span></span>
-        <input id="f-nimi" name="nimi" type="text" autocomplete="name" required>
-      </label>
-      <div class="row">
-        <label for="f-puh"><span class="lt">Puhelin <span class="req" aria-hidden="true">*</span></span>
-          <input id="f-puh" name="puhelin" type="tel" autocomplete="tel" inputmode="tel" required>
-        </label>
-        <label for="f-aika"><span class="lt">Toivottu aika</span>
-          <select id="f-aika" name="aika">
-            <option>Mahdollisimman pian</option>
-            <option>Tänään</option>
-            <option>Huomenna</option>
-            <option>Tällä viikolla</option>
-            <option>Sovitaan erikseen</option>
-          </select>
-        </label>
-      </div>
-      <label for="f-osoite"><span class="lt">Osoite <span class="req" aria-hidden="true">*</span> <span class="hint">katu, postinumero ja kaupunki</span></span>
-        <input id="f-osoite" name="osoite" type="text" autocomplete="street-address" required>
-      </label>
-      <label for="f-vika"><span class="lt">Mikä on vialla? <span class="req" aria-hidden="true">*</span></span>
-        <textarea id="f-vika" name="vika" required placeholder="Esim. keittiön hana tippuu, kerrostalo, hana noin 10 vuotta vanha"></textarea>
-      </label>
-      <small>Kuva viasta auttaa arvioimaan työn. Voit liittää kuvan sähköpostiin, joka avautuu seuraavaksi.</small>
-      <p class="err" id="f-err" role="alert" hidden></p>
-      <button class="btn btn-o" type="submit"><svg aria-hidden="true"><use href="#i-mail"/></svg>Lähetä ajanvaraus</button>
-      <p class="ok" id="f-ok" role="status" hidden></p>
-      <small>Lähetä-painike avaa sähköpostiohjelmasi valmiilla viestillä osoitteeseen info@lvinurmi.fi. Tähdellä merkityt kentät ovat pakollisia.</small>
-      <p class="or">tai</p>
-      <a class="btn btn-g" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>Tai soita 040 123 4567</a>
-    </form>
+    <aside class="side" aria-labelledby="yt-h">
+      <h2 id="yt-h">Yhteystiedot</h2>
+      <dl class="crow">
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Puhelin</dt>
+        <dd><a href="tel:+358401234567">040 123 4567</a></dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Sähköposti</dt>
+        <dd><a href="mailto:info@lvinurmi.fi">info@lvinurmi.fi</a></dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Osoite</dt>
+        <dd>Tikkurilantie 12, 01300 Vantaa<small>Toimistolla ei ole asiakaspalvelua, tulemme luoksesi.</small></dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Toimisto</dt>
+        <dd>ma–pe 7–17</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Päivystys</dt>
+        <dd>24/7, joka päivä, myös pyhät</dd>
+      </dl>
+      <p class="note">Vesi tulee läpi tai sitä ei saa suljettua? Älä täytä lomaketta. Sulje päävesihana ja soita. Jos et löydä hanaa, soita heti, neuvomme puhelimessa: <a href="tel:+358401234567">040 123 4567</a>.</p>
+    </aside>
   </div>
 </section>
 
-<section id="alue" class="rv" aria-labelledby="alue-h">
+<section id="alue" class="sp-m rv" aria-labelledby="alue-h">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Toimialue</p>
+      <p class="eyebrow"><span>03</span> Toimialue</p>
       <h2 id="alue-h">Missä käymme</h2>
-      <p>Kotipaikka on Tikkurila. Vantaalla ei matkakulua, muille alueille 39 €. Yli 30 kilometrin matkoista lisäksi 1,20 €/km.</p>
+      <p>Kotipaikkamme on Vantaa, eikä sinne veloiteta matkakulua. Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo ja Nurmijärvi 39 €. Yli 30 km:n päähän Tikkurilasta lisäksi 1,20 € jokaiselta ylittävältä kilometriltä.</p>
     </div>
     <div class="area">
       <div>
-        <ul>
-          <li>Vantaa <span style="color:var(--mut);font-weight:400">(0 € matkakulu)</span></li>
-          <li>Helsinki</li>
-          <li>Espoo</li>
-          <li>Kerava</li>
-          <li>Tuusula</li>
-          <li>Järvenpää</li>
-          <li>Sipoo</li>
-          <li>Nurmijärvi</li>
+        <ul class="area-l" aria-label="Matkakulu kunnittain">
+          <li class="home" data-city="Vantaa" tabindex="0"><span>Vantaa</span><span>0 €</span></li>
+          <li data-city="Helsinki" tabindex="0"><span>Helsinki</span><span>39 €</span></li>
+          <li data-city="Espoo" tabindex="0"><span>Espoo</span><span>39 €</span></li>
+          <li data-city="Kerava" tabindex="0"><span>Kerava</span><span>39 €</span></li>
+          <li data-city="Tuusula" tabindex="0"><span>Tuusula</span><span>39 €</span></li>
+          <li data-city="Järvenpää" tabindex="0"><span>Järvenpää</span><span>39 €</span></li>
+          <li data-city="Sipoo" tabindex="0"><span>Sipoo</span><span>39 €</span></li>
+          <li data-city="Nurmijärvi" tabindex="0"><span>Nurmijärvi</span><span>39 €</span></li>
         </ul>
-        <p class="note">Oletko näiden ulkopuolella? Soita, niin katsotaan pääsemmekö paikalle ja mitä matka maksaa.</p>
+        <p class="note">Oletko näiden ulkopuolella? Soita, niin katsomme, pääsemmekö paikalle ja mitä matka maksaa.</p>
       </div>
-      <div class="map" aria-label="Toimialuekartta: Vantaa korostettuna, ympärillä Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo ja Nurmijärvi">
+      <div class="map">
         <!--AREA-MAP-->
       </div>
     </div>
   </div>
 </section>
 
-<section id="tietosuoja" class="alt" aria-labelledby="ts-h">
+<section id="tietosuoja" class="alt sp-s" aria-labelledby="ts-h">
   <div class="wrap"><div class="privacy">
     <h2 id="ts-h">Mitä teemme lomakkeen tiedoilla</h2>
-    <p>Lomake ei tallenna mitään tälle sivustolle. Se avaa sähköpostiohjelmasi, ja tiedot tulevat meille vasta, kun lähetät viestin. Rekisterinpitäjä on LVI Nurmi Oy, Tikkurilantie 12, 01300 Vantaa. Käytämme nimeäsi, puhelinnumeroasi, osoitettasi ja vian kuvausta vain ajan sopimiseen, työn tekemiseen ja laskutukseen. Emme anna tietoja eteenpäin markkinointiin.</p>
+    <p>Lomake ei tallenna tietoja tälle sivustolle. Se avaa sähköpostiohjelmasi, ja tiedot tulevat meille vasta, kun lähetät viestin. Rekisterinpitäjä on LVI Nurmi Oy, Tikkurilantie 12, 01300 Vantaa. Käytämme nimeäsi, puhelinnumeroasi, osoitettasi ja vian kuvausta vain ajan sopimiseen, työn tekemiseen ja laskutukseen. Emme anna tietoja eteenpäin markkinointiin.</p>
     <p>Säilytämme viestit 12 kuukautta, minkä jälkeen poistamme ne. Laskuun liittyvät tiedot säilytämme niin kauan kuin kirjanpitolaki vaatii. Voit pyytää omien tietojesi tarkistamista tai poistamista osoitteesta <a href="mailto:info@lvinurmi.fi">info@lvinurmi.fi</a>.</p>
   </div></div>
 </section>
@@ -211,32 +231,59 @@
 </main>
 <!--FOOTER-->
 <script>
+/* yhteys.html: booking form builds a mailto: with a CRLF body */
 (function(){
   var f=document.getElementById('bookform'); if(!f) return;
   var err=document.getElementById('f-err'), ok=document.getElementById('f-ok');
-  var labels={nimi:'nimi',puhelin:'puhelinnumero',osoite:'osoite',vika:'mikä on vialla'};
+  var order=['vika','puhelin','nimi','osoite'];
+  var labels={vika:'vian kuvaus',puhelin:'puhelinnumero',nimi:'nimi',osoite:'osoite tai postinumero'};
+  var baseDesc={};
+  order.forEach(function(n){ baseDesc[n]=f.elements[n].getAttribute('aria-describedby')||''; });
+  var mark=function(el,n,bad){
+    el.setAttribute('aria-invalid',bad?'true':'false');
+    var d=baseDesc[n]; if(bad) d=(d?d+' ':'')+'f-err';
+    if(d) el.setAttribute('aria-describedby',d); else el.removeAttribute('aria-describedby');
+  };
+  var v=function(n){return f.elements[n].value.trim();};
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var miss=[], first=null;
-    ['nimi','puhelin','osoite','vika'].forEach(function(n){
-      var el=f.elements[n], v=el.value.trim(), bad=!v;
-      if(n==='puhelin' && v && v.replace(/[^0-9]/g,'').length<6) bad=true;
-      el.setAttribute('aria-invalid',bad?'true':'false');
+    order.forEach(function(n){
+      var el=f.elements[n], val=el.value.trim(), bad=!val;
+      if(n==='puhelin' && val && val.replace(/[^0-9]/g,'').length<6) bad=true;
+      mark(el,n,bad);
       if(bad){miss.push(labels[n]); if(!first) first=el;}
     });
     if(miss.length){
       err.textContent='Täytä vielä: '+miss.join(', ')+'.';
       err.hidden=false; ok.hidden=true; first.focus(); return;
     }
-    err.hidden=true;
-    var v=function(n){return f.elements[n].value.trim();};
-    var body='Nimi: '+v('nimi')+'\nPuhelin: '+v('puhelin')+'\nOsoite: '+v('osoite')+'\nToivottu aika: '+v('aika')+'\n\nMikä on vialla:\n'+v('vika')+'\n\n(Voit liittää kuvan viasta tähän viestiin.)';
-    var href='mailto:info@lvinurmi.fi?subject='+encodeURIComponent('Ajanvaraus: '+v('nimi'))+'&body='+encodeURIComponent(body);
-    ok.textContent='Sähköpostiohjelmasi avautuu. Jos mitään ei tapahdu, soita 040 123 4567 tai kirjoita osoitteeseen info@lvinurmi.fi.';
+    err.hidden=true; err.textContent='';
+    var CRLF='\r\n';
+    var lines=[
+      'Mikä on vialla:',
+      v('vika').replace(/\r?\n/g,CRLF),
+      '',
+      'Puhelin: '+v('puhelin'),
+      'Nimi: '+v('nimi'),
+      'Osoite tai postinumero: '+v('osoite'),
+      'Milloin: '+v('milloin'),
+      'Mihin aikaan: '+v('aika'),
+      '',
+      '(Voit liittää kuvan viasta tähän viestiin.)'
+    ];
+    var href='mailto:info@lvinurmi.fi?subject='+encodeURIComponent('Ajanvarauspyyntö: '+v('nimi'))+'&body='+encodeURIComponent(lines.join(CRLF));
+    ok.textContent='Viesti on valmiina sähköpostissasi. Paina siellä vielä Lähetä. Soitamme seuraavana arkipäivänä. Jos sähköposti ei avautunut, soita ';
+    var a=document.createElement('a'); a.href='tel:+358401234567'; a.textContent='040 123 4567';
+    ok.appendChild(a); ok.appendChild(document.createTextNode('.'));
     ok.hidden=false;
+    f.setAttribute('data-mailto',href);
     window.location.href=href;
   });
-  f.addEventListener('input',function(e){ if(e.target.getAttribute('aria-invalid')==='true' && e.target.value.trim()) e.target.setAttribute('aria-invalid','false'); });
+  f.addEventListener('input',function(e){
+    var n=e.target.name;
+    if(baseDesc.hasOwnProperty(n) && e.target.getAttribute('aria-invalid')==='true' && e.target.value.trim()) mark(e.target,n,false);
+  });
 })();
 </script>
 <script src="lvi.js" defer></script>

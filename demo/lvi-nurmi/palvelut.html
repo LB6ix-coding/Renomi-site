@@ -4,65 +4,109 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Palvelut ja hinnat | LVI Nurmi Oy, Vantaa</title>
-<meta name="description" content="Putkimiehen hinnat näkyvillä: tuntityö 74 €/h, hanan vaihto alk. 189 €, WC-istuimen vaihto alk. 249 €, viemärin avaus alk. 169 €. Vantaalla ei matkakulua.">
+<meta name="description" content="Putkimiehen hinnat näkyvillä: tuntityö 74 €/h, kattohinnat hanan vaihdolle 189 €, WC-istuimelle 249 € ja viemärin avaukselle 169 €. Vantaalla ei matkakulua.">
 <link rel="canonical" href="https://marktic.fi/demo/lvi-nurmi/palvelut.html">
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="lvi.css">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
 /* palvelut.html: page-specific */
-.intro{padding-top:var(--s5);padding-bottom:var(--s4);background:linear-gradient(180deg,#f7f9fd 0%,#fff 100%)}
+.intro{padding-top:var(--s5);padding-bottom:var(--s5);background:linear-gradient(180deg,#f7f9fd 0%,#fff 100%)}
+.intro .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--s5);align-items:end}
 .intro h1{font-size:var(--t-4xl);margin-bottom:var(--s3)}
-.intro .lead{font-size:var(--t-lg);color:var(--ink-2);max-width:56ch;margin-bottom:var(--s4)}
-.jump{display:flex;flex-wrap:wrap;gap:8px}
-.jump a{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border:1px solid var(--line-2);border-radius:999px;background:#fff;text-decoration:none;font-weight:600;font-size:var(--t-sm);color:var(--ink-2)}
-.jump a:hover{border-color:var(--navy);color:var(--navy)}
-.jump .ico{width:18px;height:18px;color:var(--navy)}
-.svc{scroll-margin-top:96px}
+.intro .lead{font-size:var(--t-lg);color:var(--ink-2);max-width:56ch}
+.kh-box{background:#fff;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:var(--r2);padding:var(--s3) var(--s4);display:grid;gap:8px;scroll-margin-top:calc(var(--top-h) + 72px)}
+.kh-box h2{font-size:var(--t-lg);letter-spacing:-.01em}
+.kh-box p{font-size:var(--t-sm);color:var(--ink-2)}
+.kh{font-size:var(--t-xs);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);display:block;margin-bottom:6px}
+
+/* sticky in-page nav */
+.jump-nav{position:sticky;top:var(--top-h,72px);z-index:40;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+.jump-nav ul{list-style:none;display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;padding:8px 0;margin:0 -4px}
+.jump-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:999px;text-decoration:none;font-weight:600;font-size:var(--t-sm);color:var(--ink-2);white-space:nowrap}
+.jump-nav a:hover{color:var(--navy);background:var(--bg-2)}
+.jump-nav a.on,.jump-nav a[aria-current]{background:var(--navy);color:#fff}
+
+.svc,#hinnasto,#hintaan-kuuluu,#kotitalousvahennys,#kysyttya{scroll-margin-top:64px}
 .svc .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--s5);align-items:start}
+.svc .wrap>div{min-width:0}
 .svc h2{display:flex;align-items:center;gap:14px;margin-bottom:var(--s2)}
 .svc h2 .ico{width:40px;height:40px;color:var(--navy);flex:none}
 .svc .sub{color:var(--ink-2);font-size:var(--t-lg);margin-bottom:var(--s3)}
-.svc h3{font-size:var(--t-base);font-weight:700;margin:var(--s3) 0 var(--s2)}
+.svc h3{font-size:var(--t-base);font-weight:700;letter-spacing:0;margin:var(--s3) 0 var(--s2)}
+.svc details{border:0;padding:0;margin:var(--s3) 0 0}
+.svc summary{min-height:44px;font-size:var(--t-base)}
+.svc summary h3{margin:0}
 .chk{list-style:none;display:grid;gap:10px}
 .chk li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2)}
 .chk .ico{width:22px;height:22px;color:var(--ok);flex:none;margin-top:3px}
-.pbox{background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:var(--s4);display:grid;gap:14px;position:sticky;top:96px}
+.pbox{background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:var(--s4);display:grid;gap:14px;position:sticky;top:calc(var(--top-h) + 76px)}
 .alt .pbox{box-shadow:0 10px 30px rgba(11,42,91,.06)}
 .pbox .big{font-size:var(--t-3xl);font-weight:800;letter-spacing:-.03em;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
-.pbox .big small{display:block;font-size:var(--t-sm);font-weight:500;color:var(--mut);letter-spacing:0;margin-top:6px}
+.pbox .big.sm{font-size:var(--t-xl)}
+.pbox .big small{display:block;font-size:var(--t-sm);font-weight:400;color:var(--mut);letter-spacing:0;margin-top:6px;line-height:1.4}
 .pbox dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:var(--t-sm)}
 .pbox dt{color:var(--mut);display:flex;align-items:center;gap:6px} .pbox dt .ico{width:16px;height:16px} .pbox dd{font-weight:600}
 .pbox .kv{font-size:var(--t-sm);color:var(--ink-2);border-top:1px solid var(--line);padding-top:12px}
-.pbox .kv b{color:var(--ok)}
 .pbox .btn{width:100%}
+
+/* full-bleed photo band */
+.band{margin:0;background:#c9d2e0;height:clamp(220px,32vw,420px);overflow:hidden;position:relative}
+.band img{width:100%;height:100%;object-fit:cover}
+.band figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 0 16px;background:linear-gradient(0deg,rgba(11,42,91,.82),rgba(11,42,91,0));color:#fff;font-size:var(--t-sm);font-weight:600}
+
+/* price list + gauge */
+.hin{display:grid;grid-template-columns:minmax(0,680px) 1fr;gap:var(--s5);align-items:start}
+.hin-g{position:sticky;top:calc(var(--top-h) + 76px);display:grid;justify-items:center;gap:10px;text-align:center}
+.hin-g p{font-size:var(--t-xs);color:var(--mut);max-width:26ch}
 .tbl{margin-bottom:var(--s5)} .tbl:last-child{margin-bottom:0}
 .tbl h3{margin-bottom:var(--s2)}
-.pt thead th:last-child{text-align:right}
 .tbl .desc{color:var(--ink-2);font-size:var(--t-sm);margin-bottom:var(--s3)}
-.pt caption{text-align:left;font-size:var(--t-xs);color:var(--mut);padding:0 0 8px;caption-side:bottom}
+.pt caption{text-align:left;font-size:var(--t-xs);color:var(--mut);padding:8px 0 0;caption-side:bottom}
+.pt .kl{font-weight:400;color:var(--mut);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+
 .inc .card h3{display:flex;align-items:center;gap:10px}
 .inc .card h3 .ico{width:26px;height:26px}
 .inc .card ul{list-style:none;display:grid;gap:8px;font-size:var(--t-sm);color:var(--ink-2)}
 .inc .card li{padding-left:18px;position:relative}
-.inc .card li::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--water)}
+.inc .card li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:50%;background:var(--water)}
 .inc .card.no li::before{background:var(--line-2)}
+.inc .notes{display:grid;gap:8px;margin-top:var(--s3);max-width:72ch}
+.inc .notes p{font-size:var(--t-sm);color:var(--ink-2)}
+
 .kv-ex{background:var(--navy);color:#fff;border-radius:var(--r2);padding:var(--s4);display:grid;gap:12px}
+.kv-ex .ex-h{font-size:var(--t-sm);font-weight:600;color:#8cc5ff}
 .kv-ex .row2{display:flex;justify-content:space-between;gap:16px;font-size:var(--t-sm);color:#c7d4ea;border-bottom:1px solid #1f3663;padding-bottom:10px}
 .kv-ex .row2 b{color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
 .kv-ex .tot{font-size:var(--t-2xl);font-weight:800;letter-spacing:-.02em}
 .kv-ex .tot span{color:#8cc5ff}
-.kv-ex small{color:#8ea3c6;font-size:var(--t-xs);line-height:1.5}
-.kv-text ul{margin-top:var(--s3)}
+.kv-ex .ex2{font-size:var(--t-sm);color:#c7d4ea;border-top:1px solid #1f3663;padding-top:12px}
+.kv-ex .ex2 b{color:#fff}
+.kv-ex small{color:#a9bbd9;font-size:var(--t-xs);line-height:1.5}
+.kv-text .chk{margin-top:var(--s3)}
+.kv-text p{color:var(--ink-2)}
+
+.faq{max-width:760px}
 .cta-end .wrap{display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;justify-content:space-between}
 .cta-end .btns{display:flex;gap:12px;flex-wrap:wrap}
+.cta-end .wrap>div>p{color:var(--ink-2);margin-top:var(--s2)}
+
+@media (min-width:961px){
+  .svc summary{cursor:default;pointer-events:none}
+  .svc summary::after{display:none}
+}
 @media (max-width:960px){
-  .svc .wrap{grid-template-columns:1fr}
-  .pbox{position:static}
-  .svc .wrap>div{min-width:0}
+  .intro .wrap{grid-template-columns:1fr;gap:var(--s4)}
+  .svc .wrap{grid-template-columns:1fr;gap:var(--s4)}
+  .pbox,.hin-g{position:static}
   .svc h2{font-size:var(--t-2xl);overflow-wrap:break-word;hyphens:auto}
   .svc h2 .ico{width:32px;height:32px}
+  .svc details{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 0}
+  .svc details[open]{padding-bottom:16px}
   .intro h1{font-size:var(--t-3xl)}
+  .hin{grid-template-columns:1fr;gap:var(--s4)}
+  .hin-g{order:-1;grid-template-columns:auto 1fr;justify-items:start;text-align:left;align-items:center}
+  .hin-g p{max-width:none}
 }
 </style>
 </head>
@@ -73,278 +117,327 @@
 
 <section class="intro">
   <div class="wrap">
-    <p class="eyebrow">LVI Nurmi Oy · Vantaa</p>
-    <h1>Palvelut ja hinnat</h1>
-    <p class="lead">Tässä on koko hinnastomme. Tuntiveloitus 74 €/h, minimiveloitus yksi tunti, ei matkakulua Vantaalla. Kiinteät hinnat yleisimmille töille, jotta tiedät kustannuksen ennen kuin soitat.</p>
-    <nav class="jump" aria-label="Siirry palveluun">
-      <a href="#hanat"><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg>Hanat</a>
-      <a href="#wc"><svg class="ico" aria-hidden="true"><use href="#i-wc"/></svg>WC</a>
-      <a href="#viemarit"><svg class="ico" aria-hidden="true"><use href="#i-drain"/></svg>Viemärit</a>
-      <a href="#vesivuodot"><svg class="ico" aria-hidden="true"><use href="#i-leak"/></svg>Vesivuodot</a>
-      <a href="#lammitys-ja-varaajat"><svg class="ico" aria-hidden="true"><use href="#i-heater"/></svg>Lämmitys ja varaajat</a>
-      <a href="#kodinkoneet"><svg class="ico" aria-hidden="true"><use href="#i-dishwasher"/></svg>Kodinkoneet</a>
-      <a href="#kylpyhuoneremontin-lvi"><svg class="ico" aria-hidden="true"><use href="#i-shower"/></svg>Kylpyhuoneremontti</a>
-      <a href="#hinnasto"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Koko hinnasto</a>
-    </nav>
+    <div>
+      <p class="eyebrow"><span>01</span> Palvelut ja hinnat</p>
+      <h1>Putkityöt Vantaalla, hinnat näkyvillä</h1>
+      <p class="lead">Koko hinnasto on tällä sivulla. Tuntityö maksaa 74 €/h, minimiveloitus on yksi tunti, eikä Vantaalla ole matkakulua. Yleisimmille töille on kattohinta, joten tiedät kustannuksen jo ennen soittoa.</p>
+    </div>
+    <div class="kh-box" id="kattohinta">
+      <h2>Näin kattohinta toimii</h2>
+      <p>Tavallisessa työssä maksat enintään kattohinnan. Jos työ jää tuntityönä halvemmaksi, maksat tuntityön. Jos paikan päällä selviää jotain poikkeavaa, sovimme hinnasta, ennen kuin jatkamme.</p>
+      <p>Kattohinnat koskevat töitä ma–pe 7–17. Päivystyksessä työ laskutetaan päivystyksen tuntihinnoilla.</p>
+    </div>
   </div>
 </section>
 
-<section class="svc rv" id="hanat">
+<nav class="jump-nav" aria-label="Siirry palveluun">
+  <div class="wrap">
+    <ul>
+      <li><a href="#hanat">Hanat</a></li>
+      <li><a href="#wc">WC</a></li>
+      <li><a href="#viemarit">Viemärit</a></li>
+      <li><a href="#vesivuodot">Vesivuodot</a></li>
+      <li><a href="#lammitys-ja-varaajat">Varaajat</a></li>
+      <li><a href="#kodinkoneet">Kodinkoneet</a></li>
+      <li><a href="#kylpyhuoneremontin-lvi">Kylpyhuoneremontti</a></li>
+      <li><a href="#hinnasto">Koko hinnasto</a></li>
+      <li><a href="#kotitalousvahennys">Kotitalousvähennys</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="svc sp-m rv" id="hanat">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-tap"/></svg>Hanat</h2>
       <p class="sub">Vuotava, jumittava tai vanha hana vaihdetaan yhdellä käynnillä. Keittiö, kylpyhuone tai suihku.</p>
-      <h3>Mitä hintaan kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan hanan irrotus ja uuden asennus</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Liitosten tiiveyden tarkastus ja koekäyttö</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan hanan poisvienti</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>2 vuoden työtakuu asennukselle</li>
-      </ul>
+      <details open>
+        <summary><h3>Mitä hintaan kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan hanan irrotus ja uuden asennus</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Liitosten tiiveyden tarkastus ja koekäyttö</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan hanan poisvienti</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>2 vuoden työtakuu asennukselle</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
-      <p>Voit ostaa hanan itse tai me tuomme sen mukana. Uusi hana ei kuulu hintaan. Jos sulkuventtiilit eivät pidä, kerromme sen ennen työn aloittamista ja sovimme jatkosta.</p>
+      <p>Voit ostaa hanan itse, tai tuomme sen mukanamme. Uusi hana ei kuulu hintaan. Jos sulkuventtiilit eivät pidä, kerromme sen, ennen kuin aloitamme työn, ja sovimme jatkosta.</p>
     </div>
     <aside class="pbox" aria-label="Hanan vaihdon hinta">
-      <p class="big">alk. 189 €<small>Hanan vaihto, sis. työ, ei tarvikkeita</small></p>
-      <p class="big" style="font-size:var(--t-xl)">alk. 199 €<small>Suihkusekoittajan vaihto</small></p>
+      <p class="big"><span class="kh">kattohinta</span>189 €<small>Hanan vaihto, sisältää työn, ei tarvikkeita</small></p>
+      <p class="big sm"><span class="kh">kattohinta</span>199 €<small>Suihkusekoittajan vaihto</small></p>
       <dl>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–1,5 h</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–1,5 h</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </aside>
   </div>
 </section>
 
-<section class="svc alt rv" id="wc">
+<section class="svc alt sp-m rv" id="wc">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-wc"/></svg>WC-istuimet</h2>
       <p class="sub">Vuotava, huojuva tai jatkuvasti lorottava WC-istuin korjataan tai vaihdetaan uuteen.</p>
-      <h3>Mitä hintaan kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan istuimen irrotus ja uuden asennus paikoilleen</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vesi- ja viemäriliitosten teko ja tiiveyden tarkastus</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Huuhtelun säätö ja koekäyttö</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan istuimen poisvienti</li>
-      </ul>
+      <details open>
+        <summary><h3>Mitä hintaan kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan istuimen irrotus ja uuden asennus paikoilleen</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vesi- ja viemäriliitosten teko ja tiiveyden tarkastus</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Huuhtelun säätö ja koekäyttö</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan istuimen poisvienti</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
       <p>Pienemmät viat, kuten vuotava huuhtelusäiliön venttiili, hoidetaan usein tuntityönä yhdellä käynnillä. Uusi istuin ei kuulu hintaan.</p>
     </div>
     <aside class="pbox" aria-label="WC-istuimen vaihdon hinta">
-      <p class="big">alk. 249 €<small>WC-istuimen vaihto, sis. työ, ei tarvikkeita</small></p>
+      <p class="big"><span class="kh">kattohinta</span>249 €<small>WC-istuimen vaihto, sisältää työn, ei tarvikkeita</small></p>
       <dl>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1,5–2 h</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1,5–2 h</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </aside>
   </div>
 </section>
 
-<section class="svc rv" id="viemarit">
+<section class="svc sp-m rv" id="viemarit">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-drain"/></svg>Viemärit</h2>
       <p class="sub">Tukkeutunut lattiakaivo, hitaasti vetävä allas tai haju viemäristä. Avaamme viemärin ja kerromme, mistä tukos johtui.</p>
-      <h3>Mitä hintaan kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tukoksen avaus viemärirassilla tai -koneella</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lattiakaivon ja hajulukon puhdistus</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vedon tarkastus avauksen jälkeen</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Neuvot, miten tukos vältetään jatkossa</li>
-      </ul>
+      <details open>
+        <summary><h3>Mitä hintaan kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tukoksen avaus viemärirassilla tai -koneella</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lattiakaivon ja hajulukon puhdistus</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vedon tarkastus avauksen jälkeen</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Neuvot, miten tukos vältetään jatkossa</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
-      <p>Alkaen-hinta kattaa tavallisen tukoksen asunnon sisällä. Jos tukos on syvemmällä pystyviemärissä tai vaatii pidemmän työn, kerromme sen heti paikan päällä ja jatkamme tuntityönä vain sinun luvallasi. Taloyhtiön vastuulla olevat viemärit kuuluvat yleensä taloyhtiön huollolle.</p>
+      <p>Kattohinta koskee tavallista tukosta asunnon sisällä. Jos tukos on syvemmällä pystyviemärissä tai vaatii pidemmän työn, kerromme sen heti paikan päällä ja jatkamme tuntityönä vain sinun luvallasi. Taloyhtiön vastuulla olevat viemärit kuuluvat yleensä taloyhtiön huollolle.</p>
     </div>
     <aside class="pbox" aria-label="Viemärin avauksen hinta">
-      <p class="big">alk. 169 €<small>Viemärin avaus, sis. työ, ei tarvikkeita</small></p>
+      <p class="big"><span class="kh">kattohinta</span>169 €<small>Viemärin avaus, sisältää työn, ei tarvikkeita</small></p>
       <dl>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–2 h</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–2 h</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa omassa kodissa. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </aside>
   </div>
 </section>
 
-<section class="svc alt rv" id="vesivuodot">
+<section class="svc alt sp-m rv" id="vesivuodot">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-leak"/></svg>Vesivuodot</h2>
-      <p class="sub">Tippuva liitos, kostea kaapin pohja tai vesimittari, joka pyörii vaikka hanat ovat kiinni. Paikannamme vuodon ja korjaamme sen.</p>
-      <h3>Mitä hintaan kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vuodon paikannus ja syyn selvitys</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Liitoksen, venttiilin tai putkenosan korjaus tai vaihto</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tiiveyden tarkastus korjauksen jälkeen</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Arvio jatkotoimista, jos vuoto on vaurioittanut rakenteita</li>
-      </ul>
+      <p class="sub">Tippuva liitos, kostea kaapin pohja tai vesimittari, joka pyörii, vaikka hanat ovat kiinni. Paikannamme vuodon ja korjaamme sen.</p>
+      <details open>
+        <summary><h3>Mitä hintaan kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vuodon paikannus ja syyn selvitys</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Liitoksen, venttiilin tai putkenosan korjaus tai vaihto</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tiiveyden tarkastus korjauksen jälkeen</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Arvio jatkotoimista, jos vuoto on vaurioittanut rakenteita</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
-      <p>Vesivuoto tehdään tuntityönä, koska vian laajuus selviää vasta paikan päällä. Kerromme arvion heti, kun vuoto on löytynyt. Jos vesi tulee läpi tai sitä ei saa suljettua, kyse on hätätilanteesta: katso <a href="hataapu.html">päivystyksen ohjeet ja hinnat</a>.</p>
+      <p>Vesivuoto korjataan tuntityönä, koska vian laajuus selviää vasta paikan päällä. Kerromme arvion heti, kun vuoto on löytynyt.</p>
+      <p style="margin-top:var(--s2)">Jos vesi tulee läpi tai sitä ei saa suljettua, kyse on hätätilanteesta. Sulje päävesihana ja soita. Jos et löydä hanaa, soita heti, neuvomme puhelimessa. Katso myös <a href="hataapu.html">päivystyksen ohjeet ja hinnat</a>.</p>
     </div>
     <aside class="pbox" aria-label="Vesivuodon korjauksen hinta">
-      <p class="big">74 €/h<small>Vesivuodon paikannus ja korjaus tuntityönä, arkisin 7–17</small></p>
+      <p class="big">74 €/h<small>Vesivuodon paikannus ja korjaus tuntityönä, ma–pe 7–17</small></p>
       <dl>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–3 h</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–3 h</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika</a>
-      <a class="btn btn-g" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>Kiire? Soita 040 123 4567</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-o" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>Soita 040 123 4567</a>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </aside>
   </div>
 </section>
 
-<section class="svc rv" id="lammitys-ja-varaajat">
+<figure class="band">
+  <img src="img/hands-copper.jpg" width="1200" height="896" alt="Kupariputken liitos kiristetään" loading="lazy">
+  <figcaption><span class="wrap" style="display:block">Tiiveyden tarkastus kuuluu jokaiseen asennukseen.</span></figcaption>
+</figure>
+
+<section class="svc sp-m rv" id="lammitys-ja-varaajat">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-heater"/></svg>Lämmitys ja varaajat</h2>
       <p class="sub">Lämminvesivaraajan vaihto, kylmä patteri, vuotava patteriventtiili tai ilmaa lämmitysverkossa.</p>
-      <h3>Mitä hintaan kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan varaajan tyhjennys, irrotus ja poisvienti</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Uuden varaajan asennus, vesiliitokset ja varoventtiili</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Täyttö, ilmaus ja tiiveyden tarkastus</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Patterityöt ja venttiilien vaihdot tuntityönä</li>
-      </ul>
+      <details open>
+        <summary><h3>Mitä hintaan kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhan varaajan tyhjennys, irrotus ja poisvienti</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Uuden varaajan asennus, vesiliitokset ja varoventtiili</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Täyttö, ilmaus ja tiiveyden tarkastus</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
-      <p>Varaajan hinta tulee työn päälle, ja kerromme laitteen hinnan ennen tilausta. Sähkökytkennän tekee sähköasentaja, jos vanha kytkentä ei käy suoraan uuteen laitteeseen. Kerromme tämän etukäteen, ei laskussa.</p>
+      <p>Varaajan hinta tulee työn päälle, ja kerromme laitteen hinnan ennen tilausta. Varaajan sähkökytkennän tekee aina sähköasentaja. Järjestämme sen puolestasi ja kerromme hinnan ennen tilausta.</p>
+      <p style="margin-top:var(--s2)">Patterityöt ja patteriventtiilien vaihdot tehdään tuntityönä.</p>
     </div>
     <aside class="pbox" aria-label="Lämminvesivaraajan vaihdon hinta">
-      <p class="big">alk. 590 € + laite<small>Lämminvesivaraajan vaihto, sis. työ</small></p>
+      <p class="big">alk. 590 € + laite<small>Lämminvesivaraajan vaihto, sisältää työn</small></p>
       <dl>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 3–4 h</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 3–4 h</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa, laitteesta ei. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </aside>
   </div>
 </section>
 
-<section class="svc alt rv" id="kodinkoneet">
+<section class="svc alt sp-m rv" id="kodinkoneet">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-dishwasher"/></svg>Kodinkoneet</h2>
       <p class="sub">Astianpesukoneen tai pyykinpesukoneen kytkentä vesi- ja viemäriverkkoon sekä sulkuventtiilin ja liitosten tarkastus.</p>
-      <h3>Mitä hintaan kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tulovesi- ja poistoletkun kytkentä</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sulkuventtiilin ja liitosten tarkastus</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Koekäyttö ja vuototarkastus</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vuotokaukalon tarve tarkistetaan ja kerrotaan</li>
-      </ul>
+      <details open>
+        <summary><h3>Mitä hintaan kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tulovesi- ja poistoletkun kytkentä</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Sulkuventtiilin ja liitosten tarkastus</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Koekäyttö ja vuototarkastus</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Tarkistamme, tarvitaanko vuotokaukalo</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
-      <p>Jos koneelle ei ole valmista vesipistettä, uuden pisteen teko on tuntityötä. Kerromme sen puhelimessa, kun kuvailet keittiön. Kone ja vuotokaukalo eivät kuulu hintaan.</p>
+      <p>Jos koneelle ei ole valmista vesipistettä, uuden pisteen teko on tuntityötä. Kerromme sen puhelimessa, kun kuvailet keittiötä. Kone ja vuotokaukalo eivät kuulu hintaan.</p>
     </div>
     <aside class="pbox" aria-label="Astianpesukoneen kytkennän hinta">
-      <p class="big">alk. 149 €<small>Astianpesukoneen kytkentä, sis. työ, ei tarvikkeita</small></p>
+      <p class="big"><span class="kh">kattohinta</span>149 €<small>Astianpesukoneen kytkentä, sisältää työn, ei tarvikkeita</small></p>
       <dl>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä noin 1 h</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä noin 1 h</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </aside>
   </div>
 </section>
 
-<section class="svc rv" id="kylpyhuoneremontin-lvi">
+<section class="svc sp-m rv" id="kylpyhuoneremontin-lvi">
   <div class="wrap">
     <div>
       <h2><svg class="ico" aria-hidden="true"><use href="#i-shower"/></svg>Kylpyhuoneremontin LVI-työt</h2>
-      <p class="sub">Teemme kylpyhuoneremontin putkityöt: vesipisteiden siirrot, lattiakaivon vaihto, suihkun, altaan ja WC:n asennukset. Laatoittaja ja sähköasentaja tulevat remontin tekijältä.</p>
-      <h3>Mitä työhön kuuluu</h3>
-      <ul class="chk">
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhojen kalusteiden ja putkien purku</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vesi- ja viemäriputkien siirrot ja uudet nousut</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lattiakaivon vaihto ennen vedeneristystä</li>
-        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Kalusteasennukset laatoituksen jälkeen ja painekoe</li>
-      </ul>
+      <p class="sub">Teemme kylpyhuoneremontin putkityöt: vesipisteiden siirrot, lattiakaivon vaihto, suihkun, altaan ja WC:n asennukset. Laatoituksen ja sähkötyöt hoitaa remontin pääurakoitsija.</p>
+      <details open>
+        <summary><h3>Mitä työhön kuuluu</h3></summary>
+        <ul class="chk">
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vanhojen kalusteiden ja putkien purku</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vesi- ja viemäriputkien siirrot ja uudet nousut</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Lattiakaivon vaihto ennen vedeneristystä</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Kalusteasennukset laatoituksen jälkeen ja painekoe</li>
+        </ul>
+      </details>
       <h3>Hyvä tietää</h3>
-      <p>Remontin LVI-työt hinnoitellaan kirjallisella tarjouksella, koska jokainen kylpyhuone on erilainen. Käymme katsomassa kohteen, ja saat tarjouksen, jossa työn osuus on eritelty. Taloyhtiössä remontista tehdään muutostyöilmoitus ennen aloitusta.</p>
+      <p>Remontin LVI-työt hinnoitellaan kirjallisella tarjouksella, koska jokainen kylpyhuone on erilainen. Käymme katsomassa kohteen, ja saat tarjouksen, jossa työn osuus on eritelty. Taloyhtiössä remontista tehdään muutostyöilmoitus, ennen kuin työ alkaa.</p>
     </div>
     <aside class="pbox" aria-label="Kylpyhuoneremontin LVI-töiden hinta">
-      <p class="big">Tarjous<small>Kirjallinen tarjous kohteen katsomisen jälkeen. Tuntityönä 74 €/h.</small></p>
+      <p class="big">Tarjous<small>Kirjallinen tarjous kohteen katsomisen jälkeen. Tuntityönä 74 €/h.</small></p>
       <dl>
         <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–3 työpäivää, kahdessa vaiheessa</dd>
-        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut 39 €</dd>
+        <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
       </dl>
-      <p class="kv"><b>Kotitalousvähennys:</b> työn osuudesta 40 % takaisin verotuksessa, max 2 100 €/hlö vuodessa. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
-      <a class="btn btn-o" href="yhteys.html#tilaa">Tilaa aika katselmukseen</a>
+      <p class="kv">Kotitalousvähennys: 40 % työn osuudesta, kun vuoden omavastuu 150 € ylittyy. <a href="#kotitalousvahennys">Katso esimerkki</a>.</p>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika katselmukseen</a>
     </aside>
   </div>
 </section>
 
-<section class="alt rv" id="hinnasto">
+<section class="alt sp-l rv" id="hinnasto">
   <div class="wrap">
     <div class="head">
-      <p class="eyebrow">Hinnasto</p>
+      <p class="eyebrow"><span>02</span> Hinnasto</p>
       <h2>Koko hinnasto yhdessä paikassa</h2>
-      <p>Samat hinnat kaikille. Hinta vahvistetaan puhelimessa ennen kuin asentaja lähtee, ja lasku tulee työn jälkeen.</p>
+      <p>Samat hinnat kaikille. Lasku tulee työn jälkeen, ja työn osuus on siinä eriteltynä.</p>
     </div>
 
-    <div class="tbl">
-      <h3>Tuntityö ja matkakulut</h3>
-      <p class="desc">Veloitus alkavalta puolelta tunnilta. Minimiveloitus yksi tunti, ei kahta.</p>
-      <table class="pt">
-        <caption>Hinnat sisältävät alv:n 25,5 %.</caption>
-        <thead><tr><th scope="col">Veloitus</th><th scope="col">Hinta</th></tr></thead>
-        <tbody>
-          <tr><td>Tuntiveloitus arkisin 7–17<small>Alkavalta puolelta tunnilta, minimi 1 h</small></td><td class="n">74 €/h</td></tr>
-          <tr><td>Matkakulu, Vantaa</td><td class="n">0 €</td></tr>
-          <tr><td>Matkakulu, muut alueet<small>Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo, Nurmijärvi</small></td><td class="n">39 €</td></tr>
-          <tr><td>Yli 30 km Vantaalta<small>Lisäksi matkakulun päälle</small></td><td class="n">1,20 €/km</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <div class="hin">
+      <div>
+        <div class="tbl">
+          <h3>Tuntityö ja matkakulut</h3>
+          <p class="desc">Veloitus alkavalta puolelta tunnilta, minimiveloitus yksi tunti. Matkakulu: Vantaa 0 €. Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo ja Nurmijärvi 39 €. Yli 30 km:n päähän Tikkurilasta lisäksi 1,20 € jokaiselta ylittävältä kilometriltä.</p>
+          <div class="pt-wrap">
+            <table class="pt">
+              <caption>Hinnat sisältävät arvonlisäveron 25,5 %.</caption>
+              <thead><tr><th scope="col">Veloitus</th><th scope="col">Hinta</th></tr></thead>
+              <tbody>
+                <tr data-rate="74"><td>Tuntityö ma–pe 7–17<small>Alkavalta puolelta tunnilta, minimi 1 h</small></td><td class="n">74 €/h</td></tr>
+                <tr><td>Matkakulu, Vantaa</td><td class="n">0 €</td></tr>
+                <tr><td>Matkakulu, muut alueet<small>Helsinki, Espoo, Kerava, Tuusula, Järvenpää, Sipoo ja Nurmijärvi</small></td><td class="n">39 €</td></tr>
+                <tr><td>Yli 30 km:n päähän Tikkurilasta<small>Lisäksi jokaiselta ylittävältä kilometriltä</small></td><td class="n">1,20 €/km</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-    <div class="tbl">
-      <h3>Päivystys 24/7</h3>
-      <p class="desc">Päivystyksen hinta vahvistetaan aina puhelimessa ennen lähtöä. Lähtömaksu veloitetaan kerran per käynti. Katso myös <a href="hataapu.html">päivystyksen ohjeet</a>.</p>
-      <table class="pt">
-        <caption>Hinnat sisältävät alv:n 25,5 %.</caption>
-        <thead><tr><th scope="col">Aika</th><th scope="col">Hinta</th></tr></thead>
-        <tbody>
-          <tr><td>Päivystyksen lähtömaksu<small>Kerran per käynti</small></td><td class="n">89 €</td></tr>
-          <tr><td>Arki-ilta 17–22</td><td class="n">118 €/h</td></tr>
-          <tr><td>Yö 22–7</td><td class="n">168 €/h</td></tr>
-          <tr><td>Lauantai</td><td class="n">138 €/h</td></tr>
-          <tr><td>Sunnuntai ja pyhät</td><td class="n">178 €/h</td></tr>
-        </tbody>
-      </table>
-    </div>
+        <div class="tbl">
+          <h3>Päivystys 24/7</h3>
+          <p class="desc">Kerromme puhelimessa lähtömaksun, tuntihinnan ja arvion kestosta, ennen kuin auto lähtee. Lähtömaksu veloitetaan kerran käyntiä kohden. Katso myös <a href="hataapu.html">päivystyksen ohjeet</a>.</p>
+          <div class="pt-wrap">
+            <table class="pt">
+              <caption>Hinnat sisältävät arvonlisäveron 25,5 %.</caption>
+              <thead><tr><th scope="col">Aika</th><th scope="col">Hinta</th></tr></thead>
+              <tbody>
+                <tr><td>Päivystyksen lähtömaksu<small>Kerran käyntiä kohden</small></td><td class="n">89 €</td></tr>
+                <tr data-rate="118"><td>Arki-ilta 17–22</td><td class="n">118 €/h</td></tr>
+                <tr data-rate="168"><td>Yö 22–7</td><td class="n">168 €/h</td></tr>
+                <tr data-rate="138"><td>Lauantai</td><td class="n">138 €/h</td></tr>
+                <tr data-rate="178"><td>Sunnuntai ja pyhät</td><td class="n">178 €/h</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">Kattohinnat koskevat töitä ma–pe 7–17. Päivystyksessä työ laskutetaan päivystyksen tuntihinnoilla.</p>
+        </div>
 
-    <div class="tbl">
-      <h3>Kiinteät hinnat</h3>
-      <p class="desc">Sisältävät työn, eivät tarvikkeita. Alkaen-hinta on hinta tavallisessa tapauksessa; jos työ on vaativampi, kerromme sen ennen aloitusta.</p>
-      <table class="pt">
-        <caption>Hinnat sisältävät alv:n 25,5 %.</caption>
-        <thead><tr><th scope="col">Työ</th><th scope="col">Hinta</th></tr></thead>
-        <tbody>
-          <tr><td><a href="#hanat">Hanan vaihto</a></td><td class="n">alk. 189 €</td></tr>
-          <tr><td><a href="#hanat">Suihkusekoittajan vaihto</a></td><td class="n">alk. 199 €</td></tr>
-          <tr><td><a href="#wc">WC-istuimen vaihto</a></td><td class="n">alk. 249 €</td></tr>
-          <tr><td><a href="#viemarit">Viemärin avaus</a></td><td class="n">alk. 169 €</td></tr>
-          <tr><td><a href="#kodinkoneet">Astianpesukoneen kytkentä</a></td><td class="n">alk. 149 €</td></tr>
-          <tr><td><a href="#lammitys-ja-varaajat">Lämminvesivaraajan vaihto</a><small>Laite laskutetaan erikseen</small></td><td class="n">alk. 590 € + laite</td></tr>
-          <tr><td><a href="#vesivuodot">Vesivuodon paikannus ja korjaus</a></td><td class="n">tuntityönä 74 €/h</td></tr>
-        </tbody>
-      </table>
+        <div class="tbl">
+          <h3>Kattohinnat</h3>
+          <p class="desc">Sisältävät työn, eivät tarvikkeita. Koskevat töitä ma–pe 7–17. <a href="#kattohinta">Näin kattohinta toimii</a>.</p>
+          <div class="pt-wrap">
+            <table class="pt">
+              <caption>Hinnat sisältävät arvonlisäveron 25,5 %.</caption>
+              <thead><tr><th scope="col">Työ</th><th scope="col">Hinta</th></tr></thead>
+              <tbody>
+                <tr><td><a href="#hanat">Hanan vaihto</a></td><td class="n"><span class="kl">kattohinta</span>189 €</td></tr>
+                <tr><td><a href="#hanat">Suihkusekoittajan vaihto</a></td><td class="n"><span class="kl">kattohinta</span>199 €</td></tr>
+                <tr><td><a href="#wc">WC-istuimen vaihto</a></td><td class="n"><span class="kl">kattohinta</span>249 €</td></tr>
+                <tr><td><a href="#viemarit">Viemärin avaus</a></td><td class="n"><span class="kl">kattohinta</span>169 €</td></tr>
+                <tr><td><a href="#kodinkoneet">Astianpesukoneen kytkentä</a></td><td class="n"><span class="kl">kattohinta</span>149 €</td></tr>
+                <tr><td><a href="#lammitys-ja-varaajat">Lämminvesivaraajan vaihto</a><small>Laite laskutetaan erikseen</small></td><td class="n">alk. 590 € + laite</td></tr>
+                <tr><td><a href="#vesivuodot">Vesivuodon paikannus ja korjaus</a></td><td class="n">tuntityönä 74 €/h</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="note">Hinnasto päivitetty 10/2026. Pidätämme oikeuden hinnanmuutoksiin; sovittu hinta ei muutu työn aikana.</p>
+      </div>
+      <aside class="hin-g" aria-label="Tuntihintamittari">
+        <!--GAUGE-->
+        <p>Vie osoitin tuntihinnan riville, niin mittari näyttää hinnan.</p>
+      </aside>
     </div>
-    <p class="note">Hinnasto päivitetty 10/2026. Pidätämme oikeuden hinnanmuutoksiin; sovittu hinta ei muutu työn aikana.</p>
   </div>
 </section>
 
-<section class="inc rv" id="hintaan-kuuluu">
+<section class="inc sp-m rv" id="hintaan-kuuluu">
   <div class="wrap">
     <div class="head">
+      <p class="eyebrow"><span>03</span> Mitä hintaan kuuluu</p>
       <h2>Mitä hintaan kuuluu ja mitä ei</h2>
-      <p>Sama lista, jonka asentaja käy kanssasi läpi ennen työn aloitusta.</p>
+      <p>Sama lista, jonka asentaja käy kanssasi läpi, ennen kuin työ alkaa.</p>
     </div>
     <div class="grid g2">
       <div class="card">
@@ -354,7 +447,7 @@
           <li>Matka Vantaan sisällä</li>
           <li>Työkalut ja viemärin avauskalusto</li>
           <li>Vanhan hanan, istuimen tai varaajan poisvienti</li>
-                    <li>2 vuoden työtakuu asennuksille</li>
+          <li>2 vuoden työtakuu asennuksille</li>
           <li>Eritelty lasku kotitalousvähennystä varten</li>
         </ul>
       </div>
@@ -362,54 +455,80 @@
         <h3><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg>Ei kuulu hintaan</h3>
         <ul>
           <li>Uusi hana, WC-istuin, varaaja tai muu laite</li>
-          <li>Putket, venttiilit, tiivisteet ja muut tarvikkeet, laskutetaan erikseen</li>
-          <li>Matkakulu 39 € Vantaan ulkopuolella ja 1,20 €/km yli 30 km</li>
-          <li>Päivystysajan korotettu tuntihinta ja lähtömaksu 89 €</li>
+          <li>Putket, venttiilit, tiivisteet ja muut tarvikkeet</li>
+          <li>Matkakulu 39 € Vantaan ulkopuolelle, yli 30 km:n päähän Tikkurilasta lisäksi 1,20 € kilometriltä</li>
+          <li>Päivystyksen tuntihinnat ja lähtömaksu 89 €</li>
           <li>Sähkötyöt, laatoitus ja vedeneristys</li>
-                  </ul>
+        </ul>
       </div>
     </div>
-    <p class="note">Jos työ ylittää arvion, pysähdymme ja kysymme ensin. Emme lisää laskuun mitään, mistä ei ole sovittu.</p>
+    <div class="notes">
+      <p>Tarvikkeet laskutetaan eriteltynä, ei möhkälesummana pientarvikkeita. Kerromme isommat tarvikkeet ennen työtä.</p>
+      <p>Jos asentamamme liitos tai osa pettää kahden vuoden takuuaikana työvirheen vuoksi, korjaamme sen veloituksetta. Laitteilla on valmistajan takuu.</p>
+    </div>
   </div>
 </section>
 
-<section class="alt rv" id="kotitalousvahennys">
+<section class="alt sp-m rv" id="kotitalousvahennys">
   <div class="wrap">
     <div class="grid g2">
       <div class="kv-text">
-        <p class="eyebrow">Kotitalousvähennys 2026</p>
-        <h2>40 % työn osuudesta takaisin verotuksessa</h2>
-        <p>Kun teetät putkityön omassa tai vanhempiesi kodissa, voit vähentää veroistasi 40 % työn osuudesta. Vuonna 2026 vähennyksen enimmäismäärä on 2 100 € henkilöä kohden ja omavastuu 150 € vuodessa.</p>
+        <p class="eyebrow"><span>04</span> Kotitalousvähennys 2026</p>
+        <h2>Näin kotitalousvähennys lasketaan</h2>
+        <p style="margin-top:var(--s2)">Kun teetät putkityön omassa, vapaa-ajan tai vanhempiesi kodissa, voit vähentää veroistasi 40 % työn osuudesta. Vuonna 2026 vähennys on enintään 2 100 € henkilöä kohden vuodessa, ja omavastuu on 150 € vuodessa.</p>
         <ul class="chk">
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Olemme ennakkoperintärekisterissä, joten työmme on vähennyskelpoista</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Erittelemme laskuun työn osuuden aina erikseen</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vähennys koskee vain työtä, ei laitteita, tarvikkeita tai matkakuluja</li>
-          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Haet vähennyksen itse OmaVerossa; taloyhtiön vastuulla olevista töistä vähennystä ei saa</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Olemme ennakkoperintärekisterissä, joten työstämme voi saada kotitalousvähennyksen, kun muut ehdot täyttyvät.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Erittelemme laskuun työn osuuden aina erikseen.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Vähennys koskee vain työtä, ei laitteita, tarvikkeita tai matkakuluja.</li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Haet vähennyksen itse OmaVerossa. Taloyhtiön vastuulla olevista töistä vähennystä ei saa.</li>
         </ul>
       </div>
-      <div class="kv-ex" aria-label="Laskuesimerkki">
-        <p class="eyebrow" style="color:#8cc5ff">Esimerkki</p>
-        <div class="row2"><span>Hanan vaihto, työn osuus</span><b>189 €</b></div>
-        <div class="row2"><span>Kotitalousvähennys 40 %</span><b>76 €</b></div>
-        <p class="tot">Saat <span>76 €</span> takaisin verotuksessa</p>
-        <small>Omavastuun jälkeen. Omavastuu 150 € vähennetään kerran vuodessa kaikista kotitalousvähennyksistäsi yhteensä. Jos hanan vaihto on vuoden ainoa vähennyskelpoinen työ, 76 € jää omavastuun alle eikä vähennystä tule. Koko 76 € saat, kun saman vuoden muista kotitalousvähennykseen oikeuttavista töistä on jo kertynyt vähintään 150 € vähennystä (eli työn osuutta vähintään 375 €).</small>
-        <div class="row2" style="margin-top:8px"><span>Toinen esimerkki: varaajan vaihto, työn osuus</span><b>590 €</b></div>
-        <div class="row2"><span>Vähennys 40 % eli 236 €, josta omavastuu 150 € pois</span><b>86 €</b></div>
-        <small>Laite ja matkakulut eivät kuulu vähennykseen. Enimmäismäärä 2 100 € henkilöä kohden vuodessa. Lähde: vero.fi, tiedote 13.10.2026; korotettu vähennys koskee vuosia 2026–2027.</small>
+      <div class="kv-ex">
+        <p class="ex-h">Esimerkki: lämminvesivaraajan vaihto</p>
+        <div class="row2"><span>Työn osuus</span><b>590 €</b></div>
+        <div class="row2"><span>Kotitalousvähennys 40 %</span><b>236 €</b></div>
+        <div class="row2"><span>Vuoden omavastuu</span><b>−150 €</b></div>
+        <p class="tot"><span>86 €</span> takaisin verotuksessa</p>
+        <small>Laite ja matkakulut eivät kuulu vähennykseen. Esimerkissä varaajan vaihto on vuoden ainoa vähennykseen oikeuttava työ.</small>
+        <p class="ex2">Hanan vaihto 189 €: <b>76 € vähennyskelpoista, kun vuoden omavastuu on jo käytetty.</b></p>
+        <small>Lähde: vero.fi, kotitalousvähennyksen ohje 2026–2027.</small>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-end rv">
+<section class="sp-m rv" id="kysyttya">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow"><span>05</span> Kysyttyä</p>
+      <h2>Usein kysyttyä hinnoista</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Asun vuokralla. Kenelle soitan?</summary>
+        <p>Vuotavan tai rikkinäisen kalusteen korjaus kuuluu yleensä vuokranantajalle. Ilmoita hänelle tai huoltoyhtiölle ensin. Hätätilanteessa sulje vesi ja soita huoltoyhtiön päivystykseen tai meille.</p>
+      </details>
+      <details>
+        <summary>Entä jos työ osoittautuu isommaksi kuin arvio?</summary>
+        <p>Tavallisessa työssä maksat enintään kattohinnan. Jos paikan päällä selviää jotain poikkeavaa, sovimme hinnasta, ennen kuin jatkamme.</p>
+      </details>
+      <details>
+        <summary>Voinko ostaa hanan tai WC-istuimen itse?</summary>
+        <p>Voit ostaa hanan itse, tai tuomme sen mukanamme. Laite ei kuulu kattohintaan, ja isommat tarvikkeet kerromme ennen työtä.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-end alt sp-s rv">
   <div class="wrap">
     <div>
-      <h2>Kysy, jos jokin jäi epäselväksi</h2>
-      <p class="note" style="font-size:var(--t-base);color:var(--ink-2)">Kerromme hinnan puhelimessa ennen kuin lähdemme. Ma–pe 7–17, päivystys muina aikoina.</p>
+      <h2>Etkö löytänyt vikaasi listalta?</h2>
+      <p>Soita ja kuvaile vika. Kerromme puhelimessa tuntihinnan ja arvion kestosta, ennen kuin auto lähtee. Toimisto ma–pe 7–17, päivystys muina aikoina.</p>
     </div>
     <div class="btns">
       <a class="btn btn-o" href="tel:+358401234567"><svg aria-hidden="true"><use href="#i-phone"/></svg>Soita 040 123 4567</a>
-      <a class="btn btn-g" href="yhteys.html#tilaa">Tilaa aika</a>
+      <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
     </div>
   </div>
 </section>
@@ -420,19 +539,65 @@
 {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
-  "name": "LVI Nurmi Oy: kiinteät hinnat",
+  "name": "LVI Nurmi Oy: kattohinnat ja tuntihinnat",
   "url": "https://marktic.fi/demo/lvi-nurmi/palvelut.html#hinnasto",
-  "description": "Putkitöiden kiinteät hinnat, sisältävät työn ja alv:n 25,5 %, eivät tarvikkeita.",
+  "description": "Putkitöiden kattohinnat ma–pe 7–17. Sisältävät työn ja arvonlisäveron 25,5 %, eivät tarvikkeita.",
   "itemListElement": [
-    {"@type":"Offer","name":"Hanan vaihto","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#hanat","price":"189","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"189","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Hanan vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
-    {"@type":"Offer","name":"Suihkusekoittajan vaihto","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#hanat","price":"199","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"199","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Suihkusekoittajan vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
-    {"@type":"Offer","name":"WC-istuimen vaihto","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#wc","price":"249","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"249","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"WC-istuimen vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
-    {"@type":"Offer","name":"Viemärin avaus","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#viemarit","price":"169","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"169","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Viemärin avaus","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
-    {"@type":"Offer","name":"Astianpesukoneen kytkentä","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#kodinkoneet","price":"149","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"149","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Astianpesukoneen kytkentä","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
-    {"@type":"Offer","name":"Lämminvesivaraajan vaihto (työ, laite erikseen)","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#lammitys-ja-varaajat","price":"590","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"590","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Lämminvesivaraajan vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
-    {"@type":"Offer","name":"Tuntiveloitus arkisin 7–17","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#hinnasto","priceSpecification":{"@type":"UnitPriceSpecification","price":"74","priceCurrency":"EUR","unitCode":"HUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Putkityö tuntityönä","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}}
+    {"@type":"Offer","name":"Hanan vaihto","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#hanat","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","maxPrice":"189","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Hanan vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
+    {"@type":"Offer","name":"Suihkusekoittajan vaihto","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#hanat","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","maxPrice":"199","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Suihkusekoittajan vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
+    {"@type":"Offer","name":"WC-istuimen vaihto","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#wc","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","maxPrice":"249","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"WC-istuimen vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
+    {"@type":"Offer","name":"Viemärin avaus","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#viemarit","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","maxPrice":"169","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Viemärin avaus","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
+    {"@type":"Offer","name":"Astianpesukoneen kytkentä","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#kodinkoneet","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","maxPrice":"149","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Astianpesukoneen kytkentä","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
+    {"@type":"Offer","name":"Lämminvesivaraajan vaihto (työ, laite erikseen)","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#lammitys-ja-varaajat","priceCurrency":"EUR","priceSpecification":{"@type":"PriceSpecification","minPrice":"590","priceCurrency":"EUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Lämminvesivaraajan vaihto","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}},
+    {"@type":"Offer","name":"Tuntityö ma–pe 7–17","url":"https://marktic.fi/demo/lvi-nurmi/palvelut.html#hinnasto","priceSpecification":{"@type":"UnitPriceSpecification","price":"74","priceCurrency":"EUR","unitCode":"HUR","valueAddedTaxIncluded":true},"itemOffered":{"@type":"Service","name":"Putkityö tuntityönä","serviceType":"Putkityö"},"offeredBy":{"@type":"Plumber","name":"LVI Nurmi Oy","telephone":"+358401234567"}}
   ]
 }
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://marktic.fi/demo/lvi-nurmi/palvelut.html#kysyttya",
+  "mainEntity": [
+    {"@type":"Question","name":"Asun vuokralla. Kenelle soitan?","acceptedAnswer":{"@type":"Answer","text":"Vuotavan tai rikkinäisen kalusteen korjaus kuuluu yleensä vuokranantajalle. Ilmoita hänelle tai huoltoyhtiölle ensin. Hätätilanteessa sulje vesi ja soita huoltoyhtiön päivystykseen tai meille."}},
+    {"@type":"Question","name":"Entä jos työ osoittautuu isommaksi kuin arvio?","acceptedAnswer":{"@type":"Answer","text":"Tavallisessa työssä maksat enintään kattohinnan. Jos paikan päällä selviää jotain poikkeavaa, sovimme hinnasta, ennen kuin jatkamme."}},
+    {"@type":"Question","name":"Voinko ostaa hanan tai WC-istuimen itse?","acceptedAnswer":{"@type":"Answer","text":"Voit ostaa hanan itse, tai tuomme sen mukanamme. Laite ei kuulu kattohintaan, ja isommat tarvikkeet kerromme ennen työtä."}}
+  ]
+}
+</script>
+<script>
+/* palvelut.html: highlight the current section in .jump-nav; collapse "Mitä hintaan kuuluu" on mobile */
+(function(){
+  try{
+    var nav=document.querySelector('.jump-nav'); if(!nav||!('IntersectionObserver' in window)) return;
+    var links=[].slice.call(nav.querySelectorAll('a[href^="#"]')), map={}, cur=null;
+    links.forEach(function(a){var s=document.getElementById(a.getAttribute('href').slice(1)); if(s) map[s.id]=a;});
+    var set=function(id){
+      if(id===cur) return; cur=id;
+      links.forEach(function(a){a.classList.remove('on');a.removeAttribute('aria-current');});
+      var a=map[id]; if(!a) return;
+      a.classList.add('on'); a.setAttribute('aria-current','location');
+      var ul=a.closest('ul'); if(ul && ul.scrollWidth>ul.clientWidth){ ul.scrollLeft=a.offsetLeft-ul.clientWidth/2+a.offsetWidth/2; }
+    };
+    var vis={};
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){vis[e.target.id]=e.isIntersecting;});
+      var ids=Object.keys(map).filter(function(id){return vis[id];});
+      set(ids.length?ids[0]:null);
+    },{rootMargin:'-140px 0px -55% 0px'});
+    Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+  }catch(e){}
+  try{
+    var mq=window.matchMedia('(max-width:960px)');
+    var ds=[].slice.call(document.querySelectorAll('.svc details'));
+    if(mq.matches) ds.forEach(function(d){d.open=false;});
+    ds.forEach(function(d){
+      d.querySelector('summary').addEventListener('click',function(e){ if(!mq.matches) e.preventDefault(); });
+    });
+    var onChange=function(){ ds.forEach(function(d){ d.open=!mq.matches; }); };
+    if(mq.addEventListener) mq.addEventListener('change',onChange); else if(mq.addListener) mq.addListener(onChange);
+  }catch(e){}
+})();
 </script>
 <!--FOOTER-->
 <script src="lvi.js" defer></script>
