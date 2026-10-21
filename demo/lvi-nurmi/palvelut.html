@@ -62,6 +62,8 @@
 .tbl{margin-bottom:var(--s5)} .tbl:last-child{margin-bottom:0}
 .tbl h3{margin-bottom:var(--s2)}
 .tbl .desc{color:var(--ink-2);font-size:var(--t-sm);margin-bottom:var(--s3)}
+.pt thead th:last-child{text-align:right}
+.nw{white-space:nowrap}
 .pt caption{text-align:left;font-size:var(--t-xs);color:var(--mut);padding:8px 0 0;caption-side:bottom}
 .pt .kl{font-weight:400;color:var(--mut);font-size:var(--t-xs);text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
 
@@ -253,7 +255,7 @@
       <p style="margin-top:var(--s2)">Jos vesi tulee läpi tai sitä ei saa suljettua, kyse on hätätilanteesta. Sulje päävesihana ja soita. Jos et löydä hanaa, soita heti, neuvomme puhelimessa. Katso myös <a href="hataapu.html">päivystyksen ohjeet ja hinnat</a>.</p>
     </div>
     <aside class="pbox" aria-label="Vesivuodon korjauksen hinta">
-      <p class="big">74 €/h<small>Vesivuodon paikannus ja korjaus tuntityönä, ma–pe 7–17</small></p>
+      <p class="big">74 €/h<small>Vesivuodon paikannus ja korjaus tuntityönä, <span class="nw">ma–pe 7–17</span></small></p>
       <dl>
         <dt><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>Kesto</dt><dd>yleensä 1–3 h</dd>
         <dt><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>Matkakulu</dt><dd>Vantaa 0 €, muut alueet 39 €</dd>
@@ -569,7 +571,7 @@
 /* palvelut.html: highlight the current section in .jump-nav; collapse "Mitä hintaan kuuluu" on mobile */
 (function(){
   try{
-    var nav=document.querySelector('.jump-nav'); if(!nav||!('IntersectionObserver' in window)) return;
+    var nav=document.querySelector('.jump-nav'); if(!nav) return;
     var links=[].slice.call(nav.querySelectorAll('a[href^="#"]')), map={}, cur=null;
     links.forEach(function(a){var s=document.getElementById(a.getAttribute('href').slice(1)); if(s) map[s.id]=a;});
     var set=function(id){
@@ -579,13 +581,17 @@
       a.classList.add('on'); a.setAttribute('aria-current','location');
       var ul=a.closest('ul'); if(ul && ul.scrollWidth>ul.clientWidth){ ul.scrollLeft=a.offsetLeft-ul.clientWidth/2+a.offsetWidth/2; }
     };
-    var vis={};
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){vis[e.target.id]=e.isIntersecting;});
-      var ids=Object.keys(map).filter(function(id){return vis[id];});
-      set(ids.length?ids[0]:null);
-    },{rootMargin:'-140px 0px -55% 0px'});
-    Object.keys(map).forEach(function(id){io.observe(document.getElementById(id));});
+    var ids=Object.keys(map), tick=false;
+    var update=function(){
+      tick=false;
+      var lim=nav.getBoundingClientRect().bottom+innerHeight*0.25, id=null;
+      ids.forEach(function(k){ if(document.getElementById(k).getBoundingClientRect().top<=lim) id=k; });
+      var last=document.getElementById(ids[ids.length-1]);
+      if(id===ids[ids.length-1] && last.getBoundingClientRect().bottom<nav.getBoundingClientRect().bottom) id=null;
+      set(id);
+    };
+    addEventListener('scroll',function(){ if(!tick){tick=true;requestAnimationFrame(update);} },{passive:true});
+    addEventListener('resize',update); update();
   }catch(e){}
   try{
     var mq=window.matchMedia('(max-width:960px)');
