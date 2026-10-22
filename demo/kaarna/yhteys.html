@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yhteystiedot ja ennakkotilaus | Kaarna, Tikkurila</title>
+<meta name="description" content="Kaarna, Esimerkkikatu 3, Vantaa, 2 min Tikkurilan asemalta. Avoinna ma–pe 7–16 ja la 9–15. Tilaa leivät ennakkoon edellisenä päivänä klo 14 mennessä.">
+<link rel="canonical" href="https://marktic.fi/demo/kaarna/yhteys.html">
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kaarna.css">
+<style>
+/* yhteys.html: page-specific */
+.sec-dark + .sec:not(.sec-dark):not(.sec-paper){padding-top:var(--sec,112px)}
+.y-intro .wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+.y-intro h1{max-width:12ch}
+.y-lead{margin-top:24px;max-width:40ch;font-size:clamp(18px,1.6vw,21px)}
+.hrs{display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--line,#CFD0C9)}
+.hrs dt,.hrs dd{padding:12px 0;border-bottom:1px solid var(--line,#CFD0C9)}
+.hrs dt{display:flex;align-items:flex-end;padding-right:24px;font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:600}
+.hrs dd{text-align:right;font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:600}
+.hrs dd small{display:block;font-family:var(--serif,Literata,Georgia,serif);font-weight:400;font-size:14px;color:var(--lenticel,#6B6A63)}
+.hrs .big{font-size:clamp(22px,2.2vw,28px);font-weight:900;letter-spacing:-.03em}
+.y-h3{margin:32px 0 10px;font-size:18px;letter-spacing:-.01em}
+.y-intro .y-h3:first-child{margin-top:0}
+.exc{list-style:none;border-top:1px solid var(--line,#CFD0C9)}
+.exc li{padding:10px 0;border-bottom:1px solid var(--line,#CFD0C9);font-size:16px}
+.exc b{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:700}
+.visit{display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+.visit h2.eyebrow{font:600 13px/1.2 var(--display,"Schibsted Grotesk",sans-serif);letter-spacing:.14em;text-transform:uppercase;color:var(--lenticel,#6B6A63);margin-bottom:16px}
+.addr{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:900;font-size:clamp(30px,4vw,52px);letter-spacing:-.04em;line-height:1.02;font-style:normal;margin:12px 0 20px}
+.addr span{display:block;font-weight:600;font-size:17px;letter-spacing:0;color:var(--lenticel,#6B6A63);margin-top:10px}
+.vfacts{list-style:none;border-top:1px solid var(--line,#CFD0C9)}
+.vfacts li{padding:18px 0;border-bottom:1px solid var(--line,#CFD0C9)}
+.vfacts h3{font-size:18px;letter-spacing:-.01em;margin-bottom:4px}
+.vfacts p{font-size:16px;color:var(--lenticel,#6B6A63)}
+.reach{display:grid;gap:4px;margin-top:8px}
+.reach a{display:inline-flex;align-items:center;gap:12px;min-height:48px;font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:700;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.03em;text-decoration:none;color:var(--bark,#2B241F);overflow-wrap:anywhere}
+.reach a .ico{width:22px;height:22px;flex:none;color:var(--rye,#7A5A3B)}
+.reach p{font-size:15px;color:var(--lenticel,#6B6A63);margin-top:6px}
+.order{display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+.order h2{max-width:14ch}
+.lead-t{list-style:none;margin-top:28px;border-top:1px solid rgba(236,237,232,.22)}
+.lead-t li{display:grid;grid-template-columns:minmax(0,7.5em) minmax(0,1fr);overflow-wrap:anywhere;gap:16px;padding:14px 0;border-bottom:1px solid rgba(236,237,232,.22);font-size:16px}
+.lead-t b{font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:700}
+.o-note{margin-top:20px;font-size:15px;opacity:.78;max-width:46ch}
+.o-list{margin-top:28px}
+.o-list h3{font-size:16px;letter-spacing:.02em;margin-bottom:6px}
+.sec-bark .mlist,.sec-bark .mrow{border-color:rgba(236,237,232,.22)}
+.sec-bark .mrow-d,.sec-bark .mrow-c{color:rgba(236,237,232,.72)}
+.sec-bark .mrow-p{color:var(--birch,#ECEDE8)}
+.form{max-width:none;background:var(--paper,#F6F6F2);color:var(--bark,#2B241F);padding:28px 20px}
+.form .req{color:var(--rye,#7A5A3B)}
+.form .reqnote{font-size:14px;color:var(--lenticel,#6B6A63);margin:4px 0 16px}
+.form .btn,.sec-dark .form .btn{width:100%;justify-content:center;background:var(--bark,#2B241F);color:var(--birch,#ECEDE8);border-color:var(--bark,#2B241F)}
+.sec-dark .form .btn:hover{background:var(--rye,#7A5A3B);border-color:var(--rye,#7A5A3B)}
+.form .field{align-content:start}
+.form .field-row{align-items:start}
+.form .choices{margin:0;padding:0}
+.form .choices legend{padding:0;font:600 var(--t-sm)/1.3 var(--display)}
+.form .choices .choice span{font-size:var(--t-sm)}
+.form input[type=date]{min-width:0}
+.form-msg{margin-top:4px}
+.faq details p{max-width:72ch}
+.faq h2{margin-bottom:24px}
+.faq details{border-top:1px solid var(--line,#CFD0C9)}
+.faq details:last-of-type{border-bottom:1px solid var(--line,#CFD0C9)}
+.faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:56px;padding:12px 0;cursor:pointer;list-style:none;font-family:var(--sans,"Schibsted Grotesk",system-ui,sans-serif);font-weight:700;font-size:clamp(18px,1.8vw,21px);letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;font-size:26px;line-height:1;color:var(--rye,#7A5A3B)}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding:0 0 20px;max-width:62ch}
+.sec.y-priv{padding-top:0}
+.privacy{max-width:72ch;font-size:15px;color:var(--lenticel,#6B6A63)}
+.privacy h2{font-size:20px;letter-spacing:-.02em;margin-bottom:10px;color:var(--bark,#2B241F)}
+@media (max-width:480px){.hrs{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.hrs dt{padding-right:12px}}
+@media (min-width:700px){
+  .form{padding:40px}
+  }
+@media (min-width:960px){
+  .y-intro .wrap{grid-template-columns:1fr 1fr;gap:96px;align-items:start}
+  .visit{grid-template-columns:1.1fr 1fr;gap:96px}
+  .order{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:80px;align-items:start}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://marktic.fi/demo/kaarna/yhteys.html#page",
+      "name": "Yhteystiedot ja ennakkotilaus: Leipomokahvila Kaarna",
+      "url": "https://marktic.fi/demo/kaarna/yhteys.html",
+      "inLanguage": "fi",
+      "mainEntity": {"@id": "https://marktic.fi/demo/kaarna/#bakery"}
+    },
+    {
+      "@type": "Bakery",
+      "@id": "https://marktic.fi/demo/kaarna/#bakery",
+      "name": "Leipomokahvila Kaarna",
+      "url": "https://marktic.fi/demo/kaarna/index.html",
+      "image": "https://marktic.fi/demo/kaarna/img/tiski.jpg",
+      "telephone": "+35891234567",
+      "email": "moi@kaarna.example",
+      "priceRange": "€",
+      "servesCuisine": ["Leipomo", "Kahvila", "Lounas"],
+      "hasMenu": "https://marktic.fi/demo/kaarna/menu.html",
+      "address": {"@type": "PostalAddress", "streetAddress": "Esimerkkikatu 3", "postalCode": "01300", "addressLocality": "Vantaa", "addressRegion": "Uusimaa", "addressCountry": "FI"},
+      "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "07:00", "closes": "16:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "15:00"}
+      ],
+      "specialOpeningHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "name": "Pyhäinpäivä", "validFrom": "2026-10-31", "validThrough": "2026-10-31", "opens": "10:00", "closes": "14:00"},
+        {"@type": "OpeningHoursSpecification", "name": "Itsenäisyyspäivä", "validFrom": "2026-12-06", "validThrough": "2026-12-06", "opens": "00:00", "closes": "00:00"}
+      ],
+      "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+35891234567", "email": "moi@kaarna.example", "availableLanguage": ["fi", "en"]},
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Esteetön sisäänkäynti", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Esteetön WC", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Langaton verkko", "value": true}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-page="yhteys">
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+  <defs>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21s-6.5-6.1-6.5-11a6.5 6.5 0 0 1 13 0c0 4.9-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.6 3.5h2.6l1.4 4-1.9 1.3a11 11 0 0 0 6.5 6.5l1.3-1.9 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2z"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="1"/><path d="m4 6.5 8 6.5 8-6.5"/>
+    </symbol>
+    <symbol id="i-bread" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 14.5C3 9.8 7 7 12 7s9 2.8 9 7.5c0 1.7-1.3 2.5-3 2.5H6c-1.7 0-3-.8-3-2.5z"/><path d="m8 10.5 1.5 3M12 9.8l1.2 3.4M15.8 10.5l1 2.8"/>
+    </symbol>
+    <symbol id="i-cup" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 9.5h12v4.5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16.5 11h1.3a2.2 2.2 0 0 1 0 4.4h-1.6"/><path d="M8.5 3.5c-.7.9-.7 1.8 0 2.7M12.5 3.5c-.7.9-.7 1.8 0 2.7"/>
+    </symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 19c0-8 5-13.5 14-14 .4 9-5 14-12 14z"/><path d="M5 19c3-4 6-6.5 9.5-8.5"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 12h15.5M13.5 6l6 6-6 6"/>
+    </symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3.5 8.5a1.5 1.5 0 0 1 1.5-1.5h2.6l1.6-2.5h5.6L16.4 7H19a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 19 19H5a1.5 1.5 0 0 1-1.5-1.5z"/><circle cx="12" cy="12.6" r="3.4"/>
+    </symbol>
+  </defs>
+</svg>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="top">
+  <div class="wrap top-row">
+    <a class="logo" href="index.html" aria-label="Leipomokahvila Kaarna, etusivu">
+      <svg class="logo-mark" viewBox="0 0 64 64" width="40" height="40" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="6" fill="currentColor"/><path d="M11 43c0-13.5 9.4-22 21-22s21 8.5 21 22c0 2.4-1.6 4-4 4H15c-2.4 0-4-1.6-4-4z" fill="#ECEDE8"/><g fill="none" stroke="#2B241F" stroke-width="3.6" stroke-linecap="round"><path d="M21 37l5-7"/><path d="M29.5 38l5-8"/><path d="M38 37l5-7"/></g></svg>
+      <span class="logo-word">Kaarna<small>Leipomokahvila, Tikkurila</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Päävalikko">
+      <ul class="nav-list">
+        <li><a href="index.html">Etusivu</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="lounas.html">Lounas</a></li>
+        <li><a href="meista.html">Meistä</a></li>
+        <li><a href="yhteys.html" aria-current="page">Yhteystiedot</a></li>
+      </ul>
+      <a class="btn nav-cta" href="yhteys.html#tilaa">Tilaa ennakkoon<svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-arrow"/></svg></a>
+      <div class="nav-meta">
+        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-pin"/></svg>Esimerkkikatu 3, Tikkurila</p>
+        <p><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09&nbsp;123&nbsp;4567</a></p>
+      </div>
+    </nav>
+    <p class="status top-status" data-status><span class="status-dot" aria-hidden="true"></span><span class="status-txt">ma–pe 7–16, la 9–15, su suljettu</span></p>
+    <a class="btn top-cta" href="yhteys.html#tilaa">Tilaa ennakkoon</a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false"><span class="bars" aria-hidden="true"><i></i></span><span class="menu-lbl">Valikko</span></button>
+  </div>
+</header>
+<main id="main">
+
+<section class="sec y-intro" aria-labelledby="y-h">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Yhteystiedot</p>
+      <h1 id="y-h">Tule käymään tai tilaa ennakkoon</h1>
+      <p class="y-lead">Olemme Tikkurilassa, kahden minuutin kävelymatkan päässä asemalta. Leipää on tiskissä, kunnes se loppuu.</p>
+    </div>
+    <div>
+      <h2 class="y-h3" id="auki-h">Aukioloajat</h2>
+      <dl class="hrs" aria-labelledby="auki-h">
+        <dt>Maanantai–perjantai</dt><dd class="big">7–16</dd>
+        <dt>Lauantai</dt><dd class="big">9–15</dd>
+        <dt>Sunnuntai</dt><dd class="big">suljettu</dd>
+        <dt>Aamiainen</dt><dd>ma–pe 7–11, la 9–12</dd>
+        <dt>Lounas</dt><dd>ma–pe 10.30–14</dd>
+        <dt>Leipomo</dt><dd>kunnes loppuu<small>Ruisleipä loppuu usein jo puoliltapäivin, perjantaisin varsinkin.</small></dd>
+      </dl>
+      <h3 class="y-h3">Poikkeusaukioloajat</h3>
+      <ul class="exc" data-exceptions>
+        <li data-until="2026-10-31" data-exception="2026-10-31" data-hours="10-14"><b>Pyhäinpäivä la 31.10.</b> avoinna 10–14</li>
+        <li data-until="2026-12-06" data-exception="2026-12-06" data-hours="suljettu"><b>Itsenäisyyspäivä su 6.12.</b> suljettu</li>
+      </ul>
+      <p class="note" data-exceptions-empty hidden>Ei poikkeuksia tiedossa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reitti" aria-labelledby="tanne-h">
+  <div class="wrap visit">
+    <div>
+      <h2 class="eyebrow" id="tanne-h">Osoite ja yhteystiedot</h2>
+      <address class="addr">Esimerkkikatu 3<span>01300 Vantaa (Tikkurila)</span></address>
+      <div class="reach">
+        <a href="tel:+35891234567"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>09&nbsp;123&nbsp;4567</a>
+        <a href="mailto:moi@kaarna.example"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>moi@kaarna.example</a>
+        <p>Vastaamme puhelimeen aukioloaikoina ja sähköpostiin saman päivän aikana.</p>
+      </div>
+    </div>
+    <ul class="vfacts">
+      <li><h3>Tikkurilan asemalta</h3><p>Kävelyä 2 minuuttia. Tule asemalta ulos keskustan puolelle ja käänny Esimerkkikadulle, olemme kadun alussa vasemmalla. Lentoasemalle pääsee asemalta suoraan junalla.</p></li>
+      <li><h3>Pysäköinti</h3><p>Esimerkkikadulla on kadunvarsipaikkoja pysäköintikiekolla (1&nbsp;h). Aseman pysäköintitaloon on 3 minuutin kävely.</p></li>
+      <li><h3>Esteettömyys</h3><p>Sisäänkäynti on katutasossa ilman kynnystä, ja ovi on 90&nbsp;cm leveä. Meillä on esteetön WC ja syöttötuoli. Lastenvaunuille on tilaa ikkunan vieressä.</p></li>
+      <li><h3>Pyörällä</h3><p>Pyörätelineet ovat oven vieressä.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="tilaa" class="sec sec-bark sec-dark" aria-labelledby="tilaa-h">
+  <div class="wrap order">
+    <div>
+      <p class="eyebrow">Tilaa ennakkoon</p>
+      <h2 id="tilaa-h">Leivät ja pullat valmiiksi pussiin</h2>
+      <ul class="lead-t">
+        <li><b>Leivät, pullat</b><span>Tilaa edellisenä päivänä klo 14 mennessä.</span></li>
+        <li><b>20+ voisarvea</b><span>Tilaa kaksi päivää ennen noutoa.</span></li>
+        <li><b>Maanantaiksi</b><span>Tilaa lauantaina klo 14 mennessä, sunnuntaisin olemme kiinni.</span></li>
+        <li><b>Nouto</b><span>Kassalta klo 7–9, 9–11, 11–14 tai 14–16. Lauantaisin 9–15.</span></li>
+      </ul>
+      <div class="o-list">
+        <h3>Tilatuimmat</h3>
+        <ul class="mlist">
+          <li class="mrow"><span class="mrow-n mrow-name">Kaarnan ruisleipä</span><span class="mrow-d mrow-desc">600&nbsp;g, uunista ti ja pe</span><span class="mrow-c mrow-codes"><abbr class="dc dc-ve" title="vegaaninen">VE</abbr></span><span class="mrow-p mrow-price">6,50&nbsp;€</span></li>
+          <li class="mrow"><span class="mrow-n mrow-name">Hapanjuurileipä</span><span class="mrow-d mrow-desc">750&nbsp;g</span><span class="mrow-c mrow-codes"><abbr class="dc dc-ve" title="vegaaninen">VE</abbr></span><span class="mrow-p mrow-price">7,50&nbsp;€</span></li>
+          <li class="mrow"><span class="mrow-n mrow-name">Korvapuusti</span><span class="mrow-d mrow-desc">kardemummaa ja kanelia</span><span class="mrow-c mrow-codes"></span><span class="mrow-p mrow-price">4,60&nbsp;€</span></li>
+          <li class="mrow"><span class="mrow-n mrow-name">Voisarvi</span><span class="mrow-d mrow-desc">rapea voitaikina</span><span class="mrow-c mrow-codes"></span><span class="mrow-p mrow-price">4,20&nbsp;€</span></li>
+          <li class="mrow"><span class="mrow-n mrow-name">Karjalanpiirakka</span><span class="mrow-d mrow-desc">munavoilla 3,60&nbsp;€</span><span class="mrow-c mrow-codes"></span><span class="mrow-p mrow-price">2,40&nbsp;€</span></li>
+        </ul>
+      </div>
+      <p class="o-note">Maksu noudettaessa. Vahvistamme tilauksen sähköpostilla tai puhelimella saman päivän aikana. Hinnat sisältävät arvonlisäveron.</p>
+    </div>
+
+    <form class="form" id="tilaa-lomake" data-mailto="moi@kaarna.example" data-subject="Ennakkotilaus" action="mailto:moi@kaarna.example" method="post" enctype="text/plain" novalidate>
+      <div class="field-row">
+        <div class="field">
+          <label for="t-nimi">Nimi <span class="req sr-skip" aria-hidden="true">*</span></label>
+          <input id="t-nimi" name="nimi" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="t-puh">Puhelin <span class="req sr-skip" aria-hidden="true">*</span></label>
+          <input id="t-puh" name="puhelin" type="tel" autocomplete="tel" inputmode="tel" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="t-email">Sähköposti <span class="opt">(vapaaehtoinen)</span></label>
+        <input id="t-email" name="sahkoposti" type="email" autocomplete="email">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="t-paiva">Noutopäivä <span class="req sr-skip" aria-hidden="true">*</span></label>
+          <input id="t-paiva" name="paiva" type="date" data-pickup required aria-describedby="t-paiva-h">
+          <p class="field-hint" id="t-paiva-h">Tilaa klo 14 mennessä edellisenä päivänä. Sunnuntaisin olemme kiinni.</p>
+        </div>
+        <div class="field">
+          <label for="t-voisarvet">Voisarvet, kpl <span class="opt">(vapaaehtoinen)</span></label>
+          <input id="t-voisarvet" name="voisarvet" type="number" inputmode="numeric" min="0" max="300" step="1" data-lead-min="20" data-lead-days="2" aria-describedby="t-voisarvet-h">
+          <p class="field-hint" id="t-voisarvet-h">20 tai enemmän: tilaa kaksi päivää etukäteen.</p>
+        </div>
+      </div>
+      <fieldset class="choices" data-required>
+        <legend>Noutoaika <span class="req sr-skip" aria-hidden="true">*</span></legend>
+        <div class="choices-row">
+          <label class="choice"><input type="radio" name="aika" value="klo 7–9" data-slot="07:00-09:00"><span>klo 7–9</span></label>
+          <label class="choice"><input type="radio" name="aika" value="klo 9–11" data-slot="09:00-11:00"><span>klo 9–11</span></label>
+          <label class="choice"><input type="radio" name="aika" value="klo 11–14" data-slot="11:00-14:00"><span>klo 11–14</span></label>
+          <label class="choice"><input type="radio" name="aika" value="klo 14–16" data-slot="14:00-16:00"><span>klo 14–16</span></label>
+        </div>
+        <p class="field-hint">Lauantaina nouto klo 9–15. Ajat, joina olemme kiinni, eivät ole valittavissa.</p>
+      </fieldset>
+      <div class="field">
+        <label for="t-tilaus">Tilaus <span class="req sr-skip" aria-hidden="true">*</span></label>
+        <textarea id="t-tilaus" name="tilaus" rows="5" required aria-describedby="t-tilaus-h" placeholder="Esim. 2 ruisleipää, 1 hapanjuurileipä, 12 korvapuustia"></textarea>
+        <p class="field-hint" id="t-tilaus-h">Kerro määrät ja toiveet, esimerkiksi viipaloinnista.</p>
+      </div>
+      <p class="reqnote">Tähdellä (*) merkityt kentät ovat pakollisia. Painike avaa sähköpostiohjelmasi valmiilla viestillä osoitteeseen moi@kaarna.example.</p>
+      <button class="btn btn-dark" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Avaa valmis sähköposti</button>
+      <p class="form-msg form-status" role="status" data-form-status></p>
+    </form>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq-h">
+  <div class="wrap faq">
+    <p class="eyebrow">Usein kysyttyä</p>
+    <h2 id="faq-h">Hyvä tietää ennen kuin tulet</h2>
+    <details>
+      <summary>Käykö kortti?</summary>
+      <p>Käy. Otamme vastaan kortit, lähimaksun ja mobiilimaksun. Käteinenkin käy.</p>
+    </details>
+    <details>
+      <summary>Saako koiran tuoda mukaan?</summary>
+      <p>Saa. Kytketyt koirat ovat tervetulleita kahvilan puolelle, vesikuppi on oven vieressä. Leipomon puolelle koirat eivät pääse.</p>
+    </details>
+    <details>
+      <summary>Onko teillä gluteenitonta?</summary>
+      <p>Lounaalla on lähes joka päivä gluteeniton keitto tai lämmin ruoka, ja ne on merkitty G-merkinnällä. Leivomme samassa tilassa vehnää, ruista ja seesamia, joten gluteenittomissa tuotteissa voi olla jäämiä. Keliaakikolle emme voi luvata puhdasta leipää.</p>
+    </details>
+    <details>
+      <summary>Voiko tulla isommalla ryhmällä?</summary>
+      <p>Alle kuuden hengen porukka mahtuu ilman varausta. Isommalle ryhmälle katamme pöydän, kun kerrot edellisenä päivänä klo 14 mennessä. Lounaat toimistolle voi tilata rasioissa samalla tavalla.</p>
+    </details>
+    <details>
+      <summary>Onko wifi?</summary>
+      <p>On. Verkon nimi ja salasana ovat kassalla. Kiireisimpään lounasaikaan 11–13 pidämme isot pöydät syöjille.</p>
+    </details>
+  </div>
+</section>
+
+<section class="sec y-priv" aria-labelledby="ts-h">
+  <div class="wrap">
+    <div class="privacy">
+      <h2 id="ts-h">Mitä teemme tilauksen tiedoilla</h2>
+      <p>Lomake ei tallenna mitään tälle sivustolle: se avaa sähköpostiohjelmasi, ja tiedot tulevat meille vasta, kun lähetät viestin. Käytämme nimeäsi, puhelinnumeroasi ja sähköpostiasi vain tilauksen vahvistamiseen ja noutoon, emmekä anna niitä eteenpäin. Poistamme tilausviestit kolmen kuukauden kuluttua. Voit pyytää omien tietojesi poistamista osoitteesta <a href="mailto:moi@kaarna.example">moi@kaarna.example</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h2 class="foot-h">Käy meillä</h2>
+        <address>Leipomokahvila Kaarna<br>Esimerkkikatu 3<br>01300 Vantaa (Tikkurila)</address>
+        <p class="foot-note">2 minuuttia kävellen Tikkurilan asemalta.</p>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Aukioloajat</h2>
+        <dl class="hours hours-sm">
+          <div data-days="1-5"><dt>ma–pe</dt><dd>7–16</dd></div>
+          <div data-days="6"><dt>la</dt><dd>9–15</dd></div>
+          <div data-days="7"><dt>su</dt><dd>suljettu</dd></div>
+        </dl>
+        <p class="foot-note">Lounas ma–pe 10.30–14. Leipomo: kunnes loppuu.</p>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Ota yhteyttä</h2>
+        <ul class="foot-contact">
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-phone"/></svg><a href="tel:+35891234567">09&nbsp;123&nbsp;4567</a></li>
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-mail"/></svg><a href="mailto:moi@kaarna.example">moi@kaarna.example</a></li>
+          <li><svg class="ico" aria-hidden="true" width="18" height="18"><use href="#i-insta"/></svg><span>Instagramissa @kaarna.leipomo</span></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h2 class="foot-h">Sivut</h2>
+        <ul class="foot-links">
+          <li><a href="menu.html">Menu ja hinnat</a></li>
+          <li><a href="lounas.html">Viikon lounas</a></li>
+          <li><a href="yhteys.html#tilaa">Tilaa ennakkoon</a></li>
+          <li><a href="meista.html">Meistä</a></li>
+          <li><a href="yhteys.html">Yhteystiedot</a></li>
+        </ul>
+      </div>
+    </div>
+    <ul class="foot-trust">
+      <li>Oiva-raportti: Oivallinen</li>
+      <li>Ruis ja kaura pirkanmaalaiselta tilalta</li>
+      <li>Maito ja voi lähimeijeriltä</li>
+      <li>Hinnat sisältävät arvonlisäveron.</li>
+    </ul>
+    <p class="foot-demo">Demo: Leipomokahvila Kaarna on kuvitteellinen yritys. Henkilöt, yhteystiedot, Oiva-raportti ja Y-tunnus 1234567-8 ovat esimerkkejä. Kuvat on tuotettu tekoälyllä esimerkkiä varten. Sivun teki <a href="../../index.html">Marktic</a>.</p>
+  </div>
+  <p class="foot-word" aria-hidden="true">Kaarna</p>
+</footer>
+<script src="kaarna.js" defer></script>
+<div class="callbar">
+  <a class="btn" href="tel:+35891234567"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-phone"/></svg>Soita</a>
+  <a class="btn btn-line" href="yhteys.html#reitti"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-pin"/></svg>Reitti</a>
+</div>
+</body>
+</html>
