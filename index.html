@@ -2,219 +2,446 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Markkinointitoimisto pienyrityksille – Marktic, Vantaa</title>
-<meta name="description" content="Videomainokset, somen ylläpito, kotisivut ja Google-näkyvyys pienille yrityksille. Hinnat näkyvillä, ei pitkiä sopimuksia, raportti selkeällä kielellä.">
-<link rel="canonical" href="https://marktic.fi/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Marktic: näyttäkää yhtä hyvältä kuin työnne on">
-<meta property="og:description" content="Markkinointi paikallisille yrityksille: kotisivut alk. 490 €, some alk. 249 €/kk, näkyvyys Googlessa alk. 149 €/kk. Maksuton kartoitus, ei määräaikaa.">
-<meta property="og:url" content="https://marktic.fi/">
-<meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<link rel="stylesheet" href="site.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ilmapaja – ilmanvaihto, ilmastointi ja putkityöt</title>
+<meta name="description" content="Ilmapaja Oy tekee LVIA-työt alusta loppuun. Ilmanvaihto, ilmastointi, kiinteistöautomaatio, putkityöt ja kanttikanavat omasta pajasta.">
+<link rel="canonical" href="https://www.ilmapaja.fi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:title" content="Ilmapaja – ilmanvaihto, ilmastointi ja putkityöt">
+<meta property="og:description" content="Ilmapaja Oy tekee LVIA-työt alusta loppuun. Ilmanvaihto, ilmastointi, kiinteistöautomaatio, putkityöt ja kanttikanavat omasta pajasta.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1b26'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 12h11a3 3 0 1 0-3-3'/%3E%3Cpath d='M7 16h15a3 3 0 1 1-3 3'/%3E%3Cpath d='M7 20h6'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" as="image" href="img/asennus.jpg" fetchpriority="high">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HVACBusiness", "@id": "https://www.ilmapaja.fi/#yritys", "name": "Ilmapaja Oy", "alternateName": "Ilmapaja", "url": "https://www.ilmapaja.fi/", "telephone": "+358505211325", "email": "jyrki@ilmapaja.fi", "foundingDate": "1993", "description": "Ilmapaja Oy tekee LVIA-työt alusta loppuun. Ilmanvaihto, ilmastointi, kiinteistöautomaatio, putkityöt ja kanttikanavat omasta pajasta.", "identifier": {"@type": "PropertyValue", "propertyID": "Y-tunnus", "value": "0928179-3"}, "knowsAbout": ["Ilmanvaihtotyöt", "Ilmastointityöt", "Kiinteistöautomaatio", "Putkityöt", "Rakennus- ja saneeraustyöt", "Kanttikanavien valmistus"]}</script>
 <style>
-.hero{padding:var(--s6) 0 var(--s5)}
-.hero .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--s5);align-items:center}
-.hero h1{font-size:var(--t-5xl);margin:var(--s3) 0 var(--s4);letter-spacing:-.03em}
-.words .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
-.words .w i{display:inline-block;font-style:normal;transform:translateY(110%);animation:wordup .8s var(--ease) forwards}
-.words .w.lic i{color:var(--lichen)}
-.words .w:nth-child(1) i{animation-delay:.05s}.words .w:nth-child(2) i{animation-delay:.13s}.words .w:nth-child(3) i{animation-delay:.21s}.words .w:nth-child(4) i{animation-delay:.29s}.words .w:nth-child(5) i{animation-delay:.37s}.words .w:nth-child(6) i{animation-delay:.45s}
-@keyframes wordup{to{transform:none}}
-@media (prefers-reduced-motion:reduce){.words .w i{transform:none;animation:none}}
+@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:swap;src:url(fonts/inter-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:Inter;font-style:normal;font-weight:800;font-display:swap;src:url(fonts/inter-latin-800-normal.woff2) format('woff2')}
+:root{
+  --ink:#0d1b26;--ink-2:#3a4954;--muted:#5c6b77;
+  --bg:#f4f6f5;--paper:#fff;--line:#dde4e7;
+  --accent:#0e7c86;--accent-d:#0a656d;--accent-2:#e2f2f1;--accent-l:#5fd0c9;
+  --dark:#0b1720;--dark-2:#122431;--radius:16px;--maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+h1,h2,h3{line-height:1.08;letter-spacing:-.03em;text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px}
+.skip:focus{top:12px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:600;min-height:48px;padding:.8rem 1.4rem;border-radius:999px;transition:transform .15s,background .15s,border-color .15s;font-size:.98rem;border:0;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px -12px var(--accent)}
+.btn-primary:hover{background:var(--accent-d)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+svg.i{width:20px;height:20px;flex:none}
 
-.hero .cta{display:flex;gap:var(--s3);margin-top:var(--s5);flex-wrap:wrap}
-.hero .pl{margin:var(--s4) 0 0;display:flex;flex-wrap:wrap;color:var(--ink-2);font-size:var(--t-sm);font-weight:600} .hero .pl span{padding:6px 14px 6px 0;margin-right:14px;border-right:1px solid var(--line-2)} .hero .pl span:last-child{border:0;margin:0;padding-right:0} .hero .pl b{color:var(--ink);font-weight:700}
-.stage{position:relative;height:520px}
-.cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);font-size:var(--t-sm)}
-.stage .shot{position:absolute;left:0;top:24px;width:min(560px,86%);height:auto;border-radius:var(--r1);box-shadow:var(--shadow);border:1px solid var(--line)}
-.stage .phone{position:absolute;right:0;bottom:0;width:210px;height:430px;border-radius:30px;background:#000;padding:8px;box-shadow:var(--shadow)}
-.reelvid{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block}
-.stage .big{position:absolute;left:24px;top:100px;font-weight:900;font-size:28px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .stage .big em{font-style:normal;color:var(--lichen)}
-.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)} .svc .card{display:flex;flex-direction:column} .svc .price{margin-top:auto;padding-top:var(--s3);font-weight:700;color:var(--lichen);font-size:var(--t-sm)} .mtr .nw{white-space:nowrap}
-.nums{padding:var(--s6) 0;border-top:1px solid var(--paper-line)} .n{border-top:2px solid var(--paper-ink);padding-top:var(--s3)} .n b{display:block;font-size:var(--t-4xl);font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:var(--s2)} .n span{color:var(--paper-mut);font-size:var(--t-sm)}
-.how{counter-reset:step}
-.how .card{position:relative}
+header{position:sticky;top:0;z-index:50;background:rgba(244,246,245,.9);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px;position:relative}
+.logo{display:flex;align-items:center;gap:.65rem;font-weight:800;font-size:1.3rem;letter-spacing:-.03em;min-height:44px;color:var(--ink)}
+.logo-mark{width:36px;height:36px;border-radius:10px;background:var(--ink);display:grid;place-items:center;color:#fff}
+.logo-mark svg{width:20px;height:20px}
+.nav-links{display:flex;gap:2rem;list-style:none;font-weight:500;font-size:.95rem;color:var(--ink-2)}
+.nav-links a{display:inline-block;padding:12px 0}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{min-height:44px;padding:.55rem 1.1rem;font-size:.9rem}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;width:48px;height:48px;align-items:center;justify-content:center;color:var(--ink);border-radius:10px}
+.menu-btn .x{display:none}
+.menu-btn[aria-expanded="true"] .x{display:block}
+.menu-btn[aria-expanded="true"] .bars{display:none}
 
-@media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr} .hero .cta .btn{flex:1 1 100%} .hero .pl{gap:4px 0} .hero .pl span{padding:4px 10px 4px 0;margin-right:10px}
-  .stage{height:auto;padding-bottom:72px}
-  .stage .shot{position:static;width:100%} .stage .phone{position:absolute;right:0;bottom:0;width:34%;height:auto;aspect-ratio:9/18.5;padding:5px;border-radius:18px} .reelvid{border-radius:14px}
-  .cap{position:static;margin-top:var(--s2);max-width:60%}
-  .svc{grid-template-columns:1fr}
+.hero{position:relative;overflow:hidden;padding:56px 0 76px}
+#wind{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 42%,#000 62%),linear-gradient(180deg,#000 75%,transparent);
+  -webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,rgba(0,0,0,.35) 0,rgba(0,0,0,.35) 42%,#000 62%),linear-gradient(180deg,#000 75%,transparent);mask-composite:intersect}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.08fr;gap:56px;align-items:center;will-change:transform}
+.hero h1{font-size:clamp(2.6rem,5.4vw,4.6rem);font-weight:800;margin:20px 0 20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{font-size:1.2rem;color:var(--ink-2);max-width:34ch;margin-bottom:32px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-trust{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+.hero-trust b{display:block;color:var(--ink);font-weight:700;font-size:1.02rem;letter-spacing:-.01em;margin-top:4px}
+.hero-photo{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3.2;box-shadow:0 40px 80px -40px rgba(13,27,38,.55);background:#cfd8dc}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,23,32,0) 60%,rgba(11,23,32,.45))}
+.photo-tag{position:absolute;left:18px;bottom:18px;z-index:2;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.96);border-radius:14px;padding:10px 16px 10px 10px;box-shadow:0 12px 30px -12px rgba(0,0,0,.4)}
+.photo-tag .ico-box{width:40px;height:40px}
+.photo-tag small{display:block;font-size:.75rem;color:var(--muted);line-height:1.2}
+.photo-tag strong{font-size:.98rem;letter-spacing:-.01em}
+
+.stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.stat{min-width:0;padding:28px 28px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat strong{display:block;font-size:2.1rem;font-weight:800;letter-spacing:-.04em}
+.stat span{display:block;color:var(--muted);font-size:.92rem;overflow-wrap:anywhere;hyphens:auto}
+
+section{padding:96px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(2rem,3.6vw,3.1rem);font-weight:800;max-width:16ch;margin-top:14px}
+.sec-head p{max-width:44ch;color:var(--ink-2)}
+
+.ico-box{width:48px;height:48px;border-radius:12px;background:var(--accent-2);color:var(--accent);display:grid;place-items:center;flex:none}
+.ico-box svg{width:24px;height:24px}
+.svc-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.svc-photo{position:sticky;top:100px;border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1;background:#cfd8dc}
+.svc-photo img{width:100%;height:100%;object-fit:cover;object-position:88% 50%}
+.svc-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 22px 18px;background:linear-gradient(180deg,transparent,rgba(11,23,32,.8));color:#fff;font-size:.82rem}
+.svc-photo figcaption b{display:block;font-size:1.1rem}
+.svc-list{list-style:none;border-top:1px solid var(--line)}
+.svc{display:grid;grid-template-columns:56px 1fr auto;gap:20px;align-items:start;padding:26px 0;border-bottom:1px solid var(--line)}
+.svc h3{font-size:1.25rem;font-weight:700;margin-bottom:6px}
+.svc p{color:var(--ink-2);font-size:.97rem;max-width:46ch}
+.svc .num{font-weight:700;color:var(--muted);font-size:.85rem;padding-top:4px}
+
+.workshop{background:var(--dark);color:#fff;border-radius:28px;overflow:hidden}
+.workshop .grid{display:grid;grid-template-columns:1.05fr 1fr;min-height:520px}
+.ws-photo{position:relative;background:#1b2b36}
+.ws-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.ws-text{padding:72px 60px;display:flex;flex-direction:column;justify-content:center}
+.workshop h2{font-size:clamp(1.9rem,3.2vw,2.7rem);font-weight:800;margin:14px 0 18px}
+.workshop p{color:rgba(255,255,255,.75);font-size:1.05rem}
+.workshop .eyebrow{color:var(--accent-l)}
+.ws-list{list-style:none;display:grid;gap:12px;margin-top:28px}
+.ws-list li{display:flex;gap:12px;align-items:flex-start;color:rgba(255,255,255,.92)}
+.ws-list svg{color:var(--accent-l);margin-top:3px}
+
+.refs{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;list-style:none}
+.ref{min-width:0;background:var(--paper);padding:24px 24px;display:flex;flex-direction:column;gap:6px}
+.ref strong{font-size:1.12rem;font-weight:700;letter-spacing:-.02em;line-height:1.25;overflow-wrap:anywhere;hyphens:auto}
+.ref span{font-size:.84rem;color:var(--muted);line-height:1.45}
+.refs-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:22px}
+.refs-note{color:var(--muted);font-size:.95rem;max-width:56ch}
+.segments{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chip{padding:.45rem .9rem;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:.85rem;font-weight:500;color:var(--ink-2)}
+
+.process{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:72px 0}
+.process .sec-head{margin-bottom:36px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:s;list-style:none}
+.step{padding-top:22px;border-top:2px solid var(--ink);counter-increment:s}
+.step::before{content:"0" counter(s);font-weight:800;color:var(--accent);font-size:.92rem;display:block;margin-bottom:12px}
+.step h3{font-size:1.15rem;margin-bottom:6px}
+.step p{color:var(--ink-2);font-size:.95rem}
+
+.contact-card{display:grid;grid-template-columns:.95fr 1.05fr;background:var(--paper);border:1px solid var(--line);border-radius:28px;overflow:hidden}
+.contact-info{padding:56px 52px;background:linear-gradient(160deg,var(--dark-2),var(--dark));color:#fff;display:flex;flex-direction:column;justify-content:center}
+.contact-info .eyebrow{color:var(--accent-l)}
+.contact-info h2{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800;margin:14px 0 14px}
+.contact-info .lead{color:rgba(255,255,255,.75);margin-bottom:28px;max-width:34ch}
+.c-list{list-style:none}
+.c-item{display:flex;gap:14px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,.14)}
+.c-list li:last-child .c-item{border-bottom:1px solid rgba(255,255,255,.14)}
+.c-item .ico-box{width:44px;height:44px;background:rgba(95,208,201,.14);color:var(--accent-l)}
+.c-item small{display:block;color:rgba(255,255,255,.62);font-size:.8rem}
+.c-item b{display:block;font-size:1.08rem}
+form{padding:48px;display:grid;gap:16px;grid-template-columns:1fr 1fr;align-content:center}
+form .full{grid-column:1/-1}
+label{font-size:.84rem;font-weight:600;display:block;margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;min-height:48px;padding:.75rem .95rem;border-radius:10px;border:1px solid #c9d3d8;background:var(--bg);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent;background:#fff}
+textarea{min-height:120px;resize:vertical}
+.form-note{font-size:.8rem;color:var(--muted)}
+.form-status{grid-column:1/-1;background:var(--accent-2);color:var(--accent-d);padding:14px 16px;border-radius:10px;font-weight:600}
+.form-status[hidden]{display:none}
+.hp{position:absolute;left:-9999px}
+
+footer{padding:36px 0 44px;font-size:.9rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;align-items:center}
+footer a:hover{color:var(--ink)}
+
+.callbar{display:none}
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .hero-grid,.svc-layout,.workshop .grid,.contact-card{grid-template-columns:1fr}
+  .hero-grid{gap:36px}
+  .svc-photo{position:relative;top:0;aspect-ratio:16/10}
+  .ws-photo{aspect-ratio:16/10}
+  .ws-text{padding:48px 36px}
+  .refs{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr 1fr;row-gap:32px}
+  .contact-info{padding:44px 36px}
+  form{padding:36px}
+  #wind{-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+}
+@media (max-width:760px){
+  html{scroll-padding-bottom:96px}
+  .wrap{padding:0 16px}
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:inline-flex}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:76px;left:-16px;right:-16px;background:var(--bg);padding:4px 16px 12px;gap:0;border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  .nav-links.open a{display:block;padding:14px 4px;border-bottom:1px solid var(--line)}
+  .hero{padding:24px 0 44px}
+  .hero h1{margin:14px 0 14px}
+  .hero .lead{font-size:1.08rem;margin-bottom:22px}
+  .hero-ctas{flex-wrap:nowrap}
+  .hero-ctas .btn{flex:1;padding:.8rem .7rem}
+  .hero-ctas .btn-ghost .num{display:none}
+  .hero-trust{margin-top:22px;padding-top:14px}
+  .hero-photo{aspect-ratio:4/3}
+  .photo-tag{display:none}
+  section{padding:64px 0}
+  .stat{padding:18px 8px 18px 12px}
+  .stat:first-child{padding-left:0}
+  .stat strong{font-size:1.55rem}
+  .stat span{font-size:.8rem;line-height:1.3}
+  .svc{grid-template-columns:48px 1fr;gap:16px;padding:22px 0}
+  .svc .num{display:none}
+  .workshop{border-radius:22px}
+  .ws-text{padding:36px 22px}
+  .refs{grid-template-columns:1fr 1fr}
+  .ref{padding:16px 14px}
+  .ref strong{font-size:.98rem}
+  .process{padding:56px 0}
+  .steps{gap:28px 16px}
+  .contact-card{border-radius:22px}
+  .contact-info{padding:36px 22px}
+  form{grid-template-columns:1fr;padding:28px 22px}
+  footer .wrap{flex-direction:column;align-items:flex-start;gap:6px}
+  footer{padding-bottom:104px}
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:8px;transform:translateY(150%);transition:transform .3s ease}
+  .callbar.show{transform:none}
+  .callbar .btn{flex:1}
+}
+@media (max-width:360px){.refs{grid-template-columns:1fr}.stats .wrap{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0;padding-left:0;border-top:1px solid var(--line)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+  .callbar{transition:none}
+  #wind{display:none}
 }
 </style>
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@graph":[
-  {"@type":"ProfessionalService","@id":"https://marktic.fi/#org","name":"Marktic","url":"https://marktic.fi/","email":"info@marktic.fi",
-   "address":{"@type":"PostalAddress","addressLocality":"Vantaa","addressCountry":"FI"},
-   "areaServed":{"@type":"Country","name":"Suomi"},"availableLanguage":"fi",
-   "description":"Markkinointitoimisto pienille yrityksille: videomainokset, somen ylläpito, kotisivut, mainonta sekä näkyvyys Googlessa ja hakupalveluissa (mukaan lukien tekoälyhaut). Hinnat näkyvillä, ei pitkiä sopimuksia, kuukausiraportti selkeällä kielellä.",
-   "knowsAbout":["paikallinen näkyvyys","Google-yritysprofiili","hakupalvelut ja tekoälyhaut","somemarkkinointi","videomainokset","verkkosivut","Google Ads","Meta-mainonta"],
-   "priceRange":"149–990 €","makesOffer":{"@type":"Offer","name":"Maksuton kartoitus","price":"0","priceCurrency":"EUR"}},
-  {"@type":"WebSite","@id":"https://marktic.fi/#site","url":"https://marktic.fi/","name":"Marktic","inLanguage":"fi","publisher":{"@id":"https://marktic.fi/#org"}},
-  {"@type":"FAQPage","mainEntity":[
-   {"@type": "Question", "name": "Lupaatteko tietyn sijan Googlessa?", "acceptedAnswer": {"@type": "Answer", "text": "Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat päivästä toiseen. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy."}},
-   {"@type": "Question", "name": "Onko sopimuksessa määräaikaa?", "acceptedAnswer": {"@type": "Answer", "text": "Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan, kun työ on valmis."}},
-   {"@type": "Question", "name": "Mitä tarkoittaa ”ensimmäisen kuukauden maksu takaisin”?", "acceptedAnswer": {"@type": "Answer", "text": "Jos ette ole tyytyväisiä kuukausipalvelun ensimmäiseen kuukauteen, palautamme sen kuukauden maksun ja lopetamme. Se koskee kuukausipalveluita, ei kertatöitä, kuten korjauspakettia, kotisivuja ja videoita, jotka laskutetaan vasta valmiina."}},
-   {"@type": "Question", "name": "Mitä maksuton kartoitus sisältää?", "acceptedAnswer": {"@type": "Answer", "text": "Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista (ChatGPT, Googlen tekoälyvastaukset ja vastaavat), miltä some ja kotisivut näyttävät, ja kerromme, mitä korjaisimme ensin. Kartoitus ei sido mihinkään."}},
-   {"@type": "Question", "name": "Tarvitseeko minun tehdä itse jotain?", "acceptedAnswer": {"@type": "Answer", "text": "Hyvin vähän. Tarvitsemme alussa pääsyn Google-yritysprofiiliin ja sometileihin sekä muutaman kuvan tai tiedon tuotteistanne. Sen jälkeen hyväksytte julkaisut, me hoidamme loput."}}
-  ]}
- ]
-}
-</script>
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
-<header class="top"><div class="wrap">
-  <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
-  <nav class="nav" id="nav" aria-label="Päävalikko">
-    <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
-    <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
+<header>
+  <nav class="wrap nav" aria-label="Päävalikko">
+    <a href="#top" class="logo"><span class="logo-mark"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg></span>Ilmapaja</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Avaa valikko">
+      <svg class="bars" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#paja">Oma paja</a></li>
+      <li><a href="#referenssit">Referenssit</a></li>
+      <li><a href="#yhteys">Yhteystiedot</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="tel:+358505211325"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>050 5211 325</a>
   </nav>
-</div></header>
+</header>
 
 <main id="main">
-<section class="hero"><div class="wrap">
-  <div>
-    <p class="eyebrow rise">Markkinointitoimisto, Vantaa. Palvelemme koko Suomea.</p>
-    <h1 class="words" aria-label="Näyttäkää yhtä hyvältä kuin työnne on."><span class="w"><i>Näyttäkää</i></span> <span class="w"><i>yhtä</i></span> <span class="w"><i>hyvältä</i></span> <span class="w lic"><i>kuin</i></span> <span class="w lic"><i>työnne</i></span> <span class="w lic"><i>on.</i></span></h1>
-    <p class="lead rise d2">Katsomme maksutta, miten yrityksenne löytyy Googlesta, kartalta ja ChatGPT:stä, ja kerromme kahden arkipäivän kuluessa kirjallisesti, mitä korjaisimme ensin. Korjaukset, some, videot ja kotisivut kiinteillä hinnoilla, ilman määräaikaa.</p>
-    <div class="cta rise d3">
-      <a class="btn btn-brand" href="yhteys.html" data-mail>Pyytäkää maksuton kartoitus</a>
-      <a class="btn btn-ghost" href="tyot.html">Katsokaa töitämme</a>
-    </div>
-    <p class="pl rise d3"><span>Kotisivut <b>alk. 490 €</b></span><span>Some <b>alk. 249 €/kk</b></span><span>Näkyvyys <b>alk. 149 €/kk</b></span><span>Ei määräaikaa</span></p>
-  </div>
-  <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu ja Markticin oma mainosvideo" role="img">
-    <img class="shot" src="demo/kaarna.jpg" alt="" width="1200" height="750">
-    <div class="phone"><video class="reelvid" src="assets/marktic-ad-360.mp4" poster="assets/marktic-ad-poster-s.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div>
-  </div>
-  <p class="cap">Vasemmalla konseptityö: Leipomokahvila Kaarnan kotisivut (kuvitteellinen yritys). Oikealla oma mainosvideomme.</p>
-</div></section>
-
-
-<section><div class="wrap">
-  <div class="head"><p class="eyebrow">Palvelut</p><h2>Neljä asiaa, jotka hoidamme puolestanne</h2><p class="lead">Yhden tai kaikki. Jokaisessa on hinta näkyvillä, ja kerromme etukäteen, mitä se sisältää.</p></div>
-  <div class="svc">
-    <a class="card" href="palvelut.html#nakyvyys"><h3>Näkyvyys Googlessa ja hakupalveluissa</h3><p>Google-yritysprofiili, kartta, hakemistot ja hakupalveluiden (ChatGPT, Googlen tekoälyvastaukset ja vastaavat) vastaukset kuntoon. Mittaamme viikoittain, miten yrityksenne löytyy.</p><span class="price">alkaen 149 €/kk</span></a>
-    <a class="card" href="palvelut.html#some"><h3>Somen ylläpito</h3><p>Suunnitelma, julkaisut ja vastaukset kommentteihin. Te hyväksytte, me julkaisemme.</p><span class="price">alkaen 249 €/kk</span></a>
-    <a class="card" href="palvelut.html#video"><h3>Videot ja mallikuvat</h3><p>Lyhyet mainosvideot ja mallikuvat someen ja mainoksiin: valokuvista, animaationa tai tekoälyllä tuotetuilla malleilla. Ei kuvauspäiviä.</p><span class="price">kuvat alkaen 190 €, videot alkaen 290 €</span></a>
-    <a class="card" href="palvelut.html#sivut"><h3>Kotisivut ja mainonta</h3><p>Nopeat kotisivut, jotka toimivat puhelimessa, ja Google- ja Meta-mainonta, jonka tulokset näette raportissa.</p><span class="price">sivut alkaen 490 €</span></a>
-  </div>
-</div></section>
-
-<section class="ind-sec"><div class="wrap">
-  <div class="grid grid-2" style="align-items:start">
-    <div><p class="eyebrow">Kenelle</p><h2>Yrityksille, joita etsitään läheltä</h2><p class="lead" style="margin-top:var(--s3)">Jos asiakkaanne hakevat teitä Googlesta, kartalta tai somesta, palvelumme sopii teille. Toimiala ei ratkaise, vaan se, että asiakas löytää teidät ja ymmärtää heti, mitä teette ja mitä se maksaa.</p></div>
-    <ul class="list ind">
-      <li>Kampaamot, parturit ja kauneushoitolat</li>
-      <li>Kahvilat, ravintolat ja leipomot</li>
-      <li>Putki-, sähkö- ja remonttiyritykset</li>
-      <li>Tilitoimistot, juristit ja konsultit</li>
-      <li>Hammaslääkärit, fysioterapeutit ja hierojat</li>
-      <li>Kuntosalit, joogastudiot ja personal trainerit</li>
-      <li>Autokorjaamot ja rengasliikkeet</li>
-      <li>Kivijalkakaupat ja pienet verkkokaupat</li>
-    </ul>
-  </div>
-</div></section>
-
-<section class="paper"><div class="wrap">
-  <div class="grid grid-2" style="align-items:center">
+<section class="hero" id="top">
+  <canvas id="wind" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Raportti kerran kuussa</p>
-      <h2>Mitä raportissa lukee</h2>
-      <p class="lead" style="margin-top:var(--s3)">Yksi sivu kuukaudessa: mitä kysyimme ja milloin, missä yrityksenne mainittiin, mitä korjasimme ja mitä teemme seuraavaksi. Päivämäärineen ja selkeällä kielellä.</p>
-      <p class="lead" style="margin-top:var(--s3)">Jos ensimmäinen kuukausi ei vakuuta, palautamme sen maksun.</p>
+      <span class="eyebrow">LVIA-urakointia vuodesta 1993</span>
+      <h1>Raikasta ilmaa <em>sisätiloihin.</em></h1>
+      <p class="lead">Ilmanvaihto, ilmastointi ja putkityöt alusta loppuun.</p>
+      <div class="hero-ctas">
+        <a href="#yhteys" class="btn btn-primary">Pyydä tarjous <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="tel:+358505211325">Soita<span class="num">&nbsp;050 5211 325</span></a>
+      </div>
+      <p class="hero-trust">Toteutettuja kohteita mm.<b>Ateneum · Kiasma · MTV3 · Yle</b></p>
     </div>
-    <div class="rep" aria-label="Esimerkki kuukausiraportista">
-      <div class="rh"><div><span class="rlogo"><span aria-hidden="true">Markt<span class="i">ı</span>c</span><span class="sr">Marktic</span></span><br><b>Kuukausiraportti · syyskuu 2026</b><br><span class="rnote">Esimerkki raportin muodosta. Luvut eivät ole mittaustulos.</span></div><div class="rr">Esimerkkiyritys Oy, Vantaa<br><span class="tag" style="margin:0">Esimerkki</span></div></div>
-      <div class="tiles3">
-        <div><small>Google-yritysprofiili</small><b class="ok">Kunnossa</b><span>5.9. alkaen</span></div>
-        <div><small>Mainittu vastauksissa</small><b>2 / 3</b><span>kysymyksessä</span></div>
-        <div><small>Hakemistot oikein</small><b class="todo">4 / 5</b><span>yksi korjattavana</span></div>
-      </div>
-      <table class="grid4"><caption>Kysyimme hakupalveluilta neljänä päivänä. Piste = yrityksenne mainittiin.</caption>
-        <thead><tr><th scope="col"></th><th scope="col"><span>3.9.</span></th><th scope="col"><span>10.9.</span></th><th scope="col"><span>17.9.</span></th><th scope="col"><span>24.9.</span></th></tr></thead>
-        <tbody>
-          <tr><th scope="row">”hyvä kampaamo Vantaalla”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
-          <tr><th scope="row">”kampaamo Tikkurila”</th><td><i class="n"></i></td><td><i class="y"></i></td><td><i class="y"></i></td><td><i class="y"></i></td></tr>
-          <tr><th scope="row">”hiustenleikkaus ilman ajanvarausta Vantaa”</th><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="n"></i></td><td><i class="n"></i></td></tr>
-        </tbody></table>
-      <table class="mtr"><caption>Mittarit (Google-yritysprofiili, verkkosivut, Instagram)</caption>
-        <thead><tr><th scope="col"></th><th scope="col">elokuu</th><th scope="col">syyskuu</th><th scope="col">muutos</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Sija kartalla, ”kampaamo Tikkurila”</th><td class="rk">6.</td><td class="rk">3.</td><td class="up">+3</td></tr>
-          <tr><th scope="row">Yritysprofiilin katselut</th><td>218</td><td>281</td><td class="up">+29 %</td></tr>
-          <tr><th scope="row">Soitot ja reittihaut profiilista</th><td>9</td><td>14</td><td class="up">+5</td></tr>
-          <tr><th scope="row">Arvostelut (keskiarvo)</th><td>11 (4,5)</td><td>13 (4,5)</td><td class="up">+2</td></tr>
-          <tr><th scope="row">Kotisivujen kävijät</th><td>140</td><td>138</td><td>−2</td></tr>
-          <tr><th scope="row">Instagram: julkaisut / tavoittavuus</th><td class="nw">0 / –</td><td class="nw">4 / 1 100</td><td class="up">uusi</td></tr>
-        </tbody></table>
-      <p class="cmp">Vertailu: kolme lähintä kilpailijaa mainittiin hakupalveluissa keskimäärin 1 / 3 kysymyksessä, teidät 2 / 3. Kilpailijoita ei nimetä raportissa.</p>
-      <p class="cmp">Kotisivujen kävijämäärä ei noussut syyskuussa; se on tavallista, kun uusi sisältö on ollut Googlessa vasta muutaman viikon.</p>
-      <div class="rcols">
-        <div><small>Tehty tässä kuussa</small><ul><li>5.9. Google-yritysprofiili: aukioloajat, kuvat, palvelut</li><li>9.9. Neljä hakemistoa korjattu</li><li>16.9. Uusi palvelusivu: värjäykset ja hinnat</li></ul></div>
-        <div><small>Seuraavaksi</small><ul><li>Viimeinen hakemisto kuntoon</li><li>Usein kysytyt kysymykset sivuille</li><li>Jos lokakuun luvut eivät parane, kerromme, miksi</li></ul></div>
-      </div>
+    <figure class="hero-photo">
+      <img src="img/asennus.jpg" alt="Ilmanvaihtokanavien asennusta liiketilassa (kuvituskuva)" width="1024" height="688" fetchpriority="high">
+      <figcaption class="photo-tag"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span><small>Oma paja</small><strong>Kanavat mittatilauksena</strong></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="stats"><div class="wrap"><div class="stat"><strong>1993</strong><span>Asennuksia vuodesta</span></div><div class="stat"><strong>5</strong><span>Palvelukokonaisuutta</span></div><div class="stat"><strong>50+</strong><span>Referenssikohdetta</span></div></div></div>
+
+<section id="palvelut">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Palvelut</span><h2>Kaikki saman katon alta.</h2></div>
+      <p>Teemme LVIA-työt huolella ja ammattiylpeydellä, teollisuudesta kotitalouksiin.</p>
+    </div>
+    <div class="svc-layout">
+      <figure class="svc-photo reveal">
+        <img src="img/iv-kone.jpg" alt="Ilmanvaihtokone lämmöntalteenotolla (kuvituskuva)" loading="lazy" width="1024" height="688">
+        <figcaption><b>Ilmanvaihto ja ilmastointi</b>Kuvituskuva</figcaption>
+      </figure>
+      <ul class="svc-list"><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg></span><div><h3>Ilmanvaihtotyöt</h3><p>Ilmanvaihtojärjestelmien asennukset kaikenkokoisiin kohteisiin, tuotantolaitoksista kotitalouksiin.</p></div><span class="num" aria-hidden="true">01</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></span><div><h3>Ilmastointityöt</h3><p>Ilmastointijärjestelmien asennukset. Kokemusta vuodesta 1993.</p></div><span class="num" aria-hidden="true">02</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><div><h3>Kiinteistöautomaatio</h3><p>Kiinteistötekniikan automatisoinnit osana LVIA-töitä.</p></div><span class="num" aria-hidden="true">03</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8a4 4 0 0 1 4 4v10"/><path d="M3 3v8M11 17h8"/></svg></span><div><h3>Putkityöt</h3><p>Putkiasennukset ja muut putkityöt.</p></div><span class="num" aria-hidden="true">04</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span><div><h3>Rakennus- ja saneeraustyöt</h3><p>Myös rakennus- ja saneeraustyöt, jolloin koko hanke hoituu yhdeltä tekijältä.</p></div><span class="num" aria-hidden="true">05</span></li></ul>
     </div>
   </div>
-</div></section>
+</section>
 
-<section class="paper nums"><div class="wrap">
-  <div class="grid grid-3">
-    <div class="n"><b>0 €</b><span>maksaa kartoitus: miten yrityksenne löytyy ja miltä se näyttää, ja mitä korjaisimme ensin.</span></div>
-    <div class="n"><b>0 kk</b><span>määräaikaa: kuukausipalvelut voi irtisanoa minä kuukautena tahansa.</span></div>
-    <div class="n"><b>1 sivu</b><span>raporttia kuukaudessa: mitä tehtiin, mitä se tuotti, mitä seuraavaksi.</span></div>
+<div class="wrap">
+  <div class="workshop" id="paja">
+    <div class="grid">
+      <div class="ws-photo"><img src="img/paja.jpg" alt="Kanttikanavan valmistusta (kuvituskuva)" loading="lazy" width="1024" height="688"></div>
+      <div class="ws-text reveal">
+        <span class="eyebrow">Oma paja</span>
+        <h2>Kun vakiotuote ei sovi, valmistamme osan itse.</h2>
+        <p>Omat peltiseppämme valmistavat kanttikanavat omassa pajassamme, juuri kohteen mittoihin. Näin ratkaisu löytyy myös silloin, kun vakiomalliset tuotteet eivät sovi.</p>
+        <ul class="ws-list"><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Kanttikanavat mittatilauksena</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Valmistus omassa pajassa</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Sama tekijä valmistaa ja asentaa</li></ul>
+      </div>
+    </div>
   </div>
-</div></section>
+</div>
 
-<section><div class="wrap tl">
-  <div><p class="eyebrow">Ensimmäinen kuukausi</p><h2>Mitä tapahtuu, kun&nbsp;otatte yhteyttä</h2><p class="lead" style="margin-top:var(--s3)">Ei myyntipalavereita. Ensimmäiset kaksi viikkoa ovat kartoitusta ja korjauksia, ja kuukauden lopussa näette paperilla, mitä se tuotti.</p></div>
-  <ol>
-    <li><b>Päivä 0</b><p><strong>Lähetätte nimen ja paikkakunnan.</strong> Sähköpostilla. Muuta ei tarvita.</p></li>
-    <li><b>Päivä 1–2</b><p><strong>Kartoitus.</strong> Katsomme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista ja miltä se näyttää asiakkaan silmin. Saatte kirjallisena, mitä korjaisimme ensin.</p></li>
-    <li><b>Päivä 3</b><p><strong>Tarjous, jos haluatte.</strong> Valitsette palvelut ja näette hinnan ennen kuin mitään tehdään.</p></li>
-    <li><b>Viikko 2</b><p><strong>Korjauspaketti valmis.</strong> Google-yritysprofiili, hakemistot ja sivujen perustiedot kunnossa. Laskutetaan vasta nyt.</p></li>
-    <li><b>Päivä 30</b><p><strong>Ensimmäinen raportti.</strong> Yksi sivu: mitä tehtiin, mitä se tuotti, mitä seuraavaksi. Jatkatte, jos se kannattaa.</p></li>
-  </ol>
-</div></section>
-
-<section class="paper"><div class="wrap">
-  <div class="head"><p class="eyebrow">Usein kysyttyä</p><h2>Mitä meiltä kysytään ennen tilausta</h2></div>
-  <div style="max-width:820px">
-    <details><summary>Lupaatteko tietyn sijan Googlessa?</summary><p>Emme. Hakutulokset ja hakupalveluiden vastaukset vaihtelevat päivästä toiseen. Lupaamme, että sovitut työt tehdään, ja raportoimme päivämäärineen, miten näkyvyys kehittyy.</p></details>
-    <details><summary>Onko sopimuksessa määräaikaa?</summary><p>Ei. Kuukausipalvelut voi irtisanoa minä kuukautena tahansa. Kertatyöt, kuten kotisivut ja videot, laskutetaan, kun työ on valmis.</p></details>
-    <details><summary>Mitä tarkoittaa ”ensimmäisen kuukauden maksu takaisin”?</summary><p>Jos ette ole tyytyväisiä kuukausipalvelun ensimmäiseen kuukauteen, palautamme sen kuukauden maksun ja lopetamme. Se koskee kuukausipalveluita, ei kertatöitä, kuten korjauspakettia, kotisivuja ja videoita, jotka laskutetaan vasta valmiina.</p></details>
-    <details><summary>Mitä maksuton kartoitus sisältää?</summary><p>Tarkistamme, miten yrityksenne löytyy Googlesta, kartalta ja hakupalveluista (ChatGPT, Googlen tekoälyvastaukset ja vastaavat), miltä some ja kotisivut näyttävät, ja kerromme, mitä korjaisimme ensin. Kartoitus ei sido mihinkään.</p></details>
-    <details><summary>Tarvitseeko minun tehdä itse jotain?</summary><p>Hyvin vähän. Tarvitsemme alussa pääsyn Google-yritysprofiiliin ja sometileihin sekä muutaman kuvan tai tiedon tuotteistanne. Sen jälkeen hyväksytte julkaisut, me hoidamme loput.</p></details>
+<section id="referenssit">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Referenssit</span><h2>Kokemusta vaativista kohteista.</h2></div>
+      <p>Olemme tehneet LVIA-töitä niin kulttuurikohteisiin ja mediataloihin kuin hotelleihin, ravintoloihin ja teollisuuteen.</p>
+    </div>
+    <ul class="refs reveal"><li class="ref"><strong>Senaatti-kiinteistöt</strong><span>Ateneum, Kiasma, Säteilyturvakeskus, Geologianlaitos</span></li><li class="ref"><strong>MTV3</strong><span>Uutishuone, Salatut elämät</span></li><li class="ref"><strong>Yle</strong><span>Filmiarkisto</span></li><li class="ref"><strong>SOK</strong><span>Pääkonttori, Tikkurilan Prisma, Inex</span></li><li class="ref"><strong>Sokos Hotelli Pasila</strong></li><li class="ref"><strong>Radisson SAS Kamppi</strong></li><li class="ref"><strong>Meira</strong><span>Maustetehdas</span></li><li class="ref"><strong>Eläketurvakeskus</strong></li><li class="ref"><strong>Suomen Punainen Risti</strong><span>Tehtaankatu, Merikatu</span></li><li class="ref"><strong>Lindström</strong><span>Palvelukeskukset, 4 kohdetta</span></li><li class="ref"><strong>Hesburger</strong><span>Myyrmäki, Munkkiniemi, Espoon keskus ym.</span></li><li class="ref"><strong>McDonald&#x27;s</strong><span>Mannerheimintie, Ruoholahti</span></li></ul>
+    <div class="refs-foot">
+      <p class="refs-note">Lisäksi ravintoloita, kouluja, omakotitaloja, toimistoja ja monia muita kohteita.</p>
+      <ul class="segments"><li class="chip">Tuotantolaitokset</li><li class="chip">Toimistot</li><li class="chip">Koulut</li><li class="chip">Ravintolat</li><li class="chip">Liikuntahallit</li><li class="chip">Kotitaloudet</li></ul>
+    </div>
   </div>
-</div></section>
+</section>
 
-<section class="close" id="yhteys"><div class="wrap">
-  <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
-  <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A" data-mail>info@marktic.fi</a>
-  <p>Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
-</div></section>
+<section class="process" aria-labelledby="tyon-kulku">
+  <div class="wrap">
+    <div class="sec-head reveal"><div><span class="eyebrow">Työn kulku</span><h2 id="tyon-kulku">Näin työ etenee.</h2></div></div>
+    <ol class="steps reveal"><li class="step"><h3>Kartoitus</h3><p>Käymme kohteen läpi ja selvitämme tarpeet.</p></li><li class="step"><h3>Tarjous</h3><p>Laadimme tarjouksen kartoituksen pohjalta.</p></li><li class="step"><h3>Toteutus</h3><p>Valmistamme tarvittaessa osat omassa pajassamme ja asennamme ne.</p></li><li class="step"><h3>Luovutus</h3><p>Säädämme järjestelmät, otamme ne käyttöön ja luovutamme kohteen.</p></li></ol>
+  </div>
+</section>
+
+<section id="yhteys">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="contact-info">
+        <span class="eyebrow">Yhteystiedot</span>
+        <h2>Soita tai lähetä viesti.</h2>
+        <p class="lead">Kerro kohteesta lyhyesti, niin otamme yhteyttä.</p>
+        <ul class="c-list">
+          <li><a class="c-item" href="tel:+358505211325"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Puhelin</small> <b>050 5211 325</b></span></a></li>
+          <li><a class="c-item" href="mailto:jyrki@ilmapaja.fi"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Sähköposti</small> <b>jyrki@ilmapaja.fi</b></span></a></li>
+          <li><div class="c-item"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h6M7 13h10M7 17h4"/></svg></span><span><small>Ilmapaja Oy</small> <b>Y-tunnus 0928179-3</b></span></div></li>
+        </ul>
+      </div>
+      <form id="lomake" method="post" data-endpoint="">
+        <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
+        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 ()-]{6,}" required></div>
+        <div class="full"><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="full"><label for="f-tyo">Työn tyyppi</label><select id="f-tyo" name="tyo"><option value="" selected>Valitse…</option><option>Ilmanvaihtotyöt</option><option>Ilmastointityöt</option><option>Kiinteistöautomaatio</option><option>Putkityöt</option><option>Rakennus- ja saneeraustyöt</option><option>Muu</option></select></div>
+        <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. kohteen tyyppi, sijainti ja aikataulu"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-www">Jätä tyhjäksi</label><input id="f-www" name="www" tabindex="-1" autocomplete="off"></div>
+        <div class="full"><button class="btn btn-primary" type="submit">Lähetä viesti</button></div>
+        <p class="full form-note">Käsittelemme tietojasi vain yhteydenottoon vastaamiseksi.</p>
+        <p class="form-status" id="lomake-tila" role="status" tabindex="-1" hidden>Tämä on luonnos, eikä lomake vielä lähetä viestejä. Soita 050 5211 325 tai lähetä sähköpostia jyrki@ilmapaja.fi.</p>
+      </form>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer><div class="wrap">
-  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
-  <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
-  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
-</div></footer>
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="logo-mark"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg></span>Ilmapaja</a>
+    <span>Ilmapaja Oy · Y-tunnus 0928179-3</span>
+    <span><a href="tel:+358505211325">050 5211 325</a> · <a href="mailto:jyrki@ilmapaja.fi">jyrki@ilmapaja.fi</a></span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-primary" href="#yhteys">Pyydä tarjous</a>
+  <a class="btn btn-ghost" href="tel:+358505211325"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Soita</a>
+</div>
+
 <script>
-const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
-b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
-const here=location.pathname.split('/').pop()||'index.html';
-document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
+(() => {
+  const nav = document.getElementById('menu'), btn = document.querySelector('.menu-btn');
+  const setMenu = open => { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Sulje valikko' : 'Avaa valikko'); };
+  btn.addEventListener('click', () => { const o = btn.getAttribute('aria-expanded') !== 'true'; setMenu(o); if (o) nav.querySelector('a').focus(); });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setMenu(false); btn.focus(); } });
+  document.addEventListener('click', ev => { if (!ev.target.closest('.nav')) setMenu(false); });
+  matchMedia('(min-width:761px)').addEventListener('change', m => { if (m.matches) setMenu(false); });
+
+  const hdr = document.querySelector('header');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), {passive: true});
+
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // puhelimen alapalkki näkyviin vasta kun herokohdan painikkeet ovat poissa näkyvistä
+  const bar = document.querySelector('.callbar'), ctas = document.querySelector('.hero-ctas');
+  new IntersectionObserver(([en]) => bar.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0)).observe(ctas);
+
+  // lomake: luonnosversio ei lähetä mitään, joten kerrotaan se rehellisesti
+  const form = document.getElementById('lomake'), status = document.getElementById('lomake-tila');
+  form.addEventListener('submit', ev => {
+    if (!form.dataset.endpoint) { ev.preventDefault(); status.hidden = false; status.focus(); }
+  });
+
+  // tuuli: kevyet virtaviivat nousevat ylöspäin; vieritys venyttää ne puuskaksi
+  const cv = document.getElementById('wind'), hero = cv.parentElement, ctx = cv.getContext('2d');
+  const grid = hero.querySelector('.hero-grid');
+  const mq = matchMedia('(prefers-reduced-motion: reduce)');
+  let W = 0, H = 0, streaks = [], gust = 0, lastY = scrollY, running = false, visible = true, prev = 0, raf = 0;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const make = y => ({x: rnd(0, W), y: y ?? rnd(0, H), len: rnd(140, 320), amp: rnd(2, 6), ph: rnd(0, 6.28), sp: rnd(16, 34), w: rnd(1, 1.6), a: rnd(.08, .18)});
+  function size() {
+    const w = hero.clientWidth, h = hero.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2);
+    cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (w !== W) { W = w; H = h; streaks = Array.from({length: Math.max(8, Math.round(W * H / 35000))}, () => make()); }
+    else H = h;
+  }
+  function frame(now) {
+    if (!running) return;
+    const dt = Math.min((now - (prev || now)) / 1000, .05); prev = now;
+    gust *= Math.pow(.05, dt);
+    ctx.clearRect(0, 0, W, H);
+    ctx.lineCap = 'round';
+    const stretch = 1 + gust / 350, boost = 1 + gust / 500;
+    for (const s of streaks) {
+      s.y -= (s.sp + gust * s.sp / 40) * dt; s.ph += dt * 1.2;
+      const L = s.len * stretch;
+      if (s.y + L < 0) Object.assign(s, make(H + rnd(0, 80)));
+      const g = ctx.createLinearGradient(0, s.y, 0, s.y + L);
+      const a = Math.min(s.a * boost, .32);
+      g.addColorStop(0, 'rgba(14,124,134,0)'); g.addColorStop(.4, `rgba(14,124,134,${a})`); g.addColorStop(1, 'rgba(14,124,134,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = s.w; ctx.beginPath();
+      for (let i = 0; i <= 10; i++) { const t = i / 10, y = s.y + t * L, x = s.x + Math.sin(s.ph + t * 2.4) * s.amp; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+      ctx.stroke();
+    }
+    raf = requestAnimationFrame(frame);
+  }
+  function update() {
+    const want = visible && !mq.matches;
+    if (want && !running) { running = true; prev = 0; raf = requestAnimationFrame(frame); }
+    if (!want && running) { running = false; cancelAnimationFrame(raf); ctx.clearRect(0, 0, W, H); }
+  }
+  addEventListener('resize', size); size();
+  new IntersectionObserver(([en]) => { visible = en.isIntersecting; update(); }).observe(hero);
+  mq.addEventListener('change', () => { update(); applyLift(); });
+  let lastP = -1;
+  function applyLift() {
+    // herokohta nousee kevyesti vasta kun siitä on vieritetty ohi lähes puolet
+    const p = mq.matches ? 0 : Math.min(Math.max((scrollY - H * .4) / (H * .6), 0), 1);
+    if (p === lastP) return; lastP = p;
+    grid.style.transform = p ? `translateY(${-p * 40}px)` : '';
+    grid.style.opacity = p ? 1 - p * .5 : '';
+  }
+  addEventListener('scroll', () => {
+    const dy = scrollY - lastY; lastY = scrollY;
+    if (running) gust = Math.min(gust + Math.abs(dy) * .8, 600);
+    applyLift();
+  }, {passive: true});
+})();
 </script>
-<style>video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls{display:none!important;-webkit-appearance:none}</style><script>(function(){var vs=[].slice.call(document.querySelectorAll("video"));function go(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");var p=v.play();if(p&&p.catch)p.catch(function(){});}vs.forEach(function(v){if(v.preload!=="auto")v.preload="auto";go(v);v.addEventListener("loadeddata",function(){go(v)});v.addEventListener("pause",function(){if(!document.hidden&&!v.ended)setTimeout(function(){go(v)},300)});});function kick(){vs.forEach(go);}["touchstart","touchend","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});document.addEventListener("visibilitychange",function(){if(!document.hidden)kick()});if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)go(x.target)})});vs.forEach(function(v){io.observe(v)})}})();</script>
-<script src="mail.js" defer></script>
 </body>
 </html>
