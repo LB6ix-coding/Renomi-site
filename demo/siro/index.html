@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Siro Studio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..700&display=swap">
+<style>
+/* Single light look on purpose (decided 25.10.). Layout: photo hero for the salon, then the price menu that builds a booking, the nail colour try-on as its own section, gallery, gift card, contact + booking form. */
+:root{
+  --bg:#f3f2f4;        /* cool porcelain */
+  --surface:#ffffff;
+  --ink:#1d1a21;       /* aubergine black */
+  --ink-2:#5d5763;
+  --line:#e3e0e6;
+  --lacquer:#a3133a;   /* the one accent: cherry gel */
+  --lacquer-ink:#ffffff;
+  --blush:#f3e6e9;
+  --ok:#2f7a55;
+  --display:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;
+  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:16px;
+}
+:root{color-scheme:light}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.02;letter-spacing:-.02em;text-wrap:balance}
+h1{font-size:clamp(2.3rem,5.2vw,4rem);font-weight:700;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(1.9rem,3.6vw,2.9rem);font-weight:700;font-variation-settings:"opsz" 72}
+h3{font-size:1.15rem;font-weight:650;letter-spacing:-.01em}
+p{margin:0}
+.lead{color:var(--ink-2);font-size:1.1rem;max-width:56ch}
+.kicker{font-size:.78rem;font-weight:650;letter-spacing:.14em;text-transform:uppercase;color:var(--lacquer)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lacquer);outline-offset:2px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 1.3rem;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:650 1rem var(--body);cursor:pointer;text-decoration:none;transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--lacquer);border-color:var(--lacquer);color:var(--lacquer-ink)}
+.btn.dark{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+section{padding-block:clamp(56px,8vw,104px)}
+section,[id]{scroll-margin-top:calc(80px + env(safe-area-inset-top,0px))}
+.sec-head{display:grid;gap:12px;margin-bottom:32px;max-width:700px}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:1.4rem;min-height:66px}
+.logo{font-family:var(--display);font-weight:700;font-size:1.6rem;letter-spacing:-.04em;text-decoration:none;display:flex;align-items:baseline;gap:.15rem}
+.logo i{display:inline-block;width:.42em;height:.62em;background:var(--lacquer);border-radius:50% 50% 46% 46%/62% 62% 38% 38%;transform:translateY(-.05em) rotate(8deg)}
+.nav ul{display:flex;gap:1.3rem;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{text-decoration:none;font-weight:550;color:var(--ink-2)}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{min-height:42px}
+.open{display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;font-weight:600;color:var(--ink-2);white-space:nowrap}
+.open::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ink-2)}
+.open.yes{color:var(--ok)}.open.yes::before{background:var(--ok);box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 20%,transparent)}
+@media (max-width:900px){.nav ul{display:none}.nav .open{margin-left:auto}}
+@media (max-width:440px){.nav .open{display:none}.nav .btn{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(40px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,56px);align-items:center}
+@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero-copy{display:grid;gap:20px}
+.hero-copy h1 em{font-style:normal;color:var(--lacquer)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.facts{display:flex;flex-wrap:wrap;gap:8px}
+.facts span{font-size:.88rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.hero-pic{position:relative;padding-bottom:12%}
+.hero-pic figure{margin:0;border-radius:28px;overflow:hidden;max-width:100%}
+.hero-pic img,.hero-pic video{display:block;width:100%;height:100%;object-fit:cover}
+.hero-pic .a{aspect-ratio:5/4}
+.hero-pic .b{position:absolute;right:-6px;bottom:0;width:36%;aspect-ratio:4/5;border:6px solid var(--bg);border-radius:22px;box-shadow:0 20px 40px -20px rgba(20,10,20,.45)}
+@media (max-width:900px){.hero-pic .b{right:6px}}
+
+/* menu */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.tabs button{min-height:44px;padding:0 1.1rem;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:650 .95rem var(--body);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.menu-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:860px){.menu-grid{grid-template-columns:minmax(0,1fr)}}
+.menu{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.menu li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px 18px;align-items:center;padding:16px 18px;border-top:1px solid var(--line)}
+.menu li:first-child{border-top:0}
+.menu .nm{font-weight:650}
+.menu .du{display:block;font-size:.85rem;color:var(--ink-2);font-weight:500}
+.menu .pr{font-family:var(--display);font-weight:650;font-size:1.15rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.add{min-height:40px;min-width:92px;padding:0 .9rem;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:650 .88rem var(--body);cursor:pointer}
+.add[aria-pressed="true"]{background:var(--lacquer);border-color:var(--lacquer);color:var(--lacquer-ink)}
+@media (max-width:520px){.menu li{grid-template-columns:minmax(0,1fr) auto}.menu .add{grid-column:1/-1;justify-self:start}}
+.basket{position:sticky;top:90px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:12px}
+.basket h3{display:flex;justify-content:space-between;align-items:baseline}
+.basket ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.93rem}
+.basket li{display:flex;justify-content:space-between;gap:10px}
+.basket .empty{color:var(--ink-2);font-size:.93rem}
+.tot{display:flex;justify-content:space-between;border-top:1px dashed var(--line);padding-top:10px;font-weight:650}
+.tot b{font-family:var(--display);font-size:1.35rem;font-variant-numeric:tabular-nums}
+.note{font-size:.82rem;color:var(--ink-2)}
+
+/* try-on */
+.tryon{background:var(--surface);border-block:1px solid var(--line)}
+.tryon .wrap{max-width:1080px}
+.try{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:14px;align-items:stretch}
+@media (max-width:860px){.try{grid-template-columns:minmax(0,1fr)}}
+.canvas-box{position:relative;border-radius:20px;overflow:hidden;background:var(--bg);aspect-ratio:1168/880;max-width:100%}
+.canvas-box canvas,.canvas-box img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.canvas-box .ph{object-fit:cover}
+.pill{position:absolute;left:12px;bottom:12px;display:flex;gap:4px;padding:4px;border-radius:999px;background:color-mix(in srgb,var(--surface) 82%,transparent);backdrop-filter:blur(6px);border:1px solid var(--line)}
+.pill button{min-height:36px;padding:0 .85rem;border:0;border-radius:999px;background:transparent;color:var(--ink);font:650 .84rem var(--body);cursor:pointer}
+.pill button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.hint{position:absolute;right:12px;top:12px;font-size:.8rem;font-weight:600;padding:5px 11px;border-radius:999px;background:color-mix(in srgb,var(--surface) 82%,transparent);border:1px solid var(--line)}
+.ctrl{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.label{font-size:.8rem;font-weight:650;color:var(--ink-2);margin-bottom:8px;display:flex;justify-content:space-between}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips button{min-height:36px;padding:0 .8rem;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:650 .86rem var(--body);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.sws{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:12px 6px}
+.sw{appearance:none;border:0;background:none;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;font:500 .72rem/1.2 var(--body);color:var(--ink-2);text-align:center;min-width:0}
+.sw .n{width:30px;height:44px;border-radius:50% 50% 46% 46%/62% 62% 38% 38%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.14),0 2px 4px rgba(0,0,0,.12);transition:transform .15s}
+.sw:hover .n{transform:translateY(-2px)}
+.sw[aria-pressed="true"] .n{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--ink)}
+.sw[aria-pressed="true"]{color:var(--ink);font-weight:650}
+.readout{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;display:grid;gap:10px}
+.readout .nm{font-family:var(--display);font-weight:650;font-size:1.25rem}
+.readout .meta{font-size:.84rem;color:var(--ink-2)}
+.readout .btn{width:100%}
+
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.gal figure{margin:0;position:relative;border-radius:18px;overflow:hidden;max-width:100%}
+.gal img{display:block;width:100%;height:100%;object-fit:cover}
+.gal figcaption{position:absolute;left:10px;bottom:10px;font-size:.8rem;font-weight:650;padding:5px 10px;border-radius:999px;background:color-mix(in srgb,var(--surface) 86%,transparent);color:var(--ink)}
+.g1{grid-column:span 3;aspect-ratio:4/3}.g2{grid-column:span 3;aspect-ratio:4/3}
+.g3,.g4,.g5{grid-column:span 2;aspect-ratio:4/5}
+@media (max-width:700px){.gal{grid-template-columns:repeat(2,minmax(0,1fr))}.g1,.g2{grid-column:span 2}.g3,.g4{grid-column:span 1}.g5{grid-column:span 2;aspect-ratio:16/9}}
+
+/* gift + contact */
+.gift{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;background:var(--blush);border-radius:24px;padding:clamp(22px,4vw,40px)}
+@media (max-width:700px){.gift{grid-template-columns:minmax(0,1fr)}}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px;align-items:start}
+@media (max-width:860px){.contact{grid-template-columns:minmax(0,1fr)}}
+.info{display:grid;gap:14px}
+.info b{display:block;font-size:.78rem;color:var(--ink-2);font-weight:650;letter-spacing:.04em}
+.hours{width:100%;border-collapse:collapse;font-size:.95rem;font-variant-numeric:tabular-nums}
+.hours td{padding:5px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{font-weight:700}
+form{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
+.f{display:grid;gap:6px;min-width:0}.f.full{grid-column:1/-1}
+.f label{font-size:.86rem;font-weight:650}
+.f input,.f select,.f textarea{min-height:48px;padding:10px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:400 1rem var(--body);width:100%}
+.f textarea{min-height:92px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--ink)}
+.chosen{background:var(--bg);border-radius:12px;padding:10px 12px;font-size:.93rem;min-height:48px}
+.msg{grid-column:1/-1;border-radius:12px;padding:12px 14px;font-weight:600;background:color-mix(in srgb,var(--ok) 15%,var(--surface))}
+.msg.warn{background:color-mix(in srgb,var(--lacquer) 14%,var(--surface))}
+form .btn{grid-column:1/-1}
+footer{border-top:1px solid var(--line);padding-block:28px 40px;font-size:.86rem;color:var(--ink-2)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+/* ---- micro-interactions ---- */
+.btn:active,.add:active,.chips button:active,.tabs button:active,.pill button:active{transform:scale(.96)}
+.btn,.add,.chips button,.tabs button,.pill button{transition:transform .15s,background-color .2s,color .2s,border-color .2s}
+/* logo: the polish drop falls in, gets a gloss glint, wiggles on hover */
+.logo i{position:relative;overflow:hidden;transform-origin:50% 0;animation:drop-in .9s cubic-bezier(.3,1.5,.5,1) .15s both}
+.logo i::after{content:"";position:absolute;inset:-20% auto -20% -60%;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:glint 3.2s ease-in-out 1.2s infinite}
+.logo:hover i{animation:wiggle .6s ease}
+@keyframes drop-in{0%{transform:translateY(-.9em) rotate(8deg) scaleY(.6);opacity:0}60%{transform:translateY(.05em) rotate(8deg) scaleY(1.12);opacity:1}100%{transform:translateY(-.05em) rotate(8deg) scaleY(1)}}
+@keyframes glint{0%,70%{left:-60%}85%,100%{left:130%}}
+@keyframes wiggle{0%,100%{transform:translateY(-.05em) rotate(8deg)}30%{transform:translateY(-.05em) rotate(-10deg)}60%{transform:translateY(-.05em) rotate(16deg)}}
+/* hero photo settles in */
+.hero-pic .a img,.hero-pic .a video{animation:settle 1.6s cubic-bezier(.2,.7,.2,1) both}
+.hero-pic .b{animation:float-in 1s cubic-bezier(.2,.8,.2,1) .35s both}
+@keyframes settle{from{transform:scale(1.06)}to{transform:none}}
+@keyframes float-in{from{transform:translateY(24px) rotate(2deg)}to{transform:none}}
+/* add-to-booking pop + basket bump */
+.add.pop{animation:pop .35s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.12)}100%{transform:scale(1)}}
+.basket.bump{animation:bump .4s ease}
+@keyframes bump{0%,100%{box-shadow:0 0 0 0 transparent}40%{box-shadow:0 0 0 4px color-mix(in srgb,var(--lacquer) 30%,transparent)}}
+.menu li{transition:background-color .2s}
+.menu li:hover{background:color-mix(in srgb,var(--blush) 55%,transparent)}
+.menu.swap li{animation:row-in .35s cubic-bezier(.2,.8,.2,1) both}
+.menu.swap li:nth-child(2){animation-delay:.03s}.menu.swap li:nth-child(3){animation-delay:.06s}.menu.swap li:nth-child(4){animation-delay:.09s}.menu.swap li:nth-child(5){animation-delay:.12s}.menu.swap li:nth-child(6){animation-delay:.15s}
+@keyframes row-in{from{transform:translateY(8px)}to{transform:none}}
+/* swatches: picked like a polish bottle */
+.sw[aria-pressed="true"] .n{animation:lift .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes lift{0%{transform:translateY(0)}45%{transform:translateY(-6px) rotate(-6deg)}100%{transform:translateY(0)}}
+.sw .n{position:relative}
+.sw.spark .n::before,.sw.spark .n::after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 6px 2px rgba(255,255,255,.9);top:-6px;left:50%;animation:spark .7s ease-out forwards}
+.sw.spark .n::after{top:40%;left:-8px;animation-delay:.12s}
+@keyframes spark{0%{transform:scale(0);opacity:1}60%{transform:scale(1.2);opacity:1}100%{transform:scale(.2) translateY(-8px);opacity:0}}
+/* photo switch crossfade */
+.canvas-box canvas{transition:opacity .25s}.canvas-box.loading canvas{opacity:.35}
+/* sections drift up a little as they come into view (always visible; only position animates) */
+.rise{transform:translateY(18px);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.rise.in{transform:none}
+/* form success check */
+.msg .chk{display:inline-block;width:18px;height:18px;margin-right:8px;vertical-align:-3px}
+.msg .chk path{stroke-dasharray:24;stroke-dashoffset:24;animation:draw .5s ease .1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rise{transform:none}}
+</style>
+
+</head>
+<body>
+<header lang="fi">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Siro Studio, etusivu">siro<i></i></a>
+    <ul>
+      <li><a href="#palvelut">Palvelut ja hinnat</a></li>
+      <li><a href="#kynsivarit">Kynsivärit</a></li>
+      <li><a href="#galleria">Galleria</a></li>
+      <li><a href="#yhteys">Yhteystiedot</a></li>
+    </ul>
+    <span class="open" id="open-chip">Aukioloajat</span>
+    <a class="btn primary" href="#varaa">Varaa aika</a>
+  </div>
+</header>
+
+<main id="top" lang="fi">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Kauneushoitola Tapiolassa</p>
+        <h1>Kynnet, ripset ja kasvohoidot <em>yhdestä paikasta.</em></h1>
+        <p class="lead">Geelilakkaukset, rakennekynnet, ripsien kestotaivutus, kulmat ja kasvohoidot rauhallisessa studiossa Tapiolan keskustassa. Näet hinnat ja kestot heti, ja varaat ajan muutamalla napautuksella.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#palvelut">Valitse hoito</a>
+          <a class="btn" href="#kynsivarit">Kokeile kynsivärejä</a>
+        </div>
+        <div class="facts" aria-label="Siro lyhyesti">
+          <span>Ma–pe 9–19, la 10–16</span><span>2 min Tapiolan metroasemalta</span><span>Lahjakortit</span>
+        </div>
+      </div>
+      <div class="hero-pic">
+        <figure class="a"><video id="hero-vid" autoplay muted loop playsinline preload="auto" poster="img/hero.webp" width="1100" height="880" aria-label="Kynsiteknikko lakkaa asiakkaan kynsiä vaaleanpunaisella geelilakalla"><source src="img/hero-loop.mp4" type="video/mp4"></video></figure>
+        <figure class="b"><img src="img/chrome.webp" alt="Helmiäiskromi lyhyissä kynsissä, käsi lepää neuleen päällä" width="896" height="1120"></figure>
+      </div>
+    </div>
+  </div>
+
+  <section id="palvelut" style="padding-top:clamp(24px,4vw,48px)">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Palvelut ja hinnat</p>
+        <h2>Valitse hoidot, näet heti hinnan ja keston</h2>
+        <p class="lead">Lisää hoidot varaukseen. Lähetät pyynnön lopuksi yhdellä lomakkeella, ja vahvistamme ajan tekstiviestillä.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Hoitoryhmät">
+        <button role="tab" id="t-kynnet" aria-selected="true" aria-controls="menu">Kynnet</button>
+        <button role="tab" id="t-ripset" aria-selected="false" aria-controls="menu">Ripset ja kulmat</button>
+        <button role="tab" id="t-kasvot" aria-selected="false" aria-controls="menu">Kasvohoidot</button>
+      </div>
+      <div class="menu-grid">
+        <ul class="menu" id="menu" role="tabpanel" aria-labelledby="t-kynnet"></ul>
+        <aside class="basket" aria-live="polite">
+          <h3>Varauksesi <span class="note" id="b-count"></span></h3>
+          <ul id="b-list"></ul>
+          <p class="empty" id="b-empty">Et ole vielä valinnut hoitoja. Lisää hoito listasta.</p>
+          <div class="tot"><span id="b-time">0 min</span><b id="b-sum">0&nbsp;€</b></div>
+          <a class="btn primary" href="#varaa">Jatka varaukseen</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="kynsivarit" class="tryon">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Kokeile kynsivärejä</p>
+        <h2>Katso sävy kynsillä ennen kuin tulet</h2>
+        <p class="lead">Valitse pinta ja sävy. Kaikki värit löytyvät studiosta, ja voit varata geelilakkauksen suoraan valitsemallasi värillä.</p>
+      </div>
+      <div class="try">
+        <div class="canvas-box">
+          <img class="ph" id="ph" src="img/hands-2.webp" alt="" width="1168" height="880">
+          <canvas id="cv" width="1168" height="880" role="img" aria-label="Kädet valitulla kynsivärillä"></canvas>
+          <span class="hint" id="hint" hidden>Liikuta osoitinta kynsien päällä</span>
+          <div class="pill" role="group" aria-label="Kuva">
+            <button type="button" data-photo="hands-2" aria-pressed="true">Molemmat kädet</button>
+            <button type="button" data-photo="hand-1" aria-pressed="false">Lähikuva</button>
+          </div>
+        </div>
+        <div class="ctrl" aria-label="Kynsivärin valinta">
+          <div>
+            <div class="label"><span>Pinta</span></div>
+            <div class="chips" id="fins" role="group" aria-label="Pinta"></div>
+          </div>
+          <div>
+            <div class="label"><span>Sävy</span><span id="sw-n"></span></div>
+            <div class="sws" id="sws" role="group" aria-label="Sävy"></div>
+          </div>
+          <div class="readout" aria-live="polite">
+            <div><div class="nm" id="r-nm">Kiiltävä · Kirsikka</div><div class="meta" id="r-meta">SI-104 · geelilakkaus 55&nbsp;€, 60 min</div></div>
+            <button type="button" class="btn primary" id="r-book">Varaa tällä värillä</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galleria">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Galleria</p>
+        <h2>Studiolta</h2>
+      </div>
+      <div class="gal">
+        <figure class="g1"><img src="img/lashes.webp" alt="Ripsien kestotaivutus käynnissä, ripset silikonirullalla" width="1168" height="880" loading="lazy"><figcaption>Ripsien kestotaivutus</figcaption></figure>
+        <figure class="g2"><img src="img/facial.webp" alt="Kasvohoito, kosmetologi levittää savinaamiota siveltimellä" width="1168" height="880" loading="lazy"><figcaption>Kasvohoito</figcaption></figure>
+        <figure class="g3"><img src="img/brows.webp" alt="Laminoidut kulmakarvat harjataan ylös" width="896" height="1120" loading="lazy"><figcaption>Kulmien laminointi</figcaption></figure>
+        <figure class="g4"><img src="img/chrome.webp" alt="Helmiäiskromi lyhyissä kynsissä" width="896" height="1120" loading="lazy"><figcaption>Helmiäiskromi</figcaption></figure>
+        <figure class="g5"><img src="img/interior.webp" alt="Valoisa studio, kaksi manikyyripöytää ja hoitopöytä" width="1024" height="688" loading="lazy"><figcaption>Studio Tapiolassa</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="gift">
+        <div style="display:grid;gap:10px">
+          <p class="kicker">Lahjakortti</p>
+          <h2 style="font-size:clamp(1.6rem,3vw,2.3rem)">Anna lahjaksi hetki itselle</h2>
+          <p class="lead">Lahjakortin arvon valitset itse 25–200&nbsp;€ väliltä. Saat sen studiolta tai sähköpostina, ja se on voimassa 12 kuukautta.</p>
+        </div>
+        <a class="btn dark" href="#varaa" id="gift-btn">Tilaa lahjakortti</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="yhteys" style="padding-top:0">
+    <div class="wrap contact" id="varaa">
+      <div class="info">
+        <p class="kicker">Yhteystiedot</p>
+        <h2>Varaa aika</h2>
+        <p class="lead">Lähetä ajanvarauspyyntö, niin vahvistamme ajan tekstiviestillä saman päivän aikana.</p>
+        <div><b>Osoite</b>Esimerkkikuja 4, 02100 Espoo<br>2 min Tapiolan metroasemalta</div>
+        <div><b>Puhelin</b>040 765 1122</div>
+        <div><b>Sähköposti</b>hei@sirostudio.fi</div>
+        <table class="hours" aria-label="Aukioloajat"><tbody id="hours"></tbody></table>
+      </div>
+      <form id="form" novalidate>
+        <div class="f full"><label>Valitut hoidot</label><div class="chosen" id="f-chosen">Ei valittuja hoitoja. Voit myös kertoa toiveesi viestissä.</div></div>
+        <div class="f"><label for="f-name">Nimi</label><input id="f-name" autocomplete="name" required></div>
+        <div class="f"><label for="f-phone">Puhelin</label><input id="f-phone" type="tel" autocomplete="tel" required></div>
+        <div class="f"><label for="f-day">Toivottu päivä</label><input id="f-day" type="date"></div>
+        <div class="f"><label for="f-time">Toivottu aika</label><select id="f-time"><option>Mikä tahansa</option><option>Aamupäivä 9–12</option><option>Iltapäivä 12–16</option><option>Ilta 16–19</option></select></div>
+        <div class="f full"><label for="f-msg">Viesti</label><textarea id="f-msg" placeholder="Esim. haluan pitkät mantelinmuotoiset kynnet"></textarea></div>
+        <button class="btn dark" type="submit">Lähetä ajanvarauspyyntö</button>
+        <p class="note" style="grid-column:1/-1">Käytämme tietoja vain ajanvaraukseen.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer lang="fi">
+  <div class="wrap">
+    <span>Siro Studio on kuvitteellinen demoyritys. Hinnat ovat esimerkkejä. Sivun teki Marktic.</span>
+    <span>Esimerkkikuja 4, 02100 Espoo · 040 765 1122</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+const NB=' ';
+const eur=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,NB)+NB+'€';
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===== opening hours (0=Sun) ===== */
+const HOURS={1:[9,19],2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[10,16],0:null};
+const DAYS=['Sunnuntai','Maanantai','Tiistai','Keskiviikko','Torstai','Perjantai','Lauantai'];
+function hoursUI(){
+  const now=new Date(), d=now.getDay(), h=now.getHours()+now.getMinutes()/60;
+  const tb=$('hours'); tb.innerHTML='';
+  [1,2,3,4,5,6,0].forEach(i=>{const tr=document.createElement('tr'); if(i===d) tr.className='today';
+    tr.innerHTML=`<td>${DAYS[i]}</td><td>${HOURS[i]?HOURS[i][0]+'–'+HOURS[i][1]:'suljettu'}</td>`; tb.appendChild(tr);});
+  const c=$('open-chip'), t=HOURS[d];
+  if(t&&h>=t[0]&&h<t[1]){c.className='open yes'; c.textContent='Avoinna nyt, '+t[0]+'–'+t[1];}
+  else{ let n=d,k=0; do{n=(n+1)%7;k++}while(!HOURS[n]&&k<7);
+    const today=t&&h<t[0]; c.className='open'; c.textContent=today?'Avataan tänään klo '+t[0]:'Suljettu, avataan '+(k===1?'huomenna':DAYS[n].toLowerCase()+'na')+' klo '+HOURS[n][0]; }
+}
+hoursUI(); setInterval(hoursUI,60000);
+{ const hv=$('hero-vid'); if(hv&&reduce){ hv.removeAttribute('autoplay'); hv.pause(); } }
+
+/* ===== menu + booking ===== */
+const MENU={
+ kynnet:[['Geelilakkaus käsiin',60,55],['Geelilakkaus ja vahvistus',75,65],['Rakennekynnet, uudet',120,89],['Rakennekynsien täyttö',90,69],['Kynsitaide kahteen kynteen',15,12],['Geelilakan poisto',20,20]],
+ ripset:[['Ripsien kestotaivutus ja värjäys',60,75],['Kulmien laminointi ja värjäys',45,65],['Kulmien muotoilu ja värjäys',30,35],['Ripsienpidennykset, uudet',120,99],['Ripsienpidennysten huolto',60,59]],
+ kasvot:[['Kasvohoito 60 min',60,89],['Syväpuhdistava kasvohoito',75,105],['Kosteuttava kasvohoito',60,95],['Kasvojen hieronta',30,45]]
+};
+const picked=new Map(); let tab='kynnet'; let polish=null;
+let shownSum=0, sumRAF=null;
+function countTo(el,to){ if(reduce||to===shownSum){ shownSum=to; el.textContent=eur(to); return; }
+  const from=shownSum, t0=performance.now(); cancelAnimationFrame(sumRAF);
+  const step=now=>{ const k=Math.min(1,(now-t0)/450), e=1-Math.pow(1-k,3), v=Math.round(from+(to-from)*e); el.textContent=eur(v); if(k<1) sumRAF=requestAnimationFrame(step); else shownSum=to; };
+  sumRAF=requestAnimationFrame(step); }
+function renderMenu(){
+  const ul=$('menu'); ul.innerHTML=''; ul.setAttribute('aria-labelledby','t-'+tab);
+  MENU[tab].forEach(([n,m,p])=>{const li=document.createElement('li'); const on=picked.has(n);
+    li.innerHTML=`<div><span class="nm">${n}</span><span class="du">${m} min</span></div><span class="pr">${eur(p)}</span>`;
+    const b=document.createElement('button'); b.type='button'; b.className='add'; b.setAttribute('aria-pressed',on); b.textContent=on?'Valittu ✓':'+ Lisää';
+    b.setAttribute('aria-label',(on?'Poista ':'Lisää ')+n);
+    b.onclick=()=>{ on?picked.delete(n):picked.set(n,{m,p}); renderMenu(); renderBasket(); if(!on){ const nb=[...$('menu').querySelectorAll('.add')].find(x=>x.getAttribute('aria-label')==='Poista '+n); nb&&nb.classList.add('pop'); const bk=document.querySelector('.basket'); bk.classList.remove('bump'); void bk.offsetWidth; bk.classList.add('bump'); } };
+    li.appendChild(b); ul.appendChild(li);});
+}
+function renderBasket(){
+  const ul=$('b-list'); ul.innerHTML=''; let mm=0,pp=0;
+  picked.forEach((v,n)=>{mm+=v.m;pp+=v.p; const li=document.createElement('li'); li.innerHTML=`<span>${n}${n===MENU.kynnet[0][0]&&polish?', '+polish:''}</span><span>${eur(v.p)}</span>`; ul.appendChild(li);});
+  $('b-empty').hidden=picked.size>0; $('b-count').textContent=picked.size?picked.size+' hoitoa':'';
+  const hh=Math.floor(mm/60), m2=mm%60; $('b-time').textContent=mm?(hh?hh+' h ':'')+(m2?m2+' min':''):'0 min';
+  countTo($('b-sum'),pp);
+  $('f-chosen').textContent=picked.size?[...picked.keys()].map(n=>n+(n===MENU.kynnet[0][0]&&polish?' ('+polish+')':'')).join(', ')+' · yhteensä '+eur(pp)+', '+$('b-time').textContent:'Ei valittuja hoitoja. Voit myös kertoa toiveesi viestissä.';
+}
+['kynnet','ripset','kasvot'].forEach(k=>{ $('t-'+k).onclick=()=>{ tab=k; document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.id==='t-'+k)); renderMenu(); const m=$('menu'); m.classList.remove('swap'); void m.offsetWidth; m.classList.add('swap'); }; });
+renderMenu(); renderBasket();
+$('gift-btn').addEventListener('click',()=>{ $('f-msg').value='Haluaisin tilata lahjakortin, arvo: '; });
+$('form').addEventListener('submit',e=>{
+  e.preventDefault(); const f=e.target; let w=f.querySelector('.msg'); if(!w){w=document.createElement('p'); w.className='msg'; f.prepend(w);}
+  if(!$('f-name').value.trim()||!$('f-phone').value.trim()){ w.className='msg warn'; w.textContent='Lisää vielä nimi ja puhelinnumero, niin voimme vahvistaa ajan.'; (!$('f-name').value.trim()?$('f-name'):$('f-phone')).focus(); return; }
+  w.className='msg'; w.innerHTML='<svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Kiitos! Tämä on demosivu, joten pyyntöä ei lähetetty. Oikealla sivulla se menisi suoraan salongille.';
+});
+
+/* ================= SALONGIN VÄRIT (edit per client) =================
+   FIN = finishes (pinnat). SW = shades per finish: [name, hex, the salon's own code].
+   Add a client's polish colours by adding lines to the right list.
+   =================================================================== */
+const FIN={gloss:'Kiiltävä',matte:'Matta',chrome:'Kromi',cat:'Cat eye',glitter:'Glitter',french:'Ranskalainen'};
+const SW={
+ gloss:[['Kirsikka','#8f0f24','SI-104'],['Maitoinen roosa','#e9cfcd','SI-112'],['Nude','#c99a86','SI-118'],['Korallin punainen','#d9473b','SI-121'],['Laventeli','#b6a3d6','SI-130'],['Laivasto','#1f2846','SI-141'],['Oliivi','#5d6141','SI-150'],['Musta','#141216','SI-199']],
+ matte:[['Mokka','#6c4b3e','SM-204'],['Salvia','#8b9b85','SM-211'],['Viini','#5a1629','SM-220'],['Musta','#18161a','SM-299']],
+ chrome:[['Helmi','#efe8ea','SC-301'],['Hopea','#c7cacf','SC-310'],['Ruusukulta','#d5a08e','SC-320'],['Kulta','#d2ab5a','SC-330']],
+ cat:[['Smaragdi','#0f4d3c','SE-401'],['Yönsininen','#14204f','SE-410'],['Burgundi','#5b0f22','SE-420']],
+ glitter:[['Samppanja','#d9c29a','SG-501'],['Hopea','#b9bcc3','SG-510'],['Ruusu','#d68ea0','SG-520']],
+ french:[['Klassinen','#efd2cc','SF-601'],['Musta kärki','#e8cfc8','SF-610'],['Kultareuna','#ecd3cb','SF-620']]
+};
+const FRENCH_TIP={'Klassinen':'#f7f6f3','Musta kärki':'#151316','Kultareuna':'#d2ab5a'};
+const st={fin:'gloss',idx:0,photo:'hands-2'};
+function swBg(fin,hex,name){
+  if(fin==='chrome') return `linear-gradient(160deg,#fff 0%,${hex} 35%,#6b6b70 62%,${hex} 82%,#fff 100%)`;
+  if(fin==='cat') return `linear-gradient(100deg,${hex} 30%,#d9ffe9 48%,${hex} 66%)`;
+  if(fin==='glitter') return `radial-gradient(circle at 30% 30%,#fff 0 1.5px,transparent 2px),radial-gradient(circle at 70% 60%,#fff 0 1.2px,transparent 2px),radial-gradient(circle at 45% 80%,#fff 0 1px,transparent 1.6px),${hex}`;
+  if(fin==='french') return `linear-gradient(0deg,${FRENCH_TIP[name]} 0 26%,${hex} 30%)`;
+  if(fin==='matte') return hex;
+  return `radial-gradient(ellipse at 35% 25%,rgba(255,255,255,.55) 0 18%,transparent 40%),${hex}`;
+}
+const cur=()=>{const s=SW[st.fin][st.idx]; return {name:s[0],hex:s[1],code:s[2]};};
+function renderFins(){ const el=$('fins'); el.innerHTML='';
+  Object.entries(FIN).forEach(([k,l])=>{const b=document.createElement('button'); b.type='button'; b.textContent=l; b.setAttribute('aria-pressed',k===st.fin);
+    b.onclick=()=>{st.fin=k; st.idx=0; renderFins(); renderSws(); paint();}; el.appendChild(b);}); }
+function renderSws(){ const el=$('sws'); el.innerHTML='';
+  SW[st.fin].forEach((s,i)=>{const b=document.createElement('button'); b.type='button'; b.className='sw'; b.setAttribute('aria-pressed',i===st.idx); b.setAttribute('aria-label',s[0]);
+    b.innerHTML=`<span class="n" style="background:${swBg(st.fin,s[1],s[0])}"></span>${s[0]}`;
+    b.onclick=()=>{st.idx=i; renderSws(); paint(); if(st.fin==='glitter'&&!reduce){ const nb=$('sws').children[i]; nb.classList.add('spark'); setTimeout(()=>nb.classList.remove('spark'),800);} }; el.appendChild(b);});
+  $('sw-n').textContent=SW[st.fin].length+' sävyä'; $('hint').hidden=st.fin!=='cat'; }
+function readout(){ const c=cur(); $('r-nm').textContent=FIN[st.fin]+' · '+c.name; $('r-meta').textContent=c.code+' · geelilakkaus '+eur(55)+', 60 min'; }
+$('r-book').onclick=()=>{ const c=cur(); polish=FIN[st.fin]+' '+c.name.toLowerCase()+', '+c.code; picked.set(MENU.kynnet[0][0],{m:60,p:55}); tab='kynnet';
+  document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.id==='t-kynnet')); renderMenu(); renderBasket();
+  $('varaa').scrollIntoView({behavior:reduce?'auto':'smooth'}); };
+
+/* ===== try-on renderer ===== */
+const cv=$('cv'), ctx=cv.getContext('2d',{willReadFrequently:true});
+let D=null, oldCol=null, newCol=null, anim=null, catP=0.5, catTarget=0.5;
+function loadImg(src){return new Promise((res,rej)=>{const i=new Image(); i.onload=()=>res(i); i.onerror=rej; i.src=src;});}
+function pixels(img){const c=document.createElement('canvas'); c.width=img.naturalWidth; c.height=img.naturalHeight; const x=c.getContext('2d',{willReadFrequently:true}); x.drawImage(img,0,0); return x.getImageData(0,0,c.width,c.height);}
+async function loadPhoto(name){
+  const [ph,nl,ed]=await Promise.all([loadImg('img/'+name+'.webp'),loadImg('img/'+name+'.nail.png'),loadImg('img/'+name+'.edge.png')]);
+  const P=pixels(ph), N=pixels(nl).data, E=pixels(ed).data;
+  cv.width=P.width; cv.height=P.height;
+  const idx=[]; for(let i=0;i<E.length;i+=4){ if(E[i+1]>2) idx.push(i); }
+  const n=idx.length, f=new Float32Array(n*5);
+  for(let k=0;k<n;k++){const i=idx[k]; f[k*5]=N[i]/255; f[k*5+1]=N[i+1]/255; f[k*5+2]=N[i+2]/255; f[k*5+3]=E[i]/255; f[k*5+4]=E[i+1]/255;}
+  const base=new Uint8ClampedArray(P.data);
+  D={P, base, idx:Int32Array.from(idx), f, n};
+  $('ph').src='img/'+name+'.webp';
+  oldCol=null; paint(true);
+}
+const hexRgb=h=>[parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255];
+function hash(k){let x=Math.sin(k*12.9898)*43758.5453; return x-Math.floor(x);}
+function shadeAll(out, fin, hex, name, catPos){
+  const c=hexRgb(hex), tip=FRENCH_TIP[name]?hexRgb(FRENCH_TIP[name]):null, f=D.f, n=D.n;
+  for(let k=0;k<n;k++){
+    const sh=f[k*5], hl=f[k*5+1], t=f[k*5+2], ac=f[k*5+3];
+    let r,g,b;
+    if(fin==='matte'){ const s=(0.5+(sh-0.5)*0.5)*2; r=c[0]*s; g=c[1]*s; b=c[2]*s; const h=hl*0.07; r+=(1-r)*h; g+=(1-g)*h; b+=(1-b)*h; }
+    else if(fin==='chrome'){ const pearl=name==='Helmi'; const s=Math.min(1,Math.max(0,0.5+(sh-0.5)*(pearl?2.4:3.2)));
+      const m=pearl?0.3+1.15*s:0.2+1.45*Math.pow(s,1.3); r=c[0]*m; g=c[1]*m; b=c[2]*m;
+      if(pearl){ const ir=(ac*0.55+t*0.35+sh*0.6), amp=0.045*(0.4+s); r+=Math.sin(ir*6.28)*amp; g+=Math.sin(ir*6.28+2.1)*amp; b+=Math.sin(ir*6.28+4.2)*amp; }
+      else { const band=Math.exp(-Math.pow(ac-0.38,2)/0.01)*0.55; r+=(1-r)*band; g+=(1-g)*band; b+=(1-b)*band; }
+      const h=Math.pow(hl,0.7); r+=(1-r)*h; g+=(1-g)*h; b+=(1-b)*h; }
+    else if(fin==='cat'){ const s=sh*2; r=c[0]*s*0.85; g=c[1]*s*0.85; b=c[2]*s*0.85; const d=ac-catPos, band=Math.exp(-d*d/0.012)*(0.35+0.65*Math.sin(Math.PI*Math.min(1,t*1.05)));
+      r+=band*(0.55+c[0]*0.6); g+=band*(0.75+c[1]*0.4); b+=band*(0.6+c[2]*0.5); const h=hl*0.9; r+=(1-r)*h; g+=(1-g)*h; b+=(1-b)*h; }
+    else if(fin==='glitter'){ const s=sh*2; r=c[0]*s; g=c[1]*s; b=c[2]*s; const q=hash(D.idx[k]);
+      if(q>0.9){ const a=(q-0.9)*10; r+= (1-r)*a; g+=(1-g)*a; b+=(1-b)*a; } else if(q<0.06){ r*=0.7; g*=0.7; b*=0.7; }
+      const h=hl*0.85; r+=(1-r)*h; g+=(1-g)*h; b+=(1-b)*h; }
+    else if(fin==='french'){ const e=2*ac-1, tb=0.74-0.16*e*e; const w=Math.min(1,Math.max(0,(t-tb)/0.035)); const s=sh*2;
+      r=(c[0]*(1-w)+tip[0]*w)*s; g=(c[1]*(1-w)+tip[1]*w)*s; b=(c[2]*(1-w)+tip[2]*w)*s; const h=hl*0.9; r+=(1-r)*h; g+=(1-g)*h; b+=(1-b)*h; }
+    else { const s=sh*2; r=c[0]*s; g=c[1]*s; b=c[2]*s; const h=hl*0.9; r+=(1-r)*h; g+=(1-g)*h; b+=(1-b)*h; }
+    out[k*3]=r; out[k*3+1]=g; out[k*3+2]=b;
+  }
+}
+function compose(prog){
+  const out=ctx.createImageData(D.P.width,D.P.height); out.data.set(D.base);
+  const o=out.data, f=D.f, idx=D.idx;
+  for(let k=0;k<D.n;k++){ const i=idx[k], a=f[k*5+4], t=f[k*5+2];
+    let w=1; if(prog<1&&oldCol){ w=Math.min(1,Math.max(0,(prog*1.15-t)/0.12)); }
+    const r=oldCol&&w<1?oldCol[k*3]*(1-w)+newCol[k*3]*w:newCol[k*3];
+    const g=oldCol&&w<1?oldCol[k*3+1]*(1-w)+newCol[k*3+1]*w:newCol[k*3+1];
+    const b=oldCol&&w<1?oldCol[k*3+2]*(1-w)+newCol[k*3+2]*w:newCol[k*3+2];
+    o[i]=D.base[i]*(1-a)+Math.min(1,r)*255*a; o[i+1]=D.base[i+1]*(1-a)+Math.min(1,g)*255*a; o[i+2]=D.base[i+2]*(1-a)+Math.min(1,b)*255*a; }
+  ctx.putImageData(out,0,0);
+}
+function paint(instant){
+  readout(); if(!D) return;
+  const c=cur(); const next=new Float32Array(D.n*3); shadeAll(next,st.fin,c.hex,c.name,catP);
+  if(newCol&&!instant&&!reduce){ oldCol=newCol; newCol=next; const t0=performance.now();
+    if(anim) cancelAnimationFrame(anim);
+    const step=now=>{ const p=Math.min(1,(now-t0)/650); compose(p); if(p<1) anim=requestAnimationFrame(step); else {oldCol=null; anim=null;} };
+    anim=requestAnimationFrame(step);
+  } else { newCol=next; oldCol=null; compose(1); }
+}
+// cat eye: the shimmer line follows the pointer, and drifts by itself when idle
+let catRAF=null, lastMove=0;
+cv.addEventListener('pointermove',e=>{ const r=cv.getBoundingClientRect(); catTarget=0.15+0.7*((e.clientX-r.left)/r.width); lastMove=performance.now(); kickCat(); });
+function kickCat(){ if(catRAF||st.fin!=='cat'||!D) return; catRAF=requestAnimationFrame(catLoop); }
+function catLoop(now){ catRAF=null; if(st.fin!=='cat'||anim) { if(st.fin==='cat') catRAF=requestAnimationFrame(catLoop); return; }
+  if(now-lastMove>1500&&!reduce) catTarget=0.5+0.3*Math.sin(now/900);
+  catP+= (catTarget-catP)*0.15; const c=cur(); shadeAll(newCol,'cat',c.hex,c.name,catP); compose(1);
+  if(!reduce) catRAF=requestAnimationFrame(catLoop); }
+const io=new IntersectionObserver(es=>{ if(es[0].isIntersecting) kickCat(); }); io.observe(cv);
+document.querySelectorAll('[data-photo]').forEach(b=>b.onclick=()=>{ document.querySelectorAll('[data-photo]').forEach(x=>x.setAttribute('aria-pressed',x===b)); st.photo=b.dataset.photo; const box=cv.parentElement; box.classList.add('loading'); loadPhoto(st.photo).then(()=>{ box.classList.remove('loading'); kickCat(); }); });
+const _paint=paint; paint=function(i){ _paint(i); kickCat(); };
+renderFins(); renderSws(); readout();
+// sections below the fold drift up into place (they stay visible the whole time)
+if('IntersectionObserver' in window && !reduce){
+  const els=[...document.querySelectorAll('.sec-head,.menu-grid,.try,.gal figure,.gift,.contact')].filter(e=>e.getBoundingClientRect().top>innerHeight);
+  els.forEach(e=>e.classList.add('rise'));
+  const ro=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); ro.unobserve(en.target);} }),{rootMargin:'0px 0px -8% 0px'});
+  els.forEach(e=>ro.observe(e));
+}
+loadPhoto('hands-2').catch(err=>{ console.error(err); cv.hidden=true; });
+})();
+</script>
+
+</body>
+</html>
