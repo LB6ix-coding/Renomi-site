@@ -27,7 +27,7 @@
 .hero .pl{margin:var(--s4) 0 0;display:flex;flex-wrap:wrap;color:var(--ink-2);font-size:var(--t-sm);font-weight:600} .hero .pl span{padding:6px 14px 6px 0;margin-right:14px;border-right:1px solid var(--line-2)} .hero .pl span:last-child{border:0;margin:0;padding-right:0} .hero .pl b{color:var(--ink);font-weight:700}
 .stage{position:relative;height:520px}
 .cap{position:absolute;left:0;top:100%;margin-top:var(--s2);color:var(--mut);font-size:var(--t-sm)}
-.stage .shot{position:absolute;left:0;top:24px;width:min(560px,86%);height:auto;border-radius:var(--r1);box-shadow:var(--shadow);border:1px solid var(--line)}
+.stage .shot{position:absolute;left:0;top:24px;width:min(560px,86%);height:auto;aspect-ratio:1200/750;object-fit:cover;display:block;background:#15171a;border-radius:var(--r1);box-shadow:var(--shadow);border:1px solid var(--line)}
 .stage .phone{position:absolute;right:0;bottom:0;width:210px;height:430px;border-radius:30px;background:#000;padding:8px;box-shadow:var(--shadow)}
 .reelvid{width:100%;height:100%;object-fit:cover;border-radius:23px;display:block}
 .stage .big{position:absolute;left:24px;top:100px;font-weight:900;font-size:28px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .stage .big em{font-style:normal;color:var(--lichen)}
@@ -89,11 +89,12 @@
     </div>
     <p class="pl rise d3"><span>Kotisivut <b>alk. 490 €</b></span><span>Some <b>alk. 249 €/kk</b></span><span>Näkyvyys <b>alk. 149 €/kk</b></span><span>Ei määräaikaa</span></p>
   </div>
-  <div class="stage rise d2" aria-label="Esimerkki: kahvilan kotisivu ja Markticin oma mainosvideo" role="img">
-    <img class="shot" src="demo/kaarna.jpg" alt="" width="1200" height="750">
+  <div class="stage rise d2" aria-label="Esimerkkejä tekemistämme kotisivuista ja Markticin oma mainosvideo" role="img">
+    <video class="shot" poster="assets/marktic-reel-poster.webp" width="1200" height="750" muted autoplay loop playsinline preload="auto" disablepictureinpicture tabindex="-1" aria-hidden="true"></video>
+    <script>(function(){var v=document.currentScript.previousElementSibling;v.muted=true;v.defaultMuted=true;v.src=innerWidth>=700?'assets/marktic-reel-1200.mp4':'assets/marktic-reel-800.mp4';var p=v.play();if(p&&p.catch)p.catch(function(){});['pointerdown','touchstart','scroll','keydown'].forEach(function(e){addEventListener(e,function(){if(v.paused){var q=v.play();if(q&&q.catch)q.catch(function(){})}},{once:true,passive:true})});})();</script>
     <div class="phone"><video class="reelvid" src="assets/marktic-ad-360.mp4" poster="assets/marktic-ad-poster-s.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div>
   </div>
-  <p class="cap">Vasemmalla konseptityö: Leipomokahvila Kaarnan kotisivut (kuvitteellinen yritys). Oikealla oma mainosvideomme.</p>
+  <p class="cap">Vasemmalla konseptitöitä: kotisivut kuvitteellisille yrityksille (Kuori Autostudio, LVI Nurmi, Siro Studio, Leipomokahvila Kaarna). Oikealla oma mainosvideomme.</p>
 </div></section>
 
 
