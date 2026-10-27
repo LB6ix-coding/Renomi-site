@@ -80,7 +80,9 @@ section{padding-block:clamp(64px,9vw,128px)}
 .hero{position:relative;padding:0;background:#000;overflow:hidden}
 .hero-media{position:relative;aspect-ratio:16/9;max-height:86vh;width:100%;max-width:100%}
 .hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero video{opacity:0;transition:opacity .35s;pointer-events:none}
+.hero video{opacity:0;transition:opacity .2s;pointer-events:none}
+.hero .heroimg{opacity:0;transition:opacity .2s}
+.hero .heroimg.on{opacity:1}
 .hero video.on{opacity:1}
 .hero video::-webkit-media-controls,.hero video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,14,17,0) 45%,rgba(13,14,17,.55) 75%,var(--bg) 100%)}
@@ -256,6 +258,7 @@ footer.site .wrap{display:grid;gap:10px}
     <div class="hero-media">
       <img class="poster" src="video/kuori-hero-poster.webp" alt="Valkoinen urheilucoupe pimeässä studiossa" width="1600" height="900">
       <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="video/kuori-hero-poster.webp" aria-hidden="true"></video>
+      <script>/* start the hero video while the rest of the page is still loading */(function(){var v=document.getElementById('heroVideo');v.muted=true;v.defaultMuted=true;v.src=innerWidth>=900?'video/kuori-hero-1080.mp4':(innerWidth>=600?'video/kuori-hero-720.mp4':'video/kuori-hero-540.mp4');var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
     </div>
     <div class="wrap hero-copy">
       <h1><span>Uusi väri.</span><span class="ghost">Sama auto.</span></h1>
@@ -312,8 +315,8 @@ footer.site .wrap{display:grid;gap:10px}
         <div>
           <div class="car-picker" id="carPicker" role="group" aria-label="Valitse auto"></div>
           <div class="stage" id="stage" style="--cut:50%">
-            <img class="before" id="beforeImg" src="img/m4-valkoinen.webp" alt="Auto alkuperäisessä valkoisessa värissä" width="1920" height="1086">
-            <img class="after" id="afterImg" src="img/m4-violetti.webp" alt="Sama auto valitulla kalvolla" width="1920" height="1086">
+            <img class="before" id="beforeImg" src="img/m4-valkoinen.webp" loading="lazy" decoding="async" alt="Auto alkuperäisessä valkoisessa värissä" width="1920" height="1086">
+            <img class="after" id="afterImg" src="img/m4-violetti.webp" loading="lazy" decoding="async" alt="Sama auto valitulla kalvolla" width="1920" height="1086">
             <div class="handle" aria-hidden="true"></div>
             <span class="stage-label l">Nyt</span>
             <span class="stage-label r" id="afterLabel">Keskiyön violetti</span>
@@ -592,6 +595,10 @@ footer.site .wrap{display:grid;gap:10px}
   var size=document.getElementById('size'),scope=document.getElementById('scope');
   var picker=document.getElementById('carPicker');
   CARS.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='car-tab';b.textContent=c.name;b.setAttribute('aria-pressed',c===car?'true':'false');b.addEventListener('click',function(){setCar(c)});picker.appendChild(b);c.btn=b;});
+  /* colour images load only when the visitor gets near the tool, so they don't slow the hero video */
+  var Q=[],near=false;function queue(src){if(near){var i=new Image();i.src=src}else Q.push(src)}
+  function flush(){if(near)return;near=true;Q.forEach(function(s){var i=new Image();i.src=s});Q=[]}
+  if('IntersectionObserver' in window){var tio=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){flush();tio.disconnect()}},{rootMargin:'800px 0px'});tio.observe(document.getElementById('suunnittele'))}else{setTimeout(flush,3000)}
   function setCar(c){
     car=c;CARS.forEach(function(x){x.btn.setAttribute('aria-pressed',x===c?'true':'false')});
     stageEl.style.aspectRatio=c.ar;before.src=c.base;before.alt=c.name+' alkuperäisessä valkoisessa värissä';
@@ -601,7 +608,7 @@ footer.site .wrap{display:grid;gap:10px}
     Object.keys(c.colors).forEach(function(id){var col=LIB[id];var b=document.createElement('button');b.type='button';b.className='sw '+(col.sw||col.finish);b.style.setProperty('--c',col.c);
       b.setAttribute('aria-label',col.name+', '+FINISH[col.finish].label);b.title=col.name;b.setAttribute('aria-pressed','false');
       b.addEventListener('click',function(){choose(id,b)});document.querySelector('.swatches[data-finish="'+col.finish+'"]').appendChild(b);
-      var pre=new Image();pre.src=c.colors[id];if(!first)first=[id,b];});
+      queue(c.colors[id]);if(!first)first=[id,b];});
     document.querySelectorAll('.swatches').forEach(function(s){s.closest('.group').hidden=!s.children.length});
     var keep=current&&c.colors[current.id]?current.id:null;
     if(keep){var bb=[].slice.call(document.querySelectorAll('.sw')).filter(function(x){return x.title===LIB[keep].name})[0];choose(keep,bb)}else{choose(first[0],first[1])}
@@ -643,7 +650,6 @@ footer.site .wrap{display:grid;gap:10px}
 
   // hero video
   var v=document.getElementById('heroVideo');
-  v.muted=true;v.defaultMuted=true;
   var SRC=window.innerWidth>=900?'video/kuori-hero-1080.mp4':(window.innerWidth>=600?'video/kuori-hero-720.mp4':'video/kuori-hero-540.mp4');
   /* the photo stays visible; the video fades in only once it really plays (Low Power Mode etc. keep the photo) */
   v.addEventListener('playing',function(){v.classList.add('on')});
@@ -653,10 +659,19 @@ footer.site .wrap{display:grid;gap:10px}
     fetch(SRC).then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(b){v.src=URL.createObjectURL(b);v.load();play()}).catch(function(){});
   }
   v.addEventListener('error',viaBlob);
-  v.src=SRC;
+  if(!v.getAttribute('src'))v.src=SRC;
   function play(){if(!v.paused)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
   play();v.addEventListener('canplay',play);
   setTimeout(function(){if(v.readyState<2)viaBlob()},1500);
+  /* iPhone Safari in Low Power Mode blocks video autoplay; Safari can play an mp4 as an image instead */
+  var isSafari=/^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
+  setTimeout(function(){
+    if(!isSafari||!v.paused)return;
+    var im=new Image();im.className='poster heroimg';im.alt='';im.setAttribute('aria-hidden','true');
+    im.onload=function(){im.classList.add('on')};im.onerror=function(){im.remove()};
+    im.src='video/kuori-hero-540.mp4';v.parentNode.insertBefore(im,v.nextSibling);
+    v.addEventListener('playing',function(){im.remove()},{once:true});
+  },1200);
   document.addEventListener('visibilitychange',function(){if(!document.hidden)play()});
   ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){window.addEventListener(ev,play,{once:true,passive:true})});
 
