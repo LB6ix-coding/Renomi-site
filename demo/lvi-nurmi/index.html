@@ -29,8 +29,6 @@
 .hero h1{font-size:clamp(40px,4.2vw,58px)} .hero h1 .l{display:block}
 .hero-photo{margin:0;position:relative;background:#dfe6f0;border-radius:var(--r2);aspect-ratio:1200/896;width:100%}
 .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
-.hero-photo .hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%;border-radius:inherit;opacity:0;transition:opacity .2s;pointer-events:none;z-index:1}
-.hero-photo .hero-vid.on{opacity:1}
 .hero .urgent{font-size:var(--t-sm);color:var(--ink-2);margin:-8px 0 var(--s4);max-width:52ch}
 .hero .urgent a{color:var(--navy);font-weight:600}
 .proof .star{color:#f5a524}
@@ -274,9 +272,7 @@
     <rect class="hp-f hp-nut" rx="2.5" width="14" height="24"/>
   </g>
 </svg>
-        <img src="img/lvi-hero-poster.webp" width="1200" height="896" alt="Sama kylpyhuone ennen ja jälkeen remontin" fetchpriority="high">
-        <video class="hero-vid" muted autoplay loop playsinline preload="auto" aria-hidden="true"></video>
-        <script>(function(){var v=document.currentScript.previousElementSibling;v.muted=true;v.defaultMuted=true;v.addEventListener('playing',function(){v.classList.add('on')});v.src=innerWidth>=700?'img/lvi-hero-1200.mp4':'img/lvi-hero-800.mp4';var p=v.play();if(p&&p.catch)p.catch(function(){});['pointerdown','touchstart','scroll','keydown'].forEach(function(e){addEventListener(e,function(){if(v.paused){var q=v.play();if(q&&q.catch)q.catch(function(){})}},{once:true,passive:true})});})();</script>
+        <img src="img/plumber-bathroom.jpg" width="1200" height="896" alt="Asentaja korjaa hanaa kylpyhuoneessa" fetchpriority="high">
       </figure>
     </div>
   </section>
