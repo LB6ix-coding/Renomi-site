@@ -146,7 +146,6 @@ section{padding-block:clamp(64px,9vw,128px)}
 .car-tab{font:inherit;font-size:.9rem;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;min-height:40px;padding:0 16px;cursor:pointer}
 .car-tab:hover{color:var(--fg);border-color:var(--muted)}
 .car-tab[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.stage{transition:aspect-ratio .3s}
 .sw.shift{background:conic-gradient(from 200deg,#3a1d7a,#2747d8,#5a2bb0,#1e2f9c,#3a1d7a)}
 .chosen{display:grid;gap:4px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2)}
 .chosen b{font-family:var(--display);font-stretch:112%;font-size:var(--step-1)}
@@ -599,9 +598,11 @@ footer.site .wrap{display:grid;gap:10px}
   var Q=[],near=false;function queue(src){if(near){var i=new Image();i.src=src}else Q.push(src)}
   function flush(){if(near)return;near=true;Q.forEach(function(s){var i=new Image();i.src=s});Q=[]}
   if('IntersectionObserver' in window){var tio=new IntersectionObserver(function(es){if(es.some(function(e){return e.isIntersecting})){flush();tio.disconnect()}},{rootMargin:'800px 0px'});tio.observe(document.getElementById('suunnittele'))}else{setTimeout(flush,3000)}
+  /* swap images only once the new ones are decoded, so the stage never flashes empty */
+  function ready(src){var i=new Image();i.src=src;return (i.decode?i.decode():Promise.resolve()).catch(function(){}).then(function(){return src})}
+  var tok=0;
   function setCar(c){
     car=c;CARS.forEach(function(x){x.btn.setAttribute('aria-pressed',x===c?'true':'false')});
-    stageEl.style.aspectRatio=c.ar;before.src=c.base;before.alt=c.name+' alkuperäisessä valkoisessa värissä';
     size.value=c.size;
     document.querySelectorAll('.swatches').forEach(function(s){s.innerHTML=''});
     var first=null;
@@ -611,13 +612,20 @@ footer.site .wrap{display:grid;gap:10px}
       queue(c.colors[id]);if(!first)first=[id,b];});
     document.querySelectorAll('.swatches').forEach(function(s){s.closest('.group').hidden=!s.children.length});
     var keep=current&&c.colors[current.id]?current.id:null;
-    if(keep){var bb=[].slice.call(document.querySelectorAll('.sw')).filter(function(x){return x.title===LIB[keep].name})[0];choose(keep,bb)}else{choose(first[0],first[1])}
+    var pick=keep?[keep,[].slice.call(document.querySelectorAll('.sw')).filter(function(x){return x.title===LIB[keep].name})[0]]:first;
+    var my=++tok;
+    Promise.all([ready(c.base),ready(c.colors[pick[0]])]).then(function(){
+      if(my!==tok)return;
+      stageEl.style.aspectRatio=c.ar;before.src=c.base;before.alt=c.name+' alkuperäisessä valkoisessa värissä';
+      choose(pick[0],pick[1],true);
+    });
   }
-  function choose(id,btn){
+  function choose(id,btn,instant){
     var col=LIB[id];current={id:id,name:col.name,code:col.code,finish:col.finish};
     document.querySelectorAll('.sw').forEach(function(x){x.setAttribute('aria-pressed','false')});btn.setAttribute('aria-pressed','true');
-    after.classList.add('swap');var src=car.colors[id];
-    setTimeout(function(){after.onload=function(){after.classList.remove('swap')};after.src=src;after.alt=car.name+': '+col.name;},150);
+    var src=car.colors[id],my=++tok;
+    if(instant){after.src=src;after.alt=car.name+': '+col.name;}
+    else{after.classList.add('swap');Promise.all([ready(src),new Promise(function(r){setTimeout(r,150)})]).then(function(){if(my!==tok)return;after.src=src;after.alt=car.name+': '+col.name;after.classList.remove('swap')});}
     document.getElementById('afterLabel').textContent=col.name;
     document.getElementById('chosenName').textContent=col.name;
     document.getElementById('chosenCode').textContent=col.code+' · '+FINISH[col.finish].label;
