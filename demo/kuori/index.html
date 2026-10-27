@@ -3,735 +3,670 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<meta name="description" content="Kuori Autostudio: autoteippaus, maalaus ja suojakalvot. Kokeile värejä ja pyydä kiinteä tarjous. Kuvitteellinen demoyritys.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Kuori Autostudio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: photo-led hero about the shop, then services, the Värikone colour tool as its own section, wrap vs paint, process and the quote form. */
+/* Layout: dark studio floor. Full-bleed video hero, then a working colour tool, then proof (process, gallery, prices). Masking-tape labels are the one signature device. */
+@font-face{font-family:"Archivo";src:url("fonts/archivo.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url("fonts/plexmono-500.woff2") format("woff2");font-weight:500;font-display:swap}
 :root{
-  --bg:#eef0f1;          /* studio floor */
-  --surface:#ffffff;
-  --ink:#14171b;         /* graphite */
-  --ink-2:#4c535b;
-  --line:#d6dadd;
-  --tape:#f0bd2b;        /* masking tape, the one accent */
-  --tape-ink:#2a2105;
-  --stage-a:#fbfcfc; --stage-b:#d9dde0;
-  --ok:#1f7a4d;
-  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
-  --body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
-  --r:14px;
+  --bg:#0d0e11;          /* studio floor, cool graphite */
+  --surface:#16181d;     /* panels */
+  --surface-2:#1f2229;
+  --line:#2c3038;
+  --fg:#ecebe6;          /* warm off-white */
+  --muted:#9b9ea6;
+  --tape:#e9c34a;        /* masking tape yellow */
+  --tape-ink:#1a1608;
+  --ok:#7fd1a0;
+  --display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --step--1:clamp(.8rem,.77rem + .15vw,.875rem);
+  --step-0:clamp(1rem,.96rem + .2vw,1.0625rem);
+  --step-1:clamp(1.2rem,1.1rem + .5vw,1.45rem);
+  --step-2:clamp(1.6rem,1.3rem + 1.4vw,2.4rem);
+  --step-3:clamp(2.3rem,1.6rem + 3.4vw,4.4rem);
+  --step-4:clamp(2.9rem,1.8rem + 5.6vw,7rem);
+  --wrap:1240px;
+  --radius:6px;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#101215;--surface:#181b1f;--ink:#eceef0;--ink-2:#a3aab2;--line:#2a2f35;
-  --tape:#f2c43d;--tape-ink:#1d1704;--stage-a:#262a30;--stage-b:#0d0f12;--ok:#4fc08a;color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#101215;--surface:#181b1f;--ink:#eceef0;--ink-2:#a3aab2;--line:#2a2f35;
-  --tape:#f2c43d;--tape-ink:#1d1704;--stage-a:#262a30;--stage-b:#0d0f12;--ok:#4fc08a;color-scheme:dark}
-
-*{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;font-stretch:100%}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
-.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);font-stretch:118%;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.01em}
-h1{font-size:clamp(2rem,4.6vw,3.5rem);font-weight:800}
-h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:780}
-h3{font-size:1.15rem;font-weight:720}
-p{margin:0}
-.lead{color:var(--ink-2);font-size:1.075rem;max-width:58ch}
-.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--tape);outline-offset:2px;border-radius:6px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 1.25rem;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:600 1rem var(--body);cursor:pointer;text-decoration:none;transition:transform .15s,background .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--tape);border-color:var(--tape);color:var(--tape-ink)}
-.btn.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+:focus-visible{outline:2px solid var(--tape);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:var(--step-3);font-weight:800;font-stretch:118%;text-transform:uppercase;letter-spacing:-.01em}
+h3{font-size:var(--step-1);font-weight:700;font-stretch:105%}
+p{margin:0}
+.lead{color:var(--muted);max-width:58ch;font-size:var(--step-1);line-height:1.5}
+.mono{font-family:var(--mono);font-size:var(--step--1);letter-spacing:.02em}
+.num{font-variant-numeric:tabular-nums}
+section{padding-block:clamp(64px,9vw,128px)}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(32px,5vw,56px)}
+
+/* masking tape label */
+.tape{display:inline-block;justify-self:start;background:var(--tape);color:var(--tape-ink);font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;padding:5px 14px 4px;transform:rotate(-1.2deg);
+  clip-path:polygon(0 8%,3% 0,7% 9%,12% 1%,18% 7%,25% 0,33% 8%,41% 2%,50% 7%,58% 0,66% 8%,74% 1%,82% 7%,90% 0,96% 8%,100% 2%,100% 92%,97% 100%,92% 92%,85% 99%,78% 93%,70% 100%,62% 92%,54% 99%,46% 93%,38% 100%,30% 92%,22% 99%,15% 93%,8% 100%,3% 92%,0 98%)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font-family:var(--display);font-weight:700;font-stretch:110%;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
+.btn-primary{background:var(--tape);color:var(--tape-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:color-mix(in oklab,var(--fg) 35%,transparent);color:var(--fg);background:transparent}
+.btn-ghost:hover{border-color:var(--fg)}
 
 /* header */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:1.5rem;min-height:64px}
-.logo{font-family:var(--display);font-stretch:125%;font-weight:800;font-size:1.25rem;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:.5rem}
-.logo i{display:inline-block;width:22px;height:12px;background:var(--tape);border-radius:2px;transform:skewX(-18deg)}
-.nav ul{display:flex;gap:1.25rem;list-style:none;margin:0 0 0 auto;padding:0}
-.nav ul a{text-decoration:none;font-weight:550;color:var(--ink-2)}
-.nav ul a:hover{color:var(--ink)}
-.nav .btn{min-height:42px}
-@media (max-width:860px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in oklab,var(--bg) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
+.logo{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.35rem;letter-spacing:.06em;text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.logo small{font-family:var(--mono);font-weight:500;font-size:.68rem;letter-spacing:.14em;color:var(--muted);font-stretch:100%}
+.nav{display:none;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
+.nav a:hover{color:var(--fg)}
+.top .btn{margin-left:auto;min-height:42px;padding:0 18px;font-size:.82rem;white-space:nowrap}
+@media (max-width:420px){.logo small{display:none}.top .btn{padding:0 14px}}
+@media (min-width:980px){.nav{display:flex}.top .btn{margin-left:0}}
 
-/* hero / configurator */
-.hero{padding-block:clamp(28px,5vw,64px) 8px}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center}
-@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
-.hero-copy{display:grid;gap:18px}
-.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
-.collage{position:relative;padding:0 0 18% 0}
-.collage figure{margin:0;position:relative;border-radius:18px;overflow:hidden;max-width:100%;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
-.collage img{display:block;width:100%;height:100%;object-fit:cover}
-.collage .ph-a{aspect-ratio:4/3;width:84%;margin-left:auto}
-.collage .ph-b{position:absolute;left:0;bottom:0;width:52%;aspect-ratio:4/3;border:5px solid var(--bg)}
-.collage figcaption{position:absolute;left:12px;top:12px}
-.var-sec{background:var(--surface);border-block:1px solid var(--line)}
-.var-sec .stage{background:radial-gradient(120% 90% at 50% 18%,var(--stage-a) 0%,var(--stage-b) 78%)}
-.var-sec .panel{background:var(--bg)}
-.var-sec .wrap{max-width:1040px}
-.var-sec .sec-head{margin-bottom:20px}
-.var-sec .config{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:12px}
-@media (max-width:860px){.var-sec .config{grid-template-columns:minmax(0,1fr)}}
-.var-sec .stage{aspect-ratio:16/11;min-height:260px;border-radius:16px}
-@media (max-width:560px){.var-sec .stage{aspect-ratio:4/3.4}}
-.var-sec .panel{padding:16px;gap:14px;border-radius:16px}
-.var-sec .seg button{min-height:44px;font-size:.95rem}
-.var-sec .chips button{min-height:34px;padding:0 .75rem;font-size:.84rem}
-.var-sec .swatches{grid-template-columns:repeat(auto-fill,minmax(66px,1fr));gap:10px 4px}
-.var-sec .sw span.dot{width:36px;height:36px}
-.var-sec .readout{padding-top:12px;gap:10px}
-.var-sec .readout .name{font-size:1.1rem}
-.var-sec .price b{font-size:1.3rem}
-.var-sec .readout .btn{min-height:44px}
-.hero-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:24px}
-.hero-top .lead{margin-top:12px}
-.trust{display:flex;gap:20px;flex-wrap:wrap;font-size:.9rem;color:var(--ink-2)}
-.trust b{display:block;font-family:var(--display);font-stretch:118%;font-size:1.35rem;color:var(--ink)}
-.config{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:16px;align-items:stretch}
-@media (max-width:960px){.config{grid-template-columns:minmax(0,1fr)}}
-.stage{position:relative;border-radius:22px;overflow:hidden;min-height:340px;aspect-ratio:16/11;max-width:100%;
-  background:radial-gradient(120% 90% at 50% 18%,var(--stage-a) 0%,var(--stage-b) 78%);border:1px solid var(--line)}
-@media (max-width:960px){.stage{aspect-ratio:4/3}}
-@media (max-width:560px){.stage{aspect-ratio:1/1.05}.views button{padding:0 .7rem}.compare{padding:0 .8rem}.compare .long{display:none}}
-.compare .short{display:none}@media (max-width:560px){.compare .short{display:inline}}
-.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important;touch-action:none;cursor:grab}
-.stage canvas:active{cursor:grabbing}
-.stage-ui{position:absolute;left:12px;right:12px;bottom:12px;display:flex;justify-content:space-between;align-items:end;gap:8px;pointer-events:none}
-.stage-ui > *{pointer-events:auto}
-.views{display:flex;gap:6px;background:color-mix(in srgb,var(--surface) 80%,transparent);backdrop-filter:blur(6px);padding:5px;border-radius:999px;border:1px solid var(--line)}
-.views button{min-height:36px;padding:0 .85rem;border:0;border-radius:999px;background:transparent;color:var(--ink);font:600 .85rem var(--body);cursor:pointer}
-.views button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.compare{min-height:44px;padding:0 1rem;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 80%,transparent);backdrop-filter:blur(6px);color:var(--ink);font:600 .85rem var(--body);cursor:pointer;user-select:none;-webkit-user-select:none}
-.compare:active,.compare.on{background:var(--ink);color:var(--bg)}
-.hint{position:absolute;top:14px;left:14px;font-size:.82rem;color:var(--ink-2);background:color-mix(in srgb,var(--surface) 80%,transparent);padding:6px 12px;border-radius:999px;border:1px solid var(--line);transition:opacity .5s}
-.hint.gone{opacity:0}
-.loader{position:absolute;inset:0;display:grid;place-items:center;text-align:center;gap:10px;color:var(--ink-2);font-size:.9rem}
-.loader .bar{width:180px;height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin:10px auto 0}
-.loader .bar i{display:block;height:100%;width:0;background:var(--tape);transition:width .2s}
-.fallback{position:absolute;inset:0;object-fit:cover;width:100%;height:100%}
+/* hero */
+.hero{position:relative;padding:0;background:#000;overflow:hidden}
+.hero-media{position:relative;aspect-ratio:16/9;max-height:86vh;width:100%;max-width:100%}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero video{opacity:0;transition:opacity .35s;pointer-events:none}
+.hero video.on{opacity:1}
+.hero video::-webkit-media-controls,.hero video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,14,17,0) 45%,rgba(13,14,17,.55) 75%,var(--bg) 100%)}
+.hero-copy{position:relative;margin-top:-22vw;z-index:2;padding-bottom:clamp(40px,6vw,72px)}
+@media (min-width:1500px){.hero-copy{margin-top:-330px}}
+.hero h1{font-size:var(--step-4);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:-.015em;line-height:.92}
+.hero h1 span{display:block}
+.hero h1 .ghost{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+.hero-row{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:end;justify-content:space-between;margin-top:28px}
+.hero .lead{color:#c9c8c2;max-width:46ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:699px){.hero-copy{margin-top:-12vw}.hero-media{aspect-ratio:4/3}}
 
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:18px;min-width:0}
-.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:14px;padding:5px;gap:5px}
-.seg button{min-height:52px;border:0;border-radius:10px;background:transparent;color:var(--ink-2);font:650 1rem var(--body);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15}
-.seg button small{font:500 .72rem var(--body);color:var(--ink-2)}
-.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.label{font-size:.8rem;font-weight:650;color:var(--ink-2);margin-bottom:8px;display:flex;justify-content:space-between}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips button{min-height:38px;padding:0 .9rem;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:600 .88rem var(--body);cursor:pointer}
-.chips button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
-.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:12px 6px}
-.sw{appearance:none;border:0;background:none;padding:0;cursor:pointer;min-width:0;overflow-wrap:break-word;hyphens:auto;display:flex;flex-direction:column;align-items:center;gap:5px;color:var(--ink-2);font:500 .68rem/1.15 var(--body);text-align:center}
-.sw span.dot{width:44px;height:44px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15),0 1px 2px rgba(0,0,0,.15);position:relative;transition:transform .15s}
-.sw:hover span.dot{transform:scale(1.06)}
-.sw[aria-pressed="true"] span.dot{box-shadow:0 0 0 2px var(--surface),0 0 0 4px var(--ink)}
-.sw[aria-pressed="true"]{color:var(--ink);font-weight:650}
-.roof{display:flex;gap:6px;flex-wrap:wrap}
-.readout{margin-top:auto;border-top:1px dashed var(--line);padding-top:16px;display:grid;gap:12px}
-.readout .name{font-family:var(--display);font-stretch:112%;font-weight:750;font-size:1.3rem;line-height:1.15}
-.readout .meta{font-family:var(--mono);font-size:.78rem;color:var(--ink-2)}
-.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.price b{font-family:var(--display);font-stretch:112%;font-size:1.6rem;font-variant-numeric:tabular-nums}
-.price small{color:var(--ink-2);font-size:.8rem}
-.readout .btn{width:100%}
-
-/* sections */
-section{padding-block:clamp(48px,7vw,96px)}
-section,[id]{scroll-margin-top:calc(76px + env(safe-area-inset-top,0px))}
-.sec-head{display:grid;gap:12px;margin-bottom:32px;max-width:720px}
-.tape-label{display:inline-block;background:var(--tape);color:var(--tape-ink);font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;transform:rotate(-1.5deg);width:max-content}
-
-/* wrap vs paint */
-.vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:760px){.vs{grid-template-columns:minmax(0,1fr)}}
-.vs article{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
-.vs figure{margin:0;aspect-ratio:4/3;overflow:hidden;max-width:100%}
-.vs figure img{width:100%;height:100%;object-fit:cover;display:block}
-.vs .body{padding:20px;display:grid;gap:14px}
-.facts{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0;font-size:.93rem}
-.facts dt{color:var(--ink-2)}
-.facts dd{margin:0;font-weight:600}
-.pick{font-size:.92rem;color:var(--ink-2);border-left:3px solid var(--tape);padding-left:12px}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.specs div{padding:18px 0;display:grid;gap:2px}
+.specs b{font-family:var(--display);font-stretch:115%;font-size:var(--step-1)}
+.specs span{color:var(--muted);font-size:var(--step--1)}
+@media (min-width:800px){.specs{grid-template-columns:repeat(4,minmax(0,1fr))}.specs div+div{padding-left:24px;border-left:1px solid var(--line)}}
 
 /* services */
-.svc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-@media (max-width:900px){.svc{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.svc{grid-template-columns:minmax(0,1fr)}}
-.svc div{background:var(--surface);padding:22px;display:grid;gap:8px;align-content:start}
-.svc .p{font-family:var(--mono);font-size:.85rem;color:var(--ink)}
-.svc p{color:var(--ink-2);font-size:.93rem}
-.svc svg{width:30px;height:30px;stroke:var(--ink);fill:none;stroke-width:1.6}
+.services{display:grid;gap:16px}
+@media (min-width:860px){.services{grid-template-columns:1.25fr 1fr 1fr}}
+.svc{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;border-radius:var(--radius);overflow:hidden;text-decoration:none;isolation:isolate}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.82) 100%)}
+.svc:hover img{transform:scale(1.04)}
+.svc-body{padding:24px;display:grid;gap:8px;color:#f4f3ee}
+.svc h3{font-size:clamp(1.5rem,1.2rem + 1vw,2.1rem);font-weight:800;font-stretch:112%;text-transform:uppercase;overflow-wrap:anywhere}
+.svc p{color:#d4d3cd;font-size:.95rem;max-width:40ch}
+.svc .price{font-family:var(--mono);font-size:.85rem;color:var(--tape)}
+
+/* configurator */
+.config{background:var(--surface);border-block:1px solid var(--line)}
+.cfg{display:grid;gap:28px}
+.cfg>*{min-width:0}
+@media (min-width:1000px){.cfg{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start}}
+.stage{position:relative;aspect-ratio:2688/1520;border-radius:var(--radius);overflow:hidden;background:#000;max-width:100%;touch-action:pan-y;user-select:none}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.stage .after{clip-path:inset(0 0 0 var(--cut,50%));transition:opacity .35s}
+.stage .after.swap{opacity:.25}
+.handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;margin-left:-1px;background:var(--tape);pointer-events:none}
+.handle::after{content:"";position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--tape);box-shadow:0 4px 18px rgba(0,0,0,.5);
+  background-image:linear-gradient(90deg,transparent 14px,var(--tape-ink) 14px,var(--tape-ink) 16px,transparent 16px,transparent 28px,var(--tape-ink) 28px,var(--tape-ink) 30px,transparent 30px);background-size:44px 14px;background-repeat:no-repeat;background-position:center}
+.stage-label{position:absolute;bottom:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:5px 9px;border-radius:3px;pointer-events:none}
+.stage-label.l{left:12px}.stage-label.r{right:12px}
+.range{width:100%;margin:14px 0 0;accent-color:var(--tape)}
+.panel{display:grid;gap:22px}
+.group{display:grid;gap:10px}
+.group-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.swatches{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:46px;height:46px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;position:relative;background:var(--c);transition:transform .15s}
+.sw:hover{transform:scale(1.07)}
+.sw[aria-pressed="true"]{border-color:var(--tape);box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--tape)}
+.sw.satin{background:radial-gradient(circle at 35% 30%,color-mix(in oklab,var(--c) 70%,#fff) 0,var(--c) 55%)}
+.sw.gloss{background:radial-gradient(circle at 32% 28%,#fff 0,color-mix(in oklab,var(--c) 55%,#fff) 10%,var(--c) 38%,color-mix(in oklab,var(--c) 75%,#000) 100%)}
+.sw.matte{background:var(--c)}
+.sw.chrome{background:linear-gradient(135deg,#6e5112,#f3d57a 35%,#9b7420 55%,#fbe9a8 80%,#7a5a14)}
+.sw.print{background:linear-gradient(150deg,#fff 0 35%,#1f8a7a 35% 62%,#8fe0c5 62% 78%,#fff 78%)}
+.car-picker{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+@media (max-width:600px){.car-picker{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}.car-picker::-webkit-scrollbar{display:none}.car-tab{flex:0 0 auto}}
+.car-tab{font:inherit;font-size:.9rem;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;min-height:40px;padding:0 16px;cursor:pointer}
+.car-tab:hover{color:var(--fg);border-color:var(--muted)}
+.car-tab[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.stage{transition:aspect-ratio .3s}
+.sw.shift{background:conic-gradient(from 200deg,#3a1d7a,#2747d8,#5a2bb0,#1e2f9c,#3a1d7a)}
+.chosen{display:grid;gap:4px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2)}
+.chosen b{font-family:var(--display);font-stretch:112%;font-size:var(--step-1)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.fields{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.88rem;color:var(--muted)}
+select,input,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:4px;min-height:46px;padding:10px 12px;width:100%;box-sizing:border-box}
+textarea{min-height:120px;resize:vertical}
+.estimate{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;padding-top:18px;border-top:1px dashed var(--line)}
+.estimate .big{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:var(--step-3);line-height:1}
+.fine{font-size:.82rem;color:var(--muted)}
 
 /* process */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s;list-style:none;margin:0;padding:0}
-@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
-.steps li{counter-increment:s;padding-top:16px;border-top:2px solid var(--ink);display:grid;gap:6px}
-.steps li::before{content:counter(s);font-family:var(--mono);font-size:.8rem;color:var(--ink-2)}
-.steps p{color:var(--ink-2);font-size:.93rem}
+.process{display:grid;gap:40px}
+@media (min-width:980px){.process{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px}}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 20px;padding:28px 0;border-top:1px solid var(--line);opacity:.7;transition:opacity .4s}
+.step.on,.no-io .step{opacity:1}
+.step .n{font-family:var(--mono);color:var(--tape);font-size:.85rem;padding-top:6px;grid-column:1;grid-row:1/span 4}
+.step>:not(.n){grid-column:2;min-width:0}
+.step p{color:var(--muted)}
+.step .time{font-family:var(--mono);font-size:.78rem;color:var(--fg)}
+.step img{display:block;width:100%;height:auto;border-radius:var(--radius);margin-top:12px;aspect-ratio:4/3;object-fit:cover}
+.sticky-shot{display:none}
+@media (min-width:980px){
+  .step img{display:none}
+  .sticky-shot{display:block;position:sticky;top:110px;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+  .sticky-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+  .sticky-shot img.on{opacity:1}
+}
+
+/* gallery */
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:var(--radius);background:var(--surface)}
+.gallery img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;background:rgba(0,0,0,.65);color:#fff;padding:5px 9px;border-radius:3px}
+.gallery .wide{grid-column:1/-1}
+.gallery .wide img{aspect-ratio:2688/1520}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}.gallery .wide{grid-column:span 2;grid-row:span 2}.gallery .wide img{aspect-ratio:auto;height:100%}}
+
+/* proof */
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;margin-bottom:56px}
+@media (min-width:860px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-stretch:120%;font-size:var(--step-3);line-height:1}
+.stat span{color:var(--muted);font-size:.92rem}
+.reviews{display:grid;gap:16px}
+@media (min-width:860px){.reviews{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.review{border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:14px;align-content:start;background:var(--surface)}
+.review .stars{color:var(--tape);letter-spacing:3px}
+.review footer{font-size:.88rem;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.example{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+
+/* prices */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums;table-layout:fixed}
+thead th:first-child{width:26%}
+th,td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500;background:var(--surface)}
+tbody th{font-family:var(--display);font-stretch:110%;font-weight:700}
+tbody th small{display:block;font-family:var(--body);font-weight:400;color:var(--muted);font-size:.82rem;font-stretch:100%}
+tbody tr:last-child>*{border-bottom:0}
+td{white-space:nowrap}
+
+/* faq */
+.faq{display:grid;gap:0;max-width:860px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:var(--display);font-weight:700;font-stretch:108%;font-size:var(--step-1)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--tape);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:22px;color:var(--muted);max-width:65ch}
 
 /* quote */
-.quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px;align-items:start}
-@media (max-width:860px){.quote{grid-template-columns:minmax(0,1fr)}}
-.contact{display:grid;gap:14px;font-size:.98rem}
-.contact b{display:block;font-size:.78rem;color:var(--ink-2);font-weight:600}
-form{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width:560px){form{grid-template-columns:minmax(0,1fr)}}
-.f{display:grid;gap:6px;min-width:0}
-.f.full{grid-column:1/-1}
-.f label{font-size:.85rem;font-weight:600}
-.f input,.f select,.f textarea{min-height:48px;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:400 1rem var(--body);width:100%}
-.f textarea{min-height:96px;resize:vertical}
-.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--ink)}
-.chosen{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:10px;padding:10px 12px;font-size:.92rem}
-.chosen .dot{width:22px;height:22px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
-.thanks{grid-column:1/-1;background:color-mix(in srgb,var(--ok) 14%,var(--surface));border-radius:12px;padding:14px;font-weight:600}
-form .btn{grid-column:1/-1}
-.small{font-size:.8rem;color:var(--ink-2)}
+.quote{background:var(--surface);border-top:1px solid var(--line)}
+.quote-grid{display:grid;gap:40px}
+@media (min-width:980px){.quote-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+form{display:grid;gap:14px;align-content:start}
+form .btn{justify-self:start}
+.quote h2{font-size:var(--step-2)}
+.contact-list{display:grid;gap:14px;margin-top:28px}
+.contact-list div{display:grid;gap:2px}
+.contact-list span{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.contact-list b{font-size:var(--step-1);font-family:var(--display);font-stretch:108%;user-select:all}
+.thanks{padding:16px;border:1px solid var(--ok);border-radius:var(--radius);color:var(--ok)}
 
-footer{border-top:1px solid var(--line);padding-block:28px 40px;font-size:.85rem;color:var(--ink-2)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+footer.site{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.site .wrap{display:grid;gap:10px}
 </style>
-
 </head>
 <body>
-<header lang="fi">
-  <div class="wrap nav">
-    <a class="logo" href="#top" aria-label="Kuori Autostudio, etusivu"><i></i>KUORI</a>
-    <ul>
-      <li><a href="#palvelut">Palvelut ja hinnat</a></li>
-      <li><a href="#varikone">Värikone</a></li>
-      <li><a href="#teippaus-vai-maalaus">Teippaus vai maalaus</a></li>
-      <li><a href="#tarjous">Yhteys</a></li>
-    </ul>
-    <a class="btn primary" href="#tarjous">Pyydä tarjous</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#alku" aria-label="Kuori Autostudio, etusivu">KUORI <small>AUTOSTUDIO</small></a>
+    <nav class="nav" aria-label="Päävalikko">
+      <a href="#palvelut">Palvelut</a>
+      <a href="#suunnittele">Suunnittele</a>
+      <a href="#tyo">Näin työ etenee</a>
+      <a href="#hinnat">Hinnat</a>
+      <a href="#ukk">UKK</a>
+    </nav>
+    <a class="btn btn-primary" href="#tarjous">Pyydä tarjous</a>
   </div>
 </header>
 
-<main id="top" lang="fi">
-  <div class="wrap hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">Autoteippaus ja automaalaus · Vantaa</p>
-        <h1>Uusi väri autoosi. Teipattuna tai maalattuna.</h1>
-        <p class="lead">Kokoteippaukset, osateippaukset, suojakalvot ja maalaukset samasta hallista. Siisti jälki, selkeä hinta ja takuu työlle.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#tarjous">Pyydä tarjous</a>
-          <a class="btn" href="#varikone">Kokeile erikoisvärejä</a>
+<main id="alku">
+  <section class="hero" aria-label="Esittely">
+    <div class="hero-media">
+      <img class="poster" src="video/kuori-hero-poster.webp" alt="Valkoinen urheilucoupe pimeässä studiossa" width="1600" height="900">
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="video/kuori-hero-poster.webp" aria-hidden="true"></video>
+    </div>
+    <div class="wrap hero-copy">
+      <h1><span>Uusi väri.</span><span class="ghost">Sama auto.</span></h1>
+      <div class="hero-row">
+        <p class="lead">Teippaus, maalaus ja suojakalvot samasta studiosta. Näet värin ennen kuin päätät, ja hinta sovitaan kiinteäksi ennen töiden alkua.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#suunnittele">Kokeile värejä</a>
+          <a class="btn btn-ghost" href="#tarjous">Pyydä tarjous</a>
         </div>
-        <div class="trust" aria-label="Kuori lukuina">
-          <div><b>2–4&nbsp;pv</b>kokoteippaus</div>
-          <div><b>5&nbsp;v</b>takuu kalvotyölle</div>
-          <div><b>60+</b>sävyä ja pintaa</div>
-        </div>
-      </div>
-      <div class="collage">
-        <figure class="ph-a"><img src="img/wrap.webp" alt="Asentaja levittää satiininvihreää kalvoa valkoisen auton lokasuojalle rakelilla" width="1168" height="880"><figcaption class="tape-label">Teippaus</figcaption></figure>
-        <figure class="ph-b"><img src="img/paint.webp" alt="Maalari ruiskuttaa tummansinistä maalia viistoperän takalokasuojaan maalaamossa" width="1168" height="880"><figcaption class="tape-label">Maalaus</figcaption></figure>
       </div>
     </div>
-  </div>
-
+    <div class="wrap">
+      <div class="specs">
+        <div><b class="num">1–3 päivää</b><span>tavallinen kokoteippaus</span></div>
+        <div><b class="num">2 vuotta</b><span>takuu asennustyölle</span></div>
+        <div><b class="num">5–7 vuotta</b><span>valetun kalvon käyttöikä</span></div>
+        <div><b>Sijaisauto</b><span>sovittaessa työn ajaksi</span></div>
+      </div>
+    </div>
+  </section>
 
   <section id="palvelut">
     <div class="wrap">
       <div class="sec-head">
-        <span class="tape-label">Palvelut ja hinnat</span>
-        <h2>Kokonaisesta autosta yksittäiseen peiliin</h2>
-        <p class="lead">Hinnat ovat henkilöauton lähtöhintoja. Tarkka hinta riippuu auton koosta, muotojen määrästä ja valitusta kalvosta tai maalista.</p>
+        <span class="tape">Palvelut</span>
+        <h2>Kolme tapaa muuttaa auto</h2>
+        <p class="lead">Teippaus vaihtaa värin ja suojaa alkuperäistä maalia. Maalaus on pysyvä. Suojakalvo pitää uuden auton pinnan uutena.</p>
       </div>
-      <div class="svc">
-        <div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 20h24M7 20l3-7h12l3 7M9 24a2 2 0 1 0 0-.1M23 24a2 2 0 1 0 0-.1"/></svg><h3>Kokoteippaus</h3><p class="p">alk. 2&nbsp;400&nbsp;€</p><p>Koko kori uuteen väriin. Ovien karmit lisähintaan.</p></div>
-        <div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 12h20v4H6zM10 16v6M22 16v6"/></svg><h3>Osateippaus</h3><p class="p">alk. 190&nbsp;€</p><p>Katto, peilit, konepelti tai kromilistojen mustaus.</p></div>
-        <div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l10 4v7c0 7-5 11-10 13C11 26 6 22 6 15V8z"/></svg><h3>Suojakalvo</h3><p class="p">alk. 690&nbsp;€</p><p>Läpinäkyvä kalvo keulaan kiveniskuja vastaan.</p></div>
-        <div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 10h12v6H8zM20 13h6M14 16v8M11 24h6"/></svg><h3>Kokomaalaus</h3><p class="p">alk. 3&nbsp;900&nbsp;€</p><p>Hionta, pohjustus, väri ja lakka maalaamossa.</p></div>
-        <div><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="9"/><path d="M16 11v5l3 3"/></svg><h3>Paneelimaalaus</h3><p class="p">alk. 350&nbsp;€ / osa</p><p>Puskuri, ovi tai lokasuoja sävytettynä auton väriin.</p></div>
-        <div><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 22l8-8 4 4 8-8M20 10h6v6"/></svg><h3>Kiillotus ja pinnoite</h3><p class="p">alk. 290&nbsp;€</p><p>Naarmujen poisto ja keraaminen pinnoite uudelle pinnalle.</p></div>
+      <div class="services">
+        <a class="svc" href="#suunnittele">
+          <img src="img/tyo-kalvo.webp" alt="Asentaja levittää violettia kalvoa lokasuojaan rakelilla" loading="lazy" width="1400" height="1045">
+          <div class="svc-body"><span class="price num">kokoteippaus alk. 2&nbsp;200&nbsp;€</span><h3>Teippaus</h3><p>Kiiltävä, satiini, matta, kromi tai kameleontti. Alkuperäinen maali säilyy kalvon alla.</p></div>
+        </a>
+        <a class="svc" href="#hinnat">
+          <img src="img/maalaus-kammio.webp" alt="Maalari ruiskumaalaa sinistä autoa maalauskammiossa" loading="lazy" width="1168" height="880">
+          <div class="svc-body"><span class="price num">kokomaalaus alk. 3&nbsp;900&nbsp;€</span><h3>Maalaus</h3><p>Uni-, metalli-, helmiäis- ja candy-sävyt kammiossa, jossa pöly ei pääse pintaan.</p></div>
+        </a>
+        <a class="svc" href="#hinnat">
+          <img src="img/tyo-ppf.webp" alt="Läpinäkyvää suojakalvoa asennetaan valkoisen auton etupuskuriin" loading="lazy" width="1400" height="1045">
+          <div class="svc-body"><span class="price num">etuosa alk. 890&nbsp;€</span><h3>Suojakalvot</h3><p>Näkymätön PPF-kalvo kivenroiskeita ja naarmuja vastaan. Pienet naarmut häviävät lämmössä.</p></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="varikone" class="var-sec">
+  <section id="suunnittele" class="config">
     <div class="wrap">
       <div class="sec-head">
-        <span class="tape-label">Värikone</span>
-        <h2>Kokeile erikoisvärejä</h2>
-        <p class="lead">Kromi, kameleontti, candy vai helmiäinen? Valitse teippaus tai maalaus, pyöritä autoa ja katso, miltä väri näyttää joka kulmasta.</p>
+        <span class="tape">Suunnittele omasi</span>
+        <h2>Valitse sävy, vedä ja vertaa</h2>
+        <p class="lead">Valitse autotyyppi ja sävy. Vasemmalla alkuperäinen valkoinen, oikealla valitsemasi kalvo. Hinta-arvio päivittyy auton koon mukaan.</p>
       </div>
-    <div class="config">
-      <div class="stage" id="stage">
-        <div class="loader" id="loader"><div>Ladataan 3D-autoa<div class="bar"><i id="bar"></i></div></div></div>
-        <div class="hint" id="hint">Pyöritä autoa vetämällä</div>
-        <div class="stage-ui">
-          <div class="views" role="group" aria-label="Kuvakulma">
-            <button type="button" data-view="side" aria-pressed="false">Sivu</button>
-            <button type="button" data-view="front" aria-pressed="true">Edestä</button>
-            <button type="button" data-view="rear" aria-pressed="false">Takaa</button>
-          </div>
-          <button type="button" class="compare" id="compare" aria-label="Pidä painettuna nähdäksesi nykyisen värin"><span class="long">Pidä: nykyinen väri</span><span class="short">Vertaa</span></button>
-        </div>
-      </div>
-
-      <div class="panel" aria-label="Värivalinnat">
-        <div class="seg" role="group" aria-label="Työ">
-          <button type="button" id="m-wrap" aria-pressed="true">Teippaus<small>kalvo, palautettava</small></button>
-          <button type="button" id="m-paint" aria-pressed="false">Maalaus<small>pysyvä, uusi pinta</small></button>
-        </div>
+      <div class="cfg">
         <div>
-          <div class="label"><span>Pinta</span></div>
-          <div class="chips" id="finishes" role="group" aria-label="Pinta"></div>
-        </div>
-        <div>
-          <div class="label"><span>Sävy</span><span id="sw-count"></span></div>
-          <div class="swatches" id="swatches" role="group" aria-label="Sävy"></div>
-        </div>
-        <div id="roof-block">
-          <div class="label"><span>Katto ja alaosan paneelit</span></div>
-          <div class="chips roof" role="group" aria-label="Katto ja alaosan paneelit">
-            <button type="button" id="roof-black" aria-pressed="true">Kiiltävä musta</button>
-            <button type="button" id="roof-same" aria-pressed="false">Korin väri</button>
+          <div class="car-picker" id="carPicker" role="group" aria-label="Valitse auto"></div>
+          <div class="stage" id="stage" style="--cut:50%">
+            <img class="before" id="beforeImg" src="img/m4-valkoinen.webp" alt="Auto alkuperäisessä valkoisessa värissä" width="1920" height="1086">
+            <img class="after" id="afterImg" src="img/m4-violetti.webp" alt="Sama auto valitulla kalvolla" width="1920" height="1086">
+            <div class="handle" aria-hidden="true"></div>
+            <span class="stage-label l">Nyt</span>
+            <span class="stage-label r" id="afterLabel">Keskiyön violetti</span>
           </div>
+          <label for="cut" class="fine" style="margin-top:6px">Vertailuviiva
+            <input class="range" id="cut" type="range" min="0" max="100" value="50">
+          </label>
         </div>
-        <div class="readout" aria-live="polite">
-          <div>
-            <div class="name" id="r-name">Satiini · Metsänvihreä</div>
-            <div class="meta" id="r-meta">KT-S204 · valukalvo 80&nbsp;µm</div>
+        <div class="panel">
+          <div class="group">
+            <div class="group-title"><span>Kiiltävä</span></div>
+            <div class="swatches" data-finish="gloss"></div>
           </div>
-          <div class="price"><small>Henkilöauto, alkaen</small><b id="r-price">2&nbsp;400&nbsp;€</b><small>sis. alv 25,5&nbsp;%</small></div>
-          <a class="btn primary" href="#tarjous" id="to-quote">Pyydä tarjous tällä värillä</a>
+          <div class="group">
+            <div class="group-title"><span>Satiini</span><span>+150&nbsp;€</span></div>
+            <div class="swatches" data-finish="satin"></div>
+          </div>
+          <div class="group">
+            <div class="group-title"><span>Matta</span><span>+200&nbsp;€</span></div>
+            <div class="swatches" data-finish="matte"></div>
+          </div>
+          <div class="group">
+            <div class="group-title"><span>Erikoiskalvot</span><span>+900&nbsp;€</span></div>
+            <div class="swatches" data-finish="shift"></div>
+          </div>
+          <div class="chosen" aria-live="polite">
+            <span class="mono" id="chosenCode">KU-G21 · kiiltävä</span>
+            <b id="chosenName">Keskiyön violetti</b>
+          </div>
+          <div class="fields">
+            <label for="size">Auton koko
+              <select id="size">
+                <option value="s">Pieni (esim. pikkuauto)</option>
+                <option value="m" selected>Keskikokoinen (coupe, sedan)</option>
+                <option value="l">Iso (farmari, SUV)</option>
+                <option value="v">Pakettiauto</option>
+              </select>
+            </label>
+            <label for="scope">Laajuus
+              <select id="scope">
+                <option value="full" selected>Kokoteippaus</option>
+                <option value="part">Konepelti, katto ja peilit</option>
+              </select>
+            </label>
+          </div>
+          <div class="estimate">
+            <div><span class="fine">Hinta-arvio</span><div class="big num" id="estimate">2&nbsp;600&nbsp;€</div></div>
+            <a class="btn btn-primary" href="#tarjous" id="toQuote">Lisää tarjouspyyntöön</a>
+          </div>
+          <p class="fine">Arvio sisältää alv:n 25,5&nbsp;%. Lopullinen hinta tarkistetaan, kun näemme auton. Puuttuuko sävysi? Valikoimassa on yli 300 kalvoa, ja tuomme näytepalan katsottavaksi.</p>
         </div>
       </div>
-    </div>
     </div>
   </section>
 
-  <section id="teippaus-vai-maalaus">
+  <section id="tyo">
     <div class="wrap">
       <div class="sec-head">
-        <span class="tape-label">Kumpi sopii sinulle</span>
-        <h2>Teippaus vai maalaus?</h2>
-        <p class="lead">Molemmat muuttavat auton ilmeen. Ero on siinä, kuinka kauan haluat väriä pitää ja mitä alkuperäiselle pinnalle tapahtuu.</p>
+        <span class="tape">Näin työ etenee</span>
+        <h2>Neljä vaihetta, ei yllätyksiä</h2>
       </div>
-      <div class="vs">
-        <article>
-          <div class="body">
-            <h3>Teippaus</h3>
-            <dl class="facts">
-              <dt>Työaika</dt><dd>2–4 päivää</dd>
-              <dt>Kesto</dt><dd>tyypillisesti 5–7 vuotta</dd>
-              <dt>Alkuperäinen maali</dt><dd>säilyy kalvon alla</dd>
-              <dt>Poisto</dt><dd>onnistuu, väri palaa ennalleen</dd>
-              <dt>Hinta</dt><dd>alk. 2&nbsp;400&nbsp;€</dd>
-            </dl>
-            <p class="pick">Hyvä valinta, jos haluat erikoispinnan kuten matan tai kromin, leasing-auton tai mahdollisuuden palata tehdasväriin.</p>
-          </div>
-        </article>
-        <article>
-          <div class="body">
-            <h3>Maalaus</h3>
-            <dl class="facts">
-              <dt>Työaika</dt><dd>1–3 viikkoa</dd>
-              <dt>Kesto</dt><dd>pysyvä, kuten tehdasmaali</dd>
-              <dt>Alkuperäinen maali</dt><dd>hiotaan ja maalataan yli</dd>
-              <dt>Poisto</dt><dd>vaatii uuden maalauksen</dd>
-              <dt>Hinta</dt><dd>alk. 3&nbsp;900&nbsp;€</dd>
-            </dl>
-            <p class="pick">Hyvä valinta, kun pinnassa on kiveniskuja tai haalistumaa, tai kun haluat värin pysyvän auton koko iän.</p>
-          </div>
-        </article>
+      <div class="process">
+        <ol class="steps" id="steps">
+          <li class="step" data-img="0">
+            <span class="n">01</span>
+            <h3>Värinäytteet ja kiinteä hinta</h3>
+            <p>Katsotaan sävyt oikeassa valossa auton kyljessä. Saat kirjallisen tarjouksen, jossa hinta ei enää muutu.</p>
+            <span class="time">maksuton</span>
+            <img src="img/tyo-kalvo.webp" alt="Violettia kalvoa levitetään lokasuojaan" loading="lazy" width="1400" height="1045">
+          </li>
+          <li class="step" data-img="1">
+            <span class="n">02</span>
+            <h3>Pesu ja pintojen valmistelu</h3>
+            <p>Auto pestään, pinnat puhdistetaan alkoholilla ja tarvittaessa savetetaan. Listat, merkit ja valot irrotetaan, jotta kalvo menee reunojen yli.</p>
+            <span class="time">0,5 päivää</span>
+            <img src="img/tyo-pesu.webp" alt="Konepeltiä pyyhitään mikrokuituliinalla ennen teippausta" loading="lazy" width="1400" height="1045">
+          </li>
+          <li class="step" data-img="2">
+            <span class="n">03</span>
+            <h3>Asennus käsin</h3>
+            <p>Kalvo levitetään paneeli kerrallaan ja muotoillaan lämmöllä kaarevien reunojen ympäri. Saumat piilotetaan rakoihin.</p>
+            <span class="time">1–2 päivää</span>
+            <img src="img/tyo-lampo.webp" alt="Kalvoa lämmitetään kuumailmapuhaltimella oven reunassa" loading="lazy" width="1400" height="1045">
+          </li>
+          <li class="step" data-img="3">
+            <span class="n">04</span>
+            <h3>Tarkastus ja luovutus</h3>
+            <p>Kalvo jälkilämmitetään, jotta se pysyy muodossaan. Käydään auto läpi yhdessä ja saat hoito-ohjeet.</p>
+            <span class="time">luovutus sovittuna aikana</span>
+            <img src="img/m4-violetti.webp" alt="Valmis violetiksi teipattu auto studiossa" loading="lazy" width="1920" height="1086">
+          </li>
+        </ol>
+        <div class="sticky-shot" aria-hidden="true">
+          <img class="on" src="img/tyo-kalvo.webp" alt="" loading="lazy">
+          <img src="img/tyo-pesu.webp" alt="" loading="lazy">
+          <img src="img/tyo-lampo.webp" alt="" loading="lazy">
+          <img src="img/m4-violetti.webp" alt="" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section id="galleria" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head"><span class="tape-label">Näin työ etenee</span><h2>Väristä valmiiseen autoon</h2></div>
-      <ol class="steps">
-        <li><h3>Kokeile värejä</h3><p>Valitse sävy Värikoneella ja lähetä tarjouspyyntö. Vastaamme yhden arkipäivän sisällä.</p></li>
-        <li><h3>Näytteet hallilla</h3><p>Näet kalvo- tai maalinäytteen oikeassa valossa auton vieressä ennen päätöstä.</p></li>
-        <li><h3>Työ</h3><p>Pesu, purku ja asennus tai maalaus. Saat kuvat työn edistymisestä.</p></li>
-        <li><h3>Luovutus</h3><p>Käymme pinnan läpi yhdessä ja annamme hoito-ohjeet. Kerromme samalla, tarvitseeko värimuutos ilmoittaa rekisteriin.</p></li>
-      </ol>
+      <div class="sec-head">
+        <span class="tape">Työt</span>
+        <h2>Studiosta lähteneitä</h2>
+      </div>
+      <div class="gallery">
+        <figure class="wide"><img src="img/m4-kameleontti.webp" alt="Coupe violetti-sinisellä kameleonttikalvolla" loading="lazy" width="1920" height="1086"><figcaption>Kameleontti · coupe</figcaption></figure>
+        <figure><img src="img/galleria-hatchback.webp" alt="Hatchback satiininvihreällä kalvolla" loading="lazy" width="1400" height="1045"><figcaption>Satiini salvia · hatchback</figcaption></figure>
+        <figure><img src="img/galleria-suv.webp" alt="SUV mattamustalla kalvolla" loading="lazy" width="1400" height="1045"><figcaption>Mattamusta · SUV</figcaption></figure>
+        <figure><img src="img/galleria-pakettiauto.webp" alt="Pakettiauto turkoosilla mainosteippauksella" loading="lazy" width="1400" height="1045"><figcaption>Mainosteippaus · pakettiauto</figcaption></figure>
+        <figure><img src="img/galleria-sedan.webp" alt="Sedan kultaisella kromikalvolla" loading="lazy" width="1400" height="1045"><figcaption>Kultakromi · sedan</figcaption></figure>
+      </div>
     </div>
   </section>
 
-  <section id="tarjous" style="padding-top:0">
-    <div class="wrap quote">
-      <div class="contact">
-        <span class="tape-label">Tarjouspyyntö</span>
-        <h2>Kerro autosi ja toiveesi</h2>
-        <p class="lead">Lähetä kuva autostasi, niin teemme tarjouksen ja kuvasovituksen valitsemallasi värillä.</p>
-        <div><b>Puhelin</b>040&nbsp;123&nbsp;4567</div>
-        <div><b>Sähköposti</b>hei@kuoriautostudio.fi</div>
-        <div><b>Halli</b>Teollisuustie 12, 01510 Vantaa</div>
-        <div><b>Aukioloajat</b>ma–pe 8–17, la sopimuksen mukaan</div>
+  <section id="arviot" style="padding-top:0">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat"><b class="num">600+</b><span>teipattua autoa</span></div>
+        <div class="stat"><b class="num">4,9/5</b><span>asiakasarvioiden keskiarvo</span></div>
+        <div class="stat"><b class="num">300+</b><span>kalvosävyä valikoimassa</span></div>
+        <div class="stat"><b class="num">12 v</b><span>kokemus teippauksesta</span></div>
       </div>
-      <form id="form" novalidate>
-        <div class="f"><label for="q-name">Nimi</label><input id="q-name" autocomplete="name" required></div>
-        <div class="f"><label for="q-phone">Puhelin</label><input id="q-phone" type="tel" autocomplete="tel" required></div>
-        <div class="f"><label for="q-car">Auto (merkki, malli, vuosi)</label><input id="q-car" placeholder="esim. farmari, 2019"></div>
-        <div class="f"><label for="q-svc">Palvelu</label><select id="q-svc"><option>Kokoteippaus</option><option>Osateippaus</option><option>Suojakalvo</option><option>Kokomaalaus</option><option>Paneelimaalaus</option><option>Kiillotus ja pinnoite</option></select></div>
-        <div class="f full"><label>Valittu väri</label><div class="chosen"><span class="dot" id="q-dot"></span><span id="q-color">Satiini · Metsänvihreä</span></div></div>
-        <div class="f full"><label for="q-photo">Kuva autosta (valinnainen)</label><input id="q-photo" type="file" accept="image/*"></div>
-        <div class="f full"><label for="q-msg">Viesti</label><textarea id="q-msg" placeholder="Esim. katto mustaksi ja peilit samaan sävyyn"></textarea></div>
-        <button class="btn dark" type="submit">Lähetä tarjouspyyntö</button>
-        <p class="small" style="grid-column:1/-1">Käytämme tietoja vain tarjouksen tekemiseen.</p>
+      <div class="reviews">
+        <article class="review">
+          <span class="stars" aria-label="5 tähteä">★★★★★</span>
+          <p>Näin värin kuvasta ja oikeana näytepalana ennen päätöstä. Auto oli valmis sovittuna päivänä, ja reunat on tehty niin, ettei kalvoa huomaa.</p>
+          <footer><span>Mika, Vantaa · satiinimusta</span><span class="example">Esimerkki</span></footer>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="5 tähteä">★★★★★</span>
+          <p>Halusin suojata uuden auton keulan. Kalvoa ei näe edes läheltä, ja kivenroiskeet ovat talven jälkeen kalvossa eivätkä maalissa.</p>
+          <footer><span>Sanna, Espoo · PPF etuosa</span><span class="example">Esimerkki</span></footer>
+        </article>
+        <article class="review">
+          <span class="stars" aria-label="5 tähteä">★★★★★</span>
+          <p>Teipattiin kolme pakettiautoa yrityksen väreihin. Tarjous piti, ja autot olivat poissa töistä vain yhden päivän kerrallaan.</p>
+          <footer><span>Jari, Kerava · mainosteippaus</span><span class="example">Esimerkki</span></footer>
+        </article>
+      </div>
+      <p class="fine" style="margin-top:16px">Kuori Autostudio on demoyritys. Luvut ja arviot ovat esimerkkejä siitä, miltä oikean yrityksen tiedot näyttävät sivulla.</p>
+    </div>
+  </section>
+
+  <section id="hinnat" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Hinnat</span>
+        <h2>Hinta auton koon mukaan</h2>
+        <p class="lead">Kaikki hinnat ovat lähtöhintoja kiiltävällä tai satiinikalvolla ja sisältävät alv:n. Saat tarkan hinnan, kun auto on nähty.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Auton koko</th><th scope="col">Kokoteippaus</th><th scope="col">Konepelti, katto, peilit</th><th scope="col">Kokomaalaus</th><th scope="col">PPF etuosa</th></tr></thead>
+          <tbody id="priceRows"></tbody>
+        </table>
+      </div>
+      <p class="fine" style="margin-top:14px">Lisäksi: kromin poisto mustaksi alk. 190&nbsp;€, ikkunoiden tummennus alk. 290&nbsp;€, vanhan kalvon poisto tuntihinnalla 65&nbsp;€/h.</p>
+    </div>
+  </section>
+
+  <section id="ukk" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">UKK</span>
+        <h2>Usein kysyttyä</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Vahingoittaako teippaus maalia?</summary><p>Ei, kun maali on alkuperäinen ja ehjä. Kalvo päinvastoin suojaa maalia. Uudelleenmaalatuissa ja lohkeilleissa kohdissa irrotus voi viedä maalia mukanaan, joten tarkistamme pinnan ennen työtä.</p></details>
+        <details><summary>Kuinka kauan teippaus kestää?</summary><p>Laadukas valettu kalvo kestää tavallisesti 5–7 vuotta. Kestoon vaikuttavat auringonvalo, pesutapa ja säilytys. Lämpimässä tallissa ja käsinpesulla kalvo pysyy pisimpään.</p></details>
+        <details><summary>Voiko teipatun auton pestä pesukadulla?</summary><p>Kosketuksettomassa pesussa kyllä, harjapesua kannattaa välttää. Odota ensimmäistä pesua viikko asennuksen jälkeen. Saat luovutuksessa kirjalliset hoito-ohjeet.</p></details>
+        <details><summary>Kauanko auto on studiolla?</summary><p>Kokoteippaus kestää yleensä 1–3 päivää, osateippaus ja suojakalvo etuosaan päivän. Kokomaalaus vie noin kaksi viikkoa. Sovimme tarvittaessa sijaisauton työn ajaksi.</p></details>
+        <details><summary>Voiko teippauksen poistaa myöhemmin?</summary><p>Kyllä. Kalvo irrotetaan lämmön avulla, ja alta paljastuu alkuperäinen maali. Irrotus kestää tavallisesti päivän.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="tarjous" class="quote">
+    <div class="wrap quote-grid">
+      <div>
+        <span class="tape">Tarjouspyyntö</span>
+        <h2 style="margin-top:18px">Kerro autosta, vastaamme päivän sisällä</h2>
+        <p class="lead" style="margin-top:18px">Tarjous on maksuton. Jos valitsit sävyn yllä, se on jo mukana viestissä.</p>
+        <div class="contact-list">
+          <div><span>Puhelin</span><b>050 123 4567</b></div>
+          <div><span>Sähköposti</span><b>studio@kuori-esimerkki.fi</b></div>
+          <div><span>Avoinna</span><b>ma–pe 8–17, la sopimuksen mukaan</b></div>
+        </div>
+      </div>
+      <form id="quoteForm" novalidate>
+        <div class="fields">
+          <label for="qName">Nimi<input id="qName" name="nimi" autocomplete="name" required></label>
+          <label for="qPhone">Puhelin<input id="qPhone" name="puhelin" type="tel" autocomplete="tel"></label>
+        </div>
+        <label for="qEmail">Sähköposti<input id="qEmail" name="email" type="email" autocomplete="email" required></label>
+        <div class="fields">
+          <label for="qCar">Auto (merkki, malli, vuosi)<input id="qCar" name="auto" placeholder="esim. Toyota Corolla 2021"></label>
+          <label for="qService">Palvelu
+            <select id="qService" name="palvelu">
+              <option>Teippaus</option><option>Maalaus</option><option>Suojakalvo (PPF)</option><option>Mainosteippaus</option><option>En ole vielä varma</option>
+            </select>
+          </label>
+        </div>
+        <label for="qMsg">Viesti<textarea id="qMsg" name="viesti"></textarea></label>
+        <button class="btn btn-primary" type="submit">Lähetä tarjouspyyntö</button>
+        <p class="thanks" id="thanks" hidden>Kiitos! Tämä on demosivu, joten viestiä ei lähetetty. Oikealla sivulla pyyntö menee suoraan studion sähköpostiin.</p>
       </form>
     </div>
   </section>
 </main>
 
-<footer lang="fi">
+<footer class="site">
   <div class="wrap">
-    <span>Kuori Autostudio on kuvitteellinen demoyritys. Hinnat ovat esimerkkejä. Sivun teki Marktic.</span>
-    <span>3D-malli: BMW M3 E30, Martin Trafas (TinoD2), CC BY 4.0, muokattu: merkit ja logot poistettu. BMW on BMW AG:n tavaramerkki, eikä Kuorella ole yhteyttä BMW:hen.</span>
+    <p><b style="color:var(--fg)">Kuori Autostudio</b> · Teippaus · Maalaus · Suojakalvot</p>
+    <p>Kuori Autostudio on kuvitteellinen demoyritys. Kuvat ovat havainnollistavia, eikä niissä esiintyvillä automerkeillä ole yhteyttä sivustoon. BMW on BMW AG:n tavaramerkki.</p>
+    <p>Sivuston toteutus: Marktic</p>
   </div>
 </footer>
 
-<script type="importmap">
-{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
-</script>
-<script type="module">
-import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+<script>
+(function(){
+  /* ===== YRITYKSEN VÄRIT: yksi sävy = yksi rivi (nimi, koodi, pinta, värinäyte) ===== */
+  var LIB={
+    violetti:{name:'Keskiyön violetti',code:'KU-G21',finish:'gloss',c:'#2d1557'},
+    vihrea:{name:'Brittivihreä',code:'KU-G34',finish:'gloss',c:'#0f3d2a'},
+    nardo:{name:'Betoninharmaa',code:'KU-G12',finish:'gloss',c:'#a3a6a7'},
+    oranssi:{name:'Kirkas oranssi',code:'KU-G05',finish:'gloss',c:'#ee6a1f'},
+    minttu:{name:'Minttu',code:'KU-G48',finish:'gloss',c:'#a8e3c6'},
+    keltainen:{name:'Auringonkeltainen',code:'KU-G02',finish:'gloss',c:'#f2c418'},
+    grafiitti:{name:'Grafiitti metalli',code:'KU-G15',finish:'gloss',c:'#4b4e53'},
+    helmiainen:{name:'Helmiäisvalkoinen',code:'KU-G90',finish:'gloss',c:'#efebe3'},
+    kirsikka:{name:'Kirsikanpunainen',code:'KU-G08',finish:'gloss',c:'#a3121b'},
+    signaali:{name:'Signaalinpunainen',code:'KU-G09',finish:'gloss',c:'#d1151b'},
+    yonsininen:{name:'Yönsininen',code:'KU-G27',finish:'gloss',c:'#1d2c5a'},
+    musta:{name:'Satiinimusta',code:'KU-S01',finish:'satin',c:'#202024'},
+    jaansininen:{name:'Jäänsininen',code:'KU-S42',finish:'satin',c:'#a6cbe6'},
+    pinkki:{name:'Pastellipinkki',code:'KU-S61',finish:'satin',c:'#f1b6cc'},
+    salvia:{name:'Salvia',code:'KU-S36',finish:'satin',c:'#7f8a6c'},
+    oliivi:{name:'Oliivinvihreä',code:'KU-M33',finish:'matte',c:'#5c6247'},
+    hiekka:{name:'Hiekka',code:'KU-M18',finish:'matte',c:'#cdbb98'},
+    metsa:{name:'Metsänvihreä',code:'KU-M37',finish:'matte',c:'#34442f'},
+    mattamusta:{name:'Mattamusta',code:'KU-M01',finish:'matte',c:'#1a1a1b'},
+    antrasiitti:{name:'Antrasiitti',code:'KU-M05',finish:'matte',c:'#3a3c3f'},
+    kameleontti:{name:'Kameleontti violetti–sininen',code:'KU-X90',finish:'shift',c:'#3a2bb0',sw:'shift'},
+    kulta:{name:'Kultakromi',code:'KU-X70',finish:'shift',c:'#c9a33f',sw:'chrome'},
+    mainos:{name:'Mainosteippaus',code:'KU-P01',finish:'shift',c:'#1f8a7a',sw:'print'}
+  };
+  /* ===== AUTOT: pohjakuva (valkoinen) + sävy -> kuvatiedosto. size = hintaluokka ===== */
+  var A='img/autot/';
+  var CARS=[
+    {id:'coupe',name:'Coupe',size:'m',ar:'2688/1520',base:'img/m4-valkoinen.webp',colors:{violetti:'img/m4-violetti.webp',vihrea:'img/m4-vihrea.webp',nardo:'img/m4-nardo.webp',oranssi:'img/m4-oranssi.webp',musta:'img/m4-satiinimusta.webp',jaansininen:'img/m4-vauvansininen.webp',oliivi:'img/m4-armeijanvihrea.webp',kameleontti:'img/m4-kameleontti.webp'}},
+    {id:'hatch',name:'Hatchback',size:'s',ar:'2336/1744',base:A+'hatch-valkoinen.webp',colors:{violetti:A+'hatch-violetti.webp',nardo:A+'hatch-nardo.webp',minttu:A+'hatch-minttu.webp',keltainen:A+'hatch-keltainen.webp',musta:A+'hatch-satiinimusta.webp',pinkki:A+'hatch-pinkki.webp',salvia:'img/galleria-hatchback.webp',kameleontti:A+'hatch-kameleontti.webp'}},
+    {id:'suv',name:'SUV',size:'l',ar:'2336/1744',base:A+'suv-valkoinen.webp',colors:{violetti:A+'suv-violetti.webp',nardo:A+'suv-nardo.webp',grafiitti:A+'suv-grafiitti.webp',musta:A+'suv-satiinimusta.webp',hiekka:A+'suv-khaki.webp',metsa:A+'suv-metsanvihrea.webp',mattamusta:'img/galleria-suv.webp',kameleontti:A+'suv-kameleontti.webp'}},
+    {id:'sedan',name:'Sedan',size:'m',ar:'2336/1744',base:A+'sedan-valkoinen.webp',colors:{violetti:A+'sedan-violetti.webp',nardo:A+'sedan-nardo.webp',helmiainen:A+'sedan-helmiainen.webp',kirsikka:A+'sedan-punainen.webp',yonsininen:A+'sedan-tummansininen.webp',musta:A+'sedan-satiinimusta.webp',kameleontti:A+'sedan-kameleontti.webp',kulta:'img/galleria-sedan.webp'}},
+    {id:'van',name:'Pakettiauto',size:'v',ar:'2336/1744',base:A+'van-valkoinen.webp',colors:{violetti:A+'van-violetti.webp',nardo:A+'van-nardo.webp',signaali:A+'van-punainen.webp',yonsininen:A+'van-tummansininen.webp',musta:A+'van-satiinimusta.webp',antrasiitti:A+'van-antrasiitti.webp',kameleontti:A+'van-kameleontti.webp',mainos:'img/galleria-pakettiauto.webp'}}
+  ];
+  var FINISH={gloss:{label:'kiiltävä',add:0},satin:{label:'satiini',add:150},matte:{label:'matta',add:200},shift:{label:'erikoiskalvo',add:900}};
+  var PRICES={ /* kokoteippaus, osateippaus, kokomaalaus, ppf etuosa */
+    s:{label:'Pieni',ex:'pikkuautot',full:2200,part:690,paint:3900,ppf:890},
+    m:{label:'Keskikokoinen',ex:'coupe, sedan, hatchback',full:2600,part:790,paint:4500,ppf:990},
+    l:{label:'Iso',ex:'farmari, SUV, tila-auto',full:3100,part:890,paint:5200,ppf:1090},
+    v:{label:'Pakettiauto',ex:'kevyet hyötyautot',full:3600,part:990,paint:5900,ppf:1190}
+  };
+  var eur=function(n){return n.toLocaleString('fi-FI').replace(/\s/g,' ')+' €'};
 
-const NB = ' ';
-const eur = n => n.toLocaleString('fi-FI').replace(/\s/g, NB) + NB + '€';
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // price table
+  var rows=document.getElementById('priceRows');
+  Object.keys(PRICES).forEach(function(k){var p=PRICES[k];var tr=document.createElement('tr');
+    tr.innerHTML='<th scope="row">'+p.label+'<small>'+p.ex+'</small></th><td>alk. '+eur(p.full)+'</td><td>alk. '+eur(p.part)+'</td><td>alk. '+eur(p.paint)+'</td><td>alk. '+eur(p.ppf)+'</td>';rows.appendChild(tr);});
 
-/* ================= YRITYKSEN VÄRIT (edit per client) =================
-   FIN = finishes per work type: label, starting price (€), spec line, and how the surface reflects light.
-   SW  = shades per finish: [name, hex colour, the shop's own code].
-   To add a client's special colours: put [name, '#hex', 'their code'] into the right list,
-   or add a new finish under FIN (copy chrome/chameleon/candy as a starting point) plus a list in SW.
-   ===================================================================== */
-const FIN = {
-  wrap: {
-    gloss:{label:'Kiiltävä', price:2400, film:'valukalvo 80 µm', p:{roughness:.16,metalness:0,clearcoat:1,clearcoatRoughness:.04}},
-    satin:{label:'Satiini', price:2400, film:'valukalvo 80 µm', p:{roughness:.42,metalness:.05,clearcoat:.25,clearcoatRoughness:.4}},
-    matte:{label:'Matta', price:2400, film:'valukalvo 80 µm', p:{roughness:.8,metalness:0,clearcoat:0}},
-    chrome:{label:'Kromi', price:4200, film:'kromikalvo 110 µm', p:{roughness:.2,metalness:1,clearcoat:.4,clearcoatRoughness:.2}},
-    chameleon:{label:'Kameleontti', price:3300, film:'efektikalvo 100 µm', p:{roughness:.26,metalness:.55,clearcoat:1,clearcoatRoughness:.05,iridescence:1,iridescenceIOR:1.9,iridescenceThicknessRange:[250,850]}}
-  },
-  paint: {
-    solid:{label:'Uni', price:3900, film:'2K-pohja, väri ja lakka', p:{roughness:.28,metalness:0,clearcoat:1,clearcoatRoughness:.02}},
-    metallic:{label:'Metalli', price:4300, film:'metalliväri ja lakka', p:{roughness:.36,metalness:.65,clearcoat:1,clearcoatRoughness:.03}},
-    pearl:{label:'Helmiäis', price:4800, film:'3-kerrosmaalaus', p:{roughness:.3,metalness:.15,clearcoat:1,clearcoatRoughness:.02,iridescence:.45,iridescenceIOR:1.5,iridescenceThicknessRange:[200,500]}},
-    candy:{label:'Candy', price:5500, film:'kuultava kerros hopeapohjalla', p:{roughness:.22,metalness:.85,clearcoat:1,clearcoatRoughness:.01}},
-    matte:{label:'Matta', price:4600, film:'mattalakka', p:{roughness:.7,metalness:.1,clearcoat:0}}
+  // car picker + swatches
+  var car=CARS[0],current=null,after=document.getElementById('afterImg'),before=document.getElementById('beforeImg'),stageEl=document.getElementById('stage');
+  var size=document.getElementById('size'),scope=document.getElementById('scope');
+  var picker=document.getElementById('carPicker');
+  CARS.forEach(function(c){var b=document.createElement('button');b.type='button';b.className='car-tab';b.textContent=c.name;b.setAttribute('aria-pressed',c===car?'true':'false');b.addEventListener('click',function(){setCar(c)});picker.appendChild(b);c.btn=b;});
+  function setCar(c){
+    car=c;CARS.forEach(function(x){x.btn.setAttribute('aria-pressed',x===c?'true':'false')});
+    stageEl.style.aspectRatio=c.ar;before.src=c.base;before.alt=c.name+' alkuperäisessä valkoisessa värissä';
+    size.value=c.size;
+    document.querySelectorAll('.swatches').forEach(function(s){s.innerHTML=''});
+    var first=null;
+    Object.keys(c.colors).forEach(function(id){var col=LIB[id];var b=document.createElement('button');b.type='button';b.className='sw '+(col.sw||col.finish);b.style.setProperty('--c',col.c);
+      b.setAttribute('aria-label',col.name+', '+FINISH[col.finish].label);b.title=col.name;b.setAttribute('aria-pressed','false');
+      b.addEventListener('click',function(){choose(id,b)});document.querySelector('.swatches[data-finish="'+col.finish+'"]').appendChild(b);
+      var pre=new Image();pre.src=c.colors[id];if(!first)first=[id,b];});
+    document.querySelectorAll('.swatches').forEach(function(s){s.closest('.group').hidden=!s.children.length});
+    var keep=current&&c.colors[current.id]?current.id:null;
+    if(keep){var bb=[].slice.call(document.querySelectorAll('.sw')).filter(function(x){return x.title===LIB[keep].name})[0];choose(keep,bb)}else{choose(first[0],first[1])}
   }
-};
-const SW = {
-  wrap: {
-    gloss:[['Musta','#0b0c0e','KT-G101'],['Jäätikönvalkoinen','#eceeee','KT-G110'],['Kilpapunainen','#b0121b','KT-G130'],['Signaalinkeltainen','#f0b400','KT-G142'],['Sähkönsininen','#1f5fd1','KT-G151'],['Betoninharmaa','#8b8e90','KT-G160']],
-    satin:[['Metsänvihreä','#2f5a3f','KT-S204'],['Satiinimusta','#17191c','KT-S201'],['Laivastonsininen','#1d2c4a','KT-S250'],['Hiekka','#b6a283','KT-S270'],['Viininpunainen','#5c1a24','KT-S233']],
-    matte:[['Mattamusta','#141518','KT-M301'],['Grafiitti','#3b3f44','KT-M362'],['Oliivi','#5b6146','KT-M384'],['Mattavalkoinen','#e1e2df','KT-M310'],['Teräksensininen','#4d6276','KT-M355']],
-    chrome:[['Satiinikromi hopea','#c9ccd0','KT-C401'],['Satiinikromi kulta','#c9a24c','KT-C420'],['Satiinikromi titaani','#7e7f83','KT-C440'],['Ruusukulta','#c78f7c','KT-C425']],
-    chameleon:[['Violetti–sininen','#3a2a6b','KT-X501'],['Vihreä–kulta','#3b5a2a','KT-X520'],['Petrooli–purppura','#1f4a55','KT-X540']]
-  },
-  paint: {
-    solid:[['Kiiltomusta','#0c0d0f','MA-U01'],['Valkoinen','#f1f2f1','MA-U02'],['Punainen','#b8141c','MA-U10'],['Keltainen','#f2b90f','MA-U14'],['Klassinen vihreä','#1e4d36','MA-U20']],
-    metallic:[['Hopea','#a7abb0','MA-M30'],['Yönsininen','#1b2a52','MA-M41'],['Grafiitti','#44484e','MA-M35'],['Pronssi','#7a5a3a','MA-M52'],['Smaragdi','#16503f','MA-M60']],
-    pearl:[['Helmiäisvalkoinen','#eef0ef','MA-H70'],['Helmiäismusta','#141519','MA-H71'],['Helmiäissininen','#2b4f8c','MA-H75']],
-    candy:[['Candy punainen','#8e0f1a','MA-C80'],['Candy sininen','#0f2f8e','MA-C81'],['Candy vihreä','#0f6b3a','MA-C83']],
-    matte:[['Mattaharmaa','#6b6f73','MA-T90'],['Mattamusta','#17181a','MA-T91'],['Mattahiekka','#a89a80','MA-T93']]
+  function choose(id,btn){
+    var col=LIB[id];current={id:id,name:col.name,code:col.code,finish:col.finish};
+    document.querySelectorAll('.sw').forEach(function(x){x.setAttribute('aria-pressed','false')});btn.setAttribute('aria-pressed','true');
+    after.classList.add('swap');var src=car.colors[id];
+    setTimeout(function(){after.onload=function(){after.classList.remove('swap')};after.src=src;after.alt=car.name+': '+col.name;},150);
+    document.getElementById('afterLabel').textContent=col.name;
+    document.getElementById('chosenName').textContent=col.name;
+    document.getElementById('chosenCode').textContent=col.code+' · '+FINISH[col.finish].label;
+    update();
   }
-};
-const ORIGINAL = {name:'Nykyinen väri: valkoinen', color:'#e9ebea', p:FIN.paint.solid.p};
+  function total(){var p=PRICES[size.value];var base=scope.value==='full'?p.full:p.part;var add=FINISH[current.finish].add;if(scope.value!=='full')add=Math.round(add/3/10)*10;return base+add}
+  function update(){if(current)document.getElementById('estimate').textContent=eur(total())}
+  size.addEventListener('change',update);scope.addEventListener('change',update);
+  setCar(CARS[0]);
 
-const state = {mode:'wrap', finish:'chameleon', idx:0, roofSame:false};
-const $ = id => document.getElementById(id);
-const finEl = $('finishes'), swEl = $('swatches');
+  // compare slider
+  var stage=document.getElementById('stage'),range=document.getElementById('cut');
+  function setCut(v){v=Math.max(0,Math.min(100,v));stage.style.setProperty('--cut',v+'%');range.value=Math.round(v)}
+  range.addEventListener('input',function(){setCut(+range.value)});
+  var drag=false;
+  function fromEvent(e){var r=stage.getBoundingClientRect();setCut((e.clientX-r.left)/r.width*100)}
+  stage.addEventListener('pointerdown',function(e){drag=true;stage.setPointerCapture(e.pointerId);fromEvent(e)});
+  stage.addEventListener('pointermove',function(e){if(drag)fromEvent(e)});
+  stage.addEventListener('pointerup',function(){drag=false});stage.addEventListener('pointercancel',function(){drag=false});
 
-function swatchBg(mode, fin, hex){
-  if (fin==='chrome') return `linear-gradient(135deg,#fff 0%,${hex} 35%,#3a3a3a 60%,${hex} 80%,#fff 100%)`;
-  if (fin==='chameleon'){ const pair={'#3a2a6b':'#2a7bd8','#3b5a2a':'#c9a43a','#1f4a55':'#8a2a7a'}[hex]||hex; return `conic-gradient(from 200deg,${hex},${pair},${hex})`; }
-  if (fin==='metallic'||fin==='candy') return `radial-gradient(circle at 35% 30%,#ffffff88 0%,${hex} 45%,#000000aa 110%)`;
-  if (fin==='pearl') return `radial-gradient(circle at 35% 30%,#fff 0%,${hex} 50%,#9aa3c0 120%)`;
-  if (fin==='matte') return hex;
-  return `radial-gradient(circle at 35% 30%,#ffffff66 0%,${hex} 40%)`;
-}
-function current(){ const s=SW[state.mode][state.finish][state.idx]; const f=FIN[state.mode][state.finish]; return {name:s[0],hex:s[1],code:s[2],fin:f}; }
-
-function renderFinishes(){
-  finEl.innerHTML='';
-  for (const [k,f] of Object.entries(FIN[state.mode])){
-    const b=document.createElement('button'); b.type='button'; b.textContent=f.label; b.setAttribute('aria-pressed', k===state.finish);
-    b.onclick=()=>{ state.finish=k; state.idx=0; renderFinishes(); renderSwatches(); apply(); };
-    finEl.appendChild(b);
-  }
-}
-function renderSwatches(){
-  swEl.innerHTML='';
-  SW[state.mode][state.finish].forEach((s,i)=>{
-    const b=document.createElement('button'); b.type='button'; b.className='sw'; b.setAttribute('aria-pressed', i===state.idx);
-    b.setAttribute('aria-label', s[0]);
-    b.innerHTML=`<span class="dot" style="background:${swatchBg(state.mode,state.finish,s[1])}"></span>${s[0]}`;
-    b.onclick=()=>{ state.idx=i; renderSwatches(); apply(); };
-    swEl.appendChild(b);
+  // to quote
+  document.getElementById('toQuote').addEventListener('click',function(){
+    var p=PRICES[size.value];var msg=document.getElementById('qMsg');
+    msg.value='Kiinnostaa: '+(scope.value==='full'?'kokoteippaus':'konepelti, katto ja peilit')+', '+current.name+' ('+current.code+', '+FINISH[current.finish].label+').\nAutotyyppi: '+car.name+', kokoluokka '+p.label.toLowerCase()+'. Hinta-arvio sivulla: '+eur(total())+'.';
+    document.getElementById('qService').value='Teippaus';
   });
-  $('sw-count').textContent = SW[state.mode][state.finish].length + ' sävyä';
-}
-function updateReadout(){
-  const c=current();
-  const name=`${c.fin.label} · ${c.name}`;
-  $('r-name').textContent=name;
-  $('r-meta').textContent=`${c.code} · ${c.fin.film.replace(' µm', NB+'µm')}`;
-  $('r-price').textContent=eur(c.fin.price);
-  $('q-color').textContent=`${state.mode==='wrap'?'Teippaus':'Maalaus'}: ${name} (${c.code})${state.roofSame?', katto korin väri':', katto kiiltävä musta'}`;
-  $('q-dot').style.background=swatchBg(state.mode,state.finish,c.hex);
-  $('q-svc').value = state.mode==='wrap' ? 'Kokoteippaus' : 'Kokomaalaus';
-}
-function setMode(m){
-  if (state.mode===m) return;
-  state.mode=m; state.finish=Object.keys(FIN[m])[0]; state.idx=0;
-  $('m-wrap').setAttribute('aria-pressed', m==='wrap'); $('m-paint').setAttribute('aria-pressed', m==='paint');
-  renderFinishes(); renderSwatches(); apply();
-}
-$('m-wrap').onclick=()=>setMode('wrap'); $('m-paint').onclick=()=>setMode('paint');
-$('roof-black').onclick=()=>{ state.roofSame=false; $('roof-black').setAttribute('aria-pressed',true); $('roof-same').setAttribute('aria-pressed',false); apply(); };
-$('roof-same').onclick=()=>{ state.roofSame=true; $('roof-same').setAttribute('aria-pressed',true); $('roof-black').setAttribute('aria-pressed',false); apply(); };
-renderFinishes(); renderSwatches(); updateReadout();
+  document.getElementById('quoteForm').addEventListener('submit',function(e){e.preventDefault();
+    var ok=true;['qName','qEmail'].forEach(function(id){var el=document.getElementById(id);var bad=!el.value.trim()||(el.type==='email'&&el.value.indexOf('@')<1);el.setAttribute('aria-invalid',bad?'true':'false');el.style.borderColor=bad?'var(--tape)':'';if(bad)ok=false;});
+    if(ok)document.getElementById('thanks').hidden=false;});
 
-$('form').addEventListener('submit', e=>{
-  e.preventDefault();
-  const f=e.target;
-  if (!$('q-name').value.trim() || !$('q-phone').value.trim()){
-    (!$('q-name').value.trim()?$('q-name'):$('q-phone')).focus();
-    let w=f.querySelector('.thanks'); if(!w){w=document.createElement('p'); w.className='thanks'; f.prepend(w);} w.style.background='color-mix(in srgb,var(--tape) 30%,var(--surface))';
-    w.textContent='Täytä vielä nimi ja puhelinnumero, niin voimme soittaa tarjouksesta.'; return;
+  // hero video
+  var v=document.getElementById('heroVideo');
+  v.muted=true;v.defaultMuted=true;
+  var SRC=window.innerWidth>=900?'video/kuori-hero-1080.mp4':(window.innerWidth>=600?'video/kuori-hero-720.mp4':'video/kuori-hero-540.mp4');
+  /* the photo stays visible; the video fades in only once it really plays (Low Power Mode etc. keep the photo) */
+  v.addEventListener('playing',function(){v.classList.add('on')});
+  var triedBlob=false;
+  function viaBlob(){ /* fallback for hosts without byte-range support (iPhone Safari needs it for direct video) */
+    if(triedBlob||!window.fetch||!window.URL)return;triedBlob=true;
+    fetch(SRC).then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(b){v.src=URL.createObjectURL(b);v.load();play()}).catch(function(){});
   }
-  let w=f.querySelector('.thanks'); if(!w){w=document.createElement('p'); w.className='thanks'; f.prepend(w);} w.style.background='';
-  w.textContent='Kiitos! Tämä on demosivu, joten viestiä ei lähetetty. Oikealla sivulla pyyntö menisi suoraan Kuoren sähköpostiin.';
-});
+  v.addEventListener('error',viaBlob);
+  v.src=SRC;
+  function play(){if(!v.paused)return;var p=v.play();if(p&&p.catch)p.catch(function(){});}
+  play();v.addEventListener('canplay',play);
+  setTimeout(function(){if(v.readyState<2)viaBlob()},1500);
+  document.addEventListener('visibilitychange',function(){if(!document.hidden)play()});
+  ['pointerdown','touchstart','scroll','keydown'].forEach(function(ev){window.addEventListener(ev,play,{once:true,passive:true})});
 
-/* ---------- 3D ---------- */
-const stage=$('stage');
-let renderer;
-try {
-  renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'high-performance'});
-} catch(err){ fallback(); throw err; }
-function fallback(){
-  $('loader').innerHTML='';
-  const img=new Image(); img.src='img/wrap.webp'; img.className='fallback'; img.alt='Asentaja teippaa autoa'; stage.prepend(img);
-  $('hint').textContent='3D-esikatselu ei toimi tällä laitteella.';
-}
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
-renderer.toneMapping=THREE.AgXToneMapping; renderer.toneMappingExposure=1.05;
-renderer.localClippingEnabled=true;
-stage.prepend(renderer.domElement);
-renderer.domElement.setAttribute('aria-label','3D-malli autosta valitulla värillä. Pyöritä vetämällä.');
-renderer.domElement.setAttribute('role','img');
-
-const scene=new THREE.Scene();
-const pmrem=new THREE.PMREMGenerator(renderer);
-scene.environment=pmrem.fromScene(new RoomEnvironment(),0.04).texture;
-const key=new THREE.DirectionalLight(0xffffff,1.6); key.position.set(4,8,5); scene.add(key);
-
-const camera=new THREE.PerspectiveCamera(32,1,0.1,100);
-const controls=new OrbitControls(camera,renderer.domElement);
-controls.enableDamping=true; controls.enablePan=false; controls.minPolarAngle=0.5; controls.maxPolarAngle=1.52;
-controls.autoRotate=!reduce; controls.autoRotateSpeed=0.6;
-controls.addEventListener('start',()=>{ $('hint').classList.add('gone'); controls.autoRotate=false; });
-
-// soft floor shadow
-function shadowTex(){ const c=document.createElement('canvas'); c.width=c.height=256; const g=c.getContext('2d');
-  const r=g.createRadialGradient(128,128,10,128,128,128); r.addColorStop(0,'rgba(0,0,0,.55)'); r.addColorStop(.55,'rgba(0,0,0,.22)'); r.addColorStop(1,'rgba(0,0,0,0)');
-  g.fillStyle=r; g.fillRect(0,0,256,256); const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; return t; }
-
-let frontSign=null, front=new THREE.Vector3(0,0,1), bodyMeshes=[], roofMeshes=[], bodyMat, roofBlackMat, box, lenAxis='x', center=new THREE.Vector3(), size=new THREE.Vector3(), radius=3;
-const loader=new GLTFLoader();
-async function fetchProgress(url){
-  const r=await fetch(url); if(!r.ok) throw new Error(url+' '+r.status);
-  const total=+r.headers.get('content-length')||0; const rd=r.body.getReader(); const parts=[]; let got=0;
-  for(;;){ const {done,value}=await rd.read(); if(done) break; parts.push(value); got+=value.length; if(total) $('bar').style.width=Math.min(100,Math.round(got/total*100))+'%'; }
-  const out=new Uint8Array(got); let o=0; for(const p of parts){ out.set(p,o); o+=p.length; } return out;
-}
-async function loadCar(){
-  try { return (await fetchProgress('car.glb')).buffer; }
-  catch(e){ const txt=new TextDecoder().decode(await fetchProgress('car.glb.b64.txt')); const bin=atob(txt.trim()); const u=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return u.buffer; }
-}
-let carRequested=false;
-function requestCar(){ if(carRequested) return; carRequested=true; loadCar().then(buf=>loader.parse(buf,'',onCar,err=>{console.error(err);fallback();})).catch(err=>{console.error(err);fallback();}); }
-if ('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ requestCar(); io.disconnect(); } },{rootMargin:'600px 0px'}); io.observe(stage); } else requestCar();
-function onCar(gltf){
-  const car=gltf.scene;
-  let ao=null;
-  car.traverse(o=>{
-    if(!o.isMesh) return;
-    const n=(o.material&&o.material.name)||'';
-    const old=o.material;
-    if (n==='BMW_E30_M3_WINDOWS') o.material=new THREE.MeshPhysicalMaterial({color:0x07090c,roughness:.03,metalness:0,clearcoat:1,clearcoatRoughness:.02,envMapIntensity:1.4});
-    if (n==='BMW_E30_M3_LENS'){ o.material=new THREE.MeshPhysicalMaterial({map:old.map,color:0xffffff,roughness:.05,metalness:0,transparent:true,opacity:.55,clearcoat:1,depthWrite:false}); o.renderOrder=2; }
-    if (n==='BMW_E30_M3_TAILLIGHT_REFLECTOR') o.material=new THREE.MeshStandardMaterial({color:0x5a0a0c,emissive:0x3a0204,roughness:.35,metalness:.4});
-    if (n==='BMW_E30_M3_HEADLIGHT_REFLECTOR'){ o.material=new THREE.MeshStandardMaterial({color:0xd9dde2,roughness:.15,metalness:1}); frontSign=o; }
-    if (n==='BMW_E30_M3_CHROME') o.material=new THREE.MeshStandardMaterial({color:0xbfc3c7,roughness:.12,metalness:1});
-    if (n==='BMW_E30_M3_PLASTIC'||n==='BMW_E30_M3_BLACKOUT') o.material=new THREE.MeshStandardMaterial({color:0x0d0e10,roughness:n==='BMW_E30_M3_PLASTIC'?.6:.4,metalness:0});
-    if (n==='BMW_E30_M3_SIDE_MIRROR') o.material=new THREE.MeshStandardMaterial({color:0xffffff,roughness:.02,metalness:1});
-    if (n==='BMW_E30_M3_PAINT'){ bodyMeshes.push(o); ao=ao||old.aoMap; }
-  });
-  if (!roofMeshes.length) { const rb=document.getElementById('roof-block'); if(rb) rb.hidden=true; }
-  scene.add(car);
-  box=new THREE.Box3().setFromObject(car); box.getCenter(center); box.getSize(size);
-  car.position.sub(new THREE.Vector3(center.x, box.min.y, center.z));
-  box.setFromObject(car); box.getCenter(center); box.getSize(size);
-  car.updateMatrixWorld(true);
-  lenAxis = size.x>=size.z ? 'x' : 'z';
-  if (frontSign){ const fc=new THREE.Box3().setFromObject(frontSign).getCenter(new THREE.Vector3()); front = lenAxis==='x' ? new THREE.Vector3(Math.sign(fc.x)||1,0,0) : new THREE.Vector3(0,0,Math.sign(fc.z)||1); }
-  radius=Math.max(size.x,size.z)*0.5;
-  const sh=new THREE.Mesh(new THREE.PlaneGeometry(size.x*1.45,size.z*1.45),new THREE.MeshBasicMaterial({map:shadowTex(),transparent:true,depthWrite:false}));
-  sh.rotation.x=-Math.PI/2; sh.position.y=0.002; scene.add(sh);
-  roofBlackMat = new THREE.MeshPhysicalMaterial({color:0x0b0c0e,roughness:.15,clearcoat:1,clearcoatRoughness:.03,aoMap:ao});
-  for (const m of roofMeshes) m.material=roofBlackMat;
-  bodyMat = makeMat(current(), ao);
-  for (const m of bodyMeshes) m.material=bodyMat;
-  window.__ao=ao;
-  controls.target.set(0,size.y*0.38,0);
-  setView('front',true);
-  $('loader').remove();
-  resize(); start();
-}
-
-function makeMat(c, ao){
-  const m=new THREE.MeshPhysicalMaterial({color:new THREE.Color(c.hex), ...c.fin.p});
-  m.aoMap=ao||window.__ao||null; m.aoMapIntensity=1; m.envMapIntensity=1.1;
-  if (c.fin.p.iridescenceThicknessRange) m.iridescenceThicknessRange=[...c.fin.p.iridescenceThicknessRange];
-  return m;
-}
-
-/* camera views: azimuth from the car's front, elevation, distance fitted to the frame */
-const VIEWS={front:[38,14],side:[90,8],rear:[146,14]};
-let camTween=null, curView='front';
-function fitDist(){
-  const R=Math.hypot(size.x*0.5, size.y, size.z*0.5)*0.9;
-  const v=THREE.MathUtils.degToRad(camera.fov)/2, h=Math.atan(Math.tan(v)*camera.aspect);
-  return R/Math.sin(Math.min(v,h));
-}
-function viewPos(name){
-  const [az,el]=VIEWS[name]; const d=fitDist();
-  const side=new THREE.Vector3(front.z,0,-front.x);
-  const a=THREE.MathUtils.degToRad(az), e=THREE.MathUtils.degToRad(el);
-  const dir=front.clone().multiplyScalar(Math.cos(a)).add(side.clone().multiplyScalar(Math.sin(a))).multiplyScalar(Math.cos(e));
-  dir.y=Math.sin(e);
-  return dir.multiplyScalar(d).add(controls.target);
-}
-function setView(name,instant){
-  curView=name;
-  document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.view===name));
-  const to=viewPos(name);
-  controls.minDistance=fitDist()*0.55; controls.maxDistance=fitDist()*1.6;
-  if (instant||reduce){ camera.position.copy(to); controls.update(); return; }
-  controls.autoRotate=false;
-  camTween={from:camera.position.clone(),to,t0:performance.now()};
-}
-document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>setView(b.dataset.view));
-
-/* apply colour with animation */
-let anim=null;
-const clipA=new THREE.Plane(), clipB=new THREE.Plane();
-let bar=null, mist=null;
-function targets(){ return state.roofSame ? bodyMeshes.concat(roofMeshes) : bodyMeshes; }
-function finishAnim(){ if(anim){ anim.done(); anim=null; } }
-function apply(){
-  updateReadout();
-  if (!bodyMat) return;
-  finishAnim();
-  const c=current();
-  const newMat=makeMat(c);
-  if (!state.roofSame) for (const m of roofMeshes) m.material=roofBlackMat;
-  if (reduce){ for (const m of targets()) m.material=newMat; bodyMat=newMat; return; }
-  state.mode==='wrap' ? wrapAnim(newMat) : paintAnim(newMat);
-}
-const axisVec = () => lenAxis==='x' ? new THREE.Vector3(1,0,0) : new THREE.Vector3(0,0,1);
-function wrapAnim(newMat){
-  const ax=axisVec(), min=box.min[lenAxis]-0.05, max=box.max[lenAxis]+0.05;
-  const olds=targets().map(m=>[m,m.material]);
-  const clones=[];
-  for (const [m,old] of olds){
-    const oc=old.clone(); oc.clippingPlanes=[clipA]; m.material=oc;
-    const c=new THREE.Mesh(m.geometry,newMat); c.renderOrder=m.renderOrder; m.add(c); clones.push([m,c,oc]);
-  }
-  newMat.clippingPlanes=[clipB];
-  if(!bar){ bar=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.55,depthWrite:false})); scene.add(bar); }
-  const across = lenAxis==='x' ? size.z : size.x;
-  if (lenAxis==='x') bar.scale.set(0.012,size.y*1.04,across*1.04); else bar.scale.set(across*1.04,size.y*1.04,0.012);
-  bar.position.set(center.x,size.y*0.52,center.z); bar.visible=true;
-  const dur=1300; const t0=performance.now();
-  const set=s=>{ clipA.set(ax.clone(),-s); clipB.set(ax.clone().negate(),s); bar.position[lenAxis]=s; };
-  set(min);
-  anim={tick(now){ const k=Math.min(1,(now-t0)/dur); const e=k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; set(min+(max-min)*e); if(k>=1) this.done(); },
-    done(){ for(const [m,c,oc] of clones){ m.remove(c); m.material=newMat; oc.dispose(); } newMat.clippingPlanes=null; newMat.needsUpdate=true; bar.visible=false; bodyMat=newMat; anim=null; }};
-}
-function softDot(){ const c=document.createElement('canvas'); c.width=c.height=64; const g=c.getContext('2d'); const r=g.createRadialGradient(32,32,0,32,32,32); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle=r; g.fillRect(0,0,64,64); return new THREE.CanvasTexture(c); }
-function paintAnim(newMat){
-  const start=bodyMat.color.clone(), end=newMat.color.clone();
-  for (const m of targets()) m.material=newMat;
-  newMat.color.copy(start);
-  if(!mist){
-    const N=420, g=new THREE.BufferGeometry(), pos=new Float32Array(N*3);
-    for(let i=0;i<N;i++){ pos[i*3]=(Math.random()-.5)*0.5; pos[i*3+1]=Math.random(); pos[i*3+2]=(Math.random()<.5?-1:1)*(0.5+Math.random()*0.18); }
-    g.setAttribute('position',new THREE.BufferAttribute(pos,3));
-    mist=new THREE.Points(g,new THREE.PointsMaterial({size:0.09,map:softDot(),transparent:true,depthWrite:false,opacity:0}));
-    scene.add(mist);
-  }
-  const across = lenAxis==='x' ? size.z : size.x;
-  if (lenAxis==='x') { mist.scale.set(1,size.y*0.9,across); mist.rotation.y=0; } else { mist.scale.set(1,size.y*0.9,across); mist.rotation.y=Math.PI/2; }
-  mist.material.color.copy(end).lerp(new THREE.Color(1,1,1),0.35);
-  mist.visible=true;
-  const min=box.min[lenAxis], max=box.max[lenAxis];
-  const steps=[.5,.82,1], pass=900; const t0=performance.now();
-  anim={tick(now){
-      const t=(now-t0)/pass, i=Math.min(2,Math.floor(t)), k=Math.min(1,t-i);
-      const from=i===0?0:steps[i-1], to=steps[i];
-      const f=from+(to-from)*k;
-      newMat.color.copy(start).lerp(end,f);
-      const s = i%2===0 ? min+(max-min)*k : max-(max-min)*k;
-      mist.position.set(lenAxis==='x'?s:center.x, 0.05, lenAxis==='x'?center.z:s);
-      mist.material.opacity = 0.32*Math.sin(Math.PI*k);
-      if (t>=3) this.done();
-    },
-    done(){ newMat.color.copy(end); mist.visible=false; bodyMat=newMat; anim=null; }};
-}
-
-/* hold to compare */
-const cmp=$('compare'); let saved=null;
-const origMat=()=>{ const m=makeMat({hex:ORIGINAL.color,fin:{p:ORIGINAL.p}}); return m; };
-function cmpOn(e){ e.preventDefault(); if(!bodyMat||saved) return; finishAnim(); const o=origMat(); saved=targets().concat(roofMeshes).map(m=>[m,m.material]); for(const m of bodyMeshes) m.material=o; for(const m of roofMeshes) m.material=roofBlackMat; cmp.classList.add('on'); cmp.dataset.label=cmp.innerHTML; cmp.textContent='Valkoinen'; }
-function cmpOff(){ if(!saved) return; for(const [m,mat] of saved) m.material=mat; saved=null; cmp.classList.remove('on'); if(cmp.dataset.label) cmp.innerHTML=cmp.dataset.label; }
-cmp.addEventListener('pointerdown',cmpOn); ['pointerup','pointerleave','pointercancel'].forEach(ev=>cmp.addEventListener(ev,cmpOff));
-cmp.addEventListener('keydown',e=>{ if(e.key===' '||e.key==='Enter') cmpOn(e); }); cmp.addEventListener('keyup',cmpOff);
-
-/* loop */
-function resize(){ const w=stage.clientWidth,h=stage.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.fov = w/h<1.2 ? 38 : 30; camera.updateProjectionMatrix(); if(bodyMat&&!camTween&&!controls.autoRotate) {} }
-new ResizeObserver(resize).observe(stage);
-let visible=true, running=false;
-new IntersectionObserver(es=>{ visible=es[0].isIntersecting; if(visible) start(); }).observe(stage);
-document.addEventListener('visibilitychange',()=>{ if(!document.hidden) start(); });
-function start(){ if(running||!bodyMat) return; running=true; requestAnimationFrame(loop); }
-function loop(now){
-  if(!visible||document.hidden){ running=false; return; }
-  if(camTween){ const t=Math.min(1,(now-camTween.t0)/700); const e=1-Math.pow(1-t,3);
-    const a=camTween.from.clone().sub(controls.target), b=camTween.to.clone().sub(controls.target);
-    const sa=new THREE.Spherical().setFromVector3(a), sb=new THREE.Spherical().setFromVector3(b);
-    let dth=sb.theta-sa.theta; if(dth>Math.PI) dth-=2*Math.PI; if(dth<-Math.PI) dth+=2*Math.PI;
-    const sp=new THREE.Spherical(sa.radius+(sb.radius-sa.radius)*e, sa.phi+(sb.phi-sa.phi)*e, sa.theta+dth*e);
-    camera.position.setFromSpherical(sp).add(controls.target); if(t>=1) camTween=null; }
-  if(anim) anim.tick(now);
-  controls.update(); renderer.render(scene,camera);
-  requestAnimationFrame(loop);
-}
+  // process: sticky image follows the step in view
+  var steps=[].slice.call(document.querySelectorAll('.step')),shots=[].slice.call(document.querySelectorAll('.sticky-shot img'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){steps.forEach(function(s){s.classList.toggle('on',s===en.target)});var i=+en.target.dataset.img;shots.forEach(function(im,j){im.classList.toggle('on',j===i)});}})},{rootMargin:'-45% 0px -45% 0px'});
+    steps.forEach(function(s){io.observe(s)});steps[0].classList.add('on');
+  }else{document.getElementById('steps').classList.add('no-io')}
+})();
 </script>
 
 </body>
