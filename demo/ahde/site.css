@@ -3,7 +3,7 @@
 @font-face{font-family:Manrope;src:url(fonts/manrope-latin-wght-normal.woff2) format('woff2');font-weight:200 800;font-display:swap}
 :root{
   --moss:#1f2d22;--moss-2:#18241b;--pine:#2f4a35;--cream:#f3efe4;--cream-2:#e9e3d3;--paper:#fbf9f3;
-  --lichen:#c9d77a;--lichen-d:#a9b95a;--clay:#b8754a;--clay-t:#8a5029;--ink:#1c241e;--ink-2:#46514a;--muted:#6c766e;--line:#d9d2c0;
+  --lichen:#c9d77a;--lichen-d:#a9b95a;--clay:#b8754a;--clay-t:#8a5029;--ink:#1c241e;--ink-2:#46514a;--muted:#5f685f;--line:#d9d2c0;
   --r:22px;--maxw:1240px;--ease:cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -379,3 +379,4 @@ footer{padding:40px 0 48px;font-size:.9rem;color:var(--muted);background:var(--c
 .planner-sec .sec-head{margin-bottom:40px}
 @media (max-width:760px){.dn-dial{height:96px}}
 .pl-stage .fine{color:var(--muted);margin-top:8px;max-width:80ch}
+.svc h3{padding-right:28px}

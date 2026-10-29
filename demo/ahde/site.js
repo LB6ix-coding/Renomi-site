@@ -62,8 +62,11 @@
   });
 
   /* ---------- callbar + form ---------- */
-  const cb = $('.callbar'), ctas = $('.hero-ctas');
-  new IntersectionObserver(([en]) => cb.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0)).observe(ctas);
+  const cb = $('.callbar'), ctas = $('.hero-ctas'), plSec = $('#suunnittele');
+  let pastHero = false, inPlanner = false;
+  const cbUpd = () => cb.classList.toggle('show', pastHero && !inPlanner);
+  new IntersectionObserver(([en]) => { pastHero = !en.isIntersecting && en.boundingClientRect.top < 0; cbUpd(); }).observe(ctas);
+  new IntersectionObserver(([en]) => { inPlanner = en.isIntersecting; cbUpd(); }).observe(plSec);
   const form = $('#lomake'), fst = $('#lomake-tila');
   form.addEventListener('submit', e => { if (!form.dataset.endpoint) { e.preventDefault(); fst.hidden = false; fst.focus(); } });
 
@@ -147,7 +150,7 @@
     const paint = (i, t = brush, anim = true) => {
       if (state[i] === 'house' || state[i] === t) return;
       state[i] = t; const el = cells[i];
-      el.className = 'cell' + (t !== 'tyhja' ? ' c-' + t : '') + (i === cur ? ' cur' : '');
+      el.className = 'cell' + (t !== 'tyhja' ? ' c-' + t : '') + (kbd && i === cur ? ' cur' : '');
       if (anim && !rmq.matches) { el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
     };
     const cellAt = (x, y) => { const el = document.elementFromPoint(x, y); return el && el.closest ? el.closest('.cell:not(.house)') : null; };
