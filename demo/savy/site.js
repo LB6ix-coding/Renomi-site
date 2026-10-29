@@ -298,7 +298,7 @@
       else if (hours > 10) note = 'Tällä teholla täyteen lataus vie yön yli. 11 kW:n asema nopeuttaa, jos auto tukee sitä.';
       out.note.textContent = note;
       clearTimeout(liveT);
-      liveT = setTimeout(() => { const m = Math.round(hours * 60); liveEl.textContent = `Latausaika noin ${Math.floor(m / 60)} h ${m % 60} min, hinta ${fmt(cost, 2)} €, akkuun ${fmt(batt, 1)} kWh. ${note}`; }, 700);
+      if (e) liveT = setTimeout(() => { const m = Math.round(hours * 60); liveEl.textContent = `Latausaika noin ${Math.floor(m / 60)} h ${m % 60} min, hinta ${fmt(cost, 2)} €, akkuun ${fmt(batt, 1)} kWh. ${note}`; }, 700);
     }
     f.addEventListener('input', calc); f.addEventListener('change', calc); calc();
   })();
