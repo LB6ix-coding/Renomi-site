@@ -121,9 +121,11 @@ section{position:relative}
 .svc-peek img{width:100%;height:100%;object-fit:cover}
 
 /* configurator */
-.cfg{background:radial-gradient(1200px 600px at 20% 10%,#262c32 0%,var(--char) 60%);color:#fff;padding:130px 0 120px;overflow:hidden}
-.cfg-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;align-items:stretch}
-.cfg-stage{position:relative;min-height:560px;background:linear-gradient(180deg,#2b333b,#171b1f);border:1px solid var(--line-d);overflow:hidden}
+.cfg{background:radial-gradient(1200px 600px at 20% 10%,#262c32 0%,var(--char) 60%);color:#fff;padding:120px 0 120px;overflow:hidden}
+.cfg .sec-head{margin-bottom:40px}
+.cfg .sec-head h2{max-width:16ch}
+.cfg-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:28px;align-items:start}
+.cfg-stage{position:relative;height:clamp(460px,72vh,700px);background:linear-gradient(180deg,#2b333b,#171b1f);border:1px solid var(--line-d);overflow:hidden}
 #roof3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
 #roof3d:active{cursor:grabbing}
 .cfg-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -331,7 +333,7 @@ a.c-item:hover b{color:var(--orange)}
 @media (max-width:1100px){
   .ref-grid{grid-template-columns:1fr 1fr}
   .cfg-grid{grid-template-columns:1fr}
-  .cfg-stage{min-height:min(70vw,520px)}
+  .cfg-stage{height:clamp(380px,72vw,560px)}
 }
 @media (max-width:900px){
   .sec-head{grid-template-columns:1fr;margin-bottom:40px}
@@ -372,7 +374,7 @@ a.c-item:hover b{color:var(--orange)}
   .hero-ctas .btn{flex:1;padding:.8rem .6rem;font-size:.9rem}
   .svc,.cfg,.calc,.refs,.faq{padding:84px 0}
   .cfg-panel{padding:20px}
-  .cfg-stage{min-height:420px}
+  .cfg-stage{height:min(118vw,480px)}
   .cfg-weather button{padding:0 10px;font-size:.82rem}
   .calc-card{padding:22px 18px}
   .result{padding:18px}

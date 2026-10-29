@@ -77,7 +77,7 @@
     const step = now => { const k = clamp((now - t0) / dur, 0, 1), ease = 1 - Math.pow(1 - k, 4); el.textContent = Math.round(from + (to - from) * ease); if (k < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   }), {threshold: .6});
-  $$('[data-count]').forEach(el => cio.observe(el));
+  $$('[data-count]').forEach(el => { if (!reduced()) el.textContent = el.dataset.from || 0; cio.observe(el); });
 
   /* ---------- magnetic buttons + card glow ---------- */
   const fine = matchMedia('(hover:hover) and (pointer:fine)');
@@ -188,7 +188,7 @@
   /* ---------- light switch tool ---------- */
   (() => {
     const sw = $('#lightSwitch'), dim = $('#dimmer'), kel = $('#kelvin'), lit = $('#roomLit'), tint = $('#roomTint');
-    const sec = $('#valaistus'), room = $('.room'), state = $('#switchState'), cap = $('#roomCap'), live = $('#lightLive');
+    const darkImg = $('.room-dark'), sec = $('#valaistus'), room = $('.room'), state = $('#switchState'), cap = $('#roomCap'), live = $('#lightLive');
     const dOut = $('#dimOut'), kOut = $('#kOut');
     let on = false, liveT;
     const warmCol = [255, 150, 60], coolCol = [150, 190, 255];
@@ -205,6 +205,7 @@
       $$('.lights .ctrl').forEach(c => c.classList.toggle('off', !on));
       const txt = on ? `Valot päällä, ${dim.value} %, ${kel.value} K` : 'Valot pois';
       state.textContent = on ? 'Valot päällä' : 'Valot pois'; cap.textContent = txt;
+      darkImg.alt = on ? `Olohuone illalla, valot päällä ${dim.value} %, värilämpötila ${kel.value} K (kuvituskuva)` : 'Olohuone illalla valot sammutettuina (kuvituskuva)';
       sw.setAttribute('aria-label', 'Valokatkaisija, ' + (on ? 'valot päällä' : 'valot pois'));
       if (announce) { clearTimeout(liveT); liveT = setTimeout(() => live.textContent = txt, 250); }
     }
@@ -217,9 +218,12 @@
     room.addEventListener('animationend', () => room.classList.remove('flick'));
     [dim, kel].forEach(r => r.addEventListener('input', () => { if (!on) { on = true; sw.setAttribute('aria-pressed', 'true'); } render(true); }));
     render(false);
-    // demo hint: switch flips on automatically once, the first time the tool scrolls into view
-    let hinted = false;
-    new IntersectionObserver(([e]) => { if (e.isIntersecting && e.intersectionRatio > .55 && !hinted && !on) { hinted = true; setTimeout(() => { if (!on) sw.click(); }, 700); } }, {threshold: [.55]}).observe(room);
+    // hint: the switch pulses gently until the visitor first uses the tool
+    let used = false;
+    const stopHint = () => { used = true; sw.classList.remove('hint'); };
+    [sw, dim, kel].forEach(el => el.addEventListener('pointerdown', stopHint, {once: true}));
+    sw.addEventListener('click', stopHint); [dim, kel].forEach(el => el.addEventListener('input', stopHint));
+    new IntersectionObserver(([e]) => { if (!used) sw.classList.toggle('hint', e.isIntersecting); }, {threshold: .4}).observe(room);
   })();
 
   /* ---------- pinned circuit flow ---------- */
@@ -227,18 +231,19 @@
   const nodes = [$('.n0'), $('.n1'), $('.n2'), $('.n3')];
   wires.forEach(w => { const L = w.getTotalLength(); w.style.setProperty('--len', L); w._L = L; });
   function flow() {
+    { const r = flowSec.getBoundingClientRect(); document.body.classList.toggle('pinned', r.top <= 0 && r.bottom >= innerHeight); }
     let p;
     if (reduced()) p = 1;
     else { const r = flowSec.getBoundingClientRect(), span = flowSec.offsetHeight - innerHeight; p = clamp(-r.top / (span || 1), 0, 1); }
     if (flowSec._p === p) return; flowSec._p = p;
-    const wp = clamp((p - .1) / .75, 0, 1);
-    // w2 (pistorasiat) first, then w1 (valaistus), then w3 (lataus)
-    const seq = [[1, 0, .45], [0, .3, .75], [2, .55, 1]];
+    const wp = clamp((p - .1) / .78, 0, 1);
+    // one wire at a time: w2 pistorasiat (step Johdotus), w1 valaistus, w3 latausasema
+    const seq = [[1, 0, 1 / 3], [0, 1 / 3, 2 / 3], [2, 2 / 3, 1]];
     seq.forEach(([i, a, b]) => { const k = clamp((wp - a) / (b - a), 0, 1); wires[i].style.strokeDashoffset = wires[i]._L * (1 - k); });
-    const stage = p < .1 ? 0 : wp < .45 ? 1 : wp < .75 ? 2 : 3;
+    const stage = p < .1 ? 0 : Math.min(3, 1 + Math.floor(wp * 3 - 1e-9));
     nodes[0].classList.toggle('lit', p > .04);
-    nodes[1].classList.toggle('lit', wp >= .45);
-    nodes[2].classList.toggle('lit', wp >= .75);
+    nodes[1].classList.toggle('lit', wp >= 1 / 3);
+    nodes[2].classList.toggle('lit', wp >= 2 / 3);
     nodes[3].classList.toggle('lit', wp >= 1);
     steps.forEach((s, i) => { s.classList.toggle('on', i === stage); s.classList.toggle('done', i < stage); });
     pct.textContent = Math.round(wp * 100);
@@ -246,9 +251,10 @@
 
   /* ---------- parallax fallback for photo band ---------- */
   const noTL = !CSS.supports('animation-timeline: view()');
-  const pimgs = $$('.pimg img');
+  const pimgs = $$('.pimg img'), qimg = $('.qband img');
   function bandPar() {
     if (!noTL || reduced()) return;
+    { const r = qimg.parentElement.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) { const k = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; qimg.style.transform = `translateY(${-k * 9}%) scale(1.06)`; } }
     pimgs.forEach(img => { const r = img.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return; const k = (r.top + r.height / 2 - innerHeight / 2) / innerHeight; img.style.transform = `translateY(${-k * 30}px)`; });
   }
 
@@ -256,7 +262,8 @@
   (() => {
     const f = $('#chargeForm'), cap = $('#cap'), s0 = $('#soc0'), s1 = $('#soc1'), cents = $('#cents');
     const out = {cap: $('#capOut'), s0: $('#soc0Out'), s1: $('#soc1Out'), t: $('#rTime'), c: $('#rCost'), k: $('#rKwh'), km: $('#rKm'), note: $('#rNote')};
-    const fill = $('#batFill'), start = $('#batStart');
+    const fill = $('#batFill'), start = $('#batStart'), liveEl = $('#chargeLive'), priceBox = cents.closest('.price'), hint = $('#centsHint'), hintTxt = hint.textContent;
+    let liveT;
     const anim = new Map();
     function tween(el, to, render) {
       const prev = anim.get(el) || {v: to, raf: 0}; cancelAnimationFrame(prev.raf);
@@ -270,7 +277,12 @@
       if (e && e.target === s1 && +s1.value <= +s0.value) { s0.value = Math.max(0, +s1.value - 5); paint(s0); }
       const C = +cap.value, a = +s0.value, b = +s1.value;
       const kw = +f.querySelector('[name=kw]:checked').value, car = +f.querySelector('[name=car]:checked').value;
-      let price = parseFloat(String(cents.value).replace(',', '.')); if (!isFinite(price) || price < 0) price = 0;
+      const raw = String(cents.value).trim().replace(/\s/g, '').replace(',', '.');
+      let price = /^\d+(\.\d+)?$/.test(raw) ? parseFloat(raw) : NaN;
+      const bad = !isFinite(price) || price > 100;
+      priceBox.classList.toggle('bad', bad); cents.setAttribute('aria-invalid', bad);
+      hint.textContent = bad ? 'Tarkista hinta: anna luku väliltä 0–100 c/kWh, esim. 12,5. Laskelmassa käytetään nyt ' + (isFinite(price) && price > 100 ? '100' : '15') + ' c/kWh.' : hintTxt;
+      if (bad) price = isFinite(price) && price > 100 ? 100 : 15;
       const eff = Math.min(kw, car), batt = C * (b - a) / 100, grid = batt / 0.9;
       const hours = grid / eff, cost = grid * price / 100, km = batt / 0.17;
       out.cap.textContent = C + ' kWh'; out.s0.textContent = a + ' %'; out.s1.textContent = b + ' %';
@@ -285,6 +297,8 @@
       else if (eff >= 11) note = 'Yön aikana ehtii hyvin, kun lataus alkaa illalla.';
       else if (hours > 10) note = 'Tällä teholla täyteen lataus vie yön yli. 11 kW:n asema nopeuttaa, jos auto tukee sitä.';
       out.note.textContent = note;
+      clearTimeout(liveT);
+      liveT = setTimeout(() => { const m = Math.round(hours * 60); liveEl.textContent = `Latausaika noin ${Math.floor(m / 60)} h ${m % 60} min, hinta ${fmt(cost, 2)} €, akkuun ${fmt(batt, 1)} kWh. ${note}`; }, 700);
     }
     f.addEventListener('input', calc); f.addEventListener('change', calc); calc();
   })();

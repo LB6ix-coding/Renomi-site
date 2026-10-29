@@ -160,9 +160,12 @@
     grid.addEventListener('pointerup', end); grid.addEventListener('pointercancel', end);
     // keyboard
     let cur = 3 * COLS;
-    const mark = () => { cells.forEach(c => c && c.classList.remove('cur')); if (cells[cur]) cells[cur].classList.add('cur'); };
-    grid.addEventListener('focus', mark); grid.addEventListener('blur', () => cells.forEach(c => c && c.classList.remove('cur')));
+    let kbd = false;
+    const mark = () => { cells.forEach(c => c && c.classList.remove('cur')); if (kbd && cells[cur]) cells[cur].classList.add('cur'); };
+    grid.addEventListener('focus', () => { kbd = grid.matches(':focus-visible'); mark(); });
+    grid.addEventListener('pointerdown', () => { kbd = false; mark(); }, true); grid.addEventListener('blur', () => cells.forEach(c => c && c.classList.remove('cur')));
     grid.addEventListener('keydown', e => {
+      if (!kbd) { kbd = true; mark(); }
       const map = {ArrowLeft: -1, ArrowRight: 1, ArrowUp: -COLS, ArrowDown: COLS};
       if (map[e.key] !== undefined) {
         e.preventDefault(); let n = cur;
@@ -175,19 +178,20 @@
     });
     // summary
     const list = $('#pl-list'), totEl = $('#pl-total'), areaEl = $('#pl-area');
-    let shownLo = 0, shownHi = 0, tw = 0;
+    let shownLo = 0, shownHi = 0, tw = 0, liveT = 0; const live = $('#pl-live');
     function sum() {
       const cnt = {}; state.forEach(t => { if (P[t]) cnt[t] = (cnt[t] || 0) + 1; });
       const keys = Object.keys(P).filter(k => cnt[k]); const mx = Math.max(1, ...keys.map(k => cnt[k]));
       let lo = 0, hi = 0, area = 0;
       list.innerHTML = keys.map(k => { lo += cnt[k] * P[k][0]; hi += cnt[k] * P[k][1]; if (k !== 'muuri') area += cnt[k];
-        return `<li><i class="c-${k}"></i><span>${P[k][2]}</span><b>${cnt[k]} ${P[k][3]}</b><span class="bar"><span style="transform:scaleX(${cnt[k] / mx})"></span></span></li>`; }).join('') || '<li><span></span><span>Valitse materiaali ja maalaa ruudukkoon.</span></li>';
+        return `<li><i class="c-${k}"></i><span>${P[k][2]}</span><b>${cnt[k]} ${P[k][3]}</b><span class="bar"><span style="transform:scaleX(${cnt[k] / mx})"></span></span></li>`; }).join('') || '<li><span></span><span>Valitkaa materiaali ja maalatkaa ruudukkoon.</span></li>';
       lo = Math.round(lo / 100) * 100; hi = Math.round(hi / 100) * 100;
       areaEl.textContent = `${area} m² suunniteltu${cnt.muuri ? `, muuria ${cnt.muuri} m` : ''}`;
       const a0 = shownLo, b0 = shownHi, t0 = performance.now(); cancelAnimationFrame(tw);
       const step = now => { const p = rmq.matches ? 1 : clamp((now - t0) / 500), k = 1 - Math.pow(1 - p, 3);
         shownLo = a0 + (lo - a0) * k; shownHi = b0 + (hi - b0) * k;
         totEl.textContent = hi ? `${fmt(shownLo)} – ${fmt(shownHi)} €` : '0 €'; if (p < 1) tw = requestAnimationFrame(step); };
+      clearTimeout(liveT); liveT = setTimeout(() => { live.textContent = hi ? `Arvio ${fmt(lo)} – ${fmt(hi)} euroa, ${areaEl.textContent}.` : 'Ei vielä suunniteltua aluetta.'; }, 700);
       tw = requestAnimationFrame(step);
     }
     // presets
@@ -219,16 +223,21 @@
   })();
 
   /* ---------- pinned story ---------- */
-  const st = $('.story'), line = $('#branch-line'), buds = $$('.buds circle'), steps = $$('.step'), figs = $$('.sm'), sn = $('#story-n');
+  const st = $('.story'), line = $('#branch-line'), buds = $$('.bud'), bsvg = $('.branch'), btxt = $('.story-text'), BF = [.02, .36, .66, .97], steps = $$('.step'), figs = $$('.sm'), sn = $('#story-n');
   const L = line.getTotalLength(); line.style.strokeDasharray = L; line.style.strokeDashoffset = L;
   let stage = -1;
+  function placeBuds() {
+    const m = bsvg.getScreenCTM(), o = btxt.getBoundingClientRect(); if (!m) return;
+    buds.forEach((b, i) => { const q = line.getPointAtLength(L * BF[i]); b.style.left = (q.x * m.a + m.e - o.left) + 'px'; b.style.top = (q.y * m.d + m.f - o.top) + 'px'; });
+  }
+  addEventListener('resize', placeBuds); addEventListener('load', placeBuds); requestAnimationFrame(placeBuds);
   function story() {
     if (rmq.matches) { line.style.strokeDashoffset = 0; buds.forEach(b => b.classList.add('on')); return; }
     const r = st.getBoundingClientRect(), span = r.height - innerHeight;
     const p = clamp(-r.top / span);
     line.style.strokeDashoffset = L * (1 - p);
     const s = Math.min(3, Math.floor(p * 4 * .999 + .0001));
-    buds.forEach((b, i) => b.classList.toggle('on', p >= [0, .27, .55, .9][i] && p > 0.005 || (i === 0 && p >= 0)));
+    buds.forEach((b, i) => b.classList.toggle('on', p >= BF[i] - .02));
     if (s !== stage) { stage = s; steps.forEach((x, i) => x.classList.toggle('on', i === s)); figs.forEach((x, i) => x.classList.toggle('on', i === s)); sn.textContent = '0' + (s + 1); }
   }
 
@@ -245,11 +254,11 @@
   (() => {
     const dn = $('#dn'), dial = $('.dn-dial'), svg = $('.dn-arc'), path = $('#arc-fill'), knob = $('#dn-knob');
     const night = $('.dn-night'), tint = $('.dn-tint'), glow = $('.dn-glow'), timeEl = $('#dn-time'), labEl = $('#dn-label'), sec = $('.dusk');
-    const sun = $('.sun', knob), moon = $('.moon', knob);
+    const sun = $('.sun', knob), moon = $('.moon', knob), halo = $('.halo', knob);
     const PL = path.getTotalLength();
     let t = 0, user = false;
     const pt = u => { const p = path.getPointAtLength(u * PL), m = svg.getScreenCTM(), d = dial.getBoundingClientRect(); return {x: p.x * m.a + m.e - d.left, y: p.y * m.d + m.f - d.top}; };
-    const lab = u => u < .25 ? 'Keskipäivä' : u < .5 ? 'Iltapäivä' : u < .72 ? 'Auringonlasku' : u < .88 ? 'Hämärä' : 'Ilta, valot päällä';
+    const lab = u => u < .1 ? 'Keskipäivä' : u < .42 ? 'Iltapäivä' : u < .72 ? 'Auringonlasku' : u < .88 ? 'Hämärä' : 'Ilta, valot päällä';
     function set(u) {
       t = clamp(u);
       const p = pt(t); knob.style.transform = `translate(${p.x}px,${p.y}px)`;
@@ -259,7 +268,7 @@
       tint.style.opacity = Math.max(warm, smooth(.75, 1, t) * .6);
       tint.style.background = t < .72 ? 'linear-gradient(180deg,#ff9a4d,#ffcf7a 60%,#ffd9a0)' : 'linear-gradient(180deg,#2b3d8a,#4a5fb0 50%,#ffb36b)';
       glow.style.opacity = smooth(.78, 1, t);
-      sun.style.opacity = 1 - smooth(.7, .82, t); moon.style.opacity = smooth(.7, .82, t);
+      sun.style.opacity = 1 - smooth(.7, .82, t); moon.style.opacity = halo.style.opacity = smooth(.7, .82, t);
       const mins = Math.round((780 + t * 570) / 15) * 15, hh = (mins / 60) | 0, mm = String(mins % 60).padStart(2, '0');
       timeEl.textContent = `klo ${hh}.${mm}`; labEl.textContent = lab(t);
       knob.setAttribute('aria-valuenow', Math.round(t * 100)); knob.setAttribute('aria-valuetext', `klo ${hh}.${mm}, ${lab(t).toLowerCase()}`);
@@ -273,7 +282,7 @@
     knob.addEventListener('keydown', e => {
       const k = {ArrowRight: .05, ArrowUp: .05, ArrowLeft: -.05, ArrowDown: -.05, PageUp: .2, PageDown: -.2}[e.key];
       if (k !== undefined) { e.preventDefault(); user = true; stopPeek(); set(t + k); }
-      else if (e.key === 'Home') { e.preventDefault(); set(0); } else if (e.key === 'End') { e.preventDefault(); set(1); }
+      else if (e.key === 'Home' || e.key === 'End') { e.preventDefault(); user = true; stopPeek(); set(e.key === 'Home' ? 0 : 1); }
     });
     addEventListener('resize', () => set(t));
     set(0);

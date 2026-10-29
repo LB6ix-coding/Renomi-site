@@ -34,7 +34,7 @@
     </button>
     <ul class="nav-links" id="menu">
       <li><a href="#palvelut">Palvelut</a></li>
-      <li><a href="#suunnittele">Suunnittele</a></li>
+      <li><a href="#suunnittelija">Suunnittele</a></li>
       <li><a href="#ilta">Pihavalaistus</a></li>
       <li><a href="#tyon-kulku">Työn kulku</a></li>
       <li><a href="#yhteys">Yhteystiedot</a></li>
@@ -48,7 +48,7 @@
   <div class="hero-media">
     <img class="hero-poster" src="img/hero-poster.webp" alt="" width="1920" height="1080" fetchpriority="high">
     <video id="hero-video" class="hero-video" muted loop playsinline preload="auto" poster="img/hero-poster.webp" aria-hidden="true"></video>
-    <script>(function(){var v=document.getElementById('hero-video');v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+    <script>(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var v=document.getElementById('hero-video');v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
   </div>
   <canvas id="leaves" aria-hidden="true"></canvas>
   <div class="wrap hero-copy">
@@ -56,19 +56,19 @@
     <h1 class="split" aria-label="Piha, joka kasvaa kanssanne.">Piha, joka <em>kasvaa</em> kanssanne.</h1>
     <p class="lead reveal-up" style="--d:.55s">Suunnittelemme ja rakennamme pihat kiveyksistä istutuksiin. Yksi tekijä alusta loppuun, ja hinta sovitaan ennen kuin kone käynnistyy.</p>
     <div class="hero-ctas reveal-up" style="--d:.7s">
-      <a href="#suunnittele" class="btn btn-lichen magnet">Kokeile pihasuunnittelijaa</a>
-      <a href="#yhteys" class="btn btn-glass magnet">Pyydä arviokäynti</a>
+      <a href="#suunnittelija" class="btn btn-lichen magnet">Kokeilkaa pihasuunnittelijaa</a>
+      <a href="#yhteys" class="btn btn-glass magnet">Pyytäkää arviokäynti</a>
     </div>
   </div>
-  <a href="#luvut" class="scroll-cue" aria-label="Vieritä alas"><span></span></a>
+  <a href="#luvut" class="scroll-cue" aria-label="Vierittäkää alas"><span></span></a>
 </section>
 
 <section class="stats" id="luvut" aria-label="Ahde lukuina">
   <div class="wrap stats-grid">
-    <div class="stat reveal"><b><span class="count" data-to="2009">2009</span></b><span>pihoja vuodesta</span></div>
-    <div class="stat reveal" style="--d:.08s"><b><span class="count" data-to="340">340</span>+</b><span>valmista pihaa</span></div>
+    <div class="stat reveal"><b>2009</b><span>pihoja vuodesta</span></div>
+    <div class="stat reveal" style="--d:.08s"><b>Maksuton</b><span>arviokäynti Vantaalla ja Espoossa</span></div>
     <div class="stat reveal" style="--d:.16s"><b>1–3 vk</b><span>tyypillinen rakennusaika</span></div>
-    <div class="stat reveal" style="--d:.24s"><b><span class="count" data-to="1">1</span></b><span>yhteyshenkilö koko työn ajan</span></div>
+    <div class="stat reveal" style="--d:.24s"><b>1</b><span>yhteyshenkilö koko työn ajan</span></div>
   </div>
 </section>
 
@@ -103,9 +103,9 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Pihasuunnittelija</span><h2>Piirtäkää oma pihanne, <em>neliö kerrallaan.</em></h2></div>
-      <p>Valitse materiaali ja maalaa ruudukkoon sormella tai hiirellä. Yksi ruutu on yksi neliömetri. Näette heti pinta-alat ja suuntaa antavan hinnan.</p>
+      <p>Valitkaa materiaali ja maalatkaa ruudukkoon sormella tai hiirellä. Yksi ruutu on yksi neliömetri. Näette heti pinta-alat ja suuntaa antavan hinnan.</p>
     </div>
-    <div class="planner reveal">
+    <div class="planner reveal" id="suunnittelija">
       <div class="pl-tools" role="toolbar" aria-label="Materiaalit">
         <button type="button" class="brush on" data-b="nurmi" aria-pressed="true"><i class="sw sw-nurmi"></i>Nurmi</button>
         <button type="button" class="brush" data-b="kiveys" aria-pressed="false"><i class="sw sw-kiveys"></i>Kiveys</button>
@@ -116,17 +116,18 @@
       </div>
       <div class="pl-stage">
         <div class="pl-board">
-          <div class="pl-grid" id="pl-grid" tabindex="0" role="application" aria-label="Pihan ruudukko, 14 kertaa 9 metriä. Liiku nuolinäppäimillä ja maalaa välilyönnillä." aria-describedby="pl-help"></div>
+          <div class="pl-grid" id="pl-grid" tabindex="0" role="application" aria-label="Pihan ruudukko, 14 kertaa 9 metriä. Liikkukaa nuolinäppäimillä ja maalatkaa välilyönnillä." aria-describedby="pl-help"></div>
           <span class="pl-n" aria-hidden="true">N ↑</span>
         </div>
-        <p id="pl-help" class="pl-help">Vinkki: vedä yli monta ruutua kerralla. Näppäimistöllä nuolet ja välilyönti.</p>
+        <p id="pl-help" class="pl-help">Vinkki: vetäkää yli monta ruutua kerralla. Näppäimistöllä nuolet ja välilyönti.</p>
       </div>
       <aside class="pl-sum" aria-label="Arvio">
         <div class="pl-presets"><span>Valmiit pohjat:</span><button type="button" data-p="etupiha">Pieni etupiha</button><button type="button" data-p="perhe">Perhepiha</button><button type="button" data-p="clear">Tyhjennä</button></div>
         <ul class="pl-list" id="pl-list"></ul>
-        <div class="pl-total" aria-live="polite" aria-atomic="true"><small>Suuntaa antava hinta-arvio</small><b id="pl-total">0 €</b><span id="pl-area">0 m² suunniteltu</span></div>
+        <div class="pl-total"><small>Suuntaa antava hinta-arvio</small><b id="pl-total">0 €</b><span id="pl-area">0 m² suunniteltu</span></div>
+        <p class="sr-only" id="pl-live" aria-live="polite" aria-atomic="true"></p>
         <p class="fine">Esimerkkihinnat sisältävät työn ja materiaalit (alv 25,5 %): nurmikko 15–30 €/m², kiveys 90–150 €/m², istutus 40–80 €/m², terassi 180–300 €/m², kivimuuri 250–450 €/jm. Lopullinen hinta sovitaan arviokäynnin jälkeen. Olemassa olevan pihan kunnostuksen työn osuudesta voi saada kotitalousvähennystä: 40 %, omavastuu 150 €, enintään 2 100 € / henkilö (vero.fi, tilanne 2026). Uudisrakennuksen piha ei oikeuta vähennykseen.</p>
-        <a href="#yhteys" class="btn btn-moss magnet" id="pl-cta">Lähetä suunnitelma arvioon</a>
+        <a href="#yhteys" class="btn btn-moss magnet" id="pl-cta">Lähettäkää suunnitelma arvioon</a>
       </aside>
     </div>
   </div>
@@ -141,11 +142,11 @@
         <svg class="branch" viewBox="0 0 120 600" preserveAspectRatio="none" aria-hidden="true">
           <path class="branch-bg" d="M60 0 C 20 90, 100 160, 60 240 S 20 390, 60 460 S 100 560, 60 600"/>
           <path class="branch-line" id="branch-line" d="M60 0 C 20 90, 100 160, 60 240 S 20 390, 60 460 S 100 560, 60 600"/>
-          <g class="buds"><circle cx="60" cy="40" r="7"/><circle cx="60" cy="220" r="7"/><circle cx="60" cy="400" r="7"/><circle cx="60" cy="575" r="7"/></g>
-        </svg>
+          </svg>
+        <span class="bud" aria-hidden="true"></span><span class="bud" aria-hidden="true"></span><span class="bud" aria-hidden="true"></span><span class="bud" aria-hidden="true"></span>
         <ol class="steps">
           <li class="step on"><span>01</span><h3>Suunnittelu</h3><p>Käymme pihalla, mittaamme ja kuuntelemme. Saatte piirroksen ja kiinteän tarjouksen ennen töiden alkua.</p></li>
-          <li class="step"><span>02</span><h3>Maanrakennus ja kiveys</h3><p>Kaivuu, salaojat ja kantava pohja. Kivet asennetaan tiiviille pohjalle, jolloin ne eivät painu.</p></li>
+          <li class="step"><span>02</span><h3>Maanrakennus ja kiveys</h3><p>Kaivuu, salaojat ja kantava pohja. Kivet asennetaan tiiviille pohjalle, jolloin ne eivät painu helposti.</p></li>
           <li class="step"><span>03</span><h3>Muurit ja portaat</h3><p>Rinteet tasataan tukimuureilla ja portailla. Kivi valitaan talon ja maaston mukaan.</p></li>
           <li class="step"><span>04</span><h3>Istutus ja viimeistely</h3><p>Kasvit, nurmi ja kate. Lopuksi käymme pihan yhdessä läpi ja annamme hoito-ohjeet.</p></li>
         </ol>
@@ -165,7 +166,7 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Päivästä iltaan</span><h2 id="dusk-h">Sama piha, <em>kun aurinko laskee.</em></h2></div>
-      <p>Pihavalaistus suunnitellaan ja kaapeloidaan samalla kun piha rakennetaan. Vedä aurinkoa kaarta pitkin ja katso, miltä piha näyttää illalla.</p>
+      <p>Pihavalaistus suunnitellaan ja kaapeloidaan samalla kun piha rakennetaan. Vetäkää aurinkoa kaarta pitkin ja katsokaa, miltä piha näyttää illalla.</p>
     </div>
     <div class="dn reveal" id="dn">
       <div class="dn-view">
@@ -182,7 +183,7 @@
           <path d="M30 110 Q300 -40 570 110" class="arc-fill" id="arc-fill"/>
         </svg>
         <div class="dn-knob" id="dn-knob" role="slider" tabindex="0" aria-label="Kellonaika pihalla" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="klo 13.00, keskipäivä">
-          <span class="sun"></span><span class="moon"></span>
+          <span class="halo"></span><span class="sun"></span><span class="moon"></span>
         </div>
         <div class="dn-ends" aria-hidden="true"><span>Päivä</span><span>Ilta</span></div>
       </div>
@@ -242,7 +243,7 @@
         <div class="full"><label for="f-tyo">Mitä pihalle tehdään?</label><select id="f-tyo" name="tyo"><option value="" selected>Valitse…</option><option>Uusi piha</option><option>Kiveys tai pihatie</option><option>Muuri tai portaat</option><option>Istutukset ja nurmi</option><option>Pihavalaistus</option><option>Vanhan pihan kunnostus</option><option>Muu</option></select></div>
         <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. pihan koko, osoite ja toivottu aikataulu"></textarea></div>
         <div class="hp" aria-hidden="true"><label for="f-www">Jätä tyhjäksi</label><input id="f-www" name="www" tabindex="-1" autocomplete="off"></div>
-        <div class="full"><button class="btn btn-moss magnet" type="submit">Lähetä viesti</button></div>
+        <div class="full"><button class="btn btn-moss magnet" type="submit">Lähettäkää viesti</button></div>
         <p class="full form-note">Käsittelemme tietojanne vain yhteydenottoon vastaamiseksi.</p>
         <p class="form-status" id="lomake-tila" role="status" tabindex="-1" hidden>Tämä on demosivu, joten lomake ei lähetä viestejä. Soittakaa 050 418 2736 tai lähettäkää sähköpostia hei@ahde.fi.</p>
       </form>
@@ -260,7 +261,7 @@
 </footer>
 
 <div class="callbar">
-  <a class="btn btn-moss" href="#yhteys">Pyydä arviokäynti</a>
+  <a class="btn btn-moss" href="#yhteys">Pyytäkää arviokäynti</a>
   <a class="btn btn-cream" href="tel:+358504182736"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Soita</a>
 </div>
 

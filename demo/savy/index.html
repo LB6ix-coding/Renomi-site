@@ -46,7 +46,7 @@
   <div class="hero-media">
     <img class="hero-poster" src="img/hero-poster.webp" alt="Lämpimät riippuvalaisimet keittiösaarekkeen yllä iltahämärässä" width="1920" height="1080" fetchpriority="high">
     <video id="hero-video" class="hero-video" muted loop playsinline preload="auto" poster="img/hero-poster.webp" aria-hidden="true"></video>
-    <script>(function(){var v=document.getElementById('hero-video');v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+    <script>(function(){var v=document.getElementById('hero-video');if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
   </div>
   <canvas class="hero-sparks" id="sparks" aria-hidden="true"></canvas>
   <div class="wrap hero-copy">
@@ -59,9 +59,9 @@
     </div>
   </div>
   <div class="wrap hero-stats">
-    <div><b class="mono" data-count="2009" data-from="1990">2009</b><span>toiminnassa vuodesta</span></div>
-    <div><b class="mono"><span data-count="2">2</span> pv</b><span>tarjous yleensä viimeistään</span></div>
-    <div><b class="mono">Koti + yritys</b><span>pienistä töistä saneerauksiin</span></div>
+    <div><b class="mono">2 päivässä</b><span>tarjous yleensä</span></div>
+    <div><b class="mono"><span data-count="40">40</span> %</b><span>kotitalousvähennys työn osuudesta (2026)</span></div>
+    <div><b class="mono"><span data-count="11">11</span> kW</b><span>kotilatausaseman tyypillinen teho</span></div>
     <div><b class="mono">Vantaa</b><span>ja koko pääkaupunkiseutu</span></div>
   </div>
   <a href="#palvelut" class="scroll-cue" aria-label="Vieritä palveluihin"><span></span></a>
@@ -78,7 +78,7 @@
   <canvas class="circuit" id="circuit" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><p class="eyebrow mono">01 · Palvelut</p><h2>Yksi sähkömies, koko talon sähköt.</h2></div>
+      <div><p class="eyebrow mono">01 · Palvelut</p><h2>Koko talon sähköt yhdeltä tekijältä.</h2></div>
       <p>Hoidamme sähkötyöt suunnittelusta käyttöönottoon. Kerromme suoraan, mitä työ vaatii ja mitä se maksaa.</p>
     </div>
     <ul class="svc-grid">
@@ -140,7 +140,7 @@
       <div class="flow-svg-wrap">
         <svg class="flow-svg" viewBox="0 0 600 520" role="img" aria-label="Kaavio: sähkökeskuksesta johdot valaistukseen, pistorasioihin ja latausasemaan">
           <defs>
-            <linearGradient id="wire" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#ffcf7a"/><stop offset="1" stop-color="#e6ff4f"/></linearGradient>
+            <linearGradient id="wire" gradientUnits="userSpaceOnUse" x1="150" y1="0" x2="470" y2="0"><stop offset="0" stop-color="#ffcf7a"/><stop offset="1" stop-color="#e6ff4f"/></linearGradient>
             <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
           <g class="fs-base" fill="none" stroke="#2a303b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -196,11 +196,11 @@
         </fieldset>
         <div class="ctrl price">
           <label for="cents"><span>Sähkön hinta siirtoineen</span></label>
-          <div class="unit-in"><input type="number" id="cents" min="0" max="100" step="0.5" value="15" inputmode="decimal"><span>c/kWh</span></div>
-          <small>Oletus 15 c/kWh. Tarkista oma hintasi sopimuksesta.</small>
+          <div class="unit-in"><input type="text" id="cents" value="15" inputmode="decimal" autocomplete="off" aria-describedby="centsHint"><span>c/kWh</span></div>
+          <small id="centsHint">Oletus 15 c/kWh. Anna hinta väliltä 0–100, esim. 12,5. Tarkista oma hintasi sopimuksesta.</small>
         </div>
       </form>
-      <div class="charge-out" aria-live="polite">
+      <div class="charge-out">
         <div class="battery" aria-hidden="true">
           <div class="bat-body"><div class="bat-start" id="batStart"></div><div class="bat-fill" id="batFill"></div><div class="bat-scan"></div></div><div class="bat-tip"></div>
         </div>
@@ -211,7 +211,8 @@
           <div><dt>Kantamaa noin</dt><dd class="mono" id="rKm">–</dd></div>
         </dl>
         <p class="res-note" id="rNote"></p>
-        <p class="small">Laskelma olettaa noin 10 % latayshäviöt ja kulutukseksi 17 kWh / 100 km. Tehollinen teho on pienempi latausaseman ja auton tehoista.</p>
+        <p class="small">Laskelmassa oletetaan noin 10 %:n lataushäviöt ja 17 kWh / 100 km kulutus. Tehollinen teho on pienempi latausaseman ja auton tehoista.</p>
+        <p class="sr-only" id="chargeLive" aria-live="polite"></p>
         <a href="#yhteys" class="btn btn-volt mag">Pyydä tarjous latausasemasta</a>
       </div>
     </div>
@@ -226,11 +227,20 @@
   </div>
 </section>
 
+<section class="qband" aria-labelledby="q-h">
+  <img src="img/e-talo.webp" alt="Moderni omakotitalo talviyönä, ulkovalot ja valaistu pihatie (kuvituskuva)" width="1344" height="752" loading="lazy">
+  <div class="wrap"><div class="q reveal">
+    <p class="eyebrow mono">Ulkovalaistus</p>
+    <h2 id="q-h">Valo ulos asti.</h2>
+    <p>Julkisivuvalot, pihatien pollarit ja puiden kohdevalot tekevät pimeästä illasta turvallisen ja kauniin. Ohjaus hämäräkytkimellä tai ajastimella.</p>
+  </div></div>
+</section>
+
 <section class="jobs" aria-labelledby="jobs-h">
   <div class="wrap">
     <div class="sec-head reveal">
       <div><p class="eyebrow mono">05 · Esimerkkitöitä</p><h2 id="jobs-h">Tällaisia töitä teemme.</h2></div>
-      <p>Esimerkkejä tyypillisistä kohteista. Sävy Sähkö on kuvitteellinen demoyritys, joten kohteet ovat esimerkkejä.</p>
+      <p>Tyypillisiä kohteita. Sävy Sähkö on kuvitteellinen demoyritys.</p>
     </div>
     <ul class="job-list">
       <li class="job reveal"><span class="job-tag mono">Valaistus</span><h3>Keittiön ja olohuoneen valaistus</h3><p>Omakotitalo, Tikkurila. Upotetut spotit, saarekkeen riippuvalaisimet ja kaksi himmennettävää ryhmää.</p><span class="job-meta mono">Kesto 2 pv</span></li>
@@ -259,7 +269,7 @@
     <div class="faq-list">
       <details class="reveal"><summary>Mitä sähkötyö maksaa?</summary><div class="faq-a"><p>Pienet työt laskutetaan tuntiveloituksena ja isommista töistä teemme kiinteän tarjouksen. Kerromme hinnan aina ennen kuin työ alkaa.</p></div></details>
       <details class="reveal"><summary>Saako sähkötöistä kotitalousvähennyksen?</summary><div class="faq-a"><p>Kyllä, kodin sähkötöiden työn osuudesta. Vuonna 2026 vähennys on 40 % työn osuudesta, omavastuu 150 € ja enimmäismäärä 2 100 € henkilöä kohden vuodessa. Tarvikkeet eivät kuulu vähennykseen. <span class="src">Lähde: vero.fi, tilanne 2026.</span></p></div></details>
-      <details class="reveal"><summary>Teettekö pieniäkin töitä?</summary><div class="faq-a"><p>Teemme. Yksittäinen pistorasia, valaisimen asennus tai laukeavan sulakkeen selvitys on meille tavallinen päivä.</p></div></details>
+      <details class="reveal"><summary>Teettekö pieniäkin töitä?</summary><div class="faq-a"><p>Kyllä. Asennamme myös yksittäisen pistorasian tai valaisimen ja selvitämme, miksi sulake laukeaa.</p></div></details>
       <details class="reveal"><summary>Asennatteko latausasemia taloyhtiöihin?</summary><div class="faq-a"><p>Kyllä. Kartoitamme kiinteistön sähköliittymän riittävyyden, suunnittelemme kuormanhallinnan ja autamme hallitusta päätöksenteossa.</p></div></details>
       <details class="reveal"><summary>Kuinka nopeasti pääsette paikalle?</summary><div class="faq-a"><p>Tavallisesti viikon sisällä. Kiireellisistä vioista sovitaan puhelimessa.</p></div></details>
     </div>
