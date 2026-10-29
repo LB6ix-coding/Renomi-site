@@ -19,6 +19,11 @@
 .vidtxt{position:absolute;left:18px;top:24px;font-weight:900;font-size:32px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .vidtxt em{font-style:normal;color:var(--lichen)}
 .ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
 
+
+/* hover preview: a short screen capture of the demo homepage plays over the screenshot */
+.shot[data-hover]{position:relative}
+.shot .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease;pointer-events:none}
+.shot.playing .hv{opacity:1}
 </style>
 
 </head>
@@ -40,15 +45,15 @@
 </div></div></section>
 <section class="paper" style="padding-top:0"><div class="wrap cases">
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">LVI Nurmi, Vantaa: viiden sivun kotisivut</h2><p>Kotisivut kuvitteelliselle putkiliikkeelle. Hinnat näkyvät heti etusivulla, päivystyssivulla on ohjeet vesivahingon varalle, ja hintamittari näyttää, mitä tunti maksaa arkena, illalla ja yöllä. Puhelimella soittopainike on aina näkyvissä. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/lvi-nurmi/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/lvi-nurmi/index.html" aria-label="Avatkaa LVI Nurmi -demosivu"><img src="demo/lvi-nurmi.jpg" alt="LVI Nurmen kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
+<a class="cv shot" href="demo/lvi-nurmi/index.html" data-hover="demo/lvi-nurmi-hover.mp4" aria-label="Avatkaa LVI Nurmi -demosivu"><img src="demo/lvi-nurmi.jpg" alt="LVI Nurmen kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Leipomokahvila Kaarna, Tikkurila: viiden sivun kotisivut</h2><p>Kotisivut kuvitteelliselle leipomokahvilalle. Avoinna-merkki ja uunivuorot seuraavat kelloa, viikon lounas näkyy päivämäärineen ja ruokavaliomerkinnöin, ja leivän voi tilata ennakkoon noutoajan kanssa. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/kaarna/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/kaarna/index.html" aria-label="Avatkaa Kaarna-demosivu"><img src="demo/kaarna.jpg" alt="Leipomokahvila Kaarnan kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
+<a class="cv shot" href="demo/kaarna/index.html" data-hover="demo/kaarna-hover.mp4" aria-label="Avatkaa Kaarna-demosivu"><img src="demo/kaarna.jpg" alt="Leipomokahvila Kaarnan kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kuori Autostudio, Vantaa: autoteippaamon ja maalaamon kotisivut</h2><p>Kotisivut kuvitteelliselle autoteippaamolle ja maalaamolle. Etusivun video näyttää, miten valkoinen auto saa uuden värin. Suunnittele omasi -työkalussa asiakas valitsee autotyypin ja kalvon ja vertaa sävyä alkuperäiseen. Valittu sävy ja hinta-arvio siirtyvät suoraan tarjouspyyntöön, ja työkaluun lisätään yrityksen omat kalvot ja sävyt.</p><a class="btn btn-ghost btn-sm" href="demo/kuori/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/kuori/index.html" aria-label="Avatkaa Kuori Autostudio -demosivu"><img src="demo/kuori.jpg" alt="Kuori Autostudion kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
+<a class="cv shot" href="demo/kuori/index.html" data-hover="demo/kuori-hover.mp4" aria-label="Avatkaa Kuori Autostudio -demosivu"><img src="demo/kuori.jpg" alt="Kuori Autostudion kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Virtaus LVIA: ilmanvaihtoyrityksen kotisivut</h2><p>Yhden sivun kotisivut kuvitteelliselle LVIA-yritykselle. Referenssikohteet näkyvät heti etusivulla, oma peltipaja esitellään omana osionaan, ja soittopainike on aina näkyvissä. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/virtaus/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/virtaus/index.html" aria-label="Avatkaa Virtaus LVIA -demosivu"><img src="demo/virtaus.jpg" alt="Virtaus LVIA:n kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
+<a class="cv shot" href="demo/virtaus/index.html" data-hover="demo/virtaus-hover.mp4" aria-label="Avatkaa Virtaus LVIA -demosivu"><img src="demo/virtaus.jpg" alt="Virtaus LVIA:n kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Siro Studio, Tapiola: kauneushoitolan kotisivut</h2><p>Yhden sivun kotisivut kuvitteelliselle kauneushoitolalle. Asiakas kokoaa hoidot ja näkee hinnan ja keston heti, ja kynsivärikokeilussa hän voi katsoa lakan sävyn ja pinnan oikean käden kuvassa ennen varausta. Kokeiluun lisätään salongin omat sävyt. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/siro/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/siro/index.html" aria-label="Avatkaa Siro Studio -demosivu"><img src="demo/siro.jpg" alt="Siro Studion kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
+<a class="cv shot" href="demo/siro/index.html" data-hover="demo/siro-hover.mp4" aria-label="Avatkaa Siro Studio -demosivu"><img src="demo/siro.jpg" alt="Siro Studion kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kaarna: Instagram-video</h2><p>11 sekunnin mainosvideo leipomon kotisivujen kuvista, tekstit mukana. Sopii Instagramiin ja Meta-mainontaan sellaisenaan. Sama kuvitteellinen kahvila kuin kotisivuilla.</p></div>
 <div class="cv vidwrap"><video class="vid" src="assets/kaarna-ad.mp4" poster="assets/kaarna-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div></article>
 <article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">LVI-liike, Vantaa: näkyvyyden korjauspaketti</h2><p>Google-yritysprofiili, hakemistot ja palvelusivut, joista hakupalvelut löytävät yrityksen. Raportti näyttää tilanteen ennen ja 30 päivää korjausten jälkeen.</p></div>
@@ -104,5 +109,18 @@ document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('hre
 </script>
 <style>video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls{display:none!important;-webkit-appearance:none}</style><script>(function(){var vs=[].slice.call(document.querySelectorAll("video"));function go(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");var p=v.play();if(p&&p.catch)p.catch(function(){});}vs.forEach(function(v){if(v.preload!=="auto")v.preload="auto";go(v);v.addEventListener("loadeddata",function(){go(v)});v.addEventListener("pause",function(){if(!document.hidden&&!v.ended)setTimeout(function(){go(v)},300)});});function kick(){vs.forEach(go);}["touchstart","touchend","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});document.addEventListener("visibilitychange",function(){if(!document.hidden)kick()});if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)go(x.target)})});vs.forEach(function(v){io.observe(v)})}})();</script>
 <script src="mail.js" defer></script>
+<script>(function(){
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var cards=[].slice.call(document.querySelectorAll('.shot[data-hover]'));
+function vid(a){var v=a.querySelector('.hv');if(!v){v=document.createElement('video');v.className='hv';v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.setAttribute('aria-hidden','true');v.preload='auto';v.src=a.getAttribute('data-hover');v.addEventListener('playing',function(){a.classList.add('playing')});a.appendChild(v)}return v}
+function play(a){var v=vid(a);var p=v.play();if(p&&p.catch)p.catch(function(){})}
+function stop(a){var v=a.querySelector('.hv');a.classList.remove('playing');if(v)v.pause()}
+if(matchMedia('(hover: hover) and (pointer: fine)').matches){
+  cards.forEach(function(a){a.addEventListener('mouseenter',function(){play(a)});a.addEventListener('mouseleave',function(){stop(a)});a.addEventListener('focus',function(){play(a)});a.addEventListener('blur',function(){stop(a)})});
+}else if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play(e.target):stop(e.target)})},{threshold:.6});
+  cards.forEach(function(a){io.observe(a)});
+}
+})();</script>
 </body>
 </html>
