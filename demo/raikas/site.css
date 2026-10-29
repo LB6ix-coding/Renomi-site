@@ -2,7 +2,7 @@
 @font-face{font-family:Manrope;src:url(fonts/manrope-latin-wght-normal.woff2) format('woff2');font-weight:200 800;font-display:swap}
 :root{
   --white:#f7fbfc;--mist:#e3f2f4;--mist-2:#cfe8ec;--aqua:#1fa9b8;--aqua-d:#0b7681;--aqua-l:#7fdbe4;
-  --ink:#0f2a33;--ink-2:#36515a;--muted:#5a7279;--lemon:#ffe36e;--line:#d3e5e8;--paper:#fff;
+  --ink:#0f2a33;--ink-2:#36515a;--muted:#4f666d;--lemon:#ffe36e;--line:#d3e5e8;--paper:#fff;
   --r:22px;--r-s:14px;--maxw:1220px;--ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -141,7 +141,7 @@ section{padding:112px 0}
 .wipe-hint em{font-style:normal;font-weight:800;background:#fff;color:var(--ink);padding:.3rem .7rem;border-radius:99px;font-size:.85rem;box-shadow:0 6px 16px -6px rgba(0,0,0,.35)}
 .squeegee{width:16px;height:96px;border-radius:8px;background:linear-gradient(90deg,#0f2a33 0 45%,#ffe36e 45% 100%);box-shadow:0 8px 20px -6px rgba(0,0,0,.45);position:relative}
 .squeegee::after{content:"";position:absolute;left:-26px;top:42px;width:30px;height:10px;border-radius:5px;background:#0f2a33}
-@keyframes ghost{0%{transform:translateX(0);opacity:0}12%{opacity:1}70%{transform:translateX(min(46vw,520px));opacity:1}100%{transform:translateX(min(46vw,520px));opacity:0}}
+@keyframes ghost{0%{transform:translateX(0);opacity:0}12%{opacity:1}70%{transform:translateX(var(--travel,240px));opacity:1}100%{transform:translateX(var(--travel,240px));opacity:0}}
 .wipe-hint.gone{opacity:0;animation:none}
 
 /* sweep pinned */
@@ -211,6 +211,8 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
 .out-rows b{font-variant-numeric:tabular-nums;white-space:nowrap}
 .out-rows .minus{color:var(--lemon)}
 .out-net{font-size:1.06rem}
+.ded-note{font-size:.82rem;color:rgba(255,255,255,.78);padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);line-height:1.45}
+.nw{white-space:nowrap}
 .out-net b{color:var(--aqua-l);font-size:1.2rem}
 .out-bar{height:8px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:22px}
 .out-bar span{display:block;height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--lemon),var(--aqua-l));transition:transform .7s var(--ease)}
@@ -324,7 +326,7 @@ footer.ftr{padding:40px 0 46px;font-size:.9rem;color:var(--muted);background:var
   .nav{height:66px}
   .nav-links,.nav-cta{display:none}
   .menu-btn{display:inline-flex}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:-18px;right:-18px;background:var(--white);padding:4px 18px 14px;gap:0;border-bottom:1px solid var(--line);box-shadow:0 24px 30px -24px rgba(0,0,0,.25)}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:var(--white);padding:4px 18px 14px;gap:0;border-bottom:1px solid var(--line);box-shadow:0 24px 30px -24px rgba(0,0,0,.25)}
   .nav-links.open a{display:block;padding:14px 4px;border-bottom:1px solid var(--line)}
   .nav-links.open a::after{display:none}
   .hero{min-height:0;display:block;padding-top:66px}
@@ -362,9 +364,9 @@ footer.ftr{padding:40px 0 46px;font-size:.9rem;color:var(--muted);background:var
   .contact-form{grid-template-columns:1fr;padding:26px 20px}
   .ftr .wrap{flex-direction:column;align-items:flex-start;gap:6px}
   footer.ftr{padding-bottom:108px}
-  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:90;gap:8px;transform:translateY(160%);transition:transform .35s var(--ease)}
-  .callbar.show{transform:none}
-  body.pinning .callbar{transform:translateY(160%)}
+  .callbar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:90;gap:8px;transform:translateY(160%);visibility:hidden;transition:transform .35s var(--ease),visibility 0s .35s}
+  .callbar.show{transform:none;visibility:visible;transition:transform .35s var(--ease)}
+  body.pinning .callbar{transform:translateY(160%);visibility:hidden}
   .callbar .btn{flex:1;box-shadow:0 14px 30px -10px rgba(15,42,51,.5)}
   .wipe-stage{box-shadow:0 30px 60px -30px rgba(15,42,51,.5),0 0 0 6px #fff}
   .sweep{height:260vh}
@@ -383,6 +385,6 @@ footer.ftr{padding:40px 0 46px;font-size:.9rem;color:var(--muted);background:var
   .wipe-hint{display:none}
   .sweep{height:auto}
   .sweep-pin{position:relative;height:auto;padding:96px 0}
-  .sweep-layer.clean{clip-path:inset(0 0 0 50%)}
+  .sweep-layer.clean{clip-path:inset(0 50% 0 0)}
   .sweep-line{left:50%}
 }

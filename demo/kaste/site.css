@@ -329,7 +329,7 @@ footer a:hover{color:var(--ink)}
   .svc h3{margin-top:30px;font-size:1.7rem}
   .calc-in,.calc-out{padding:30px 22px}
   .res-price{font-size:2.6rem}
-  .res-grid b{font-size:1.5rem}
+  .res-grid b{font-size:1.3rem;white-space:nowrap}
   .story-media{height:34vh}
   .stage{padding:8px 0}
   .stage p{font-size:.92rem}

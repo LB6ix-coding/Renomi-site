@@ -105,7 +105,7 @@ function init() {
   door.position.set(-1, 1.4, zF); house.add(door);
   const step = new THREE.Mesh(new THREE.BoxGeometry(1.8, .3, 1), plinthMat); step.position.set(-1, .15, zF + .5); step.receiveShadow = step.castShadow = true; house.add(step);
   // corner boards
-  [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([sx, sz]) => { const b = new THREE.Mesh(new THREE.BoxGeometry(.14, WH, .14), trim); b.position.set(sx * (W / 2), WH / 2 + .35, sz * (D / 2)); house.add(b); });
+  [[-1, -1], [-1, 1], [1, -1], [1, 1]].forEach(([sx, sz]) => { const b = new THREE.Mesh(new THREE.BoxGeometry(.14, WH - .14, .14), trim); b.position.set(sx * (W / 2), (WH - .14) / 2 + .35, sz * (D / 2)); house.add(b); });
 
   /* ---------- roof ---------- */
   const slopeLen = (D / 2 + OVZ) / Math.cos(PITCH);
@@ -140,7 +140,7 @@ function init() {
     surf.rotation.x = -Math.PI / 2; surf.position.set(0, 0, slopeLen / 2); surf.castShadow = true; surf.receiveShadow = true; g.add(surf);
     const seams = new THREE.Group(); g.add(seams);
     for (let x = -roofLen / 2 + .3; x < roofLen / 2; x += .52) { const s = new THREE.Mesh(new THREE.BoxGeometry(.035, .055, slopeLen), seamMat); s.position.set(x, .03, slopeLen / 2); s.castShadow = true; seams.add(s); }
-    const snow = new THREE.Mesh(new THREE.PlaneGeometry(roofLen - .1, slopeLen - .1, 30, 12), new THREE.MeshStandardMaterial({color: 0xf7fbff, roughness: .95, transparent: true, opacity: 0}));
+    const snow = new THREE.Mesh(new THREE.PlaneGeometry(roofLen - .1, slopeLen - .1, 30, 12), new THREE.MeshStandardMaterial({color: 0xf7fbff, emissive: 0x2a3036, roughness: .95, transparent: true, opacity: 0}));
     { const p = snow.geometry.attributes.position; for (let i = 0; i < p.count; i++) p.setZ(i, .15 + Math.random() * .05); snow.geometry.computeVertexNormals(); }
     snow.rotation.x = -Math.PI / 2; snow.position.set(0, .02, slopeLen / 2); snow.receiveShadow = true; snow.visible = false; g.add(snow);
     // gutter

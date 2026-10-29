@@ -110,7 +110,9 @@
 
   /* ---------- callbar ---------- */
   const callbar = $('.callbar'), ctas = $('.hero-ctas');
-  new IntersectionObserver(([en]) => callbar.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0)).observe(ctas);
+  const setBar = () => { const on = callbar.classList.contains('show') && !document.body.classList.contains('pinning'); callbar.inert = !on; };
+  new IntersectionObserver(([en]) => { callbar.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0); setBar(); }).observe(ctas);
+  new MutationObserver(setBar).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
   /* ---------- form (demo) ---------- */
   const form = $('#lomake'), fstat = $('#lomake-tila');
@@ -203,11 +205,31 @@
       ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1; ctx.clearRect(0, 0, W, H);
       if (done) return;
       if (dirty.complete && dirty.naturalWidth) ctx.drawImage(dirty, 0, 0, W, H); else { ctx.fillStyle = '#b9b7a8'; ctx.fillRect(0, 0, W, H); }
+      grime();
       // redraw erased cells so a resize keeps progress
       ctx.globalCompositeOperation = 'destination-out';
       const cw = W / GW, ch = H / GH;
       for (let j = 0; j < GH; j++) for (let i = 0; i < GW; i++) if (grid[j * GW + i]) { ctx.beginPath(); ctx.arc((i + .5) * cw, (j + .5) * ch, Math.max(cw, ch) * .95, 0, 6.28); ctx.fill(); }
       ctx.globalCompositeOperation = 'source-over';
+    }
+    function grime() {
+      // extra dirt over the photo, seeded so it looks the same after a resize
+      let s = 11; const R = () => (s = (s * 16807) % 2147483647) / 2147483647;
+      const k = W / 1000;
+      ctx.save(); ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = 'rgba(176,168,140,.22)'; ctx.fillRect(0, 0, W, H);
+      // squeegee-less wipe streaks (old cloth arcs)
+      ctx.lineCap = 'round';
+      for (let i = 0; i < 9; i++) { const cx = R() * W, cy = R() * H, r = (80 + R() * 160) * k; ctx.strokeStyle = `rgba(214,206,180,${.16 + R() * .14})`; ctx.lineWidth = (14 + R() * 22) * k; ctx.beginPath(); ctx.arc(cx, cy, r, R() * 6.28, R() * 6.28 + 1.6 + R()); ctx.stroke(); }
+      // rain streaks running down
+      for (let i = 0; i < 70; i++) { const x = R() * W, y = R() * H * .7, l = (40 + R() * 160) * k; const g = ctx.createLinearGradient(x, y, x, y + l); g.addColorStop(0, 'rgba(120,110,86,0)'); g.addColorStop(.5, `rgba(120,110,86,${.18 + R() * .2})`); g.addColorStop(1, `rgba(96,86,66,${.3 + R() * .2})`); ctx.strokeStyle = g; ctx.lineWidth = (1.2 + R() * 2.6) * k; ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + (R() - .5) * 8 * k, y + l); ctx.stroke(); }
+      // dried water spots
+      for (let i = 0; i < 160; i++) { const x = R() * W, y = R() * H, r = (2 + R() * 7) * k; ctx.fillStyle = `rgba(230,226,210,${.18 + R() * .2})`; ctx.beginPath(); ctx.arc(x, y, r, 0, 6.28); ctx.fill(); ctx.strokeStyle = `rgba(110,100,80,${.25 + R() * .2})`; ctx.lineWidth = .9 * k + .4; ctx.stroke(); }
+      // fingerprints / smudges
+      for (let i = 0; i < 7; i++) { const x = W * (.15 + R() * .7), y = H * (.25 + R() * .55), r = (16 + R() * 12) * k; for (let q = 0; q < 7; q++) { ctx.strokeStyle = `rgba(150,138,112,${.22 - q * .02})`; ctx.lineWidth = 1.6 * k + .4; ctx.beginPath(); ctx.ellipse(x, y, r - q * 2.3 * k, (r - q * 2.3 * k) * 1.3, R() * .3, 0, 6.28); ctx.stroke(); } }
+      // dust specks
+      for (let i = 0; i < 1400; i++) { ctx.fillStyle = `rgba(${90 + R() * 60},${82 + R() * 50},${60 + R() * 40},${.25 + R() * .45})`; ctx.fillRect(R() * W, R() * H, (.6 + R() * 1.6) * k + .3, (.6 + R() * 1.6) * k + .3); }
+      ctx.restore();
     }
     function brushR() { return clamp(W * .065, 22, 70); }
     function stamp(x, y) {
@@ -284,7 +306,8 @@
       paintDirty(); update(); resetBtn.hidden = true; autoBtn.disabled = false; status.textContent = 'Ikkuna on taas likainen. Uusi yritys!';
       autoBtn.focus();
     });
-    dirty.onload = size; if (dirty.complete) size();
+    const setTravel = () => stage.style.setProperty('--travel', Math.max(60, stage.clientWidth * .78 - 120) + 'px');
+    dirty.onload = size; if (dirty.complete) size(); setTravel(); addEventListener('resize', setTravel);
     let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(size, 120); });
     // expose for tests
     window.__wipe = { get pct() { return Math.round(cleaned / (GW * GH) * 100); }, get done() { return done; } };
@@ -326,7 +349,7 @@
   (() => {
     const f = $('#calc'), m2 = $('#c-m2'), m2o = $('#c-m2-out');
     const out = { visit: $('#o-visit'), hours: $('#o-hours'), extra: $('#o-extra'), year: $('#o-year'), ded: $('#o-ded'), net: $('#o-net') };
-    const extraRow = out.extra.closest('div');
+    const extraRow = out.extra.closest('div'), dedNote = $('#o-dednote');
     const fill = $('#o-barfill'), big = $('.out-big');
     const RATE = { 1: 58, 26: 52, 52: 48 };
     const cur = { visit: 0, extra: 0, year: 0, ded: 0, net: 0, hours: 0 };
@@ -348,6 +371,8 @@
       const r = calc();
       m2o.textContent = r.a + ' m²';
       extraRow.hidden = !r.extra;
+      dedNote.hidden = !(r.ded === 0 && r.year > 0);
+      $('#o-dedsign').textContent = r.ded > 0 ? '−' : '';
       m2.style.setProperty('--fill', ((r.a - +m2.min) / (+m2.max - +m2.min) * 100) + '%');
       out.hours.textContent = r.hours.toLocaleString('fi-FI', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
       fill.style.transform = `scaleX(${r.year ? clamp(r.ded / r.year, 0, 1) : 0})`;

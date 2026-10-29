@@ -356,6 +356,8 @@ a.c-item:hover b{color:var(--orange)}
   .layer-steps li span{font-size:.86rem}
   .stack-wrap{height:44vh;min-height:260px}
   .stack{width:min(300px,64%)}
+  .ly .tag{display:none}
+  .stack-meter{top:0;bottom:auto}
   .c-form{padding:32px 22px}
 }
 @media (max-width:760px){
@@ -367,14 +369,15 @@ a.c-item:hover b{color:var(--orange)}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;gap:0;background:rgba(20,23,26,.97);padding:6px 18px 16px;border-bottom:1px solid var(--line-d)}
   .nav-links.open a{display:block;padding:15px 0;border-bottom:1px solid var(--line-d)}
   .nav-links.open a::after{display:none}
-  .hero h1{font-size:clamp(2.5rem,12.4vw,4rem);margin:16px 0 18px}
+  .hero h1{font-size:clamp(2.1rem,10.2vw,3.6rem);margin:16px 0 18px}
   .lead{font-size:1.03rem}
   .hero-copy{padding-bottom:84px}
-  .hero-ctas{flex-wrap:nowrap}
-  .hero-ctas .btn{flex:1;padding:.8rem .6rem;font-size:.9rem}
+  .hero-ctas{flex-direction:column;gap:10px;margin-top:24px}
+  .hero-ctas .btn{width:100%}
   .svc,.cfg,.calc,.refs,.faq{padding:84px 0}
   .cfg-panel{padding:20px}
   .cfg-stage{height:min(118vw,480px)}
+  .cfg-weather{top:14px;bottom:auto}
   .cfg-weather button{padding:0 10px;font-size:.82rem}
   .calc-card{padding:22px 18px}
   .result{padding:18px}

@@ -265,6 +265,11 @@
   const cb = $('.callbar'), ctas = $('.hero-ctas');
   new IntersectionObserver(([en]) => cb.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0)).observe(ctas);
 
+  /* load the 3D configurator (three.js ~680 kB) only when it approaches the viewport */
+  const stageEl = $('.cfg-stage');
+  const lio = new IntersectionObserver(([e]) => { if (!e.isIntersecting) return; lio.disconnect(); import('./roof3d.js').catch(() => { $('#roof3d').hidden = true; $('.cfg-fallback').hidden = false; $('.cfg-fallback-note').hidden = false; }); }, {rootMargin: '900px 0px'});
+  lio.observe(stageEl);
+
   addEventListener('resize', () => { layers(); proc(); });
   onScroll();
 })();
