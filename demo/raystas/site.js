@@ -145,7 +145,7 @@
   $$('canvas.rain').forEach(cv => new Rain(cv, cv.dataset.rain === 'hero' ? .78 : .7));
 
   /* exploded roof layers (pinned) */
-  const lay = $('.layers'), lys = $$('.ly'), steps = $$('.layer-steps li'), layN = $('#lay-n');
+  const lay = $('.layers'), lys = $$('.ly'), steps = $$('.layer-steps li'), layN = $('#lay-n'), tags = $$('.stack-tags li'), sw2 = $('.stack-wrap');
   let lastActive = -1;
   function layers() {
     if (!lay) return;
@@ -157,13 +157,24 @@
       const spread = mq.matches ? 1 : (0.35 + 0.65 * clamp(p * 1.4, 0, 1));
       l.style.transform = `translateZ(${i * sep * spread + (1 - e) * drop}px)`;
       l.style.opacity = e;
-      l.style.setProperty('--to', e);
     });
+    if (innerWidth >= 900 && tags.length) {
+      const wr = sw2.getBoundingClientRect();
+      tags.forEach((t, i) => {
+        const r = lys[i].getBoundingClientRect();
+        // label sits on the right column, level with the layer's centre; a leader line reaches back to the layer's right edge
+        const y = r.top + r.height * .42 - wr.top - 12;
+        t.style.transform = `translateY(${y.toFixed(1)}px)`;
+        t.style.opacity = lys[i].style.opacity;
+        t.style.setProperty('--lw', Math.max(0, (wr.right - t.offsetWidth) - r.right - 6).toFixed(0) + 'px');
+      });
+    }
     const act = clamp(Math.floor(p * 5.4 + .4), 0, 4);
     if (act !== lastActive) {
       lastActive = act;
       steps.forEach((s, i) => { s.classList.toggle('on', i === act); s.classList.toggle('done', i < act); });
       layN.textContent = '0' + (act + 1);
+      tags.forEach((t, i) => t.classList.toggle('on', i === act));
     }
   }
 
@@ -264,10 +275,14 @@
   /* mobile callbar */
   const cb = $('.callbar'), ctas = $('.hero-ctas');
   new IntersectionObserver(([en]) => cb.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0)).observe(ctas);
+  // keep the call bar out of the way of the 3D stage and the pinned layer animation
+  const busy = new Set();
+  const bio = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? busy.add(e.target) : busy.delete(e.target)); cb.classList.toggle('away', busy.size > 0); }, {threshold: 0, rootMargin: '-10% 0px -10% 0px'});
+  [$('.cfg-stage'), $('.layers')].forEach(x => x && bio.observe(x));
 
   /* load the 3D configurator (three.js ~680 kB) only when it approaches the viewport */
   const stageEl = $('.cfg-stage');
-  const lio = new IntersectionObserver(([e]) => { if (!e.isIntersecting) return; lio.disconnect(); import('./roof3d.js').catch(() => { $('#roof3d').hidden = true; $('.cfg-fallback').hidden = false; $('.cfg-fallback-note').hidden = false; }); }, {rootMargin: '900px 0px'});
+  const lio = new IntersectionObserver(([e]) => { if (!e.isIntersecting) return; lio.disconnect(); import('./roof3d.js').catch(() => { ['#roof3d', '.cfg-weather', '.cfg-zoom', '.cfg-hint'].forEach(q => $(q).hidden = true); $('.cfg-fallback').hidden = false; $('.cfg-fallback-note').hidden = false; }); }, {rootMargin: '900px 0px'});
   lio.observe(stageEl);
 
   addEventListener('resize', () => { layers(); proc(); });

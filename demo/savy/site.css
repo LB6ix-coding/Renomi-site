@@ -397,3 +397,6 @@ input.kelvin::-moz-range-progress{background:transparent}
   .room.flick .room-lit{animation:none}
   .hdr,.callbar{transition:none}
 }
+
+/* tabletit: piilota puhelinpainike ylävalikosta, ettei se mene ruudun yli */
+@media (min-width:761px) and (max-width:1100px){.nav-cta{display:none!important}.nav-links{gap:1.1rem!important}.nav-links a{white-space:nowrap}}

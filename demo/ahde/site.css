@@ -380,3 +380,6 @@ footer{padding:40px 0 48px;font-size:.9rem;color:var(--muted);background:var(--c
 @media (max-width:760px){.dn-dial{height:96px}}
 .pl-stage .fine{color:var(--muted);margin-top:8px;max-width:80ch}
 .svc h3{padding-right:28px}
+
+/* tabletit: piilota puhelinpainike ylävalikosta, ettei se mene ruudun yli */
+@media (min-width:761px) and (max-width:1100px){.nav-cta{display:none!important}.nav-links{gap:1.1rem!important}.nav-links a{white-space:nowrap}}

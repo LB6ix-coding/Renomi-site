@@ -10,10 +10,14 @@ function fallback() {
   stage.querySelector('.cfg-fallback').hidden = false;
   stage.querySelector('.cfg-fallback-note').hidden = false;
   stage.querySelector('.cfg-zoom').hidden = true;
+  stage.querySelector('.cfg-weather').hidden = true;
 }
 
 let renderer;
-try {
+const probe = document.createElement('canvas');
+const glOk = !!(window.WebGLRenderingContext && (probe.getContext('webgl2') || probe.getContext('webgl')));
+if (!glOk) fallback();
+else try {
   renderer = new THREE.WebGLRenderer({canvas, antialias: true, powerPreference: 'high-performance'});
 } catch (e) { fallback(); }
 
@@ -50,7 +54,7 @@ function init() {
   const metalTex = tex(256, 256, (g, w, h) => { const gr = g.createLinearGradient(0, 0, w, 0); gr.addColorStop(0, '#e9e9e9'); gr.addColorStop(.5, '#ffffff'); gr.addColorStop(1, '#e4e4e4'); g.fillStyle = gr; g.fillRect(0, 0, w, h); noise(g, w, h, 6); });
   const feltTex = tex(512, 512, (g, w, h) => {
     g.fillStyle = '#d8d8d8'; g.fillRect(0, 0, w, h); noise(g, w, h, 46);
-    for (let x = 64; x < w; x += 128) { g.fillStyle = 'rgba(0,0,0,.14)'; g.fillRect(x, 0, 3, h); g.fillStyle = 'rgba(255,255,255,.07)'; g.fillRect(x + 3, 0, 2, h); }
+    for (let x = 0; x < w; x += 128) { g.fillStyle = 'rgba(0,0,0,.16)'; g.fillRect(x, 0, 4, h); }
   }, [3, 1.2]);
   const tileTex = tex(256, 256, (g, w, h) => { g.fillStyle = '#efefef'; g.fillRect(0, 0, w, h); noise(g, w, h, 30); });
 
@@ -61,6 +65,18 @@ function init() {
   sun.shadow.mapSize.set(1024, 1024); sun.shadow.camera.left = -16; sun.shadow.camera.right = 16; sun.shadow.camera.top = 16; sun.shadow.camera.bottom = -16; sun.shadow.bias = -.0006; sun.shadow.normalBias = .03;
   scene.add(sun);
   const fill = new THREE.DirectionalLight(0x9db7d4, .5); fill.position.set(-10, 6, -8); scene.add(fill);
+  // simple studio-sky environment so metal roofs show seams and relief even in black
+  {
+    const pmrem = new THREE.PMREMGenerator(renderer), env = new THREE.Scene();
+    const sg = new THREE.SphereGeometry(50, 32, 16), cols = [], pos = sg.attributes.position, c = new THREE.Color();
+    for (let i = 0; i < pos.count; i++) { const y = pos.getY(i) / 50; if (y > 0) c.setRGB(.55 + y * .45, .62 + y * .4, .7 + y * .35); else c.setRGB(.45, .48, .5).lerp(new THREE.Color(.16, .16, .15), -y); cols.push(c.r, c.g, c.b); }
+    sg.setAttribute('color', new THREE.Float32BufferAttribute(cols, 3));
+    env.add(new THREE.Mesh(sg, new THREE.MeshBasicMaterial({side: THREE.BackSide, vertexColors: true})));
+    const panel = new THREE.Mesh(new THREE.PlaneGeometry(26, 10), new THREE.MeshBasicMaterial({color: new THREE.Color(3, 3, 2.8), side: THREE.DoubleSide}));
+    panel.position.set(18, 28, 14); panel.lookAt(0, 0, 0); env.add(panel);
+    const panel2 = panel.clone(); panel2.material = new THREE.MeshBasicMaterial({color: new THREE.Color(1.4, 1.5, 1.7), side: THREE.DoubleSide}); panel2.position.set(-24, 14, -10); panel2.lookAt(0, 0, 0); env.add(panel2);
+    scene.environment = pmrem.fromScene(env, .03).texture; scene.environmentIntensity = 1; pmrem.dispose();
+  }
 
   /* ---------- ground ---------- */
   const groundMat = new THREE.MeshStandardMaterial({map: grass, roughness: 1, color: 0xffffff});
@@ -118,8 +134,8 @@ function init() {
   function surfaceGeo(kind) {
     if (geoCache[kind]) return geoCache[kind];
     let segX = 4, segV = 4, h = () => 0;
-    if (kind === 'tiilikuvio') { segX = Math.round(roofLen / .05); segV = Math.round(slopeLen / .036); h = (x, v) => .022 * (.5 + .5 * Math.cos(2 * Math.PI * x / .2)) + .04 * ((v / .36) % 1); }
-    if (kind === 'tiili') { segX = Math.round(roofLen / .05); segV = Math.round(slopeLen / .04); h = (x, v) => { const row = Math.floor(v / .34), off = (row % 2) * .15; return .055 * Math.abs(Math.sin(Math.PI * (x + off) / .3)) + .045 * ((v / .34) % 1); }; }
+    if (kind === 'tiilikuvio') { segX = Math.round(roofLen / .05); segV = Math.round(slopeLen / .036); h = (x, v) => .036 * Math.abs(Math.cos(Math.PI * x / .2)) + .055 * Math.pow(((v / .36) % 1 + 1) % 1, .7); }
+    if (kind === 'tiili') { segX = Math.round(roofLen / .05); segV = Math.round(slopeLen / .04); h = (x, v) => { const row = Math.floor(v / .34), off = (row % 2) * .15; return .07 * Math.pow(Math.abs(Math.sin(Math.PI * (x + off) / .3)), .6) + .06 * (((v / .34) % 1 + 1) % 1); }; }
     const g = new THREE.PlaneGeometry(roofLen, slopeLen, segX, segV);
     // plane lies in XY; map local y -> slope direction v (0 at ridge)
     const pos = g.attributes.position;
@@ -139,7 +155,7 @@ function init() {
     const surf = new THREE.Mesh(surfaceGeo('sauma'), roofMat);
     surf.rotation.x = -Math.PI / 2; surf.position.set(0, 0, slopeLen / 2); surf.castShadow = true; surf.receiveShadow = true; g.add(surf);
     const seams = new THREE.Group(); g.add(seams);
-    for (let x = -roofLen / 2 + .3; x < roofLen / 2; x += .52) { const s = new THREE.Mesh(new THREE.BoxGeometry(.035, .055, slopeLen), seamMat); s.position.set(x, .03, slopeLen / 2); s.castShadow = true; seams.add(s); }
+    for (let x = -roofLen / 2 + .3; x < roofLen / 2; x += .52) { const s = new THREE.Mesh(new THREE.BoxGeometry(.05, .09, slopeLen), seamMat); s.position.set(x, .045, slopeLen / 2); s.castShadow = true; seams.add(s); }
     const snow = new THREE.Mesh(new THREE.PlaneGeometry(roofLen - .1, slopeLen - .1, 30, 12), new THREE.MeshStandardMaterial({color: 0xf7fbff, emissive: 0x2a3036, roughness: .95, transparent: true, opacity: 0}));
     { const p = snow.geometry.attributes.position; for (let i = 0; i < p.count; i++) p.setZ(i, .15 + Math.random() * .05); snow.geometry.computeVertexNormals(); }
     snow.rotation.x = -Math.PI / 2; snow.position.set(0, .02, slopeLen / 2); snow.receiveShadow = true; snow.visible = false; g.add(snow);
@@ -194,9 +210,9 @@ function init() {
 
   /* ---------- state ---------- */
   const WEATHER = {
-    sun: {bg: [0x8fb6d8, 0xf1d7b8], fog: 0xcfd9e2, sunI: 2.7, sunC: 0xfff0d6, hemiI: 1.05, exp: 1.05, rough: 0},
-    rain: {bg: [0x56616c, 0x7b858e], fog: 0x6d7780, sunI: .55, sunC: 0xd9e3ec, hemiI: .95, exp: .95, rough: -.2},
-    snow: {bg: [0xaebccb, 0xe4e9ee], fog: 0xd4dce4, sunI: 1.1, sunC: 0xeef4ff, hemiI: 1.2, exp: 1.0, rough: .1}
+    sun: {env: 1, bg: [0x8fb6d8, 0xf1d7b8], fog: 0xcfd9e2, sunI: 2.7, sunC: 0xfff0d6, hemiI: 1.05, exp: 1.05, rough: 0},
+    rain: {env: .55, bg: [0x56616c, 0x7b858e], fog: 0x6d7780, sunI: .55, sunC: 0xd9e3ec, hemiI: .95, exp: .95, rough: -.2},
+    snow: {env: .85, bg: [0xaebccb, 0xe4e9ee], fog: 0xd4dce4, sunI: 1.1, sunC: 0xeef4ff, hemiI: 1.2, exp: 1.0, rough: .1}
   };
   const bgCanvas = document.createElement('canvas'); bgCanvas.width = 4; bgCanvas.height = 256;
   const bgTex = new THREE.CanvasTexture(bgCanvas); bgTex.colorSpace = THREE.SRGBColorSpace; scene.background = bgTex;
@@ -218,10 +234,10 @@ function init() {
     const m = MAT[key]; matKey = key; baseRough = m.rough;
     halves.forEach(h => { h.surf.geometry = surfaceGeo(m.kind); h.seams.visible = m.seams; h.guard.visible = key !== 'kermi'; });
     roofMat.map = m.map; roofMat.metalness = m.metal; roofMat.needsUpdate = true;
-    edgeMat.metalness = m.metal ? .4 : 0;
+    edgeMat.metalness = m.metal ? .5 : 0; edgeMat.roughness = m.metal ? .4 : .85;
     swap.t = 0; // drop-in animation
   }
-  function applyCol(hex) { roofMat.color.set(hex); edgeMat.color.set(hex).multiplyScalar(.9); }
+  function applyCol(hex) { roofMat.color.set(hex); edgeMat.color.set(hex); }
   function applyWeather(w) {
     weather = w; want = WEATHER[w];
     rain.visible = w === 'rain'; snowPts.visible = w === 'snow';
@@ -249,6 +265,11 @@ function init() {
     if (k === 'ArrowUp') tPol = Math.max(.62, tPol - .12); if (k === 'ArrowDown') tPol = Math.min(1.42, tPol + .12);
     if (k === '+') tRad = Math.max(15, tRad - 2.5); if (k === '-') tRad = Math.min(32, tRad + 2.5); wake();
   });
+  let pinch0 = 0, rad0 = 0;
+  const tdist = t => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+  canvas.addEventListener('touchstart', e => { if (e.touches.length === 2) { e.preventDefault(); pinch0 = tdist(e.touches); rad0 = tRad; dragging = false; hideHint(); } }, {passive: false});
+  canvas.addEventListener('touchmove', e => { if (e.touches.length === 2 && pinch0) { e.preventDefault(); tRad = Math.min(32, Math.max(15, rad0 * pinch0 / tdist(e.touches))); idle = 0; wake(); } }, {passive: false});
+  canvas.addEventListener('touchend', e => { if (e.touches.length < 2) pinch0 = 0; });
   stage.querySelectorAll('[data-zoom]').forEach(b => b.addEventListener('click', () => { tRad = Math.min(32, Math.max(15, tRad + (+b.dataset.zoom) * 3)); idle = 0; wake(); }));
   function hideHint() { if (!touched) { touched = true; hint.classList.add('off'); } }
 
@@ -272,7 +293,8 @@ function init() {
     const wk = 1 - Math.pow(.03, dt);
     cur.top.lerp(tmpC.set(want.bg[0]), wk); cur.bot.lerp(tmpC.set(want.bg[1]), wk); cur.fog.lerp(tmpC.set(want.fog), wk); scene.fog.color.copy(cur.fog); paintBg();
     cur.sunI += (want.sunI - cur.sunI) * wk; sun.intensity = cur.sunI; sun.color.lerp(tmpC.set(want.sunC), wk);
-    cur.hemiI += (want.hemiI - cur.hemiI) * wk; hemi.intensity = cur.hemiI;
+    cur.hemiI += (want.hemiI - cur.hemiI) * wk; hemi.intensity = cur.hemiI * .7;
+    scene.environmentIntensity += (want.env - scene.environmentIntensity) * wk;
     renderer.toneMappingExposure += (want.exp - renderer.toneMappingExposure) * wk;
     cur.rough += (want.rough - cur.rough) * wk; roofMat.roughness = Math.min(1, Math.max(.08, baseRough + cur.rough * (matKey === 'kermi' || matKey === 'tiili' ? 1.4 : 1)));
     cur.snowAmt += (snowTarget - cur.snowAmt) * (1 - Math.pow(.25, dt));
