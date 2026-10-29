@@ -11,6 +11,45 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="kaarna.css">
 <style>
+@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url(fonts/instrument-serif-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+:root{--bark:#1f1813;--bark-2:#2c231c;--rye:#8a5a2b;--rye-lt:#e2b178;--birch:#f3eee6;--birch-2:#ebe4d8;--paper:#faf6ef}
+main h1,main h2{font-family:"Instrument Serif",Georgia,serif!important;font-weight:400!important;letter-spacing:-.01em!important}
+main h2{font-size:clamp(2.4rem,5vw,4rem)!important;line-height:1!important}
+h2 em,h1 em{font-style:italic;color:var(--rye-lt)}
+.band h2 em{color:var(--rye)}
+.btn{border-radius:2px!important}
+.vhero{position:relative;background:#140f0b;color:#f3eee6;overflow:hidden;padding:0!important}
+.vh-media{position:relative;height:min(92vh,960px);min-height:560px}
+.vh-poster,.vh-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.vh-video{opacity:0;transition:opacity .6s}.vh-video.on{opacity:1}
+.vh-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,15,11,.85) 0%,rgba(20,15,11,.45) 38%,rgba(20,15,11,0) 62%),linear-gradient(0deg,#140f0b 0%,rgba(20,15,11,0) 36%)}
+.vh-copy{position:absolute;left:0;right:0;top:44%;transform:translateY(-50%);z-index:2;display:grid;gap:22px}
+.vh-kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#e2b178;font-weight:600}
+.vh-copy h1{font-size:clamp(3.2rem,8vw,7.6rem)!important;line-height:.9!important;color:#f8f1e6;max-width:12ch}
+.vh-copy .lead{color:#d5c8b6;max-width:44ch;font-size:1.08rem}
+.vh-copy .cta{display:flex;flex-wrap:wrap;gap:12px}
+.vbtn-light{background:#f3eee6;color:#1f1813;border:1.5px solid #f3eee6}
+.vbtn-light:hover{background:#e2b178;border-color:#e2b178}
+.vbtn-line{background:transparent;color:#f3eee6;border:1.5px solid rgba(243,238,230,.45)}
+.vbtn-line:hover{background:rgba(243,238,230,.1)}
+.vh-facts{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);margin:-112px 0 0;padding:24px 0 36px;border-top:1px solid rgba(243,238,230,.18)}
+.vh-facts dt{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#a8987f}
+.vh-facts dd{margin:4px 0 0;font-family:"Instrument Serif",serif;font-size:1.7rem;line-height:1.1;color:#f8f1e6}
+.vh-facts small{display:block;font-family:inherit;font-size:13px;color:#a8987f;font-family:system-ui,sans-serif}
+@media (max-width:760px){.vh-media{height:58svh;min-height:400px}.vh-poster,.vh-video{object-position:66% 50%}.vh-media::after{background:linear-gradient(0deg,#140f0b 0%,rgba(20,15,11,.15) 55%)}
+ .vh-copy{position:relative;top:auto;transform:none;margin-top:-84px}.vh-copy h1{font-size:clamp(2.8rem,13vw,3.8rem)!important}.vh-facts{grid-template-columns:1fr 1fr;gap:16px 0;margin-top:28px}.vh-facts dd{font-size:1.35rem}}
+.band{background:var(--paper);padding:clamp(72px,10vw,128px) 0}
+.band-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:36px}
+.band-head p{max-width:40ch;color:#5f554b}
+.band-grid{display:grid;grid-template-columns:1.1fr .9fr 1fr;gap:16px;align-items:start}
+.band figure{margin:0}
+.band img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;display:block}
+.band .b2{margin-top:64px}.band .b3{margin-top:24px}
+.band figcaption{margin-top:10px;font-size:14px;color:#6b6157;letter-spacing:.02em}
+@media (max-width:760px){.band-grid{grid-template-columns:1fr 1fr}.band .b1{grid-column:1/-1}.band .b2,.band .b3{margin-top:0}.band .b1 img{aspect-ratio:5/4}}
+</style>
+<style>
 /* index: page-specific layout only; components (.hero, .bake, .week, .steps, .hours, .exc, .ig, .photo) come from kaarna.css */
 .ix-name{display:block;font:600 var(--t-md,20px)/1.2 var(--display);letter-spacing:-.01em;margin-bottom:.35em}
 .hero h1{max-width:none}
@@ -98,6 +137,16 @@
   ]
 }
 </script>
+<style>
+.qband{position:relative;min-height:min(72vh,720px);display:grid;align-items:center;align-content:center;overflow:hidden;color:#fff;background:#111;padding:0!important}
+.qband img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:var(--op,70% 50%)}
+@supports (animation-timeline:view()){.qband img{animation:qpar linear both;animation-timeline:view()}@keyframes qpar{from{transform:translateY(-4%) scale(1.04)}to{transform:translateY(4%) scale(1.04)}}}
+.qband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--qs,rgba(12,10,9,.82)) 0%,rgba(12,10,9,.35) 45%,rgba(12,10,9,0) 70%)}
+.qband .wrap{position:relative;z-index:1;width:100%}.qband .q{position:relative;z-index:1;display:grid;gap:18px;max-width:640px;padding-block:96px}
+.qband .q p.big{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.02;letter-spacing:-.03em}
+.qband .q p.small{color:rgba(255,255,255,.75);max-width:42ch}
+@media (max-width:760px){.qband::after{background:linear-gradient(0deg,rgba(12,10,9,.85),rgba(12,10,9,.2))}.qband{min-height:520px;align-items:end}}
+</style>
 </head>
 <body data-page="index">
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
@@ -159,67 +208,41 @@
 </header>
 <main id="main">
 
-  <!-- HERO: text + signature photo (steam rig) -->
-  <section class="hero" aria-labelledby="hero-h">
-    <div class="hero-text">
-      <h1 id="hero-h"><span class="ix-name">Leipomokahvila</span>Kaarna</h1>
-      <p class="lead">Hapanjuuri- ja ruisleipomo Tikkurilassa.</p>
-      <p class="note">Ensimmäiset korvapuustit tulevat uunista 6.30. Arkisin ovi aukeaa seitsemältä, ja leipää on niin kauan kuin sitä riittää.</p>
+  <!-- HERO v2 -->
+  <section class="vhero" aria-labelledby="hero-h">
+    <div class="vh-media">
+      <img class="vh-poster" src="img/v-poster.webp" alt="Jauhoja siivilöidään ruisleivän päälle leipomon tiskillä" width="1920" height="1080" fetchpriority="high">
+      <video id="vh-video" class="vh-video" muted loop playsinline preload="auto" poster="img/v-poster.webp" aria-hidden="true"></video>
+      <script>(function(){var v=document.getElementById('vh-video');v.muted=true;v.src=innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+    </div>
+    <div class="wrap vh-copy">
+      <p class="vh-kicker">Leipomokahvila Kaarna · Tikkurila</p>
+      <h1 id="hero-h">Uunista tänään,<br><em>tiskissä kunnes loppuu.</em></h1>
+      <p class="lead">Hapanjuuri- ja ruisleipomo Tikkurilan aseman vieressä. Ensimmäiset korvapuustit tulevat uunista 6.30, ja ovi aukeaa arkisin seitsemältä.</p>
       <div class="cta">
-        <a class="btn btn-dark" href="lounas.html">Katso päivän lounas</a>
-        <a class="btn btn-line" href="yhteys.html#tilaa">Tilaa leipä ennakkoon</a>
-      </div>
-      <div class="hero-foot">
-        <dl class="k-facts row">
-          <div><dt>Osoite</dt><dd>Esimerkkikatu 3<small>2 min Tikkurilan asemalta</small></dd></div>
-          <div><dt>Arkisin</dt><dd>ma–pe 7–16<small>lounas 10.30–14</small></dd></div>
-          <div><dt>Lauantaisin</dt><dd>la 9–15<small>sunnuntaisin suljettu</small></dd></div>
-        </dl>
+        <a class="btn vbtn-light" href="#uunista">Katso päivän uunivuorot</a>
+        <a class="btn vbtn-line" href="yhteys.html#tilaa">Tilaa leipä ennakkoon</a>
       </div>
     </div>
-    <figure class="sig" data-steam>
-  <div class="sig-frame">
-    <img src="img/uuni.jpg" width="1200" height="1489" alt="Leipuri vetää uunista pellillisen korvapuusteja, raesokeri vielä kiiltää." fetchpriority="high" decoding="async">
-    <div class="steam-img" aria-hidden="true">
-      <div class="steam-rig">
-        <svg class="steam" viewBox="0 0 1200 1489" focusable="false">
-          <defs>
-            <linearGradient id="steam-fade" gradientUnits="userSpaceOnUse" x1="0" y1="690" x2="0" y2="20">
-              <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".12" stop-color="#fff"/>
-              <stop offset=".55" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <g class="steam-sway">
-            <g class="wisp w1" style="--dur:5.2s;--del:-1.2s">
-              <path class="sa" pathLength="1" d="M760 660 C730 570 820 520 785 430 C750 340 840 280 805 190 C785 135 820 100 805 50"/>
-              <path class="sb" pathLength="1" d="M760 660 C730 570 820 520 785 430 C750 340 840 280 805 190 C785 135 820 100 805 50"/>
-              <path class="sc" pathLength="1" d="M760 660 C730 570 820 520 785 430 C750 340 840 280 805 190 C785 135 820 100 805 50"/>
-            </g>
-            <g class="wisp w2" style="--dur:6.1s;--del:-3.9s">
-              <path class="sa" pathLength="1" d="M880 625 C925 530 840 465 890 370 C935 280 855 215 900 120 C920 75 900 45 915 15"/>
-              <path class="sb" pathLength="1" d="M880 625 C925 530 840 465 890 370 C935 280 855 215 900 120 C920 75 900 45 915 15"/>
-              <path class="sc" pathLength="1" d="M880 625 C925 530 840 465 890 370 C935 280 855 215 900 120 C920 75 900 45 915 15"/>
-            </g>
-            <g class="wisp w3" style="--dur:4.6s;--del:-2.4s">
-              <path class="sa" pathLength="1" d="M1000 640 C1035 560 990 500 1025 420 C1055 345 1010 285 1045 210 C1067 165 1045 130 1067 90"/>
-              <path class="sb" pathLength="1" d="M1000 640 C1035 560 990 500 1025 420 C1055 345 1010 285 1045 210 C1067 165 1045 130 1067 90"/>
-              <path class="sc" pathLength="1" d="M1000 640 C1035 560 990 500 1025 420 C1055 345 1010 285 1045 210 C1067 165 1045 130 1067 90"/>
-            </g>
-          </g>
-        </svg>
-        <div class="puffs">
-          <i class="puff" style="--dur:4.8s;--del:-0.2s;--dx:-2cqw;--s:1.8;--r:-10deg"></i>
-          <i class="puff" style="--dur:5.4s;--del:-1.3s;--dx:3cqw;--s:2.2;--r:12deg"></i>
-          <i class="puff" style="--dur:4.4s;--del:-2.5s;--dx:1cqw;--s:1.6;--r:6deg"></i>
-          <i class="puff" style="--dur:5.9s;--del:-3.4s;--dx:5cqw;--s:2.4;--r:14deg"></i>
-          <i class="puff" style="--dur:5.1s;--del:-4.3s;--dx:-3cqw;--s:2;--r:-14deg"></i>
-          <i class="puff" style="--dur:4.6s;--del:-0.9s;--dx:6cqw;--s:1.7;--r:18deg"></i>
-        </div>
+    <div class="wrap">
+      <dl class="vh-facts">
+        <div><dt>Osoite</dt><dd>Esimerkkikatu 3<small>2 min Tikkurilan asemalta</small></dd></div>
+        <div><dt>Arkisin</dt><dd>ma–pe 7–16<small>lounas 10.30–14</small></dd></div>
+        <div><dt>Lauantaisin</dt><dd>la 9–15<small>sunnuntaisin suljettu</small></dd></div>
+        <div><dt>Ruisleipä</dt><dd>ti ja pe<small>loppuu usein puoliltapäivin</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Leipomosta">
+    <div class="wrap">
+      <div class="band-head"><h2>Käsin, hitaasti,<br><em>joka aamu.</em></h2><p>Ruis ja kaura pirkanmaalaiselta tilalta, maito ja voi lähimeijeriltä. Juuri on seitsemän vuotta vanha.</p></div>
+      <div class="band-grid">
+        <figure class="b1"><img src="img/v-dough.webp" alt="Ruistaikina kohoaa rottinkikorissa leipomon teräspöydällä" width="896" height="1120" loading="lazy"><figcaption>Ruistaikina, 18 tuntia</figcaption></figure>
+        <figure class="b2"><img src="img/v-buns.webp" alt="Pellillinen korvapuusteja raesokerilla" width="1600" height="2000" loading="lazy"><figcaption>Korvapuustit 6.30</figcaption></figure>
+        <figure class="b3"><img src="img/v-counter.webp" alt="Kahvilan tiski, karjalanpiirakoita ja ruisleipiä hyllyllä" width="1600" height="2000" loading="lazy"><figcaption>Tiski aukeaa 7.00</figcaption></figure>
       </div>
     </div>
-  </div>
-  <figcaption class="sig-cap"><span class="tnum">6.30</span> Aamun ensimmäinen pelti korvapuusteja.</figcaption>
-</figure>
   </section>
 
   <!-- UUNISTA TÄNÄÄN (the page's one dark section) -->
@@ -284,7 +307,12 @@
   </section>
 
   <!-- KAARNA LYHYESTI (video) -->
-  <section class="sec short rv" id="lyhyesti" aria-labelledby="short-h">
+<section class="qband" style="--op:88% 55%" aria-label="Leikattu ruisleipä puulaudalla">
+    <img src="img/v-wide.webp" alt="Leikattu ruisleipä puulaudalla" loading="lazy" width="2400" height="1029">
+    <div class="wrap"><div class="q"><p class="big" style="font-family:"Instrument Serif",serif">Seitsemän vuotta vanha juuri.<br><em style="color:#e2b178">Kaksi päivää työtä.</em></p><p class="small">Kaarnan ruisleipä paistetaan tiistaisin ja perjantaisin. Varaa omasi, se loppuu usein jo puoliltapäivin.</p></div></div>
+  </section>
+
+    <section class="sec short rv" id="lyhyesti" aria-labelledby="short-h">
     <div class="wrap split mid">
       <div>
         <p class="kicker eyebrow">Kaarna lyhyesti</p>
@@ -296,7 +324,7 @@
         <p style="margin-top:20px"><a class="more" href="meista.html">Lue meistä <svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a></p>
       </div>
       <figure class="photo short-vid">
-        <div class="ph"><video poster="../../assets/kaarna-ad-poster.jpg" width="540" height="960" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"><source src="../../assets/kaarna-ad-360.mp4" type="video/mp4" media="(max-width: 760px)"><source src="../../assets/kaarna-ad.mp4" type="video/mp4"></video></div>
+        <div class="ph"><video poster="img/kaarna-ad-poster.jpg" width="540" height="960" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"><source src="img/kaarna-ad-360.mp4" type="video/mp4" media="(max-width: 760px)"><source src="img/kaarna-ad.mp4" type="video/mp4"></video></div>
       </figure>
     </div>
   </section>

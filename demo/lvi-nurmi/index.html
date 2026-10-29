@@ -18,6 +18,69 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="lvi.css">
 <style>
+@font-face{font-family:"Bricolage";src:url(fonts/bricolage-grotesque-latin-wght-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+:root{--navy:#15181d;--navy-2:#22262d;--navy-3:#0e1014;--orange:#b8622a;--orange-h:#97501f;--water:#3a9bd8;--bg-2:#f3f0ec;--zebra:#f8f6f3}
+h1,h2,h3{font-family:"Bricolage","Inter",sans-serif;letter-spacing:-.035em}
+h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700}
+.gutter-pipe,.hero-pipe{display:none!important}
+.tb{background:#0e1014!important}
+.top{background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+.btn{border-radius:3px!important}
+.vhero{padding:0!important;margin:0!important;position:relative;background:#0e1014;color:#fff;overflow:hidden}
+.vh-media{position:relative;height:min(90vh,940px);min-height:560px}
+.vh-poster,.vh-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.vh-video{opacity:0;transition:opacity .6s}.vh-video.on{opacity:1}
+.vh-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,16,20,.92) 0%,rgba(14,16,20,.6) 36%,rgba(14,16,20,0) 64%),linear-gradient(0deg,#0e1014 0%,rgba(14,16,20,0) 34%)}
+.vh-copy{position:absolute;left:0;right:0;top:46%;transform:translateY(-50%);z-index:2;display:grid;gap:22px}
+.vh-kicker{display:flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#d6b496;font-weight:600}
+.vh-kicker .dot{width:8px;height:8px;border-radius:50%;background:#3fbf73;box-shadow:0 0 0 4px rgba(63,191,115,.18)}
+.vh-copy h1{font-size:clamp(2.8rem,6.6vw,6rem);line-height:.95;font-weight:750;color:#fff;max-width:13ch}
+.vh-copy h1 em{font-style:normal;font-weight:300;color:#e9a46e}
+.vh-copy .lead{color:#c9ccd2;max-width:46ch}
+.vh-copy .cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.4);color:#fff;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.vh-proof{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.14);margin-top:-110px;padding:24px 0 34px}
+.vh-proof b{display:block;font-family:"Bricolage",sans-serif;font-size:1.7rem;font-weight:700;letter-spacing:-.03em;color:#fff}
+.vh-proof span{color:#9ba2ad;font-size:14px}
+@media (max-width:760px){.vh-media{height:56svh;min-height:380px}.vh-poster,.vh-video{object-position:80% 50%}.vh-media::after{background:linear-gradient(0deg,#0e1014 0%,rgba(14,16,20,.2) 55%)}
+ .vh-copy{position:relative;top:auto;transform:none;margin-top:-80px}.vh-copy h1{font-size:clamp(2.4rem,11vw,3.2rem)}.vh-proof{grid-template-columns:1fr 1fr;gap:16px 0;margin-top:26px}.vh-proof b{font-size:1.3rem}}
+.uc-sec{padding:clamp(64px,9vw,120px) 0;background:var(--bg-2)}
+.uc-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,72px);align-items:center}
+.uc-copy{display:grid;gap:18px}.uc-copy .kicker{justify-self:start}
+.uc-copy p{color:var(--ink-2)}
+.uc-sec .hero-photo{position:relative;margin:0;border-radius:4px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(14,16,20,.45)}
+@media (max-width:860px){.uc-grid{grid-template-columns:1fr}}
+.band{padding:0 0 clamp(64px,9vw,120px);background:var(--bg-2)}
+.band-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.band figure{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:#222}
+.band img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.band figure:hover img{transform:scale(1.05)}
+.band figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(14,16,20,.75),rgba(14,16,20,0) 50%)}
+.band figcaption{position:absolute;left:20px;bottom:18px;z-index:1;color:#fff;display:grid}
+.band figcaption b{font-family:"Bricolage",sans-serif;font-size:1.6rem;letter-spacing:-.03em}
+.band figcaption span{color:#c9ccd2;font-size:14px}
+@media (max-width:760px){.band-grid{grid-template-columns:1fr}.band figure{aspect-ratio:5/4}}
+
+/* unclog v4: real video, the swipe scrubs it; past 88 % the clog lets go and the water runs */
+.uc-sec .hero-photo.uc-vid{aspect-ratio:auto;background:#151a22}
+.uc-media{position:relative;aspect-ratio:16/9}
+.uc-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.uc2{position:relative;display:grid;gap:10px;padding:16px 18px 18px;background:#151a22;color:#fff}
+.uc2-tip{margin:0;font-size:var(--t-sm);font-weight:650;letter-spacing:.005em}
+.uc2-track{position:relative;height:52px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}
+.uc2-fill{position:absolute;left:0;top:0;bottom:0;width:52px;border-radius:999px;background:linear-gradient(90deg,rgba(120,190,255,.35),rgba(120,190,255,.75))}
+.uc2-knob{position:absolute;top:4px;left:4px;width:44px;height:44px;border-radius:50%;background:#fff;color:#0a1f44;display:grid;place-items:center;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.uc2-range{position:absolute;left:18px;right:18px;bottom:18px;height:52px;width:calc(100% - 36px);margin:0;opacity:0;cursor:grab;touch-action:pan-y}
+.uc2-range:active{cursor:grabbing}
+.uc2:has(.uc2-range:focus-visible) .uc2-track{outline:3px solid #fff;outline-offset:3px}
+.uc2-again{justify-self:start;font:inherit;font-size:var(--t-xs);font-weight:600;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:8px 14px;cursor:pointer;min-height:36px}
+.uc-vid.is-open .uc2-track,.uc-vid.is-open .uc2-range{display:none}
+@media (prefers-reduced-motion:no-preference){.uc2:not(.touched) .uc2-knob{animation:uc2Nudge 2.4s cubic-bezier(.4,0,.2,1) 1.2s infinite}}
+@keyframes uc2Nudge{0%,60%,100%{transform:translateX(0)}22%{transform:translateX(34px)}36%{transform:translateX(10px)}}
+@media (max-width:560px){.uc2{padding:12px 14px 14px}.uc2-range{left:14px;right:14px;bottom:14px;width:calc(100% - 28px)}}
+</style>
+<style>
 /* page-specific layout (index). Shared look comes from lvi.css. */
 .ph{background:#dfe6f0;border-radius:var(--r2);overflow:hidden;aspect-ratio:1200/896}
 .ph img{width:100%;height:100%;object-fit:cover;display:block}
@@ -159,6 +222,16 @@
   ]
 }
 </script>
+<style>
+.qband{position:relative;min-height:min(72vh,720px);display:grid;align-items:center;align-content:center;overflow:hidden;color:#fff;background:#111;padding:0!important}
+.qband img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:var(--op,70% 50%)}
+@supports (animation-timeline:view()){.qband img{animation:qpar linear both;animation-timeline:view()}@keyframes qpar{from{transform:translateY(-4%) scale(1.04)}to{transform:translateY(4%) scale(1.04)}}}
+.qband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--qs,rgba(12,10,9,.82)) 0%,rgba(12,10,9,.35) 45%,rgba(12,10,9,0) 70%)}
+.qband .wrap{position:relative;z-index:1;width:100%}.qband .q{position:relative;z-index:1;display:grid;gap:18px;max-width:640px;padding-block:96px}
+.qband .q p.big{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.02;letter-spacing:-.03em}
+.qband .q p.small{color:rgba(255,255,255,.75);max-width:42ch}
+@media (max-width:760px){.qband::after{background:linear-gradient(0deg,rgba(12,10,9,.85),rgba(12,10,9,.2))}.qband{min-height:520px;align-items:end}}
+</style>
 </head>
 <body data-page="index">
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden" focusable="false">
@@ -264,51 +337,61 @@
 <main id="main">
   <div class="gutter-pipe" aria-hidden="true"></div>
 
-  <!-- HERO -->
-  <section class="hero" aria-labelledby="hero-h">
-    <div class="wrap">
-      <div>
-        <p class="kicker"><svg class="ico" aria-hidden="true" width="16" height="16"><use href="#i-pin"/></svg> Vantaa ja pääkaupunkiseutu</p>
-        <h1 id="hero-h"><span class="l">Putkimies Vantaalta.</span> <span class="l">Hinta <em>tiedossa</em> ennen työtä.</span></h1>
-        <p class="lead">Hanat, WC-istuimet, viemärit, vesivuodot ja varaajat yhdellä soitolla. Tuntityö 74&nbsp;€/h, minimiveloitus vain yksi tunti, eikä Vantaalla ole matkakulua.</p>
-        <div class="cta">
-          <a class="btn btn-o" href="tel:+358401234567"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Soita 040 123 4567</a>
-          <a class="btn btn-n" href="yhteys.html#tilaa">Tilaa aika</a>
-        </div>
-        <p class="urgent">Vesivuoto nyt? Päivystys vastaa 24/7 samasta numerosta. <a href="hataapu.html">Katso ohjeet ja yöhinnat</a></p>
-        <div class="proof">
-          <div><b><span class="star" aria-hidden="true">★</span> 4,9 · 128 arvostelua Googlessa</b>esimerkkiarvio</div>
-          <div><b>Sovittuna aikana</b>tai soitamme etukäteen</div>
-          <div><b>Hinnat näkyvillä</b>kattohinnat ja tuntihinnat</div>
-        </div>
+  <!-- HERO v2 -->
+  <section class="vhero" aria-labelledby="hero-h">
+    <div class="vh-media">
+      <img class="vh-poster" src="img/v-poster.webp" alt="Painemittari kupariputkessa, viisari nousee" width="2000" height="1131" fetchpriority="high">
+      <video id="vh-video" class="vh-video" muted loop playsinline preload="auto" poster="img/v-poster.webp" aria-hidden="true"></video>
+      <script>(function(){var v=document.getElementById('vh-video');v.muted=true;v.src=innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+    </div>
+    <div class="wrap vh-copy">
+      <p class="vh-kicker"><span class="dot" aria-hidden="true"></span> Putkimies · Vantaa ja pääkaupunkiseutu</p>
+      <h1 id="hero-h">Putket kuntoon.<br><em>Hinta tiedossa ennen työtä.</em></h1>
+      <p class="lead">Hanat, WC-istuimet, viemärit, vesivuodot ja varaajat yhdellä soitolla. Tuntityö 74&nbsp;€/h, minimiveloitus yksi tunti, eikä Vantaalla ole matkakulua.</p>
+      <div class="cta">
+        <a class="btn btn-o" href="tel:+358401234567"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Soita 040 123 4567</a>
+        <a class="btn btn-ghost" href="yhteys.html#tilaa">Tilaa aika</a>
       </div>
-      <figure class="hero-photo">
-        <svg class="hero-pipe" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" data-tap="228 262" data-entry=".29" data-end=".19">
-  <path class="hp-p hp-shadow hp-draw" pathLength="1" d="M0 0"/>
-  <path class="hp-p hp-steel hp-draw" pathLength="1" d="M0 0"/>
-  <path class="hp-p hp-hi hp-draw" pathLength="1" d="M0 0"/>
-  <path class="hp-p hp-slug hp-slug-o" d="M0 0"/>
-  <path class="hp-p hp-slug hp-slug-c" d="M0 0"/>
-  <g class="hp-fit">
-    <rect class="hp-f hp-start" rx="2" width="10" height="26"/>
-    <rect class="hp-f hp-collar" rx="2" width="8" height="22"/>
-    <rect class="hp-f hp-nut" rx="2.5" width="14" height="24"/>
-  </g>
-</svg>
-        <img class="uc-img uc-before" src="img/putki-ennen.webp" width="1200" height="896" alt="Vuotava, ruostunut putki ja vesilätäkkö lavuaarin alla" fetchpriority="high">
-        <img class="uc-img uc-after" src="img/putki-jalkeen.webp" width="1200" height="896" alt="Uudet, kuivat putket ja hanat lavuaarin alla" aria-hidden="true">
-        <div class="uc" id="uc">
-          <p class="uc-tip" id="uc-tip" aria-live="polite">Tukos putkessa? Pyyhkäise se pois.</p>
-          <div class="uc-pipe" aria-hidden="true">
-            <span class="uc-water" id="uc-water"></span>
-            <span class="uc-flow" id="uc-flow"></span>
-            <span class="uc-clog" id="uc-clog"></span>
-          </div>
+    </div>
+    <div class="wrap">
+      <div class="vh-proof">
+        <div><b>74 €/h</b><span>tuntityö, ei matkakulua Vantaalla</span></div>
+        <div><b>24/7</b><span>päivystys samasta numerosta</span></div>
+        <div><b>4,9 ★</b><span>128 arvostelua (esimerkki)</span></div>
+        <div><b>40 %</b><span>kotitalousvähennys laskettu valmiiksi</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="uc-sec" aria-labelledby="uc-h">
+    <div class="wrap uc-grid">
+      <div class="uc-copy">
+        <p class="kicker">Kokeile itse</p>
+        <h2 id="uc-h">Tukos putkessa?<br>Pyyhkäise se pois.</h2>
+        <p>Vedä liukusäädin loppuun, niin vesi kulkee taas. Oikeassa elämässä se hoituu yhdellä soitolla: tulemme sovittuna aikana, ja hinta on tiedossa ennen kuin aloitamme.</p>
+        <p class="urgent">Vesivuoto nyt? Päivystys vastaa 24/7. <a href="hataapu.html">Ohjeet ja yöhinnat</a></p>
+      </div>
+      <figure class="hero-photo uc-vid" id="uc-fig" data-start="1.0" data-release="2.6">
+        <div class="uc-media"><video class="uc-video" id="uc-v" muted playsinline preload="auto" poster="img/putki-tukos.webp" aria-label="Tukkeutunut läpinäkyvä viemäriputki aukeaa ja puhdas vesi alkaa virrata">
+          <source src="img/putki-auki-720.mp4" type="video/mp4" media="(max-width: 760px)">
+          <source src="img/putki-auki-1080.mp4" type="video/mp4">
+        </video></div>
+        <div class="uc2" id="uc">
+          <p class="uc2-tip" id="uc-tip" aria-live="polite">Vedä nuoli oikealle ja avaa tukos</p>
+          <div class="uc2-track" aria-hidden="true"><span class="uc2-fill" id="uc-fill"></span><span class="uc2-knob" id="uc-knob"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span></div>
           <label class="sr" for="uc-range">Avaa tukos vetämällä liukusäädin oikealle</label>
-          <input class="uc-range" id="uc-range" type="range" min="0" max="100" value="0">
-          <button class="uc-again" id="uc-again" type="button" hidden>Uudestaan</button>
+          <input class="uc2-range" id="uc-range" type="range" min="0" max="100" value="0">
+          <button class="uc2-again" id="uc-again" type="button" hidden>Katso uudestaan</button>
         </div>
       </figure>
+    </div>
+  </section>
+
+  <section class="band" aria-label="Työt">
+    <div class="wrap band-grid">
+      <figure><img src="img/v-wrench.webp" alt="Putkimies kiristää messinkiliitosta jakoavaimella" width="1600" height="2000" loading="lazy"><figcaption><b>Korjaukset</b><span>Hanat, WC:t, viemärit</span></figcaption></figure>
+      <figure><img src="img/v-bath.webp" alt="Uusittu kylpyhuone, lasiseinäinen suihku ja harmaa laatta" width="1600" height="2000" loading="lazy"><figcaption><b>Kylpyhuoneet</b><span>Putkityöt remonttiin</span></figcaption></figure>
+      <figure><img src="img/v-manifold.webp" alt="Lattialämmityksen jakotukki ja putket" width="1600" height="2000" loading="lazy"><figcaption><b>Lämmitys</b><span>Varaajat ja jakotukit</span></figcaption></figure>
     </div>
   </section>
 
@@ -608,7 +691,12 @@
   </section>
 
   <!-- REVIEWS -->
-  <section id="arvostelut" class="rv sp-l" aria-labelledby="arv-h">
+<section class="qband" style="--op:70% 50%" aria-label="Siisti työkalupakki kylpyhuoneen lattialla">
+    <img src="img/v-wide.webp" alt="Siisti työkalupakki kylpyhuoneen lattialla" loading="lazy" width="2400" height="1029">
+    <div class="wrap"><div class="q"><p class="big" style="font-family:"Bricolage",sans-serif;font-weight:700">Työkalut mukana.<br><span style="color:#e9a46e;font-weight:300">Hinta sovittu.</span></p><p class="small">Tulemme sovittuna aikana tai soitamme etukäteen. Suojaamme lattiat ja viemme vanhat osat mukanamme.</p></div></div>
+  </section>
+
+    <section id="arvostelut" class="rv sp-l" aria-labelledby="arv-h">
     <div class="wrap">
       <div class="head">
         <p class="eyebrow"><span>05</span> Arvostelut</p>
@@ -749,19 +837,21 @@
   <a class="btn btn-n" href="yhteys.html#tilaa"><svg class="ico" aria-hidden="true" width="20" height="20"><use href="#i-clock"/></svg>Tilaa aika</a>
 </div>
 <script>
-(function(){ /* LVI Nurmi: unclog the pipe */
-  var fig=document.querySelector('.hero-photo'),uc=document.getElementById('uc');if(!fig||!uc)return;
-  var r=document.getElementById('uc-range'),clog=document.getElementById('uc-clog'),water=document.getElementById('uc-water'),tip=document.getElementById('uc-tip'),again=document.getElementById('uc-again');
+(function(){ /* LVI Nurmi: unclog the pipe (v4, video) */
+  var fig=document.getElementById('uc-fig'),uc=document.getElementById('uc'),v=document.getElementById('uc-v');if(!fig||!uc||!v)return;
+  var r=document.getElementById('uc-range'),fill=document.getElementById('uc-fill'),knob=document.getElementById('uc-knob'),tip=document.getElementById('uc-tip'),again=document.getElementById('uc-again');
+  var START=+fig.getAttribute('data-start')||0, REL=+fig.getAttribute('data-release')||1.0; /* the swipe scrubs START..REL seconds, where the clog starts to move; past 88 % the rest plays */
   var open=false,dragging=false;
-  function draw(v){var w=uc.querySelector('.uc-pipe').clientWidth-12-30;clog.style.left=(6+w*v/100)+'px';water.style.width=Math.max(0,w*v/100+4)+'px'}
-  function set(v){r.value=v;draw(v)}
-  function finish(){if(open)return;open=true;set(100);fig.classList.add('is-open');r.style.pointerEvents='none';tip.textContent='Tukos auki. Näin se hoituu meiltäkin.';again.hidden=false}
-  r.addEventListener('input',function(){uc.classList.add('touched');if(open)return;var v=+r.value;draw(v);if(v>=88)finish()});
-  r.addEventListener('pointerdown',function(){dragging=true});
+  function draw(p){var t=uc.querySelector('.uc2-track'),w=t.clientWidth-52;knob.style.transform='translateX('+(w*p/100)+'px)';fill.style.width=(52+w*p/100)+'px';if(!open&&v.readyState>0){try{v.currentTime=START+(REL-START)*p/100}catch(e){}}}
+  function set(p){r.value=p;draw(p)}
+  function finish(){if(open)return;open=true;fig.classList.add('is-open');tip.textContent='Tukos auki. Näin se hoituu meiltäkin.';var pr=v.play();if(pr&&pr.catch)pr.catch(function(){v.currentTime=v.duration||0});}
+  v.addEventListener('ended',function(){again.hidden=false});
+  r.addEventListener('input',function(){uc.classList.add('touched');if(open)return;var p=+r.value;draw(p);if(p>=88)finish()});
+  r.addEventListener('pointerdown',function(){dragging=true;v.pause()});
   function release(){dragging=false;if(!open&&+r.value<88){set(0)}}
   r.addEventListener('pointerup',release);r.addEventListener('pointercancel',release);r.addEventListener('change',function(){if(!dragging)release()});
-  again.addEventListener('click',function(){open=false;r.style.pointerEvents='';fig.classList.remove('is-open');tip.textContent='Tukos putkessa? Pyyhkäise se pois.';again.hidden=true;set(0);r.focus()});
-  addEventListener('resize',function(){draw(+r.value)});set(0);
+  again.addEventListener('click',function(){open=false;fig.classList.remove('is-open');tip.textContent='Vedä nuoli oikealle ja avaa tukos';again.hidden=true;v.pause();set(0);r.focus()});
+  addEventListener('resize',function(){draw(+r.value)});v.addEventListener('loadedmetadata',function(){set(0)});set(0);
 })();
 </script>
 </body>

@@ -7,9 +7,6 @@
 <title>Siro Studio</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Hanken+Grotesk:wght@400..700&display=swap">
 <style>
 /* Single light look on purpose (decided 25.10.). Layout: photo hero for the salon, then the price menu that builds a booking, the nail colour try-on as its own section, gallery, gift card, contact + booking form. */
 :root{
@@ -209,6 +206,80 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.rise{transform:none}}
 </style>
 
+
+<style>
+@font-face{font-family:"Fraunces";src:url("fonts/fraunces-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Fraunces";src:url("fonts/fraunces-latin-wght-italic.woff2") format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Manrope";src:url("fonts/manrope-latin-wght-normal.woff2") format("woff2");font-weight:200 800;font-display:swap}
+:root{--bg:#f4efe9;--surface:#fffcf8;--ink:#1c1418;--ink-2:#6e6166;--line:#e6ddd4;--lacquer:#8f1431;--blush:#f1e3df;
+  --display:"Fraunces",Georgia,serif;--body:"Manrope",system-ui,sans-serif;--r:6px}
+body{font-size:16px;letter-spacing:.005em}
+h1,h2,h3{font-weight:400;letter-spacing:-.025em;font-variation-settings:"opsz" 144,"SOFT" 30}
+h2{font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1.02}
+h1 em,h2 em{font-style:italic;color:var(--lacquer);font-weight:300}
+h3{font-family:var(--body);font-weight:650;letter-spacing:-.01em}
+.kicker{font-family:var(--body);font-weight:600;font-size:.72rem;letter-spacing:.22em;color:var(--ink-2)}
+.btn{border-radius:2px;font-weight:600;letter-spacing:.02em;min-height:52px;padding:0 1.6rem;transition:background .25s,color .25s,transform .25s}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.primary:hover{background:var(--lacquer);border-color:var(--lacquer)}
+header{background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom-color:transparent}
+.logo{font-family:var(--display);font-weight:500;font-size:1.75rem;letter-spacing:-.03em}
+.nav ul a{font-weight:500;font-size:.92rem}
+/* video hero */
+.vhero{position:relative;padding:0;background:#1c1418;color:#fff;overflow:hidden}
+.vh-media{position:relative;height:min(92vh,980px);min-height:560px}
+.vh-poster,.vh-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.vh-video{opacity:0;transition:opacity .6s}
+.vh-video.on{opacity:1}
+.vh-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,20,24,.72) 0%,rgba(28,20,24,.38) 38%,rgba(28,20,24,0) 62%),linear-gradient(0deg,rgba(28,20,24,.7) 0%,rgba(28,20,24,0) 40%)}
+.vh-copy{position:absolute;left:0;right:0;top:50%;transform:translateY(-58%);display:grid;gap:22px;z-index:2}
+.vh-copy .kicker{color:rgba(255,255,255,.75)}
+.vh-copy h1{font-size:clamp(3rem,8.2vw,7.4rem);line-height:.92;font-weight:300;color:#fff;max-width:11ch}
+.vh-copy h1 em{color:#f3c9cf;font-weight:300}
+.vh-copy .lead{color:rgba(255,255,255,.82);max-width:46ch;font-size:1.06rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.vhero .btn.primary{background:#fff;border-color:#fff;color:var(--ink)}
+.vhero .btn.primary:hover{background:#f3c9cf;border-color:#f3c9cf}
+.btn.ghost{border-color:rgba(255,255,255,.55);color:#fff}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.vh-facts{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.22);margin-top:-104px;padding:22px 0 30px}
+.vh-facts div{display:grid;gap:2px;padding-right:16px}
+.vh-facts b{font-family:var(--display);font-weight:400;font-size:1.45rem;letter-spacing:-.02em}
+.vh-facts span{color:rgba(255,255,255,.7);font-size:.86rem}
+@media (max-width:760px){.vh-media{height:62svh;min-height:420px}.vh-poster,.vh-video{object-position:70% 50%}.vh-media::after{background:linear-gradient(0deg,#1c1418 0%,rgba(28,20,24,0) 45%)}
+ .vh-copy{position:relative;top:auto;transform:none;margin-top:-96px;gap:16px}.vh-copy h1{font-size:clamp(2.7rem,12vw,3.6rem)}.vh-copy .lead{font-size:1rem}
+ .vh-facts{grid-template-columns:1fr 1fr;gap:14px 0;margin-top:28px;padding:18px 0 26px}.vh-facts b{font-size:1.15rem}}
+/* trio */
+.trio{padding-block:clamp(64px,9vw,120px) 0}
+.trio-head{display:grid;gap:12px;margin-bottom:34px}
+.trio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,22px)}
+.tcard{position:relative;display:block;aspect-ratio:4/5;overflow:hidden;text-decoration:none;color:#fff;background:#ddd}
+.tcard img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.tcard:hover img{transform:scale(1.05)}
+.tcard::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,14,17,.68),rgba(20,14,17,0) 45%)}
+.tc-t{position:absolute;left:22px;right:22px;bottom:20px;z-index:1;display:grid;gap:2px}
+.tc-t b{font-family:var(--display);font-weight:400;font-size:1.9rem;letter-spacing:-.02em}
+.tc-t small{opacity:.8;font-size:.9rem}
+@media (max-width:760px){.trio-grid{grid-template-columns:1fr}.tcard{aspect-ratio:5/4}}
+/* existing sections, refined */
+.basket,.ctrl,.gift,form,.contact .info{border-radius:4px!important}
+.menu li{border-radius:4px!important}
+.gal figure{border-radius:2px!important;overflow:hidden}
+.gift{background:var(--ink)!important;color:#fff}
+.gift .lead{color:rgba(255,255,255,.75)!important}
+.gift .btn.dark{background:#fff!important;color:var(--ink)!important;border-color:#fff!important}
+footer{background:var(--ink);color:rgba(255,255,255,.7)}
+</style>
+<style>
+.qband{position:relative;min-height:min(72vh,720px);display:grid;align-items:center;align-content:center;overflow:hidden;color:#fff;background:#111;padding:0!important}
+.qband img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:var(--op,70% 50%)}
+@supports (animation-timeline:view()){.qband img{animation:qpar linear both;animation-timeline:view()}@keyframes qpar{from{transform:translateY(-4%) scale(1.04)}to{transform:translateY(4%) scale(1.04)}}}
+.qband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--qs,rgba(12,10,9,.82)) 0%,rgba(12,10,9,.35) 45%,rgba(12,10,9,0) 70%)}
+.qband .wrap{position:relative;z-index:1;width:100%}.qband .q{position:relative;z-index:1;display:grid;gap:18px;max-width:640px;padding-block:96px}
+.qband .q p.big{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.02;letter-spacing:-.03em}
+.qband .q p.small{color:rgba(255,255,255,.75);max-width:42ch}
+@media (max-width:760px){.qband::after{background:linear-gradient(0deg,rgba(12,10,9,.85),rgba(12,10,9,.2))}.qband{min-height:520px;align-items:end}}
+</style>
 </head>
 <body>
 <header lang="fi">
@@ -226,26 +297,41 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
 </header>
 
 <main id="top" lang="fi">
-  <div class="wrap hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <p class="kicker">Kauneushoitola Tapiolassa</p>
-        <h1>Kynnet, ripset ja kasvohoidot <em>yhdestä paikasta.</em></h1>
-        <p class="lead">Geelilakkaukset, rakennekynnet, ripsien kestotaivutus, kulmat ja kasvohoidot rauhallisessa studiossa Tapiolan keskustassa. Näet hinnat ja kestot heti, ja varaat ajan muutamalla napautuksella.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="#palvelut">Valitse hoito</a>
-          <a class="btn" href="#kynsivarit">Kokeile kynsivärejä</a>
-        </div>
-        <div class="facts" aria-label="Siro lyhyesti">
-          <span>Ma–pe 9–19, la 10–16</span><span>2 min Tapiolan metroasemalta</span><span>Lahjakortit</span>
-        </div>
-      </div>
-      <div class="hero-pic">
-        <figure class="a"><video id="hero-vid" autoplay muted loop playsinline preload="auto" poster="img/hero.webp" width="1100" height="880" aria-label="Kynsiteknikko lakkaa asiakkaan kynsiä vaaleanpunaisella geelilakalla"><source src="img/hero-loop.mp4" type="video/mp4"></video></figure>
-        <figure class="b"><img src="img/chrome.webp" alt="Helmiäiskromi lyhyissä kynsissä, käsi lepää neuleen päällä" width="896" height="1120"></figure>
+  <section class="vhero" aria-label="Siro Studio">
+    <div class="vh-media">
+      <img class="vh-poster" src="img/v-poster.webp" alt="Kynsilakkaa levitetään siveltimellä kynteen" width="2000" height="1131">
+      <video id="hero-vid" class="vh-video" muted loop playsinline preload="auto" poster="img/v-poster.webp" aria-hidden="true"></video>
+      <script>(function(){var v=document.getElementById('hero-vid');v.muted=true;v.src=innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+    </div>
+    <div class="wrap vh-copy">
+      <p class="kicker">Kauneushoitola · Tapiola</p>
+      <h1>Kynnet, joita<br><em>katsot kahdesti.</em></h1>
+      <p class="lead">Geelilakkaukset, rakennekynnet, ripset, kulmat ja kasvohoidot rauhallisessa studiossa Tapiolan keskustassa. Näet hinnan ja keston heti, ja varaat muutamalla napautuksella.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#palvelut">Valitse hoito</a>
+        <a class="btn ghost" href="#kynsivarit">Kokeile kynsivärejä</a>
       </div>
     </div>
-  </div>
+    <div class="wrap">
+      <div class="vh-facts" aria-label="Siro lyhyesti">
+        <div><b>Ma–pe 9–19</b><span>la 10–16</span></div>
+        <div><b>2 min</b><span>Tapiolan metroasemalta</span></div>
+        <div><b>4,9 / 5</b><span>esimerkkiarvio</span></div>
+        <div><b>Lahjakortit</b><span>25–200 €</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trio" aria-label="Hoidot">
+    <div class="wrap">
+      <div class="trio-head"><p class="kicker">Hoidot</p><h2>Kolme asiaa, <em>tehtynä huolella.</em></h2></div>
+      <div class="trio-grid">
+        <a class="tcard" href="#palvelut"><img src="img/v-polish.webp" alt="Rivi lakkapulloja nude-, kirsikka- ja aubergine-sävyissä" loading="lazy" width="1600" height="2000"><span class="tc-t"><b>Kynnet</b><small>Geelilakkaus alk. 55 €</small></span></a>
+        <a class="tcard" href="#palvelut"><img src="img/v-lashes.webp" alt="Ripsienpidennys pinseteillä lähikuvassa" loading="lazy" width="1600" height="2000"><span class="tc-t"><b>Ripset ja kulmat</b><small>Kestotaivutus alk. 69 €</small></span></a>
+        <a class="tcard" href="#palvelut"><img src="img/v-studio.webp" alt="Siro Studion hoitohuone, travertiinipöytä ja pellavaverhot" loading="lazy" width="1600" height="2000"><span class="tc-t"><b>Kasvohoidot</b><small>Perushoito alk. 79 €</small></span></a>
+      </div>
+    </div>
+  </section>
 
   <section id="palvelut" style="padding-top:clamp(24px,4vw,48px)">
     <div class="wrap">
@@ -321,6 +407,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-bet
         <figure class="g5"><img src="img/interior.webp" alt="Valoisa studio, kaksi manikyyripöytää ja hoitopöytä" width="1024" height="688" loading="lazy"><figcaption>Studio Tapiolassa</figcaption></figure>
       </div>
     </div>
+  </section>
+
+  <section class="qband" style="--op:60% 50%" aria-label="Teekuppi ja kirsikanpunainen kynsilakka ikkunalaudalla, ulkona lunta">
+    <img src="img/v-wide.webp" alt="Teekuppi ja kirsikanpunainen kynsilakka ikkunalaudalla, ulkona lunta" loading="lazy" width="2400" height="1029">
+    <div class="wrap"><div class="q"><p class="big" style="font-family:var(--display)">Tunti tuolissa.<br><em style="font-style:italic;color:#f3c9cf">Viikkoja kiiltoa.</em></p><p class="small">Geelilakkaus kestää yleensä kahdesta kolmeen viikkoa. Kerromme jokaisella käynnillä, miten saat siitä kaiken irti.</p></div></div>
   </section>
 
   <section style="padding-top:0">

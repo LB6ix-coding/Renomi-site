@@ -223,6 +223,50 @@ footer a:hover{color:var(--ink)}
   .callbar{transition:none}
   #wind{display:none}
 }
+@font-face{font-family:Sora;src:url(fonts/sora-latin-wght-normal.woff2) format('woff2');font-weight:100 800;font-display:swap}
+:root{--accent:#0c7f78;--accent-d:#08615c;--accent-l:#7fe0cf;--dark:#0a151c;--radius:4px}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;letter-spacing:-.04em}
+h2{font-weight:600}
+.btn{border-radius:3px!important}
+.vhero{padding:0!important;position:relative;background:#0a151c;color:#fff;overflow:hidden}
+.vh-media{position:relative;height:min(90vh,940px);min-height:560px}
+.vh-poster,.vh-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%}
+.vh-video{opacity:0;transition:opacity .6s}.vh-video.on{opacity:1}
+.vh-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,21,28,.9) 0%,rgba(10,21,28,.62) 36%,rgba(10,21,28,.05) 66%),linear-gradient(0deg,#0a151c 0%,rgba(10,21,28,0) 34%)}
+.vh-copy{position:absolute;left:0;right:0;top:45%;transform:translateY(-50%);z-index:2;display:grid;gap:22px}
+.vh-kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-l);font-weight:600}
+.vh-copy h1{font-size:clamp(3rem,7.4vw,6.8rem);line-height:.94;font-weight:600;letter-spacing:-.05em;max-width:11ch}
+.vh-copy h1 em{font-style:normal;font-weight:250;color:var(--accent-l)}
+.vh-copy .lead{color:#c3d0d6;max-width:44ch;font-size:1.06rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.vbtn-mint{background:var(--accent-l);color:#062621;border:1.5px solid var(--accent-l)}
+.vbtn-mint:hover{background:#fff;border-color:#fff}
+.vbtn-line{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.vbtn-line:hover{background:rgba(255,255,255,.1)}
+.vh-stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);margin-top:-110px;padding:24px 0 34px;border-top:1px solid rgba(255,255,255,.16)}
+.vh-stats b{display:block;font-family:Sora,sans-serif;font-size:1.6rem;font-weight:600;letter-spacing:-.04em}
+.vh-stats span{color:#8fa3ad;font-size:14px}
+@media (max-width:760px){.vh-media{height:56svh;min-height:380px}.vh-media::after{background:linear-gradient(0deg,#0a151c 0%,rgba(10,21,28,.1) 55%)}
+ .vh-copy{position:relative;top:auto;transform:none;margin-top:-80px}.vh-copy h1{font-size:clamp(2.8rem,13vw,3.6rem)}.vh-stats{grid-template-columns:1fr 1fr;gap:16px 0;margin-top:26px}.vh-stats b{font-size:1.2rem}}
+.vband{background:#0a151c;padding:0 0 clamp(64px,9vw,112px)}
+.vband-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vband figure{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;border-radius:3px}
+.vband img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.vband figure:hover img{transform:scale(1.05)}
+.vband figure::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,21,28,.8),rgba(10,21,28,0) 50%)}
+.vband figcaption{position:absolute;left:20px;bottom:18px;z-index:1;color:#9fb3bc;font-size:14px;display:grid}
+.vband figcaption b{font-family:Sora,sans-serif;color:#fff;font-size:1.45rem;font-weight:600;letter-spacing:-.03em}
+@media (max-width:760px){.vband-grid{grid-template-columns:1fr}.vband figure{aspect-ratio:5/4}}
+</style>
+<style>
+.qband{position:relative;min-height:min(72vh,720px);display:grid;align-items:center;align-content:center;overflow:hidden;color:#fff;background:#111;padding:0!important}
+.qband img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:var(--op,70% 50%)}
+@supports (animation-timeline:view()){.qband img{animation:qpar linear both;animation-timeline:view()}@keyframes qpar{from{transform:translateY(-4%) scale(1.04)}to{transform:translateY(4%) scale(1.04)}}}
+.qband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--qs,rgba(12,10,9,.82)) 0%,rgba(12,10,9,.35) 45%,rgba(12,10,9,0) 70%)}
+.qband .wrap{position:relative;z-index:1;width:100%}.qband .q{position:relative;z-index:1;display:grid;gap:18px;max-width:640px;padding-block:96px}
+.qband .q p.big{font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.02;letter-spacing:-.03em}
+.qband .q p.small{color:rgba(255,255,255,.75);max-width:42ch}
+@media (max-width:760px){.qband::after{background:linear-gradient(0deg,rgba(12,10,9,.85),rgba(12,10,9,.2))}.qband{min-height:520px;align-items:end}}
 </style>
 </head>
 <body>
@@ -245,27 +289,39 @@ footer a:hover{color:var(--ink)}
 </header>
 
 <main id="main">
-<section class="hero" id="top">
-  <canvas id="wind" aria-hidden="true"></canvas>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow">LVIA-urakointia vuodesta 1998</span>
-      <h1>Raikasta ilmaa <em>sisätiloihin.</em></h1>
-      <p class="lead">Ilmanvaihto, ilmastointi ja putkityöt alusta loppuun.</p>
-      <div class="hero-ctas">
-        <a href="#yhteys" class="btn btn-primary">Pyydä tarjous <svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="tel:+358507654321">Soita<span class="num">&nbsp;050 765 4321</span></a>
-      </div>
-      <p class="hero-trust">Toteutettuja kohteita mm.<b>Museot · Mediatalot · Hotellit · Koulut</b></p>
+<section class="vhero" id="top" aria-label="Virtaus LVIA">
+  <canvas id="wind" aria-hidden="true" hidden></canvas>
+  <div class="vh-media">
+    <img class="vh-poster" src="img/v-poster.webp" alt="Rinnakkaiset kierresaumakanavat avarassa toimistossa" width="1920" height="1080" fetchpriority="high">
+    <video id="vh-video" class="vh-video" muted loop playsinline preload="auto" poster="img/v-poster.webp" aria-hidden="true"></video>
+    <script>(function(){var v=document.getElementById('vh-video');v.muted=true;v.src=innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+  </div>
+  <div class="wrap vh-copy">
+    <span class="vh-kicker">LVIA-urakointia vuodesta 1998</span>
+    <h1>Ilma, jota<br><em>ei huomaa.</em></h1>
+    <p class="lead">Ilmanvaihto, ilmastointi ja putkityöt alusta loppuun. Kanavat teemme tarvittaessa omassa pajassamme, kohteen mittoihin.</p>
+    <div class="hero-ctas">
+      <a href="#yhteys" class="btn vbtn-mint">Pyydä tarjous</a>
+      <a class="btn vbtn-line" href="tel:+358507654321">Soita 050 765 4321</a>
     </div>
-    <figure class="hero-photo">
-      <img src="img/asennus.jpg" alt="Ilmanvaihtokanavien asennusta liiketilassa (kuvituskuva)" width="1024" height="688" fetchpriority="high">
-      <figcaption class="photo-tag"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><span><small>Oma paja</small><strong>Kanavat mittatilauksena</strong></span></figcaption>
-    </figure>
+  </div>
+  <div class="wrap">
+    <div class="vh-stats">
+      <div><b>1998</b><span>asennuksia vuodesta</span></div>
+      <div><b>50+</b><span>referenssikohdetta</span></div>
+      <div><b>Oma paja</b><span>kanavat mittatilauksena</span></div>
+      <div><b>Pääkaupunkiseutu</b><span>toimialue</span></div>
+    </div>
   </div>
 </section>
 
-<div class="stats"><div class="wrap"><div class="stat"><strong>1998</strong><span>Asennuksia vuodesta</span></div><div class="stat"><strong>5</strong><span>Palvelukokonaisuutta</span></div><div class="stat"><strong>50+</strong><span>Referenssikohdetta</span></div></div></div>
+<section class="vband" aria-label="Työmailta">
+  <div class="wrap vband-grid">
+    <figure class="v1"><img src="img/v-install.webp" alt="Asentaja liittää kierresaumakanavaa uudiskohteessa" width="1600" height="2000" loading="lazy"><figcaption><b>Asennus</b>Uudiskohteet ja saneeraukset</figcaption></figure>
+    <figure class="v2"><img src="img/v-roof.webp" alt="Kerrostalon katon ilmanvaihtokoneet iltahämärässä" width="1600" height="2000" loading="lazy"><figcaption><b>Konehuoneet ja katot</b>Taloyhtiöt ja liiketilat</figcaption></figure>
+    <figure class="v3"><img src="img/v-manifold.webp" alt="Lattialämmityksen jakotukki ja putket teknisessä tilassa" width="1600" height="2000" loading="lazy"><figcaption><b>Putkityöt</b>Lämmitys ja käyttövesi</figcaption></figure>
+  </div>
+</section>
 
 <section id="palvelut">
   <div class="wrap">
@@ -275,7 +331,7 @@ footer a:hover{color:var(--ink)}
     </div>
     <div class="svc-layout">
       <figure class="svc-photo reveal">
-        <img src="img/iv-kone.jpg" alt="Ilmanvaihtokone lämmöntalteenotolla (kuvituskuva)" loading="lazy" width="1024" height="688">
+        <img src="img/v-unit.webp" alt="Ilmanvaihtokone lämmöntalteenotolla (kuvituskuva)" loading="lazy" width="1024" height="688">
         <figcaption><b>Ilmanvaihto ja ilmastointi</b>Kuvituskuva</figcaption>
       </figure>
       <ul class="svc-list"><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg></span><div><h3>Ilmanvaihtotyöt</h3><p>Ilmanvaihtojärjestelmien asennukset kaikenkokoisiin kohteisiin, tuotantolaitoksista kotitalouksiin.</p></div><span class="num" aria-hidden="true">01</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></span><div><h3>Ilmastointityöt</h3><p>Ilmastointijärjestelmien asennukset. Kokemusta vuodesta 1998.</p></div><span class="num" aria-hidden="true">02</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><div><h3>Kiinteistöautomaatio</h3><p>Kiinteistötekniikan automatisoinnit osana LVIA-töitä.</p></div><span class="num" aria-hidden="true">03</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h8a4 4 0 0 1 4 4v10"/><path d="M3 3v8M11 17h8"/></svg></span><div><h3>Putkityöt</h3><p>Putkiasennukset ja muut putkityöt.</p></div><span class="num" aria-hidden="true">04</span></li><li class="svc reveal"><span class="ico-box"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span><div><h3>Rakennus- ja saneeraustyöt</h3><p>Myös rakennus- ja saneeraustyöt, jolloin koko hanke hoituu yhdeltä tekijältä.</p></div><span class="num" aria-hidden="true">05</span></li></ul>
@@ -286,7 +342,7 @@ footer a:hover{color:var(--ink)}
 <div class="wrap">
   <div class="workshop" id="paja">
     <div class="grid">
-      <div class="ws-photo"><img src="img/paja.jpg" alt="Kanttikanavan valmistusta (kuvituskuva)" loading="lazy" width="1024" height="688"></div>
+      <div class="ws-photo"><img src="img/v-paja.webp" alt="Kanttikanavan valmistusta (kuvituskuva)" loading="lazy" width="1024" height="688"></div>
       <div class="ws-text reveal">
         <span class="eyebrow">Oma paja</span>
         <h2>Kun vakiotuote ei sovi, valmistamme osan itse.</h2>
@@ -297,7 +353,12 @@ footer a:hover{color:var(--ink)}
   </div>
 </div>
 
-<section id="referenssit">
+<section class="qband" style="--op:60% 50%" aria-label="Peltipaja iltahämärässä, valmiita kanttikanavia">
+    <img src="img/v-wide.webp" alt="Peltipaja iltahämärässä, valmiita kanttikanavia" loading="lazy" width="2400" height="1029">
+    <div class="wrap"><div class="q"><p class="big" style="font-family:Sora,sans-serif;font-weight:600;letter-spacing:-.04em">Mittaan tehty.<br><span style="color:#7fe0cf;font-weight:250">Omassa pajassa.</span></p><p class="small">Kun vakiotuote ei sovi, peltiseppämme valmistavat kanavan kohteen mittoihin. Sama tekijä valmistaa ja asentaa.</p></div></div>
+  </section>
+
+  <section id="referenssit">
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="eyebrow">Referenssit</span><h2>Kokemusta vaativista kohteista.</h2></div>
@@ -431,7 +492,7 @@ footer a:hover{color:var(--ink)}
   function applyLift() {
     // herokohta nousee kevyesti vasta kun siitä on vieritetty ohi lähes puolet
     const p = mq.matches ? 0 : Math.min(Math.max((scrollY - H * .4) / (H * .6), 0), 1);
-    if (p === lastP) return; lastP = p;
+    if (p === lastP || !grid) return; lastP = p;
     grid.style.transform = p ? `translateY(${-p * 40}px)` : '';
     grid.style.opacity = p ? 1 - p * .5 : '';
   }
