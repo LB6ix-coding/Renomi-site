@@ -120,6 +120,7 @@
     if (!story) return;
     const r = story.getBoundingClientRect(), span = r.height - innerHeight;
     const p = clamp(-r.top / span, 0, 1);
+    document.body.classList.toggle('story-on', r.top < 1 && r.bottom > innerHeight - 1);
     sol.style.setProperty('--sp', p.toFixed(4));
     const i = Math.min(stages.length - 1, Math.floor(p * stages.length * 0.999));
     if (i !== sIdx) {
@@ -160,7 +161,7 @@
 
   /* ---------- calculator ---------- */
   const m2 = $('#c-m2'), om2 = $('#o-m2'), heat = $('#c-heat'), sauna = $('#c-sauna');
-  const rP = $('#r-price'), rT = $('#r-time'), rD = $('#r-ded');
+  const rP = $('#r-price'), rT = $('#r-time'), rD = $('#r-ded'), rSum = $('#r-sum');
   const cur = {lo: 0, hi: 0, ded: 0};
   const r100 = v => Math.round(v / 100) * 100;
   function calc() {
@@ -174,13 +175,18 @@
     lo = r100(lo); hi = r100(hi);
     const wk = 3 + a * .12 + (sauna.checked ? 1 : 0) + (prem ? .5 : 0);
     rT.textContent = `${Math.floor(wk)}–${Math.ceil(wk + 1)} vk`;
-    const work = (lo + hi) / 2 * .5, share = work / pers;
-    const ded = r100(pers * clamp(.4 * share - 150, 0, 2100));
-    const fromLo = cur.lo, fromHi = cur.hi, fromD = cur.ded;
-    cur.lo = lo; cur.hi = hi; cur.ded = ded;
+    const dedOf = total => r100(pers * clamp(.4 * (total * .5 / pers) - 150, 0, 2100));
+    const dLo = dedOf(lo), dHi = dedOf(hi);
+    const f = {lo: cur.lo, hi: cur.hi, dLo: cur.dLo || 0, dHi: cur.dHi || 0};
+    Object.assign(cur, {lo, hi, dLo, dHi});
+    const rng = (a, b) => a === b ? `${nf.format(a)} €` : `${nf.format(a)}–${nf.format(b)} €`;
     tween(0, 1, 650, k => {
-      rP.textContent = `${nf.format(r100(fromLo + (lo - fromLo) * k))}–${nf.format(r100(fromHi + (hi - fromHi) * k))} €`;
-      rD.textContent = `${nf.format(r100(fromD + (ded - fromD) * k))} €`;
+      const L = (a, b) => r100(a + (b - a) * k);
+      rP.textContent = rng(L(f.lo, lo), L(f.hi, hi));
+      rD.textContent = rng(L(f.dLo, dLo), L(f.dHi, dHi));
+    }, () => {
+      clearTimeout(calc.t);
+      calc.t = setTimeout(() => { rSum.textContent = `Arvio: ${rng(lo, hi)}, kesto ${rT.textContent}, kotitalousvähennys arviolta ${rng(dLo, dHi)}.`; }, 250);
     });
   }
   $('#calc').addEventListener('input', calc);
@@ -189,6 +195,12 @@
   calcIo.observe($('.calc'));
   // set initial text without animation for no-JS-observer case
   window.__kasteCalc = calc;
+
+  /* ---------- hero video vs reduced motion ---------- */
+  const hv = $('#hero-video');
+  const rmVideo = () => { if (!hv) return; if (RM.matches) { hv.pause(); hv.classList.remove('on'); } else { const pp = hv.play(); pp && pp.catch && pp.catch(() => {}); } };
+  RM.addEventListener('change', rmVideo); rmVideo();
+  if (hv) hv.addEventListener('playing', () => { if (RM.matches) rmVideo(); });
 
   /* ---------- fog / condensation canvas ---------- */
   const fogSec = $('.fog'), cv = $('#fog');
@@ -230,7 +242,13 @@
       drops = Array.from({length: Math.max(10, Math.round(w / 64))}, () => mkDrop(true));
       bake(); draw(0);
     };
-    function mkDrop(init) { return {x: rnd(0, W), y: init ? rnd(-H * .2, H * .9) : rnd(-60, -10), r: rnd(2.2, 5.5), v: 0, hold: rnd(0, 2.5)}; }
+    function mkDrop(init) { const y = init ? rnd(-H * .2, H * .9) : rnd(-60, -10); return {x: rnd(0, W), y, r: rnd(2.4, 5.2), v: 0, hold: rnd(0, 2.5), tail: []}; }
+    function trail(x0, y0, x1, y1, w) { // soft partial clear: water film, not a dry stripe
+      mctx.globalCompositeOperation = 'destination-out';
+      mctx.lineCap = 'round'; mctx.lineWidth = w / 2; mctx.strokeStyle = 'rgba(0,0,0,.42)';
+      mctx.beginPath(); mctx.moveTo(x0 / 2, y0 / 2); mctx.lineTo(x1 / 2, y1 / 2); mctx.stroke();
+      mctx.globalCompositeOperation = 'source-over';
+    }
     function clearAt(x, y, r) { // in CSS px, mask is half-res
       mctx.globalCompositeOperation = 'destination-out';
       const g = mctx.createRadialGradient(x / 2, y / 2, 0, x / 2, y / 2, r / 2);
@@ -248,8 +266,10 @@
         if (d.hold > 0) { d.hold -= dt; continue; }
         d.v = Math.min(d.v + dt * rnd(60, 160), 140 + d.r * 18);
         if (Math.random() < dt * 1.4) { d.hold = rnd(.3, 1.8); d.v = 0; }
+        const px = d.x, py = d.y;
         d.y += d.v * dt; d.x += Math.sin(d.y * .05) * .15;
-        clearAt(d.x, d.y - d.r, d.r * 1.25);
+        trail(px, py - d.r * .6, d.x, d.y - d.r * .6, d.r * 1.05);
+        d.tail.push(d.x, d.y); if (d.tail.length > 64) d.tail.splice(0, 2);
         if (d.y > H + 20) Object.assign(d, mkDrop(false));
       }
       ctx.globalCompositeOperation = 'source-over';
@@ -259,11 +279,24 @@
       ctx.imageSmoothingEnabled = true;
       ctx.drawImage(maskC, 0, 0, cv.width, cv.height);
       ctx.globalCompositeOperation = 'source-over';
+      ctx.lineCap = 'round';
       for (const d of drops) {
-        const x = d.x * dpr, y = d.y * dpr, r = d.r * dpr;
-        const g = ctx.createRadialGradient(x - r * .35, y - r * .4, r * .1, x, y, r);
-        g.addColorStop(0, 'rgba(255,255,255,.75)'); g.addColorStop(.45, 'rgba(255,255,255,.12)'); g.addColorStop(.85, 'rgba(20,30,32,.18)'); g.addColorStop(1, 'rgba(255,255,255,.35)');
-        ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(x, y, r * .9, r, 0, 0, 6.283); ctx.fill();
+        const x = d.x * dpr, y = d.y * dpr, r = d.r * dpr, t = d.tail;
+        // thin glinting edge along the wet trail (light catching the water film)
+        if (t.length > 4) {
+          ctx.lineWidth = Math.max(1, r * .22);
+          const g0 = ctx.createLinearGradient(0, t[1] * dpr, 0, y);
+          g0.addColorStop(0, 'rgba(235,245,246,0)'); g0.addColorStop(1, 'rgba(235,245,246,.28)');
+          ctx.strokeStyle = g0; ctx.beginPath(); ctx.moveTo((t[0] + d.r * .35) * dpr, t[1] * dpr);
+          for (let i = 2; i < t.length; i += 2) ctx.lineTo((t[i] + d.r * .35) * dpr, t[i + 1] * dpr);
+          ctx.stroke();
+        }
+        // the drop: clear lens, bright specular top-left, soft caustic bottom
+        const body = ctx.createRadialGradient(x, y + r * .25, r * .2, x, y, r * 1.05);
+        body.addColorStop(0, 'rgba(255,255,255,.05)'); body.addColorStop(.7, 'rgba(255,255,255,.10)'); body.addColorStop(1, 'rgba(235,245,246,.55)');
+        ctx.fillStyle = body; ctx.beginPath(); ctx.ellipse(x, y, r * .88, r, 0, 0, 6.283); ctx.fill();
+        ctx.fillStyle = 'rgba(255,255,255,.9)'; ctx.beginPath(); ctx.ellipse(x - r * .32, y - r * .38, r * .22, r * .16, -.6, 0, 6.283); ctx.fill();
+        ctx.fillStyle = 'rgba(255,250,235,.35)'; ctx.beginPath(); ctx.ellipse(x + r * .1, y + r * .55, r * .4, r * .14, 0, 0, 6.283); ctx.fill();
       }
     }
     function frame(now) {

@@ -151,7 +151,7 @@
     if (!lay) return;
     const r = lay.getBoundingClientRect(), span = r.height - innerHeight;
     const p = clamp(-r.top / span, 0, 1);
-    const mob = innerWidth < 900, sep = mob ? 30 : 46, drop = mob ? 180 : 280;
+    const mob = innerWidth < 900, sep = mob ? 36 : 62, drop = mob ? 180 : 280;
     lys.forEach((l, i) => {
       const ap = i === 0 ? 1 : clamp(p * 5.4 - i + .6, 0, 1), e = 1 - Math.pow(1 - ap, 3);
       const spread = mq.matches ? 1 : (0.35 + 0.65 * clamp(p * 1.4, 0, 1));
@@ -168,12 +168,14 @@
   }
 
   /* process line */
-  const pr = $('.process .wrap'), stl = $('.steps');
+  const pr = $('.process .wrap'), stl = $('.steps'), stepsEls = $$('.step');
   function proc() {
     if (!pr) return;
     pr.style.setProperty('--lt', stl.offsetTop + 'px');
     const r = stl.getBoundingClientRect();
-    pr.style.setProperty('--pl', mq.matches ? 1 : clamp((innerHeight * .85 - r.top) / (innerHeight * .6), 0, 1));
+    const pl = mq.matches ? 1 : clamp((innerHeight * .85 - r.top) / (innerHeight * .6), 0, 1);
+    pr.style.setProperty('--pl', pl);
+    stepsEls.forEach((s, i) => s.classList.toggle('lit', innerWidth < 900 ? s.getBoundingClientRect().top < innerHeight * .75 : pl >= i / 3 - .01));
   }
 
   /* parallax fallback */

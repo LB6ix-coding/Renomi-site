@@ -10,6 +10,7 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font-family:Archivo,system-ui,sans-serif;font-stretch:100%;color:var(--ink);background:var(--off);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
+[hidden]{display:none!important}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
 h1,h2,h3{font-stretch:118%;letter-spacing:-.02em;line-height:1;text-wrap:balance;font-weight:800}
@@ -66,7 +67,7 @@ p{text-wrap:pretty}
 .kicker{display:inline-flex;align-items:center;gap:10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.18em;color:var(--rain)}
 .kicker .dot{width:8px;height:8px;background:var(--orange);box-shadow:0 0 0 4px rgba(255,106,43,.25);animation:pulse 2s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(255,106,43,0)}}
-.hero h1{font-size:clamp(2.9rem,8.2vw,8.4rem);font-stretch:125%;font-weight:900;letter-spacing:-.035em;line-height:.9;margin:22px 0 26px;max-width:12ch;text-transform:uppercase}
+.hero h1{font-size:clamp(2.9rem,6.6vw,7rem);font-stretch:125%;font-weight:900;letter-spacing:-.035em;line-height:.9;margin:22px 0 26px;max-width:15ch;text-transform:uppercase}
 .hero h1 em{font-style:normal;color:var(--orange)}
 .lead{font-size:1.15rem;max-width:44ch;color:#d4d9dd}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
@@ -222,7 +223,7 @@ textarea{min-height:120px;resize:vertical}
 .layer-steps li.done{opacity:.7}
 .stack-wrap{position:relative;height:min(78vh,640px);perspective:1600px}
 .stack{position:absolute;left:50%;top:52%;width:min(440px,74%);aspect-ratio:1.25;transform-style:preserve-3d;transform:translate(-50%,-50%) rotateX(58deg) rotateZ(-34deg)}
-.ly{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .2s linear;box-shadow:0 30px 50px -20px rgba(0,0,0,.6)}
+.ly{position:absolute;inset:0;transform-style:preserve-3d;box-shadow:0 30px 50px -20px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.14)}
 .ly .tag{position:absolute;right:-8px;top:0;transform:translate(100%,-50%) rotateZ(34deg) rotateX(-58deg);transform-origin:0 50%;white-space:nowrap;font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;background:#fff;color:#111;padding:4px 8px;opacity:var(--to,0);transition:opacity .3s}
 .ly0{background:repeating-linear-gradient(90deg,transparent 0 26px,#b98a56 26px 40px),#3a3127}
 .ly1{background:repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 2px,transparent 2px 60px),linear-gradient(135deg,#69727a,#4c545b)}
@@ -245,7 +246,7 @@ textarea{min-height:120px;resize:vertical}
 .pcard:hover .pimg img{scale:1.06}
 @supports (animation-timeline:view()){.pimg img{animation:par linear both;animation-timeline:view()}}
 @keyframes par{from{transform:translateY(-14%)}to{transform:translateY(0)}}
-.pcard figcaption{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:14px 2px;border-bottom:1px solid var(--line)}
+.pcard figcaption{display:grid;gap:4px;padding:14px 2px;border-bottom:1px solid var(--line)}
 .pcard figcaption b{font-stretch:112%;font-size:1.1rem}
 .pcard figcaption span{font-size:.76rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
 
@@ -273,6 +274,8 @@ textarea{min-height:120px;resize:vertical}
 .process{background:var(--steel-2);color:#fff;padding:120px 0 130px;overflow:hidden}
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;z-index:1}
 .step .n{display:inline-grid;place-items:center;width:54px;height:54px;border:1.5px solid var(--orange);color:var(--orange);font-size:1rem;margin-bottom:22px;background:var(--steel-2)}
+.step .n{transition:background .4s,color .4s}
+.step.lit .n{background:var(--orange);color:#111}
 .step h3{font-size:1.4rem;font-stretch:112%;margin-bottom:8px}
 .step p{color:#aab3bb;font-size:.97rem}
 .steps-line{position:relative;height:2px;background:#3a4148;margin-top:-1px;top:-260px;display:none}

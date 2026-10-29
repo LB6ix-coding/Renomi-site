@@ -42,7 +42,7 @@ svg.i{width:20px;height:20px;flex:none}
 .progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--brass);transform-origin:0 50%;transform:scaleX(0);z-index:120}
 header{position:fixed;top:0;left:0;right:0;z-index:100;transition:transform .45s var(--ease),background .3s,box-shadow .3s;color:#fff}
 header.solid{background:rgba(27,33,36,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.08)}
-header.hide{transform:translateY(-100%)}
+header.hide{transform:translateY(-110%)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:78px;position:relative}
 .logo{display:flex;align-items:center;gap:.6rem;font-family:var(--serif);font-size:1.75rem;letter-spacing:-.01em;min-height:44px}
 .logo-mark{width:34px;height:34px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center}
@@ -129,7 +129,7 @@ section{padding:120px 0;position:relative}
 .ba .tag{position:absolute;top:18px;padding:7px 14px;border-radius:999px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:rgba(20,25,27,.72);color:#fff;backdrop-filter:blur(6px)}
 .ba .t1{left:18px}.ba .t2{right:18px;background:rgba(176,141,87,.92);color:var(--slate)}
 .ba:focus-visible{outline:3px solid var(--brass-l);outline-offset:4px}
-.ba-note{margin-top:14px;font-size:.84rem;color:rgba(236,230,220,.55)}
+.ba-note{margin-top:14px;font-size:.84rem;color:rgba(236,230,220,.72)}
 
 /* pinned story */
 .story{padding:0;background:var(--stone-2)}
@@ -158,7 +158,8 @@ section{padding:120px 0;position:relative}
 .fog{position:relative;min-height:88vh;display:grid;align-items:center;padding:0;overflow:hidden;background:#121719;color:#fff;isolation:isolate}
 .fog .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .fog canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;touch-action:pan-y}
-.fog .wrap{width:100%}
+.fog .wrap{width:100%;pointer-events:none}
+.fog a,.fog button{pointer-events:auto}
 .fog .q{max-width:640px;padding:110px 0;pointer-events:none}
 .fog::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(14,18,20,.55),rgba(14,18,20,.12) 70%)}
 .fog .q p.big{font-family:var(--serif);font-size:clamp(2.6rem,5.6vw,5rem);line-height:1;text-shadow:0 2px 30px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.3)}
@@ -202,7 +203,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
 .res-grid>div{background:var(--slate-2);padding:18px 18px}
 .res-grid small{display:block;color:rgba(236,230,220,.6);font-size:.82rem}
 .res-grid b{font-family:var(--serif);font-weight:400;font-size:1.9rem;line-height:1.1}
-.res-fine{font-size:.78rem;color:rgba(236,230,220,.52);line-height:1.5;margin-top:16px}
+.res-fine{font-size:.78rem;color:rgba(236,230,220,.72);line-height:1.5;margin-top:16px}
 .res-fine a{text-decoration:underline}
 .persons{display:flex;gap:8px;margin-top:6px}
 .persons label{cursor:pointer;position:relative}
@@ -233,6 +234,16 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
 .ex .big{font-family:var(--serif);font-size:3.4rem;line-height:1;margin-top:22px}
 .ex .big small{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin-left:6px}
 .ex-note{margin-top:30px;color:var(--muted);font-size:.9rem}
+.dark .ex{border-top-color:rgba(236,230,220,.3)}
+.dark .ex .meta span{background:rgba(236,230,220,.12);color:var(--stone)}
+.dark .ex p{color:rgba(236,230,220,.78)}
+.dark .ex .big{color:var(--stone)}
+.dark .ex .big small{color:rgba(236,230,220,.78)}
+.dark .ex-note{color:rgba(236,230,220,.72)}
+.band-note{margin-top:18px;font-size:.86rem;color:var(--muted)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+header.hide .nav-cta{box-shadow:none}
+body.story-on .callbar{transform:translateY(160%)}
 
 /* faq */
 .faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
@@ -341,6 +352,18 @@ footer a:hover{color:var(--ink)}
   .callbar.show{transform:none}
   .callbar .btn{flex:1;min-height:52px}
   .callbar .btn-dark{border:1px solid rgba(255,255,255,.2)}
+}
+@media (max-height:720px) and (max-width:1020px){
+  .story-pin{padding:72px 18px 14px;gap:12px}
+  .story-media{height:24vh}
+  .story h2{font-size:1.9rem;margin:4px 0 10px}
+  .story .eyebrow{display:none}
+  .stage{padding:5px 0}
+  .stage h3{font-size:1.25rem}
+  .stage::before{top:12px}
+  .stage p{font-size:.86rem;line-height:1.45}
+  .story-count{font-size:2.2rem}
+  .story-media .cap{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

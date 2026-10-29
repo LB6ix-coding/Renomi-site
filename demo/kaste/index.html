@@ -44,8 +44,8 @@
 <section class="hero" id="top" aria-label="Kaste Kylpyhuoneet">
   <div class="hero-media">
     <img src="img/hero-poster.webp" alt="" width="1920" height="1080" fetchpriority="high">
-    <video id="hero-video" muted loop playsinline preload="auto" poster="img/hero-poster.webp" aria-hidden="true"></video>
-    <script>(function(){var v=document.getElementById('hero-video');v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+    <video id="hero-video" muted loop playsinline preload="metadata" poster="img/hero-poster.webp" aria-hidden="true"></video>
+    <script>(function(){var v=document.getElementById('hero-video');v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
   </div>
   <div class="wrap hero-inner">
     <span class="hero-kicker fade-up"><span class="dot" aria-hidden="true"></span>Kylpyhuoneremontit · pääkaupunkiseutu</span>
@@ -56,9 +56,9 @@
       <a class="btn btn-line mag" href="tel:+358504127730">Soita <span class="num">050 412 7730</span></a>
     </div>
     <div class="hero-stats fade-up" style="transition-delay:.85s">
-      <div><b data-count="340">0</b><span>kylpyhuonetta ja saunaa</span></div>
-      <div><b><span data-count="4">0</span> vk</b><span>tyypillinen kesto</span></div>
-      <div><b>1</b><span>yhteyshenkilö alusta loppuun</span></div>
+      <div><b>Maksuton</b><span>kartoitus kotonanne</span></div>
+      <div><b>3–5 vk</b><span>tyypillinen kesto</span></div>
+      <div><b>Kiinteä</b><span>hinta tarjouksessa</span></div>
       <div><b>Espoo</b><span>ja koko pääkaupunkiseutu</span></div>
     </div>
   </div>
@@ -81,7 +81,7 @@
     <ul class="svc-grid">
       <li class="svc rv"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 20V9l6-5 6 5v11"/><path d="M10 20v-5h4v5"/></svg></span><span class="n">01</span><h3>Kylpyhuoneremontti</h3><p>Kerros- ja omakotitalojen kylpyhuoneet avaimet käteen. Purku, putki- ja sähkötyöt yhteistyökumppaneiden kanssa, pinnat ja kalusteet.</p></li>
       <li class="svc rv" style="--d:1"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.2 4 5.2 6.8 5.2 9.4a5.2 5.2 0 0 1-10.4 0C6.8 9.8 8.8 7 12 3z"/></svg></span><span class="n">02</span><h3>Vedeneristys</h3><p>Vedeneristys tehdään valmistajan ohjeiden ja märkätilojen yleisten ohjeiden mukaan, ja jokainen vaihe dokumentoidaan kuvin.</p></li>
-      <li class="svc rv" style="--d:2"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span><span class="n">03</span><h3>Laatoitus</h3><p>Suurlaatat, mosaiikit ja kalasuomukuviot. Lattian kaadot drinkkiin mitataan, jotta vesi menee sinne minne pitää.</p></li>
+      <li class="svc rv" style="--d:2"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span><span class="n">03</span><h3>Laatoitus</h3><p>Suurlaatat, mosaiikit ja kalasuomukuviot. Lattian kaadot lattiakaivoon mitataan, jotta vesi menee sinne minne pitää.</p></li>
       <li class="svc rv"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7c2-2 4 2 6 0s4 2 6 0 3 1 4 0M4 12c2-2 4 2 6 0s4 2 6 0 3 1 4 0M4 17c2-2 4 2 6 0s4 2 6 0 3 1 4 0"/></svg></span><span class="n">04</span><h3>Lattialämmitys</h3><p>Sähköinen lattialämmitys asennetaan laatan alle, ja termostaatti sijoitetaan sinne missä sitä on helppo käyttää.</p></li>
       <li class="svc rv" style="--d:1"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10h16v10M4 14h16M8 10V6m4 4V4m4 6V6"/></svg></span><span class="n">05</span><h3>Saunaremontti</h3><p>Lauteet, paneloinnit, kiuas ja saunan lasiseinät. Sauna ja pesuhuone suunnitellaan samaan aikaan, jotta ne näyttävät yhdeltä tilalta.</p></li>
       <li class="svc rv" style="--d:2"><span class="ic" aria-hidden="true"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><path d="M12 16v5M8 21h8"/></svg></span><span class="n">06</span><h3>Kalusteet ja valaistus</h3><p>Allaskalusteet, peilit, suihkuseinät ja himmennettävä valaistus. Autamme valinnoissa, mutta päätös on aina teidän.</p></li>
@@ -120,7 +120,7 @@
     <div class="story-pin">
       <div>
         <span class="eyebrow">Näin kylpyhuone syntyy</span>
-        <h2 id="story-h">Neljä vaihetta. <em>Ei yllätyksiä.</em></h2>
+        <h2 id="story-h">Neljä vaihetta. <em>Selvä järjestys.</em></h2>
         <ol class="stages">
           <li class="stage on"><h3><small>01</small>Purku ja kartoitus</h3><p>Vanhat pinnat puretaan ja rakenteiden kosteus mitataan. Jos alta löytyy jotain odottamatonta, kerromme siitä heti ja sovimme jatkosta ennen kuin työ jatkuu.</p></li>
           <li class="stage"><h3><small>02</small>Vedeneristys</h3><p>Seinät ja lattia käsitellään vedeneristeellä, nurkat ja läpiviennit vahvistetaan. Vaihe kuvataan, ja kuvat jäävät teille.</p></li>
@@ -176,14 +176,14 @@
           <label class="tog"><span>Sauna samalla<small>Lauteet, panelointi, kiuas ja lasiseinä</small></span><input type="checkbox" id="c-sauna"><span class="sw" aria-hidden="true"></span></label>
         </div>
       </form>
-      <div class="calc-out" aria-live="polite" aria-atomic="true">
+      <div class="calc-out">
         <div>
           <span class="res-k">Suuntaa antava hinta</span>
           <p class="res-price" id="r-price">0 €</p>
           <p class="res-sub">sisältää työn ja materiaalit</p>
           <div class="res-grid">
             <div><small>Kesto</small><b id="r-time">0 vk</b></div>
-            <div><small>Kotitalousvähennys enintään</small><b id="r-ded">0 €</b></div>
+            <div><small>Kotitalousvähennys arviolta</small><b id="r-ded">0 €</b></div>
           </div>
           <span class="res-k" id="pers-l">Vähennystä hakee</span>
           <div class="persons" role="radiogroup" aria-labelledby="pers-l">
@@ -191,18 +191,20 @@
             <label><input type="radio" name="pers" value="2" checked><span>2 henkilöä</span></label>
           </div>
         </div>
-        <p class="res-fine">Esimerkkilaskuri, ei sitova tarjous. Työn osuudeksi on oletettu noin puolet hinnasta. Kotitalousvähennys 2026: 40 % työn osuudesta, omavastuu 150 € ja enintään 2 100 € henkilöä kohden vuodessa (<a href="https://www.vero.fi/henkiloasiakkaat/vahennykset/kotitalousvahennys/" rel="noopener" target="_blank">vero.fi</a>, tilanne 2026).</p>
+        <p class="sr-only" id="r-sum" aria-live="polite" aria-atomic="true"></p>
+        <p class="res-fine">Esimerkkilaskuri ja esimerkkihinnoittelu (perushinta + neliöhinta), ei sitova tarjous. Työn osuudeksi on oletettu noin puolet hinnasta. Kotitalousvähennys 2026: 40 % työn osuudesta, omavastuu 150 € ja enintään 2 100 € henkilöä kohden vuodessa (<a href="https://www.vero.fi/henkiloasiakkaat/vahennykset/kotitalousvahennys/" rel="noopener" target="_blank">vero.fi</a>, tilanne 2026).</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="band" aria-label="Valmiita kohteita">
+<section class="band" aria-label="Kuvituskuvia valmiista kylpyhuoneista">
   <div class="wrap band-grid">
-    <figure class="rv"><img class="par" src="img/k-amme.webp" alt="Vapaasti seisova kylpyamme vaaleassa mikrosementtikylpyhuoneessa (kuvituskuva)" loading="lazy" width="1344" height="752"><figcaption><b>Amme ja mikrosementti</b>Omakotitalo, Espoo</figcaption></figure>
-    <figure class="rv" style="--d:1"><img class="par" src="img/k-sauna.webp" alt="Sauna lasiovella ja tummat lattialaatat (kuvituskuva)" loading="lazy" width="896" height="1120" style="object-position:72% 50%"><figcaption><b>Sauna ja pesuhuone</b>Rivitalo, Vantaa</figcaption></figure>
-    <figure class="rv" style="--d:2"><img class="par" src="img/k-lattia.webp" alt="Vesi valuu tummalla laattalattialla kohti lineaarikaivoa (kuvituskuva)" loading="lazy" width="1344" height="752"><figcaption><b>Lineaarikaivo</b>Kerrostalo, Helsinki</figcaption></figure>
+    <figure class="rv"><img class="par" src="img/k-amme.webp" alt="Vapaasti seisova kylpyamme vaaleassa mikrosementtikylpyhuoneessa (kuvituskuva)" loading="lazy" width="1344" height="752"><figcaption><b>Amme ja mikrosementti</b>Kuvituskuva</figcaption></figure>
+    <figure class="rv" style="--d:1"><img class="par" src="img/k-sauna.webp" alt="Sauna lasiovella ja tummat lattialaatat (kuvituskuva)" loading="lazy" width="896" height="1120" style="object-position:72% 50%"><figcaption><b>Sauna ja pesuhuone</b>Kuvituskuva</figcaption></figure>
+    <figure class="rv" style="--d:2"><img class="par" src="img/k-lattia.webp" alt="Vesi valuu tummalla laattalattialla kohti lineaarikaivoa (kuvituskuva)" loading="lazy" width="1344" height="752"><figcaption><b>Lineaarikaivo</b>Kuvituskuva</figcaption></figure>
   </div>
+  <p class="wrap band-note">Kuvituskuvia. Kaste on kuvitteellinen demoyritys, eikä kuvissa ole sen tekemiä kohteita.</p>
 </section>
 
 <section class="dark" aria-labelledby="ex-h">
@@ -212,11 +214,11 @@
       <p class="rv" style="--d:1">Kolme tavallista kohdetta, jotta saatte käsityksen kestosta ja laajuudesta. Jokainen kohde hinnoitellaan erikseen.</p>
     </div>
     <ul class="ex-grid">
-      <li class="ex rv" style="border-color:rgba(236,230,220,.3)"><div class="meta"><span style="background:rgba(236,230,220,.12)">Kerrostalo</span><span style="background:rgba(236,230,220,.12)">4 m²</span></div><h3>Pieni kylpyhuone</h3><p style="color:rgba(236,230,220,.7)">Purku, vedeneristys, laatoitus, suihkuseinä ja allaskaluste. Taloyhtiön kanssa sovittu aikataulu.</p><p class="big"><span data-count="3">0</span><small>viikkoa</small></p></li>
-      <li class="ex rv" style="--d:1;border-color:rgba(236,230,220,.3)"><div class="meta"><span style="background:rgba(236,230,220,.12)">Rivitalo</span><span style="background:rgba(236,230,220,.12)">7 m² + sauna</span></div><h3>Pesuhuone ja sauna</h3><p style="color:rgba(236,230,220,.7)">Uusi saunan lauteet ja lasiseinä, lattialämmitys ja suurlaatat koko tilaan.</p><p class="big"><span data-count="5">0</span><small>viikkoa</small></p></li>
-      <li class="ex rv" style="--d:2;border-color:rgba(236,230,220,.3)"><div class="meta"><span style="background:rgba(236,230,220,.12)">Omakotitalo</span><span style="background:rgba(236,230,220,.12)">9 m²</span></div><h3>Kylpyhuone ammeella</h3><p style="color:rgba(236,230,220,.7)">Vapaasti seisova amme, mikrosementtipinnat ja kaksi allasta. Kalusteet asiakkaan valitsemia.</p><p class="big"><span data-count="4">0</span><small>viikkoa</small></p></li>
+      <li class="ex rv"><div class="meta"><span>Kerrostalo</span><span>4 m²</span></div><h3>Pieni kylpyhuone</h3><p>Purku, vedeneristys, laatoitus, suihkuseinä ja allaskaluste. Taloyhtiön kanssa sovittu aikataulu.</p><p class="big"><span data-count="3">0</span><small>viikkoa</small></p></li>
+      <li class="ex rv" style="--d:1"><div class="meta"><span>Rivitalo</span><span>7 m² + sauna</span></div><h3>Pesuhuone ja sauna</h3><p>Saunan uudet lauteet ja lasiseinä, lattialämmitys ja suurlaatat koko tilaan.</p><p class="big"><span data-count="5">0</span><small>viikkoa</small></p></li>
+      <li class="ex rv" style="--d:2"><div class="meta"><span>Omakotitalo</span><span>9 m²</span></div><h3>Kylpyhuone ammeella</h3><p>Vapaasti seisova amme, mikrosementtipinnat ja kaksi allasta. Kalusteet asiakkaan valitsemia.</p><p class="big"><span data-count="4">0</span><small>viikkoa</small></p></li>
     </ul>
-    <p class="ex-note" style="color:rgba(236,230,220,.5)">Esimerkit ovat havainnollistavia. Kaste on kuvitteellinen demoyritys.</p>
+    <p class="ex-note">Esimerkit ovat havainnollistavia. Kaste on kuvitteellinen demoyritys.</p>
   </div>
 </section>
 
