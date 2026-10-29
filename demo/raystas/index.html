@@ -325,7 +325,7 @@
       </div>
       <form id="lomake" class="c-form" method="post" data-endpoint="">
         <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
-        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 ()-]{6,}" required></div>
+        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+ ()\-]{6,}" required></div>
         <div class="full"><label for="f-osoite">Kohteen osoite tai kunta</label><input id="f-osoite" name="osoite" autocomplete="street-address"></div>
         <div class="full"><label for="f-kate">Nykyinen kate</label><select id="f-kate" name="kate"><option value="" selected>Valitse…</option><option>Pelti</option><option>Huopa tai kermi</option><option>Betonitiili</option><option>Savitiili</option><option>En tiedä</option></select></div>
         <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. talon ikä, katon koko ja milloin työ olisi ajankohtainen"></textarea></div>
