@@ -394,7 +394,7 @@ h2{font-weight:600}
       </div>
       <form id="lomake" method="post" data-endpoint="">
         <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
-        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 ()-]{6,}" required></div>
+        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 \(\)\-]{6,}" required></div>
         <div class="full"><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
         <div class="full"><label for="f-tyo">Työn tyyppi</label><select id="f-tyo" name="tyo"><option value="" selected>Valitse…</option><option>Ilmanvaihtotyöt</option><option>Ilmastointityöt</option><option>Kiinteistöautomaatio</option><option>Putkityöt</option><option>Rakennus- ja saneeraustyöt</option><option>Muu</option></select></div>
         <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. kohteen tyyppi, sijainti ja aikataulu"></textarea></div>

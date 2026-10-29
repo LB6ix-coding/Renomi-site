@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ahde Piharakennus – kiveykset, nurmikot, istutukset ja pihavalaistus</title>
+<meta name="description" content="Ahde Piharakennus suunnittelee ja rakentaa pihat Vantaalla ja Espoossa: kiveykset, nurmikot, istutukset, kivimuurit, terassit ja pihavalaistus.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fi_FI">
+<meta property="og:title" content="Ahde Piharakennus – piha, joka kasvaa kanssanne">
+<meta property="og:description" content="Kiveykset, nurmikot, istutukset, kivimuurit, terassit ja pihavalaistus Vantaalla ja Espoossa.">
+<meta property="og:image" content="img/hero-poster.webp">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f2d22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231f2d22'/%3E%3Cpath d='M9 23c0-8 5-13 14-14-1 9-6 14-14 14z' fill='%23c9d77a'/%3E%3Cpath d='M9 23l8-8' stroke='%231f2d22' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="img/hero-poster.webp" fetchpriority="high">
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LandscapingBusiness","name":"Ahde Piharakennus (kuvitteellinen demoyritys)","areaServed":["Vantaa","Espoo"],"description":"Kuvitteellinen piharakennusyritys Markticin esimerkkisivulla."}</script>
+</head>
+<body>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="hdr">
+  <nav class="wrap nav" aria-label="Päävalikko">
+    <a href="#top" class="logo" aria-label="Ahde Piharakennus, etusivulle">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M9 23c0-8 5-13 14-14-1 9-6 14-14 14z" fill="#c9d77a"/><path d="M9 23l8-8" stroke="#1f2d22" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Ahde<small>Piharakennus</small></span>
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Avaa valikko">
+      <svg class="bars" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      <svg class="x" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#suunnittele">Suunnittele</a></li>
+      <li><a href="#ilta">Pihavalaistus</a></li>
+      <li><a href="#tyon-kulku">Työn kulku</a></li>
+      <li><a href="#yhteys">Yhteystiedot</a></li>
+    </ul>
+    <a class="btn btn-lichen nav-cta magnet" href="tel:+358504182736"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>050 418 2736</a>
+  </nav>
+</header>
+
+<main id="main">
+<section class="hero" id="top" aria-label="Ahde Piharakennus">
+  <div class="hero-media">
+    <img class="hero-poster" src="img/hero-poster.webp" alt="" width="1920" height="1080" fetchpriority="high">
+    <video id="hero-video" class="hero-video" muted loop playsinline preload="auto" poster="img/hero-poster.webp" aria-hidden="true"></video>
+    <script>(function(){var v=document.getElementById('hero-video');v.muted=true;v.src=innerWidth>=900?'img/hero-1080.mp4':'img/hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+  </div>
+  <canvas id="leaves" aria-hidden="true"></canvas>
+  <div class="wrap hero-copy">
+    <span class="kicker reveal-up">Piharakennus · Vantaa ja Espoo</span>
+    <h1 class="split" aria-label="Piha, joka kasvaa kanssanne.">Piha, joka <em>kasvaa</em> kanssanne.</h1>
+    <p class="lead reveal-up" style="--d:.55s">Suunnittelemme ja rakennamme pihat kiveyksistä istutuksiin. Yksi tekijä alusta loppuun, ja hinta sovitaan ennen kuin kone käynnistyy.</p>
+    <div class="hero-ctas reveal-up" style="--d:.7s">
+      <a href="#suunnittele" class="btn btn-lichen magnet">Kokeile pihasuunnittelijaa</a>
+      <a href="#yhteys" class="btn btn-glass magnet">Pyydä arviokäynti</a>
+    </div>
+  </div>
+  <a href="#luvut" class="scroll-cue" aria-label="Vieritä alas"><span></span></a>
+</section>
+
+<section class="stats" id="luvut" aria-label="Ahde lukuina">
+  <div class="wrap stats-grid">
+    <div class="stat reveal"><b><span class="count" data-to="2009">2009</span></b><span>pihoja vuodesta</span></div>
+    <div class="stat reveal" style="--d:.08s"><b><span class="count" data-to="340">340</span>+</b><span>valmista pihaa</span></div>
+    <div class="stat reveal" style="--d:.16s"><b>1–3 vk</b><span>tyypillinen rakennusaika</span></div>
+    <div class="stat reveal" style="--d:.24s"><b><span class="count" data-to="1">1</span></b><span>yhteyshenkilö koko työn ajan</span></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Kiveykset</span><i></i><span>Nurmikot</span><i></i><span>Istutukset</span><i></i><span>Kivimuurit</span><i></i><span>Terassit</span><i></i><span>Pihavalaistus</span><i></i><span>Salaojat</span><i></i>
+    <span>Kiveykset</span><i></i><span>Nurmikot</span><i></i><span>Istutukset</span><i></i><span>Kivimuurit</span><i></i><span>Terassit</span><i></i><span>Pihavalaistus</span><i></i><span>Salaojat</span><i></i>
+  </div>
+</div>
+
+<section id="palvelut" class="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Palvelut</span><h2>Kaikki pihan työt, <em>yhdeltä tekijältä.</em></h2></div>
+      <p>Hoidamme maanrakennuksen, kivityöt ja istutukset itse. Teille jää yksi yhteyshenkilö ja yksi aikataulu.</p>
+    </div>
+    <ul class="svc-grid">
+      <li class="svc reveal"><figure><img src="img/a-kiveys.webp" alt="Juuri valmistunut betonikivetys omakotitalon terassilla, tärylevy reunalla (kuvituskuva)" width="896" height="1120" loading="lazy"></figure><div><span class="num">01</span><h3>Kiveykset</h3><p>Pihatiet, terassit ja käytävät betoni- tai luonnonkivestä. Pohjat tehdään kantaviksi, jotta kivet pysyvät suorassa vuosia.</p></div></li>
+      <li class="svc reveal" style="--d:.08s"><figure><img src="img/a-portaat.webp" alt="Graniittiportaat ja luonnonkivimuuri rinteessä (kuvituskuva)" width="896" height="1120" loading="lazy"></figure><div><span class="num">02</span><h3>Muurit ja portaat</h3><p>Tukimuurit, porrasaskelmat ja rinteiden tasaukset. Luonnonkivi, muurikivi tai graniitti pihan tyylin mukaan.</p></div></li>
+      <li class="svc reveal" style="--d:.16s"><figure><img src="img/a-istutus.webp" alt="Vasta istutettu perennapenkki, laventeli ja koristeheinät (kuvituskuva)" width="896" height="1120" loading="lazy"></figure><div><span class="num">03</span><h3>Istutukset ja nurmet</h3><p>Perennat, pensaat, puut ja valmisnurmi. Valitsemme kasvit, jotka viihtyvät juuri teidän pihanne valossa ja maassa.</p></div></li>
+    </ul>
+    <ul class="svc-mini">
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V10l7-5 7 5v10"/><path d="M9 20v-5h6v5"/></svg><b>Terassit</b><span>Puu- ja komposiittiterassit pihan tasoon</span></li>
+      <li class="reveal" style="--d:.06s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M5.6 5.6l2.1 2.1M3 12h3M18 12h3M16.3 7.7l2.1-2.1"/><path d="M8 16a4 4 0 1 1 8 0v2H8z"/><path d="M10 21h4"/></svg><b>Pihavalaistus</b><span>Polku-, porras- ja puuvalot</span></li>
+      <li class="reveal" style="--d:.12s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14c3 0 3 3 6 3s3-3 6-3 3 3 4 3"/><path d="M4 9c3 0 3 3 6 3s3-3 6-3 3 3 4 3"/></svg><b>Salaojat</b><span>Hulevedet pois perustuksilta</span></li>
+      <li class="reveal" style="--d:.18s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11"/><path d="M12 11c0-4 3-7 7-7 0 4-3 7-7 7z"/><path d="M12 14c0-3-2-5-6-5 0 3 2 5 6 5z"/></svg><b>Pihan kunnostus</b><span>Vanhan pihan uusi elämä</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="suunnittele" class="planner-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Pihasuunnittelija</span><h2>Piirtäkää oma pihanne, <em>neliö kerrallaan.</em></h2></div>
+      <p>Valitse materiaali ja maalaa ruudukkoon sormella tai hiirellä. Yksi ruutu on yksi neliömetri. Näette heti pinta-alat ja suuntaa antavan hinnan.</p>
+    </div>
+    <div class="planner reveal">
+      <div class="pl-tools" role="toolbar" aria-label="Materiaalit">
+        <button type="button" class="brush on" data-b="nurmi" aria-pressed="true"><i class="sw sw-nurmi"></i>Nurmi</button>
+        <button type="button" class="brush" data-b="kiveys" aria-pressed="false"><i class="sw sw-kiveys"></i>Kiveys</button>
+        <button type="button" class="brush" data-b="istutus" aria-pressed="false"><i class="sw sw-istutus"></i>Istutus</button>
+        <button type="button" class="brush" data-b="terassi" aria-pressed="false"><i class="sw sw-terassi"></i>Terassi</button>
+        <button type="button" class="brush" data-b="muuri" aria-pressed="false"><i class="sw sw-muuri"></i>Kivimuuri</button>
+        <button type="button" class="brush" data-b="tyhja" aria-pressed="false"><i class="sw sw-tyhja"></i>Pyyhi</button>
+      </div>
+      <div class="pl-stage">
+        <div class="pl-board">
+          <div class="pl-grid" id="pl-grid" tabindex="0" role="application" aria-label="Pihan ruudukko, 14 kertaa 9 metriä. Liiku nuolinäppäimillä ja maalaa välilyönnillä." aria-describedby="pl-help"></div>
+          <span class="pl-n" aria-hidden="true">N ↑</span>
+        </div>
+        <p id="pl-help" class="pl-help">Vinkki: vedä yli monta ruutua kerralla. Näppäimistöllä nuolet ja välilyönti.</p>
+      </div>
+      <aside class="pl-sum" aria-label="Arvio">
+        <div class="pl-presets"><span>Valmiit pohjat:</span><button type="button" data-p="etupiha">Pieni etupiha</button><button type="button" data-p="perhe">Perhepiha</button><button type="button" data-p="clear">Tyhjennä</button></div>
+        <ul class="pl-list" id="pl-list"></ul>
+        <div class="pl-total" aria-live="polite" aria-atomic="true"><small>Suuntaa antava hinta-arvio</small><b id="pl-total">0 €</b><span id="pl-area">0 m² suunniteltu</span></div>
+        <p class="fine">Esimerkkihinnat sisältävät työn ja materiaalit (alv 25,5 %): nurmikko 15–30 €/m², kiveys 90–150 €/m², istutus 40–80 €/m², terassi 180–300 €/m², kivimuuri 250–450 €/jm. Lopullinen hinta sovitaan arviokäynnin jälkeen. Olemassa olevan pihan kunnostuksen työn osuudesta voi saada kotitalousvähennystä: 40 %, omavastuu 150 €, enintään 2 100 € / henkilö (vero.fi, tilanne 2026). Uudisrakennuksen piha ei oikeuta vähennykseen.</p>
+        <a href="#yhteys" class="btn btn-moss magnet" id="pl-cta">Lähetä suunnitelma arvioon</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="tyon-kulku" aria-labelledby="story-h">
+  <div class="story-pin">
+    <div class="wrap story-grid">
+      <div class="story-text">
+        <span class="eyebrow">Työn kulku</span>
+        <h2 id="story-h">Näin pihanne <em>kasvaa</em> valmiiksi.</h2>
+        <svg class="branch" viewBox="0 0 120 600" preserveAspectRatio="none" aria-hidden="true">
+          <path class="branch-bg" d="M60 0 C 20 90, 100 160, 60 240 S 20 390, 60 460 S 100 560, 60 600"/>
+          <path class="branch-line" id="branch-line" d="M60 0 C 20 90, 100 160, 60 240 S 20 390, 60 460 S 100 560, 60 600"/>
+          <g class="buds"><circle cx="60" cy="40" r="7"/><circle cx="60" cy="220" r="7"/><circle cx="60" cy="400" r="7"/><circle cx="60" cy="575" r="7"/></g>
+        </svg>
+        <ol class="steps">
+          <li class="step on"><span>01</span><h3>Suunnittelu</h3><p>Käymme pihalla, mittaamme ja kuuntelemme. Saatte piirroksen ja kiinteän tarjouksen ennen töiden alkua.</p></li>
+          <li class="step"><span>02</span><h3>Maanrakennus ja kiveys</h3><p>Kaivuu, salaojat ja kantava pohja. Kivet asennetaan tiiviille pohjalle, jolloin ne eivät painu.</p></li>
+          <li class="step"><span>03</span><h3>Muurit ja portaat</h3><p>Rinteet tasataan tukimuureilla ja portailla. Kivi valitaan talon ja maaston mukaan.</p></li>
+          <li class="step"><span>04</span><h3>Istutus ja viimeistely</h3><p>Kasvit, nurmi ja kate. Lopuksi käymme pihan yhdessä läpi ja annamme hoito-ohjeet.</p></li>
+        </ol>
+      </div>
+      <div class="story-media" aria-hidden="true">
+        <figure class="sm on"><img src="img/a-paiva.webp" alt="" width="1344" height="752" loading="lazy"><span class="plan-lines"></span><figcaption>Suunnitelma</figcaption></figure>
+        <figure class="sm"><img src="img/a-kiveys.webp" alt="" width="896" height="1120" loading="lazy"><figcaption>Kiveys</figcaption></figure>
+        <figure class="sm"><img src="img/a-portaat.webp" alt="" width="896" height="1120" loading="lazy"><figcaption>Muurit</figcaption></figure>
+        <figure class="sm"><img src="img/a-istutus.webp" alt="" width="896" height="1120" loading="lazy"><figcaption>Istutus</figcaption></figure>
+        <div class="story-count"><b id="story-n">01</b>/04</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dusk" id="ilta" aria-labelledby="dusk-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Päivästä iltaan</span><h2 id="dusk-h">Sama piha, <em>kun aurinko laskee.</em></h2></div>
+      <p>Pihavalaistus suunnitellaan ja kaapeloidaan samalla kun piha rakennetaan. Vedä aurinkoa kaarta pitkin ja katso, miltä piha näyttää illalla.</p>
+    </div>
+    <div class="dn reveal" id="dn">
+      <div class="dn-view">
+        <img class="dn-day" src="img/a-paiva.webp" alt="Valmis takapiha päivällä: betonikivetys, nurmikko, graniittiportaat ja istutukset (kuvituskuva)" width="1344" height="752" loading="lazy">
+        <img class="dn-night" src="img/a-ilta-valot.webp" alt="Sama piha illalla polku-, porras- ja puuvalojen loisteessa (kuvituskuva)" width="1344" height="752" loading="lazy">
+        <span class="dn-tint" aria-hidden="true"></span>
+        <span class="dn-glow" aria-hidden="true"></span>
+        <div class="dn-clock" aria-hidden="true"><b id="dn-time">klo 13.00</b><span id="dn-label">Keskipäivä</span></div>
+      </div>
+      <div class="dn-dial">
+        <svg viewBox="0 0 600 120" class="dn-arc" aria-hidden="true">
+          <defs><linearGradient id="arcg" x1="0" x2="1"><stop offset="0" stop-color="#f6d77a"/><stop offset=".55" stop-color="#e58f4f"/><stop offset="1" stop-color="#6b7fd6"/></linearGradient></defs>
+          <path d="M30 110 Q300 -40 570 110" class="arc-track"/>
+          <path d="M30 110 Q300 -40 570 110" class="arc-fill" id="arc-fill"/>
+        </svg>
+        <div class="dn-knob" id="dn-knob" role="slider" tabindex="0" aria-label="Kellonaika pihalla" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="klo 13.00, keskipäivä">
+          <span class="sun"></span><span class="moon"></span>
+        </div>
+        <div class="dn-ends" aria-hidden="true"><span>Päivä</span><span>Ilta</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-label="Koristeheinät ja kivipolku">
+  <img src="img/a-heinat.webp" alt="Koristeheiniä ja perennoja graniittisen askelkivipolun vieressä illan valossa (kuvituskuva)" width="1344" height="752" loading="lazy">
+  <div class="wrap"><p class="band-q reveal">Kivi, joka <em>pysyy.</em><br>Kasvi, joka <em>viihtyy.</em></p></div>
+</section>
+
+<section class="examples" aria-labelledby="ex-h">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Esimerkkikohteita</span><h2 id="ex-h">Pihoja eri kokoon <em>ja budjettiin.</em></h2></div>
+      <p>Tyypillisiä töitämme pääkaupunkiseudulla. Jokainen piha suunnitellaan erikseen, joten nämä ovat suuntaa antavia esimerkkejä.</p>
+    </div>
+    <ul class="ex-list">
+      <li class="ex reveal"><span class="ex-tag">Tikkurila</span><h3>Omakotitalon takapiha</h3><p>Kiveys 60 m², valmisnurmi 120 m², kaksi perennapenkkiä ja polkuvalot.</p><span class="ex-meta">3 viikkoa</span></li>
+      <li class="ex reveal" style="--d:.08s"><span class="ex-tag">Espoo, Kauklahti</span><h3>Rinnetontin portaat</h3><p>Graniittiportaat, 14 metriä luonnonkivimuuria ja kaksi uutta tasannetta.</p><span class="ex-meta">2 viikkoa</span></li>
+      <li class="ex reveal" style="--d:.16s"><span class="ex-tag">Vantaa, Hakunila</span><h3>Rivitalon etupiha</h3><p>Pihatien uusiminen, salaojat ja matalat istutukset taloyhtiön ilmeeseen.</p><span class="ex-meta">8 työpäivää</span></li>
+      <li class="ex reveal" style="--d:.24s"><span class="ex-tag">Espoo, Leppävaara</span><h3>Vanhan pihan kunnostus</h3><p>Painuneet kivet nostettiin, nurmi uusittiin ja pihaan tehtiin terassi.</p><span class="ex-meta">10 työpäivää</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div class="reveal"><span class="eyebrow">Kysyttyä</span><h2 id="faq-h">Usein kysytyt <em>kysymykset.</em></h2><p class="faq-side">Eikö vastausta löytynyt? Soittakaa <a href="tel:+358504182736">050 418 2736</a>.</p></div>
+    <div class="faq-list">
+      <details class="reveal"><summary>Milloin pihatyöt kannattaa tilata?</summary><div><p>Suunnittelu sopii hyvin talveen. Maanrakennus ja kiveykset tehdään yleensä huhtikuusta lokakuuhun, istutukset keväällä tai alkusyksyllä. Kevään ajat täyttyvät ensimmäisinä.</p></div></details>
+      <details class="reveal"><summary>Saako pihatöistä kotitalousvähennystä?</summary><div><p>Olemassa olevan pihan kunnostus- ja hoitotöiden työn osuudesta voi saada kotitalousvähennystä. Vuonna 2026 vähennys on 40 % työn osuudesta, omavastuu 150 € ja enimmäismäärä 2 100 € henkilöä kohden (vero.fi). Uudisrakennuksen pihan rakentaminen ei oikeuta vähennykseen. Merkitsemme työn osuuden laskuun erikseen.</p></div></details>
+      <details class="reveal"><summary>Teettekö pelkän suunnitelman?</summary><div><p>Teemme. Suunnitelman voi toteuttaa kerralla tai vaiheissa, ja sen saa käyttöönsä, vaikka rakentaisi osan itse.</p></div></details>
+      <details class="reveal"><summary>Mitä hintaan sisältyy?</summary><div><p>Tarjouksessa on eritelty työ, materiaalit, koneet ja maa-ainesten kuljetukset. Hinta sovitaan ennen töiden alkua, eikä siihen tule yllätyksiä ilman yhteistä sopimista.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section id="yhteys" class="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="contact-info">
+        <span class="eyebrow">Yhteystiedot</span>
+        <h2>Aloitetaan <em>pihakävelyllä.</em></h2>
+        <p class="lead">Kertokaa pihasta lyhyesti. Sovimme arviokäynnin, joka on maksuton Vantaalla ja Espoossa.</p>
+        <ul class="c-list">
+          <li><a class="c-item" href="tel:+358504182736"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><small>Puhelin</small><b>050 418 2736</b></span></a></li>
+          <li><a class="c-item" href="mailto:hei@ahde.fi"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span><small>Sähköposti</small><b>hei@ahde.fi</b></span></a></li>
+          <li><div class="c-item"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span><small>Toimialue</small><b>Vantaa, Espoo ja lähikunnat</b></span></div></li>
+        </ul>
+      </div>
+      <form id="lomake" method="post" data-endpoint="">
+        <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
+        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 \(\)\-]{6,}" required></div>
+        <div class="full"><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="full"><label for="f-tyo">Mitä pihalle tehdään?</label><select id="f-tyo" name="tyo"><option value="" selected>Valitse…</option><option>Uusi piha</option><option>Kiveys tai pihatie</option><option>Muuri tai portaat</option><option>Istutukset ja nurmi</option><option>Pihavalaistus</option><option>Vanhan pihan kunnostus</option><option>Muu</option></select></div>
+        <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. pihan koko, osoite ja toivottu aikataulu"></textarea></div>
+        <div class="hp" aria-hidden="true"><label for="f-www">Jätä tyhjäksi</label><input id="f-www" name="www" tabindex="-1" autocomplete="off"></div>
+        <div class="full"><button class="btn btn-moss magnet" type="submit">Lähetä viesti</button></div>
+        <p class="full form-note">Käsittelemme tietojanne vain yhteydenottoon vastaamiseksi.</p>
+        <p class="form-status" id="lomake-tila" role="status" tabindex="-1" hidden>Tämä on demosivu, joten lomake ei lähetä viestejä. Soittakaa 050 418 2736 tai lähettäkää sähköpostia hei@ahde.fi.</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="logo"><svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M9 23c0-8 5-13 14-14-1 9-6 14-14 14z" fill="#c9d77a"/><path d="M9 23l8-8" stroke="#1f2d22" stroke-width="2" stroke-linecap="round"/></svg><span>Ahde<small>Piharakennus</small></span></a>
+    <span>Ahde Piharakennus on kuvitteellinen demoyritys. Sivun teki <a href="https://marktic.fi">Marktic</a>.</span>
+    <span><a href="tel:+358504182736">050 418 2736</a> · <a href="mailto:hei@ahde.fi">hei@ahde.fi</a></span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-moss" href="#yhteys">Pyydä arviokäynti</a>
+  <a class="btn btn-cream" href="tel:+358504182736"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Soita</a>
+</div>
+
+<script src="site.js" defer></script>
+</body>
+</html>
