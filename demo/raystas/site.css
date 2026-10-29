@@ -166,6 +166,8 @@ section{position:relative}
 
 /* calc */
 .calc{padding:130px 0;background:var(--off)}
+.calc-grid>*,.cfg-grid>*,.faq-grid>*,.layers-grid>*,.svc-item>*{min-width:0}
+h2,h3{overflow-wrap:break-word}
 .calc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
 .calc-intro{position:sticky;top:110px}
 .calc-intro h2{font-size:clamp(2.2rem,4.6vw,4.1rem);margin:14px 0 20px}
@@ -333,6 +335,7 @@ a.c-item:hover b{color:var(--orange)}
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
 .js .reveal.in{opacity:1;transform:none}
 
+@media (min-width:761px) and (max-width:1100px){.nav-cta{display:none!important}.nav-links{gap:1.1rem!important}.nav-links a{white-space:nowrap}}
 @media (max-width:1100px){
   .ref-grid{grid-template-columns:1fr 1fr}
   .cfg-grid{grid-template-columns:1fr}
@@ -359,7 +362,8 @@ a.c-item:hover b{color:var(--orange)}
   .layer-steps li span{font-size:.86rem}
   .stack-wrap{height:44vh;min-height:260px}
   .stack{width:min(300px,64%)}
-    .stack-meter{top:0;bottom:auto}
+  .stack-tags,.stack-meter{display:none}
+  .stack{left:50%}
   .c-form{padding:32px 22px}
 }
 @media (max-width:760px){
@@ -403,6 +407,12 @@ a.c-item:hover b{color:var(--orange)}
   .callbar .btn{flex:1}
 }
 @media (max-width:400px){
+  .svc-item h3{font-size:1.3rem}
+  .calc-intro h2,.sec-head h2{font-size:clamp(1.9rem,9vw,2.4rem)}
+  .nav{gap:12px}
+  .logo{font-size:1.08rem;gap:9px}
+  .logo svg{width:34px;height:24px}
+  .nav-links.open{left:0;right:0}
   .cfg-weather .wl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .cfg-weather button{width:46px;justify-content:center;padding:0}
   .cfg-weather svg{width:20px;height:20px}
