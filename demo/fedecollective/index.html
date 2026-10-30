@@ -101,6 +101,35 @@ p{margin:0}
 .celeb figcaption{position:absolute;inset:auto 0 0;padding:48px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
 .celeb b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,2.6vw,2.2rem);text-transform:uppercase;line-height:.95;overflow-wrap:anywhere}
 .celeb span{font-size:.82rem;color:var(--ink-2)}
+
+/* fade picker: real photos of the shop's own work, filtered by fade height */
+.fp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+@media (max-width:900px){.fp{grid-template-columns:1fr}}
+.fp-main{position:relative;margin:0;border-radius:22px;overflow:hidden;background:var(--bg-2);aspect-ratio:4/5;max-width:100%}
+.fp-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:opacity .35s}
+.fp-main img.out{opacity:0}
+.fp-main figcaption{position:absolute;left:14px;bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
+.fp-main figcaption span{background:rgba(0,0,0,.7);backdrop-filter:blur(6px);padding:7px 12px;border-radius:999px;font-size:.82rem;font-weight:500}
+.fp-main figcaption .hl{background:var(--red)}
+.fp-side{display:grid;gap:22px}
+.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:5px}
+.seg button{min-height:48px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);font:700 1.25rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em;cursor:pointer;transition:background .2s,color .2s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.fp-desc{display:grid;gap:8px}
+.fp-desc h3{font-size:clamp(2.2rem,4vw,3.2rem)}
+.fp-desc p{color:var(--ink-2);max-width:44ch}
+.toggle{display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:500;width:fit-content}
+.toggle input{appearance:none;width:52px;height:30px;border-radius:999px;background:#333;position:relative;cursor:pointer;transition:background .2s;margin:0;flex:none}
+.toggle input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .2s}
+.toggle input:checked{background:var(--red)}
+.toggle input:checked::after{transform:translateX(22px)}
+.thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.thumbs button{flex:none;width:76px;height:96px;padding:0;border:2px solid transparent;border-radius:12px;overflow:hidden;background:var(--bg-2);cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
+.thumbs button[aria-current="true"]{border-color:var(--ink);opacity:1}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.fp-buy{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+.fp-buy b{font-family:var(--display);font-weight:900;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.fp-buy span{display:block;font-size:.88rem;color:var(--ink-2)}
 .menu-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
 @media (max-width:900px){.menu-grid{grid-template-columns:1fr}}
 .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
@@ -178,7 +207,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <header class="top" id="top">
   <div class="wrap">
     <a class="logo" href="#"><img src="https://www.fedecollective.fi/fedecollective_logo_round.png" alt="" width="36" height="36"><b>FedeCollective</b></a>
-    <nav aria-label="Valikko"><a href="#hinnat">Hinnat</a><a href="#barberit">Barberit</a><a href="#cuts">Cuts</a><a href="#loyda">Löydä meille</a></nav>
+    <nav aria-label="Valikko"><a href="#fade">Fade</a><a href="#hinnat">Hinnat</a><a href="#barberit">Barberit</a><a href="#cuts">Cuts</a><a href="#loyda">Löydä meille</a></nav>
     <span class="chip" id="status"><i class="dot"></i><span>Ma–la 10–20</span></span>
     <a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a>
   </div>
@@ -215,6 +244,37 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       <figure class="celeb"><img src="https://fedecollective.fi/media/highlights/image_2.JPG" alt="1.CUZ FedeCollectiven tuolissa" loading="lazy"><figcaption><b>1.CUZ</b><span>Räppäri</span></figcaption></figure>
       <figure class="celeb"><img src="https://fedecollective.fi/media/highlights/image_3.JPG" alt="Yung Dred FedeCollectiven tuolissa" loading="lazy"><figcaption><b>Yung Dred</b><span>Räppäri</span></figcaption></figure>
       <figure class="celeb"><img src="https://fedecollective.fi/media/highlights/image_4.JPG" alt="BashTheEntertainer FedeCollectiven tuolissa" loading="lazy"><figcaption><b>BashTheEntertainer</b><span>Koomikko</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="fade" aria-labelledby="fade-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <h2 id="fade-h">Valitse<br>fade</h2>
+      <p class="sub">Kaikki kuvat on meidän omia töitä tästä tuolista. Valitse korkeus ja katso, miltä se näyttää oikeasti.</p>
+    </div>
+    <div class="fp">
+      <figure class="fp-main" aria-live="polite">
+        <img id="fpA" alt="">
+        <img id="fpB" alt="" class="out">
+        <figcaption><span class="hl" id="fpTag">Mid fade</span><span>Oma työ</span></figcaption>
+      </figure>
+      <div class="fp-side">
+        <div class="seg" role="group" aria-label="Faden korkeus" id="fpSeg">
+          <button type="button" data-k="taper" aria-pressed="false">Taper</button>
+          <button type="button" data-k="low" aria-pressed="false">Low</button>
+          <button type="button" data-k="mid" aria-pressed="true">Mid</button>
+          <button type="button" data-k="high" aria-pressed="false">High</button>
+        </div>
+        <div class="fp-desc"><h3 id="fpH">Mid fade</h3><p id="fpP"></p></div>
+        <label class="toggle" for="fpBeard"><input type="checkbox" id="fpBeard"> Parta mukaan</label>
+        <div class="thumbs" id="fpThumbs" aria-label="Lisää kuvia tästä tyylistä"></div>
+        <div class="fp-buy">
+          <div><b id="fpPrice">30&nbsp;€</b><span id="fpSvc">Skin Fade</span></div>
+          <a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener" id="fpGo">Varaa tämä</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -361,6 +421,41 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
     barber=b.dataset.b;draw();
   });
+  // fade picker. Tags are a first sort of the shop's own gallery; confirm with Fede and edit here.
+  (function(){
+    var B='https://fedecollective.fi/media/galleria/image_';
+    var T={
+      taper:{h:'Taper',p:'Siistit rajat niskaan ja ohimoille, pituus jää sivuille. Toimii kiharoille ja pidemmälle tukalle.',img:['03','05','16','17','14','20','25','07','15']},
+      low:{h:'Low fade',p:'Häivytys alkaa matalalta korvan yläpuolelta. Lähtee siististi kasvamaan, eikä näytä heti kasvaneelta.',img:['02','04','21','29','18','31']},
+      mid:{h:'Mid fade',p:'Häivytys ohimoiden korkeudelle. Selkeä kontrasti, mutta ei liian raju. Suosituin valinta.',img:['01','06','19','22','11','28','23','27']},
+      high:{h:'High fade',p:'Iho näkyy pitkälle ylös. Terävin ja rohkein vaihtoehto, sopii myös kuvioihin.',img:['09','26','24','30']}
+    };
+    var BEARD=['07','15','23','26','27'];
+    var k='mid',i=0,front='fpA';
+    var seg=document.getElementById('fpSeg'),beard=document.getElementById('fpBeard'),th=document.getElementById('fpThumbs');
+    function list(){var L=T[k].img;if(!beard.checked)return L;var b=L.filter(function(x){return BEARD.indexOf(x)>-1});return b.length?b.concat(L.filter(function(x){return BEARD.indexOf(x)<0})):L}
+    function show(n){
+      var L=list();i=(n+L.length)%L.length;
+      var a=document.getElementById(front),b=document.getElementById(front==='fpA'?'fpB':'fpA');
+      b.onload=function(){b.classList.remove('out');a.classList.add('out');front=b.id};
+      b.src=B+L[i]+'.JPG';b.alt=T[k].h+', FedeCollectivein oma työ';
+      th.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-current',j===i)});
+    }
+    function render(){
+      var t=T[k],L=list();
+      document.getElementById('fpH').textContent=t.h+(beard.checked?' + parta':'');
+      document.getElementById('fpTag').textContent=t.h;
+      document.getElementById('fpP').textContent=t.p;
+      document.getElementById('fpSvc').textContent=beard.checked?'Skin Fade + Beard':'Skin Fade';
+      document.getElementById('fpPrice').innerHTML=(beard.checked?40:30)+'&nbsp;€';
+      th.innerHTML='';
+      L.forEach(function(x,j){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Kuva '+(j+1));b.innerHTML='<img alt="" loading="lazy">';b.firstChild.src=B+x+'.JPG';b.onclick=function(){show(j)};th.appendChild(b)});
+      show(0);
+    }
+    seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});k=b.dataset.k;render()});
+    beard.addEventListener('change',render);
+    render();
+  })();
   var base='https://fedecollective.fi/media/galleria/';
   var f=['featured_02','image_02','image_03','image_04','featured_03','image_07','image_09','image_14','image_15','featured_04','image_05','image_17'];
   var g=document.getElementById('gal'),lb=document.getElementById('lb'),im=document.getElementById('lbImg'),i0=0;
