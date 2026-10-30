@@ -195,8 +195,8 @@ function liquid() {
   function paint() {
     tg.fillStyle = 'rgba(128,128,128,.08)'; tg.fillRect(0, 0, TW, TH); // fade back to neutral
     if (px >= 0) {
-      const x = px * TW, y = py * TH, rad = 11, gr = tg.createRadialGradient(x, y, 0, x, y, rad);
-      gr.addColorStop(0, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+      const x = px * TW, y = py * TH, rad = 13, gr = tg.createRadialGradient(x, y, 0, x, y, rad);
+      gr.addColorStop(0, 'rgba(255,255,255,.7)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
       tg.fillStyle = gr; tg.beginPath(); tg.arc(x, y, rad, 0, 6.283); tg.fill();
     }
   }
@@ -214,7 +214,7 @@ function liquid() {
       paint(); strength *= 0.985;
       gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tt);
       gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, trail);
-      gl.uniform1f(uk, 0.09);
+      gl.uniform1f(uk, 0.13);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
     requestAnimationFrame(f);
@@ -224,4 +224,91 @@ function liquid() {
   loop();
 }
 
-pole(); reveal(); heroIn(); magnetic(); liquid();
+/* ---------- 3D carousel: his real cuts on a curved ring. Drag / wheel to spin, click to open ---------- */
+function carousel() {
+  const grid = document.getElementById('gal');
+  if (!grid) return;
+  const buttons = [...grid.querySelectorAll('button')], imgs = buttons.map(b => b.querySelector('img').src);
+  if (!imgs.length) return;
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); } catch (e) { return; }
+  const wrap = document.createElement('div'); wrap.className = 'ring';
+  const hint = document.createElement('p'); hint.className = 'ring-hint'; hint.textContent = 'Vedä pyörittääksesi, klikkaa kuvaa';
+  wrap.appendChild(renderer.domElement); wrap.appendChild(hint);
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(32, 2, 0.1, 100);
+  const N = imgs.length, R = 7.2, PW = 2.05, PH = PW * 4 / 3;
+  const ring = new THREE.Group(); scene.add(ring);
+  const uni = { uVel: { value: 0 } };
+  const vert = `uniform float uVel;varying vec2 vUv;varying float vZ;
+    void main(){vUv=uv;vec3 p=position;p.z+=sin(uv.x*3.14159)*uVel*0.9;p.y+=sin(uv.x*3.14159)*uVel*0.15;
+    vec4 w=modelMatrix*vec4(p,1.);vZ=w.z;gl_Position=projectionMatrix*viewMatrix*w;}`;
+  const frag = `uniform sampler2D map;uniform float uVel;varying vec2 vUv;varying float vZ;
+    void main(){vec2 u=vUv;u=(u-.5)*vec2(1.,1.)+.5;
+    float s=uVel*0.012;vec3 c=vec3(texture2D(map,u+vec2(s,0.)).r,texture2D(map,u).g,texture2D(map,u-vec2(s,0.)).b);
+    float f=smoothstep(-${R.toFixed(1)},${(R*0.6).toFixed(1)},vZ);c*=mix(.18,1.,f);
+    vec2 q=abs(vUv-.5)*2.;float r=.08;vec2 d=max(q-1.+r,0.);if(length(d)>r)discard;
+    gl_FragColor=vec4(c,1.);}`;
+  const loader = new THREE.TextureLoader();
+  let loaded = 0, failed = false;
+  const meshes = imgs.map((src, i) => {
+    const mat = new THREE.ShaderMaterial({ uniforms: { map: { value: null }, uVel: uni.uVel }, vertexShader: vert, fragmentShader: frag, side: THREE.DoubleSide });
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(PW, PH, 24, 1), mat);
+    const a = i / N * Math.PI * 2;
+    m.position.set(Math.sin(a) * R, 0, Math.cos(a) * R); m.rotation.y = a; m.userData.i = i;
+    ring.add(m);
+    loader.load(src, t => {
+      t.colorSpace = THREE.SRGBColorSpace;
+      // cover-fit 3:4 crop centred a bit low (the cut, not the ceiling)
+      const ar = t.image.width / t.image.height, target = 3 / 4;
+      if (ar > target) { t.repeat.set(target / ar, 1); t.offset.set((1 - target / ar) / 2, 0); }
+      else { t.repeat.set(1, ar / target); t.offset.set(0, (1 - ar / target) * 0.35); }
+      mat.uniforms.map.value = t;
+      mat.fragmentShader = mat.fragmentShader.replace('u=(u-.5)*vec2(1.,1.)+.5;', `u=u*vec2(${t.repeat.x.toFixed(4)},${t.repeat.y.toFixed(4)})+vec2(${t.offset.x.toFixed(4)},${t.offset.y.toFixed(4)});`);
+      mat.needsUpdate = true;
+      if (++loaded === 1) start();
+    }, undefined, () => { failed = true; });
+    return m;
+  });
+  let started = false;
+  function start() {
+    if (started || failed) return; started = true;
+    grid.before(wrap); grid.classList.add('as-ring'); size(); loop();
+  }
+  function size() {
+    const w = wrap.clientWidth, h = Math.max(380, Math.min(620, w * 0.55));
+    renderer.setSize(w, h); cam.aspect = w / h;
+    cam.position.set(0, 0.6, R + (w < 700 ? 9.5 : 7.4)); cam.lookAt(0, 0, R - 2); cam.updateProjectionMatrix();
+  }
+  addEventListener('resize', () => started && size());
+  // input
+  let rot = 0, vel = reduce ? 0 : 0.0018, dragging = false, lastX = 0, moved = 0;
+  const el = renderer.domElement;
+  el.style.touchAction = 'pan-y';
+  el.addEventListener('pointerdown', e => { dragging = true; lastX = e.clientX; moved = 0; el.setPointerCapture(e.pointerId); });
+  el.addEventListener('pointermove', e => { if (!dragging) return; const dx = e.clientX - lastX; lastX = e.clientX; moved += Math.abs(dx); vel = dx * 0.0032; });
+  el.addEventListener('pointerup', e => {
+    dragging = false;
+    if (moved < 6) { // click: open the photo in the existing lightbox
+      const r = el.getBoundingClientRect(), m = new THREE.Vector2(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+      const ray = new THREE.Raycaster(); ray.setFromCamera(m, cam);
+      const hit = ray.intersectObjects(meshes)[0];
+      if (hit) buttons[hit.object.userData.i].click();
+    }
+  });
+  el.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { vel -= e.deltaX * 0.0004; e.preventDefault(); } }, { passive: false });
+  let visible = true, running = false;
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) loop(); }).observe(wrap);
+  function loop() { if (running) return; running = true; (function f() {
+    if (!visible || document.hidden) { running = false; return; }
+    rot += vel; if (!dragging) vel += ((reduce ? 0 : 0.0018) - vel) * 0.04;
+    ring.rotation.y = rot;
+    uni.uVel.value += (Math.max(-1, Math.min(1, vel * 40)) - uni.uVel.value) * 0.15;
+    renderer.render(scene, cam); requestAnimationFrame(f);
+  })(); }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) loop(); });
+}
+
+pole(); reveal(); heroIn(); magnetic(); liquid(); carousel();
