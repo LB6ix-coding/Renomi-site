@@ -287,22 +287,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
               <stop id="g2" offset="0.55" stop-color="#b89978" stop-opacity=".55"/>
               <stop id="g3" offset="0.70" stop-color="#c8a888" stop-opacity="0"/>
             </linearGradient>
-            <clipPath id="skull"><path d="M118 214c-14-70 22-150 104-156 70-5 120 44 122 112 1 30-6 52-16 70l-14 4c-4 18-10 34-22 42-14 9-36 8-52 4l-8 46H146l2-58c-16-14-26-38-30-64z"/></clipPath>
+            <clipPath id="skull"><path d="M150 380C148 340 142 312 132 288C108 240 108 160 150 112C182 76 236 66 280 86C308 100 320 130 318 170L340 208C344 215 339 221 330 223L327 235C331 240 329 246 323 249C328 255 326 263 318 267C318 282 310 292 296 296C284 300 272 302 264 304L262 380Z"/></clipPath>
           </defs>
-          <!-- neck + head (skin) -->
-          <path d="M150 300l-6 72h120l-10-80z" fill="#a7835f"/>
-          <path d="M118 214c-14-70 22-150 104-156 70-5 120 44 122 112 1 30-6 52-16 70l-14 4c-4 18-10 34-22 42-14 9-36 8-52 4l-8 46H146l2-58c-16-14-26-38-30-64z" fill="#c8a888"/>
+          <!-- head in profile (skin) -->
+          <path d="M150 380C148 340 142 312 132 288C108 240 108 160 150 112C182 76 236 66 280 86C308 100 320 130 318 170L340 208C344 215 339 221 330 223L327 235C331 240 329 246 323 249C328 255 326 263 318 267C318 282 310 292 296 296C284 300 272 302 264 304L262 380Z" fill="#c8a888"/>
           <!-- hair layer: solid on top, fading toward the neck -->
           <g clip-path="url(#skull)">
             <rect x="80" y="40" width="300" height="320" fill="url(#fadeGrad)" id="hairRect"/>
-            <path d="M200 52c60-6 120 30 136 92-30-34-90-50-150-40-30 5-56 18-72 40 6-50 40-88 86-92z" fill="#100d09" id="crown"/>
+            <path d="M110 150C120 92 172 62 232 68C278 72 312 98 318 140C300 118 262 110 236 116C200 124 160 120 110 150Z" fill="#100d09" id="crown"/>
           </g>
           <!-- beard -->
-          <path id="beard" d="M296 254c-6 16-14 28-24 34-14 9-36 8-52 4-14-4-26-12-34-24 10 6 24 8 38 6 22-4 44-12 60-22z" fill="#16120d" opacity="0"/>
+          <path id="beard" d="M318 267C318 282 310 292 296 296C274 302 246 300 228 288C218 281 212 270 210 258C230 270 262 274 292 262C304 258 312 261 318 267Z" fill="#16120d" opacity="0"/>
           <!-- ear -->
-          <path d="M196 196c-12-8-30-2-30 16 0 20 12 34 28 32" fill="none" stroke="#9c7a58" stroke-width="7" stroke-linecap="round"/>
+          <path d="M206 196c-14-8-32 0-30 20 2 20 16 32 30 28" fill="none" stroke="#9c7a58" stroke-width="7" stroke-linecap="round"/>
           <!-- line-up guide -->
-          <path id="lineup" d="M262 112c-14 6-24 18-26 34" fill="none" stroke="#c9a46a" stroke-width="2" stroke-dasharray="4 5" opacity="0"/>
+          <path id="lineup" d="M300 118c-16 4-30 16-36 34" fill="none" stroke="#c9a46a" stroke-width="2" stroke-dasharray="4 5" opacity="0"/>
           <!-- fade height marker -->
           <g id="marker">
             <line x1="70" x2="112" y1="0" y2="0" stroke="#c9a46a" stroke-width="1.5"/>
