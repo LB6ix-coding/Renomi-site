@@ -125,7 +125,9 @@ section{padding:104px 0}
 /* calculator */
 .calc-sec{background:var(--sheet);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
   background-image:repeating-linear-gradient(0deg,transparent 0 31px,var(--rule-2) 31px 32px)}
-.calc{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink);background:var(--sheet)}
+.calc>*{min-width:0}
+fieldset{min-width:0}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--ink);background:var(--sheet)}
 .calc-in{padding:32px;border-right:1px solid var(--ink);display:grid;gap:26px;align-content:start}
 .calc-out{padding:32px;display:flex;flex-direction:column;gap:22px}
 fieldset{border:0;min-width:0}
