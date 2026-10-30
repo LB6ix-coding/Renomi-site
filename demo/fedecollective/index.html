@@ -130,6 +130,19 @@ p{margin:0}
 .fp-buy{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
 .fp-buy b{font-family:var(--display);font-weight:900;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
 .fp-buy span{display:block;font-size:.88rem;color:var(--ink-2)}
+
+/* in-page booking: Timma inside a panel */
+.bk{position:fixed;inset:0;z-index:90;display:grid;justify-items:end;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+.bk-panel{width:min(560px,100%);height:100%;background:var(--bg);border-left:1px solid var(--line);display:grid;grid-template-rows:auto auto 1fr;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);animation:bkIn .28s ease-out}
+@keyframes bkIn{from{transform:translateX(40px);opacity:0}}
+.bk-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(18px,env(safe-area-inset-right,0px)) 14px 18px;border-bottom:1px solid var(--line)}
+.bk-top h2{font-size:2rem}
+.bk-x{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer}
+.bk-pick{padding:12px 18px;font-size:.9rem;color:var(--ink-2);border-bottom:1px solid var(--line)}
+.bk-pick b{color:var(--ink)}
+.bk-frame{position:relative;background:#fff}
+.bk-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.bk-load{position:absolute;inset:0;display:grid;place-items:center;color:#555;font-size:.95rem}
 .menu-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
 @media (max-width:900px){.menu-grid{grid-template-columns:1fr}}
 .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
@@ -308,8 +321,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
           </div>
         </div>
         <div class="total"><span>Yhteensä</span><b id="sum">0&nbsp;€</b></div>
-        <a class="btn btn-red" id="go" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Valitse aika Timmassa</a>
-        <p class="note">Varaus tehdään Timmassa. Valitse siellä samat palvelut ja barberi.</p>
+        <a class="btn btn-red" id="go" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Valitse aika</a>
+        <p class="note">Kalenteri aukeaa tähän sivulle. Valitse siellä samat palvelut ja barberi.</p>
       </aside>
     </div>
   </div>
@@ -382,6 +395,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <button class="nx" type="button" id="lbN" aria-label="Seuraava">→</button>
 </div>
 
+<div class="bk" id="bk" hidden role="dialog" aria-modal="true" aria-labelledby="bk-h">
+  <div class="bk-panel">
+    <div class="bk-top"><h2 id="bk-h">Varaa aika</h2><button class="bk-x" type="button" id="bkX" aria-label="Sulje varaus">✕</button></div>
+    <p class="bk-pick" id="bkPick" hidden></p>
+    <div class="bk-frame"><span class="bk-load">Ladataan varauskalenteria…</span><iframe id="bkF" title="FedeCollective ajanvaraus" loading="lazy" allow="payment"></iframe></div>
+  </div>
+</div>
+
 <script>
 (function(){
   var top=document.getElementById('top');
@@ -421,6 +442,28 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
     barber=b.dataset.b;draw();
   });
+  // in-page booking: every Timma link opens the panel instead of leaving the site
+  (function(){
+    var URL='https://varaa.timma.fi/reservation/fedecollective';
+    var bk=document.getElementById('bk'),f=document.getElementById('bkF'),pick=document.getElementById('bkPick'),last=null;
+    function open(note){
+      if(!f.src)f.src=URL;
+      if(note){pick.innerHTML=note;pick.hidden=false}else{pick.hidden=true}
+      last=document.activeElement;bk.hidden=false;document.body.style.overflow='hidden';document.getElementById('bkX').focus();
+    }
+    function close(){bk.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+    document.getElementById('bkX').onclick=close;
+    bk.addEventListener('click',function(e){if(e.target===bk)close()});
+    addEventListener('keydown',function(e){if(!bk.hidden&&e.key==='Escape')close()});
+    document.addEventListener('click',function(e){
+      var a=e.target.closest('a[href^="https://varaa.timma.fi"]');if(!a)return;
+      e.preventDefault();
+      var note='';
+      if(a.id==='go'){var items=[].map.call(document.querySelectorAll('#cartList li'),function(li){return li.textContent}).filter(function(t){return t.indexOf('Valitse')<0});if(items.length)note='Valitsit: <b>'+items.join(', ').replace(/€/g,'&nbsp;€')+'</b>. Valitse samat kalenterista.';}
+      if(a.id==='fpGo')note='Valitsit: <b>'+document.getElementById('fpSvc').textContent+'</b> ('+document.getElementById('fpH').textContent+'). Valitse se kalenterista.';
+      open(note);
+    });
+  })();
   // fade picker. Tags are a first sort of the shop's own gallery; confirm with Fede and edit here.
   (function(){
     var B='https://fedecollective.fi/media/galleria/image_';
