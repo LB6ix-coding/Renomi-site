@@ -238,7 +238,7 @@ function carousel() {
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const scene = new THREE.Scene();
-  const cam = new THREE.PerspectiveCamera(32, 2, 0.1, 100);
+  const cam = new THREE.PerspectiveCamera(28, 2, 0.1, 100);
   const N = imgs.length, R = 7.2, PW = 2.05, PH = PW * 4 / 3;
   const ring = new THREE.Group(); scene.add(ring);
   const uni = { uVel: { value: 0 } };
@@ -248,13 +248,13 @@ function carousel() {
   const frag = `uniform sampler2D map;uniform float uVel;varying vec2 vUv;varying float vZ;
     void main(){vec2 u=vUv;u=(u-.5)*vec2(1.,1.)+.5;
     float s=uVel*0.012;vec3 c=vec3(texture2D(map,u+vec2(s,0.)).r,texture2D(map,u).g,texture2D(map,u-vec2(s,0.)).b);
-    float f=smoothstep(-${R.toFixed(1)},${(R*0.6).toFixed(1)},vZ);c*=mix(.18,1.,f);
+    float f=smoothstep(-${(R*0.2).toFixed(1)},${(R*0.95).toFixed(1)},vZ);c*=mix(.25,1.,f);
     vec2 q=abs(vUv-.5)*2.;float r=.08;vec2 d=max(q-1.+r,0.);if(length(d)>r)discard;
     gl_FragColor=vec4(c,1.);}`;
   const loader = new THREE.TextureLoader();
   let loaded = 0, failed = false;
   const meshes = imgs.map((src, i) => {
-    const mat = new THREE.ShaderMaterial({ uniforms: { map: { value: null }, uVel: uni.uVel }, vertexShader: vert, fragmentShader: frag, side: THREE.DoubleSide });
+    const mat = new THREE.ShaderMaterial({ uniforms: { map: { value: null }, uVel: uni.uVel }, vertexShader: vert, fragmentShader: frag, side: THREE.FrontSide });
     const m = new THREE.Mesh(new THREE.PlaneGeometry(PW, PH, 24, 1), mat);
     const a = i / N * Math.PI * 2;
     m.position.set(Math.sin(a) * R, 0, Math.cos(a) * R); m.rotation.y = a; m.userData.i = i;
@@ -280,7 +280,7 @@ function carousel() {
   function size() {
     const w = wrap.clientWidth, h = Math.max(380, Math.min(620, w * 0.55));
     renderer.setSize(w, h); cam.aspect = w / h;
-    cam.position.set(0, 0.6, R + (w < 700 ? 9.5 : 7.4)); cam.lookAt(0, 0, R - 2); cam.updateProjectionMatrix();
+    cam.position.set(0, 1.4, R + (w < 700 ? 17 : 12.5)); cam.lookAt(0, -0.2, 0); cam.updateProjectionMatrix();
   }
   addEventListener('resize', () => started && size());
   // input
