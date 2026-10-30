@@ -23,7 +23,7 @@ function pole() {
 
   const scene = new THREE.Scene();
   const cam = new THREE.PerspectiveCamera(22, W / H, 0.1, 100);
-  cam.position.set(0, 0, 11.2);
+  cam.position.set(0, 0, 15);
 
   // stripes texture: red / white / thin black, diagonal
   const c = document.createElement('canvas'); c.width = 256; c.height = 256;
@@ -130,7 +130,7 @@ function reveal() {
 /* ---------- hero lines slide in on load ---------- */
 function heroIn() {
   if (reduce) return;
-  document.querySelectorAll('.hero h1 span').forEach((s, i) => { s.style.animationDelay = (120 + i * 110) + 'ms'; s.classList.add('hin'); });
+  document.querySelectorAll('.hero h1 span').forEach((s, i) => { s.classList.add('hin'); });
 }
 
 /* ---------- magnetic buttons (mouse only) ---------- */
