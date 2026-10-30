@@ -309,7 +309,7 @@ footer{padding:40px 0 48px;font-size:.9rem;color:var(--muted);background:var(--c
   .nav{height:66px}
   .nav-links,.nav-cta{display:none}
   .menu-btn{display:inline-flex}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:-18px;right:-18px;background:var(--cream);color:var(--ink);padding:4px 18px 14px;gap:0;box-shadow:0 24px 30px -20px rgba(0,0,0,.3)}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:var(--cream);color:var(--ink);padding:4px 18px 14px;gap:0;box-shadow:0 24px 30px -20px rgba(0,0,0,.3)}
   .nav-links.open a{display:block;padding:14px 4px;border-bottom:1px solid var(--line)}
   .hdr.menu-open{background:var(--cream);color:var(--ink)}
   .hero h1{font-size:clamp(3rem,15vw,4.2rem)}

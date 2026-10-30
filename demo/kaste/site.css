@@ -307,7 +307,7 @@ footer a:hover{color:var(--ink)}
   .nav{height:68px}
   .nav-links,.nav-cta{display:none}
   .menu-btn{display:inline-flex}
-  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:-18px;right:-18px;background:var(--slate);padding:6px 18px 14px;gap:0;box-shadow:0 30px 40px -20px rgba(0,0,0,.5)}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--slate);padding:6px 18px 14px;gap:0;box-shadow:0 30px 40px -20px rgba(0,0,0,.5)}
   .nav-links.open a{display:block;padding:15px 4px;border-bottom:1px solid rgba(255,255,255,.1)}
   .nav-links.open a::after{display:none}
   .hero-inner{padding-top:120px}
