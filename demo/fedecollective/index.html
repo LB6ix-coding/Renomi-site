@@ -8,8 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="description" content="FedeCollective on parturi Kalliossa, Castréninkatu 18. Skin fadet, taperit, parrat ja mallinmuutokset. Varaa aika verkossa, avoinna ma–la 10–20.">
 <link rel="preload" href="fonts/dm-serif-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-<!-- The spotlight chair image is an AI-made mood image (not a photo of the shop); hotlinked from Higgsfield CDN, copy locally before deploy.
-     Draft by Marktic for FedeCollective, 31.10.2026. Photos, prices, team and contact details are FedeCollective's own
+<!-- Draft by Marktic for FedeCollective, 31.10.2026. Photos, prices, team and contact details are FedeCollective's own
      (fedecollective.fi and the Timma booking page). Image URLs point to fedecollective.fi; on deploy copy them next to this file. -->
 <script type="application/ld+json">
 {
@@ -141,21 +140,6 @@ p{margin:0}
 .menu-foot p{color:var(--ink-3);font-size:.92rem}
 
 
-/* marquee band */
-.marquee{overflow:hidden;border-block:1px solid var(--line);padding-block:22px;background:var(--bg)}
-.marquee .track{display:flex;width:max-content;animation:mq 28s linear infinite}
-.marquee span{font-family:var(--display);font-size:clamp(2.6rem,7vw,5.5rem);line-height:1;white-space:nowrap;padding-right:.6em;color:transparent;-webkit-text-stroke:1px var(--brass)}
-.marquee span:nth-child(odd){color:var(--ink);-webkit-text-stroke:0}
-.marquee span i{font-style:normal;color:var(--brass);-webkit-text-stroke:0;padding-left:.6em}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* spotlight interstitial */
-.spot{position:relative;min-height:min(120vh,1100px);display:grid;align-items:start;justify-items:center;overflow:hidden;isolation:isolate;text-align:center}
-.spot img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;object-position:50% 85%;z-index:-2;will-change:transform}
-.spot::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(10,9,6,.6) 30%,transparent 55%,rgba(10,9,6,.4) 85%,var(--bg) 100%)}
-.spot .wrap{display:grid;gap:18px;justify-items:center;padding-block:clamp(56px,8vw,96px) 0}
-.spot .wrap{background:radial-gradient(70% 80% at 50% 40%,rgba(10,9,6,.85),transparent 75%)}
-.spot h2{font-size:clamp(3.4rem,12vw,10rem);line-height:.86;mix-blend-mode:difference;color:#fff}
-.spot p{color:var(--ink-2);max-width:40ch}
 /* clients */
 .clients{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 @media (max-width:900px){.clients{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -269,7 +253,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div class="track"><span>Skin fade<i>✦</i></span><span>Taper<i>✦</i></span><span>Line up<i>✦</i></span><span>Parta<i>✦</i></span><span>Kallio<i>✦</i></span><span>Skin fade<i>✦</i></span><span>Taper<i>✦</i></span><span>Line up<i>✦</i></span><span>Parta<i>✦</i></span><span>Kallio<i>✦</i></span></div></div>
 <section class="sec" id="palvelut" aria-labelledby="pal-h">
   <div class="wrap">
     <div class="sec-head">
@@ -295,15 +278,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   </div>
 </section>
 
-<section class="spot" aria-labelledby="spot-h">
-  <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_220515_1c8e2da7-f12a-4d0c-98ef-8a74c4937d39.png" alt="" loading="lazy" id="spotImg">
-  <div class="wrap">
-    <p class="eyebrow">Castréninkatu 18</p>
-    <h2 id="spot-h">Your seat<br>is waiting.</h2>
-    <p>Tuoli on valmiina. Valitse aika ja barberi, me hoidetaan loput.</p>
-    <a class="btn btn-brass" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa aika</a>
-  </div>
-</section>
 <section class="sec" aria-labelledby="cl-h">
   <div class="wrap">
     <div class="sec-head">
@@ -453,12 +427,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 
   status();setInterval(status,60000);
   document.getElementById('yr').textContent=new Date().getFullYear();
 
-  // parallax on the spotlight image
-  var spotImg=document.getElementById('spotImg');
-  if(spotImg&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
-    var spotSec=spotImg.parentNode;
-    window.addEventListener('scroll',function(){var r=spotSec.getBoundingClientRect();var k=(r.top+r.height/2-innerHeight/2)/innerHeight;spotImg.style.transform='translateY('+(k*-8)+'%) scale(1.05)';},{passive:true});
-  }
   // gallery + lightbox
   var base='https://fedecollective.fi/media/galleria/';
   var files=['featured_02','image_02','image_03','featured_03','image_04','image_07','image_09','image_14','featured_04','image_15','image_05','image_06','image_17','image_18','image_19','image_25'];
