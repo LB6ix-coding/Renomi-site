@@ -151,7 +151,7 @@
     if (!lay) return;
     const r = lay.getBoundingClientRect(), span = r.height - innerHeight;
     const p = clamp(-r.top / span, 0, 1);
-    const mob = innerWidth < 900, sep = mob ? 36 : 62, drop = mob ? 180 : 280;
+    const mob = innerWidth < 900, sep = mob ? 36 : 62, drop = mob ? 180 : innerHeight < 800 ? 150 : 280;
     lys.forEach((l, i) => {
       const ap = i === 0 ? 1 : clamp(p * 5.4 - i + .6, 0, 1), e = 1 - Math.pow(1 - ap, 3);
       const spread = mq.matches ? 1 : (0.35 + 0.65 * clamp(p * 1.4, 0, 1));
@@ -278,7 +278,7 @@
   // keep the call bar out of the way of the 3D stage and the pinned layer animation
   const busy = new Set();
   const bio = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? busy.add(e.target) : busy.delete(e.target)); cb.classList.toggle('away', busy.size > 0); }, {threshold: 0, rootMargin: '-10% 0px -10% 0px'});
-  [$('.cfg-stage'), $('.layers')].forEach(x => x && bio.observe(x));
+  [$('.cfg-stage'), $('.layers'), $('.result')].forEach(x => x && bio.observe(x));
 
   /* load the 3D configurator (three.js ~680 kB) only when it approaches the viewport */
   const stageEl = $('.cfg-stage');

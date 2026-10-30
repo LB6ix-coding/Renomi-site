@@ -55,7 +55,7 @@ function init() {
   const feltTex = tex(512, 512, (g, w, h) => {
     g.fillStyle = '#d8d8d8'; g.fillRect(0, 0, w, h); noise(g, w, h, 46);
     for (let x = 0; x < w; x += 128) { g.fillStyle = 'rgba(0,0,0,.16)'; g.fillRect(x, 0, 4, h); }
-  }, [3, 1.2]);
+  }, [3, 1]);
   const tileTex = tex(256, 256, (g, w, h) => { g.fillStyle = '#efefef'; g.fillRect(0, 0, w, h); noise(g, w, h, 30); });
 
   /* ---------- lights & environment ---------- */
@@ -126,7 +126,7 @@ function init() {
   /* ---------- roof ---------- */
   const slopeLen = (D / 2 + OVZ) / Math.cos(PITCH);
   const roofLen = W + OVX * 2;
-  const roofGroup = new THREE.Group(); roofGroup.position.y = .35; house.add(roofGroup);
+  const roofGroup = new THREE.Group(); roofGroup.position.y = .47; house.add(roofGroup); // lifted so wall and gable tops never poke through the cover
   const roofMat = new THREE.MeshStandardMaterial({color: 0x1f2124, roughness: .38, metalness: .55, map: metalTex});
   const edgeMat = new THREE.MeshStandardMaterial({color: 0x1f2124, roughness: .5, metalness: .4});
   const seamMat = roofMat;
@@ -136,7 +136,7 @@ function init() {
     let segX = 4, segV = 4, h = () => 0;
     if (kind === 'tiilikuvio') { segX = Math.round(roofLen / .05); segV = Math.round(slopeLen / .036); h = (x, v) => .036 * Math.abs(Math.cos(Math.PI * x / .2)) + .055 * Math.pow(((v / .36) % 1 + 1) % 1, .7); }
     if (kind === 'tiili') { segX = Math.round(roofLen / .05); segV = Math.round(slopeLen / .04); h = (x, v) => { const row = Math.floor(v / .34), off = (row % 2) * .15; return .07 * Math.pow(Math.abs(Math.sin(Math.PI * (x + off) / .3)), .6) + .06 * (((v / .34) % 1 + 1) % 1); }; }
-    const g = new THREE.PlaneGeometry(roofLen, slopeLen, segX, segV);
+    const g = new THREE.PlaneGeometry(roofLen + .04, slopeLen + .03, segX, segV);
     // plane lies in XY; map local y -> slope direction v (0 at ridge)
     const pos = g.attributes.position;
     for (let i = 0; i < pos.count; i++) {
@@ -153,7 +153,7 @@ function init() {
     const base = new THREE.Mesh(new THREE.BoxGeometry(roofLen, .12, slopeLen), edgeMat);
     base.position.set(0, -.07, slopeLen / 2); base.castShadow = true; base.receiveShadow = true; g.add(base);
     const surf = new THREE.Mesh(surfaceGeo('sauma'), roofMat);
-    surf.rotation.x = -Math.PI / 2; surf.position.set(0, 0, slopeLen / 2); surf.castShadow = true; surf.receiveShadow = true; g.add(surf);
+    surf.rotation.x = -Math.PI / 2; surf.position.set(0, .012, slopeLen / 2); surf.castShadow = true; surf.receiveShadow = true; g.add(surf);
     const seams = new THREE.Group(); g.add(seams);
     for (let x = -roofLen / 2 + .3; x < roofLen / 2; x += .52) { const s = new THREE.Mesh(new THREE.BoxGeometry(.05, .09, slopeLen), seamMat); s.position.set(x, .045, slopeLen / 2); s.castShadow = true; seams.add(s); }
     const snow = new THREE.Mesh(new THREE.PlaneGeometry(roofLen - .1, slopeLen - .1, 30, 12), new THREE.MeshStandardMaterial({color: 0xf7fbff, emissive: 0x2a3036, roughness: .95, transparent: true, opacity: 0}));
