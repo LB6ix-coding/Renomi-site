@@ -149,10 +149,11 @@ p{margin:0}
 .marquee span i{font-style:normal;color:var(--brass);-webkit-text-stroke:0;padding-left:.6em}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* spotlight interstitial */
-.spot{position:relative;min-height:min(110vh,980px);display:grid;place-items:center;overflow:hidden;isolation:isolate;text-align:center}
-.spot img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;z-index:-2;will-change:transform}
-.spot::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(60% 50% at 50% 55%,transparent 0%,rgba(10,9,6,.55) 60%,var(--bg) 100%)}
-.spot .wrap{display:grid;gap:18px;justify-items:center;padding-block:120px}
+.spot{position:relative;min-height:min(120vh,1100px);display:grid;align-items:start;justify-items:center;overflow:hidden;isolation:isolate;text-align:center}
+.spot img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;object-position:50% 85%;z-index:-2;will-change:transform}
+.spot::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg) 0%,rgba(10,9,6,.6) 30%,transparent 55%,rgba(10,9,6,.4) 85%,var(--bg) 100%)}
+.spot .wrap{display:grid;gap:18px;justify-items:center;padding-block:clamp(56px,8vw,96px) 0}
+.spot .wrap{background:radial-gradient(70% 80% at 50% 40%,rgba(10,9,6,.85),transparent 75%)}
 .spot h2{font-size:clamp(3.4rem,12vw,10rem);line-height:.86;mix-blend-mode:difference;color:#fff}
 .spot p{color:var(--ink-2);max-width:40ch}
 /* clients */
