@@ -239,7 +239,7 @@ function carousel() {
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   const scene = new THREE.Scene();
   const cam = new THREE.PerspectiveCamera(28, 2, 0.1, 100);
-  const N = imgs.length, R = 7.2, PW = 2.05, PH = PW * 4 / 3;
+  const N = imgs.length, R = 7.2, PW = 3.05, PH = PW * 4 / 3;
   const ring = new THREE.Group(); scene.add(ring);
   const uni = { uVel: { value: 0 } };
   const vert = `uniform float uVel;varying vec2 vUv;varying float vZ;
@@ -280,7 +280,7 @@ function carousel() {
   function size() {
     const w = wrap.clientWidth, h = Math.max(380, Math.min(620, w * 0.55));
     renderer.setSize(w, h); cam.aspect = w / h;
-    cam.position.set(0, 1.4, R + (w < 700 ? 17 : 12.5)); cam.lookAt(0, -0.2, 0); cam.updateProjectionMatrix();
+    cam.position.set(0, 1.2, R + (w < 700 ? 15 : 10.5)); cam.lookAt(0, -0.2, 0); cam.updateProjectionMatrix();
   }
   addEventListener('resize', () => started && size());
   // input
