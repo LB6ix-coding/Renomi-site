@@ -449,7 +449,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
       document.getElementById('fpSvc').textContent=beard.checked?'Skin Fade + Beard':'Skin Fade';
       document.getElementById('fpPrice').innerHTML=(beard.checked?40:30)+'&nbsp;€';
       th.innerHTML='';
-      L.forEach(function(x,j){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Kuva '+(j+1));b.innerHTML='<img alt="" loading="lazy">';b.firstChild.src=B+x+'.JPG';b.onclick=function(){show(j)};th.appendChild(b)});
+      L.forEach(function(x,j){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Kuva '+(j+1));b.innerHTML='<img alt="">';b.firstChild.src=B+x+'.JPG';b.onclick=function(){show(j)};th.appendChild(b)});
       show(0);
     }
     seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});k=b.dataset.k;render()});
