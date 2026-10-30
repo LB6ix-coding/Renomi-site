@@ -157,6 +157,8 @@ p{margin:0}
 .rv.in .rl{transform:none}
 .hero h1 span.hin{animation:hin .9s cubic-bezier(.2,.8,.2,1)}
 @keyframes hin{from{transform:translateY(28px)}}
+.hero canvas.liquid{position:absolute;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+.hero.has-liquid video{visibility:hidden}
 .btn{transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s,border-color .2s}
 .menu-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
 @media (max-width:900px){.menu-grid{grid-template-columns:1fr}}
@@ -244,7 +246,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
 <main>
 <section class="hero" aria-labelledby="h1">
   <img class="poster" src="https://fedecollective.fi/media/galleria/featured_01.JPG" alt="">
-  <video autoplay muted loop playsinline preload="metadata" poster="https://fedecollective.fi/media/galleria/featured_01.JPG" aria-hidden="true"><source src="https://www.fedecollective.fi/hero_background.MP4" type="video/mp4"></video>
+  <video autoplay muted loop playsinline preload="auto" crossorigin="anonymous" poster="https://fedecollective.fi/media/galleria/featured_01.JPG" aria-hidden="true"><source src="https://www.fedecollective.fi/hero_background.MP4" type="video/mp4"></video>
   <div class="wrap">
     <h1 id="h1"><span>Fresh.</span><span>Sharp.</span><span class="r">Kallio.</span></h1>
     <p class="sub">Skin fadet, taperit, line upit ja parrat Castréninkadulla. Kolme barberia, selkeät hinnat ja buukkaus netissä.</p>

@@ -146,4 +146,82 @@ function magnetic() {
   });
 }
 
-pole(); reveal(); heroIn(); magnetic();
+
+/* ---------- liquid hero: the real shop video ripples around the cursor / finger ---------- */
+function liquid() {
+  const hero = document.querySelector('.hero'), video = hero && hero.querySelector('video');
+  if (!video || reduce) return;
+  const cv = document.createElement('canvas'); cv.className = 'liquid'; cv.setAttribute('aria-hidden', 'true');
+  const gl = cv.getContext('webgl', { premultipliedAlpha: false, antialias: false });
+  if (!gl) return;
+  // trail: a small 2D canvas where the pointer paints soft blobs that fade out
+  const TW = 128, TH = 72, trail = document.createElement('canvas'); trail.width = TW; trail.height = TH;
+  const tg = trail.getContext('2d'); tg.fillStyle = '#808080'; tg.fillRect(0, 0, TW, TH);
+  const vs = 'attribute vec2 p;varying vec2 uv;void main(){uv=p*.5+.5;uv.y=1.-uv.y;gl_Position=vec4(p,0,1);}';
+  const fs = `precision mediump float;varying vec2 uv;uniform sampler2D v,t;uniform vec2 tx,cover;uniform float k;
+    vec2 cv(vec2 u){return (u-.5)*cover+.5;}
+    void main(){
+      float a=texture2D(t,uv+vec2(tx.x,0.)).r-texture2D(t,uv-vec2(tx.x,0.)).r;
+      float b=texture2D(t,uv+vec2(0.,tx.y)).r-texture2D(t,uv-vec2(0.,tx.y)).r;
+      vec2 d=vec2(a,b)*k;
+      float r=texture2D(v,cv(uv+d*1.15)).r, g=texture2D(v,cv(uv+d)).g, bl=texture2D(v,cv(uv+d*.85)).b;
+      gl_FragColor=vec4(r,g,bl,1.);
+    }`;
+  const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return o; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr);
+  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) return;
+  gl.useProgram(pr);
+  const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const mk = (unit) => { const t = gl.createTexture(); gl.activeTexture(gl.TEXTURE0 + unit); gl.bindTexture(gl.TEXTURE_2D, t);
+    [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach(w => gl.texParameteri(gl.TEXTURE_2D, w, gl.CLAMP_TO_EDGE));
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); return t; };
+  const tv = mk(0), tt = mk(1);
+  gl.uniform1i(gl.getUniformLocation(pr, 'v'), 0); gl.uniform1i(gl.getUniformLocation(pr, 't'), 1);
+  gl.uniform2f(gl.getUniformLocation(pr, 'tx'), 1.5 / TW, 1.5 / TH);
+  const uk = gl.getUniformLocation(pr, 'k'), uc = gl.getUniformLocation(pr, 'cover');
+  let ok = false, strength = 0;
+  function size() {
+    const w = hero.clientWidth, h = hero.clientHeight, dpr = Math.min(devicePixelRatio, 1.5);
+    cv.width = w * dpr; cv.height = h * dpr; gl.viewport(0, 0, cv.width, cv.height);
+    const va = (video.videoWidth || 16) / (video.videoHeight || 9), ca = w / h;
+    gl.uniform2f(uc, ca < va ? ca / va : 1, ca < va ? 1 : va / ca); // object-fit: cover
+  }
+  let px = -1, py = -1;
+  const move = (x, y) => { const r = hero.getBoundingClientRect(); px = (x - r.left) / r.width; py = (y - r.top) / r.height; strength = 1; };
+  hero.addEventListener('pointermove', e => move(e.clientX, e.clientY), { passive: true });
+  hero.addEventListener('touchmove', e => { const t = e.touches[0]; if (t) move(t.clientX, t.clientY); }, { passive: true });
+  function paint() {
+    tg.fillStyle = 'rgba(128,128,128,.08)'; tg.fillRect(0, 0, TW, TH); // fade back to neutral
+    if (px >= 0) {
+      const x = px * TW, y = py * TH, rad = 11, gr = tg.createRadialGradient(x, y, 0, x, y, rad);
+      gr.addColorStop(0, 'rgba(255,255,255,.55)'); gr.addColorStop(1, 'rgba(255,255,255,0)');
+      tg.fillStyle = gr; tg.beginPath(); tg.arc(x, y, rad, 0, 6.283); tg.fill();
+    }
+  }
+  let visible = true;
+  new IntersectionObserver(es => { visible = es[0].isIntersecting; if (visible) loop(); }).observe(hero);
+  let running = false;
+  function loop() { if (running) return; running = true; (function f() {
+    if (!visible || document.hidden) { running = false; return; }
+    if (video.readyState >= 2) {
+      try {
+        gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, tv);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, video);
+      } catch (e) { cv.remove(); running = false; return; } // cross-origin video: keep the plain video
+      if (!ok) { ok = true; size(); video.after(cv); hero.classList.add('has-liquid'); }
+      paint(); strength *= 0.985;
+      gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, tt);
+      gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, trail);
+      gl.uniform1f(uk, 0.09);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+    requestAnimationFrame(f);
+  })(); }
+  addEventListener('resize', () => ok && size());
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) loop(); });
+  loop();
+}
+
+pole(); reveal(); heroIn(); magnetic(); liquid();
