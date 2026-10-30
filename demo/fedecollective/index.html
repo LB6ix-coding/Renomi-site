@@ -3,519 +3,560 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FedeCollective | Barber Kallio, Helsinki</title>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>FedeCollective</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex">
-<meta name="description" content="FedeCollective, barber Kalliossa. Skin fadet, taperit, line upit ja parrat, 15–45 €. Kolme barberia, auki ma–la 10–20. Buukkaa netissä.">
-<link rel="preload" href="fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Draft by Marktic for FedeCollective, 31.10.2026. Real assets only: photos, video, prices, team and contact details
-     are FedeCollective's own (fedecollective.fi + Timma). Media URLs point to fedecollective.fi; copy next to this file on deploy. -->
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BarberShop","name":"FedeCollective","legalName":"Fede Collective Oy","taxID":"3488162-7",
-"url":"https://www.fedecollective.fi/","image":"https://www.fedecollective.fi/media/galleria/featured_01.JPG","telephone":"+358469459478",
-"email":"fedecollective@outlook.com","priceRange":"15–45 €",
-"address":{"@type":"PostalAddress","streetAddress":"Castréninkatu 18","postalCode":"00530","addressLocality":"Helsinki","addressCountry":"FI"},
-"geo":{"@type":"GeoCoordinates","latitude":60.1853634,"longitude":24.9474173},
-"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"20:00"}],
-"sameAs":["https://www.instagram.com/fedecollective/","https://www.tiktok.com/@fedecollective"],
-"makesOffer":[{"@type":"Offer","name":"Skin Fade/Taper + Beard","price":"40","priceCurrency":"EUR"},{"@type":"Offer","name":"Skin Fade","price":"30","priceCurrency":"EUR"},{"@type":"Offer","name":"Parturileikkaus","price":"30","priceCurrency":"EUR"},{"@type":"Offer","name":"Mallinmuutosleikkaus","price":"45","priceCurrency":"EUR"},{"@type":"Offer","name":"Parran muotoilu","price":"20","priceCurrency":"EUR"},{"@type":"Offer","name":"Koneajo","price":"20","priceCurrency":"EUR"},{"@type":"Offer","name":"Line up","price":"15","priceCurrency":"EUR"}]}
-</script>
+<meta name="description" content="FedeCollective, barber Kalliossa. Skin fadet, taperit, line upit ja parrat, 15–45 €. Kolme barberia, auki ma–la 10–20.">
 <style>
-@font-face{font-family:"Big Shoulders Display";src:url(fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2");font-weight:800;font-display:swap}
-@font-face{font-family:"Big Shoulders Display";src:url(fonts/big-shoulders-display-latin-900-normal.woff2) format("woff2");font-weight:900;font-display:swap}
-@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-grotesk-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
-@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-grotesk-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
-@font-face{font-family:"Hanken Grotesk";src:url(fonts/hanken-grotesk-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
-/* FedeCollective. Street, not spa: tall condensed caps, black, one barber-pole red. Real photos carry the page.
-   Order: video hero + facts, who sat in the chair, menu that adds up the price, the barbers, fresh cuts, reviews, find us. */
+/* FedeCollective, built on the Kuori demo system. Graded real photos, video hero, fade picker from his own work, visit steps, cuts, reviews, prices, FAQ, booking. */
+@font-face{font-family:"Archivo";src:url("fonts/archivo.woff2") format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url("fonts/plexmono-500.woff2") format("woff2");font-weight:500;font-display:swap}
 :root{
-  color-scheme:dark;
   --bg:#0b0b0b;
-  --bg-2:#141414;
-  --line:#262626;
-  --ink:#f4f4f2;
-  --ink-2:#a3a3a0;
-  --ink-3:#6b6b68;
-  --red:#e3342b;
-  --red-ink:#ffffff;
-  --open:#4ade80;
-  --display:"Big Shoulders Display","Arial Narrow","Roboto Condensed",Impact,sans-serif;
-  --body:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --surface:#151515;
+  --surface-2:#1d1d1d;
+  --line:#2b2b2b;
+  --fg:#ecebe6;          /* warm off-white */
+  --muted:#9b9ea6;
+  --tape:#e3392f;
+  --tape-ink:#ffffff;
+  --ok:#7fd1a0;
+  --display:"Archivo","Arial Narrow","Helvetica Neue",Arial,sans-serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --step--1:clamp(.8rem,.77rem + .15vw,.875rem);
+  --step-0:clamp(1rem,.96rem + .2vw,1.0625rem);
+  --step-1:clamp(1.2rem,1.1rem + .5vw,1.45rem);
+  --step-2:clamp(1.6rem,1.3rem + 1.4vw,2.4rem);
+  --step-3:clamp(2.3rem,1.6rem + 3.4vw,4.4rem);
+  --step-4:clamp(2.9rem,1.8rem + 5.6vw,7rem);
+  --wrap:1240px;
+  --radius:6px;
+  color-scheme:dark;
 }
-*{box-sizing:border-box}
-[hidden]{display:none!important}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
-img,video{max-width:100%;display:block}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--red);outline-offset:3px}
-.wrap{max-width:1240px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;margin:0;line-height:.88;letter-spacing:.005em;text-wrap:balance}
-h2{font-size:clamp(3rem,8vw,6.2rem)}
+:focus-visible{outline:2px solid var(--tape);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:700px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:var(--step-3);font-weight:800;font-stretch:118%;text-transform:uppercase;letter-spacing:-.01em}
+h3{font-size:var(--step-1);font-weight:700;font-stretch:105%}
 p{margin:0}
-.sub{color:var(--ink-2);max-width:46ch;font-size:1.06rem}
-.sec{padding-block:clamp(64px,9vw,120px)}
-.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 40px;margin-bottom:clamp(28px,4vw,48px)}
-.head>*{min-width:0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font:700 .95rem/1 var(--body);text-decoration:none;cursor:pointer;transition:transform .15s,background .2s,color .2s,border-color .2s;white-space:nowrap}
-.btn:hover{transform:translateY(-1px)}
-.btn-red{background:var(--red);border-color:var(--red);color:var(--red-ink)}
-.btn-red:hover{background:#f04a40;border-color:#f04a40}
-.btn-light{background:var(--ink);color:var(--bg)}
-.chip{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink-2)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--ink-3);flex:none}
-.open .dot{background:var(--open);box-shadow:0 0 0 4px rgba(74,222,128,.15)}
-.top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .25s,border-color .25s;border-bottom:1px solid transparent}
-.top.solid{background:rgba(11,11,11,.9);backdrop-filter:blur(12px);border-color:var(--line)}
-.top .wrap{display:flex;align-items:center;gap:18px;height:68px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
-.logo img{width:36px;height:36px;border-radius:50%}
-.logo b{font-family:var(--display);font-weight:900;font-size:1.55rem;text-transform:uppercase;letter-spacing:.01em}
-.top nav{display:flex;gap:26px}
-.top nav a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--ink-2)}
-.top nav a:hover{color:var(--ink)}
-.top .btn{min-height:42px;padding:0 18px}
-@media (max-width:900px){.top nav{display:none}}
-@media (max-width:560px){.top .chip{display:none}}
-.hero{position:relative;min-height:min(100svh,900px);display:flex;align-items:flex-end;isolation:isolate;overflow:hidden}
-.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,11,11,.5) 0%,rgba(11,11,11,0) 30%,rgba(11,11,11,.55) 62%,var(--bg) 100%)}
-.hero .wrap{width:100%;padding-block:120px 34px;display:grid;gap:22px}
-.hero h1{font-size:clamp(4.2rem,15vw,12.5rem);line-height:.8}
+.lead{color:var(--muted);max-width:58ch;font-size:var(--step-1);line-height:1.5}
+.mono{font-family:var(--mono);font-size:var(--step--1);letter-spacing:.02em}
+.num{font-variant-numeric:tabular-nums}
+section{padding-block:clamp(64px,9vw,128px)}
+.sec-head{display:grid;gap:18px;margin-bottom:clamp(32px,5vw,56px)}
+
+/* masking tape label */
+.tape{display:inline-block;justify-self:start;background:var(--tape);color:var(--tape-ink);font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;padding:5px 14px 4px;transform:rotate(-1.2deg);
+  clip-path:polygon(0 8%,3% 0,7% 9%,12% 1%,18% 7%,25% 0,33% 8%,41% 2%,50% 7%,58% 0,66% 8%,74% 1%,82% 7%,90% 0,96% 8%,100% 2%,100% 92%,97% 100%,92% 92%,85% 99%,78% 93%,70% 100%,62% 92%,54% 99%,46% 93%,38% 100%,30% 92%,22% 99%,15% 93%,8% 100%,3% 92%,0 98%)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:999px;font-family:var(--display);font-weight:700;font-stretch:110%;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .2s,background .2s,border-color .2s}
+.btn-primary{background:var(--tape);color:var(--tape-ink)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border-color:color-mix(in oklab,var(--fg) 35%,transparent);color:var(--fg);background:transparent}
+.btn-ghost:hover{border-color:var(--fg)}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in oklab,var(--bg) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
+.logo{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.35rem;letter-spacing:.06em;text-decoration:none;display:flex;align-items:baseline;gap:8px}
+.logo small{font-family:var(--mono);font-weight:500;font-size:.68rem;letter-spacing:.14em;color:var(--muted);font-stretch:100%}
+.nav{display:none;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;color:var(--muted);font-size:.95rem}
+.nav a:hover{color:var(--fg)}
+.top .btn{margin-left:auto;min-height:42px;padding:0 18px;font-size:.82rem;white-space:nowrap}
+@media (max-width:560px){.logo small{display:none}}
+@media (max-width:420px){.logo{font-size:1.05rem;letter-spacing:.02em}.top .btn{padding:0 12px;font-size:.74rem}}
+@media (min-width:980px){.nav{display:flex}.top .btn{margin-left:0}}
+
+/* hero */
+.hero{position:relative;padding:0;background:#000;overflow:hidden}
+.hero-media{position:relative;aspect-ratio:16/9;max-height:86vh;width:100%;max-width:100%}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero video{opacity:0;transition:opacity .2s;pointer-events:none}
+.hero .heroimg{opacity:0;transition:opacity .2s}
+.hero .heroimg.on{opacity:1}
+.hero video.on{opacity:1}
+.hero video::-webkit-media-controls,.hero video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,14,17,0) 45%,rgba(13,14,17,.55) 75%,var(--bg) 100%)}
+.hero-copy{position:relative;margin-top:-22vw;z-index:2;padding-bottom:clamp(40px,6vw,72px)}
+@media (min-width:1500px){.hero-copy{margin-top:-330px}}
+.hero h1{font-size:var(--step-4);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:-.015em;line-height:.92}
 .hero h1 span{display:block}
-.hero h1 .r{color:var(--red)}
-.hero .sub{color:#e6e6e3;font-size:1.12rem}
-.ctas{display:flex;flex-wrap:wrap;gap:12px}
-.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.18);margin-top:10px}
-.facts div{padding:18px 16px 4px 0}
-.facts div+div{padding-left:18px;border-left:1px solid rgba(255,255,255,.12)}
-.facts b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(1.7rem,3.4vw,2.4rem);text-transform:uppercase;line-height:1}
-.facts span{font-size:.85rem;color:var(--ink-2)}
-@media (max-width:700px){.facts{grid-template-columns:1fr 1fr}.facts div:nth-child(3){padding-left:0;border-left:0}.facts div:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}}
-.chair{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-@media (max-width:900px){.chair{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.celeb{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden;border-radius:18px;background:var(--bg-2);max-width:100%}
-.celeb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.celeb:hover img{transform:scale(1.04)}
-.celeb figcaption{position:absolute;inset:auto 0 0;padding:48px 16px 16px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
-.celeb b{display:block;font-family:var(--display);font-weight:900;font-size:clamp(1.6rem,2.6vw,2.2rem);text-transform:uppercase;line-height:.95;overflow-wrap:anywhere}
-.celeb span{font-size:.82rem;color:var(--ink-2)}
+.hero h1 .ghost{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+.hero-row{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:end;justify-content:space-between;margin-top:28px}
+.hero .lead{color:#c9c8c2;max-width:46ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:699px){.hero-copy{margin-top:-12vw}.hero-media{aspect-ratio:4/3}}
 
-/* fade picker: real photos of the shop's own work, filtered by fade height */
-.fp{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
-@media (max-width:900px){.fp{grid-template-columns:1fr}}
-.fp-main{position:relative;margin:0;border-radius:22px;overflow:hidden;background:var(--bg-2);aspect-ratio:4/5;max-width:100%;max-height:78vh;width:100%}
-.fp-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;transition:opacity .35s}
-.fp-main img.out{opacity:0}
-.fp-main figcaption{position:absolute;left:14px;bottom:14px;display:flex;gap:8px;flex-wrap:wrap}
-.fp-main figcaption span{background:rgba(0,0,0,.7);backdrop-filter:blur(6px);padding:7px 12px;border-radius:999px;font-size:.82rem;font-weight:500}
-.fp-main figcaption .hl{background:var(--red)}
-.fp-side{display:grid;gap:22px}
-.seg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;background:var(--bg-2);border:1px solid var(--line);border-radius:999px;padding:5px}
-.seg button{min-height:48px;border:0;border-radius:999px;background:transparent;color:var(--ink-2);font:700 1.25rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em;cursor:pointer;transition:background .2s,color .2s}
-.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.fp-desc{display:grid;gap:8px}
-.fp-desc h3{font-size:clamp(2.2rem,4vw,3.2rem)}
-.fp-desc p{color:var(--ink-2);max-width:44ch}
-.toggle{display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:500;width:fit-content}
-.toggle input{appearance:none;width:52px;height:30px;border-radius:999px;background:#333;position:relative;cursor:pointer;transition:background .2s;margin:0;flex:none}
-.toggle input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .2s}
-.toggle input:checked{background:var(--red)}
-.toggle input:checked::after{transform:translateX(22px)}
+.specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.specs div{padding:18px 0;display:grid;gap:2px}
+.specs b{font-family:var(--display);font-stretch:115%;font-size:var(--step-1)}
+.specs span{color:var(--muted);font-size:var(--step--1)}
+@media (min-width:800px){.specs{grid-template-columns:repeat(4,minmax(0,1fr))}.specs div+div{padding-left:24px;border-left:1px solid var(--line)}}
+
+/* services */
+.services{display:grid;gap:16px}
+@media (min-width:860px){.services{grid-template-columns:1.25fr 1fr 1fr}}
+.svc{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;border-radius:var(--radius);overflow:hidden;text-decoration:none;isolation:isolate}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .6s}
+.svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.82) 100%)}
+.svc:hover img{transform:scale(1.04)}
+.svc-body{padding:24px;display:grid;gap:8px;color:#f4f3ee}
+.svc h3{font-size:clamp(1.5rem,1.2rem + 1vw,2.1rem);font-weight:800;font-stretch:112%;text-transform:uppercase;overflow-wrap:anywhere}
+.svc p{color:#d4d3cd;font-size:.95rem;max-width:40ch}
+.svc .price{font-family:var(--mono);font-size:.85rem;color:#fff;background:rgba(0,0,0,.55);justify-self:start;padding:3px 8px;border-radius:3px}
+
+/* configurator */
+.config{background:var(--surface);border-block:1px solid var(--line)}
+.cfg{display:grid;gap:28px}
+.cfg>*{min-width:0}
+@media (min-width:1000px){.cfg{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);align-items:start}}
+.stage{position:relative;aspect-ratio:2688/1520;border-radius:var(--radius);overflow:hidden;background:#000;max-width:100%;touch-action:pan-y;user-select:none}
+.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.stage .after{clip-path:inset(0 0 0 var(--cut,50%));transition:opacity .35s}
+.stage .after.swap{opacity:.25}
+.handle{position:absolute;top:0;bottom:0;left:var(--cut,50%);width:2px;margin-left:-1px;background:var(--tape);pointer-events:none}
+.handle::after{content:"";position:absolute;top:50%;left:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--tape);box-shadow:0 4px 18px rgba(0,0,0,.5);
+  background-image:linear-gradient(90deg,transparent 14px,var(--tape-ink) 14px,var(--tape-ink) 16px,transparent 16px,transparent 28px,var(--tape-ink) 28px,var(--tape-ink) 30px,transparent 30px);background-size:44px 14px;background-repeat:no-repeat;background-position:center}
+.stage-label{position:absolute;bottom:12px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(0,0,0,.6);color:#fff;padding:5px 9px;border-radius:3px;pointer-events:none}
+.stage-label.l{left:12px}.stage-label.r{right:12px}
+.range{width:100%;margin:14px 0 0;accent-color:var(--tape)}
+.panel{display:grid;gap:22px}
+.group{display:grid;gap:10px}
+.group-title{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.swatches{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:46px;height:46px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;position:relative;background:var(--c);transition:transform .15s}
+.sw:hover{transform:scale(1.07)}
+.sw[aria-pressed="true"]{border-color:var(--tape);box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--tape)}
+.sw.satin{background:radial-gradient(circle at 35% 30%,color-mix(in oklab,var(--c) 70%,#fff) 0,var(--c) 55%)}
+.sw.gloss{background:radial-gradient(circle at 32% 28%,#fff 0,color-mix(in oklab,var(--c) 55%,#fff) 10%,var(--c) 38%,color-mix(in oklab,var(--c) 75%,#000) 100%)}
+.sw.matte{background:var(--c)}
+.sw.chrome{background:linear-gradient(135deg,#6e5112,#f3d57a 35%,#9b7420 55%,#fbe9a8 80%,#7a5a14)}
+.sw.print{background:linear-gradient(150deg,#fff 0 35%,#1f8a7a 35% 62%,#8fe0c5 62% 78%,#fff 78%)}
+.car-picker{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+@media (max-width:600px){.car-picker{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}.car-picker::-webkit-scrollbar{display:none}.car-tab{flex:0 0 auto}}
+.car-tab{font:inherit;font-size:.9rem;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;min-height:40px;padding:0 16px;cursor:pointer}
+.car-tab:hover{color:var(--fg);border-color:var(--muted)}
+.car-tab[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.sw.shift{background:conic-gradient(from 200deg,#3a1d7a,#2747d8,#5a2bb0,#1e2f9c,#3a1d7a)}
+.chosen{display:grid;gap:4px;padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface-2)}
+.chosen b{font-family:var(--display);font-stretch:112%;font-size:var(--step-1)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.fields{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.88rem;color:var(--muted)}
+select,input,textarea{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:4px;min-height:46px;padding:10px 12px;width:100%;box-sizing:border-box}
+textarea{min-height:120px;resize:vertical}
+.estimate{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;padding-top:18px;border-top:1px dashed var(--line)}
+.estimate .big{font-family:var(--display);font-weight:800;font-stretch:118%;font-size:var(--step-3);line-height:1}
+.fine{font-size:.82rem;color:var(--muted)}
+
+/* fade picker */
+.stage.fade{aspect-ratio:4/3}
+.stage.fade img{object-position:50% 58%;transition:opacity .35s}
+.stage.fade img.out{opacity:0}
 .thumbs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
-.thumbs button{flex:none;width:76px;height:96px;padding:0;border:2px solid transparent;border-radius:12px;overflow:hidden;background:var(--bg-2);cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
-.thumbs button[aria-current="true"]{border-color:var(--ink);opacity:1}
-.thumbs img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
-.fp-buy{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
-.fp-buy b{font-family:var(--display);font-weight:900;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
-.fp-buy span{display:block;font-size:.88rem;color:var(--ink-2)}
-
-/* in-page booking: Timma inside a panel */
-.bk{position:fixed;inset:0;z-index:90;display:grid;justify-items:end;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
-.bk-panel{width:min(560px,100%);height:100%;background:var(--bg);border-left:1px solid var(--line);display:grid;grid-template-rows:auto auto 1fr auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);animation:bkIn .28s ease-out}
-@keyframes bkIn{from{transform:translateX(40px);opacity:0}}
-.bk-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(18px,env(safe-area-inset-right,0px)) 14px 18px;border-bottom:1px solid var(--line)}
-.bk-top h2{font-size:2rem}
-.bk-x{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink);font-size:1.1rem;cursor:pointer}
-.bk-pick{padding:12px 18px;font-size:.9rem;color:var(--ink-2);border-bottom:1px solid var(--line)}
-.bk-pick b{color:var(--ink)}
-.bk-frame{position:relative;background:#fff}
-.bk-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.bk-load{position:absolute;inset:0;display:grid;place-items:center;color:#555;font-size:.95rem}
-.bk-alt{padding:10px 18px;font-size:.85rem;color:var(--ink-3);border-top:1px solid var(--line)}
-.bk-alt a{color:var(--ink);font-weight:700}
-
-.menu-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
-@media (max-width:900px){.menu-grid{grid-template-columns:1fr}}
-.svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.svc li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:6px 18px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
-.svc h3{font-size:clamp(1.7rem,3vw,2.2rem);line-height:.95}
-.svc p{grid-column:1;color:var(--ink-2);font-size:.95rem;max-width:44ch}
-.svc .p{grid-row:1;grid-column:2;font-family:var(--display);font-weight:900;font-size:clamp(1.7rem,3vw,2.2rem);font-variant-numeric:tabular-nums;white-space:nowrap}
-.svc .add{grid-row:1 / span 2;grid-column:3;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:500 1.5rem/1 var(--body);cursor:pointer;transition:all .15s}
-.svc .add:hover{border-color:var(--ink)}
-.svc .add[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
-.svc .tag{font:700 .68rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-left:10px;vertical-align:middle;position:relative;top:-.3em}
-.cart{position:sticky;top:90px;background:var(--bg-2);border:1px solid var(--line);border-radius:22px;padding:24px;display:grid;gap:18px}
-.cart h3{font-size:2rem}
-.cart ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;min-height:24px}
-.cart li{display:flex;justify-content:space-between;gap:12px;font-size:.96rem}
-.cart .empty{color:var(--ink-3);font-size:.95rem}
-.barbers{display:flex;flex-wrap:wrap;gap:8px}
-.barbers button{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);font:500 .9rem var(--body);cursor:pointer}
-.barbers button img{width:30px;height:30px;border-radius:50%;object-fit:cover}
-.barbers button.any{padding-left:14px}
-.barbers button[aria-pressed="true"]{border-color:var(--ink);background:#1f1f1f}
-.lbl{font-size:.8rem;color:var(--ink-3);font-weight:500}
-.total{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding-top:16px}
-.total b{font-family:var(--display);font-weight:900;font-size:3rem;line-height:1;font-variant-numeric:tabular-nums}
-.cart .note{font-size:.84rem;color:var(--ink-3)}
-.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-@media (max-width:800px){.team{grid-template-columns:1fr 1fr}}
-@media (max-width:480px){.team{grid-template-columns:1fr}}
-.barber{margin:0;position:relative;border-radius:18px;overflow:hidden;background:var(--bg-2);aspect-ratio:4/5;max-width:100%}
-.barber img{width:100%;height:100%;object-fit:cover}
-.barber figcaption{position:absolute;inset:auto 0 0;padding:50px 18px 18px;background:linear-gradient(transparent,rgba(0,0,0,.88));display:flex;justify-content:space-between;align-items:end;gap:12px}
-.barber b{display:block;font-family:var(--display);font-weight:900;font-size:2.4rem;text-transform:uppercase;line-height:.9}
-.barber span{font-size:.85rem;color:var(--ink-2)}
-.barber .btn{min-height:40px;padding:0 16px;font-size:.85rem}
-.cuts{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(150px,18vw,240px);gap:10px}
-.cuts button{padding:0;border:0;border-radius:14px;overflow:hidden;background:var(--bg-2);cursor:zoom-in;grid-row:span 2}
-.cuts button:nth-child(5n+1){grid-column:span 2}
-.cuts img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.cuts button:hover img{transform:scale(1.04)}
-@media (max-width:760px){.cuts{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:170px}.cuts button:nth-child(5n+1){grid-column:span 1}}
-.lb{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.94);display:grid;place-items:center;padding:max(18px,env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) max(18px,env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
-.lb img{max-height:88vh;max-width:min(94vw,820px);width:auto;border-radius:12px}
-.lb button{position:absolute;width:48px;height:48px;border-radius:50%;border:1px solid #444;background:rgba(0,0,0,.5);color:#fff;font-size:1.2rem;cursor:pointer}
-.lb .x{top:calc(16px + env(safe-area-inset-top,0px));right:calc(16px + env(safe-area-inset-right,0px))}
-.lb .pv{left:calc(16px + env(safe-area-inset-left,0px));top:calc(50% - 24px)}
-.lb .nx{right:calc(16px + env(safe-area-inset-right,0px));top:calc(50% - 24px)}
-.revs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-@media (max-width:860px){.revs{grid-template-columns:1fr}}
-.rev{margin:0;background:var(--bg-2);border:1px solid var(--line);border-radius:18px;padding:26px;display:grid;gap:18px;align-content:space-between}
-.rev blockquote{margin:0;font-size:1.25rem;line-height:1.4;font-weight:500}
-.rev figcaption{font-size:.88rem;color:var(--ink-2)}
-.press{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;margin-top:22px;color:var(--ink-2);font-size:.95rem}
-.press a{color:var(--ink);font-weight:700}
-.find{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);border-top:1px solid var(--line);padding-top:clamp(40px,6vw,64px)}
-@media (max-width:860px){.find{grid-template-columns:1fr}}
-.find h2{font-size:clamp(3.2rem,9vw,7rem)}
-.find dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:14px 26px;align-content:start}
-.find dt{color:var(--ink-3);font-size:.9rem;padding-top:2px}
-.find dd{margin:0;font-weight:500;min-width:0;overflow-wrap:anywhere}
-.hours{display:grid;grid-template-columns:auto auto;justify-content:start;gap:2px 22px;font-variant-numeric:tabular-nums}
-.hours span{color:var(--ink-2)}
-.hours .today{color:var(--ink);font-weight:700}
-footer{padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));color:var(--ink-3);font-size:.85rem;border-top:1px solid var(--line);margin-top:clamp(56px,8vw,96px)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px}
-.bar{display:none}
-@media (max-width:700px){
-  .bar{display:flex;position:fixed;inset:auto 0 0;z-index:55;gap:8px;padding:10px max(14px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(14px,env(safe-area-inset-left,0px));background:rgba(11,11,11,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-  .bar .btn{flex:1}
-  footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+.thumbs button{flex:none;width:64px;height:80px;padding:0;border:2px solid var(--line);border-radius:4px;overflow:hidden;background:var(--surface-2);cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--tape)}
+.thumbs img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.toggle{display:flex;align-items:center;gap:12px;cursor:pointer;color:var(--fg);font-size:.95rem}
+.toggle input{appearance:none;width:52px;height:30px;min-height:30px;border-radius:999px;background:#333;position:relative;cursor:pointer;margin:0;padding:0;border:0;flex:none}
+.toggle input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:transform .2s}
+.toggle input:checked{background:var(--tape)}
+.toggle input:checked::after{transform:translateX(22px)}
+.barber-pick{display:flex;flex-wrap:wrap;gap:8px}
+.barber-pick button{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:.9rem;color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:999px;min-height:42px;padding:4px 14px 4px 4px;cursor:pointer}
+.barber-pick button.any{padding-left:14px}
+.barber-pick img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.barber-pick button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+/* team */
+.team{display:grid;gap:16px}
+@media (min-width:860px){.team{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.barber{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;max-width:100%;isolation:isolate}
+.barber img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.barber::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.85) 100%)}
+.barber figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px;display:flex;justify-content:space-between;align-items:end;gap:12px}
+.barber b{display:block;font-family:var(--display);font-weight:800;font-stretch:118%;font-size:var(--step-2);text-transform:uppercase;line-height:1}
+.barber span{font-family:var(--mono);font-size:.75rem;color:#cfcfcf;text-transform:uppercase;letter-spacing:.1em}
+.barber .btn{min-height:40px;padding:0 16px;font-size:.78rem}
+/* process */
+.process{display:grid;gap:40px}
+@media (min-width:980px){.process{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:64px}}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:s}
+.step{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 20px;padding:28px 0;border-top:1px solid var(--line);opacity:.7;transition:opacity .4s}
+.step.on,.no-io .step{opacity:1}
+.step .n{font-family:var(--mono);color:var(--tape);font-size:.85rem;padding-top:6px;grid-column:1;grid-row:1/span 4}
+.step>:not(.n){grid-column:2;min-width:0}
+.step p{color:var(--muted)}
+.step .time{font-family:var(--mono);font-size:.78rem;color:var(--fg)}
+.step img{display:block;width:100%;height:auto;border-radius:var(--radius);margin-top:12px;aspect-ratio:4/3;object-fit:cover}
+.sticky-shot{display:none}
+@media (min-width:980px){
+  .step img{display:none}
+  .sticky-shot{display:block;position:sticky;top:110px;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;background:var(--surface)}
+  .sticky-shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+  .sticky-shot img.on{opacity:1}
 }
+
+/* gallery */
+.gallery{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:var(--radius);background:var(--surface)}
+.gallery img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.gallery figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;background:rgba(0,0,0,.65);color:#fff;padding:5px 9px;border-radius:3px}
+.gallery .wide{grid-column:1/-1}
+.gallery .wide img{aspect-ratio:2688/1520}
+@media (min-width:900px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}.gallery .wide{grid-column:span 2;grid-row:span 2}.gallery .wide img{aspect-ratio:auto;height:100%}}
+
+/* proof */
+.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;margin-bottom:56px}
+@media (min-width:860px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.stat b{display:block;font-family:var(--display);font-weight:800;font-stretch:120%;font-size:var(--step-3);line-height:1}
+.stat span{color:var(--muted);font-size:.92rem}
+.reviews{display:grid;gap:16px}
+@media (min-width:860px){.reviews{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.review{border:1px solid var(--line);border-radius:var(--radius);padding:24px;display:grid;gap:14px;align-content:start;background:var(--surface)}
+.review .stars{color:var(--tape);letter-spacing:3px}
+.review footer{font-size:.88rem;color:var(--muted);display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.example{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--line);border-radius:3px;padding:2px 6px}
+
+/* prices */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;min-width:620px;font-variant-numeric:tabular-nums;table-layout:fixed}
+thead th:first-child{width:26%}
+th,td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line)}
+thead th{font-family:var(--mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:500;background:var(--surface)}
+tbody th{font-family:var(--display);font-stretch:110%;font-weight:700}
+tbody th small{display:block;font-family:var(--body);font-weight:400;color:var(--muted);font-size:.82rem;font-stretch:100%}
+tbody tr:last-child>*{border-bottom:0}
+td{white-space:nowrap}
+
+/* faq */
+.faq{display:grid;gap:0;max-width:860px}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;padding:22px 0;font-family:var(--display);font-weight:700;font-stretch:108%;font-size:var(--step-1)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--tape);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding-bottom:22px;color:var(--muted);max-width:65ch}
+
+/* quote */
+.quote{background:var(--surface);border-top:1px solid var(--line)}
+.quote-grid{display:grid;gap:40px}
+@media (min-width:980px){.quote-grid{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}}
+form{display:grid;gap:14px;align-content:start}
+form .btn{justify-self:start}
+.quote h2{font-size:var(--step-2)}
+.contact-list{display:grid;gap:14px;margin-top:28px}
+.contact-list div{display:grid;gap:2px}
+.contact-list span{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.contact-list b{font-size:var(--step-1);font-family:var(--display);font-stretch:108%;user-select:all}
+.thanks{padding:16px;border:1px solid var(--ok);border-radius:var(--radius);color:var(--ok)}
+
+footer.site{padding-block:40px 56px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer.site .wrap{display:grid;gap:10px}
 </style>
 </head>
 <body>
-
-<header class="top" id="top">
+<header class="top">
   <div class="wrap">
-    <a class="logo" href="#"><img src="https://www.fedecollective.fi/fedecollective_logo_round.png" alt="" width="36" height="36"><b>FedeCollective</b></a>
-    <nav aria-label="Valikko"><a href="#fade">Fade</a><a href="#hinnat">Hinnat</a><a href="#barberit">Barberit</a><a href="#cuts">Cuts</a><a href="#loyda">Löydä meille</a></nav>
-    <span class="chip" id="status"><i class="dot"></i><span>Ma–la 10–20</span></span>
-    <a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a>
+    <a class="logo" href="#alku" aria-label="FedeCollective, etusivu"><img src="img/logo.png" alt="" width="34" height="34" style="border-radius:50%;align-self:center">FEDECOLLECTIVE <small>BARBER · KALLIO</small></a>
+    <nav class="nav" aria-label="Päävalikko">
+      <a href="#palvelut">Palvelut</a>
+      <a href="#fade">Valitse fade</a>
+      <a href="#kaynti">Näin käynti menee</a>
+      <a href="#hinnat">Hinnat</a>
+      <a href="#ukk">UKK</a>
+    </nav>
+    <a class="btn btn-primary" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa aika</a>
   </div>
 </header>
 
-<main>
-<section class="hero" aria-labelledby="h1">
-  <img class="poster" src="https://www.fedecollective.fi/media/galleria/featured_01.JPG" alt="">
-  <video autoplay muted loop playsinline preload="auto" poster="https://www.fedecollective.fi/media/galleria/featured_01.JPG" aria-hidden="true"><source src="https://www.fedecollective.fi/hero_background.MP4" type="video/mp4"></video>
-  <div class="wrap">
-    <h1 id="h1"><span>Fresh.</span><span>Sharp.</span><span class="r">Kallio.</span></h1>
-    <p class="sub">Skin fadet, taperit, line upit ja parrat Castréninkadulla. Kolme barberia, selkeät hinnat ja buukkaus netissä.</p>
-    <div class="ctas">
-      <a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa aika</a>
-      <a class="btn" href="#hinnat">Katso hinnat</a>
+<main id="alku">
+  <section class="hero" aria-label="Esittely">
+    <div class="hero-media">
+      <img class="poster" src="video/hero-poster.jpg" alt="FedeCollectiven työpiste" width="1600" height="900">
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="video/hero-poster.jpg" aria-hidden="true"></video>
+      <script>(function(){var v=document.getElementById('heroVideo');v.muted=true;v.defaultMuted=true;v.src='video/hero.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
     </div>
-    <div class="facts">
-      <div><b>15–45&nbsp;€</b><span>kaikki palvelut</span></div>
-      <div><b>Ma–la</b><span>10–20, su kiinni</span></div>
-      <div><b>3 barberia</b><span>valitse oma tai eka vapaa</span></div>
-      <div><b>Kallio</b><span>Castréninkatu 18</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" aria-labelledby="chair-h">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="chair-h">Tuolissa<br>käyneet</h2>
-      <a class="btn" href="https://www.instagram.com/fedecollective/" target="_blank" rel="noopener">@fedecollective</a>
-    </div>
-    <div class="chair">
-      <figure class="celeb"><img src="https://www.fedecollective.fi/media/highlights/image_1.JPG" alt="NLE Choppa FedeCollectiven tuolissa" loading="lazy"><figcaption><b>NLE Choppa</b><span>Räppäri</span></figcaption></figure>
-      <figure class="celeb"><img src="https://www.fedecollective.fi/media/highlights/image_2.JPG" alt="1.CUZ FedeCollectiven tuolissa" loading="lazy"><figcaption><b>1.CUZ</b><span>Räppäri</span></figcaption></figure>
-      <figure class="celeb"><img src="https://www.fedecollective.fi/media/highlights/image_3.JPG" alt="Yung Dred FedeCollectiven tuolissa" loading="lazy"><figcaption><b>Yung Dred</b><span>Räppäri</span></figcaption></figure>
-      <figure class="celeb"><img src="https://www.fedecollective.fi/media/highlights/image_4.JPG" alt="BashTheEntertainer FedeCollectiven tuolissa" loading="lazy"><figcaption><b>BashTheEntertainer</b><span>Koomikko</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="fade" aria-labelledby="fade-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="fade-h">Valitse<br>fade</h2>
-      <p class="sub">Kaikki kuvat on meidän omia töitä tästä tuolista. Valitse korkeus ja katso, miltä se näyttää oikeasti.</p>
-    </div>
-    <div class="fp">
-      <figure class="fp-main" aria-live="polite">
-        <img id="fpA" alt="">
-        <img id="fpB" alt="" class="out">
-        <figcaption><span class="hl" id="fpTag">Mid fade</span><span>Oma työ</span></figcaption>
-      </figure>
-      <div class="fp-side">
-        <div class="seg" role="group" aria-label="Faden korkeus" id="fpSeg">
-          <button type="button" data-k="taper" aria-pressed="false">Taper</button>
-          <button type="button" data-k="low" aria-pressed="false">Low</button>
-          <button type="button" data-k="mid" aria-pressed="true">Mid</button>
-          <button type="button" data-k="high" aria-pressed="false">High</button>
-        </div>
-        <div class="fp-desc"><h3 id="fpH">Mid fade</h3><p id="fpP"></p></div>
-        <label class="toggle" for="fpBeard"><input type="checkbox" id="fpBeard"> Parta mukaan</label>
-        <div class="thumbs" id="fpThumbs" aria-label="Lisää kuvia tästä tyylistä"></div>
-        <div class="fp-buy">
-          <div><b id="fpPrice">30&nbsp;€</b><span id="fpSvc">Skin Fade</span></div>
-          <a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener" id="fpGo">Varaa tämä</a>
+    <div class="wrap hero-copy">
+      <h1><span>Details</span><span class="ghost">matter.</span></h1>
+      <div class="hero-row">
+        <p class="lead">Skin fadet, taperit, line upit ja parrat Castréninkadulla. Kolme barberia, hinnat näkyvät heti ja ajan saat netistä parissa minuutissa.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#fade">Valitse fade</a>
+          <a class="btn btn-ghost" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa aika</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="sec" id="hinnat" aria-labelledby="menu-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="menu-h">Hinnat</h2>
-      <p class="sub">Paina plussaa, niin näet heti paljonko käynti maksaa. Ei piilokuluja.</p>
+    <div class="wrap">
+      <div class="specs">
+        <div><b class="num">15–45&nbsp;€</b><span>kaikki palvelut</span></div>
+        <div><b class="num">Ma–la 10–20</b><span>sunnuntaisin kiinni</span></div>
+        <div><b>3 barberia</b><span>valitse oma tai eka vapaa</span></div>
+        <div><b>Kallio</b><span>Castréninkatu 18</span></div>
+      </div>
     </div>
-    <div class="menu-grid">
-      <ul class="svc" id="svc">
-        <li><h3>Skin Fade + Beard<span class="tag">Suosituin</span></h3><span class="p">40&nbsp;€</span><button class="add" type="button" data-n="Skin Fade + Beard" data-p="40" aria-pressed="false" aria-label="Lisää Skin Fade + Beard">+</button><p>Fade tai taper ja parta kuntoon samalla käynnillä.</p></li>
-        <li><h3>Skin Fade</h3><span class="p">30&nbsp;€</span><button class="add" type="button" data-n="Skin Fade" data-p="30" aria-pressed="false" aria-label="Lisää Skin Fade">+</button><p>Low, mid tai high. Skin fade tai taper.</p></li>
-        <li><h3>Parturileikkaus</h3><span class="p">30&nbsp;€</span><button class="add" type="button" data-n="Parturileikkaus" data-p="30" aria-pressed="false" aria-label="Lisää Parturileikkaus">+</button><p>Oma malli, myös saksityö. Fade mukaan jos haluat.</p></li>
-        <li><h3>Mallinmuutos</h3><span class="p">45&nbsp;€</span><button class="add" type="button" data-n="Mallinmuutosleikkaus" data-p="45" aria-pressed="false" aria-label="Lisää Mallinmuutosleikkaus">+</button><p>Uusi look, esim. pitkästä lyhyeen. Pesu kuuluu hintaan.</p></li>
-        <li><h3>Parran muotoilu</h3><span class="p">20&nbsp;€</span><button class="add" type="button" data-n="Parran muotoilu" data-p="20" aria-pressed="false" aria-label="Lisää Parran muotoilu">+</button><p>Parta muotoon ja rajat teräviksi.</p></li>
-        <li><h3>Koneajo</h3><span class="p">20&nbsp;€</span><button class="add" type="button" data-n="Koneajo" data-p="20" aria-pressed="false" aria-label="Lisää Koneajo">+</button><p>Koko pää koneella samaan mittaan.</p></li>
-        <li><h3>Line up</h3><span class="p">15&nbsp;€</span><button class="add" type="button" data-n="Line up" data-p="15" aria-pressed="false" aria-label="Lisää Line up">+</button><p>Pelkät rajat terävöitetään. Ei leikkuuta eikä fadea.</p></li>
-      </ul>
-      <aside class="cart" aria-labelledby="cart-h">
-        <h3 id="cart-h">Sun käynti</h3>
-        <ul id="cartList" aria-live="polite"><li class="empty">Valitse palvelu plussasta.</li></ul>
-        <div style="display:grid;gap:10px">
-          <span class="lbl" id="b-lbl">Barberi</span>
-          <div class="barbers" role="group" aria-labelledby="b-lbl" id="barbers">
-            <button type="button" class="any" data-b="Eka vapaa" aria-pressed="true">Eka vapaa</button>
-            <button type="button" data-b="Fedefades" aria-pressed="false"><img src="https://www.fedecollective.fi/_next/static/media/fedefades.5bf200c1.jpg" alt="">Fedefades</button>
-            <button type="button" data-b="TimoBlends" aria-pressed="false"><img src="https://www.fedecollective.fi/_next/static/media/timoblends.f58bad95.jpg" alt="">TimoBlends</button>
-            <button type="button" data-b="LeeCutz" aria-pressed="false"><img src="https://www.fedecollective.fi/_next/static/media/leecutz.7c39bbe8.jpg" alt="">LeeCutz</button>
+  </section>
+
+  <section id="palvelut">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Palvelut</span>
+        <h2>Fade, leikkaus, parta</h2>
+        <p class="lead">Kaikki palvelut yhdellä käynnillä. Valitse varauksessa yksi tai useampi, niin näet kokonaishinnan heti.</p>
+      </div>
+      <div class="services">
+        <a class="svc" href="#fade">
+          <img src="img/image_01.webp" alt="Mid skin fade FedeCollectivessa" loading="lazy">
+          <div class="svc-body"><span class="price num">skin fade 30&nbsp;€ · parran kanssa 40&nbsp;€</span><h3>Fadet</h3><p>Low, mid tai high. Skin fade tai taper, siirtymät smoothina.</p></div>
+        </a>
+        <a class="svc" href="#hinnat">
+          <img src="img/image_03.webp" alt="Kiharat ja taper FedeCollectivessa" loading="lazy">
+          <div class="svc-body"><span class="price num">parturileikkaus 30&nbsp;€ · mallinmuutos 45&nbsp;€</span><h3>Leikkaukset</h3><p>Oma malli, myös saksityö. Mallinmuutoksessa pesu kuuluu hintaan.</p></div>
+        </a>
+        <a class="svc" href="#hinnat">
+          <img src="img/image_26.webp" alt="High fade ja muotoiltu parta" loading="lazy">
+          <div class="svc-body"><span class="price num">parta 20&nbsp;€ · line up 15&nbsp;€</span><h3>Parta ja rajat</h3><p>Parta muotoon ja rajat teräviksi. Line up myös ilman leikkuuta.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="fade" class="config">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Valitse fade</span>
+        <h2>Katso ennen kuin istut</h2>
+        <p class="lead">Valitse korkeus ja katso, miltä se näyttää meidän tuolissa. Kaikki kuvat ovat omia töitämme.</p>
+      </div>
+      <div class="cfg">
+        <div>
+          <div class="car-picker" id="fadePick" role="group" aria-label="Faden korkeus">
+            <button class="car-tab" type="button" data-k="taper" aria-pressed="false">Taper</button>
+            <button class="car-tab" type="button" data-k="low" aria-pressed="false">Low fade</button>
+            <button class="car-tab" type="button" data-k="mid" aria-pressed="true">Mid fade</button>
+            <button class="car-tab" type="button" data-k="high" aria-pressed="false">High fade</button>
           </div>
+          <div class="stage fade" id="fadeStage">
+            <img id="fA" alt="" decoding="async">
+            <img id="fB" alt="" decoding="async" class="out">
+            <span class="stage-label l" id="fadeLabel">Mid fade</span>
+            <span class="stage-label r">Oma työ</span>
+          </div>
+          <div class="thumbs" id="fadeThumbs" style="margin-top:12px" aria-label="Lisää kuvia tästä tyylistä"></div>
         </div>
-        <div class="total"><span>Yhteensä</span><b id="sum">0&nbsp;€</b></div>
-        <a class="btn btn-red" id="go" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Valitse aika</a>
-        <p class="note">Kalenteri aukeaa tähän sivulle. Valitse siellä samat palvelut ja barberi.</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="barberit" aria-labelledby="team-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="team-h">Barberit</h2>
-      <p class="sub">Jokaisella oma käsiala. Valitse oma barberi tai ota eka vapaa aika.</p>
-    </div>
-    <div class="team">
-      <figure class="barber"><img src="https://www.fedecollective.fi/_next/static/media/fedefades.5bf200c1.jpg" alt="Fedefades" loading="lazy"><figcaption><div><b>Fedefades</b><span>Barberi ja perustaja</span></div><a class="btn btn-light" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a></figcaption></figure>
-      <figure class="barber"><img src="https://www.fedecollective.fi/_next/static/media/timoblends.f58bad95.jpg" alt="TimoBlends" loading="lazy"><figcaption><div><b>TimoBlends</b><span>Barberi</span></div><a class="btn btn-light" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a></figcaption></figure>
-      <figure class="barber"><img src="https://www.fedecollective.fi/_next/static/media/leecutz.7c39bbe8.jpg" alt="LeeCutz" loading="lazy"><figcaption><div><b>LeeCutz</b><span>Barberi</span></div><a class="btn btn-light" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="cuts" aria-labelledby="cuts-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="head">
-      <h2 id="cuts-h">Fresh cuts</h2>
-      <a class="btn" href="https://www.tiktok.com/@fedecollective" target="_blank" rel="noopener">Lisää TikTokissa</a>
-    </div>
-    <div class="cuts" id="gal"></div>
-  </div>
-</section>
-
-<section class="sec" aria-labelledby="rev-h" style="padding-top:0">
-  <div class="wrap">
-    <div class="head"><h2 id="rev-h">Asiakkaat sanoo</h2></div>
-    <div class="revs">
-      <figure class="rev"><blockquote>Smoothia jälkee, tulin ilman odotuksia ja tyytyväisenä sai poistua.</blockquote><figcaption>Arttu P.</figcaption></figure>
-      <figure class="rev"><blockquote>Suomen paras parturi. Fede Faisal leikkaa hiuksia uskomattomalla ammattitaidollaan.</blockquote><figcaption>Liibaan H.</figcaption></figure>
-      <figure class="rev"><blockquote>Laadukasta työtä ja mukava ilmapiiri. Tulen varmasti uudelleen!</blockquote><figcaption>Sang P.</figcaption></figure>
-    </div>
-    <p class="press">Juttu meistä: <a href="https://www.hs.fi/helsinki/art-2000011093629.html" target="_blank" rel="noopener">Helsingin Sanomat ↗</a></p>
-  </div>
-</section>
-
-<section class="sec" id="loyda" aria-labelledby="find-h" style="padding-top:0">
-  <div class="wrap find">
-    <div style="display:grid;gap:22px;align-content:start">
-      <h2 id="find-h">Castréninkatu 18</h2>
-      <p class="sub">00530 Helsinki, Kallio. Buukkaa netissä, soita tai laita DM Instagramissa.</p>
-      <div class="ctas">
-        <a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa aika</a>
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=FedeCollective%2C%20Castr%C3%A9ninkatu%2018%2C%20Helsinki" target="_blank" rel="noopener">Reitti kartalla</a>
+        <div class="panel">
+          <div class="chosen" aria-live="polite">
+            <span class="mono" id="fadeCode">Faden korkeus</span>
+            <b id="fadeName">Mid fade</b>
+            <span class="fine" id="fadeDesc"></span>
+          </div>
+          <label class="toggle" for="beard"><input type="checkbox" id="beard"> Parta mukaan</label>
+          <div class="group">
+            <div class="group-title"><span>Barberi</span></div>
+            <div class="barber-pick" id="barberPick" role="group" aria-label="Barberi">
+              <button type="button" class="any" data-b="Eka vapaa" aria-pressed="true">Eka vapaa</button>
+              <button type="button" data-b="Fedefades" aria-pressed="false"><img src="img/team_fedefades.webp" alt="">Fedefades</button>
+              <button type="button" data-b="TimoBlends" aria-pressed="false"><img src="img/team_timoblends.webp" alt="">TimoBlends</button>
+              <button type="button" data-b="LeeCutz" aria-pressed="false"><img src="img/team_leecutz.webp" alt="">LeeCutz</button>
+            </div>
+          </div>
+          <div class="estimate">
+            <div><span class="fine" id="svcName">Skin Fade</span><div class="big num" id="price">30&nbsp;€</div></div>
+            <a class="btn btn-primary" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa tämä</a>
+          </div>
+          <p class="fine">Varaus avautuu Timmaan. Valitse siellä sama palvelu ja barberi. Korkeus sovitaan vielä tuolissa.</p>
+        </div>
       </div>
     </div>
-    <dl>
-      <dt>Auki</dt><dd><div class="hours" id="hours"><span data-d="1">Ma</span><span data-d="1">10–20</span><span data-d="2">Ti</span><span data-d="2">10–20</span><span data-d="3">Ke</span><span data-d="3">10–20</span><span data-d="4">To</span><span data-d="4">10–20</span><span data-d="5">Pe</span><span data-d="5">10–20</span><span data-d="6">La</span><span data-d="6">10–20</span><span data-d="0">Su</span><span data-d="0">kiinni</span></div></dd>
-      <dt>Puhelin</dt><dd><a href="tel:+358469459478">046 945 9478</a></dd>
-      <dt>Sähköposti</dt><dd><a href="mailto:fedecollective@outlook.com">fedecollective@outlook.com</a></dd>
-      <dt>Some</dt><dd><a href="https://www.instagram.com/fedecollective/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@fedecollective" target="_blank" rel="noopener">TikTok</a></dd>
-    </dl>
-  </div>
-</section>
+  </section>
+
+  <section id="kaynti">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Näin käynti menee</span>
+        <h2>Varaat, istut, lähdet freshinä</h2>
+      </div>
+      <div class="process">
+        <ol class="steps" id="steps">
+          <li class="step" data-img="0"><span class="n">01</span><h3>Varaa netissä</h3><p>Valitse palvelu, barberi ja aika Timmassa. Voit ottaa monta palvelua samalla kertaa.</p><span class="time">parissa minuutissa</span><img src="img/image_19.webp" alt="FedeCollectiven tila" loading="lazy"></li>
+          <li class="step" data-img="1"><span class="n">02</span><h3>Kerro mitä haluat</h3><p>Näytä kuva tai kerro korkeus. Jos et tiedä, käydään vaihtoehdot läpi tuolissa.</p><span class="time">ennen leikkuuta</span><img src="img/image_22.webp" alt="Asiakas tuolissa" loading="lazy"></li>
+          <li class="step" data-img="2"><span class="n">03</span><h3>Fade ja leikkaus</h3><p>Siirtymät tehdään käsin koneella ja saksilla, kunnes ne ovat tasaiset joka kulmasta.</p><span class="time">tuolissa</span><img src="img/image_09.webp" alt="High fade työn alla" loading="lazy"></li>
+          <li class="step" data-img="3"><span class="n">04</span><h3>Rajat ja viimeistely</h3><p>Line up, parta ja viimeistely. Katsot lopputuloksen peilistä ennen kuin nouset.</p><span class="time">valmis</span><img src="img/image_27.webp" alt="Valmis leikkaus ja parta" loading="lazy"></li>
+        </ol>
+        <div class="sticky-shot" aria-hidden="true">
+          <img class="on" src="img/image_19.webp" alt="" loading="lazy">
+          <img src="img/image_22.webp" alt="" loading="lazy">
+          <img src="img/image_09.webp" alt="" loading="lazy">
+          <img src="img/image_27.webp" alt="" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiimi" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Barberit</span>
+        <h2>Kolme barberia</h2>
+        <p class="lead">Jokaisella oma käsiala. Valitse oma barberi tai ota eka vapaa aika.</p>
+      </div>
+      <div class="team">
+        <figure class="barber"><img src="img/team_fedefades.webp" alt="Fedefades" loading="lazy"><figcaption><div><span>Perustaja</span><b>Fedefades</b></div><a class="btn btn-primary" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a></figcaption></figure>
+        <figure class="barber"><img src="img/team_timoblends.webp" alt="TimoBlends" loading="lazy"><figcaption><div><span>Barberi</span><b>TimoBlends</b></div><a class="btn btn-primary" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a></figcaption></figure>
+        <figure class="barber"><img src="img/team_leecutz.webp" alt="LeeCutz" loading="lazy"><figcaption><div><span>Barberi</span><b>LeeCutz</b></div><a class="btn btn-primary" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa</a></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="galleria" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Työt</span>
+        <h2>Tuolista lähteneitä</h2>
+      </div>
+      <div class="gallery">
+        <figure class="wide"><img src="img/hl_1.webp" alt="NLE Choppa FedeCollectivessa" loading="lazy"><figcaption>NLE Choppa · räppäri</figcaption></figure>
+        <figure><img src="img/hl_2.webp" alt="1.CUZ FedeCollectivessa" loading="lazy"><figcaption>1.CUZ · räppäri</figcaption></figure>
+        <figure><img src="img/hl_3.webp" alt="Yung Dred FedeCollectivessa" loading="lazy"><figcaption>Yung Dred · räppäri</figcaption></figure>
+        <figure><img src="img/hl_4.webp" alt="BashTheEntertainer FedeCollectivessa" loading="lazy"><figcaption>BashTheEntertainer · koomikko</figcaption></figure>
+        <figure><img src="img/image_16.webp" alt="Taper kiharoille" loading="lazy"><figcaption>Taper · kiharat</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="arviot" style="padding-top:0">
+    <div class="wrap">
+      <div class="reviews">
+        <article class="review"><span class="stars" aria-label="5 tähteä">★★★★★</span><p>Smoothia jälkee, tulin ilman odotuksia ja tyytyväisenä sai poistua.</p><footer><span>Arttu P.</span></footer></article>
+        <article class="review"><span class="stars" aria-label="5 tähteä">★★★★★</span><p>Suomen paras parturi. Fede Faisal leikkaa hiuksia uskomattomalla ammattitaidollaan.</p><footer><span>Liibaan H.</span></footer></article>
+        <article class="review"><span class="stars" aria-label="5 tähteä">★★★★★</span><p>Laadukasta työtä ja mukava ilmapiiri. Tulen varmasti uudelleen!</p><footer><span>Sang P.</span></footer></article>
+      </div>
+      <p class="fine" style="margin-top:16px">Nähty: <a href="https://www.hs.fi/helsinki/art-2000011093629.html" target="_blank" rel="noopener">Helsingin Sanomat</a></p>
+    </div>
+  </section>
+
+  <section id="hinnat" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">Hinnat</span>
+        <h2>Hinta näkyy heti</h2>
+        <p class="lead">Ei piilokuluja. Voit yhdistää palveluita samaan käyntiin.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Palvelu</th><th scope="col">Hinta</th><th scope="col">Sisältää</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Skin Fade + Beard</th><td class="num">40&nbsp;€</td><td>Fade tai taper ja parran muotoilu</td></tr>
+            <tr><th scope="row">Skin Fade</th><td class="num">30&nbsp;€</td><td>Low, mid tai high, skin fade tai taper</td></tr>
+            <tr><th scope="row">Parturileikkaus</th><td class="num">30&nbsp;€</td><td>Oma malli, myös saksityö, fade haluttaessa</td></tr>
+            <tr><th scope="row">Mallinmuutos</th><td class="num">45&nbsp;€</td><td>Uusi malli, sisältää pesun</td></tr>
+            <tr><th scope="row">Parran muotoilu</th><td class="num">20&nbsp;€</td><td>Muoto ja rajaus</td></tr>
+            <tr><th scope="row">Koneajo</th><td class="num">20&nbsp;€</td><td>Koko pää samaan mittaan</td></tr>
+            <tr><th scope="row">Line up</th><td class="num">15&nbsp;€</td><td>Pelkät rajat, ei leikkuuta eikä fadea</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="ukk" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tape">UKK</span>
+        <h2>Usein kysyttyä</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Voinko valita barberin?</summary><p>Kyllä. Valitse Fedefades, TimoBlends tai LeeCutz varauksessa, tai ota ensimmäinen vapaa aika.</p></details>
+        <details><summary>Mikä ero on taperilla ja fadella?</summary><p>Taper siistii vain niskan ja ohimot, ja sivuille jää pituutta. Fadessa häivytys nousee korkeammalle, low, mid tai high, ja iho voi näkyä. Molemmat varataan Skin Fade -palveluna.</p></details>
+        <details><summary>Kuuluuko pesu hintaan?</summary><p>Mallinmuutosleikkauksessa pesu kuuluu hintaan.</p></details>
+        <details><summary>Miten varaan tai muutan aikaa?</summary><p>Varaus tehdään netissä Timmassa. Muutoksissa voit soittaa numeroon 046 945 9478 tai laittaa sähköpostia osoitteeseen fedecollective@outlook.com.</p></details>
+        <details><summary>Missä olette?</summary><p>Castréninkatu 18, 00530 Helsinki, Kalliossa. Avoinna maanantaista lauantaihin klo 10–20.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="varaa" class="quote">
+    <div class="wrap quote-grid">
+      <div>
+        <span class="tape">Varaa aika</span>
+        <h2 style="margin-top:18px">Tuoli odottaa</h2>
+        <p class="lead" style="margin-top:18px">Varaa netissä, soita tai laita DM Instagramissa.</p>
+        <div class="contact-list">
+          <div><span>Puhelin</span><b>046 945 9478</b></div>
+          <div><span>Sähköposti</span><b>fedecollective@outlook.com</b></div>
+          <div><span>Osoite</span><b>Castréninkatu 18, 00530 Helsinki</b></div>
+          <div><span>Avoinna</span><b>ma–la 10–20, su kiinni</b></div>
+        </div>
+      </div>
+      <div style="display:grid;gap:16px;align-content:start">
+        <div class="stage" style="aspect-ratio:4/3"><img src="img/image_10.webp" alt="FedeCollectivein tuolit" loading="lazy" style="object-position:50% 55%"></div>
+        <a class="btn btn-primary" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener" style="justify-self:start">Varaa aika netissä</a>
+        <p class="fine">Instagram <a href="https://www.instagram.com/fedecollective/" target="_blank" rel="noopener">@fedecollective</a> · TikTok <a href="https://www.tiktok.com/@fedecollective" target="_blank" rel="noopener">@fedecollective</a></p>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer><div class="wrap"><span>© <span id="yr">2026</span> Fede Collective Oy · Y-tunnus 3488162-7</span><span>Castréninkatu 18, 00530 Helsinki</span></div></footer>
-
-<div class="bar"><a class="btn" href="tel:+358469459478">Soita</a><a class="btn btn-red" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa aika</a></div>
-
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Kuva">
-  <img id="lbImg" alt="">
-  <button class="x" type="button" id="lbX" aria-label="Sulje">✕</button>
-  <button class="pv" type="button" id="lbP" aria-label="Edellinen">←</button>
-  <button class="nx" type="button" id="lbN" aria-label="Seuraava">→</button>
-</div>
-
-<div class="bk" id="bk" hidden role="dialog" aria-modal="true" aria-labelledby="bk-h">
-  <div class="bk-panel">
-    <div class="bk-top"><h2 id="bk-h">Varaa aika</h2><button class="bk-x" type="button" id="bkX" aria-label="Sulje varaus">✕</button></div>
-    <p class="bk-pick" id="bkPick" hidden></p>
-    <div class="bk-frame"><span class="bk-load">Ladataan varauskalenteria…</span><iframe id="bkF" title="FedeCollective ajanvaraus" allow="payment"></iframe></div>
-    <p class="bk-alt">Kalenteri ei näy? <a href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener" data-direct="1">Avaa varaus uuteen ikkunaan ↗</a></p>
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Fede Collective Oy · Y-tunnus 3488162-7 · Castréninkatu 18, 00530 Helsinki</span>
   </div>
-</div>
+</footer>
 
 <script>
 (function(){
-  var top=document.getElementById('top');
-  function sc(){top.classList.toggle('solid',scrollY>30)}
-  addEventListener('scroll',sc,{passive:true});sc();
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  function now(){
-    var o={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Helsinki',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()).forEach(function(p){o[p.type]=p.value});
-    return {d:{Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday],m:(+o.hour%24)*60+(+o.minute)};
+  // fade picker: the shop's own photos, filtered by fade height
+  var T={
+    taper:{h:'Taper',p:'Siistit rajat niskaan ja ohimoille, pituus jää sivuille.',img:['03','05','16','17','14','20','25','07','15']},
+    low:{h:'Low fade',p:'Häivytys alkaa matalalta korvan yläpuolelta.',img:['02','04','21','29','18','31']},
+    mid:{h:'Mid fade',p:'Häivytys ohimoiden korkeudelle. Suosituin valinta.',img:['01','06','19','22','11','28','23','27']},
+    high:{h:'High fade',p:'Iho näkyy pitkälle ylös. Terävin vaihtoehto.',img:['09','26','24','30']}
+  };
+  var BEARD=['07','15','23','26','27'];
+  var k='mid',front='fA',barber='Eka vapaa';
+  var pick=document.getElementById('fadePick'),beard=document.getElementById('beard'),th=document.getElementById('fadeThumbs');
+  function list(){var L=T[k].img;if(!beard.checked)return L;var b=L.filter(function(x){return BEARD.indexOf(x)>-1});return b.concat(L.filter(function(x){return BEARD.indexOf(x)<0}));}
+  function show(i){
+    var L=list();i=(i+L.length)%L.length;
+    var a=document.getElementById(front),b=document.getElementById(front==='fA'?'fB':'fA');
+    b.onload=function(){b.classList.remove('out');a.classList.add('out');front=b.id};
+    b.src='img/image_'+L[i]+'.webp';b.alt=T[k].h+', FedeCollectivein oma työ';
+    th.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-current',j===i)});
   }
-  function status(){
-    var t=now(),el=document.getElementById('status'),s=el.querySelector('span');
-    var open=t.d>=1&&t.d<=6&&t.m>=600&&t.m<1200;
-    el.classList.toggle('open',open);
-    s.textContent=open?'Auki nyt, klo 20 asti':(t.d>=1&&t.d<=6&&t.m<600?'Aukeaa tänään klo 10':(t.d===6||t.d===0?'Aukeaa ma klo 10':'Aukeaa huomenna klo 10'));
-    document.querySelectorAll('#hours [data-d="'+t.d+'"]').forEach(function(x){x.classList.add('today')});
+  function render(){
+    var t=T[k];
+    document.getElementById('fadeName').textContent=t.h+(beard.checked?' + parta':'');
+    document.getElementById('fadeLabel').textContent=t.h;
+    document.getElementById('fadeDesc').textContent=t.p+' Barberi: '+barber+'.';
+    document.getElementById('svcName').textContent=beard.checked?'Skin Fade + Beard':'Skin Fade';
+    document.getElementById('price').innerHTML=(beard.checked?40:30)+'&nbsp;€';
+    th.innerHTML='';
+    list().forEach(function(x,j){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Kuva '+(j+1));var m=document.createElement('img');m.alt='';m.src='img/image_'+x+'.webp';b.appendChild(m);b.onclick=function(){show(j)};th.appendChild(b)});
+    show(0);
   }
-  status();setInterval(status,60000);
-  var picked=[],barber='Eka vapaa';
-  var list=document.getElementById('cartList'),sum=document.getElementById('sum');
-  function draw(){
-    list.innerHTML='';
-    if(!picked.length){list.innerHTML='<li class="empty">Valitse palvelu plussasta.</li>';}
-    picked.forEach(function(x){var li=document.createElement('li');li.innerHTML='<span></span><span></span>';li.children[0].textContent=x.n;li.children[1].innerHTML=x.p+'&nbsp;€';list.appendChild(li)});
-    if(picked.length){var li=document.createElement('li');li.innerHTML='<span style="color:var(--ink-3)">Barberi</span><span></span>';li.children[1].textContent=barber;list.appendChild(li)}
-    sum.innerHTML=picked.reduce(function(a,x){return a+x.p},0)+'&nbsp;€';
-  }
-  document.getElementById('svc').addEventListener('click',function(e){
-    var b=e.target.closest('.add');if(!b)return;
-    var on=b.getAttribute('aria-pressed')!=='true';
-    b.setAttribute('aria-pressed',on);b.textContent=on?'✓':'+';
-    if(on)picked.push({n:b.dataset.n,p:+b.dataset.p});else picked=picked.filter(function(x){return x.n!==b.dataset.n});
-    draw();
-  });
-  document.getElementById('barbers').addEventListener('click',function(e){
-    var b=e.target.closest('button');if(!b)return;
-    this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
-    barber=b.dataset.b;draw();
-  });
-  // in-page booking: every Timma link opens the panel instead of leaving the site
-  (function(){
-    var URL='https://varaa.timma.fi/reservation/fedecollective';
-    var bk=document.getElementById('bk'),f=document.getElementById('bkF'),pick=document.getElementById('bkPick'),last=null;
-    function open(note){
-      if(!f.src)f.src=URL;
-      if(note){pick.innerHTML=note;pick.hidden=false}else{pick.hidden=true}
-      last=document.activeElement;bk.hidden=false;document.body.style.overflow='hidden';document.getElementById('bkX').focus();
-    }
-    function close(){bk.hidden=true;document.body.style.overflow='';if(last)last.focus()}
-    document.getElementById('bkX').onclick=close;
-    bk.addEventListener('click',function(e){if(e.target===bk)close()});
-    addEventListener('keydown',function(e){if(!bk.hidden&&e.key==='Escape')close()});
-    document.addEventListener('click',function(e){
-      var a=e.target.closest('a[href^="https://varaa.timma.fi"]');if(!a||a.dataset.direct)return;
-      e.preventDefault();
-      var note='';
-      if(a.id==='go'){var items=[].map.call(document.querySelectorAll('#cartList li'),function(li){return [].map.call(li.children,function(c){return c.textContent.trim()}).join(' ')}).filter(function(t){return t&&t.indexOf('Valitse')<0});if(items.length)note='Valitsit: <b>'+items.join(', ').replace(/ €/g,'&nbsp;€')+'</b>. Valitse samat kalenterista.';}
-      if(a.id==='fpGo')note='Valitsit: <b>'+document.getElementById('fpSvc').textContent+'</b> ('+document.getElementById('fpH').textContent+'). Valitse se kalenterista.';
-      open(note);
-    });
-  })();
-  // fade picker. Tags are a first sort of the shop's own gallery; confirm with Fede and edit here.
-  (function(){
-    var B='https://www.fedecollective.fi/media/galleria/image_';
-    var T={
-      taper:{h:'Taper',p:'Siistit rajat niskaan ja ohimoille, pituus jää sivuille. Toimii kiharoille ja pidemmälle tukalle.',img:['03','05','16','17','14','20','25','07','15']},
-      low:{h:'Low fade',p:'Häivytys alkaa matalalta korvan yläpuolelta. Lähtee siististi kasvamaan, eikä näytä heti kasvaneelta.',img:['02','04','21','29','18','31']},
-      mid:{h:'Mid fade',p:'Häivytys ohimoiden korkeudelle. Selkeä kontrasti, mutta ei liian raju. Suosituin valinta.',img:['01','06','19','22','11','28','23','27']},
-      high:{h:'High fade',p:'Iho näkyy pitkälle ylös. Terävin ja rohkein vaihtoehto, sopii myös kuvioihin.',img:['09','26','24','30']}
-    };
-    var BEARD=['07','15','23','26','27'];
-    var k='mid',i=0,front='fpA';
-    var seg=document.getElementById('fpSeg'),beard=document.getElementById('fpBeard'),th=document.getElementById('fpThumbs');
-    function list(){var L=T[k].img;if(!beard.checked)return L;var b=L.filter(function(x){return BEARD.indexOf(x)>-1});return b.length?b.concat(L.filter(function(x){return BEARD.indexOf(x)<0})):L}
-    function show(n){
-      var L=list();i=(n+L.length)%L.length;
-      var a=document.getElementById(front),b=document.getElementById(front==='fpA'?'fpB':'fpA');
-      b.onload=function(){b.classList.remove('out');a.classList.add('out');front=b.id};
-      b.src=B+L[i]+'.JPG';b.alt=T[k].h+', FedeCollectivein oma työ';
-      th.querySelectorAll('button').forEach(function(x,j){x.setAttribute('aria-current',j===i)});
-    }
-    function render(){
-      var t=T[k],L=list();
-      document.getElementById('fpH').textContent=t.h+(beard.checked?' + parta':'');
-      document.getElementById('fpTag').textContent=t.h;
-      document.getElementById('fpP').textContent=t.p;
-      document.getElementById('fpSvc').textContent=beard.checked?'Skin Fade + Beard':'Skin Fade';
-      document.getElementById('fpPrice').innerHTML=(beard.checked?40:30)+'&nbsp;€';
-      th.innerHTML='';
-      L.forEach(function(x,j){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Kuva '+(j+1));b.innerHTML='<img alt="">';b.firstChild.src=B+x+'.JPG';b.onclick=function(){show(j)};th.appendChild(b)});
-      show(0);
-    }
-    seg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});k=b.dataset.k;render()});
-    beard.addEventListener('change',render);
-    render();
-  })();
-  var base='https://www.fedecollective.fi/media/galleria/';
-  var f=['featured_02','image_02','image_03','image_04','featured_03','image_07','image_09','image_14','image_15','featured_04','image_05','image_17'];
-  var g=document.getElementById('gal'),lb=document.getElementById('lb'),im=document.getElementById('lbImg'),i0=0;
-  f.forEach(function(n,i){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Avaa kuva '+(i+1));
-    var m=document.createElement('img');m.src=base+n+'.JPG';m.alt='Leikkaus FedeCollectivessa, kuva '+(i+1);m.loading='lazy';b.appendChild(m);
-    b.onclick=function(){op(i)};g.appendChild(b)});
-  function op(i){i0=(i+f.length)%f.length;im.src=base+f[i0]+'.JPG';im.alt='Leikkaus, kuva '+(i0+1);lb.hidden=false;document.getElementById('lbX').focus()}
-  document.getElementById('lbX').onclick=function(){lb.hidden=true};
-  document.getElementById('lbP').onclick=function(){op(i0-1)};
-  document.getElementById('lbN').onclick=function(){op(i0+1)};
-  lb.onclick=function(e){if(e.target===lb)lb.hidden=true};
-  addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')lb.hidden=true;if(e.key==='ArrowLeft')op(i0-1);if(e.key==='ArrowRight')op(i0+1)});
+  pick.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;pick.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});k=b.dataset.k;render()});
+  beard.addEventListener('change',render);
+  document.getElementById('barberPick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});barber=b.dataset.b;render()});
+  render();
+
+  // process: swap the sticky photo as steps scroll by
+  var steps=[].slice.call(document.querySelectorAll('.step')),shots=[].slice.call(document.querySelectorAll('.sticky-shot img'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){steps.forEach(function(s){s.classList.toggle('on',s===e.target)});var n=+e.target.dataset.img;shots.forEach(function(im,i){im.classList.toggle('on',i===n)})}})},{rootMargin:'-45% 0px -45% 0px'});
+    steps.forEach(function(s){io.observe(s)});
+  } else document.documentElement.classList.add('no-io');
 })();
 </script>
+
 </body>
 </html>
