@@ -105,6 +105,8 @@ p{margin:0}
 .nav .btn{padding:11px 18px;color:var(--ink)}
 .nav .btn:hover{color:var(--bg)}
 @media (max-width:860px){.nav a:not(.btn){display:none}}
+.nav .btn{white-space:nowrap}
+@media (max-width:420px){.brand span{font-size:1.2rem}.nav .btn{padding:10px 12px;letter-spacing:.14em}}
 
 /* hero */
 .hero{position:relative;min-height:min(92vh,860px);display:grid;align-items:end;overflow:hidden;isolation:isolate}
@@ -138,6 +140,7 @@ p{margin:0}
 .seg button{flex:1 1 auto;min-width:88px;padding:13px 14px;background:transparent;border:1px solid var(--line);color:var(--ink-2);font-family:var(--body);font-size:.95rem;cursor:pointer;transition:all .2s}
 .seg button:hover{border-color:var(--ink-3);color:var(--ink)}
 .seg button[aria-pressed="true"]{border-color:var(--brass);color:var(--ink);background:rgba(201,164,106,.08)}
+@media (max-width:520px){#height{display:grid;grid-template-columns:1fr 1fr}}
 .seg button small{display:block;font-size:.72rem;color:var(--ink-3);margin-top:2px}
 .result{border-top:1px solid var(--line);padding-top:24px;display:grid;gap:18px}
 .result-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
