@@ -7,9 +7,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="robots" content="noindex">
 <meta name="description" content="FedeCollective on parturi Kalliossa, Castréninkatu 18. Skin fadet, taperit, parrat ja mallinmuutokset. Varaa aika verkossa, avoinna ma–la 10–20.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&display=swap">
+<link rel="preload" href="fonts/dm-serif-display-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <!-- Draft by Marktic for FedeCollective, 31.10.2026. Photos, prices, team and contact details are FedeCollective's own
      (fedecollective.fi and the Timma booking page). Image URLs point to fedecollective.fi; on deploy copy them next to this file. -->
 <script type="application/ld+json">
@@ -40,6 +38,11 @@
 }
 </script>
 <style>
+@font-face{font-family:"DM Serif Display";src:url(fonts/dm-serif-display-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"DM Serif Display";src:url(fonts/dm-serif-display-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Outfit";src:url(fonts/outfit-latin-300-normal.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url(fonts/outfit-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Outfit";src:url(fonts/outfit-latin-500-normal.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
 /* FedeCollective: keeps the shop's own identity (warm black, DM Serif Display + Outfit, "Details matter").
    Layout: full-bleed video hero with live open/closed status, then the Fade-valitsin (pick fade height + beard
    and see the matching service and price), the full price list, clients, team, gallery, reviews, contact.
