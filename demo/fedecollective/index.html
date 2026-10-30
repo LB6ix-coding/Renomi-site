@@ -133,7 +133,7 @@ p{margin:0}
 
 /* in-page booking: Timma inside a panel */
 .bk{position:fixed;inset:0;z-index:90;display:grid;justify-items:end;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
-.bk-panel{width:min(560px,100%);height:100%;background:var(--bg);border-left:1px solid var(--line);display:grid;grid-template-rows:auto auto 1fr;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);animation:bkIn .28s ease-out}
+.bk-panel{width:min(560px,100%);height:100%;background:var(--bg);border-left:1px solid var(--line);display:grid;grid-template-rows:auto auto 1fr auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);animation:bkIn .28s ease-out}
 @keyframes bkIn{from{transform:translateX(40px);opacity:0}}
 .bk-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px max(18px,env(safe-area-inset-right,0px)) 14px 18px;border-bottom:1px solid var(--line)}
 .bk-top h2{font-size:2rem}
@@ -143,6 +143,8 @@ p{margin:0}
 .bk-frame{position:relative;background:#fff}
 .bk-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .bk-load{position:absolute;inset:0;display:grid;place-items:center;color:#555;font-size:.95rem}
+.bk-alt{padding:10px 18px;font-size:.85rem;color:var(--ink-3);border-top:1px solid var(--line)}
+.bk-alt a{color:var(--ink);font-weight:700}
 .menu-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
 @media (max-width:900px){.menu-grid{grid-template-columns:1fr}}
 .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
@@ -399,7 +401,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
   <div class="bk-panel">
     <div class="bk-top"><h2 id="bk-h">Varaa aika</h2><button class="bk-x" type="button" id="bkX" aria-label="Sulje varaus">✕</button></div>
     <p class="bk-pick" id="bkPick" hidden></p>
-    <div class="bk-frame"><span class="bk-load">Ladataan varauskalenteria…</span><iframe id="bkF" title="FedeCollective ajanvaraus" loading="lazy" allow="payment"></iframe></div>
+    <div class="bk-frame"><span class="bk-load">Ladataan varauskalenteria…</span><iframe id="bkF" title="FedeCollective ajanvaraus" allow="payment"></iframe></div>
+    <p class="bk-alt">Kalenteri ei näy? <a href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener" data-direct="1">Avaa varaus uuteen ikkunaan ↗</a></p>
   </div>
 </div>
 
@@ -456,10 +459,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 2
     bk.addEventListener('click',function(e){if(e.target===bk)close()});
     addEventListener('keydown',function(e){if(!bk.hidden&&e.key==='Escape')close()});
     document.addEventListener('click',function(e){
-      var a=e.target.closest('a[href^="https://varaa.timma.fi"]');if(!a)return;
+      var a=e.target.closest('a[href^="https://varaa.timma.fi"]');if(!a||a.dataset.direct)return;
       e.preventDefault();
       var note='';
-      if(a.id==='go'){var items=[].map.call(document.querySelectorAll('#cartList li'),function(li){return li.textContent}).filter(function(t){return t.indexOf('Valitse')<0});if(items.length)note='Valitsit: <b>'+items.join(', ').replace(/€/g,'&nbsp;€')+'</b>. Valitse samat kalenterista.';}
+      if(a.id==='go'){var items=[].map.call(document.querySelectorAll('#cartList li'),function(li){return [].map.call(li.children,function(c){return c.textContent.trim()}).join(' ')}).filter(function(t){return t&&t.indexOf('Valitse')<0});if(items.length)note='Valitsit: <b>'+items.join(', ').replace(/ €/g,'&nbsp;€')+'</b>. Valitse samat kalenterista.';}
       if(a.id==='fpGo')note='Valitsit: <b>'+document.getElementById('fpSvc').textContent+'</b> ('+document.getElementById('fpH').textContent+'). Valitse se kalenterista.';
       open(note);
     });
