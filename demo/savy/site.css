@@ -398,6 +398,75 @@ input.kelvin::-moz-range-progress{background:transparent}
   .hdr,.callbar{transition:none}
 }
 
+/* ---------- area check in the hero ("Tuletteko alueelleni?") + request dialog ---------- */
+.area-hero{display:grid;gap:10px;max-width:440px;min-width:0;opacity:0;transform:translateY(14px);transition:opacity .9s .85s,transform .9s .85s var(--ease)}
+.hero.ready .area-hero{opacity:1;transform:none}
+.ah-q{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:#c9ced8}
+.ah-field{position:relative;display:flex;align-items:center;height:58px;padding:6px;border-radius:999px;background:rgba(11,13,18,.55);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.3);transition:box-shadow .25s,background .25s}
+.ah-field:hover{box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5)}
+.ah-field:focus-within{background:rgba(11,13,18,.78);box-shadow:inset 0 0 0 2px var(--warm),0 0 0 6px rgba(255,207,122,.14),0 14px 34px -18px rgba(255,207,122,.8)}
+.ah-field>svg.i{position:absolute;left:20px;color:var(--warm);pointer-events:none}
+.ah-field input{flex:1 1 0;width:0;min-width:0;height:100%;padding:0 8px 0 46px;border:0;background:transparent;color:#fff;font:500 1.2rem "JetBrains Mono",ui-monospace,monospace;letter-spacing:.16em;font-variant-numeric:tabular-nums}
+.ah-field input:focus{outline:none}
+.ah-field input::placeholder{color:rgba(255,255,255,.66);font:500 1rem Manrope,system-ui,sans-serif;letter-spacing:0}
+.ah-go{flex:none;width:46px;height:46px;border:0;border-radius:50%;background:var(--warm);color:var(--night);display:grid;place-items:center;cursor:pointer;transition:background .2s,box-shadow .25s}
+.ah-go:hover{background:#ffe0a3;box-shadow:0 0 0 5px rgba(255,207,122,.16)}
+.ah-go:focus-visible{outline-offset:2px;border-radius:50%}
+.area-hero .ap-res{display:grid;gap:8px;padding:16px 18px;border-radius:var(--r);background:rgba(15,18,24,.88);border:1px solid rgba(255,255,255,.12);color:#fff;animation:apIn .35s var(--ease)}
+.area-hero .ap-res:empty{display:none}
+.area-hero .ap-res b{font:500 1.05rem "JetBrains Mono",ui-monospace,monospace;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.area-hero .ap-res span{color:#c4c9d2;font-size:.95rem}
+.area-hero .ap-res.ok{border-color:rgba(255,207,122,.5);box-shadow:0 18px 40px -24px rgba(255,207,122,.7)}
+.area-hero .ap-res.ok b::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--volt);box-shadow:0 0 10px 1px rgba(230,255,79,.7)}
+.area-hero .ap-res.out b::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:#8a919e}
+.area-hero .ap-res.no{border-color:rgba(255,128,106,.5);color:#ffcfc6}
+.area-hero .ap-res.wait{color:#c4c9d2}
+.area-hero .ap-res .btn{justify-self:start;min-height:46px;margin-top:4px;padding:.75rem 1.25rem}
+@keyframes apIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){.ah-field,.area-hero .ap-res{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+
+.ap-scrim{position:fixed;inset:0;z-index:140;background:rgba(5,6,9,.66);opacity:0;transition:opacity .24s}
+.ap-scrim.in{opacity:1}
+html.ap-lock{overflow:hidden}
+.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(480px,calc(100vw - 32px));max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;border-radius:28px;background:radial-gradient(420px 180px at 0% 0%,rgba(255,207,122,.2),transparent 70%),#fff;color:var(--ink);padding:30px 30px 24px;box-shadow:0 50px 100px -30px rgba(0,0,0,.75),0 0 0 1px rgba(255,207,122,.25);opacity:0;transform:translate(-50%,-46%) scale(.98);transition:opacity .24s var(--ease),transform .3s var(--ease)}
+.area-panel.in{opacity:1;transform:translate(-50%,-50%)}
+.ap-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:var(--paper);color:var(--ink-2);cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.ap-close:hover{background:var(--paper-2)}
+.ap-eb{font-size:.78rem;text-transform:uppercase;letter-spacing:.14em;color:#8a5a12}
+.area-panel h2{font-size:1.9rem;margin:8px 48px 6px 0}
+.area-panel h2:focus{outline:none}
+#ap-form label,#ap-form legend{display:block;font-size:.85rem;font-weight:600;margin:14px 0 6px}
+#ap-form .opt{font-weight:500;color:#5f6470}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+#ap-form input:not([type=checkbox]),#ap-form textarea{width:100%;font:inherit;min-height:48px;padding:.75rem .95rem;border-radius:12px;border:1.5px solid #dedbd2;background:var(--paper);color:var(--ink)}
+#ap-form input:focus,#ap-form textarea:focus{outline:2px solid var(--warm-d);outline-offset:1px;background:#fff}
+#ap-form textarea{min-height:76px;resize:vertical}
+#ap-form [aria-invalid="true"]{border-color:#c0392b;background:#fff3f1}
+.ap-jobs{border:0;display:flex;flex-wrap:wrap;gap:8px}
+.ap-jobs legend{width:100%}
+#ap-form .ap-jobs label{position:relative;margin:0}
+.ap-jobs input{position:absolute;opacity:0;width:1px;height:1px}
+.ap-jobs span{display:inline-flex;align-items:center;min-height:42px;padding:0 15px;border-radius:999px;border:1.5px solid #dedbd2;background:var(--paper);font-weight:600;font-size:.9rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.ap-jobs span:hover{border-color:#bdb8ab}
+.ap-jobs input:checked+span{background:var(--night);border-color:var(--night);color:var(--warm)}
+.ap-jobs input:focus-visible+span{outline:3px solid var(--blue);outline-offset:2px}
+.ap-err{margin-top:12px;color:#a3261a;font-weight:700;font-size:.9rem}
+.ap-send{width:100%;margin-top:18px}
+.ap-note{margin-top:12px;font-size:.8rem;color:#5f6470}
+.ap-back{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer;margin-left:4px}
+.ap-check{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--night);color:var(--warm);margin-bottom:10px;box-shadow:0 0 0 6px rgba(255,207,122,.18),0 0 26px -2px rgba(255,207,122,.6);animation:apIn .4s var(--ease)}
+.ap-check svg.i{width:26px;height:26px;stroke-width:2.6}
+.ap-done p{color:var(--ink-2);font-size:.95rem;margin:6px 0 18px}
+.ap-done .btn{white-space:normal;text-align:left;line-height:1.25;max-width:100%}
+@media (max-width:760px){
+  .area-hero{max-width:none}
+  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100svh - 40px);border-radius:24px 24px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
+  .area-panel.in{transform:none}
+  .ap-grid{grid-template-columns:1fr}
+  .ap-done .btn{width:100%;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){.area-hero{opacity:1!important;transform:none!important;transition:none!important}.area-panel,.ap-scrim,.area-hero .ap-res,.ap-check{transition:none;animation:none}}
+
 /* tabletit: piilota puhelinpainike ylävalikosta, ettei se mene ruudun yli */
 @media (min-width:761px) and (max-width:1100px){.nav-cta{display:none!important}.nav-links{gap:1.1rem!important}.nav-links a{white-space:nowrap}}
 
