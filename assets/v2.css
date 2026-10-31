@@ -262,4 +262,18 @@ body.has-sel{padding-bottom:120px}
 .svc .row:hover b{text-decoration:underline;text-underline-offset:4px}
 @media (max-width:700px){.svc .row{grid-template-columns:minmax(0,1fr) auto}.svc .row .dim{grid-column:1/-1;grid-row:2}}
 
+/* price guide */
+.answer{max-width:46rem;padding:20px 22px;border-radius:14px;background:var(--card);box-shadow:0 0 0 1px var(--line);font-size:1.08rem}
+.answer p{text-wrap:pretty}
+.gtable table{width:100%;border-collapse:collapse;font-size:.95rem}
+.nw{white-space:nowrap}
+.gtable caption{text-align:left;color:var(--dim);font-size:.84rem;padding-bottom:10px}
+.gtable th,.gtable td{text-align:left;vertical-align:top;padding:14px 12px;border-bottom:1px solid var(--line)}
+.gtable th{font-weight:500;font-size:.84rem;color:var(--dim)}
+.gtable td:first-child{font-weight:500}
+.gtable td:nth-child(2){white-space:nowrap;font-variant-numeric:tabular-nums}
+@media (max-width:700px){.gtable caption{display:block;width:100%}.gtable thead{display:none}.gtable table,.gtable tbody,.gtable tr,.gtable td{display:block;width:100%}.gtable tr{padding:14px 0;border-bottom:1px solid var(--line-2)}.gtable td{border:0;padding:4px 0}.gtable td:first-child{font-size:1.05rem;padding-bottom:6px}.gtable td:not(:first-child)::before{content:attr(data-l);display:block;font-size:.78rem;color:var(--dim)}.gtable td:nth-child(2){white-space:normal}}
+.srcs{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;max-width:46rem}
+.srcs a{color:var(--ink)}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
