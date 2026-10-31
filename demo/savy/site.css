@@ -400,3 +400,6 @@ input.kelvin::-moz-range-progress{background:transparent}
 
 /* tabletit: piilota puhelinpainike ylävalikosta, ettei se mene ruudun yli */
 @media (min-width:761px) and (max-width:1100px){.nav-cta{display:none!important}.nav-links{gap:1.1rem!important}.nav-links a{white-space:nowrap}}
+
+/* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
+@media (hover:none),(pointer:coarse){.hdr.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(11,13,18,.94)}.nav-links.open,.btn-line{-webkit-backdrop-filter:none;backdrop-filter:none}}

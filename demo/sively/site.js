@@ -29,12 +29,17 @@
   /* hero video with shot dots */
   const vid = $('#vid'), dots = $$('#dots i');
   if (vid && !calm && !(navigator.connection && navigator.connection.saveData)) {
-    vid.preload = 'auto';
+    /* phone-safe: muted+inline set before play(), retry on first tap (iOS Low Power Mode), pause when off screen */
+    vid.muted = true; vid.defaultMuted = true; vid.playsInline = true; vid.setAttribute('muted', ''); vid.setAttribute('playsinline', '');
     vid.addEventListener('playing', () => vid.classList.add('on'), { once: true });
-    vid.play().catch(() => {});
+    let seen = true;
+    const go = () => { if (!seen || document.hidden || !vid.paused) return; vid.muted = true; vid.play().catch(() => {}); };
+    go();
+    ['touchend', 'click', 'keydown'].forEach(e => addEventListener(e, go, { passive: true }));
+    document.addEventListener('visibilitychange', go);
     let s0 = -1;
     vid.addEventListener('timeupdate', () => { const s = Math.min(2, Math.floor(vid.currentTime / 2.7)); if (s !== s0) { s0 = s; dots.forEach((d, k) => d.classList.toggle('on', k === s)); } });
-    new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? vid.play().catch(() => {}) : vid.pause())).observe(vid);
+    new IntersectionObserver(es => es.forEach(e => { seen = e.isIntersecting; if (seen) go(); else vid.pause(); })).observe(vid);
   } else { const d = $('#dots'); if (d) d.hidden = true; }
 
   /* header, progress, mobile bar */

@@ -66,6 +66,7 @@ section{padding-block:clamp(64px,9vw,128px)}
 
 /* header */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in oklab,var(--bg) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+@media (hover:none),(pointer:coarse){.top{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in oklab,var(--bg) 94%,transparent)}} /* no blur over the moving hero video on phones */
 .top .wrap{display:flex;align-items:center;gap:24px;min-height:68px}
 .logo{font-family:var(--display);font-weight:900;font-stretch:125%;font-size:1.35rem;letter-spacing:.06em;text-decoration:none;display:flex;align-items:baseline;gap:8px}
 .logo small{font-family:var(--mono);font-weight:500;font-size:.68rem;letter-spacing:.14em;color:var(--muted);font-stretch:100%}
@@ -257,7 +258,7 @@ footer.site .wrap{display:grid;gap:10px}
   <section class="hero" aria-label="Esittely">
     <div class="hero-media">
       <img class="poster" src="video/kuori-hero-poster.webp" alt="Valkoinen urheilucoupe pimeässä studiossa" width="1600" height="900">
-      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="video/kuori-hero-poster.webp" aria-hidden="true"></video>
+      <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="video/kuori-hero-poster.webp" aria-hidden="true"></video>
       <script>/* start the hero video while the rest of the page is still loading */(function(){var v=document.getElementById('heroVideo');v.muted=true;v.defaultMuted=true;v.src=innerWidth>=900?'video/kuori-hero-1080.mp4':(innerWidth>=600?'video/kuori-hero-720.mp4':'video/kuori-hero-540.mp4');var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
     </div>
     <div class="wrap hero-copy">

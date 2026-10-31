@@ -24,7 +24,9 @@ h1,h2,h3{font-family:"Bricolage","Inter",sans-serif;letter-spacing:-.035em}
 h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700}
 .gutter-pipe,.hero-pipe{display:none!important}
 .tb{background:#0e1014!important}
-.top{background:rgba(255,255,255,.92);backdrop-filter:blur(10px)}
+.top{background:rgba(255,255,255,.92)}
+@media (min-width:961px) and (hover:hover){.top{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}} /* phones: no blur over the moving video, and lvi.css needs .top without backdrop-filter for the fixed mobile menu */
+@media (hover:none),(pointer:coarse){.callbar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
 .btn{border-radius:3px!important}
 .vhero{padding:0!important;margin:0!important;position:relative;background:#0e1014;color:#fff;overflow:hidden}
 .vh-media{position:relative;height:min(90vh,940px);min-height:560px}
@@ -340,9 +342,9 @@ h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700}
   <!-- HERO v2 -->
   <section class="vhero" aria-labelledby="hero-h">
     <div class="vh-media">
-      <img class="vh-poster" src="img/v-poster.webp" alt="Painemittari kupariputkessa, viisari nousee" width="2000" height="1131" fetchpriority="high">
-      <video id="vh-video" class="vh-video" muted loop playsinline preload="auto" poster="img/v-poster.webp" aria-hidden="true"></video>
-      <script>(function(){var v=document.getElementById('vh-video');v.muted=true;v.src=innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+      <picture><source media="(max-width:760px)" srcset="img/v-poster-mobile.webp" width="1134" height="1080"><img class="vh-poster" src="img/v-poster.webp" alt="Painemittari kupariputkessa, viisari nousee" width="2000" height="1131" fetchpriority="high"></picture>
+      <video id="vh-video" class="vh-video" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      <script>/* phone-safe hero video: portrait file on phones, muted+inline set before play(), retry on first tap (iOS Low Power Mode), pause when off screen; the poster image stays visible until it really plays */(function(){var v=document.getElementById('vh-video');if(!v)return;var m=matchMedia('(max-width:760px)').matches;v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.poster=m?'img/v-poster-mobile.webp':'img/v-poster.webp';v.src=m?'img/v-hero-mobile.mp4':innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var seen=true;function go(){if(!seen||document.hidden||!v.paused)return;v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});}go();['touchend','click','keydown'].forEach(function(e){addEventListener(e,go,{passive:true})});document.addEventListener('visibilitychange',go);if('IntersectionObserver'in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;if(seen)go();else v.pause()}).observe(v);})();</script>
     </div>
     <div class="wrap vh-copy">
       <p class="vh-kicker"><span class="dot" aria-hidden="true"></span> Putkimies · Vantaa ja pääkaupunkiseutu</p>
@@ -372,7 +374,7 @@ h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700}
         <p class="urgent">Vesivuoto nyt? Päivystys vastaa 24/7. <a href="hataapu.html">Ohjeet ja yöhinnat</a></p>
       </div>
       <figure class="hero-photo uc-vid" id="uc-fig" data-start="1.0" data-release="2.6">
-        <div class="uc-media"><video class="uc-video" id="uc-v" muted playsinline preload="auto" poster="img/putki-tukos.webp" aria-label="Tukkeutunut läpinäkyvä viemäriputki aukeaa ja puhdas vesi alkaa virrata">
+        <div class="uc-media"><video class="uc-video" id="uc-v" muted playsinline preload="metadata" poster="img/putki-tukos.webp" aria-label="Tukkeutunut läpinäkyvä viemäriputki aukeaa ja puhdas vesi alkaa virrata">
           <source src="img/putki-auki-720.mp4" type="video/mp4" media="(max-width: 760px)">
           <source src="img/putki-auki-1080.mp4" type="video/mp4">
         </video></div>
@@ -848,6 +850,9 @@ h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700}
   v.addEventListener('ended',function(){again.hidden=false});
   r.addEventListener('input',function(){uc.classList.add('touched');if(open)return;var p=+r.value;draw(p);if(p>=88)finish()});
   r.addEventListener('pointerdown',function(){dragging=true;v.pause()});
+  /* iPhone Safari loads no frames for a paused video, so scrubbing showed nothing: start and stop it once on the first touch */
+  var primed=false;function prime(){if(primed||open)return;primed=true;v.muted=true;var p=v.play();if(p&&p.then)p.then(function(){if(!open){v.pause();draw(+r.value)}},function(){primed=false});}
+  r.addEventListener('pointerdown',prime);r.addEventListener('touchstart',prime,{passive:true});
   function release(){dragging=false;if(!open&&+r.value<88){set(0)}}
   r.addEventListener('pointerup',release);r.addEventListener('pointercancel',release);r.addEventListener('change',function(){if(!dragging)release()});
   again.addEventListener('click',function(){open=false;fig.classList.remove('is-open');tip.textContent='Vedä nuoli oikealle ja avaa tukos';again.hidden=true;v.pause();set(0);r.focus()});

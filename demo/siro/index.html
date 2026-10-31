@@ -223,6 +223,7 @@ h3{font-family:var(--body);font-weight:650;letter-spacing:-.01em}
 .btn.primary{background:var(--ink);border-color:var(--ink);color:#fff}
 .btn.primary:hover{background:var(--lacquer);border-color:var(--lacquer)}
 header{background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom-color:transparent}
+@media (hover:none),(pointer:coarse){header{-webkit-backdrop-filter:none;backdrop-filter:none;background:color-mix(in srgb,var(--bg) 94%,transparent)}} /* no blur over the moving hero video on phones */
 .logo{font-family:var(--display);font-weight:500;font-size:1.75rem;letter-spacing:-.03em}
 .nav ul a{font-weight:500;font-size:.92rem}
 /* video hero */
@@ -300,9 +301,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.7)}
 <main id="top" lang="fi">
   <section class="vhero" aria-label="Siro Studio">
     <div class="vh-media">
-      <img class="vh-poster" src="img/v-poster.webp" alt="Kynsilakkaa levitetään siveltimellä kynteen" width="2000" height="1131">
-      <video id="hero-vid" class="vh-video" muted loop playsinline preload="auto" poster="img/v-poster.webp" aria-hidden="true"></video>
-      <script>(function(){var v=document.getElementById('hero-vid');v.muted=true;v.src=innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+      <picture><source media="(max-width:760px)" srcset="img/v-poster-mobile.webp" width="1036" height="1080"><img class="vh-poster" src="img/v-poster.webp" alt="Kynsilakkaa levitetään siveltimellä kynteen" width="2000" height="1131"></picture>
+      <video id="hero-vid" class="vh-video" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      <script>/* phone-safe hero video: portrait file on phones, muted+inline set before play(), retry on first tap (iOS Low Power Mode), pause when off screen; the poster image stays visible until it really plays */(function(){var v=document.getElementById('hero-vid');if(!v)return;var m=matchMedia('(max-width:760px)').matches;v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.poster=m?'img/v-poster-mobile.webp':'img/v-poster.webp';v.src=m?'img/v-hero-mobile.mp4':innerWidth>=900?'img/v-hero-1080.mp4':'img/v-hero-720.mp4';v.addEventListener('playing',function(){v.classList.add('on')});var seen=true;function go(){if(!seen||document.hidden||!v.paused)return;v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});}go();['touchend','click','keydown'].forEach(function(e){addEventListener(e,go,{passive:true})});document.addEventListener('visibilitychange',go);if('IntersectionObserver'in window)new IntersectionObserver(function(es){seen=es[0].isIntersecting;if(seen)go();else v.pause()}).observe(v);})();</script>
     </div>
     <div class="wrap vh-copy">
       <p class="kicker">Kauneushoitola · Tapiola</p>

@@ -287,3 +287,6 @@ footer a{color:#fff}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 @media (max-width:560px){.hs{width:34px;height:34px;font-size:.85rem}.hs::before{inset:-5px}.scan::after{width:36px;height:36px;margin:-18px 0 0 -18px;background-size:36px 12px}}
+
+/* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella) */
+@media (hover:none),(pointer:coarse){header.solid,.callbar{-webkit-backdrop-filter:none;backdrop-filter:none}.hero-kicker{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(14,17,21,.62)}}

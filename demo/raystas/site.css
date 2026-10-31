@@ -427,3 +427,6 @@ a.c-item:hover b{color:var(--orange)}
   .rain{display:none}
   .pimg img,.qimg{animation:none!important;transform:none}
 }
+
+/* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
+@media (hover:none),(pointer:coarse){.hdr.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(20,23,26,.95)}}

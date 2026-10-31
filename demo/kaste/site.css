@@ -372,3 +372,6 @@ footer a:hover{color:var(--ink)}
   .story-media img{transform:none}
   .fog canvas{display:none}
 }
+
+/* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
+@media (hover:none),(pointer:coarse){header.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(27,33,36,.94)}}
