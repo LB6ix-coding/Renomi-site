@@ -401,3 +401,6 @@ footer.ftr{padding:40px 0 46px;font-size:.9rem;color:var(--muted);background:var
   .sweep-layer.clean{clip-path:inset(0 50% 0 0)}
   .sweep-line{left:50%}
 }
+
+/* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
+@media (hover:none),(pointer:coarse){.hdr.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(247,251,252,.96)}.kicker{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.9)}}

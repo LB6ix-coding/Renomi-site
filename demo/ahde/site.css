@@ -383,3 +383,6 @@ footer{padding:40px 0 48px;font-size:.9rem;color:var(--muted);background:var(--c
 
 /* tabletit: piilota puhelinpainike ylävalikosta, ettei se mene ruudun yli */
 @media (min-width:761px) and (max-width:1100px){.nav-cta{display:none!important}.nav-links{gap:1.1rem!important}.nav-links a{white-space:nowrap}}
+
+/* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
+@media (hover:none),(pointer:coarse){.hdr.solid{-webkit-backdrop-filter:none;backdrop-filter:none}.hdr.solid:not(.menu-open){background:rgba(243,239,228,.97)}.btn-glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.14)}}

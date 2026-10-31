@@ -44,9 +44,14 @@
   const vid = $('#heroVid'), reel = $$('#reel i');
   const saveData = navigator.connection && navigator.connection.saveData;
   if (vid && !reduce && !saveData) {
-    vid.preload = 'auto';
+    /* phone-safe: muted+inline set before play(), retry on first tap (iOS Low Power Mode), pause when off screen */
+    vid.muted = true; vid.defaultMuted = true; vid.playsInline = true; vid.setAttribute('muted', ''); vid.setAttribute('playsinline', '');
     vid.addEventListener('playing', () => vid.classList.add('on'), { once: true });
-    const p = vid.play(); if (p && p.catch) p.catch(() => {});
+    let seen = true;
+    const go = () => { if (!seen || document.hidden || !vid.paused) return; vid.muted = true; const p = vid.play(); if (p && p.catch) p.catch(() => {}); };
+    go();
+    ['touchend', 'click', 'keydown'].forEach(e => addEventListener(e, go, { passive: true }));
+    document.addEventListener('visibilitychange', go);
     let last = -1;
     const tick = () => {
       const seg = Math.min(2, Math.floor(vid.currentTime / 2.7));
@@ -58,7 +63,7 @@
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
-    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); })).observe(vid);
+    new IntersectionObserver(es => es.forEach(e => { seen = e.isIntersecting; if (seen) go(); else vid.pause(); })).observe(vid);
   } else if (reel.length) { $('#reel').style.display = 'none'; }
 
   /* header, progress, callbar */

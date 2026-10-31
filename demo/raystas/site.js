@@ -7,13 +7,22 @@
   const fmt = n => Math.round(n).toLocaleString('fi-FI').replace(/\s/g, ' ');
 
   /* hero video */
+  /* phone-safe: portrait file on phones, muted+inline set before play(), retry on first tap (iOS Low Power Mode),
+     pause when off screen; the poster image stays visible until the video really plays */
   const v = $('#hero-video');
   if (v) {
-    v.muted = true;
+    v.muted = true; v.defaultMuted = true; v.playsInline = true; v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
     if (!mq.matches) {
-      v.src = innerWidth >= 900 ? 'img/hero-1080.mp4' : 'img/hero-720.mp4';
+      const small = matchMedia('(max-width:760px)').matches;
+      v.poster = small ? 'img/hero-poster-mobile.webp' : 'img/hero-poster.webp';
+      v.src = small ? 'img/hero-mobile.mp4' : innerWidth >= 900 ? 'img/hero-1080.mp4' : 'img/hero-720.mp4';
       v.addEventListener('playing', () => v.classList.add('on'));
-      const p = v.play(); if (p && p.catch) p.catch(() => {});
+      let seen = true;
+      const go = () => { if (!seen || document.hidden || !v.paused) return; v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+      go();
+      ['touchend', 'click', 'keydown'].forEach(e => addEventListener(e, go, { passive: true }));
+      document.addEventListener('visibilitychange', go);
+      if ('IntersectionObserver' in window) new IntersectionObserver(es => { seen = es[0].isIntersecting; if (seen) go(); else v.pause(); }).observe(v);
     }
   }
 
