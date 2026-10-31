@@ -115,7 +115,7 @@
       ['Auto vetää sivulle', 'Suuntauksen tarkastus', '89–129 €', 'noin 1 h', 'Renkaat'],
       ['Kolahtelee töyssyissä', 'Alustan tarkastus ja korjaus', '180–480 €', '2–3 h', 'Muu']] },
     pakoputki: { no: 5, name: 'Pakoputki', x: 89, s: [
-      ['Päräjää tai pärisee', 'Äänenvaimentimen vaihto', '120–260 €', 'noin 1 h', 'Pakoputkisto'],
+      ['Kova ääni pakoputkesta', 'Äänenvaimentimen vaihto', '120–260 €', 'noin 1 h', 'Pakoputkisto'],
       ['Kolisee auton alla', 'Kiinnikkeiden vaihto', '60–120 €', 'noin 30 min', 'Pakoputkisto'],
       ['Pakokaasun haju sisällä', 'Tiiviyden tarkastus', '69 € + osat', 'noin 45 min', 'Pakoputkisto']] }
   };
