@@ -251,6 +251,8 @@ a{color:inherit}
 .demo .trade{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim)}
 .demo .name{font-size:1rem;font-weight:500}
 .demo .name span{font-weight:400;color:var(--paper-dim)}
+@media (min-width:641px){.demo.lead{grid-column:span 2}.demo.lead .shot{aspect-ratio:2/1}}
+@media (min-width:1180px){.demo.lead{grid-row:span 2}.demo.lead a{height:100%}.demo.lead .shot{flex:1;min-height:0;aspect-ratio:auto}.demo.lead img{object-position:left top}}
 .fine{margin:26px 0 0;font-size:.88rem;color:var(--paper-dim)}
 
 .svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--paper-line)}
@@ -485,13 +487,17 @@ a{color:inherit}
   <div class="gut">
     <div class="sec-head">
       <span class="eb">Esimerkkisivut</span>
-      <h2 id="eh">Kaksitoista esimerkkisivua eri aloille.</h2>
+      <h2 id="eh">Kolmetoista esimerkkisivua eri aloille.</h2>
       <p>Avatkaa mikä tahansa sivu ja kokeilkaa sitä myös puhelimella. Samalla tasolla teemme sivut teidän yrityksellenne.</p>
     </div>
     <ul class="demos">
-      <li class="demo"><a href="demo/ahde/" target="_blank" rel="noopener">
-        <span class="shot"><img src="media/demo/ahde.webp" srcset="media/demo/ahde.webp 720w, media/demo/ahde-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Ahde Piharakennus: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
+      <li class="demo lead"><a href="demo/ahde/" target="_blank" rel="noopener">
+        <span class="shot"><img src="media/demo/ahde.webp" srcset="media/demo/ahde.webp 720w, media/demo/ahde-2x.webp 1200w" sizes="(min-width:1180px) 40vw, (min-width:641px) 94vw, 78vw" alt="Ahde Piharakennus: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
         <span class="meta"><span class="trade">Piharakentaminen</span><span class="name">Ahde <span>Piharakennus</span> <span aria-hidden="true">↗</span></span></span>
+      </a></li>
+      <li class="demo"><a href="demo/sarake/" target="_blank" rel="noopener">
+        <span class="shot"><img src="media/demo/sarake.webp" srcset="media/demo/sarake.webp 720w, media/demo/sarake-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Sarake Tilitoimisto: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
+        <span class="meta"><span class="trade">Tilitoimisto</span><span class="name">Sarake <span>Tilitoimisto</span> <span aria-hidden="true">↗</span></span></span>
       </a></li>
       <li class="demo"><a href="demo/routa/" target="_blank" rel="noopener">
         <span class="shot"><img src="media/demo/routa.webp" srcset="media/demo/routa.webp 720w, media/demo/routa-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Routa Maanrakennus: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
