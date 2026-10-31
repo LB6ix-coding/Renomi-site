@@ -386,3 +386,69 @@ footer{padding:40px 0 48px;font-size:.9rem;color:var(--muted);background:var(--c
 
 /* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
 @media (hover:none),(pointer:coarse){.hdr.solid{-webkit-backdrop-filter:none;backdrop-filter:none}.hdr.solid:not(.menu-open){background:rgba(243,239,228,.97)}.btn-glass{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(255,255,255,.14)}}
+
+/* ---------- area check in the hero ("Tuletteko alueelleni?") + request dialog ---------- */
+.area-hero{display:grid;gap:10px;max-width:440px;margin:0;padding:0;background:none;box-shadow:none;grid-template-columns:1fr}
+.ah-q{font-family:Fraunces,Georgia,serif;font-size:1.25rem;font-weight:500;letter-spacing:-.01em;color:#fff}
+.ah-field{position:relative;display:flex;align-items:center;height:58px;border-radius:999px;background:rgba(18,28,20,.42);border:1.5px solid rgba(255,255,255,.38);transition:border-color .2s,background .2s}
+.ah-field:focus-within{border-color:var(--lichen);background:rgba(18,28,20,.62)}
+.ah-field>svg.i{position:absolute;left:18px;color:var(--lichen);pointer-events:none}
+.area-hero .ah-field input{flex:1;min-width:0;height:100%;min-height:0;padding:0 8px 0 48px;border:0;border-radius:999px;background:transparent;color:#fff;font-size:1.2rem;font-weight:700;letter-spacing:.14em;font-variant-numeric:tabular-nums}
+.area-hero .ah-field input:focus{outline:none;background:transparent}
+.area-hero .ah-field input::placeholder{color:rgba(255,255,255,.7);letter-spacing:0;font-weight:500;font-size:1rem}
+.ah-go{flex:none;width:46px;height:46px;margin-right:5px;border-radius:50%;border:0;background:var(--lichen);color:var(--moss);display:grid;place-items:center;cursor:pointer;transition:transform .2s var(--ease)}
+.ah-go:hover{transform:translateX(2px)}
+.area-hero .ap-res{display:grid;gap:8px;padding:14px 16px;border-radius:18px;background:rgba(18,28,20,.78);border:1px solid rgba(255,255,255,.14);color:#fff;animation:apIn .35s var(--ease)}
+.area-hero .ap-res:empty{display:none}
+.area-hero .ap-res b{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:1.2rem}
+.area-hero .ap-res span{color:rgba(255,255,255,.84);font-size:.94rem}
+.area-hero .ap-res.ok b::before{content:"✓ ";color:var(--lichen)}
+.area-hero .ap-res.out b{color:#f0c9a8}
+.area-hero .ap-res.no{color:#ffd8cc}
+.area-hero .ap-res .btn{justify-self:start;min-height:46px;margin-top:2px}
+@keyframes apIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){.ah-field{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}}
+
+.ap-scrim{position:fixed;inset:0;z-index:140;background:rgba(14,22,16,.55);opacity:0;transition:opacity .22s}
+.ap-scrim.in{opacity:1}
+.ap-scrim[hidden],.area-panel[hidden],.ap-step[hidden]{display:none!important}
+html.ap-lock{overflow:hidden}
+.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(460px,calc(100vw - 32px));max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;background:var(--paper);color:var(--ink);border-radius:26px;padding:28px 28px 24px;box-shadow:0 50px 100px -30px rgba(10,18,12,.6);opacity:0;transform:translate(-50%,-46%) scale(.98);transition:opacity .22s var(--ease),transform .28s var(--ease)}
+.area-panel.in{opacity:1;transform:translate(-50%,-50%)}
+.ap-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:12px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.ap-close svg{width:22px;height:22px}
+.ap-close:hover{background:var(--cream)}
+.ap-eb{font-size:.74rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-t)}
+.area-panel h2{font-size:1.9rem;margin:6px 44px 6px 0}
+.area-panel h2:focus{outline:none}
+#ap-form{display:block;margin:0;padding:0;background:none;box-shadow:none}
+#ap-form label,#ap-form legend{display:block;font-size:.85rem;font-weight:700;margin:12px 0 6px}
+#ap-form .opt{font-weight:500;color:var(--muted)}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+#ap-form input:not([type=checkbox]),#ap-form textarea{min-height:48px;background:#fff}
+#ap-form textarea{min-height:72px}
+#ap-form [aria-invalid="true"]{border-color:#b3412a;outline:2px solid #e9b4a8}
+.ap-jobs{border:0;display:flex;flex-wrap:wrap;gap:8px}
+.ap-jobs legend{width:100%}
+.ap-jobs label{margin:0!important}
+.ap-jobs input{position:absolute;opacity:0;width:1px;height:1px}
+.ap-jobs span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:600;font-size:.88rem;cursor:pointer;transition:background .15s,border-color .15s}
+.ap-jobs input:checked+span{background:var(--moss);border-color:var(--moss);color:var(--cream)}
+.ap-jobs input:focus-visible+span{outline:3px solid var(--clay);outline-offset:2px}
+.ap-err{margin-top:12px;color:#8e2f1c;font-weight:700;font-size:.9rem}
+.ap-send{width:100%;margin-top:16px}
+.ap-note{margin-top:10px;font-size:.8rem;color:var(--muted)}
+.ap-back{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--ink);text-decoration:underline;cursor:pointer;margin-left:4px}
+.ap-check{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--lichen);color:var(--moss);margin-bottom:6px;animation:apIn .4s var(--ease)}
+.ap-check svg{width:26px;height:26px}
+.ap-done p{color:var(--ink-2);font-size:.95rem;margin:4px 0 16px}
+@media (max-width:760px){
+  .area-hero{max-width:none}
+  .ah-q{font-size:1.1rem}
+  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100svh - 40px);border-radius:24px 24px 0 0;padding:24px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
+  .area-panel.in{transform:none}
+  .ap-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.area-panel,.ap-scrim,.area-hero .ap-res,.ap-check{transition:none;animation:none}}
+.ap-done .btn{white-space:normal;text-align:left;max-width:100%}
+@media (max-width:760px){.ap-done .btn{width:100%;justify-content:space-between}}
