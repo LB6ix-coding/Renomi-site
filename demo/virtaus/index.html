@@ -270,6 +270,86 @@ h2{font-weight:600}
 .qband .q p.small{color:rgba(255,255,255,.75);max-width:42ch}
 @media (max-width:760px){.qband::after{background:linear-gradient(0deg,rgba(12,10,9,.85),rgba(12,10,9,.2))}.qband{min-height:520px;align-items:end}}
 </style>
+<style>
+/* ---------- area check in the hero ("Tuletko alueelleni?") + request dialog ---------- */
+form.area-hero{display:grid;gap:10px;grid-template-columns:minmax(0,1fr);max-width:440px;margin:4px 0 0;padding:0}
+.area-hero .ah-q{margin:0;font-family:Sora,Inter,sans-serif;font-size:1.05rem;font-weight:600;letter-spacing:-.02em;color:#fff}
+.ah-field{position:relative;display:flex;align-items:center;height:56px;border-radius:4px;background:rgba(10,21,28,.55);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.38);transition:box-shadow .2s,background .2s}
+.ah-field:focus-within{box-shadow:inset 0 0 0 2px var(--accent-l);background:rgba(10,21,28,.78)}
+.ah-field>svg.i{position:absolute;left:16px;color:var(--accent-l);pointer-events:none}
+.area-hero .ah-field input{flex:1;width:0;min-width:0;height:100%;min-height:0;padding:0 8px 0 46px;border:0;border-radius:4px;background:transparent;color:#fff;font-family:Sora,Inter,sans-serif;font-size:1.2rem;font-weight:600;letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.area-hero .ah-field input:focus{outline:none;background:transparent}
+.area-hero .ah-field input::placeholder{color:rgba(255,255,255,.66);font-family:Inter,sans-serif;font-weight:400;font-size:1rem;letter-spacing:0}
+.ah-go{flex:none;width:46px;height:46px;margin-right:5px;border-radius:3px;border:0;background:var(--accent-l);color:#062621;display:grid;place-items:center;cursor:pointer;transition:background .2s}
+.ah-go:hover{background:#fff}
+.ah-go svg.i{transition:transform .2s}.ah-go:hover svg.i{transform:translateX(2px)}
+.area-hero .ap-res{display:grid;gap:6px 18px;align-items:center;padding:14px 16px;border-radius:4px;background:rgba(10,21,28,.84);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 3px 0 0 #8fa3ad;color:#fff;animation:apIn .35s ease}
+.area-hero .ap-res:empty{display:none}
+.area-hero .ap-res>b{font-family:Sora,Inter,sans-serif;font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+.area-hero .ap-res>span{color:#c3d0d6;font-size:.94rem;line-height:1.5}
+.area-hero .ap-res.ok{box-shadow:inset 0 0 0 1px rgba(127,224,207,.28),inset 3px 0 0 var(--accent-l)}
+.area-hero .ap-res.ok>b::before{content:"✓ ";color:var(--accent-l)}
+.area-hero .ap-res.out>b{color:#f2d3a9}
+.area-hero .ap-res.no{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),inset 3px 0 0 #f08a6c;color:#ffd9cc}
+.area-hero .ap-res .btn{justify-self:start;min-height:44px;padding:.6rem 1.1rem;font-size:.92rem}
+@media (min-width:761px){
+  /* a wider, flatter answer so the vertically centred hero copy grows as little as possible */
+  form.area-hero{max-width:640px;grid-template-columns:minmax(0,440px) minmax(0,1fr)}
+  .area-hero .ah-q,.area-hero .ah-field{grid-column:1}
+  .area-hero .ap-res{grid-column:1/-1;grid-template-columns:minmax(0,1fr) auto}
+  .area-hero .ap-res>b,.area-hero .ap-res>span{grid-column:1}
+  .area-hero .ap-res .btn{grid-column:2;grid-row:1/3;margin:0}
+  .vh-copy:has(.ap-res:not(:empty)) .lead{display:none}
+}
+@keyframes apIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){.ah-field{-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}}
+
+.ap-scrim{position:fixed;inset:0;z-index:140;background:rgba(10,21,28,.6);opacity:0;transition:opacity .22s}
+.ap-scrim.in{opacity:1}
+.ap-scrim[hidden],.area-panel[hidden],.ap-step[hidden]{display:none!important}
+html.ap-lock{overflow:hidden}
+.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(470px,calc(100vw - 32px));max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;background:var(--paper);color:var(--ink);border-radius:6px;padding:30px 28px 24px;box-shadow:0 50px 100px -30px rgba(10,21,28,.65),inset 0 3px 0 var(--accent);opacity:0;transform:translate(-50%,-46%);transition:opacity .22s ease,transform .28s cubic-bezier(.2,.7,.2,1)}
+.area-panel.in{opacity:1;transform:translate(-50%,-50%)}
+.ap-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:4px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.ap-close svg{width:22px;height:22px}
+.ap-close:hover{background:var(--bg);color:var(--ink)}
+.ap-eb{font-size:.76rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.area-panel h2{font-family:Sora,Inter,sans-serif;font-size:1.85rem;font-weight:600;letter-spacing:-.04em;margin:6px 44px 6px 0}
+.area-panel h2:focus{outline:none}
+form#ap-form{display:block;padding:0;margin:0}
+#ap-form label,#ap-form legend{display:block;font-size:.84rem;font-weight:600;margin:12px 0 6px}
+#ap-form .opt{font-weight:400;color:var(--muted)}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+#ap-form input:not([type=checkbox]),#ap-form textarea{border-radius:4px}
+#ap-form textarea{min-height:76px}
+#ap-form [aria-invalid="true"]{border-color:#b8432a;outline:2px solid #f0b8a8;outline-offset:0}
+.ap-jobs{border:0;display:flex;flex-wrap:wrap;gap:8px;min-width:0;margin-top:16px}
+#ap-form .ap-jobs legend{margin:0 0 8px;padding:0}
+.ap-jobs legend{width:100%}
+#ap-form .ap-jobs label{margin:0;position:relative}
+.ap-jobs input{position:absolute;opacity:0;width:1px;height:1px;min-height:0;padding:0}
+.ap-jobs span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--bg);font-weight:500;font-size:.88rem;color:var(--ink-2);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.ap-jobs span:hover{border-color:var(--ink-2)}
+.ap-jobs input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.ap-jobs input:focus-visible+span{outline:3px solid var(--accent);outline-offset:2px}
+.ap-err{margin-top:12px;color:#93301a;font-weight:600;font-size:.9rem}
+.ap-send{width:100%;margin-top:18px}
+.ap-note{margin-top:10px;font-size:.8rem;color:var(--muted)}
+.ap-back{background:none;border:0;padding:4px 0;font:inherit;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-left:4px}
+.ap-check{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--accent-2);color:var(--accent);margin-bottom:8px;animation:apIn .4s ease}
+.ap-check svg{width:26px;height:26px}
+.ap-done p{color:var(--ink-2);font-size:.96rem;margin:4px 0 18px}
+.ap-done .btn{white-space:normal;text-align:left;max-width:100%}
+.form-status a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){
+  form.area-hero{max-width:none;margin-top:2px}
+  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100svh - 40px);border-radius:14px 14px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
+  .area-panel.in{transform:none}
+  .ap-grid{grid-template-columns:1fr}
+  .ap-done .btn{width:100%;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){.area-panel,.ap-scrim,.area-hero .ap-res,.ap-check{transition:none;animation:none}}
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
@@ -306,6 +386,11 @@ h2{font-weight:600}
       <a href="#yhteys" class="btn vbtn-mint">Pyydä tarjous</a>
       <a class="btn vbtn-line" href="tel:+358507654321">Soita 050 765 4321</a>
     </div>
+    <form class="area-hero" id="area-check" novalidate>
+      <label class="ah-q" for="ap-pn">Tuletko alueelleni?</label>
+      <div class="ah-field"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><input id="ap-pn" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" placeholder="Postinumero" spellcheck="false"><button class="ah-go" type="submit" aria-label="Tarkista postinumero"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="ap-res" id="ap-res" role="status" aria-live="polite"></div>
+    </form>
   </div>
   <div class="wrap">
     <div class="vh-stats">
@@ -397,7 +482,8 @@ h2{font-weight:600}
       <form id="lomake" method="post" data-endpoint="">
         <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
         <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 \(\)\-]{6,}" required></div>
-        <div class="full"><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="f-pn">Postinumero</label><input id="f-pn" name="postinumero" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}"></div>
         <div class="full"><label for="f-tyo">Työn tyyppi</label><select id="f-tyo" name="tyo"><option value="" selected>Valitse…</option><option>Ilmanvaihtotyöt</option><option>Ilmastointityöt</option><option>Kiinteistöautomaatio</option><option>Putkityöt</option><option>Rakennus- ja saneeraustyöt</option><option>Muu</option></select></div>
         <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. kohteen tyyppi, sijainti ja aikataulu"></textarea></div>
         <div class="hp" aria-hidden="true"><label for="f-www">Jätä tyhjäksi</label><input id="f-www" name="www" tabindex="-1" autocomplete="off"></div>
@@ -417,6 +503,39 @@ h2{font-weight:600}
     <span><a href="tel:+358507654321">050 765 4321</a> · <a href="mailto:hei@virtauslvia.fi">hei@virtauslvia.fi</a></span>
   </div>
 </footer>
+
+<div class="ap-scrim" id="ap-scrim" hidden></div>
+<div class="area-panel" id="area-panel" role="dialog" aria-modal="true" aria-labelledby="ap-h2" hidden>
+  <button class="ap-close" type="button" aria-label="Sulje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <form class="ap-step" data-step="2" id="ap-form" novalidate hidden>
+    <p class="ap-eb" id="ap-where"></p>
+    <h2 id="ap-h2">Pyydä tarjous.</h2>
+    <div class="ap-grid">
+      <div><label for="ap-nimi">Nimi</label><input id="ap-nimi" name="nimi" autocomplete="name" required></div>
+      <div><label for="ap-puh">Puhelin</label><input id="ap-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9 +\(\)\-]{6,}" required></div>
+    </div>
+    <fieldset class="ap-jobs"><legend>Mitä työ koskee?</legend>
+      <label><input type="checkbox" name="tyo" value="Ilmanvaihtotyöt"><span>Ilmanvaihto</span></label>
+      <label><input type="checkbox" name="tyo" value="Ilmastointityöt"><span>Ilmastointi</span></label>
+      <label><input type="checkbox" name="tyo" value="Kiinteistöautomaatio"><span>Kiinteistöautomaatio</span></label>
+      <label><input type="checkbox" name="tyo" value="Putkityöt"><span>Putkityöt</span></label>
+      <label><input type="checkbox" name="tyo" value="Kanttikanavat mittatilauksena"><span>Kanttikanavat</span></label>
+      <label><input type="checkbox" name="tyo" value="Rakennus- ja saneeraustyöt"><span>Rakennus ja saneeraus</span></label>
+    </fieldset>
+    <label for="ap-viesti">Kerro kohteesta <span class="opt">(vapaaehtoinen)</span></label>
+    <textarea id="ap-viesti" name="viesti" rows="2" placeholder="Esim. kohteen tyyppi ja aikataulu"></textarea>
+    <div class="hp" aria-hidden="true"><label for="ap-www">Jätä tyhjäksi</label><input id="ap-www" name="www" tabindex="-1" autocomplete="off"></div>
+    <p class="ap-err" id="ap-err" role="alert" hidden></p>
+    <button class="btn btn-primary ap-send" type="submit">Lähetä pyyntö</button>
+    <p class="ap-note">Käsittelemme tietojasi vain yhteydenottoon vastaamiseksi. <button type="button" class="ap-back">Vaihda postinumero</button></p>
+  </form>
+  <div class="ap-step ap-done" data-step="3" hidden>
+    <span class="ap-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <h2 id="ap-h3" tabindex="-1">Kiitos!</h2>
+    <p>Tämä on demosivu, joten pyyntö ei lähtenyt kenellekään, eikä tietojasi tallennettu minnekään tämän selaimen ulkopuolelle.</p>
+    <a class="btn btn-primary" id="ap-crm" href="liidit/index.html">Katso, miten yrittäjä näkee pyynnön<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div>
 
 <div class="callbar">
   <a class="btn btn-primary" href="#yhteys">Pyydä tarjous</a>
@@ -505,5 +624,6 @@ h2{font-weight:600}
   }, {passive: true});
 })();
 </script>
+<script src="alue.js" defer></script>
 </body>
 </html>
