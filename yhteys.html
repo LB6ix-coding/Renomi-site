@@ -47,16 +47,22 @@
 </section>
 <section class="sec" style="padding-top:0" aria-label="Yhteydenotto">
   <div class="gut wide split">
-    <form class="form" id="cform" novalidate>
+    <form class="form" id="cform" novalidate data-endpoint="https://ocvargozhsgegbrfyiki.supabase.co/rest/v1/rpc/submit_website_lead" data-key="sb_publishable_nfdBMh1ufBL3uApkcU6cbw_x-7EpgdB">
       <div class="two">
         <label for="f-y">Yrityksen nimi<input id="f-y" name="y" autocomplete="organization" required aria-describedby="f-err" placeholder="Esim. LVI Virtanen Oy"></label>
         <label for="f-p">Paikkakunta<input id="f-p" name="p" autocomplete="address-level2" required aria-describedby="f-err" placeholder="Esim. Vantaa"></label>
       </div>
-      <label for="f-m"><span>Viesti <small>valinnainen</small></span><textarea id="f-m" name="m" rows="3" aria-describedby="f-m-hint"></textarea><small id="f-m-hint">Kotisivujen osoite tai Google-profiili, jos on. Jos haluatte, että soitamme, kirjoittakaa numeronne viestiin.</small></label>
-      <p class="err" id="f-err" role="alert" hidden>Kirjoittakaa yrityksen nimi ja paikkakunta.</p>
-      <div><button class="pill pill-solid" type="submit">Avatkaa valmis sähköposti</button></div>
-      <p class="fine">Painike avaa sähköpostiohjelmanne valmiilla viestillä. Tietoja ei lähetetä minnekään muualle.</p>
+      <label for="f-c">Sähköposti tai puhelin<input id="f-c" name="c" autocomplete="email" required aria-describedby="f-err" placeholder="Esim. nimi@yritys.fi tai 040 123 4567"></label>
+      <label for="f-m"><span>Viesti <small>valinnainen</small></span><textarea id="f-m" name="m" rows="3" aria-describedby="f-m-hint"></textarea><small id="f-m-hint">Kotisivujen osoite tai Google-profiili, jos on.</small></label>
+      <div class="hp" aria-hidden="true"><label for="f-www">Jättäkää tyhjäksi<input id="f-www" name="www" tabindex="-1" autocomplete="off"></label></div>
+      <p class="err" id="f-err" role="alert" hidden>Kirjoittakaa yrityksen nimi, paikkakunta ja sähköposti tai puhelinnumero.</p>
+      <div><button class="pill pill-solid" type="submit" id="f-send">Pyytäkää kartoitus</button></div>
+      <p class="fine">Käytämme tietoja vain yhteydenottoonne vastaamiseen. Ne poistetaan 12 kuukauden kuluttua, ellei asiakassuhdetta synny. <a href="tietosuoja.html">Tietosuojaseloste</a></p>
     </form>
+    <div class="form sent" id="f-done" hidden tabindex="-1">
+      <h2>Kiitos, pyyntö on perillä.</h2>
+      <p class="dim">Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
+    </div>
     <div style="display:flex;flex-direction:column;gap:24px">
       <a class="big-mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&amp;body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
       <div class="facts" style="grid-template-columns:repeat(2,minmax(0,1fr))">
@@ -131,16 +137,33 @@ document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener
   document.addEventListener('click', function(e){ if (m.open && !m.contains(e.target)) m.open = false; });
 })();
 (function(){
-  var f = document.getElementById('cform'), err = document.getElementById('f-err');
+  var f = document.getElementById('cform'), err = document.getElementById('f-err'), done = document.getElementById('f-done'), btn = document.getElementById('f-send');
+  function mailto(y, p, c, m){
+    var body = 'Hei,\n\npyydämme maksuttoman kartoituksen.\n\nYritys: ' + y + '\nPaikkakunta: ' + p + (c ? '\nYhteystieto: ' + c : '') + (m ? '\n\n' + m : '') + '\n';
+    return 'mailto:info@marktic.fi?subject=' + encodeURIComponent('Maksuton kartoitus: ' + y) + '&body=' + encodeURIComponent(body);
+  }
   f.addEventListener('submit', function(ev){
     ev.preventDefault();
-    var y = f.y.value.trim(), p = f.p.value.trim(), m = f.m.value.trim();
-    f.y.setAttribute('aria-invalid', y ? 'false' : 'true'); f.p.setAttribute('aria-invalid', p ? 'false' : 'true');
-    if (!y || !p){ err.hidden = false; (y ? f.p : f.y).focus(); return; }
+    var y = f.y.value.trim(), p = f.p.value.trim(), c = f.c.value.trim(), m = f.m.value.trim();
+    var cOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c) || /^[0-9 +()\-]{6,}$/.test(c);
+    f.y.setAttribute('aria-invalid', y ? 'false' : 'true'); f.p.setAttribute('aria-invalid', p ? 'false' : 'true'); f.c.setAttribute('aria-invalid', cOk ? 'false' : 'true');
+    if (!y || !p || !cOk){ err.textContent = 'Kirjoittakaa yrityksen nimi, paikkakunta ja sähköposti tai puhelinnumero.'; err.hidden = false; (!y ? f.y : !p ? f.p : f.c).focus(); return; }
     err.hidden = true;
-    var body = 'Hei,\n\npyydämme maksuttoman kartoituksen.\n\nYritys: ' + y + '\nPaikkakunta: ' + p + (m ? '\n\n' + m : '') + '\n';
-    location.href = 'mailto:info@marktic.fi?subject=' + encodeURIComponent('Maksuton kartoitus: ' + y) + '&body=' + encodeURIComponent(body);
+    var ep = f.getAttribute('data-endpoint'), key = f.getAttribute('data-key');
+    if (!ep || !key){ location.href = mailto(y, p, c, m); return; }
+    btn.disabled = true; btn.textContent = 'Lähetetään…';
+    var isMail = c.indexOf('@') > -1;
+    // Marktic CRM (Supabase): one database function that only accepts new requests; the publishable key can't read anything
+    fetch(ep, {method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': key, 'Authorization': 'Bearer ' + key},
+      body: JSON.stringify({p: {company: y, city: p, email: isMail ? c : '', phone: isMail ? '' : c, message: m, page: location.pathname, www: f.www.value}})})
+      .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j || !j.ok) throw new Error((j && j.error) || r.status); }); })
+      .then(function(){ f.hidden = true; done.hidden = false; done.focus(); })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Pyytäkää kartoitus';
+        err.innerHTML = 'Lähetys ei onnistunut. <a href="' + mailto(y, p, c, m).replace(/"/g, '&quot;') + '">Lähettäkää sama viesti sähköpostilla</a> tai soittakaa 040 675 9882.';
+        err.hidden = false;
+      });
   });
-})();</script>
+})();;</script>
 </body>
 </html>
