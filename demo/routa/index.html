@@ -8,7 +8,7 @@
 <meta name="description" content="Routa Maanrakennus, Tuusula. Salaojat, routaeristykset, viemärit, perustusten pohjat ja pihatiet Keski-Uudellamaalla. Kiinteä urakkahinta. Kuvitteellinen demoyritys.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#141615">
-<link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="img/build/l/00.webp" fetchpriority="high">
 <link rel="stylesheet" href="site.css">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","name":"Routa Maanrakennus","description":"Kuvitteellinen demoyritys: salaojat, routaeristykset, viemärit, perustusten pohjat ja pihatiet Keski-Uudellamaalla.","telephone":"+358450000000","email":"hei@routa.example","address":{"@type":"PostalAddress","streetAddress":"Esimerkkitie 9","postalCode":"04300","addressLocality":"Tuusula","addressCountry":"FI"},"areaServed":["Tuusula","Kerava","Järvenpää","Vantaa","Nurmijärvi"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"17:00"}]}</script>
@@ -37,20 +37,34 @@
 </header>
 
 <main id="main">
-<section class="hero" id="hero" aria-labelledby="h1">
-  <div class="hero-bg">
-    <img src="video/hero-poster.jpg" alt="" fetchpriority="high">
-    <video id="vid" muted playsinline loop preload="metadata" poster="video/hero-poster.jpg" aria-hidden="true"><source src="video/hero.mp4" type="video/mp4"></video>
-  </div>
-  <div class="cnt">
-    <span class="badge up">Keski-Uusimaa · omat koneet</span>
-    <h1 id="h1" style="margin-top:20px">Pohja kuntoon. <span class="y">Kerralla.</span></h1>
-    <div class="hero-foot">
-      <p class="lead up">Salaojat, routaeristykset, viemärit ja pihatiet omakotitaloihin. Kaivamme, asennamme ja palautamme pihan. Saat urakkahinnan ennen kuin kone liikkuu.</p>
-      <a class="btn btn-y up" href="#yhteys">Pyydä katselmus <b aria-hidden="true">→</b></a>
+<section class="build" id="hero" aria-labelledby="h1">
+  <div class="build-track" id="buildTrack">
+    <div class="build-pin">
+      <canvas id="buildCv" aria-hidden="true"></canvas>
+      <img class="crisp" data-k="0" src="img/build/k1.webp" alt="" aria-hidden="true" fetchpriority="high">
+      <img class="crisp" data-k="1" src="img/build/k2.webp" alt="" aria-hidden="true" loading="lazy">
+      <img class="crisp" data-k="2" src="img/build/k3.webp" alt="" aria-hidden="true" loading="lazy">
+      <img class="crisp" data-k="3" src="img/build/k4.webp" alt="" aria-hidden="true" loading="lazy">
+      <img class="crisp" data-k="4" src="img/build/k5.webp" alt="" aria-hidden="true" loading="lazy">
+      <img class="build-still" id="buildStill" src="img/build/k1.webp" alt="Ilmakuva metsän keskellä olevasta tontista, josta rakentuu vieritettäessä omakotitalo">
+      <div class="build-shade" aria-hidden="true"></div>
+      <div class="cnt build-copy">
+        <div class="chap on" data-c="0">
+          <span class="badge">Keski-Uusimaa · omat koneet</span>
+          <h1 id="h1">Pohja kuntoon. <span class="y">Kerralla.</span></h1>
+          <p class="lead">Salaojat, routaeristykset, viemärit ja pihat omakotitaloihin. Vieritä alas ja katso, miten tyhjästä tontista tulee koti.</p>
+        </div>
+        <div class="chap" data-c="1"><span class="num">02</span><h2>Kaivu.</h2><p>Pohja kaivetaan oikeaan syvyyteen. Pintamaa talteen, savi pois, kantava maa esiin.</p></div>
+        <div class="chap" data-c="2"><span class="num">03</span><h2>Pohja <span class="y">ja salaojat.</span></h2><p>Murske, routaeristys ja salaojat tehdään ennen kuin talo nousee. Myöhemmin niihin ei enää pääse käsiksi.</p></div>
+        <div class="chap" data-c="3"><span class="num">04</span><h2>Talo <span class="y">nousee.</span></h2><p>Kun pohja kantaa ja vesi pysyy poissa, talo pysyy suorana ja kuivana vuosikymmeniä.</p></div>
+        <div class="chap" data-c="4"><span class="num">05</span><h2>Koti.</h2><p>Pihatie, nurmikko ja valot paikoillaan. Me hoidamme kaiken maan alla, jotta te voitte nauttia siitä, mikä on päällä.</p><a class="btn btn-y" href="#yhteys">Pyydä katselmus <b aria-hidden="true">→</b></a></div>
+      </div>
+      <ol class="rail" id="rail" aria-hidden="true">
+        <li class="on"><i></i>Tontti</li><li><i></i>Kaivu</li><li><i></i>Perustus</li><li><i></i>Talo</li><li><i></i>Ilta</li>
+      </ol>
+      <div class="load" id="buildLoad" aria-hidden="true"><i></i></div>
     </div>
   </div>
-  <div class="shots" id="shots" aria-hidden="true"><span>01</span><span>02</span><span>03</span></div>
 </section>
 
 <section class="spec" aria-label="Lyhyesti">
@@ -163,31 +177,6 @@
   </div>
 </section>
 
-<section class="story" aria-labelledby="st-h">
-  <div class="s-track" id="sTrack">
-    <div class="s-pin">
-      <div class="cnt s-grid">
-        <div>
-          <span class="lbl">Urakan kulku</span>
-          <h2 id="st-h" style="margin-top:16px">Katselmuksesta <span class="y">valmiiseen pihaan</span>.</h2>
-          <ol class="s-steps" id="sSteps">
-            <li class="s-st on"><span class="k">01 · Katselmus</span><h3>Katsotaan maan alle</h3><p><span>Kuvaamme vanhat salaojat ja viemärit kameralla, mittaamme sokkelin ja sovimme työn rajat.</span></p><img class="s-mob" src="img/drain.webp" alt="" loading="lazy"></li>
-            <li class="s-st"><span class="k">02 · Suunnitelma</span><h3>Hinta ja aikataulu</h3><p><span>Saat urakkahinnan, työjärjestyksen ja kestoarvion. Selvitämme, tarvitaanko vesilaitoksen lausuntoa.</span></p><img class="s-mob" src="img/driveway.webp" alt="" loading="lazy"></li>
-            <li class="s-st"><span class="k">03 · Kaivu</span><h3>Kaivu ja asennus</h3><p><span>Kaivamme osissa, jotta sokkeli ei jää pitkäksi aikaa auki. Putket, kaivot ja eristeet asennetaan heti.</span></p><img class="s-mob" src="img/sewer.webp" alt="" loading="lazy"></li>
-            <li class="s-st"><span class="k">04 · Täyttö</span><h3>Täyttö ja tiivistys</h3><p><span>Täytämme kerroksittain ja tiivistämme. Lopuksi pinta ja nurmikko palautetaan sovitulla tavalla.</span></p><img class="s-mob" src="img/compactor.webp" alt="" loading="lazy"></li>
-          </ol>
-        </div>
-        <div class="s-view" aria-hidden="true">
-          <img class="on" src="img/drain.webp" alt="" loading="lazy">
-          <img src="img/driveway.webp" alt="" loading="lazy">
-          <img src="img/sewer.webp" alt="" loading="lazy">
-          <img src="img/compactor.webp" alt="" loading="lazy">
-          <span class="ct" id="sCt">1 / 4</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="band" aria-label="Lupaus">
   <img class="bg" src="img/gravel.webp" alt="" loading="lazy">
@@ -280,6 +269,8 @@
   </div>
 </footer>
 <div class="dock" id="dock"><a class="btn btn-o" href="tel:+358450000000">Soita</a><a class="btn btn-y" href="#yhteys">Tarjous</a></div>
+<script>window.BUILD_FRAMES=241;window.BUILD_CLIPS=4;window.BUILD_SEGMENTS=[0,30,85,135,205];</script>
+<script src="story.js" defer></script>
 <script src="site.js" defer></script>
 </body>
 </html>
