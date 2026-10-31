@@ -84,64 +84,6 @@
     b.addEventListener('pointerleave', function () { b.style.transform = ''; });
   });
 
-  /* ---------- fade picker: the shop's own photos ---------- */
-  var T = {
-    taper: { h: 'Taper', p: 'Siistit rajat niskaan ja ohimoille. Pituus jää sivuille, sopii kiharoille ja pidemmälle tukalle.', img: ['03', '05', '16', '17', '14', '20', '25', '07', '15'] },
-    low: { h: 'Low fade', p: 'Häivytys alkaa matalalta korvan yläpuolelta ja kasvaa siististi ulos.', img: ['02', '04', '21', '29', '18', '31'] },
-    mid: { h: 'Mid fade', p: 'Häivytys ohimoiden korkeudelle. Selkeä kontrasti, mutta ei liian raju.', img: ['01', '06', '19', '22', '11', '28', '23', '27'] },
-    high: { h: 'High fade', p: 'Iho näkyy pitkälle ylös. Terävin vaihtoehto.', img: ['09', '26', '24', '30'] }
-  };
-  var BEARD = ['07', '15', '23', '26', '27'];
-  var k = 'mid', idx = 0, front = 'sA', barber = 'ensimmäinen vapaa';
-  var seg = document.getElementById('seg'), beard = document.getElementById('pBeard'), stage = document.getElementById('stage'), dots = document.getElementById('dots');
-  function list() {
-    var L = T[k].img; if (!beard.checked) return L;
-    return L.filter(function (x) { return BEARD.indexOf(x) > -1; }).concat(L.filter(function (x) { return BEARD.indexOf(x) < 0; }));
-  }
-  function show(n) {
-    var L = list(); idx = (n + L.length) % L.length;
-    var a = document.getElementById(front), b = document.getElementById(front === 'sA' ? 'sB' : 'sA');
-    b.onload = function () { b.classList.remove('out'); a.classList.add('out'); front = b.id; };
-    b.src = 'img/image_' + L[idx] + '.webp'; b.alt = T[k].h + ', FedeCollectiven oma työ, kuva ' + (idx + 1);
-    document.getElementById('sCount').textContent = (idx + 1) + ' / ' + L.length;
-    [].forEach.call(dots.children, function (d, j) { d.classList.toggle('on', j === idx); });
-    var nx = new Image(); nx.src = 'img/image_' + L[(idx + 1) % L.length] + '.webp';
-  }
-  function render() {
-    var t = T[k], L = list();
-    document.getElementById('pName').textContent = t.h + (beard.checked ? ' + parta' : '');
-    document.getElementById('sTag').textContent = t.h;
-    document.getElementById('pDesc').textContent = t.p + ' Barberi: ' + barber + '.';
-    document.getElementById('pSvc').textContent = beard.checked ? 'Skin Fade + Beard' : 'Skin Fade';
-    document.getElementById('pPrice').innerHTML = (beard.checked ? 40 : 30) + '&nbsp;€';
-    dots.innerHTML = ''; L.forEach(function () { dots.appendChild(document.createElement('i')); });
-    show(0);
-  }
-  seg.addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    seg.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-    k = b.dataset.k; render();
-  });
-  beard.addEventListener('change', render);
-  document.getElementById('who').addEventListener('click', function (e) {
-    var b = e.target.closest('button'); if (!b) return;
-    this.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
-    barber = b.dataset.b; render();
-  });
-  document.getElementById('sPrev').addEventListener('click', function () { show(idx - 1); });
-  document.getElementById('sNext').addEventListener('click', function () { show(idx + 1); });
-  stage.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') { show(idx - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { show(idx + 1); e.preventDefault(); } });
-  // swipe / drag
-  var sx = null, sy = null;
-  stage.addEventListener('pointerdown', function (e) { if (e.target.closest('button')) return; sx = e.clientX; sy = e.clientY; });
-  stage.addEventListener('pointerup', function (e) {
-    if (sx === null) return;
-    var dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(idx + (dx < 0 ? 1 : -1));
-  });
-  stage.addEventListener('pointercancel', function () { sx = null; });
-  render();
-
   /* ---------- pinned story ---------- */
   var track = document.getElementById('story');
   var stg = [].slice.call(document.querySelectorAll('.stage-i'));

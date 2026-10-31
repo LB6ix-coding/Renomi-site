@@ -22,7 +22,6 @@
     <a href="#top" class="logo" aria-label="FedeCollective, etusivulle"><img src="img/logo.png" alt="" width="38" height="38">FedeCollective</a>
     <ul class="nav-links" id="menu">
       <li><a href="#palvelut">Palvelut</a></li>
-      <li><a href="#fade">Valitse fade</a></li>
       <li><a href="#hinnat">Hinnat</a></li>
       <li><a href="#barberit">Barberit</a></li>
       <li><a href="#yhteys">Yhteys</a></li>
@@ -54,7 +53,6 @@
       </div>
     </div>
   </div>
-  <span class="scroll-cue" aria-hidden="true"></span>
 </section>
 
 <section class="stats" aria-label="Lyhyesti" style="padding:0">
@@ -67,13 +65,6 @@
     </ul>
   </div>
 </section>
-
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Skin fade</span><span><em>Taper</em></span><span>Line up</span><span><em>Parta</em></span><span>Mallinmuutos</span><span><em>Koneajo</em></span>
-    <span>Skin fade</span><span><em>Taper</em></span><span>Line up</span><span><em>Parta</em></span><span>Mallinmuutos</span><span><em>Koneajo</em></span>
-  </div>
-</div>
 
 <section class="light" id="palvelut">
   <div class="wrap">
@@ -93,53 +84,7 @@
   </div>
 </section>
 
-<section class="dark" id="fade">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="rv"><span class="eyebrow">Valitse fade</span><h2>Katso ennen <em>kuin istut.</em></h2></div>
-      <p class="rv" style="--d:1">Valitse korkeus ja selaa meidän omia töitämme. Pyyhkäise kuvaa sivulle tai käytä nuolia.</p>
-    </div>
-    <div class="picker">
-      <div class="rv">
-        <div class="seg" role="group" aria-label="Faden korkeus" id="seg">
-          <button type="button" data-k="taper" aria-pressed="false">Taper</button>
-          <button type="button" data-k="low" aria-pressed="false">Low</button>
-          <button type="button" data-k="mid" aria-pressed="true">Mid</button>
-          <button type="button" data-k="high" aria-pressed="false">High</button>
-        </div>
-        <div class="stage" id="stage" tabindex="0" role="group" aria-roledescription="kuvakaruselli" aria-label="Faden kuvat. Nuolinäppäimet vaihtavat kuvaa.">
-          <img id="sA" alt="" decoding="async">
-          <img id="sB" alt="" decoding="async" class="out">
-          <div class="stage-tag"><span class="hl" id="sTag">Mid fade</span><span>Oma työ</span></div>
-          <span class="stage-count" id="sCount" aria-live="polite">1 / 8</span>
-          <div class="stage-nav"><button type="button" id="sPrev" aria-label="Edellinen kuva">←</button><button type="button" id="sNext" aria-label="Seuraava kuva">→</button></div>
-        </div>
-        <div class="dots" id="dots" aria-hidden="true"></div>
-      </div>
-      <div class="panel rv" style="--d:1">
-        <div><span class="lbl">Valintasi</span><h3 id="pName">Mid fade</h3></div>
-        <p class="desc" id="pDesc">Häivytys ohimoiden korkeudelle. Selkeä kontrasti, mutta ei liian raju.</p>
-        <label class="tog" for="pBeard"><span>Parta mukaan<small>Parran muotoilu samalla käynnillä</small></span><input type="checkbox" id="pBeard"><span class="sw" aria-hidden="true"></span></label>
-        <div style="display:grid;gap:10px">
-          <span class="lbl" id="who-l">Barberi</span>
-          <div class="who" role="group" aria-labelledby="who-l" id="who">
-            <button type="button" class="any" data-b="ensimmäinen vapaa" aria-pressed="true">Ensimmäinen vapaa</button>
-            <button type="button" data-b="Fedefades" aria-pressed="false"><img src="img/team_fedefades.webp" alt="">Fedefades</button>
-            <button type="button" data-b="TimoBlends" aria-pressed="false"><img src="img/team_timoblends.webp" alt="">TimoBlends</button>
-            <button type="button" data-b="LeeCutz" aria-pressed="false"><img src="img/team_leecutz.webp" alt="">LeeCutz</button>
-          </div>
-        </div>
-        <div class="pick-out">
-          <div><span class="lbl" id="pSvc">Skin Fade</span><p class="price" id="pPrice">30&nbsp;€</p></div>
-          <a class="btn btn-red mag" href="https://varaa.timma.fi/reservation/fedecollective" target="_blank" rel="noopener">Varaa tämä <span class="arr" aria-hidden="true">→</span></a>
-        </div>
-        <p class="fine">Kaikki kuvat ovat FedeCollectiven omia töitä. Korkeus sovitaan vielä tuolissa.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="light" id="hinnat">
+<section class="dark" id="hinnat">
   <div class="wrap">
     <div class="sec-head">
       <div class="rv"><span class="eyebrow">Hinnat</span><h2>Kokoa käynti. <em>Näe hinta.</em></h2></div>
