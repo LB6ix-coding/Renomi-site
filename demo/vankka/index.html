@@ -3,693 +3,304 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Vankka Autokorjaamo | Autohuolto, jarrut ja renkaat Vantaalla</title>
-<!-- TODO: images hotlinked from Higgsfield CDN; copy into img/ as webp before publishing -->
-<meta name="description" content="Vankka Autokorjaamo on itsenäinen autokorjaamo Vantaalla. Määräaikaishuollot valmistajan ohjelman mukaan, jarrut, renkaat ja rengashotelli, ilmastointi, vikadiagnoosi ja katsastuskunnostus kaikille merkeille.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fi_FI">
-<meta property="og:title" content="Vankka Autokorjaamo, Vantaa">
-<meta property="og:description" content="Katso huollon esimerkkihinta heti ja varaa aika samalla kertaa.">
+<title>Vankka Autokorjaamo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vankka Autokorjaamo, Vantaa. Huollot, jarrut, renkaat, vikadiagnoosi ja pakoputkistot kaikille merkeille. Hinta ennen työtä. Kuvitteellinen demoyritys.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#16191b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%2316191b'/%3E%3Cpath d='M7 8h5l4 11 4-11h5l-7 17h-4z' fill='%23f5c400'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"Vankka Autokorjaamo (kuvitteellinen demoyritys)","description":"Kuvitteellinen itsenäinen autokorjaamo Markticin esimerkkisivulla.","telephone":"+358400000000","email":"huolto@vankka.example","address":{"@type":"PostalAddress","addressLocality":"Vantaa","addressCountry":"FI"},"areaServed":{"@type":"City","name":"Vantaa"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"17:00"}]}</script>
-<style>
-:root{
-  --ink:#16191b;--ink-2:#3d4347;--mut:#62696e;--line:#c3c7c2;--line-2:#a9aea8;
-  --bg:#e3e5e0;--bg-2:#d6d9d3;--paper:#f8f7f2;--steel:#22272a;--steel-2:#2e3438;
-  --yel:#f5c400;--yel-2:#d9ad00;--red:#b8321b;--blue:#1f4fa3;--ok:#2f7a3d;
-  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
-  --sans:"Barlow",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  --wrap:1180px;--gut:clamp(16px,4vw,40px);
-  --safe-b:env(safe-area-inset-bottom,0px);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 var(--sans);overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3{font-family:var(--cond);font-weight:800;line-height:.98;letter-spacing:-.005em;margin:0;text-transform:uppercase}
-h2{font-size:clamp(2.2rem,5.4vw,3.9rem)}
-h3{font-size:1.45rem;font-weight:700;letter-spacing:.01em}
-p{margin:0}
-.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:var(--gut)}
-.mono{font-family:var(--mono)}
-.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--yel);color:var(--ink);padding:10px 14px;font-weight:700;text-decoration:none}
-.skip:focus{top:12px}
-:focus-visible{outline:3px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 6px var(--yel)}
-.dark :focus-visible,.hdr :focus-visible,.foot :focus-visible{outline-color:var(--yel);box-shadow:0 0 0 6px var(--ink)}
-.hazard{height:10px;background:repeating-linear-gradient(-45deg,var(--yel) 0 14px,var(--ink) 14px 28px)}
-
-/* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:12px 22px;font:700 1.15rem/1 var(--cond);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:2px solid var(--ink);border-radius:2px;cursor:pointer;background:transparent;color:var(--ink);transition:background .15s,color .15s,transform .15s}
-.btn svg{width:20px;height:20px;flex:none}
-.btn-y{background:var(--yel);border-color:var(--yel);color:var(--ink)}
-.btn-y:hover{background:var(--yel-2);border-color:var(--yel-2)}
-.btn-k{background:var(--ink);color:#fff}
-.btn-k:hover{background:var(--steel-2)}
-.btn-o:hover{background:var(--ink);color:#fff}
-.dark .btn-o{border-color:#fff;color:#fff}.dark .btn-o:hover{background:#fff;color:var(--ink)}
-@media (prefers-reduced-motion:no-preference){.btn:active{transform:translateY(1px)}}
-
-/* season */
-.season{background:var(--yel);color:var(--ink);font-weight:600;font-size:15px}
-.season .wrap{display:flex;gap:12px;align-items:center;padding-block:9px}
-.season b{font-family:var(--cond);font-size:1.05rem;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--yel);padding:2px 8px;flex:none}
-.season a{font-weight:700}
-
-/* header */
-.hdr{background:var(--ink);color:#fff;position:sticky;top:0;z-index:40}
-.hdr .wrap{display:flex;align-items:center;gap:24px;min-height:66px}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
-.logo-plate{display:grid;place-items:center;width:40px;height:40px;background:var(--yel);color:var(--ink);font:800 1.7rem/1 var(--cond)}
-.logo-t{font:800 1.5rem/1 var(--cond);letter-spacing:.04em;text-transform:uppercase}
-.logo-t small{display:block;font:500 .72rem/1.2 var(--mono);letter-spacing:.04em;text-transform:none;color:#aab1b5;margin-top:3px}
-.nav{display:flex;gap:22px;margin-left:auto;list-style:none;padding:0;margin-block:0}
-.nav a{text-decoration:none;font-weight:600;font-size:15px;color:#d5d9db;padding:6px 0;border-bottom:2px solid transparent}
-.nav a:hover{color:#fff;border-color:var(--yel)}
-.hdr-tel{display:inline-flex;align-items:center;gap:8px;font:600 15px var(--mono);color:var(--yel);text-decoration:none;white-space:nowrap}
-.hdr-tel svg{width:18px;height:18px}
-@media (max-width:960px){.nav{display:none}.hdr-tel{margin-left:auto}}
-
-/* hero */
-.hero{background:var(--steel);color:#fff;position:relative}
-.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);min-height:min(78vh,720px)}
-.hero-copy{padding:clamp(40px,7vw,96px) var(--gut) clamp(36px,5vw,64px) max(var(--gut),calc((100vw - var(--wrap))/2 + var(--gut)));display:flex;flex-direction:column;justify-content:center;gap:22px}
-.tag{display:inline-flex;align-self:flex-start;gap:10px;align-items:center;font:600 13px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--yel);border:1.5px solid var(--yel);padding:7px 10px}
-.hero h1{font-size:clamp(3rem,7.2vw,6.4rem);line-height:.9}
-.hero h1 span{display:block;color:var(--yel)}
-.hero .lead{font-size:1.15rem;color:#cfd4d6;max-width:44ch}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero-media{position:relative;margin:0;min-height:320px;background:#111}
-.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
-.hero-media::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;z-index:1;background:repeating-linear-gradient(-45deg,var(--yel) 0 14px,var(--ink) 14px 28px)}
-.hero-label{position:absolute;right:16px;bottom:16px;z-index:1;background:var(--ink);color:#fff;font:600 12px/1.3 var(--mono);padding:8px 10px;border-left:4px solid var(--yel)}
-.specs{background:var(--ink);color:#fff;border-top:1px solid #33393d}
-.specs ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
-.specs li{padding:18px var(--gut) 20px 0;display:grid;gap:4px}
-.specs li+li{padding-left:20px;border-left:1px solid #33393d}
-.specs b{font:700 1.5rem/1 var(--cond);text-transform:uppercase;letter-spacing:.02em}
-.specs span{font:400 13px/1.35 var(--mono);color:#9ea6ab}
-@media (max-width:860px){
-  .hero-grid{grid-template-columns:1fr}
-  .hero-media{order:-1;aspect-ratio:16/9;min-height:0}
-  .hero-media::before{width:auto;height:10px;right:0;bottom:auto}
-  .hero-copy{padding:32px var(--gut) 40px}
-  .specs ul{grid-template-columns:1fr 1fr}
-  .specs li,.specs li+li{padding:16px 12px 16px 0;border-left:0}
-  .specs li:nth-child(even){padding-left:16px;border-left:1px solid #33393d}
-  .specs li:nth-child(n+3){border-top:1px solid #33393d}
-}
-
-/* section heads */
-.sec{padding:clamp(56px,8vw,104px) 0}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px 48px;align-items:end;margin-bottom:clamp(28px,4vw,48px)}
-.sec-head p{color:var(--ink-2);max-width:52ch}
-.eyebrow{display:flex;align-items:center;gap:10px;font:600 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:14px}
-.eyebrow::before{content:"";width:22px;height:10px;background:var(--yel);border:1.5px solid var(--ink)}
-.dark .eyebrow{color:#aab1b5}.dark .eyebrow::before{border-color:var(--yel)}
-@media (max-width:760px){.sec-head{grid-template-columns:1fr}}
-
-/* services */
-.svc{list-style:none;margin:0;padding:0;border-top:3px solid var(--ink)}
-.svc li{display:grid;grid-template-columns:72px minmax(0,1.1fr) minmax(0,1.6fr) 150px;gap:8px 24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)}
-.svc .code{font:600 14px var(--mono);color:var(--mut)}
-.svc h3{font-size:1.6rem}
-.svc p{color:var(--ink-2)}
-.svc .from{font:600 15px var(--mono);text-align:right;white-space:nowrap}
-.svc .from small{display:block;font-size:12px;font-weight:400;color:var(--mut)}
-@media (max-width:760px){
-  .svc li{grid-template-columns:52px minmax(0,1fr);gap:4px 12px}
-  .svc p,.svc .from{grid-column:2}
-  .svc .from{text-align:left}
-  .svc .from small{display:inline;margin-right:6px}
-}
-
-/* warranty box */
-.warranty{margin-top:clamp(32px,5vw,56px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 28px;background:var(--paper);border:2px solid var(--ink);padding:24px clamp(18px,3vw,32px);box-shadow:8px 8px 0 var(--ink)}
-.warranty svg{width:52px;height:52px}
-.warranty h3{margin-bottom:8px}
-.warranty p+p{margin-top:8px;color:var(--ink-2);font-size:15px}
-@media (max-width:560px){.warranty{grid-template-columns:1fr;box-shadow:5px 5px 0 var(--ink)}}
-
-/* calculator */
-.calc{background:var(--bg-2);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
-.calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
-.field{display:grid;gap:8px;margin-bottom:26px}
-.field>label,fieldset legend{font:700 1.15rem/1.1 var(--cond);text-transform:uppercase;letter-spacing:.05em}
-.hint{font-size:14px;color:var(--mut)}
-input[type=text],input[type=tel],input[type=email],textarea{font:inherit;width:100%;min-height:50px;padding:10px 14px;background:#fff;color:var(--ink);border:2px solid var(--ink);border-radius:2px}
-textarea{min-height:96px;resize:vertical}
-input[aria-invalid=true]{border-color:var(--red);background:#fff4f1}
-.plate-in{font:600 1.6rem/1 var(--mono)!important;letter-spacing:.08em;text-transform:uppercase;max-width:260px}
-fieldset{border:0;margin:0 0 26px;padding:0;min-width:0}
-fieldset legend{padding:0;margin-bottom:10px}
-.opts{display:flex;flex-wrap:wrap;gap:8px}
-.opt{position:relative}
-.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.opt label{display:flex;align-items:center;gap:10px;min-height:46px;padding:9px 14px;background:#fff;border:2px solid var(--ink);font-weight:600;font-size:15px;cursor:pointer;user-select:none}
-.opt label::before{content:"";flex:none;width:16px;height:16px;border:2px solid var(--ink);background:#fff}
-.opt input[type=radio]+label::before{border-radius:50%}
-.opt input:checked+label{background:var(--ink);color:#fff}
-.opt input:checked+label::before{background:var(--yel);border-color:var(--yel);box-shadow:inset 0 0 0 3px var(--ink)}
-.opt input:focus-visible+label{outline:3px solid var(--ink);outline-offset:2px;box-shadow:0 0 0 6px var(--yel)}
-.opt input:disabled+label{opacity:.45;cursor:not-allowed;text-decoration:line-through}
-.jobs .opt{flex:1 1 100%}
-.jobs .opt label{justify-content:flex-start}
-.jobs .opt label .p{margin-left:auto;font:400 13px var(--mono);white-space:nowrap}
-.opt input:checked+label .p{color:var(--yel)}
-
-/* job card */
-.card-wrap{position:sticky;top:90px}
-.jcard{background:var(--paper);color:var(--ink);border:2px solid var(--ink);box-shadow:0 18px 40px -22px rgba(0,0,0,.55);position:relative;font-family:var(--mono);font-size:14px}
-.jcard::before{content:"";position:absolute;left:-2px;right:-2px;top:-12px;height:12px;background:radial-gradient(circle at 8px 12px,var(--bg-2) 5px,transparent 5.5px) 0 0/16px 12px repeat-x}
-.jc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 18px 12px;border-bottom:2px solid var(--ink)}
-.jc-top h3{font-size:1.9rem;letter-spacing:.06em}
-.jc-top .no{text-align:right;font-size:12px;line-height:1.5;color:var(--ink-2)}
-.jc-meta{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--ink)}
-.jc-meta div{padding:10px 18px;display:grid;gap:4px}
-.jc-meta div+div{border-left:1px solid var(--ink)}
-.jc-meta small,.jc-tot small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
-.plate{display:inline-flex;align-items:stretch;align-self:start;border:2px solid var(--ink);border-radius:4px;background:#fff;overflow:hidden;font:600 1.25rem/1 var(--mono);letter-spacing:.06em}
-.plate i{font-style:normal;background:var(--blue);color:#fff;font-size:9px;letter-spacing:.04em;display:grid;place-items:end center;padding:4px 4px 3px;width:20px}
-.plate span{padding:6px 10px 5px}
-.plate.empty span{color:#a2a7a3}
-.jc-tbl{width:100%;border-collapse:collapse}
-.jc-tbl th{font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);text-align:left;padding:10px 18px 6px}
-.jc-tbl td{padding:8px 18px;border-top:1px dashed var(--line-2);vertical-align:top}
-.jc-tbl .r{text-align:right;white-space:nowrap}
-.jc-tbl .empty td{color:var(--mut);padding-block:22px}
-.jc-tot{display:grid;grid-template-columns:1fr 1fr;border-top:2px solid var(--ink)}
-.jc-tot div{padding:12px 18px;display:grid;gap:4px}
-.jc-tot div+div{border-left:1px solid var(--ink)}
-.jc-tot b{font:700 1.7rem/1 var(--cond);letter-spacing:.02em}
-.jc-foot{padding:12px 18px 16px;border-top:1px solid var(--ink);display:grid;gap:12px;font-family:var(--sans);font-size:14px;color:var(--ink-2)}
-.stamp{position:absolute;right:16px;top:118px;transform:rotate(-8deg);border:3px solid var(--red);color:var(--red);font:800 1rem/1 var(--cond);letter-spacing:.1em;padding:6px 10px;text-transform:uppercase;opacity:.82;pointer-events:none;background:rgba(248,247,242,.6)}
-@media (prefers-reduced-motion:no-preference){.stamp.hit{animation:stamp .35s ease-out}}
-@keyframes stamp{0%{transform:rotate(-8deg) scale(1.5);opacity:0}100%{transform:rotate(-8deg) scale(1);opacity:.82}}
-@media (max-width:900px){.calc-grid{grid-template-columns:1fr}.card-wrap{position:static}}
-@media (max-width:420px){.jc-tbl th,.jc-tbl td,.jc-meta div,.jc-tot div,.jc-top,.jc-foot{padding-left:12px;padding-right:12px}.stamp{top:auto;bottom:118px;right:10px}}
-
-/* photo band */
-.band{background:var(--steel);color:#fff;padding:clamp(48px,7vw,88px) 0}
-.band-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.band figure{margin:0;display:grid;gap:10px}
-.band .ph{aspect-ratio:4/5;overflow:hidden;background:#111;border-bottom:6px solid var(--yel)}
-.band img{width:100%;height:100%;object-fit:cover}
-.band figcaption{display:flex;gap:12px;align-items:baseline;font-weight:600}
-.band figcaption span{font:600 12px var(--mono);color:var(--yel)}
-.ai-note{margin-top:18px;font-size:13px;color:#9ea6ab}
-@media (max-width:760px){.band-grid{grid-template-columns:1fr}.band .ph{aspect-ratio:5/4}}
-
-/* booking */
-.book-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,4vw,56px);align-items:start}
-.days .opt label{flex-direction:column;align-items:flex-start;gap:2px;min-width:86px;padding:8px 12px}
-.days .opt label::before{display:none}
-.days .opt label b{font:700 1.2rem/1 var(--cond);text-transform:uppercase}
-.days .opt label span{font:400 13px var(--mono)}
-.slots .opt label{font-family:var(--mono);min-width:92px;justify-content:center}
-.slots .opt label::before{display:none}
-.slots .opt label small{font-size:11px;font-weight:400}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-@media (max-width:560px){.two{grid-template-columns:1fr}}
-.chk{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px}
-.chk input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--ink);flex:none}
-.chk label{font-weight:600}
-.chk label small{display:block;font-weight:400;font-size:14px;color:var(--mut)}
-.sel-jobs{background:#fff;border:2px dashed var(--line-2);padding:12px 14px;font-size:15px;margin-bottom:26px}
-.sel-jobs b{font-family:var(--cond);text-transform:uppercase;letter-spacing:.05em}
-.err{color:var(--red);font-weight:600;margin-top:12px}
-.fine{font-size:14px;color:var(--mut);margin-top:14px}
-.aside{background:var(--ink);color:#fff;padding:24px;display:grid;gap:16px}
-.aside h3{color:var(--yel)}
-.aside ol{margin:0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:s}
-.aside li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:10px;font-size:15px;color:#d5d9db}
-.aside li::before{content:counter(s,decimal-leading-zero);font:600 14px var(--mono);color:var(--yel)}
-.aside li b{display:block;color:#fff}
-.aside figure{margin:0}
-.aside figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.confirm{background:var(--paper);border:2px solid var(--ink);box-shadow:8px 8px 0 var(--ok);padding:24px clamp(18px,3vw,32px)}
-.confirm h3{display:flex;gap:10px;align-items:center;margin-bottom:14px}
-.confirm h3 svg{width:28px;height:28px;color:var(--ok)}
-.confirm dl{margin:0 0 16px;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:15px}
-.confirm dt{font:600 12px/1.9 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
-.confirm dd{margin:0;font-weight:600}
-.confirm .demo-note{font-size:14px;color:var(--ink-2);border-top:1px dashed var(--line-2);padding-top:14px;margin-bottom:16px}
-@media (max-width:900px){.book-grid{grid-template-columns:1fr}.aside figure{display:none}}
-
-/* faq */
-.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,56px)}
-.faq details{border-bottom:1px solid var(--line-2)}
-.faq details:first-child{border-top:3px solid var(--ink)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font-weight:700;font-size:1.1rem}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:600 1.4rem/1 var(--mono);flex:none;width:28px;height:28px;display:grid;place-items:center;border:2px solid var(--ink)}
-.faq details[open] summary::after{content:"\2212";background:var(--yel)}
-.faq details p{padding:0 0 18px;color:var(--ink-2);max-width:62ch}
-@media (max-width:760px){.faq-grid{grid-template-columns:1fr}}
-
-/* contact */
-.contact{background:var(--steel);color:#fff}
-.c-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid #4a5156}
-.c-grid>div{padding:22px;display:grid;gap:6px;align-content:start}
-.c-grid>div+div{border-left:2px solid #4a5156}
-.c-grid small{font:600 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#9ea6ab}
-.c-grid a,.c-grid b{font:700 1.6rem/1.1 var(--cond);letter-spacing:.02em;color:#fff;text-decoration:none;overflow-wrap:anywhere}
-.c-grid a:hover{color:var(--yel)}
-.c-grid p{color:#c3c8cb;font-size:15px}
-@media (max-width:760px){.c-grid{grid-template-columns:1fr}.c-grid>div+div{border-left:0;border-top:2px solid #4a5156}}
-
-/* footer */
-.foot{background:var(--ink);color:#aab1b5;font-size:14px;padding:28px 0 calc(28px + var(--safe-b))}
-.foot .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;justify-content:space-between}
-.foot a{color:#fff}
-
-/* callbar */
-.callbar{display:none}
-@media (max-width:760px){
-  body{padding-bottom:calc(74px + var(--safe-b))}
-  .callbar{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 12px calc(10px + var(--safe-b));background:var(--ink);border-top:4px solid var(--yel)}
-  .callbar .btn{min-height:50px;padding:10px;font-size:1.1rem}
-  .callbar .btn-o{border-color:#fff;color:#fff}
-  .foot{padding-bottom:28px}
-}
-</style>
+<meta name="theme-color" content="#0e1115">
+<link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/big-shoulders-display-latin-900-normal.woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"Vankka Autokorjaamo","description":"Kuvitteellinen demoyritys: huollot, jarrut, renkaat, vikadiagnoosi ja pakoputkistot kaikille merkeille Vantaalla.","telephone":"+358400000000","email":"info@vankka.example","address":{"@type":"PostalAddress","streetAddress":"Esimerkkitie 12","postalCode":"01510","addressLocality":"Vantaa","addressCountry":"FI"},"areaServed":"Vantaa","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"17:00"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
-<div class="season" id="season" hidden><div class="wrap"><b>Rengassesonki</b><span id="seasonText"></span></div></div>
-
-<header class="hdr">
-  <div class="wrap">
-    <a class="logo" href="#top" aria-label="Vankka Autokorjaamo, sivun alkuun">
-      <span class="logo-plate" aria-hidden="true">V</span>
-      <span class="logo-t">Vankka<small>Autokorjaamo · Vantaa</small></span>
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#main" aria-label="Vankka Autokorjaamo, alkuun">
+      <span class="logo-mark" aria-hidden="true">V</span>
+      <span><b>VANKKA</b><small>Autokorjaamo · Vantaa</small></span>
     </a>
-    <nav aria-label="Päävalikko">
-      <ul class="nav">
-        <li><a href="#palvelut">Palvelut</a></li>
-        <li><a href="#hinta">Huoltohinta heti</a></li>
-        <li><a href="#varaa">Varaa aika</a></li>
-        <li><a href="#ukk">Kysyttyä</a></li>
-        <li><a href="#yhteys">Yhteystiedot</a></li>
-      </ul>
-    </nav>
-    <a class="hdr-tel" href="tel:+358400000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.6a11 11 0 0 0 6.9 6.9L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>040 000 0000</a>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#palvelut">Palvelut</a></li>
+      <li><a href="#vika">Mistä vika kuuluu?</a></li>
+      <li><a href="#hinta">Hinta-arvio</a></li>
+      <li><a href="#ukk">Kysymykset</a></li>
+      <li><a href="#yhteys">Yhteys</a></li>
+      <li class="m-only"><a href="tel:+358400000000">Soita 040 000 0000</a></li>
+    </ul>
+    <a class="nav-tel" href="tel:+358400000000">040 000 0000</a>
+    <a class="btn btn-cob nav-cta magnet" href="#yhteys">Varaa aika</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navlinks" aria-label="Avaa valikko">
+      <svg class="i bars" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+      <svg class="i x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
   </div>
 </header>
 
 <main id="main">
-<section class="hero" id="top" aria-labelledby="hero-h">
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <p class="tag">Kaikki merkit · Vantaa</p>
-      <h1 id="hero-h">Auto kuntoon.<span>Hinta ensin.</span></h1>
-      <p class="lead">Itsenäinen autokorjaamo Vantaalla. Teemme määräaikaishuollot, jarrut, renkaat ja korjaukset kaikkiin merkkeihin. Katso esimerkkihinta heti ja varaa aika samalla kertaa.</p>
-      <div class="hero-cta">
-        <a class="btn btn-y" href="#hinta">Katso huoltohinta</a>
-        <a class="btn btn-o" href="#varaa">Varaa aika</a>
-      </div>
-    </div>
-    <figure class="hero-media">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215720_9c0af479-6fc9-422d-a0db-884acbcb5ad0.png" alt="Mekaanikko tarkastaa harmaan farmariauton alustaa nostimella" width="1920" height="1080" fetchpriority="high">
-      <figcaption class="hero-label">Nostin 2 · alustan tarkastus</figcaption>
-    </figure>
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-media">
+    <img src="video/hero-poster.jpg" alt="" fetchpriority="high">
+    <video id="heroVid" muted playsinline loop preload="metadata" poster="video/hero-poster.jpg" aria-hidden="true">
+      <source src="video/hero.mp4" type="video/mp4">
+    </video>
   </div>
-  <div class="specs">
-    <ul class="wrap">
-      <li><b>ma–pe 7.30–17</b><span>auton voi tuoda aamulla</span></li>
-      <li><b>Kaikki merkit</b><span>henkilö- ja pakettiautot</span></li>
-      <li><b>Takuu säilyy</b><span>huolto valmistajan ohjelman mukaan</span></li>
-      <li><b>Hinta ensin</b><span>lisätyöt vasta luvallasi</span></li>
+  <div class="wrap hero-inner" id="heroInner">
+    <span class="hero-kicker fade-up" id="openNow"><i></i><span>Ma–pe 7.30–17</span></span>
+    <h1 id="h1" class="split"><span class="l1">Auto kuntoon.</span><br><span class="l2">Hinta ensin.</span></h1>
+    <div class="hero-row">
+      <p class="lead fade-up">Huollot, jarrut, renkaat ja vikadiagnoosi kaikille merkeille Vantaalla. Kerromme hinnan ennen kuin aloitamme, ja soitamme ennen jokaista lisätyötä.</p>
+      <a class="btn btn-cob magnet fade-up" href="#yhteys">Varaa aika <span class="arr" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+  <div class="reel" id="reel" aria-hidden="true"><i></i><i></i><i></i></div>
+</section>
+
+<section class="stats" aria-label="Lyhyesti">
+  <div class="wrap">
+    <ul>
+      <li class="rv"><b>Kaikki merkit</b><span>Kotimaiset ja tuontiautot</span></li>
+      <li class="rv" style="--d:1"><b>7.30–17</b><span>Arkisin, la sopimuksen mukaan</span></li>
+      <li class="rv" style="--d:2"><b>Hinta ensin</b><span>Arvio ennen töiden alkua</span></li>
+      <li class="rv" style="--d:3"><b>Vantaa</b><span>Kehä III:n tuntumassa</span></li>
     </ul>
   </div>
 </section>
 
-<section class="sec" id="palvelut" aria-labelledby="palv-h">
+<section class="paper" id="palvelut" aria-labelledby="palvelut-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">01 · Palvelut</p><h2 id="palv-h">Mitä autolle tehdään?</h2></div>
-      <p>Yleisimmät työt ja niiden esimerkkihinnat pienelle autolle. Isomman auton hinnan näet laskurista. Sitova hinta vahvistetaan aina ennen työtä.</p>
+      <div><span class="eyebrow rv"><b>01</b> Palvelut</span><h2 id="palvelut-h" class="rv" style="--d:1">Kaikki mitä <em>autosi</em> tarvitsee.</h2></div>
+      <p class="rv" style="--d:2">Yksi korjaamo määräaikaishuollosta talvirenkaisiin. Saat aina selityksen sille, mitä teimme ja miksi.</p>
     </div>
-    <ul class="svc">
-      <li><span class="code">P-01</span><h3>Määräaikaishuolto</h3><p>Huolto valmistajan huolto-ohjelman mukaan: öljyt, suodattimet ja ohjelman tarkastukset. Merkitsemme tehdyt työt kuittiin.</p><span class="from"><small>esim. alkaen</small>229&nbsp;€</span></li>
-      <li><span class="code">P-02</span><h3>Jarrut</h3><p>Jarrupalojen ja levyjen vaihto, jarrunesteen vaihto ja jarrujen tarkastus.</p><span class="from"><small>esim. alkaen</small>290&nbsp;€</span></li>
-      <li><span class="code">P-03</span><h3>Renkaat ja rengashotelli</h3><p>Renkaanvaihto vanteineen, uudet renkaat alleasennettuna ja renkaiden säilytys kauden yli.</p><span class="from"><small>esim. alkaen</small>45&nbsp;€</span></li>
-      <li><span class="code">P-04</span><h3>Ilmastointihuolto</h3><p>Järjestelmän tiiviystesti, kylmäaineen täyttö ja raitisilmasuodattimen vaihto.</p><span class="from"><small>esim. alkaen</small>119&nbsp;€</span></li>
-      <li><span class="code">P-05</span><h3>Vikadiagnoosi</h3><p>Vikakoodien luku ja vian paikannus. Kerromme löydöksen ja korjauksen hinnan ennen kuin jatkamme.</p><span class="from"><small>esim. alkaen</small>69&nbsp;€</span></li>
-      <li><span class="code">P-06</span><h3>Katsastuskunnostus</h3><p>Käymme auton läpi ennen katsastusta ja kerromme, mitä kannattaa korjata ennen katsastusaikaa.</p><span class="from"><small>esim. alkaen</small>59&nbsp;€</span></li>
+    <ul class="svc-grid">
+      <li class="svc rv"><div class="svc-top"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span><span class="n">01</span></div><h3>Määräaikaishuolto</h3><p>Huolto valmistajan ohjelman mukaan. Merkintä sähköiseen huoltokirjaan, takuu säilyy.</p><span class="from">Esim. alk. 189&nbsp;€</span></li>
+      <li class="svc rv" style="--d:1"><div class="svc-top"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 4v3M20 12h-3"/></svg></span><span class="n">02</span></div><h3>Jarrut</h3><p>Palat, levyt, satulat ja jarruneste. Mittaamme kulumat ja näytämme vanhat osat.</p><span class="from">Esim. alk. 159&nbsp;€ / akseli</span></li>
+      <li class="svc rv" style="--d:2"><div class="svc-top"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v5M12 16v5M3 12h5M16 12h5"/></svg></span><span class="n">03</span></div><h3>Renkaat ja rengashotelli</h3><p>Vaihto, tasapainotus ja säilytys pestyinä. Kerromme, milloin urasyvyys ei enää riitä.</p><span class="from">Esim. vaihto 49&nbsp;€</span></li>
+      <li class="svc rv"><div class="svc-top"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M7 13l3-3 2 2 4-4M8 21h8"/></svg></span><span class="n">04</span></div><h3>Vikadiagnoosi</h3><p>Vikakoodien luku ja oikea syy, ei arvausta. Varoitusvalo, nykiminen tai outo ääni.</p><span class="from">Esim. 69&nbsp;€</span></li>
+      <li class="svc rv" style="--d:1"><div class="svc-top"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 14h9a3 3 0 0 0 3-3V8h3l3 3v3"/><circle cx="19" cy="17" r="2"/><path d="M3 17h2"/></svg></span><span class="n">05</span></div><h3>Pakoputkisto</h3><p>Äänenvaimentimet, kiinnikkeet ja hitsaukset. Pärisevä pakoputki korjataan usein samana päivänä.</p><span class="from">Esim. alk. 120&nbsp;€</span></li>
+      <li class="svc rv" style="--d:2"><div class="svc-top"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2v20M4.9 6.9l14.2 10.2M19.1 6.9L4.9 17.1"/></svg></span><span class="n">06</span></div><h3>Ilmastointihuolto</h3><p>Kylmäaineen vaihto, vuototesti ja raitisilmasuodatin. Huurtuvat ikkunat jäävät historiaan.</p><span class="from">Esim. alk. 119&nbsp;€</span></li>
     </ul>
-
-    <div class="warranty">
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" aria-hidden="true"><path d="M24 4 7 10v12c0 11 7 19 17 22 10-3 17-11 17-22V10z"/><path d="m16 24 6 6 11-12" stroke-linecap="round"/></svg>
-      <div>
-        <h3>Uuden auton takuu säilyy</h3>
-        <p>Valmistajan huolto-ohjelman mukainen huolto säilyttää takuun myös itsenäisellä korjaamolla. Ehto on, että huolto tehdään valmistajan ohjelman mukaan ja alkuperäisvastaavilla osilla. Juuri niin me sen teemme.</p>
-        <p>Saat kuitin, jossa tehdyt työt ja käytetyt osat on eritelty. Itse takuukorjaukset tehdään edelleen merkkikorjaamolla.</p>
-      </div>
-    </div>
   </div>
 </section>
 
-<section class="sec calc" id="hinta" aria-labelledby="hinta-h">
+<section class="dark" id="vika" aria-labelledby="vika-h">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="eyebrow">02 · Huoltohinta heti</p><h2 id="hinta-h">Näe hinta ennen kuin soitat.</h2></div>
-      <p>Kirjoita rekisterinumero, valitse auton koko ja työt. Saat työmääräimen, jossa on esimerkkihinta ja arvioitu työaika. Voit siirtää sen suoraan ajanvaraukseen.</p>
+      <div><span class="eyebrow rv"><b>02</b> Vikatyökalu</span><h2 id="vika-h" class="rv" style="--d:1">Mistä <em>vika</em> kuuluu?</h2></div>
+      <p class="rv" style="--d:2">Vedä skanneria auton yli tai valitse kohta. Merkitse oire, niin näet mikä työ se todennäköisesti on, mitä se maksaa ja kauanko se kestää.</p>
     </div>
-    <div class="calc-grid">
-      <form id="calcForm" novalidate>
-        <div class="field">
-          <label for="plate">Rekisterinumero</label>
-          <input class="plate-in" type="text" id="plate" name="plate" placeholder="ABC-123" maxlength="7" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="plateHint">
-          <span class="hint" id="plateHint">Rekisterinumero tulee varaukseen, emme hae sillä tietoja tällä sivulla.</span>
+    <div class="diag">
+      <div class="rv">
+        <div class="bay" id="bay" style="--sx:24%">
+          <img src="img/car.webp" draggable="false" alt="Harmaa katumaasturi sivulta kuvattuna" width="1344" height="752" loading="lazy">
+          <div class="xray"></div>
+          <button class="hs" style="left:20%;top:44%" data-z="moottori" aria-pressed="false" aria-label="Moottori">1</button>
+          <button class="hs" style="left:23.5%;top:66%" data-z="jarrut" aria-pressed="false" aria-label="Jarrut">2</button>
+          <button class="hs" style="left:42%;top:36%" data-z="mittaristo" aria-pressed="false" aria-label="Mittaristo ja varoitusvalot">3</button>
+          <button class="hs" style="left:74.5%;top:66%" data-z="renkaat" aria-pressed="false" aria-label="Renkaat ja alusta">4</button>
+          <button class="hs" style="left:89%;top:62%" data-z="pakoputki" aria-pressed="false" aria-label="Pakoputki">5</button>
+          <div class="scan" aria-hidden="true"></div>
+          <span class="bay-hint" id="bayHint">Vedä skanneria ←→</span>
         </div>
-        <fieldset>
-          <legend>Auton koko</legend>
-          <div class="opts" id="sizes">
-            <div class="opt"><input type="radio" name="size" id="sz-pieni" value="pieni"><label for="sz-pieni">Pieni</label></div>
-            <div class="opt"><input type="radio" name="size" id="sz-keski" value="keski" checked><label for="sz-keski">Keskikokoinen</label></div>
-            <div class="opt"><input type="radio" name="size" id="sz-iso" value="iso"><label for="sz-iso">Iso tai maasturi</label></div>
-            <div class="opt"><input type="radio" name="size" id="sz-paku" value="paku"><label for="sz-paku">Pakettiauto</label></div>
+        <div class="zones" id="zones" role="group" aria-label="Valitse auton kohta">
+          <button data-z="moottori" aria-pressed="false">Moottori</button>
+          <button data-z="jarrut" aria-pressed="false">Jarrut</button>
+          <button data-z="mittaristo" aria-pressed="false">Mittaristo</button>
+          <button data-z="renkaat" aria-pressed="false">Renkaat</button>
+          <button data-z="pakoputki" aria-pressed="false">Pakoputki</button>
+        </div>
+      </div>
+      <div class="card rv" style="--d:1" aria-live="polite">
+        <div><span class="eyebrow" id="zoneNo">Kohta 2</span><h3 id="zoneName">Jarrut</h3></div>
+        <fieldset class="sym" id="sym" style="border:0;margin:0;padding:0;min-width:0"><legend class="sr-only">Valitse oire</legend></fieldset>
+        <div class="verdict" id="verdict">
+          <small>Todennäköinen työ</small>
+          <b id="vJob">Valitse oire</b>
+          <div class="meta"><span id="vPrice">Esimerkkihinta näkyy tässä</span><span id="vTime"></span></div>
+        </div>
+        <a class="btn btn-cob" id="vBook" href="#yhteys">Varaa tämä työ <span class="arr" aria-hidden="true">→</span></a>
+        <p class="fine">Arvio on suuntaa antava. Varma syy selviää vasta, kun auto on nostimella. Hinnat ovat esimerkkejä.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paper" id="hinta" aria-labelledby="hinta-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv"><b>03</b> Hinta-arvio</span><h2 id="hinta-h" class="rv" style="--d:1">Laske <em>hinta</em> etukäteen.</h2></div>
+      <p class="rv" style="--d:2">Valitse auton koko ja työt. Saat hintahaarukan ja arvion siitä, kauanko auto on meillä.</p>
+    </div>
+    <div class="calc rv">
+      <div class="calc-in">
+        <div>
+          <p class="lbl" id="size-l">Auton koko</p>
+          <div class="sizes" role="radiogroup" aria-labelledby="size-l" style="margin-top:10px">
+            <label><input type="radio" name="size" value="0.9"><span>Pieni<small>esim. hatchback</small></span></label>
+            <label><input type="radio" name="size" value="1" checked><span>Keskikoko<small>esim. farmari</small></span></label>
+            <label><input type="radio" name="size" value="1.15"><span>Maasturi<small>SUV, 4x4</small></span></label>
+            <label><input type="radio" name="size" value="1.3"><span>Pakettiauto<small>alle 3 500 kg</small></span></label>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend>Työt <span class="hint" style="font:400 14px var(--sans);text-transform:none;letter-spacing:0">(valitse yksi tai useampi)</span></legend>
-          <div class="opts jobs" id="jobs"></div>
-        </fieldset>
+        </div>
+        <div>
+          <p class="lbl">Työt</p>
+          <div class="jobs" id="jobs" style="margin-top:10px">
+            <label class="job"><input type="checkbox" value="huolto" data-lo="189" data-hi="289" data-h="2" checked><span class="t">Määräaikaishuolto<small>öljyt, suodattimet, tarkastus</small></span><span class="pp">189–289&nbsp;€</span></label>
+            <label class="job"><input type="checkbox" value="jarrut" data-lo="159" data-hi="329" data-h="1.5"><span class="t">Jarrupalat ja -levyt, yksi akseli<small>osat ja työ</small></span><span class="pp">159–329&nbsp;€</span></label>
+            <label class="job"><input type="checkbox" value="renkaat" data-lo="49" data-hi="69" data-h="0.5"><span class="t">Rengasvaihto ja tasapainotus<small>neljä rengasta</small></span><span class="pp">49–69&nbsp;€</span></label>
+            <label class="job"><input type="checkbox" value="diag" data-lo="69" data-hi="69" data-h="0.5" data-fixed><span class="t">Vikadiagnoosi<small>vikakoodit ja raportti</small></span><span class="pp">69&nbsp;€</span></label>
+            <label class="job"><input type="checkbox" value="ilmastointi" data-lo="119" data-hi="169" data-h="1"><span class="t">Ilmastointihuolto<small>kylmäaine ja suodatin</small></span><span class="pp">119–169&nbsp;€</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="calc-out">
+        <div>
+          <p class="res-k">Arvio yhteensä</p>
+          <p class="res-price" id="rPrice" aria-live="polite">189–289&nbsp;€</p>
+          <div class="res-grid">
+            <div><small>Aika korjaamolla</small><b id="rTime">noin 2 h</b></div>
+            <div><small>Valittuja töitä</small><b id="rCount">1</b></div>
+          </div>
+        </div>
+        <div style="position:relative;display:grid;gap:14px">
+          <p class="fine">Esimerkkihinnat sisältävät arvonlisäveron. Kotitalousvähennystä ei voi saada autonkorjauksesta. Lopullinen hinta vahvistetaan ennen työtä.</p>
+          <a class="btn btn-cob" href="#yhteys" id="calcBook">Pyydä tarjous näillä <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="tarina" aria-labelledby="tarina-h">
+  <div class="story-track" id="storyTrack">
+    <div class="story-pin">
+      <div class="wrap story-grid">
+        <div>
+          <span class="eyebrow"><b>04</b> Käynti korjaamolla</span>
+          <h2 id="tarina-h" style="margin-top:14px">Ei yllätyksiä <em>laskussa</em>.</h2>
+          <ol class="stages" id="stages">
+            <li class="stage-i on"><span class="k">1</span><h3>Vika selviää</h3><p>Luemme vikakoodit ja koeajamme tarvittaessa. Kerromme löydökset selkokielellä.</p><img class="s-mob" src="img/diag.webp" alt="" loading="lazy"></li>
+            <li class="stage-i"><span class="k">2</span><h3>Hinta sovitaan</h3><p>Saat hinnan ennen kuin aloitamme. Ilman hyväksyntääsi emme tee mitään.</p><img class="s-mob" src="img/reception.webp" alt="" loading="lazy"></li>
+            <li class="stage-i"><span class="k">3</span><h3>Työ tehdään</h3><p>Jos purkaessa löytyy jotain uutta, soitamme ja kysymme ensin.</p><img class="s-mob" src="img/brake.webp" alt="" loading="lazy"></li>
+            <li class="stage-i"><span class="k">4</span><h3>Auto takaisin</h3><p>Näytät vanhat osat, jos haluat. Huoltomerkintä ja kuitti tulevat sähköisesti.</p><img class="s-mob" src="img/lift.webp" alt="" loading="lazy"></li>
+          </ol>
+        </div>
+        <div class="story-media" aria-hidden="true">
+          <img class="on" src="img/diag.webp" alt="" loading="lazy">
+          <img src="img/reception.webp" alt="" loading="lazy">
+          <img src="img/brake.webp" alt="" loading="lazy">
+          <img src="img/lift.webp" alt="" loading="lazy">
+          <div class="gauge"><i id="gauge"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sparks" aria-label="Lupaus">
+  <img class="bgimg" src="img/sparks.webp" alt="" loading="lazy">
+  <canvas id="sparkCv" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="big rv">Tehdään<br>kerralla kuntoon.</p>
+    <p class="small rv" style="--d:1">Tarkastamme työn ennen kuin luovutamme auton. Jos jokin jäi vaivaamaan, tule takaisin.</p>
+  </div>
+  <span class="hint" id="sparkHint">Liikuta osoitinta, niin kipinät lentävät</span>
+</section>
+
+<section class="paper" id="tyot" aria-labelledby="tyot-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv"><b>05</b> Esimerkkitöitä</span><h2 id="tyot-h" class="rv" style="--d:1">Tyypillisiä <em>töitä</em>.</h2></div>
+      <p class="rv" style="--d:2">Esimerkkejä tavallisista korjauksista. Hinnat ja ajat ovat esimerkkejä, eivät tarjouksia.</p>
+    </div>
+    <ul class="ex-grid">
+      <li class="ex rv"><img src="img/brake.webp" alt="Jarrulevy ja satula lähikuvassa" loading="lazy" width="896" height="1120"><div class="body"><div class="meta"><span>Esimerkki</span><span>Jarrut</span></div><h3>Vinkuvat etujarrut</h3><p>Palat loppu ja levyt uurteella. Uudet palat ja levyt etuakselille, jarruneste tarkastettu.</p><div class="row"><span>noin 1,5 h</span><span>noin 280&nbsp;€</span></div></div></li>
+      <li class="ex rv" style="--d:1"><img src="img/exhaust.webp" alt="Pakoputkisto auton alta kuvattuna" loading="lazy" width="1344" height="752"><div class="body"><div class="meta"><span>Esimerkki</span><span>Pakoputki</span></div><h3>Päräjävä pakoputki</h3><p>Ruostunut kiinnike ja reikä takavaimentimessa. Uusi vaimennin ja kumiripustimet.</p><div class="row"><span>noin 1 h</span><span>noin 210&nbsp;€</span></div></div></li>
+      <li class="ex rv" style="--d:2"><img src="img/engine.webp" alt="Auton moottoritila" loading="lazy" width="1344" height="752"><div class="body"><div class="meta"><span>Esimerkki</span><span>Diagnoosi</span></div><h3>Moottorivalo palaa</h3><p>Vikakoodi osoitti sytytyspuolalle. Viallinen puola vaihdettu ja koodit nollattu.</p><div class="row"><span>noin 1 h</span><span>noin 190&nbsp;€</span></div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="dark" id="prosessi" aria-labelledby="prosessi-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><span class="eyebrow rv"><b>06</b> Näin varaat</span><h2 id="prosessi-h" class="rv" style="--d:1">Neljä <em>askelta</em>.</h2></div>
+      <p class="rv" style="--d:2">Varaus vie pari minuuttia. Rekisterinumero riittää, katsomme loput itse.</p>
+    </div>
+    <ol class="steps">
+      <li class="step rv"><span class="num">01</span><h3>Jätä pyyntö</h3><p>Lomakkeella tai puhelimella. Kerro rekisterinumero ja mikä vaivaa.</p></li>
+      <li class="step rv" style="--d:1"><span class="num">02</span><h3>Saat ajan</h3><p>Ehdotamme aikaa ja kerromme hinta-arvion etukäteen.</p></li>
+      <li class="step rv" style="--d:2"><span class="num">03</span><h3>Tuo auto</h3><p>Avaimet tiskille tai avainlaatikkoon aamulla ennen töitä.</p></li>
+      <li class="step rv" style="--d:3"><span class="num">04</span><h3>Hae valmiina</h3><p>Viesti, kun auto on valmis. Maksu kortilla tai laskulla.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="paper" id="ukk" aria-labelledby="ukk-h">
+  <div class="wrap faq">
+    <div><span class="eyebrow rv"><b>07</b> Kysymykset</span><h2 id="ukk-h" class="rv" style="--d:1">Usein <em>kysyttyä</em>.</h2></div>
+    <div class="faq-list rv" style="--d:1">
+      <details><summary>Säilyykö uuden auton takuu, jos huollatan sen teillä?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Kyllä, kun huolto tehdään valmistajan huolto-ohjelman mukaan alkuperäisosilla tai laadultaan vastaavilla osilla. EU:n kilpailusäännöt sallivat huollon muuallakin kuin merkkikorjaamolla. Kirjaamme huollon sähköiseen huoltokirjaan.</p></div></details>
+      <details><summary>Saanko hinnan ennen kuin työ alkaa?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Saat. Jos työn aikana löytyy jotain lisää, soitamme ja kysymme ensin. Ilman lupaasi emme tee lisätöitä.</p></div></details>
+      <details><summary>Milloin talvirenkaat pitää vaihtaa?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Tieliikennelain mukaan talvirenkaita on käytettävä marraskuun alusta maaliskuun loppuun, jos sää tai keli sitä edellyttää. Nastarenkaita saa käyttää samana aikana ja muulloinkin, jos keli sitä vaatii. Varaa vaihtoaika hyvissä ajoin ennen ensilunta.</p></div></details>
+      <details><summary>Voinko odottaa korjaamolla?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Lyhyissä töissä, kuten rengasvaihdossa, voit. Pidemmissä töissä ilmoitamme viestillä, kun auto on valmis.</p></div></details>
+      <details><summary>Korjaatteko kaikkia automerkkejä?<span class="pm" aria-hidden="true"></span></summary><div class="ans"><p>Korjaamme henkilöautot ja alle 3 500 kg pakettiautot merkistä riippumatta. Sähköautojen korkeajännitejärjestelmiin emme koske.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="paper" id="yhteys" aria-labelledby="yhteys-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact rv">
+      <div class="c-info">
+        <span class="eyebrow"><b>08</b> Yhteys</span>
+        <h2 id="yhteys-h">Varaa <em>aika</em>.</h2>
+        <p style="color:#c3c8ce">Jätä pyyntö, niin vastaamme saman arkipäivän aikana.</p>
+        <ul class="c-list">
+          <li><a class="c-item" href="tel:+358400000000"><span class="ib"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><span><small>Puhelin</small><b>040 000 0000</b></span></a></li>
+          <li><a class="c-item" href="mailto:info@vankka.example"><span class="ib"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Sähköposti</small><b>info@vankka.example</b></span></a></li>
+          <li><div class="c-item"><span class="ib"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span><small>Osoite</small><b>Esimerkkitie 12, 01510 Vantaa</b></span></div></li>
+          <li><div class="c-item"><span class="ib"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>Aukioloajat</small><b>Ma–pe 7.30–17, la sopimuksen mukaan</b></span></div></li>
+        </ul>
+      </div>
+      <form class="lomake" id="form" novalidate>
+        <label>Nimi<input name="nimi" autocomplete="name" required></label>
+        <label>Puhelin<input name="puhelin" type="tel" autocomplete="tel" inputmode="tel" required></label>
+        <label>Rekisterinumero<input name="rekkari" autocapitalize="characters" placeholder="ABC-123"></label>
+        <label>Toivottu päivä<input name="paiva" type="date"></label>
+        <label class="full">Työ<select name="tyo" id="fTyo">
+          <option value="">Valitse</option>
+          <option>Määräaikaishuolto</option><option>Jarrut</option><option>Renkaat</option><option>Vikadiagnoosi</option><option>Pakoputkisto</option><option>Ilmastointihuolto</option><option>Muu</option>
+        </select></label>
+        <label class="full">Mikä vaivaa?<textarea name="viesti" id="fMsg" placeholder="Esim. jarrut vinkuvat jarruttaessa"></textarea></label>
+        <input class="hp" name="sivusto" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="full" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+          <button class="btn btn-ink magnet" type="submit">Lähetä pyyntö <span class="arr" aria-hidden="true">→</span></button>
+          <p class="fine">Demo: lomake ei lähetä tietoja mihinkään.</p>
+        </div>
+        <p class="form-status full" id="formStatus" role="status" hidden></p>
       </form>
-
-      <div class="card-wrap">
-        <article class="jcard" aria-labelledby="jc-h">
-          <div class="jc-top">
-            <h3 id="jc-h">Työmääräin</h3>
-            <div class="no">Vankka Autokorjaamo<br><span id="jcNo">Nro ESIM-0000</span><br><span id="jcDate"></span></div>
-          </div>
-          <div class="jc-meta">
-            <div><small>Rekisterinumero</small><span class="plate empty" id="jcPlate"><i aria-hidden="true">FIN</i><span>ABC-123</span></span></div>
-            <div><small>Ajoneuvo</small><span id="jcSize">Keskikokoinen</span></div>
-          </div>
-          <table class="jc-tbl">
-            <caption class="sr">Valitut työt, arvioitu työaika ja esimerkkihinta</caption>
-            <thead><tr><th scope="col">Työ</th><th scope="col" class="r">Aika</th><th scope="col" class="r">Hinta</th></tr></thead>
-            <tbody id="jcRows"><tr class="empty"><td colspan="3">Valitse vasemmalta vähintään yksi työ.</td></tr></tbody>
-          </table>
-          <div class="jc-tot">
-            <div><small>Yhteensä</small><b id="jcTotal">0&nbsp;€</b></div>
-            <div><small>Arvioitu työaika</small><b id="jcTime">0&nbsp;h</b></div>
-          </div>
-          <div class="jc-foot">
-            <p><strong>Esimerkkihinnat, sitova hinta vahvistetaan ennen työtä.</strong> Hinnat sisältävät arvonlisäveron 25,5&nbsp;% sekä tavalliset osat ja nesteet. Jos työssä löytyy muuta korjattavaa, soitamme ennen kuin jatkamme.</p>
-            <a class="btn btn-k" href="#varaa" id="toBook">Siirrä varaukseen</a>
-          </div>
-          <span class="stamp" id="stamp" aria-hidden="true">Esimerkki</span>
-          <p class="sr" id="calcLive" aria-live="polite"></p>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="band dark" aria-label="Korjaamolla">
-  <div class="wrap">
-    <div class="band-grid">
-      <figure><div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215720_6b697752-3be3-4b83-a7a6-24c401085d89.png" alt="Jarrulevyn kunnon tarkastus lähikuvassa" width="1024" height="1280" loading="lazy"></div><figcaption><span>P-02</span>Jarrut tarkastetaan joka huollossa</figcaption></figure>
-      <figure><div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215719_6f0069d6-5bc5-4810-b69c-e3c012e36302.png" alt="Renkaanvaihto korjaamolla, taustalla rengashyllyt" width="1024" height="1280" loading="lazy"></div><figcaption><span>P-03</span>Renkaat vaihtoon ja hotelliin</figcaption></figure>
-      <figure><div class="ph"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215719_6b2cfcf6-4fb5-46e4-89cb-f0b4b8076237.png" alt="Auton avainten luovutus korjaamon vastaanotossa" width="1024" height="1280" loading="lazy"></div><figcaption><span>Vastaanotto</span>Avaimet tiskille, hinta sovittu</figcaption></figure>
-    </div>
-    <p class="ai-note">Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p>
-  </div>
-</section>
-
-<section class="sec" id="varaa" aria-labelledby="varaa-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow">03 · Ajanvaraus</p><h2 id="varaa-h">Varaa aika korjaamolle.</h2></div>
-      <p>Valitse päivä ja kellonaika seuraavalta kahdelta viikolta. Vahvistamme varauksen ja hinnan ennen huoltopäivää.</p>
-    </div>
-    <div class="book-grid">
-      <div>
-        <form id="bookForm" novalidate>
-          <fieldset>
-            <legend>Päivä</legend>
-            <div class="opts days" id="days"></div>
-          </fieldset>
-          <fieldset>
-            <legend>Kellonaika</legend>
-            <div class="opts slots" id="slots"></div>
-            <p class="hint" id="slotHint" style="margin-top:8px">Valitse ensin päivä.</p>
-          </fieldset>
-          <div class="sel-jobs" id="selJobs"><b>Työt:</b> ei valittu. <a href="#hinta">Valitse työt laskurista</a> tai kerro lisätiedoissa.</div>
-          <div class="two">
-            <div class="field">
-              <label for="b-plate">Rekisterinumero</label>
-              <input class="plate-in" type="text" id="b-plate" name="plate" placeholder="ABC-123" maxlength="7" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
-            </div>
-            <div class="field">
-              <label for="b-name">Nimi</label>
-              <input type="text" id="b-name" name="name" autocomplete="name" required>
-            </div>
-            <div class="field">
-              <label for="b-tel">Puhelin</label>
-              <input type="tel" id="b-tel" name="tel" inputmode="tel" autocomplete="tel" required>
-            </div>
-            <div class="field">
-              <label for="b-email">Sähköposti <span class="hint">(vapaaehtoinen)</span></label>
-              <input type="email" id="b-email" name="email" autocomplete="email">
-            </div>
-          </div>
-          <div class="chk"><input type="checkbox" id="b-car" name="sijaisauto"><label for="b-car">Tarvitsen sijaisauton<small>Sijaisautoja on rajoitetusti. Vahvistamme saatavuuden ennen huoltopäivää.</small></label></div>
-          <div class="chk"><input type="checkbox" id="b-wait" name="odotan"><label for="b-wait">Odotan paikan päällä<small id="waitHint">Sopii lyhyisiin töihin, kuten renkaanvaihtoon.</small></label></div>
-          <div class="field" style="margin-top:14px">
-            <label for="b-msg">Lisätietoja <span class="hint">(vapaaehtoinen)</span></label>
-            <textarea id="b-msg" name="msg" placeholder="Esim. auton merkki ja malli tai mitä vikaa olet huomannut"></textarea>
-          </div>
-          <button class="btn btn-y" type="submit">Lähetä varaus</button>
-          <p class="err" id="bookErr" role="alert" hidden></p>
-          <p class="fine">Käytämme tietoja vain varauksen hoitamiseen. Varaustilanne on esimerkki.</p>
-        </form>
-        <div class="confirm" id="confirm" tabindex="-1" hidden>
-          <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5"/></svg>Varaus vastaanotettu</h3>
-          <dl id="confirmList"></dl>
-          <p class="demo-note">Tämä on demosivu, joten varausta ei lähetetty minnekään. Oikealla sivulla varaus menisi korjaamolle, ja korjaamo vahvistaisi ajan ja hinnan.</p>
-          <button class="btn btn-o" type="button" id="newBook">Tee uusi varaus</button>
-        </div>
-      </div>
-      <aside class="aside" aria-labelledby="kulku-h">
-        <h3 id="kulku-h">Näin huoltopäivä menee</h3>
-        <ol>
-          <li><span><b>Tuo auto aamulla</b>Vastaanotto on auki arkisin klo 7.30 alkaen. Avaimet jätetään tiskille.</span></li>
-          <li><span><b>Työ alkaa sovitulla hinnalla</b>Teemme varauksessa sovitut työt.</span></li>
-          <li><span><b>Soitamme ennen lisätöitä</b>Jos löytyy muuta korjattavaa, kerromme hinnan ja jatkamme vasta luvallasi.</span></li>
-          <li><span><b>Nouda ja maksa</b>Saat eritellyn kuitin työstä ja osista.</span></li>
-        </ol>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<section class="sec faq" id="ukk" aria-labelledby="ukk-h" style="background:var(--bg-2);border-top:1px solid var(--line-2)">
-  <div class="wrap faq-grid">
-    <div><p class="eyebrow">04 · Kysyttyä</p><h2 id="ukk-h">Ennen kuin tuot auton.</h2></div>
-    <div>
-      <details><summary>Säilyykö uuden auton takuu, jos huollatan sen teillä?</summary><p>Kyllä. Valmistajan huolto-ohjelman mukainen huolto säilyttää takuun, kun huolto tehdään valmistajan ohjelman mukaan ja alkuperäisvastaavilla osilla. Saat kuitin, jossa työt ja osat on eritelty. Itse takuukorjaukset tehdään merkkikorjaamolla.</p></details>
-      <details><summary>Mitä huolto maksaa?</summary><p>Esimerkkihinnat näet laskurista auton koon mukaan. Sitova hinta vahvistetaan ennen työtä. Jos työn aikana löytyy muuta korjattavaa, soitamme ja kerromme hinnan ennen kuin jatkamme. Hinnat sisältävät arvonlisäveron 25,5&nbsp;%.</p></details>
-      <details><summary>Milloin talvirenkaat on vaihdettava?</summary><p>Talvirenkaat ovat pakolliset joulu-, tammi- ja helmikuussa. Varaa vaihto ajoissa, sillä loka- ja marraskuussa ajat täyttyvät nopeasti.</p></details>
-      <details><summary>Mitä rengashotelli tarkoittaa?</summary><p>Säilytämme renkaasi kauden yli, joten niitä ei tarvitse kuljettaa kotiin. Seuraavalla vaihtokerralla renkaat ovat valmiina korjaamolla. Tarkistamme samalla urasyvyyden ja kerromme, jos renkaat kannattaa uusia.</p></details>
-      <details><summary>Saanko sijaisauton?</summary><p>Sijaisautoja on rajoitetusti. Valitse varauksessa kohta "Tarvitsen sijaisauton", niin vahvistamme saatavuuden ennen huoltopäivää.</p></details>
-      <details><summary>Voinko odottaa paikan päällä?</summary><p>Voit, jos työ on lyhyt, kuten renkaanvaihto tai ilmastointihuolto. Pidemmissä töissä auto kannattaa jättää korjaamolle, niin soitamme, kun se on valmis.</p></details>
-      <details><summary>Mitä katsastuskunnostus sisältää?</summary><p>Käymme auton läpi samoilta osin kuin katsastuksessa: jarrut, valot, renkaat, alusta ja ohjaus. Kerromme, mitä kannattaa korjata, ja teemme korjaukset vasta, kun olet hyväksynyt hinnan.</p></details>
-    </div>
-  </div>
-</section>
-
-<section class="sec contact dark" id="yhteys" aria-labelledby="yht-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div><p class="eyebrow">05 · Yhteystiedot</p><h2 id="yht-h">Soita tai tule käymään.</h2></div>
-      <p style="color:#c3c8cb">Vastaamme puhelimeen arkisin aukioloaikana. Sähköpostiin vastaamme viimeistään seuraavana arkipäivänä.</p>
-    </div>
-    <div class="c-grid">
-      <div><small>Puhelin</small><a href="tel:+358400000000">040 000 0000</a><p>ma–pe 7.30–17</p></div>
-      <div><small>Sähköposti</small><a href="mailto:huolto@vankka.example">huolto@vankka.example</a><p>Ajanvaraukset ja hintakyselyt</p></div>
-      <div><small>Korjaamo</small><b>Vantaa</b><p>Avoinna ma–pe 7.30–17. La, su ja pyhät suljettu.</p></div>
     </div>
   </div>
 </section>
 </main>
 
-<div class="hazard" aria-hidden="true"></div>
-<footer class="foot">
+<footer>
   <div class="wrap">
-    <span>Vankka Autokorjaamo on kuvitteellinen demoyritys. Sivun teki <a href="https://marktic.fi">Marktic</a>.</span>
-    <span>Hinnat, yhteystiedot ja varaustilanne ovat esimerkkejä.</span>
-    <span><a href="tel:+358400000000">040 000 0000</a> · <a href="mailto:huolto@vankka.example">huolto@vankka.example</a></span>
+    <span>© 2026 Vankka Autokorjaamo · Esimerkkitie 12, Vantaa</span>
+    <span>Vankka Autokorjaamo on kuvitteellinen demoyritys. Sivun teki <a href="https://marktic.fi" target="_blank" rel="noopener">Marktic</a>.</span>
   </div>
 </footer>
 
-<div class="callbar">
-  <a class="btn btn-o" href="tel:+358400000000"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3l2 5-2.5 1.6a11 11 0 0 0 6.9 6.9L16 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Soita</a>
-  <a class="btn btn-y" href="#varaa">Varaa aika</a>
+<div class="callbar" id="callbar">
+  <a class="btn btn-line" href="tel:+358400000000">Soita</a>
+  <a class="btn btn-cob" href="#yhteys">Varaa aika</a>
 </div>
-
-<script>
-(function(){
-  var NB=' ';
-  var JOBS=[
-    {id:'huolto',name:'Määräaikaishuolto',min:229,max:369,h:2,scale:1},
-    {id:'jarrut',name:'Jarrupalat ja -levyt, etuakseli',min:290,max:470,h:2,scale:1},
-    {id:'renkaat',name:'Renkaanvaihto vanteineen',min:45,max:65,h:.5,scale:1},
-    {id:'hotelli',name:'Rengashotelli, yksi kausi',min:89,max:119,h:0,scale:0},
-    {id:'ilmastointi',name:'Ilmastointihuolto',min:119,max:169,h:1,scale:0},
-    {id:'diagnoosi',name:'Vikadiagnoosi',min:69,max:119,h:1,scale:0},
-    {id:'katsastus',name:'Katsastuskunnostus, tarkastus',min:59,max:89,h:1,scale:1}
-  ];
-  var SIZES={pieni:{l:'Pieni',k:1,t:1},keski:{l:'Keskikokoinen',k:1.12,t:1},iso:{l:'Iso tai maasturi',k:1.3,t:1.15},paku:{l:'Pakettiauto',k:1.45,t:1.25}};
-  var WD=['su','ma','ti','ke','to','pe','la'];
-  var WDL=['sunnuntai','maanantai','tiistai','keskiviikko','torstai','perjantai','lauantai'];
-  var SLOTS=['7.30','9.00','10.30','12.30','14.00','15.30'];
-  function $(id){return document.getElementById(id)}
-  function r5(x){return Math.round(x/5)*5}
-  function eur(n){var s=String(n);if(n>=1000)s=s.slice(0,-3)+NB+s.slice(-3);return s+NB+'€'}
-  function rng(a,b){return a===b?eur(a):(a>=1000?eur(a).replace(NB+'€',''):a)+'–'+eur(b)}
-  function hrs(h){if(!h)return '0'+NB+'h';var s=(Math.round(h*2)/2).toString().replace('.',',');return 'n.'+NB+s+NB+'h'}
-  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-
-  /* season banner */
-  var now=new Date(),m=now.getMonth();
-  if(m===9||m===10||m===2||m===3){
-    $('seasonText').innerHTML=(m>8?'Varaa talvirenkaiden vaihto ajoissa: talvirenkaat ovat pakolliset joulu-, tammi- ja helmikuussa. ':'Kesärenkaiden vaihto ja rengashotelli. Varaa aika ajoissa, ajat täyttyvät nopeasti. ')+'<a href="#varaa">Varaa aika</a>';
-    $('season').hidden=false;
-  }
-
-  /* plate */
-  function fmtPlate(v){
-    v=v.toUpperCase().replace(/[^A-ZÅÄÖ0-9]/g,'');
-    var m=v.match(/^([A-ZÅÄÖ]{0,3})([0-9]{0,3})/),L=m[1],D=m[2];
-    if(!L)return v.replace(/[^0-9]/g,'').slice(0,3);
-    return D?L+'-'+D:L;
-  }
-  function plateOk(v){return /^[A-ZÅÄÖ]{2,3}-[0-9]{1,3}$/.test(v)}
-  var plate=$('plate'),bPlate=$('b-plate');
-  function onPlate(e){
-    var t=e.target,f=fmtPlate(t.value);
-    if(t.value!==f)t.value=f;
-    (t===plate?bPlate:plate).value=f;
-    t.removeAttribute('aria-invalid');
-    render();
-  }
-  plate.addEventListener('input',onPlate);bPlate.addEventListener('input',onPlate);
-
-  /* jobs */
-  var jobsEl=$('jobs');
-  jobsEl.innerHTML=JOBS.map(function(j){
-    return '<div class="opt"><input type="checkbox" id="job-'+j.id+'" value="'+j.id+'"><label for="job-'+j.id+'"><span>'+j.name+'</span><span class="p" id="jp-'+j.id+'"></span></label></div>';
-  }).join('');
-  function size(){var c=document.querySelector('input[name=size]:checked');return c?c.value:'keski'}
-  function price(j,s){var k=j.scale?SIZES[s].k:1;return{min:r5(j.min*k),max:r5(j.max*k),h:j.h*(j.scale?SIZES[s].t:1)}}
-  function selected(){return JOBS.filter(function(j){return $('job-'+j.id).checked})}
-  var state={jobs:[],min:0,max:0,h:0};
-
-  var dateStr=now.getDate()+'.'+(now.getMonth()+1)+'.'+now.getFullYear();
-  $('jcDate').textContent=dateStr;
-
-  function render(){
-    var s=size(),sel=selected(),rows='',tmin=0,tmax=0,th=0;
-    JOBS.forEach(function(j){var p=price(j,s);$('jp-'+j.id).textContent=rng(p.min,p.max)});
-    sel.forEach(function(j){var p=price(j,s);tmin+=p.min;tmax+=p.max;th+=p.h;
-      rows+='<tr><td>'+j.name+'</td><td class="r">'+(p.h?hrs(p.h).replace('n.'+NB,''):'sis.')+'</td><td class="r">'+rng(p.min,p.max)+'</td></tr>'});
-    $('jcRows').innerHTML=rows||'<tr class="empty"><td colspan="3">Valitse vasemmalta vähintään yksi työ.</td></tr>';
-    $('jcTotal').textContent=sel.length?rng(tmin,tmax):'0'+NB+'€';
-    $('jcTime').textContent=sel.length?(th?hrs(th):'ei työaikaa'):'0'+NB+'h';
-    $('jcSize').textContent=SIZES[s].l;
-    var pv=plate.value,pl=$('jcPlate');
-    pl.querySelector('span').textContent=pv||'ABC-123';
-    pl.classList.toggle('empty',!pv);
-    var seed=0;(pv||'X').split('').forEach(function(c){seed=(seed*31+c.charCodeAt(0))%9973});
-    $('jcNo').textContent='Nro ESIM-'+String(seed).padStart(4,'0');
-    state={jobs:sel,min:tmin,max:tmax,h:th,size:s};
-    var sj=$('selJobs');
-    if(sel.length){
-      sj.innerHTML='<b>Työt:</b> '+sel.map(function(j){return esc(j.name)}).join(', ')+'. Esimerkkihinta '+rng(tmin,tmax)+(th?', työaika '+hrs(th):'')+'. <a href="#hinta">Muuta</a>';
-    }else{
-      sj.innerHTML='<b>Työt:</b> ei valittu. <a href="#hinta">Valitse työt laskurista</a> tai kerro lisätiedoissa.';
-    }
-    $('waitHint').textContent=th>2?'Arvioitu työaika on yli 2'+NB+'h, joten auto kannattaa jättää korjaamolle.':'Sopii lyhyisiin töihin, kuten renkaanvaihtoon.';
-    $('calcLive').textContent=sel.length?'Yhteensä '+rng(tmin,tmax)+', arvioitu työaika '+hrs(th)+'.':'';
-  }
-  var stamp=$('stamp');
-  $('calcForm').addEventListener('change',function(){render();stamp.classList.remove('hit');void stamp.offsetWidth;stamp.classList.add('hit')});
-  $('calcForm').addEventListener('submit',function(e){e.preventDefault()});
-  $('toBook').addEventListener('click',function(){setTimeout(function(){var d=document.querySelector('input[name=day]');if(d)d.focus({preventScroll:true})},350)});
-
-  /* days and slots */
-  var days=[],d=new Date(now.getFullYear(),now.getMonth(),now.getDate());
-  while(days.length<10){d.setDate(d.getDate()+1);var w=d.getDay();if(w>0&&w<6)days.push(new Date(d))}
-  $('days').innerHTML=days.map(function(x,i){
-    return '<div class="opt"><input type="radio" name="day" id="d'+i+'" value="'+i+'"><label for="d'+i+'"><b>'+WD[x.getDay()]+'</b><span>'+x.getDate()+'.'+(x.getMonth()+1)+'.</span></label></div>';
-  }).join('');
-  function taken(di,si){var x=days[di];return ((x.getDate()*7+si*3+x.getMonth())%5)===0}
-  function renderSlots(){
-    var c=document.querySelector('input[name=day]:checked'),di=c?+c.value:-1;
-    $('slots').innerHTML=SLOTS.map(function(t,si){
-      var full=di<0||taken(di,si);
-      return '<div class="opt"><input type="radio" name="slot" id="s'+si+'" value="'+si+'"'+(full?' disabled':'')+'><label for="s'+si+'">'+t+(di>=0&&full?' <small>täynnä</small>':'')+'</label></div>';
-    }).join('');
-    $('slotHint').hidden=di>=0;
-  }
-  renderSlots();
-  $('days').addEventListener('change',renderSlots);
-
-  /* booking */
-  var form=$('bookForm'),err=$('bookErr'),conf=$('confirm');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var msgs=[],first=null;
-    function bad(el,msg){msgs.push(msg);if(el){el.setAttribute('aria-invalid','true');if(!first)first=el}}
-    ['b-plate','b-name','b-tel'].forEach(function(id){$(id).removeAttribute('aria-invalid')});
-    var dc=form.querySelector('input[name=day]:checked'),sc=form.querySelector('input[name=slot]:checked');
-    if(!dc)bad(form.querySelector('input[name=day]'),'valitse päivä');
-    if(!sc)bad(dc?form.querySelector('input[name=slot]:not(:disabled)'):null,'valitse kellonaika');
-    if(!plateOk(bPlate.value))bad(bPlate,'tarkista rekisterinumero (esim. ABC-123)');
-    if($('b-name').value.trim().length<2)bad($('b-name'),'kirjoita nimesi');
-    if($('b-tel').value.replace(/[^0-9]/g,'').length<6)bad($('b-tel'),'kirjoita puhelinnumero');
-    if(msgs.length){
-      err.textContent='Puuttuu vielä: '+msgs.join(', ')+'.';err.hidden=false;if(first)first.focus();return;
-    }
-    err.hidden=true;
-    var day=days[+dc.value],slot=SLOTS[+sc.value],extras=[];
-    if($('b-car').checked)extras.push('sijaisauto, saatavuus vahvistetaan');
-    if($('b-wait').checked)extras.push('odottaa paikan päällä');
-    var jobsTxt=state.jobs.length?state.jobs.map(function(j){return esc(j.name)}).join(', '):'ei valittu, kerrotaan paikan päällä';
-    var rows=[
-      ['Rekisterinumero',esc(bPlate.value)],
-      ['Aika',WDL[day.getDay()]+' '+day.getDate()+'.'+(day.getMonth()+1)+'. klo '+slot],
-      ['Työt',jobsTxt],
-      ['Ajoneuvo',SIZES[state.size].l]
-    ];
-    if(state.jobs.length)rows.push(['Esimerkkihinta',rng(state.min,state.max)+(state.h?', työaika '+hrs(state.h):'')]);
-    rows.push(['Lisävalinnat',extras.length?extras.join(', '):'ei']);
-    rows.push(['Varaaja',esc($('b-name').value.trim())]);
-    $('confirmList').innerHTML=rows.map(function(r){return '<dt>'+r[0]+'</dt><dd>'+r[1]+'</dd>'}).join('');
-    form.hidden=true;conf.hidden=false;conf.focus();
-  });
-  $('newBook').addEventListener('click',function(){
-    conf.hidden=true;form.hidden=false;
-    form.querySelectorAll('input[name=day],input[name=slot]').forEach(function(i){i.checked=false});
-    renderSlots();
-    var f=form.querySelector('input[name=day]');if(f)f.focus();
-  });
-
-  render();
-})();
-</script>
+<script src="site.js" defer></script>
 </body>
 </html>
