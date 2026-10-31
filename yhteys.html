@@ -47,7 +47,7 @@
 </section>
 <section class="sec" style="padding-top:0" aria-label="Yhteydenotto">
   <div class="gut wide split">
-    <form class="form" id="cform" novalidate data-endpoint="https://liidit.marktic.fi/v1/lead/marktic">
+    <form class="form" id="cform" novalidate data-endpoint="https://ocvargozhsgegbrfyiki.supabase.co/rest/v1/rpc/submit_website_lead" data-key="">
       <div class="two">
         <label for="f-y">Yrityksen nimi<input id="f-y" name="y" autocomplete="organization" required aria-describedby="f-err" placeholder="Esim. LVI Virtanen Oy"></label>
         <label for="f-p">Paikkakunta<input id="f-p" name="p" autocomplete="address-level2" required aria-describedby="f-err" placeholder="Esim. Vantaa"></label>
@@ -149,12 +149,14 @@ document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener
     f.y.setAttribute('aria-invalid', y ? 'false' : 'true'); f.p.setAttribute('aria-invalid', p ? 'false' : 'true'); f.c.setAttribute('aria-invalid', cOk ? 'false' : 'true');
     if (!y || !p || !cOk){ err.textContent = 'Kirjoittakaa yrityksen nimi, paikkakunta ja sähköposti tai puhelinnumero.'; err.hidden = false; (!y ? f.y : !p ? f.p : f.c).focus(); return; }
     err.hidden = true;
-    var ep = f.getAttribute('data-endpoint');
-    if (!ep){ location.href = mailto(y, p, c, m); return; }
+    var ep = f.getAttribute('data-endpoint'), key = f.getAttribute('data-key');
+    if (!ep || !key){ location.href = mailto(y, p, c, m); return; }
     btn.disabled = true; btn.textContent = 'Lähetetään…';
     var isMail = c.indexOf('@') > -1;
-    fetch(ep, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({name: y, company: y, kunta: p, email: isMail ? c : '', phone: isMail ? '' : c, msg: m, src: 'Yhteydenotto', page: location.pathname, www: f.www.value})})
-      .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j.ok) throw new Error(j.error || r.status); }); })
+    // Marktic CRM (Supabase): one database function that only accepts new requests; the publishable key can't read anything
+    fetch(ep, {method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': key, 'Authorization': 'Bearer ' + key},
+      body: JSON.stringify({p: {company: y, city: p, email: isMail ? c : '', phone: isMail ? '' : c, message: m, page: location.pathname, www: f.www.value}})})
+      .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j || !j.ok) throw new Error((j && j.error) || r.status); }); })
       .then(function(){ f.hidden = true; done.hidden = false; done.focus(); })
       .catch(function(){
         btn.disabled = false; btn.textContent = 'Pyytäkää kartoitus';
