@@ -61,6 +61,7 @@ a{color:inherit}
 .eb{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
 h1,.h1{margin:0;font-weight:300;font-size:clamp(2.5rem,5.6vw,4.8rem);line-height:1.02;letter-spacing:-.035em;text-wrap:balance}
 h2,.h2{margin:0;font-weight:300;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.06;letter-spacing:-.03em;text-wrap:balance}
+h1,h2,h3{overflow-wrap:break-word;hyphens:auto;-webkit-hyphens:auto}
 h3{margin:0;font-weight:400;font-size:1.3rem;line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
 .lead{margin:0;font-size:clamp(1.05rem,1.4vw,1.2rem);color:var(--dim);max-width:40rem;text-wrap:pretty}
 p{margin:0}
@@ -196,6 +197,9 @@ body.has-sel{padding-bottom:120px}
 .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
 @media (max-width:860px){.steps{grid-template-columns:minmax(0,1fr)}}
 .steps li{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:1px solid var(--line-2)}
+.steps.five{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:1100px){.steps.five{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.steps.five{grid-template-columns:minmax(0,1fr)}}
 .steps .when{font-weight:300;font-size:2rem;line-height:1;letter-spacing:-.03em}
 
 /* legal */
