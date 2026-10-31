@@ -3,609 +3,267 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- TODO: images hotlinked from Higgsfield CDN; copy into img/ as webp before publishing -->
-<title>Tase Tilitoimisto · kirjanpito ja palkat pienyrityksille, Vantaa</title>
-<meta name="description" content="Tase Tilitoimisto hoitaa pienyritysten kirjanpidon, palkanlaskennan, arvonlisäverotuksen ja tilinpäätöksen sähköisesti. Tikkurila, Vantaa, koko Uusimaa.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="fi_FI">
-<meta property="og:title" content="Tase Tilitoimisto · luvut kohdallaan joka kuukausi">
-<meta property="og:description" content="Sähköinen kirjanpito, palkat ja verot pienyrityksille Uudellamaalla.">
+<title>Tase Tilitoimisto</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Tase Tilitoimisto, Tampere. Kirjanpito, ALV-ilmoitukset, palkat ja tilinpäätös toiminimille ja osakeyhtiöille kiinteällä kuukausihinnalla. Kuvitteellinen demoyritys.">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#f2f3ee">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%2314202a'/%3E%3Cpath d='M7 10h18M16 10v14' stroke='%23e9df63' stroke-width='3' fill='none'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215720_cc190130-3c62-455b-a424-7ffa6226954a.png" fetchpriority="high">
+<meta name="theme-color" content="#10221b">
+<link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
+<link rel="stylesheet" href="site.css">
 <script>document.documentElement.classList.add('js')</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Tase Tilitoimisto (kuvitteellinen demoyritys)","description":"Kuvitteellinen tilitoimisto Markticin esimerkkisivulla.","address":{"@type":"PostalAddress","addressLocality":"Vantaa","addressRegion":"Uusimaa","addressCountry":"FI"},"areaServed":"Uusimaa","telephone":"+358400000000","email":"info@tase.example","knowsLanguage":"fi"}</script>
-<style>
-:root{
-  --paper:#f2f3ee;--sheet:#fbfbf8;--ink:#14202a;--ink-2:#3b4852;--muted:#66727b;
-  --rule:#d7dbd3;--rule-2:#e6e9e2;--green:#1d5b45;--green-d:#14432f;--green-l:#dcebe2;
-  --mark:#e9df63;--red:#a8402c;--maxw:1180px;
-  --sans:"Archivo",ui-sans-serif,system-ui,"Segoe UI",Roboto,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
-body{font-family:var(--sans);font-stretch:96%;color:var(--ink);background:var(--paper);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit}
-h1,h2,h3{font-stretch:78%;font-weight:700;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
-p{text-wrap:pretty}
-.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums lining-nums;font-stretch:normal}
-:focus-visible{outline:3px solid var(--green);outline-offset:3px}
-.skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--ink);color:#fff;padding:10px 16px;text-decoration:none}
-.skip:focus{top:12px}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
-.tag{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
-.tag b{color:var(--green);font-weight:600}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.75rem 1.3rem;font:600 1rem/1 var(--sans);font-stretch:90%;border:1.5px solid var(--ink);background:var(--ink);color:#fff;text-decoration:none;cursor:pointer;border-radius:2px;transition:background .15s,color .15s,border-color .15s;white-space:nowrap}
-.btn:hover{background:var(--green);border-color:var(--green)}
-.btn-line{background:transparent;color:var(--ink)}
-.btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* header */
-.strip{background:var(--ink);color:#c9d0d4;font-family:var(--mono);font-size:.74rem;letter-spacing:.04em}
-.strip .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:7px}
-.strip span:last-child{color:var(--mark)}
-header{position:sticky;top:0;z-index:50;background:rgba(242,243,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:68px;position:relative;gap:20px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
-.logo-mark{width:34px;height:34px;background:var(--ink);display:grid;place-items:center;border-radius:2px}
-.logo-mark svg{width:22px;height:22px}
-.logo-txt{font-weight:800;font-stretch:72%;font-size:1.45rem;letter-spacing:.01em;line-height:1}
-.logo-txt small{display:block;font-family:var(--mono);font-weight:500;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:3px}
-.nav-links{display:flex;list-style:none;gap:28px;font-size:.95rem;font-weight:500}
-.nav-links a{text-decoration:none;padding:10px 0;display:inline-block;border-bottom:2px solid transparent}
-.nav-links a:hover{border-color:var(--ink)}
-.nav-cta{min-height:44px;padding:.55rem 1rem;font-size:.92rem}
-.menu-btn{display:none;width:48px;height:48px;background:none;border:1.5px solid var(--rule);border-radius:2px;cursor:pointer;color:var(--ink);align-items:center;justify-content:center}
-.menu-btn .x{display:none}
-.menu-btn[aria-expanded="true"] .x{display:block}
-.menu-btn[aria-expanded="true"] .bars{display:none}
-
-/* hero */
-.hero{padding:64px 0 0;position:relative}
-.hero-top{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end;padding-bottom:40px}
-.hero h1{font-size:clamp(2.9rem,7.6vw,6.4rem);font-weight:750;margin-top:20px;line-height:.94;letter-spacing:-.02em}
-.hero h1 .hl{background:linear-gradient(transparent 58%,var(--mark) 58%,var(--mark) 92%,transparent 92%);padding:0 .06em;margin:0 -.06em}
-.hero-side .lead{font-size:1.12rem;color:var(--ink-2);margin-bottom:24px;max-width:38ch}
-.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
-.hero-fig{position:relative;margin:0}
-.hero-img{aspect-ratio:16/8;overflow:hidden;background:#d9ddd6;border:1px solid var(--rule)}
-.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
-.fig-no{position:absolute;left:0;top:0;background:var(--paper);font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;padding:6px 12px 6px 0;color:var(--muted)}
-
-/* deadline card */
-.due{position:absolute;right:32px;bottom:-56px;width:min(400px,calc(100% - 64px));background:var(--sheet);border:1px solid var(--ink);box-shadow:8px 8px 0 var(--ink);z-index:2}
-.due-head{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--rule);gap:12px}
-.due-head h2{font-size:1.05rem;font-stretch:85%;letter-spacing:0}
-.live{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.7rem;color:var(--green);text-transform:uppercase;letter-spacing:.08em}
-.live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.25}}
-.due-main{display:grid;grid-template-columns:auto 1fr;gap:4px 18px;align-items:center;padding:16px 18px 14px}
-.due-days{grid-row:span 2;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:3.4rem;line-height:.9;font-weight:600;color:var(--ink);min-width:2ch;text-align:right}
-.due-days small{display:block;font-size:.72rem;font-weight:500;color:var(--muted);margin-top:8px;text-align:right;letter-spacing:.04em}
-.due-date{font-family:var(--mono);font-size:1.15rem;font-weight:600}
-.due-what{font-size:.86rem;color:var(--ink-2);line-height:1.4}
-.due-shift{display:inline-block;margin-top:4px;font-family:var(--mono);font-size:.7rem;color:var(--red);border:1px solid currentColor;padding:1px 6px}
-.due-list{list-style:none;border-top:1px dashed var(--rule);margin:0 18px;padding:8px 0}
-.due-list li{display:flex;justify-content:space-between;gap:10px;font-family:var(--mono);font-size:.82rem;padding:4px 0;color:var(--ink-2)}
-.due-list li span:last-child{color:var(--muted)}
-.due-note{font-size:.74rem;color:var(--muted);padding:10px 18px 14px;border-top:1px solid var(--rule-2);line-height:1.45}
-
-/* facts row */
-.facts{margin-top:96px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule)}
-.facts .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
-.fact{padding:22px 20px 22px 0;border-right:1px solid var(--rule)}
-.fact+.fact{padding-left:20px}
-.fact:last-child{border-right:0}
-.fact b{display:block;font-stretch:80%;font-size:1.3rem;font-weight:700;line-height:1.15}
-.fact span{font-size:.88rem;color:var(--muted)}
-
-section{padding:104px 0}
-.sec-head{display:grid;grid-template-columns:.42fr .58fr;gap:40px;align-items:end;margin-bottom:48px}
-.sec-head h2{font-size:clamp(2.1rem,4.4vw,3.5rem);margin-top:14px}
-.sec-head p{color:var(--ink-2);max-width:52ch}
-
-/* services ledger */
-.ledger{border-top:2px solid var(--ink);list-style:none}
-.row{display:grid;grid-template-columns:90px 1fr 1.25fr 40px;gap:24px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--rule);transition:background .2s}
-.row:hover{background:linear-gradient(90deg,transparent,var(--sheet) 10%,var(--sheet) 90%,transparent)}
-.row .num{font-size:.84rem;color:var(--muted)}
-.row h3{font-size:1.5rem;font-stretch:80%}
-.row p{color:var(--ink-2);font-size:.98rem}
-.row .tick{justify-self:end;color:var(--green)}
-.ledger-foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:14px;font-family:var(--mono);font-size:.8rem;color:var(--muted)}
-
-/* calculator */
-.calc-sec{background:var(--sheet);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-  background-image:repeating-linear-gradient(0deg,transparent 0 31px,var(--rule-2) 31px 32px)}
-.calc>*{min-width:0}
-fieldset{min-width:0}
-.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--ink);background:var(--sheet)}
-.calc-in{padding:32px;border-right:1px solid var(--ink);display:grid;gap:26px;align-content:start}
-.calc-out{padding:32px;display:flex;flex-direction:column;gap:22px}
-fieldset{border:0;min-width:0}
-legend,.lbl{font-weight:600;font-size:.92rem;margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline;width:100%;gap:12px}
-.lbl output,legend output{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600;font-size:1.05rem}
-.seg{display:flex;flex-wrap:wrap;border:1.5px solid var(--ink);border-radius:2px}
-.seg input{position:absolute;opacity:0;width:1px;height:1px}
-.seg label{flex:1 1 auto;display:flex;align-items:center;justify-content:center;text-align:center;min-height:46px;padding:8px 12px;font-size:.92rem;cursor:pointer;border-right:1.5px solid var(--ink);line-height:1.2}
-.seg label:last-of-type{border-right:0}
-.seg input:checked+label{background:var(--ink);color:#fff}
-.seg input:focus-visible+label{outline:3px solid var(--green);outline-offset:-5px}
-input[type=range]{width:100%;height:32px;-webkit-appearance:none;appearance:none;background:transparent;cursor:pointer;--p:20%}
-input[type=range]::-webkit-slider-runnable-track{height:4px;background:linear-gradient(90deg,var(--ink) var(--p),var(--rule) var(--p))}
-input[type=range]::-moz-range-track{height:4px;background:var(--rule)}
-input[type=range]::-moz-range-progress{height:4px;background:var(--ink)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;background:var(--mark);border:2px solid var(--ink);border-radius:2px}
-input[type=range]::-moz-range-thumb{width:18px;height:18px;background:var(--mark);border:2px solid var(--ink);border-radius:2px}
-input[type=range]:focus-visible{outline:3px solid var(--green);outline-offset:4px}
-.scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
-.stepper{display:flex;align-items:stretch;border:1.5px solid var(--ink);width:max-content;border-radius:2px}
-.stepper button{width:48px;min-height:46px;background:none;border:0;font:600 1.3rem/1 var(--mono);cursor:pointer;color:var(--ink)}
-.stepper button:hover{background:var(--green-l)}
-.stepper input{width:72px;text-align:center;border:0;border-inline:1.5px solid var(--ink);font:600 1.1rem var(--mono);font-variant-numeric:tabular-nums;background:transparent;color:var(--ink);-moz-appearance:textfield;appearance:textfield}
-.stepper input::-webkit-inner-spin-button,.stepper input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
-.check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-weight:600;font-size:.95rem}
-.check input{width:22px;height:22px;accent-color:var(--ink);flex:none;margin-top:1px}
-.check small{display:block;font-weight:400;color:var(--muted);font-size:.82rem;margin-top:2px}
-.check input:disabled+span{opacity:.85;cursor:default}
-.hint{font-size:.8rem;color:var(--muted);margin-top:6px}
-
-.total{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:end;padding-bottom:18px;border-bottom:1px solid var(--rule)}
-.total .k{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);grid-column:1/-1}
-.total .big{font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:clamp(2.4rem,5vw,3.4rem);font-weight:600;line-height:1;letter-spacing:-.02em}
-.total .big small{font-size:.42em;font-weight:500;color:var(--muted);letter-spacing:0}
-.total .vat{text-align:right;font-family:var(--mono);font-size:.9rem;color:var(--ink-2);line-height:1.35}
-.lines{list-style:none;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:.86rem}
-.lines li{display:flex;gap:8px;padding:5px 0;color:var(--ink-2)}
-.lines li .d{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.lines li .d::after{content:" ...................................................................................................";color:var(--rule)}
-.lines li .a{flex:none;text-align:right;min-width:7ch}
-.lines li.sum{color:var(--ink);font-weight:600;border-top:1px solid var(--ink);margin-top:4px;padding-top:8px}
-.lines li.sum .a{border-bottom:3px double var(--ink);padding-bottom:2px}
-.lines li.sum .d::after{content:none}
-.annual{display:flex;justify-content:space-between;gap:12px;align-items:baseline;background:var(--paper);border:1px solid var(--rule);padding:12px 14px;font-size:.92rem}
-.annual b{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
-.annual small{display:block;color:var(--muted);font-family:var(--mono);font-size:.76rem;text-align:right}
-.annual.off{opacity:.55}
-.incl h3{font-size:1rem;font-stretch:90%;margin-bottom:8px;letter-spacing:0}
-.incl ul{list-style:none;display:grid;gap:2px}
-.incl li{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;padding:3px 0;transition:color .2s}
-.incl li::before{content:"";flex:none;width:16px;height:16px;margin-top:4px;border:1.5px solid var(--ink);background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m3.5 8.2 3 3 6-6.5' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") center/14px no-repeat;border-color:var(--green)}
-.incl li.no{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--rule)}
-.incl li.no::before{background:transparent;border-color:var(--rule)}
-.fine{font-family:var(--mono);font-size:.74rem;line-height:1.55;color:var(--muted);border-top:1px dashed var(--rule);padding-top:12px}
-.calc-cta{display:flex;gap:10px;flex-wrap:wrap}
-
-/* digital */
-.digi{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center}
-.digi-fig{margin:0;position:relative}
-.digi-fig .frame{aspect-ratio:4/5;overflow:hidden;border:1px solid var(--rule);background:#d9ddd6}
-.digi-fig img{width:100%;height:100%;object-fit:cover}
-.digi-fig figcaption{font-family:var(--mono);font-size:.74rem;color:var(--muted);padding-top:10px;display:flex;justify-content:space-between}
-.digi h2{font-size:clamp(2.1rem,4.2vw,3.4rem);margin:14px 0 18px}
-.digi .lead{color:var(--ink-2);max-width:48ch;margin-bottom:30px}
-.flow{list-style:none;counter-reset:f;border-left:2px solid var(--ink)}
-.flow li{counter-increment:f;padding:0 0 26px 28px;position:relative}
-.flow li:last-child{padding-bottom:0}
-.flow li::before{content:counter(f,decimal-leading-zero);position:absolute;left:-1px;top:2px;transform:translateX(-50%);background:var(--paper);font-family:var(--mono);font-size:.72rem;font-weight:600;padding:3px 0;color:var(--green)}
-.flow b{display:block;font-size:1.12rem;font-stretch:85%;margin-bottom:2px}
-.flow span{color:var(--ink-2);font-size:.96rem}
-
-/* team */
-.team{background:var(--ink);color:#e9ece8}
-.team .tag{color:#9aa6ad}.team .tag b{color:var(--mark)}
-.team-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
-.team h2{font-size:clamp(2.1rem,4.2vw,3.4rem);margin:14px 0 18px;color:#fff}
-.team .lead{color:#b9c2c7;max-width:46ch;margin-bottom:34px}
-.people{list-style:none;border-top:1px solid #34424c}
-.people li{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid #34424c}
-.people b{font-size:1.4rem;font-stretch:80%;color:#fff;line-height:1.2}
-.people b small{display:block;font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mark);margin-top:6px}
-.people span{color:#b9c2c7;font-size:.96rem}
-.team-fig{margin:0}
-.team-fig .frame{aspect-ratio:4/5;overflow:hidden;background:#24323c}
-.team-fig img{width:100%;height:100%;object-fit:cover}
-.team-fig figcaption{font-family:var(--mono);font-size:.74rem;color:#8d99a0;padding-top:10px}
-
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);list-style:none;border-top:2px solid var(--ink)}
-.step{padding:24px 24px 0 0}
-.step+.step{padding-left:24px;border-left:1px solid var(--rule)}
-.step .num{font-size:.8rem;color:var(--green);font-weight:600}
-.step h3{font-size:1.35rem;font-stretch:80%;margin:10px 0 8px}
-.step p{color:var(--ink-2);font-size:.95rem}
-
-/* faq */
-.faq{border-top:1px solid var(--rule)}
-.faq-grid{display:grid;grid-template-columns:.42fr .58fr;gap:40px}
-.faq h2{font-size:clamp(2.1rem,4.2vw,3.4rem);margin-top:14px}
-.faq-list{border-top:2px solid var(--ink)}
-details{border-bottom:1px solid var(--rule)}
-summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:20px 0;font-weight:600;font-size:1.08rem;min-height:48px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-family:var(--mono);font-size:1.4rem;font-weight:400;line-height:1;color:var(--green);flex:none;width:24px;text-align:center}
-details[open] summary::after{content:"\2212"}
-.faq-a{padding:0 40px 22px 0;color:var(--ink-2)}
-.faq-a p+p{margin-top:10px}
-
-/* contact */
-.contact{padding-top:0}
-.contact-card{display:grid;grid-template-columns:.9fr 1.1fr;border:1px solid var(--ink);background:var(--sheet)}
-.contact-info{padding:44px;border-right:1px solid var(--ink);display:flex;flex-direction:column;gap:18px}
-.contact-info h2{font-size:clamp(2rem,3.8vw,3rem)}
-.contact-info .lead{color:var(--ink-2)}
-.c-list{list-style:none;border-top:1px solid var(--rule);margin-top:6px}
-.c-item{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none;align-items:baseline}
-.c-item small{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.c-item b{font-weight:600;overflow-wrap:anywhere}
-a.c-item:hover b{text-decoration:underline;text-underline-offset:3px}
-form.cform{padding:44px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-content:start}
-.cform .full{grid-column:1/-1}
-.cform label{display:block;font-weight:600;font-size:.86rem;margin-bottom:6px}
-.cform input,.cform select,.cform textarea{width:100%;min-height:48px;padding:.7rem .85rem;font:inherit;font-size:1rem;color:var(--ink);background:#fff;border:1.5px solid #b9c0b8;border-radius:2px}
-.cform input:focus,.cform select:focus,.cform textarea:focus{outline:3px solid var(--green);outline-offset:0;border-color:var(--ink)}
-.cform textarea{min-height:130px;resize:vertical}
-.form-note{font-size:.8rem;color:var(--muted)}
-.form-status{background:var(--green-l);border-left:4px solid var(--green);color:var(--green-d);padding:14px 16px;font-weight:600}
-.form-status[hidden]{display:none}
-.hp{position:absolute;left:-9999px}
-
-footer{border-top:2px solid var(--ink);padding:30px 0 40px;font-size:.88rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 28px;align-items:center}
-footer a:hover{color:var(--ink)}
-.caption{flex-basis:100%;font-family:var(--mono);font-size:.74rem}
-
-.callbar{display:none}
-.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.js .reveal.in{opacity:1;transform:none}
-
-@media (max-width:980px){
-  .hero-top,.sec-head,.digi,.team-grid,.faq-grid,.calc,.contact-card{grid-template-columns:1fr}
-  .hero-top{gap:24px}
-  .calc-in{border-right:0;border-bottom:1px solid var(--ink)}
-  .contact-info{border-right:0;border-bottom:1px solid var(--ink)}
-  .digi{gap:40px}.digi-fig{max-width:460px}
-  .team-fig{max-width:460px}
-  .steps{grid-template-columns:1fr 1fr}
-  .step:nth-child(3){border-left:0;padding-left:0}
-  .step:nth-child(n+3){padding-top:32px}
-  .facts .wrap{grid-template-columns:1fr 1fr}
-  .fact:nth-child(2){border-right:0}
-  .fact:nth-child(3){padding-left:0}
-  .fact:nth-child(n+3){border-top:1px solid var(--rule)}
-}
-@media (max-width:760px){
-  body{font-size:16px}
-  html{scroll-padding-top:76px;scroll-padding-bottom:96px}
-  .wrap{padding:0 16px}
-  .strip span:first-child{display:none}
-  .nav{height:64px}
-  .nav-links,.nav-cta{display:none}
-  .menu-btn{display:inline-flex}
-  .nav-links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:64px;left:-16px;right:-16px;background:var(--paper);padding:0 16px 10px;border-bottom:1px solid var(--ink)}
-  .nav-links.open a{display:block;padding:14px 0;border-bottom:1px solid var(--rule)}
-  .hero{padding-top:36px}
-  .hero-top{padding-bottom:28px}
-  .hero-ctas .btn{flex:1 1 auto}
-  .hero-img{aspect-ratio:4/3}
-  .hero-img img{object-position:55% 50%}
-  .due{position:relative;right:auto;bottom:auto;width:auto;margin:-28px 16px 0;box-shadow:6px 6px 0 var(--ink)}
-  .facts{margin-top:48px}
-  .fact{padding:16px 10px 16px 0}
-  .fact+.fact{padding-left:10px}
-  .fact:nth-child(3){padding-left:0}
-  .fact b{font-size:1.1rem}
-  section{padding:72px 0}
-  .sec-head{gap:14px;margin-bottom:32px}
-  .row{grid-template-columns:1fr 28px;gap:4px 12px;padding:18px 0}
-  .row .num{grid-column:1/-1}
-  .row h3{grid-column:1;grid-row:2}
-  .row .tick{grid-column:2;grid-row:2}
-  .row p{grid-column:1/-1}
-  .calc-in,.calc-out{padding:22px 16px}
-  .seg label{font-size:.86rem;padding:8px}
-  .seg-muoto{flex-direction:column}
-  .seg-muoto label{border-right:0;border-bottom:1.5px solid var(--ink)}
-  .seg-muoto label:last-of-type{border-bottom:0}
-  .total{grid-template-columns:1fr}
-  .total .vat{text-align:left}
-  .people li{grid-template-columns:1fr;gap:6px}
-  .steps{grid-template-columns:1fr}
-  .step,.step+.step{padding:22px 0 20px;border-left:0;border-bottom:1px solid var(--rule)}
-  .step:nth-child(n+3){padding-top:22px}
-  .faq-a{padding-right:0}
-  .contact-info,form.cform{padding:26px 16px}
-  form.cform{grid-template-columns:1fr}
-  .c-item{grid-template-columns:1fr;gap:2px}
-  footer{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
-  footer .wrap{flex-direction:column;align-items:flex-start}
-  .callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:60;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(242,243,238,.96);border-top:1px solid var(--ink);transform:translateY(110%);transition:transform .3s ease}
-  .callbar.show{transform:none}
-  .callbar .btn{flex:1}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .js .reveal{opacity:1;transform:none;transition:none}
-  .live::before{animation:none}
-  .callbar,.row,.incl li{transition:none}
-}
-</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Tase Tilitoimisto","description":"Kuvitteellinen demoyritys: kirjanpito, ALV-ilmoitukset, palkanlaskenta ja tilinpäätös pienyrityksille Tampereella.","telephone":"+358500000000","email":"hei@tase.example","address":{"@type":"PostalAddress","streetAddress":"Esimerkkikatu 5","postalCode":"33100","addressLocality":"Tampere","addressCountry":"FI"},"areaServed":"Pirkanmaa","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:30","closes":"16:30"}]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
-
-<div class="strip" aria-hidden="true"><div class="wrap"><span>Tikkurila, Vantaa · Asiakkaita koko Uudellamaalla</span><span>Sähköinen kirjanpito</span></div></div>
+<div class="bar" id="bar" aria-hidden="true"></div>
 
 <header>
-  <nav class="wrap nav" aria-label="Päävalikko">
-    <a href="#top" class="logo" aria-label="Tase Tilitoimisto, etusivulle">
-      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M12 7v12" stroke="#e9df63" stroke-width="2.6" fill="none"/></svg></span>
-      <span class="logo-txt">Tase<small>Tilitoimisto</small></span>
-    </a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Avaa valikko">
-      <svg class="i bars" viewBox="0 0 24 24" aria-hidden="true" style="width:24px;height:24px"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-      <svg class="i x" viewBox="0 0 24 24" aria-hidden="true" style="width:24px;height:24px"><path d="M6 6l12 12M18 6 6 18"/></svg>
-    </button>
-    <ul class="nav-links" id="menu">
+  <div class="wrap nav">
+    <a class="brand" href="#main" aria-label="Tase Tilitoimisto, alkuun"><b>tase<i>.</i></b><small>Tilitoimisto · Tampere</small></a>
+    <ul class="links" id="links">
       <li><a href="#palvelut">Palvelut</a></li>
-      <li><a href="#hinnat">Hintalaskuri</a></li>
-      <li><a href="#tiimi">Tiimi</a></li>
-      <li><a href="#ukk">Kysyttyä</a></li>
-      <li><a href="#yhteys">Yhteystiedot</a></li>
+      <li><a href="#vuosikello">Vuosikello</a></li>
+      <li><a href="#hinta">Hinta</a></li>
+      <li><a href="#kysymykset">Kysymykset</a></li>
+      <li><a href="#yhteys">Yhteys</a></li>
+      <li class="m-only"><a href="tel:+358500000000">050 000 0000</a></li>
     </ul>
-    <a class="btn nav-cta" href="tel:+358400000000"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="num">040 000 0000</span></a>
-  </nav>
+    <a class="btn btn-brass" href="#yhteys">Varaa aika</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="links" aria-label="Avaa valikko">
+      <svg class="l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 9h16M4 15h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
 </header>
 
 <main id="main">
-<section class="hero" id="top" aria-labelledby="hero-h" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="hero-top">
-      <div>
-        <p class="tag"><b>Tilitoimisto</b> Kirjanpito · Palkat · Verot</p>
-        <h1 id="hero-h">Luvut <span class="hl">kohdallaan.</span> Joka kuukausi.</h1>
-      </div>
-      <div class="hero-side">
-        <p class="lead">Hoidamme pienen yrityksen kirjanpidon, palkat ja verot sähköisesti. Sinä teet omaa työtäsi, me pidämme huolen, että ilmoitukset lähtevät ajallaan.</p>
-        <div class="hero-ctas">
-          <a class="btn" href="#hinnat">Laske hinta-arvio <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-line" href="#yhteys">Pyydä tarjous</a>
-        </div>
-      </div>
+<section class="hero" id="hero" aria-labelledby="h1">
+  <div class="hero-bg">
+    <img src="video/hero-poster.jpg" alt="" fetchpriority="high">
+    <video id="vid" muted playsinline loop preload="metadata" poster="video/hero-poster.jpg" aria-hidden="true"><source src="video/hero.mp4" type="video/mp4"></video>
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-tag up" id="tag"><i></i>Ma–pe 8.30–16.30</span>
+      <h1 id="h1" style="margin-top:22px">Luvut kuntoon. <i>Illat vapaaksi.</i></h1>
+    </div>
+    <div class="hero-side">
+      <p class="lead up">Kirjanpito, palkat ja tilinpäätös pienyrityksille Tampereella. Sinä lähetät kuitit, me hoidamme loput ja kerromme ajoissa, mitä on tulossa.</p>
+      <a class="btn btn-brass up" href="#yhteys">Varaa tutustumispuhelu <span class="ar" aria-hidden="true">→</span></a>
     </div>
   </div>
-  <div class="wrap">
-    <figure class="hero-fig">
-      <div class="hero-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215720_cc190130-3c62-455b-a424-7ffa6226954a.png" alt="Kirjanpitäjä käy asiakkaan kanssa lukuja läpi kannettavalta tietokoneelta valoisassa toimistossa" width="1920" height="1080" fetchpriority="high"></div>
-      <span class="fig-no" aria-hidden="true">KUVA 01</span>
-
-      <aside class="due" aria-labelledby="due-h">
-        <div class="due-head"><h2 id="due-h">Seuraavat eräpäivät</h2><span class="live">Tänään <span id="due-today" class="num">&nbsp;</span></span></div>
-        <div class="due-main">
-          <div class="due-days" aria-hidden="true"><span id="due-days">12.</span><small id="due-unit">päivä</small></div>
-          <div class="due-date" id="due-date">Joka kuukauden 12.</div>
-          <div class="due-what"><span id="due-what">Oma-aloitteiset verot: ALV ja työnantajasuoritukset</span><br><span class="due-shift" id="due-shift" hidden>Siirtyy viikonlopun yli</span></div>
-        </div>
-        <p class="sr-only" id="due-sr" aria-live="polite"></p>
-        <ul class="due-list" id="due-list" aria-label="Myöhemmät eräpäivät"></ul>
-        <p class="due-note">Oma-aloitteisten verojen eräpäivä on kuukauden 12. päivä. Jos se osuu viikonloppuun, eräpäivä siirtyy seuraavaan arkipäivään. Arkipyhät huomioidaan erikseen.</p>
-      </aside>
-    </figure>
-  </div>
-  <div class="facts" aria-label="Lyhyesti">
-    <div class="wrap">
-      <div class="fact"><b>Sähköisesti</b><span>Tositteet, laskut ja raportit verkossa</span></div>
-      <div class="fact"><b>Uusimaa</b><span>Toimisto Tikkurilassa, Vantaalla</span></div>
-      <div class="fact"><b>Tmi, oy, ay, ky</b><span>Yhtiömuodosta riippumatta</span></div>
-      <div class="fact"><b>Kiinteä kk-hinta</b><span>Sovitaan etukäteen</span></div>
-    </div>
-  </div>
+  <div class="ticks" id="ticks" aria-hidden="true"><i></i><i></i><i></i></div>
 </section>
 
-<section id="palvelut" aria-labelledby="palv-h">
+<section class="figs" aria-label="Lyhyesti" style="padding:0">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><p class="tag"><b>01</b> Palvelut</p><h2 id="palv-h">Kaikki taloushallinto yhdestä paikasta.</h2></div>
-      <p>Valitse tarvitsemasi palvelut. Pienelle yritykselle riittää usein kirjanpito ja ALV, ja palkat tulevat mukaan, kun ensimmäinen työntekijä aloittaa.</p>
-    </div>
-    <ul class="ledger">
-      <li class="row reveal"><span class="num">1000</span><h3>Kirjanpito</h3><p>Juokseva kirjanpito sähköisistä tositteista, täsmäytykset ja kuukausiraportti tuloslaskelmasta ja taseesta.</p><svg class="i tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></li>
-      <li class="row reveal"><span class="num">2000</span><h3>Palkanlaskenta</h3><p>Palkat, palkkalaskelmat ja ilmoitukset tulorekisteriin. Myös lomarahat, kilometrikorvaukset ja päivärahat.</p><svg class="i tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></li>
-      <li class="row reveal"><span class="num">3000</span><h3>Arvonlisäverotus</h3><p>ALV-laskelmat ja kausiveroilmoitukset. Kerromme etukäteen, paljonko veroa on tulossa maksuun.</p><svg class="i tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></li>
-      <li class="row reveal"><span class="num">4000</span><h3>Tilinpäätös ja veroilmoitus</h3><p>Tilikauden päätös, tilinpäätös ja yrityksen veroilmoitus. Käymme luvut kanssasi läpi ennen kuin ne lähtevät.</p><svg class="i tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></li>
-      <li class="row reveal"><span class="num">5000</span><h3>Yrityksen perustaminen</h3><p>Toiminimi tai osakeyhtiö: autamme valitsemaan yhtiömuodon, teemme perustamisilmoituksen ja rekisteröinnit.</p><svg class="i tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></li>
-      <li class="row reveal"><span class="num">6000</span><h3>Neuvonta</h3><p>Kysy, kun jokin mietityttää: oma palkka, osingot, auton käyttö tai investointi. Vastaamme selkeästi.</p><svg class="i tick" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></li>
+    <ul>
+      <li class="rv"><b>Kiinteä hinta</b><span>Sama summa joka kuukausi</span></li>
+      <li class="rv" style="--d:1"><b>Oma kirjanpitäjä</b><span>Sama ihminen vastaa aina</span></li>
+      <li class="rv" style="--d:2"><b>Toiminimet ja oy:t</b><span>Myös yrityksen perustaminen</span></li>
+      <li class="rv" style="--d:3"><b>Tampere</b><span>Tapaamiset myös etänä</span></li>
     </ul>
-    <div class="ledger-foot"><span>6 palvelua</span><span>Hinta sovitaan aina etukäteen</span></div>
   </div>
 </section>
 
-<section class="calc-sec" id="hinnat" aria-labelledby="calc-h">
+<section id="palvelut" aria-labelledby="palvelut-h">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <div><p class="tag"><b>02</b> Hintalaskuri</p><h2 id="calc-h">Mitä kirjanpito maksaa sinulle?</h2></div>
-      <p>Valitse yhtiömuoto ja arvioi tositteiden määrä. Laskuri näyttää kuukausihinnan, tilinpäätöksen hinnan ja sen, mitä pakettiin kuuluu. Hinnat ovat esimerkkihinnoittelua.</p>
+    <div class="head">
+      <div><span class="kick rv">Palvelut</span><h2 id="palvelut-h" class="rv" style="--d:1">Kaikki numerot <i>yhdessä</i> paikassa.</h2></div>
+      <p class="rv" style="--d:2">Otamme vastuun koko taloushallinnosta tai vain siitä osasta, jota et ehdi tehdä itse. Esimerkkihinnat ilman arvonlisäveroa.</p>
     </div>
-
-    <div class="calc reveal">
-      <form class="calc-in" id="calc" onsubmit="return false" aria-label="Hintalaskurin valinnat">
-        <fieldset>
-          <legend>Yhtiömuoto</legend>
-          <div class="seg seg-muoto">
-            <input type="radio" name="muoto" id="m-tmi" value="tmi"><label for="m-tmi">Toiminimi</label>
-            <input type="radio" name="muoto" id="m-oy" value="oy" checked><label for="m-oy">Osakeyhtiö</label>
-            <input type="radio" name="muoto" id="m-ay" value="ay"><label for="m-ay">Avoin tai kommandiittiyhtiö</label>
-          </div>
-        </fieldset>
-
-        <div>
-          <label class="lbl" for="tositteet"><span>Tositteita kuukaudessa</span><output id="tos-out" for="tositteet">60&nbsp;kpl</output></label>
-          <input type="range" id="tositteet" min="0" max="300" step="1" value="60" aria-describedby="tos-hint">
-          <div class="scale" aria-hidden="true"><span>0</span><span>100</span><span>200</span><span>300</span></div>
-          <p class="hint" id="tos-hint">Tositteita ovat esimerkiksi myynti- ja ostolaskut, kuitit ja tiliotteen rivit.</p>
-        </div>
-
-        <div>
-          <label class="lbl" for="palkat"><span>Palkansaajia</span></label>
-          <div class="stepper">
-            <button type="button" id="palkat-minus" aria-label="Vähennä palkansaajia" aria-controls="palkat">&minus;</button>
-            <input type="number" id="palkat" min="0" max="20" step="1" value="2" inputmode="numeric">
-            <button type="button" id="palkat-plus" aria-label="Lisää palkansaajia" aria-controls="palkat">+</button>
-          </div>
-          <p class="hint">0–20 henkilöä, myös yrittäjän oma palkka osakeyhtiössä.</p>
-        </div>
-
-        <fieldset>
-          <legend>ALV-rekisterissä</legend>
-          <div class="seg">
-            <input type="radio" name="alv" id="alv-k" value="1" checked><label for="alv-k">Kyllä</label>
-            <input type="radio" name="alv" id="alv-e" value="0"><label for="alv-e">Ei</label>
-          </div>
-        </fieldset>
-
-        <label class="check" for="tp">
-          <input type="checkbox" id="tp" checked disabled aria-describedby="tp-note">
-          <span>Tilinpäätös ja veroilmoitus mukaan<small id="tp-note">Osakeyhtiölle tilinpäätös kuuluu aina pakettiin.</small></span>
-        </label>
-      </form>
-
-      <div class="calc-out" aria-labelledby="calc-res-h">
-        <h3 class="sr-only" id="calc-res-h">Hinta-arvio</h3>
-        <div class="total">
-          <span class="k">Kuukausihinta, esimerkki</span>
-          <span class="big"><span id="r-kk">176,00</span><small>&nbsp;€/kk</small></span>
-          <span class="vat">alv 0&nbsp;%<br><span id="r-kk-alv">220,88&nbsp;€/kk</span> sis. alv 25,5&nbsp;%</span>
-        </div>
-        <ul class="lines" id="r-lines" aria-label="Hinnan erittely, alv 0 %">
-          <li><span class="d">Perusmaksu, osakeyhtiö</span><span class="a">89,00</span></li>
-          <li><span class="d">Tositteet yli 20: 40 × 0,85</span><span class="a">34,00</span></li>
-          <li><span class="d">Palkanlaskenta, 2 henkilöä</span><span class="a">41,00</span></li>
-          <li><span class="d">ALV-ilmoitukset</span><span class="a">12,00</span></li>
-          <li class="sum"><span class="d">Yhteensä €/kk, alv 0&nbsp;%</span><span class="a">176,00</span></li>
-        </ul>
-        <div class="annual" id="r-annual-box">
-          <span>Tilinpäätös ja veroilmoitus<br><small style="text-align:left">kerran vuodessa</small></span>
-          <span><b id="r-tp">490,00&nbsp;€</b><small id="r-tp-alv">614,95&nbsp;€ sis. alv</small></span>
-        </div>
-        <div class="incl">
-          <h3>Pakettiin sisältyy</h3>
-          <ul id="r-incl">
-            <li data-k="kp">Juokseva kirjanpito ja täsmäytykset</li>
-            <li data-k="rap">Kuukausiraportti: tuloslaskelma ja tase</li>
-            <li data-k="alv">ALV-laskelmat ja kausiveroilmoitukset</li>
-            <li data-k="palk">Palkanlaskenta ja tulorekisteri-ilmoitukset</li>
-            <li data-k="tp">Tilinpäätös ja veroilmoitus</li>
-            <li data-k="neu">Neuvonta sähköpostilla ja puhelimessa</li>
-          </ul>
-        </div>
-        <p class="sr-only" id="calc-sr" aria-live="polite"></p>
-        <div class="calc-cta"><a class="btn" href="#yhteys" id="calc-to-form">Pyydä tarjous tällä arviolla</a></div>
-        <p class="fine">Esimerkkihinnoittelu. Lopullinen hinta sovitaan tarjouksessa, kun tositemäärä ja tarpeet ovat selvillä. Arvonlisävero 25,5&nbsp;% lisätään alv 0&nbsp;% hintoihin. Laskelmassa palkat maksetaan kerran kuukaudessa.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="sahkoinen" aria-labelledby="digi-h">
-  <div class="wrap digi">
-    <figure class="digi-fig reveal">
-      <div class="frame"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215720_c2e9d352-349a-42e2-ac8c-635a53537bfb.png" alt="Työpöytä ylhäältä: kannettava tietokone, laskin ja kuitteja" width="1080" height="1350" loading="lazy"></div>
-      <figcaption><span>KUVA 02</span><span>Kuitit pois kenkälaatikosta</span></figcaption>
-    </figure>
-    <div class="reveal">
-      <p class="tag"><b>03</b> Sähköinen kirjanpito</p>
-      <h2 id="digi-h">Ei paperipinoja. Ei postia.</h2>
-      <p class="lead">Koko kirjanpito kulkee verkossa. Näet yrityksesi luvut milloin tahansa, ja me näemme samat luvut kuin sinä.</p>
-      <ol class="flow">
-        <li><b>Kuvaa kuitti</b><span>Otat kuitista kuvan puhelimella ja lisäät lyhyen selitteen. Paperin voi sen jälkeen heittää pois, jos sitä ei tarvita muuhun.</span></li>
-        <li><b>Laskut kulkevat verkossa</b><span>Myynti- ja ostolaskut liikkuvat verkkolaskuina, ja pankkitapahtumat tulevat kirjanpitoon suoraan.</span></li>
-        <li><b>Me kirjaamme ja täsmäytämme</b><span>Hoidamme kirjaukset, ALV-laskelmat ja palkat. Jos jokin tosite puuttuu, kysymme sitä heti.</span></li>
-        <li><b>Saat raportin</b><span>Kuukauden päätteeksi saat tuloslaskelman ja taseen sekä lyhyen yhteenvedon siitä, mitä luvut tarkoittavat.</span></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section class="team" id="tiimi" aria-labelledby="team-h">
-  <div class="wrap team-grid">
-    <div class="reveal">
-      <p class="tag"><b>04</b> Tiimi</p>
-      <h2 id="team-h">Sama tuttu kirjanpitäjä joka kuukausi.</h2>
-      <p class="lead">Sinulla on oma yhteyshenkilö, joka tuntee yrityksesi. Kun soitat, sinun ei tarvitse kertoa taustoja alusta.</p>
-      <ul class="people">
-        <li><b>Sanna<small>Kirjanpitäjä</small></b><span>Juokseva kirjanpito, ALV ja palkanlaskenta. Huolehtii, että kuukauden ilmoitukset lähtevät ajallaan.</span></li>
-        <li><b>Mikko<small>Tilinpäätökset</small></b><span>Tilinpäätökset, veroilmoitukset ja yrityksen perustaminen. Auttaa, kun mietit yhtiömuotoa tai omaa palkkaa.</span></li>
-      </ul>
-    </div>
-    <figure class="team-fig reveal">
-      <div class="frame"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Jp9q54NGdb7nXnJNpKSzJRTeHy/hf_20261030_215719_e47f27e2-78aa-4165-afd4-a357f547dbb6.png" alt="Kaksi kirjanpitäjää toimistossa" width="1080" height="1350" loading="lazy"></div>
-      <figcaption>KUVA 03 · Henkilöt ovat kuvitteellisia</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section id="aloitus" aria-labelledby="steps-h">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div><p class="tag"><b>05</b> Aloitus</p><h2 id="steps-h">Näin siirryt meille.</h2></div>
-      <p>Tilitoimiston vaihto on helpompaa kuin moni luulee. Hoidamme siirron yhdessä edellisen kirjanpitäjäsi kanssa.</p>
-    </div>
-    <ol class="steps">
-      <li class="step reveal"><span class="num">01</span><h3>Lyhyt puhelu</h3><p>Kerrot yrityksestäsi: yhtiömuoto, tositemäärä ja onko palkansaajia.</p></li>
-      <li class="step reveal"><span class="num">02</span><h3>Tarjous</h3><p>Saat kirjallisen tarjouksen kiinteällä kuukausihinnalla.</p></li>
-      <li class="step reveal"><span class="num">03</span><h3>Siirto</h3><p>Siirrämme aineistot ja valtuutukset. Sinä annat luvat, me hoidamme loput.</p></li>
-      <li class="step reveal"><span class="num">04</span><h3>Ensimmäinen kuukausi</h3><p>Käymme ensimmäisen raportin läpi yhdessä, jotta tiedät mitä luvuista kannattaa seurata.</p></li>
+    <ol class="ledger">
+      <li class="row rv"><span class="no">01</span><h3>Kirjanpito</h3><p>Tositteet sähköisesti, kirjaukset viikoittain ja kuukauden tulos nähtävillä ilman erillistä pyyntöä.</p><span class="pr">Esim. alk. 110&nbsp;€/kk</span></li>
+      <li class="row rv"><span class="no">02</span><h3>ALV-ilmoitukset</h3><p>Kausiveroilmoitus ajallaan ja maksettava summa tiedossasi hyvissä ajoin ennen eräpäivää.</p><span class="pr">Sisältyy kirjanpitoon</span></li>
+      <li class="row rv"><span class="no">03</span><h3>Palkanlaskenta</h3><p>Palkkalaskelmat, tulorekisteri-ilmoitukset, eläkevakuutus ja vuosilomat. Myös yhden hengen yrityksille.</p><span class="pr">Esim. 25&nbsp;€/hlö/kk</span></li>
+      <li class="row rv"><span class="no">04</span><h3>Tilinpäätös ja veroilmoitus</h3><p>Tilinpäätös, veroilmoitus ja tarvittaessa yhtiökokouksen pöytäkirja. Käymme luvut läpi yhdessä.</p><span class="pr">Esim. alk. 290&nbsp;€/vuosi</span></li>
+      <li class="row rv"><span class="no">05</span><h3>Laskutus ja reskontra</h3><p>Myyntilaskut ja maksumuistutukset puolestasi. Ostolaskut hyväksyt puhelimella.</p><span class="pr">Esim. alk. 39&nbsp;€/kk</span></li>
+      <li class="row rv"><span class="no">06</span><h3>Yrityksen perustaminen</h3><p>Yritysmuodon valinta, perustamisilmoitus ja rekisteröinnit. Aloitat oikein heti ensimmäisestä kuitista.</p><span class="pr">Esim. 190&nbsp;€ kertamaksu</span></li>
     </ol>
   </div>
 </section>
 
-<section class="faq" id="ukk" aria-labelledby="faq-h">
-  <div class="wrap faq-grid">
-    <div class="reveal"><p class="tag"><b>06</b> Kysyttyä</p><h2 id="faq-h">Usein kysyttyä.</h2></div>
-    <div class="faq-list">
-      <details class="reveal"><summary>Mitä kirjanpito maksaa?</summary><div class="faq-a"><p>Hinta riippuu yhtiömuodosta, tositteiden määrästä ja siitä, tarvitaanko palkanlaskentaa. Hintalaskurista saat suuntaa, ja tarjouksessa hinta sovitaan kiinteäksi kuukausihinnaksi.</p></div></details>
-      <details class="reveal"><summary>Pitääkö minun asua Vantaalla?</summary><div class="faq-a"><p>Ei. Kirjanpito hoituu sähköisesti, joten asiakkaamme voivat olla missä päin Uuttamaata tahansa. Tapaamiset sovitaan joko toimistolla Tikkurilassa tai etänä.</p></div></details>
-      <details class="reveal"><summary>Milloin oma-aloitteiset verot pitää maksaa?</summary><div class="faq-a"><p>Arvonlisäveron ja työnantajasuoritusten eräpäivä on kuukauden 12. päivä. Jos se osuu viikonloppuun tai arkipyhään, eräpäivä siirtyy seuraavaan arkipäivään. Kun hoidamme kirjanpitosi, muistutamme sinua ajoissa.</p></div></details>
-      <details class="reveal"><summary>Kumpi on parempi, toiminimi vai osakeyhtiö?</summary><div class="faq-a"><p>Se riippuu tuloista, riskeistä ja tulevaisuuden suunnitelmista. Käymme vaihtoehdot läpi kanssasi ennen perustamista, jotta valinta sopii juuri sinun tilanteeseesi.</p></div></details>
-      <details class="reveal"><summary>Voinko vaihtaa tilitoimistoa kesken tilikauden?</summary><div class="faq-a"><p>Voit. Sovimme siirtopäivän, ja otamme aineiston edelliseltä kirjanpitäjältä. Kirjanpito jatkuu siitä, mihin se jäi.</p></div></details>
-      <details class="reveal"><summary>Mitä teen paperikuiteille?</summary><div class="faq-a"><p>Kuvaa ne puhelimella sovellukseen. Kerromme aloituksessa, mitä tositteita kannattaa säilyttää myös paperisena.</p></div></details>
+<section class="ink" id="vuosikello" aria-labelledby="vuosikello-h">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kick rv">Vuosikello</span><h2 id="vuosikello-h" class="rv" style="--d:1">Mitä tässä kuussa <i>pitää</i> hoitaa?</h2></div>
+      <p class="rv" style="--d:2">Pyöritä kelloa tai valitse kuukausi. Näet esimerkkiosakeyhtiön määräpäivät, kun tilikausi on kalenterivuosi ja ALV ilmoitetaan kuukausittain. Merkityt kohdat hoidamme puolestasi.</p>
+    </div>
+    <div class="yr">
+      <div class="rv">
+        <div class="dial-wrap">
+          <div class="dial" id="dial" role="slider" tabindex="0" aria-label="Kuukausi" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1" aria-valuetext="Tammikuu">
+            <svg viewBox="-260 -260 520 520" id="dialSvg" aria-hidden="true"></svg>
+          </div>
+          <div class="dial-core"><div><b id="coreM">Loka</b><span id="coreN">3 määräpäivää</span></div></div>
+        </div>
+        <div class="months" id="months" role="group" aria-label="Valitse kuukausi"></div>
+      </div>
+      <div class="due rv" style="--d:1" aria-live="polite">
+        <div class="due-h"><h3 id="dueM">Tammikuu</h3><span id="dueC"></span></div>
+        <ul id="dueL"></ul>
+        <p class="fine">Esimerkki. Omat määräpäiväsi riippuvat tilikaudesta, ALV-kaudesta ja siitä, maksatko palkkoja.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="contact" id="yhteys" aria-labelledby="yht-h">
+<section id="hinta" aria-labelledby="hinta-h">
   <div class="wrap">
-    <div class="contact-card reveal">
-      <div class="contact-info">
-        <p class="tag"><b>07</b> Yhteystiedot</p>
-        <h2 id="yht-h">Kerro yrityksestäsi.</h2>
-        <p class="lead">Soita tai jätä viesti. Palaamme asiaan ja teemme tarjouksen kiinteällä kuukausihinnalla.</p>
-        <ul class="c-list">
-          <li><a class="c-item" href="tel:+358400000000"><small>Puhelin</small><b class="num">040 000 0000</b></a></li>
-          <li><a class="c-item" href="mailto:info@tase.example"><small>Sähköposti</small><b>info@tase.example</b></a></li>
-          <li><div class="c-item"><small>Toimisto</small><b>Tikkurila, Vantaa</b></div></li>
-          <li><div class="c-item"><small>Toimialue</small><b>Koko Uusimaa, sähköisesti</b></div></li>
+    <div class="head">
+      <div><span class="kick rv">Hinta</span><h2 id="hinta-h" class="rv" style="--d:1">Tiedät hinnan <i>ennen</i> kuin sitoudut.</h2></div>
+      <p class="rv" style="--d:2">Säädä yrityksesi koko, niin näet esimerkkihinnan kuukaudelle ja koko vuodelle.</p>
+    </div>
+    <div class="calc rv">
+      <div class="c-in">
+        <div>
+          <p class="fl" id="ym-l">Yritysmuoto</p>
+          <div class="seg2" role="radiogroup" aria-labelledby="ym-l">
+            <label><input type="radio" name="ym" value="tmi" checked><span>Toiminimi</span></label>
+            <label><input type="radio" name="ym" value="oy"><span>Osakeyhtiö</span></label>
+          </div>
+        </div>
+        <div>
+          <label class="fl" for="tos">Tositteita kuukaudessa <output id="tosO" for="tos">40</output></label>
+          <input type="range" id="tos" min="10" max="300" step="10" value="40">
+        </div>
+        <div>
+          <label class="fl" for="pal">Palkansaajia <output id="palO" for="pal">0</output></label>
+          <input type="range" id="pal" min="0" max="15" step="1" value="0">
+        </div>
+        <div>
+          <p class="fl" id="lk-l">Laskutus puolestasi</p>
+          <div class="seg2" role="radiogroup" aria-labelledby="lk-l">
+            <label><input type="radio" name="lk" value="0" checked><span>Ei, hoidan itse</span></label>
+            <label><input type="radio" name="lk" value="1"><span>Kyllä</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="c-out" aria-live="polite">
+        <div>
+          <p class="fl" style="color:var(--tx-l2)">Esimerkkihinta</p>
+          <p class="big"><span id="pM">135</span>&nbsp;€<small> / kk</small></p>
+        </div>
+        <ul class="lines">
+          <li><span>Kirjanpito ja ALV</span><span id="lK">135&nbsp;€</span></li>
+          <li><span>Palkanlaskenta</span><span id="lP">0&nbsp;€</span></li>
+          <li><span>Laskutus</span><span id="lL">0&nbsp;€</span></li>
+          <li><span>Tilinpäätös kerran vuodessa</span><span id="lT">290&nbsp;€</span></li>
+          <li><span><b style="color:#fff">Vuodessa yhteensä</b></span><b id="lY" style="color:#fff">1&nbsp;910&nbsp;€</b></li>
+        </ul>
+        <div style="display:grid;gap:14px">
+          <p class="fine">Hinnat ovat esimerkkejä ilman arvonlisäveroa (alv 25,5&nbsp;%). Tilitoimiston palkkio on yritykselle vähennyskelpoinen kulu. Kotitalousvähennystä siitä ei saa.</p>
+          <a class="btn btn-brass" href="#yhteys" id="calcGo">Pyydä tarjous <span class="ar" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story" aria-labelledby="story-h">
+  <div class="s-track" id="sTrack">
+    <div class="s-pin">
+      <div class="wrap s-grid">
+        <div>
+          <span class="kick">Näin työ kulkee</span>
+          <h2 id="story-h" style="margin-top:16px">Kenkälaatikosta <i>kuukausiraporttiin</i>.</h2>
+          <ol class="s-list" id="sList">
+            <li class="s-item on"><span class="n">i</span><h3>Kuitti kuvaksi</h3><p><span>Otat kuitista kuvan sovelluksella tai välität sen sähköpostilla. Paperit voit heittää pois, kun kuva on tallessa.</span></p><img class="s-mob" src="img/receipts.webp" alt="" loading="lazy"></li>
+            <li class="s-item"><span class="n">ii</span><h3>Kirjaukset joka viikko</h3><p><span>Kirjaamme tositteet viikoittain, emme kerran kvartaalissa. Puuttuvat kuitit kysymme heti.</span></p><img class="s-mob" src="img/binders.webp" alt="" loading="lazy"></li>
+            <li class="s-item"><span class="n">iii</span><h3>Luvut näkyvissä</h3><p><span>Näet kuukauden tuloksen ja tulevat veromaksut yhdestä näkymästä ilman Excel-taulukoita.</span></p><img class="s-mob" src="img/dashboard.webp" alt="" loading="lazy"></li>
+            <li class="s-item"><span class="n">iv</span><h3>Vuosi yhdessä läpi</h3><p><span>Tilinpäätöksen jälkeen istumme alas ja katsomme, miten ensi vuonna voit maksaa vähemmän veroja laillisesti.</span></p><img class="s-mob" src="img/meeting.webp" alt="" loading="lazy"></li>
+          </ol>
+        </div>
+        <div class="s-frame" aria-hidden="true">
+          <img class="on" src="img/receipts.webp" alt="" loading="lazy">
+          <img src="img/binders.webp" alt="" loading="lazy">
+          <img src="img/dashboard.webp" alt="" loading="lazy">
+          <img src="img/meeting.webp" alt="" loading="lazy">
+          <span class="s-count" id="sCount">1 / 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-label="Lupaus">
+  <img class="bg" src="img/ledger.webp" alt="" loading="lazy">
+  <canvas id="grid" aria-hidden="true"></canvas>
+  <div class="wrap inner">
+    <p class="say rv">Tase täsmää.<br><i>Joka kuukausi.</i></p>
+    <p class="sub rv" style="--d:1">Täsmäytämme pankkitilin kirjanpitoon kuukausittain. Virheet löytyvät silloin, kun ne on vielä helppo korjata.</p>
+  </div>
+  <span class="tip" id="tip">Liikuta osoitinta ja järjestä luvut</span>
+</section>
+
+<section id="esimerkit" aria-labelledby="esim-h">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kick rv">Esimerkkiasiakkaat</span><h2 id="esim-h" class="rv" style="--d:1">Kenelle <i>sopii</i>?</h2></div>
+      <p class="rv" style="--d:2">Kolme tyypillistä tilannetta. Esimerkit ja hinnat ovat kuvitteellisia, eivät oikeita asiakkaita.</p>
+    </div>
+    <ul class="cases">
+      <li class="case rv"><img src="img/planner.webp" alt="Avoin kalenteri ja muistikirja työpöydällä" loading="lazy" width="1024" height="1280"><div class="b"><div class="tg"><span>Esimerkki</span><span>Toiminimi</span></div><h3>Parturi, yksi tekijä</h3><p>Noin 30 tositetta kuussa, ei palkkoja. Kuitit sovelluksella, ALV kuukausittain.</p><dl><div><dt>Kuukaudessa</dt><dd>noin 125&nbsp;€</dd></div><div><dt>Tilinpäätös</dt><dd>290&nbsp;€</dd></div></dl></div></li>
+      <li class="case rv" style="--d:1"><img src="img/mail.webp" alt="Kirjekori, jossa kirjekuoria ja laskuja" loading="lazy" width="1024" height="1280"><div class="b"><div class="tg"><span>Esimerkki</span><span>Osakeyhtiö</span></div><h3>Remonttifirma, 4 työntekijää</h3><p>Noin 120 tositetta ja neljä palkkaa kuussa. Myös laskutus hoidetaan meillä.</p><dl><div><dt>Kuukaudessa</dt><dd>noin 364&nbsp;€</dd></div><div><dt>Tilinpäätös</dt><dd>490&nbsp;€</dd></div></dl></div></li>
+      <li class="case rv" style="--d:2"><img src="img/door.webp" alt="Pienen toimiston katutason sisäänkäynti talvi-iltana" loading="lazy" width="1600" height="900"><div class="b"><div class="tg"><span>Esimerkki</span><span>Osakeyhtiö</span></div><h3>Konsultti, oma oy</h3><p>Noin 20 tositetta kuussa, palkka ja osinko itselle. Vuoden lopussa suunnittelemme yhdessä palkan ja osingon suhteen.</p><dl><div><dt>Kuukaudessa</dt><dd>noin 160&nbsp;€</dd></div><div><dt>Tilinpäätös</dt><dd>490&nbsp;€</dd></div></dl></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="ink" aria-labelledby="steps-h">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kick rv">Aloitus</span><h2 id="steps-h" class="rv" style="--d:1">Vaihto onnistuu <i>kesken</i> vuoden.</h2></div>
+      <p class="rv" style="--d:2">Pyydämme aineiston edelliseltä kirjanpitäjältä. Sinun ei tarvitse soittaa kenellekään.</p>
+    </div>
+    <ol class="steps">
+      <li class="st rv"><span class="n">1</span><h3>Tutustumispuhelu</h3><p>Puoli tuntia. Kerrot yrityksestäsi, me kerromme hinnan.</p></li>
+      <li class="st rv" style="--d:1"><span class="n">2</span><h3>Sopimus</h3><p>Selkeä sopimus ja kiinteä hinta. Ei aloitusmaksua.</p></li>
+      <li class="st rv" style="--d:2"><span class="n">3</span><h3>Siirto</h3><p>Haemme aineistot ja tunnukset kuntoon. Kestää yleensä pari viikkoa.</p></li>
+      <li class="st rv" style="--d:3"><span class="n">4</span><h3>Arki</h3><p>Lähetät kuitit, me hoidamme loput. Kuukausiraportti tulee sähköpostiin.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="kysymykset" aria-labelledby="faq-h">
+  <div class="wrap faq">
+    <div><span class="kick rv">Kysymykset</span><h2 id="faq-h" class="rv" style="--d:1">Usein <i>kysyttyä</i>.</h2></div>
+    <div class="qa rv" style="--d:1">
+      <details><summary>Milloin osakeyhtiön veroilmoitus pitää antaa?<span class="pl" aria-hidden="true"></span></summary><div class="an"><p>Neljän kuukauden kuluessa siitä, kun tilikauden viimeinen kalenterikuukausi päättyi. Kun tilikausi on kalenterivuosi, määräpäivä on huhtikuun lopussa.</p></div></details>
+      <details><summary>Milloin kuukausittainen ALV pitää maksaa?<span class="pl" aria-hidden="true"></span></summary><div class="an"><p>Kuukauden verokauden ilmoitus ja maksu erääntyvät verokautta seuraavan toisen kuukauden 12. päivänä. Tammikuun ALV maksetaan siis 12. maaliskuuta.</p></div></details>
+      <details><summary>Voinko vaihtaa tilitoimistoa kesken tilikauden?<span class="pl" aria-hidden="true"></span></summary><div class="an"><p>Voit. Pyydämme aineistot edelliseltä tilitoimistolta ja jatkamme siitä, mihin se jäi. Sinun tarvitsee vain antaa lupa.</p></div></details>
+      <details><summary>Mitä teen paperikuiteille?<span class="pl" aria-hidden="true"></span></summary><div class="an"><p>Ota kuva sovelluksella. Sähköisesti tallennettu kuva riittää kirjanpitoon, kun se on luettava ja säilyy koko säilytysajan.</p></div></details>
+      <details><summary>Saanko tilitoimiston laskusta kotitalousvähennyksen?<span class="pl" aria-hidden="true"></span></summary><div class="an"><p>Et saa. Kotitalousvähennys koskee kotona tehtävää työtä. Yrityksesi kirjanpitopalkkio on sen sijaan yrityksen vähennyskelpoinen kulu.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section id="yhteys" aria-labelledby="yh-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact rv">
+      <div class="ci">
+        <span class="kick">Yhteys</span>
+        <h2 id="yh-h">Puhutaan <i>numeroista</i>.</h2>
+        <p style="color:var(--tx-l2)">Varaa puolen tunnin tutustumispuhelu. Vastaamme saman arkipäivän aikana.</p>
+        <ul>
+          <li><small>Puhelin</small><a href="tel:+358500000000">050 000 0000</a></li>
+          <li><small>Sähköposti</small><a href="mailto:hei@tase.example">hei@tase.example</a></li>
+          <li><small>Toimisto</small><span>Esimerkkikatu 5, 33100 Tampere</span></li>
+          <li><small>Avoinna</small><span>Ma–pe 8.30–16.30</span></li>
         </ul>
       </div>
-      <form id="lomake" class="cform" method="post" data-endpoint="">
-        <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
-        <div><label for="f-yritys">Yritys</label><input id="f-yritys" name="yritys" autocomplete="organization"></div>
-        <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+ \-\(\)]{6,}" required></div>
-        <div><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
-        <div class="full"><label for="f-muoto">Yhtiömuoto</label><select id="f-muoto" name="muoto"><option value="" selected>Valitse…</option><option>Toiminimi</option><option>Osakeyhtiö</option><option>Avoin tai kommandiittiyhtiö</option><option>Yritystä ei ole vielä perustettu</option></select></div>
-        <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. toimiala, tositteiden määrä ja mistä alkaen tarvitset kirjanpitoa"></textarea></div>
-        <div class="hp" aria-hidden="true"><label for="f-www">Jätä tyhjäksi</label><input id="f-www" name="www" tabindex="-1" autocomplete="off"></div>
-        <div class="full"><button class="btn" type="submit">Lähetä viesti</button></div>
-        <p class="full form-note">Käsittelemme tietojasi vain yhteydenottoon vastaamiseksi.</p>
-        <p class="full form-status" id="lomake-tila" role="status" tabindex="-1" hidden>Kiitos! Tämä on demosivu, joten lomake ei lähetä viestejä. Soita 040 000 0000 tai lähetä sähköpostia info@tase.example.</p>
+      <form class="f" id="form" novalidate>
+        <label>Nimi<input name="nimi" autocomplete="name" required></label>
+        <label>Sähköposti<input name="email" type="email" autocomplete="email" required></label>
+        <label>Yritys<input name="yritys" autocomplete="organization"></label>
+        <label>Yritysmuoto<select name="muoto" id="fMuoto"><option value="">Valitse</option><option>Toiminimi</option><option>Osakeyhtiö</option><option>Avoin tai kommandiittiyhtiö</option><option>Yritys on vasta perusteilla</option></select></label>
+        <label class="w">Viesti<textarea name="viesti" id="fMsg" placeholder="Esim. haluan vaihtaa tilitoimistoa ensi kuussa"></textarea></label>
+        <input class="trap" name="kotisivu" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="w" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+          <button class="btn btn-ink" type="submit">Lähetä <span class="ar" aria-hidden="true">→</span></button>
+          <p class="fine">Demo: lomake ei lähetä tietoja mihinkään.</p>
+        </div>
+        <p class="ok w" id="ok" role="status" hidden></p>
       </form>
     </div>
   </div>
@@ -614,171 +272,11 @@ footer a:hover{color:var(--ink)}
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="Tase Tilitoimisto, alkuun"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M12 7v12" stroke="#e9df63" stroke-width="2.6" fill="none"/></svg></span><span class="logo-txt">Tase<small>Tilitoimisto</small></span></a>
-    <span>Tase Tilitoimisto on kuvitteellinen demoyritys. Sivun teki <a href="https://marktic.fi">Marktic</a>.</span>
-    <span><a href="tel:+358400000000">040 000 0000</a> · <a href="mailto:info@tase.example">info@tase.example</a></span>
-    <span class="caption">Kuvat on tuotettu tekoälyllä esimerkkiä varten.</span>
+    <span>© 2026 Tase Tilitoimisto · Esimerkkikatu 5, Tampere</span>
+    <span>Tase Tilitoimisto on kuvitteellinen demoyritys. Sivun teki <a href="https://marktic.fi" target="_blank" rel="noopener">Marktic</a>.</span>
   </div>
 </footer>
-
-<div class="callbar">
-  <a class="btn" href="#yhteys">Pyydä tarjous</a>
-  <a class="btn btn-line" href="tel:+358400000000"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Soita</a>
-</div>
-
-<script>
-(function () {
-  var $ = function (id) { return document.getElementById(id); };
-  var NB = ' ';
-
-  /* valikko */
-  var nav = $('menu'), btn = document.querySelector('.menu-btn');
-  function setMenu(open) { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Sulje valikko' : 'Avaa valikko'); }
-  btn.addEventListener('click', function () { var o = btn.getAttribute('aria-expanded') !== 'true'; setMenu(o); if (o) nav.querySelector('a').focus(); });
-  nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setMenu(false); btn.focus(); } });
-  document.addEventListener('click', function (e) { if (!e.target.closest('.nav')) setMenu(false); });
-
-  /* reveal */
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .1 });
-    document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-    var bar = document.querySelector('.callbar'), ctas = document.querySelector('.hero-ctas');
-    new IntersectionObserver(function (en) { bar.classList.toggle('show', !en[0].isIntersecting && en[0].boundingClientRect.top < 0); }).observe(ctas);
-  } else {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-  }
-
-  /* ---------- eräpäivät: kuukauden 12. päivä, viikonloppu siirtää seuraavaan arkipäivään ---------- */
-  var KK = ['tammikuu','helmikuu','maaliskuu','huhtikuu','toukokuu','kesäkuu','heinäkuu','elokuu','syyskuu','lokakuu','marraskuu','joulukuu'];
-  var VK = ['su','ma','ti','ke','to','pe','la'];
-  function fmt(d) { return VK[d.getDay()] + ' ' + d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear(); }
-  function dueFor(y, m) {
-    var d = new Date(y, m, 12), shifted = false;
-    while (d.getDay() === 0 || d.getDay() === 6) { d.setDate(d.getDate() + 1); shifted = true; }
-    return { date: d, shifted: shifted, m: m, y: y };
-  }
-  function nextDues(today, n) {
-    var out = [], y = today.getFullYear(), m = today.getMonth();
-    while (out.length < n) {
-      var dd = dueFor(y, m);
-      if (dd.date >= today) out.push(dd);
-      m++; if (m > 11) { m = 0; y++; }
-    }
-    return out;
-  }
-  function periodName(m, back) { return KK[(m - back + 12) % 12]; }
-  function renderDue() {
-    var now = new Date(), today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var list = nextDues(today, 3), first = list[0];
-    var days = Math.round((Date.UTC(first.date.getFullYear(), first.date.getMonth(), first.date.getDate()) - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate())) / 864e5);
-    $('due-today').textContent = today.getDate() + '.' + (today.getMonth() + 1) + '.';
-    $('due-days').textContent = days === 0 ? '0' : String(days);
-    $('due-unit').textContent = days === 0 ? 'tänään' : (days === 1 ? 'päivä' : 'päivää');
-    $('due-date').textContent = fmt(first.date);
-    $('due-what').textContent = 'Työnantajasuoritukset (' + periodName(first.m, 1) + ') ja ALV kuukausi-ilmoittajilla (' + periodName(first.m, 2) + ')';
-    $('due-shift').hidden = !first.shifted;
-    var ul = $('due-list'); ul.innerHTML = '';
-    list.slice(1).forEach(function (d) {
-      var li = document.createElement('li');
-      var a = document.createElement('span'); a.textContent = fmt(d.date);
-      var b = document.createElement('span'); b.textContent = d.shifted ? 'siirtyy viikonlopun yli' : 'arkipäivä';
-      li.appendChild(a); li.appendChild(b); ul.appendChild(li);
-    });
-    $('due-sr').textContent = 'Seuraava eräpäivä ' + fmt(first.date) + ', ' + (days === 0 ? 'tänään' : days + ' päivän päästä') + '.';
-  }
-  renderDue();
-  setInterval(renderDue, 60 * 60 * 1000);
-
-  /* ---------- hintalaskuri (esimerkkihinnoittelu, alv 0 %) ---------- */
-  var P = {
-    base: { tmi: 49, oy: 89, ay: 69 },
-    name: { tmi: 'toiminimi', oy: 'osakeyhtiö', ay: 'ay tai ky' },
-    incl: 20, perTos: 0.85,
-    palkBase: 19, palkPer: 11,
-    alv: 12,
-    tp: { tmi: 290, oy: 490, ay: 390 }, tpBig: 120, tpBigOver: 150,
-    vat: 0.255
-  };
-  var nf = new Intl.NumberFormat('fi-FI', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  function eur(v) { return nf.format(v).replace(/ /g, NB); }
-  var form = $('calc'), tos = $('tositteet'), palk = $('palkat'), tp = $('tp');
-  var lastMuoto = null;
-  function val() {
-    var muoto = form.querySelector('input[name=muoto]:checked').value;
-    var alv = form.querySelector('input[name=alv]:checked').value === '1';
-    var t = Math.max(0, Math.min(300, parseInt(tos.value, 10) || 0));
-    var n = Math.max(0, Math.min(20, parseInt(palk.value, 10) || 0));
-    return { muoto: muoto, alv: alv, t: t, n: n };
-  }
-  function line(d, a, cls) {
-    var li = document.createElement('li'); if (cls) li.className = cls;
-    var s1 = document.createElement('span'); s1.className = 'd'; s1.textContent = d;
-    var s2 = document.createElement('span'); s2.className = 'a'; s2.textContent = a;
-    li.appendChild(s1); li.appendChild(s2); return li;
-  }
-  function calc() {
-    var v = val();
-    if (v.muoto !== lastMuoto) {
-      if (v.muoto === 'oy') { tp.checked = true; tp.disabled = true; $('tp-note').textContent = 'Osakeyhtiölle tilinpäätös kuuluu aina pakettiin.'; }
-      else { if (lastMuoto === 'oy' || lastMuoto === null) tp.checked = true; tp.disabled = false; $('tp-note').textContent = 'Voit myös hoitaa tilinpäätöksen muualla.'; }
-      lastMuoto = v.muoto;
-    }
-    var rows = [], sum = 0;
-    var b = P.base[v.muoto]; rows.push(['Perusmaksu, ' + P.name[v.muoto], b]); sum += b;
-    var extra = Math.max(0, v.t - P.incl);
-    if (extra > 0) { var e = extra * P.perTos; rows.push(['Tositteet yli ' + P.incl + ': ' + extra + ' × ' + eur(P.perTos), e]); sum += e; }
-    else rows.push(['Tositteet, ' + P.incl + ' sisältyy', 0]);
-    if (v.n > 0) { var pk = P.palkBase + P.palkPer * v.n; rows.push(['Palkanlaskenta, ' + v.n + (v.n === 1 ? ' henkilö' : ' henkilöä'), pk]); sum += pk; }
-    if (v.alv) { rows.push(['ALV-ilmoitukset', P.alv]); sum += P.alv; }
-
-    var ul = $('r-lines'); ul.innerHTML = '';
-    rows.forEach(function (r) { ul.appendChild(line(r[0], eur(r[1]))); });
-    ul.appendChild(line('Yhteensä €/kk, alv 0' + NB + '%', eur(sum), 'sum'));
-
-    $('r-kk').textContent = eur(sum);
-    $('r-kk-alv').textContent = eur(sum * (1 + P.vat)) + NB + '€/kk';
-
-    var hasTp = tp.checked;
-    var tpv = P.tp[v.muoto] + (v.t > P.tpBigOver ? P.tpBig : 0);
-    $('r-annual-box').classList.toggle('off', !hasTp);
-    $('r-tp').textContent = hasTp ? eur(tpv) + NB + '€' : 'ei mukana';
-    $('r-tp-alv').textContent = hasTp ? eur(tpv * (1 + P.vat)) + NB + '€ sis. alv' + (v.t > P.tpBigOver ? ', laaja aineisto' : '') : 'valitse halutessasi';
-
-    var on = { kp: true, rap: true, neu: true, alv: v.alv, palk: v.n > 0, tp: hasTp };
-    $('r-incl').querySelectorAll('li').forEach(function (li) {
-      var k = li.getAttribute('data-k'); li.classList.toggle('no', !on[k]);
-      li.setAttribute('aria-label', li.textContent.replace(/^(Ei mukana: )/, '') + (on[k] ? ', sisältyy' : ', ei mukana'));
-    });
-
-    $('tos-out').textContent = v.t + NB + 'kpl';
-    tos.style.setProperty('--p', (v.t / 300 * 100) + '%');
-    $('palkat-minus').disabled = v.n <= 0; $('palkat-plus').disabled = v.n >= 20;
-    $('calc-sr').textContent = 'Arvio ' + eur(sum) + ' euroa kuukaudessa ilman arvonlisäveroa.';
-    calc.last = { v: v, sum: sum, tp: hasTp ? tpv : 0 };
-  }
-  form.addEventListener('input', calc);
-  form.addEventListener('change', calc);
-  palk.addEventListener('blur', function () { palk.value = val().n; calc(); });
-  $('palkat-minus').addEventListener('click', function () { palk.value = Math.max(0, val().n - 1); calc(); });
-  $('palkat-plus').addEventListener('click', function () { palk.value = Math.min(20, val().n + 1); calc(); });
-  calc();
-
-  /* laskurin arvio lomakkeelle */
-  $('calc-to-form').addEventListener('click', function () {
-    var l = calc.last; if (!l) return;
-    var names = { tmi: 'Toiminimi', oy: 'Osakeyhtiö', ay: 'Avoin tai kommandiittiyhtiö' };
-    $('f-muoto').value = names[l.v.muoto];
-    var txt = 'Hintalaskurin arvio: ' + names[l.v.muoto].toLowerCase() + ', noin ' + l.v.t + ' tositetta kuukaudessa, ' + l.v.n + ' palkansaajaa, ALV-rekisterissä: ' + (l.v.alv ? 'kyllä' : 'ei') + '. Arvio ' + eur(l.sum) + NB + '€/kk (alv 0' + NB + '%)' + (l.tp ? ', tilinpäätös ' + eur(l.tp) + NB + '€.' : '.');
-    var ta = $('f-viesti'); if (!ta.value.trim()) ta.value = txt;
-  });
-
-  /* lomake: demosivu ei lähetä mitään */
-  var lf = $('lomake'), st = $('lomake-tila');
-  lf.addEventListener('submit', function (e) {
-    if (!lf.dataset.endpoint) { e.preventDefault(); st.hidden = false; st.focus(); }
-  });
-})();
-</script>
+<div class="dock" id="dock"><a class="btn btn-ghost" href="tel:+358500000000">Soita</a><a class="btn btn-brass" href="#yhteys">Varaa aika</a></div>
+<script src="site.js" defer></script>
 </body>
 </html>
