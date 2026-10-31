@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liidit | LVI Nurmi Oy (esimerkkinäkymä)</title>
+<meta name="description" content="Esimerkkinäkymä: näin putkiliike näkee kotisivujen kautta tulleet yhteydenotot. Kuvitteellinen demoyritys.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#15181d">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preload" as="font" type="font/woff2" href="../fonts/inter-latin-400-normal.woff2" crossorigin>
+<link rel="stylesheet" href="liidit.css">
+</head>
+<body>
+<a class="skip" href="#lista">Siirry liideihin</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="../index.html" aria-label="LVI Nurmi, takaisin sivulle">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <path d="M4 10h13a10 10 0 0 1 10 10v2" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="20" y="21" width="14" height="5" rx="1.5" fill="currentColor"/>
+        <rect x="2" y="4" width="5" height="12" rx="1.5" fill="currentColor"/>
+        <path d="M27 28.5s-4.6 5-4.6 7.4a4.6 4.6 0 0 0 9.2 0c0-2.4-4.6-7.4-4.6-7.4z" fill="#8cc5ff"/>
+      </svg>
+      <span>LVI Nurmi<small>Liidit</small></span>
+    </a>
+    <span class="demo-pill">Esimerkkinäkymä</span>
+    <a class="back" href="../index.html">Takaisin sivulle</a>
+  </div>
+</header>
+
+<main class="app">
+  <section class="intro" aria-labelledby="intro-h">
+    <div>
+      <h1 id="intro-h">Yhteydenotot</h1>
+      <p>Näin yrittäjä näkee kotisivujen kautta tulleet pyynnöt: kuka, mistä, mikä on vialla ja missä vaiheessa asia on. <b>Tämä on esimerkki.</b> Lähettämäsi pyyntö on tallessa vain tässä selaimessa, eikä sitä lähetetty kenellekään.</p>
+    </div>
+    <button class="ghost" type="button" id="reset">Tyhjennä omat pyynnöt</button>
+  </section>
+
+  <section class="kpis" aria-label="Yhteenveto">
+    <div class="kpi"><span>Uusia</span><b id="k-new">0</b><small>odottavat soittoa</small></div>
+    <div class="kpi"><span>Viimeiset 7 päivää</span><b id="k-week">0</b><small>yhteydenottoa</small></div>
+    <div class="kpi"><span>Toimialueelta</span><b id="k-area">0&nbsp;%</b><small>Vantaa ja lähikunnat</small></div>
+    <div class="kpi"><span>Tarjouksia auki</span><b id="k-open">0&nbsp;€</b><small id="k-won">kauppoja 0&nbsp;€</small></div>
+  </section>
+
+  <div class="board">
+    <section class="list-col" aria-labelledby="lista-h">
+      <h2 id="lista-h" class="sr-only">Liidit</h2>
+      <div class="filters" role="tablist" aria-label="Suodata tilan mukaan" id="filters"></div>
+      <label class="search"><span class="sr-only">Hae nimellä, postinumerolla tai työllä</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Hae nimellä, postinumerolla tai työllä" autocomplete="off"></label>
+      <ul class="leads" id="lista"></ul>
+    </section>
+    <section class="detail" id="detail" aria-live="polite" aria-label="Liidin tiedot"></section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="liidit.js" defer></script>
+</body>
+</html>
