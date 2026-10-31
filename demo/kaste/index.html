@@ -56,7 +56,12 @@
       <a class="btn btn-brass mag" href="#laskuri">Laske hinta-arvio <span class="arr" aria-hidden="true">→</span></a>
       <a class="btn btn-line mag" href="tel:+358504127730">Soita <span class="num">050 412 7730</span></a>
     </div>
-    <div class="hero-stats fade-up" style="transition-delay:.85s">
+    <form class="area-hero fade-up" style="transition-delay:.85s" id="area-check" novalidate>
+      <label class="ah-q" for="ap-pn">Tuletteko <em>alueelleni?</em></label>
+      <div class="ah-field"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><input id="ap-pn" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" placeholder="Postinumero" spellcheck="false"><button class="ah-go" type="submit" aria-label="Tarkista postinumero"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      <div class="ap-res" id="ap-res" role="status" aria-live="polite"></div>
+    </form>
+    <div class="hero-stats fade-up" style="transition-delay:1s">
       <div><b>Maksuton</b><span>kartoitus kotonanne</span></div>
       <div><b>3–5 vk</b><span>tyypillinen kesto</span></div>
       <div><b>Kirjallinen</b><span>tarjous kartoituksen jälkeen</span></div>
@@ -252,7 +257,8 @@
       <form id="lomake" method="post" data-endpoint="">
         <div><label for="f-nimi">Nimi</label><input id="f-nimi" name="nimi" autocomplete="name" required></div>
         <div><label for="f-puh">Puhelin</label><input id="f-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[+0-9 \(\)\-]{6,}" required></div>
-        <div class="full"><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="f-email">Sähköposti</label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div><label for="f-pn">Postinumero</label><input id="f-pn" name="postinumero" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}"></div>
         <div><label for="f-kohde">Kohde</label><select id="f-kohde" name="kohde"><option value="" selected>Valitse…</option><option>Kerrostalo</option><option>Rivitalo</option><option>Omakotitalo</option><option>Muu</option></select></div>
         <div><label for="f-koko">Koko (m²)</label><input id="f-koko" name="koko" inputmode="decimal" placeholder="esim. 5"></div>
         <div class="full"><label for="f-viesti">Viesti</label><textarea id="f-viesti" name="viesti" placeholder="Esim. sauna mukaan, toivottu aikataulu"></textarea></div>
@@ -274,11 +280,45 @@
   </div>
 </footer>
 
+<div class="ap-scrim" id="ap-scrim" hidden></div>
+<div class="area-panel" id="area-panel" role="dialog" aria-modal="true" aria-labelledby="ap-h2" hidden>
+  <button class="ap-close" type="button" aria-label="Sulje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <form class="ap-step" data-step="2" id="ap-form" novalidate hidden>
+    <p class="ap-eb" id="ap-where"></p>
+    <h2 id="ap-h2">Varataan kartoitus.</h2>
+    <div class="ap-grid">
+      <div><label for="ap-nimi">Nimi</label><input id="ap-nimi" name="nimi" autocomplete="name" required></div>
+      <div><label for="ap-puh">Puhelin</label><input id="ap-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9 +\(\)\-]{6,}" required></div>
+    </div>
+    <fieldset class="ap-jobs"><legend>Mitä remonttiin kuuluu?</legend>
+      <label><input type="checkbox" name="tyo" value="Kylpyhuoneremontti"><span>Kylpyhuoneremontti</span></label>
+      <label><input type="checkbox" name="tyo" value="Vedeneristys"><span>Vedeneristys</span></label>
+      <label><input type="checkbox" name="tyo" value="Laatoitus"><span>Laatoitus</span></label>
+      <label><input type="checkbox" name="tyo" value="Lattialämmitys"><span>Lattialämmitys</span></label>
+      <label><input type="checkbox" name="tyo" value="Saunaremontti"><span>Saunaremontti</span></label>
+      <label><input type="checkbox" name="tyo" value="Kalusteet ja valaistus"><span>Kalusteet ja valaistus</span></label>
+    </fieldset>
+    <label for="ap-viesti">Lisätietoja <span class="opt">(vapaaehtoinen)</span></label>
+    <textarea id="ap-viesti" name="viesti" rows="2" placeholder="Esim. koko, talotyyppi tai toivottu aikataulu"></textarea>
+    <div class="hp" aria-hidden="true"><label for="ap-www">Jätä tyhjäksi</label><input id="ap-www" name="www" tabindex="-1" autocomplete="off"></div>
+    <p class="ap-err" id="ap-err" role="alert" hidden></p>
+    <button class="btn btn-dark ap-send" type="submit">Lähetä pyyntö <span class="arr" aria-hidden="true">→</span></button>
+    <p class="ap-note">Käsittelemme tietojanne vain yhteydenottoon vastaamiseksi. <button type="button" class="ap-back">Vaihda postinumero</button></p>
+  </form>
+  <div class="ap-step ap-done" data-step="3" hidden>
+    <span class="ap-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg></span>
+    <h2 id="ap-h3" tabindex="-1">Kiitos!</h2>
+    <p>Tämä on demosivu, joten pyyntö ei lähtenyt kenellekään, eikä tietojanne tallennettu minnekään tämän selaimen ulkopuolelle.</p>
+    <a class="btn btn-brass" id="ap-crm" href="liidit/index.html">Katso, miten yrittäjä näkee pyynnön <span class="arr" aria-hidden="true">→</span></a>
+  </div>
+</div>
+
 <div class="callbar">
   <a class="btn btn-brass" href="#laskuri">Laske hinta</a>
   <a class="btn btn-dark" href="tel:+358504127730">Soita</a>
 </div>
 
 <script src="site.js" defer></script>
+<script src="alue.js" defer></script>
 </body>
 </html>

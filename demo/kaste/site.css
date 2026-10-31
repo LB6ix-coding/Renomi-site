@@ -375,3 +375,74 @@ footer a:hover{color:var(--ink)}
 
 /* puhelimet: ei backdrop-blur liikkuvan videon päällä (raskas iPhonella); tausta hieman peittävämpi tilalle */
 @media (hover:none),(pointer:coarse){header.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(27,33,36,.94)}}
+
+/* ---------- area check in the hero ("Tuletteko alueelleni?") + request dialog ---------- */
+.area-hero{display:grid;gap:12px;max-width:440px;margin:30px 0 0;padding:0;grid-template-columns:1fr;align-content:start}
+.area-hero .ah-q{display:block;margin:0;font-family:var(--serif);font-size:1.6rem;font-weight:400;line-height:1.1;letter-spacing:-.01em;color:#fff}
+.area-hero .ah-q em{font-style:italic;color:var(--brass-l)}
+.ah-field{position:relative;display:flex;align-items:center;height:60px;border-radius:999px;background:rgba(20,25,27,.5);border:1px solid rgba(255,255,255,.4);transition:border-color .25s,background .25s}
+.ah-field:focus-within{border-color:var(--brass-l);background:rgba(20,25,27,.72)}
+.ah-field>svg.i{position:absolute;left:20px;color:var(--brass-l);pointer-events:none}
+#area-check .ah-field input{flex:1;min-width:0;height:100%;min-height:0;padding:0 8px 0 52px;border:0;border-radius:999px;background:transparent;color:#fff;font-size:1.2rem;font-weight:600;letter-spacing:.16em;font-variant-numeric:tabular-nums}
+#area-check .ah-field input:focus{outline:none;box-shadow:none;background:transparent}
+#area-check .ah-field input::placeholder{color:rgba(255,255,255,.72);letter-spacing:0;font-weight:500;font-size:1rem}
+.ah-go{flex:none;width:48px;height:48px;margin-right:5px;border-radius:50%;border:0;background:var(--brass);color:var(--slate);display:grid;place-items:center;cursor:pointer;transition:background .25s,transform .3s var(--ease)}
+.ah-go:hover{background:var(--brass-l);transform:translateX(2px)}
+.area-hero .ap-res{display:grid;gap:8px;padding:16px 18px;border-radius:18px;background:rgba(20,25,27,.82);border:1px solid rgba(255,255,255,.14);color:#fff;animation:apIn .4s var(--ease)}
+.area-hero .ap-res:empty{display:none}
+.area-hero .ap-res b{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.1}
+.area-hero .ap-res span{color:rgba(255,255,255,.84);font-size:.95rem}
+.area-hero .ap-res .btn .arr{color:inherit;font-size:inherit}
+.area-hero .ap-res.ok b::before{content:"✓ ";color:var(--brass-l)}
+.area-hero .ap-res.out b{color:#ebcf9c}
+.area-hero .ap-res.no{color:#ffd8cc}
+.area-hero .ap-res .btn{justify-self:start;min-height:46px;margin-top:4px;padding:.7rem 1.3rem;font-size:.95rem}
+@keyframes apIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (hover:hover) and (pointer:fine){.ah-field{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}}
+
+.ap-scrim{position:fixed;inset:0;z-index:140;background:rgba(14,18,20,.6);opacity:0;transition:opacity .22s}
+.ap-scrim.in{opacity:1}
+.ap-scrim[hidden],.area-panel[hidden],.ap-step[hidden]{display:none!important}
+html.ap-lock{overflow:hidden}
+.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(480px,calc(100vw - 32px));max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;background:var(--stone-2);color:var(--ink);border-radius:26px;padding:30px 30px 26px;box-shadow:0 50px 100px -30px rgba(10,14,16,.7);opacity:0;transform:translate(-50%,-46%) scale(.98);transition:opacity .22s var(--ease),transform .3s var(--ease)}
+.area-panel.in{opacity:1;transform:translate(-50%,-50%)}
+.ap-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink-2);cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.ap-close svg{width:20px;height:20px}
+.ap-close:hover{background:var(--stone)}
+.ap-eb{font-size:.76rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-d)}
+.area-panel h2{font-size:2.3rem;margin:8px 48px 6px 0}
+.area-panel h2:focus{outline:none}
+#ap-form{display:block;margin:0;padding:0}
+#ap-form label,#ap-form legend{display:block;font-size:.85rem;font-weight:600;margin:14px 0 7px}
+#ap-form .opt{font-weight:400;color:var(--muted)}
+.ap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+#ap-form input:not([type=checkbox]),#ap-form textarea{min-height:48px}
+#ap-form textarea{min-height:76px}
+#ap-form [aria-invalid="true"]{border-color:#a5432a;box-shadow:0 0 0 3px rgba(165,67,42,.2)}
+.ap-jobs{border:0;display:flex;flex-wrap:wrap;gap:8px}
+.ap-jobs legend{width:100%}
+#ap-form .ap-jobs label{margin:0}
+.ap-jobs input{position:absolute;opacity:0;width:1px;height:1px}
+.ap-jobs span{display:inline-flex;align-items:center;min-height:40px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:#fff;font-weight:500;font-size:.88rem;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.ap-jobs span:hover{border-color:var(--brass)}
+.ap-jobs input:checked+span{background:var(--slate);border-color:var(--slate);color:var(--stone)}
+.ap-jobs input:focus-visible+span{outline:3px solid var(--teal);outline-offset:2px}
+.ap-err{margin-top:12px;color:#8e3520;font-weight:600;font-size:.9rem}
+.ap-send{width:100%;margin-top:18px}
+.ap-note{margin-top:12px;font-size:.8rem;color:var(--muted)}
+.ap-back{background:none;border:0;padding:0;font:inherit;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:2px;cursor:pointer;margin-left:4px}
+.ap-check{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--brass);color:var(--slate);margin-bottom:10px;animation:apIn .4s var(--ease)}
+.ap-check svg{width:26px;height:26px}
+.ap-done p{color:var(--ink-2);font-size:.96rem;margin:6px 0 18px}
+.ap-done .btn{white-space:normal;text-align:left;max-width:100%;line-height:1.25}
+@media (max-width:760px){
+  .area-hero{max-width:none;margin-top:22px;gap:10px}
+  .area-hero .ah-q{font-size:1.4rem}
+  .hero-stats{margin-top:30px}
+  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100svh - 40px);border-radius:26px 26px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
+  .area-panel.in{transform:none}
+  .area-panel h2{font-size:2rem}
+  .ap-grid{grid-template-columns:1fr}
+  .ap-done .btn{width:100%;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){.area-panel,.ap-scrim,.area-hero .ap-res,.ap-check{transition:none;animation:none}}
