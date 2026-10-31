@@ -15,41 +15,45 @@
   const loadPn = () => pnLoading || (pnLoading = fetch('data/postinumerot.json').then(r => r.json()).then(d => (pn = d)).catch(() => null));
   const kunta = code => pn && pn.p[code] !== undefined ? pn.k[pn.p[code]] : null;
 
-  const hdr = $('.hdr'), btn = $('.area-btn'), panel = $('#area-panel');
-  if (!hdr || !btn || !panel) return;
+  const panel = $('#area-panel'), scrim = $('#ap-scrim'), check = $('#area-check');
+  if (!panel || !check) return;
   const inp = $('#ap-pn'), res = $('#ap-res'), form = $('#ap-form'), err = $('#ap-err');
   const steps = [...panel.querySelectorAll('.ap-step')];
-  let cur = {code: '', kunta: '', inArea: false};
+  let cur = {code: '', kunta: '', inArea: false}, lastFocus = null;
 
   const show = n => steps.forEach(s => { s.hidden = +s.dataset.step !== n; });
   const isOpen = () => !panel.hidden;
-  function open() {
-    loadPn();
-    const mb = $('.menu-btn'); if (mb && mb.getAttribute('aria-expanded') === 'true') mb.click();
-    panel.hidden = false; hdr.classList.add('area-open'); hdr.classList.remove('hide');
-    btn.setAttribute('aria-expanded', 'true');
-    requestAnimationFrame(() => panel.classList.add('in'));
-    if (!panel.querySelector('.ap-step:not([hidden])')) show(1);
-    const s1 = !steps[0].hidden; setTimeout(() => (s1 ? inp : panel.querySelector('.ap-step:not([hidden]) input, .ap-step:not([hidden]) h2[tabindex]'))?.focus({preventScroll: true}), 60);
+  function open(step) {
+    lastFocus = document.activeElement;
+    show(step); scrim.hidden = false; panel.hidden = false; document.documentElement.classList.add('ap-lock');
+    requestAnimationFrame(() => { panel.classList.add('in'); scrim.classList.add('in'); });
+    setTimeout(() => (step === 2 ? $('#ap-nimi') : $('#ap-h3'))?.focus({preventScroll: true}), 80);
   }
-  function close(focusBtn) {
-    panel.classList.remove('in'); btn.setAttribute('aria-expanded', 'false'); hdr.classList.remove('area-open');
-    setTimeout(() => { if (panel.classList.contains('in')) return; panel.hidden = true; if (!steps[2].hidden) { show(1); inp.value = ''; res.className = 'ap-res'; res.textContent = ''; } }, 220);
-    if (focusBtn) btn.focus();
+  function close() {
+    panel.classList.remove('in'); scrim.classList.remove('in'); document.documentElement.classList.remove('ap-lock');
+    const done = !steps[1].hidden;
+    setTimeout(() => { if (panel.classList.contains('in')) return; panel.hidden = true; scrim.hidden = true;
+      if (done) { inp.value = ''; res.className = 'ap-res'; res.textContent = ''; } }, 220);
+    (lastFocus && document.contains(lastFocus) ? lastFocus : inp).focus({preventScroll: true});
   }
-  btn.addEventListener('click', () => (isOpen() ? close() : open()));
-  $('.ap-close', panel).addEventListener('click', () => close(true));
-  addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen()) close(true); });
-  addEventListener('pointerdown', e => { if (isOpen() && !hdr.contains(e.target)) close(); }, {passive: true});
-  // the page script hides the header on scroll; keep it while the panel is open
-  new MutationObserver(() => { if (isOpen() && hdr.classList.contains('hide')) hdr.classList.remove('hide'); }).observe(hdr, {attributes: true, attributeFilter: ['class']});
+  $('.ap-close', panel).addEventListener('click', close);
+  scrim.addEventListener('click', close);
+  addEventListener('keydown', e => {
+    if (!isOpen()) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'Tab') { // keep focus inside the dialog
+      const f = [...panel.querySelectorAll('button, input, textarea, a[href]')].filter(x => !x.closest('[hidden]') && !x.closest('.hp'));
+      if (!f.length) return; const a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    }
+  });
 
   function result(msg, cls, action) {
     res.className = 'ap-res ' + (cls || '');
-    res.innerHTML = msg + (action ? `<button type="button" class="btn ${cls === 'ok' ? 'btn-moss' : 'btn-line'} ap-go">${action}<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>` : '');
+    res.innerHTML = msg + (action ? `<button type="button" class="btn ${cls === 'ok' ? 'btn-lichen' : 'btn-cream'} ap-go">${action}<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>` : '');
     const go = $('.ap-go', res); if (go) go.addEventListener('click', toForm);
   }
-  async function check() {
+  async function doCheck() {
     const v = inp.value.replace(/\D/g, '').slice(0, 5);
     if (v !== inp.value) inp.value = v;
     if (v.length < 5) { res.className = 'ap-res'; res.textContent = ''; return; }
@@ -60,16 +64,16 @@
     if (cur.inArea) result(`<b>${v} · ${k}</b><span>Kuuluu toimialueeseemme. Arviokäynti on maksuton.</span>`, 'ok', 'Pyytäkää arviokäynti');
     else result(`<b>${v} · ${k}</b><span>Tämä on toimialueemme ulkopuolella. Jättäkää silti yhteystiedot, niin kerromme, onnistuuko työ.</span>`, 'out', 'Jättäkää yhteystiedot');
   }
-  inp.addEventListener('input', check);
+  inp.addEventListener('input', doCheck);
   inp.addEventListener('focus', loadPn, {once: true});
-  inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); const go = $('.ap-go', res); if (go) go.click(); } });
+  check.addEventListener('submit', async e => { e.preventDefault(); if (inp.value.replace(/\D/g, '').length < 5) { result('Kirjoittakaa viisinumeroinen postinumero.', 'no'); inp.focus(); return; } await doCheck(); const go = $('.ap-go', res); if (go) go.focus(); });
 
   function toForm() {
     $('#ap-where').textContent = `${cur.code} · ${cur.kunta}`;
     $('#ap-h2').textContent = cur.inArea ? 'Pyytäkää arviokäynti.' : 'Jättäkää yhteystiedot.';
-    err.hidden = true; show(2); setTimeout(() => $('#ap-nimi').focus(), 30);
+    err.hidden = true; open(2);
   }
-  $('.ap-back', panel).addEventListener('click', () => { show(1); inp.focus(); });
+  $('.ap-back', panel).addEventListener('click', () => { lastFocus = inp; close(); setTimeout(() => inp.select(), 50); });
   ['#ap-nimi', '#ap-puh'].forEach(s => $(s).addEventListener('input', e => { const el = e.target; if (el.value.trim() && el.checkValidity()) el.setAttribute('aria-invalid', 'false'); if (!form.querySelector('[aria-invalid="true"]')) err.hidden = true; }));
 
   form.addEventListener('submit', e => {
@@ -85,7 +89,7 @@
     store.add(lead);
     $('#ap-h3').textContent = `Kiitos, ${lead.name.split(' ')[0]}!`;
     $('#ap-crm').href = 'liidit/index.html?uusi=' + lead.id;
-    show(3); $('#ap-h3').focus({preventScroll: true});
+    show(3); setTimeout(() => $('#ap-h3').focus({preventScroll: true}), 30);
     form.reset();
   });
 
