@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liidit | Raikas Siivouspalvelu (esimerkkinäkymä)</title>
+<meta name="description" content="Esimerkkinäkymä: näin siivousyrittäjä näkee kotisivujen kautta tulleet yhteydenotot. Kuvitteellinen demoyritys.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0f2a33">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%230f2a33'/%3E%3Cpath d='M16 6c4 5 7 8.6 7 12.2A7 7 0 0 1 9 18.2C9 14.6 12 11 16 6z' fill='%2340c9d6'/%3E%3Cpath d='M23.5 5.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z' fill='%23ffe36e'/%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="../fonts/manrope-latin-wght-normal.woff2" crossorigin>
+<link rel="stylesheet" href="liidit.css">
+</head>
+<body>
+<a class="skip" href="#lista">Siirry liideihin</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="../index.html" aria-label="Raikas Siivouspalvelu, takaisin sivulle">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 5c4.4 5.4 7.6 9.2 7.6 13.2a7.6 7.6 0 0 1-15.2 0C8.4 14.2 11.6 10.4 16 5z" fill="#40c9d6"/><path d="M12.6 19.4a3.6 3.6 0 0 0 3.6 3.4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M24.6 4.2l.95 2.25 2.25.95-2.25.95-.95 2.25-.95-2.25-2.25-.95 2.25-.95z" fill="#ffe36e"/></svg></span>
+      <span>raikas<small>Liidit</small></span>
+    </a>
+    <span class="demo-pill">Esimerkkinäkymä</span>
+    <a class="back" href="../index.html">Takaisin sivulle</a>
+  </div>
+</header>
+
+<main class="app">
+  <section class="intro" aria-labelledby="intro-h">
+    <div>
+      <p class="eyebrow">Raikas Siivouspalvelu</p>
+      <h1 id="intro-h">Yhteydenotot.</h1>
+      <p>Näin yrittäjä näkee kotisivujen kautta tulleet pyynnöt: kuka, mistä, mitä siivotaan ja missä vaiheessa asia on. <b>Tämä on esimerkki.</b> Lähettämänne pyyntö on tallessa vain tässä selaimessa, eikä sitä lähetetty kenellekään.</p>
+    </div>
+    <button class="ghost" type="button" id="reset">Tyhjennä omat pyynnöt</button>
+  </section>
+
+  <section class="kpis" aria-label="Yhteenveto">
+    <div class="kpi"><span>Uusia</span><b id="k-new">0</b><small>odottavat soittoa</small></div>
+    <div class="kpi"><span>Viimeiset 7 päivää</span><b id="k-week">0</b><small>yhteydenottoa</small></div>
+    <div class="kpi"><span>Helsingistä</span><b id="k-area">0&nbsp;%</b><small>postinumeron mukaan</small></div>
+    <div class="kpi"><span>Tarjouksia auki</span><b id="k-open">0&nbsp;€</b><small id="k-won">kauppoja 0&nbsp;€</small></div>
+  </section>
+
+  <div class="board">
+    <section class="list-col" aria-labelledby="lista-h">
+      <h2 id="lista-h" class="sr-only">Liidit</h2>
+      <div class="filters" role="tablist" aria-label="Suodata tilan mukaan" id="filters"></div>
+      <label class="search"><span class="sr-only">Hae nimellä, postinumerolla tai työllä</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Hae nimellä, postinumerolla tai työllä" autocomplete="off"></label>
+      <ul class="leads" id="lista"></ul>
+    </section>
+    <section class="detail" id="detail" aria-live="polite" aria-label="Liidin tiedot"></section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="liidit.js" defer></script>
+</body>
+</html>
