@@ -50,7 +50,14 @@
     <h1 id="h1" style="margin-top:20px">Seinät uusiksi. <span class="c">Ilman sotkua.</span></h1>
     <div class="hero-row">
       <p class="lead fx">Sisämaalaus, julkisivut ja keittiön kaapistot. Suojaamme, maalaamme ja siivoamme jälkemme. Sinä valitset vain sävyn.</p>
-      <a class="b b-terra fx" href="#yhteys">Pyydä arviokäynti <i aria-hidden="true">→</i></a>
+      <div class="hero-act">
+        <a class="b b-terra fx" href="#yhteys">Pyydä arviokäynti <i aria-hidden="true">→</i></a>
+        <form class="area-hero fx" id="area-check" novalidate>
+          <label class="ah-q" for="ap-pn">Tuletko alueelleni?</label>
+          <div class="ah-field"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><input id="ap-pn" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" placeholder="Postinumero" spellcheck="false"><button class="ah-go" type="submit" aria-label="Tarkista postinumero"><i aria-hidden="true">→</i></button></div>
+          <div class="ap-res" id="ap-res" role="status" aria-live="polite"></div>
+        </form>
+      </div>
     </div>
   </div>
   <div class="dots" id="dots" aria-hidden="true"><i></i><i></i><i></i></div>
@@ -273,6 +280,39 @@
   </div>
 </footer>
 <div class="mbar" id="mbar"><a class="b b-line" href="tel:+358440000000">Soita</a><a class="b b-terra" href="#yhteys">Pyydä arvio</a></div>
+
+<div class="ap-scrim" id="ap-scrim" hidden></div>
+<div class="area-panel" id="area-panel" role="dialog" aria-modal="true" aria-labelledby="ap-h2" hidden>
+  <button class="ap-close" type="button" aria-label="Sulje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <form class="ap-step" data-step="2" id="ap-form" novalidate hidden>
+    <p class="ap-eb" id="ap-where"></p>
+    <h2 id="ap-h2">Pyydä arviokäynti.</h2>
+    <div class="ap-grid">
+      <label>Nimi<input id="ap-nimi" name="nimi" autocomplete="name" required></label>
+      <label>Puhelin<input id="ap-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9+ \-\(\)]{6,}" required></label>
+    </div>
+    <fieldset class="ap-jobs"><legend>Mitä maalataan?</legend>
+      <label><input type="checkbox" name="tyo" value="Sisämaalaus"><span>Sisämaalaus</span></label>
+      <label><input type="checkbox" name="tyo" value="Julkisivu"><span>Julkisivu</span></label>
+      <label><input type="checkbox" name="tyo" value="Keittiön kaapistot"><span>Keittiön kaapistot</span></label>
+      <label><input type="checkbox" name="tyo" value="Tapetointi"><span>Tapetointi</span></label>
+      <label><input type="checkbox" name="tyo" value="Ikkunat ja ovet"><span>Ikkunat ja ovet</span></label>
+      <label><input type="checkbox" name="tyo" value="Pintojen korjaus"><span>Pintojen korjaus</span></label>
+    </fieldset>
+    <label class="ap-msg"><span>Lisätietoja <span class="opt">(vapaaehtoinen)</span></span><textarea id="ap-viesti" name="viesti" rows="2" placeholder="Esim. olohuone ja eteinen, noin 60 m² seiniä"></textarea></label>
+    <div class="pot" aria-hidden="true"><input id="ap-www" name="www" tabindex="-1" autocomplete="off"></div>
+    <p class="ap-err" id="ap-err" role="alert" hidden></p>
+    <button class="b b-terra ap-send" type="submit">Lähetä pyyntö <i aria-hidden="true">→</i></button>
+    <p class="ap-note">Käsittelemme tietojasi vain yhteydenottoon vastaamiseksi. <button type="button" class="ap-back">Vaihda postinumero</button></p>
+  </form>
+  <div class="ap-step ap-done" data-step="3" hidden>
+    <span class="ap-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <h2 id="ap-h3" tabindex="-1">Kiitos!</h2>
+    <p>Tämä on demosivu, joten pyyntö ei lähtenyt kenellekään, eikä tietojasi tallennettu minnekään tämän selaimen ulkopuolelle.</p>
+    <a class="b b-terra" id="ap-crm" href="liidit/index.html">Katso, miten yrittäjä näkee pyynnön <i aria-hidden="true">→</i></a>
+  </div>
+</div>
 <script src="site.js" defer></script>
+<script src="alue.js" defer></script>
 </body>
 </html>
