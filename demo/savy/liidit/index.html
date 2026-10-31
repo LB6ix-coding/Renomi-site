@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Liidit | Sävy Sähkö (esimerkkinäkymä)</title>
+<meta name="description" content="Esimerkkinäkymä: näin sähköurakoitsija näkee kotisivujen kautta tulleet yhteydenotot. Kuvitteellinen demoyritys.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0d12">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230b0d12'/%3E%3Cpath d='M17.5 5 9 18h6l-1.5 9L23 14h-6z' fill='%23ffcf7a'/%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="../fonts/manrope-latin-wght-normal.woff2" crossorigin>
+<link rel="stylesheet" href="liidit.css">
+</head>
+<body>
+<a class="skip" href="#lista">Siirry liideihin</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="../index.html" aria-label="Sävy Sähkö, takaisin sivulle">
+      <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.2 2 5.5 13.6h5.3L9.6 22l8.9-12.2h-5.4z"/></svg></span>
+      <span class="brand-txt">Sävy<b>Sähkö</b><small>Liidit</small></span>
+    </a>
+    <span class="demo-pill">Esimerkkinäkymä</span>
+    <a class="back" href="../index.html">Takaisin sivulle</a>
+  </div>
+</header>
+
+<main class="app">
+  <section class="intro" aria-labelledby="intro-h">
+    <div>
+      <h1 id="intro-h">Yhteydenotot.</h1>
+      <p>Näin yrittäjä näkee kotisivujen kautta tulleet pyynnöt: kuka, mistä, mitä sähkötöitä tarvitaan ja missä vaiheessa asia on. <b>Tämä on esimerkki.</b> Lähettämäsi pyyntö on tallessa vain tässä selaimessa, eikä sitä lähetetty kenellekään.</p>
+    </div>
+    <button class="ghost" type="button" id="reset">Tyhjennä omat pyynnöt</button>
+  </section>
+
+  <section class="kpis" aria-label="Yhteenveto">
+    <div class="kpi"><span>Uusia</span><b id="k-new">0</b><small>odottavat soittoa</small></div>
+    <div class="kpi"><span>Viimeiset 7 päivää</span><b id="k-week">0</b><small>yhteydenottoa</small></div>
+    <div class="kpi"><span>Toimialueelta</span><b id="k-area">0&nbsp;%</b><small>pääkaupunkiseutu</small></div>
+    <div class="kpi"><span>Tarjouksia auki</span><b id="k-open">0&nbsp;€</b><small id="k-won">kauppoja 0&nbsp;€</small></div>
+  </section>
+
+  <div class="board">
+    <section class="list-col" aria-labelledby="lista-h">
+      <h2 id="lista-h" class="sr-only">Liidit</h2>
+      <div class="filters" role="tablist" aria-label="Suodata tilan mukaan" id="filters"></div>
+      <label class="search"><span class="sr-only">Hae nimellä, postinumerolla tai työllä</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Hae nimellä, postinumerolla tai työllä" autocomplete="off"></label>
+      <ul class="leads" id="lista"></ul>
+    </section>
+    <section class="detail" id="detail" aria-live="polite" aria-label="Liidin tiedot"></section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="liidit.js" defer></script>
+</body>
+</html>
