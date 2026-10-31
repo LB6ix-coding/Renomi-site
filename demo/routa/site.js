@@ -25,7 +25,7 @@
   });
   if (h1) { h1.setAttribute('aria-label', h1.textContent.trim()); split(h1); }
   all('.hero .up').forEach((e, i) => e.style.transitionDelay = (420 + i * 130) + 'ms');
-  requestAnimationFrame(() => requestAnimationFrame(() => one('#hero').classList.add('on')));
+  requestAnimationFrame(() => requestAnimationFrame(() => { const h = one('#hero'); if (h) h.classList.add('on'); }));
 
   /* hero video + shot counter */
   const vid = one('#vid'), shots = all('#shots span');
@@ -128,7 +128,7 @@
   one('#calcGo').addEventListener('click', () => { one('#fTyo').value = 'Salaojat'; one('#fMsg').value = 'Talon ympärysmitta noin ' + per.value + ' m, kaivusyvyys noin ' + fi(one('input[name=sy]:checked').value) + ' m. Laskurin arvio ' + one('#tot').textContent + '.'; });
 
   /* pinned story */
-  const track = one('#sTrack'), steps = all('#sSteps .s-st'), pics = all('.s-view img');
+  const track = null && one('#sTrack'), steps = all('#sSteps .s-st'), pics = all('.s-view img');
   let si = 0;
   function pinStory() {
     if (!track || innerWidth < 980) return;
