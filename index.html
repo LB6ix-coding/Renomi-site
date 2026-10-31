@@ -13,7 +13,8 @@
 <meta property="og:url" content="https://marktic.fi/">
 <meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-v2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="preload" href="fonts/geist/Geist-Light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="media/ahde.webp" fetchpriority="high">
+<link rel="preload" as="image" href="media/ahde.webp" media="(min-width:761px)" fetchpriority="high">
+<link rel="preload" as="image" href="media/ahde-p.webp" media="(max-width:760px)" fetchpriority="high">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -146,6 +147,7 @@ a{color:inherit}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden;overflow:clip;background:#000}
 .scene{position:absolute;inset:0;opacity:0;pointer-events:none;overflow:hidden;overflow:clip;isolation:isolate}
 .scene:first-child{opacity:1;pointer-events:auto}
+.scene picture{display:contents}
 .scene video,.scene .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transform-origin:50% 55%}
 .shade{position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(6,8,7,.5) 0,rgba(6,8,7,0) 150px),
@@ -366,8 +368,8 @@ a{color:inherit}
 <section class="story" id="story" aria-label="Esimerkkisivuja eri aloilta">
   <div class="stage">
     <div class="scene" data-name="Piharakentaminen" role="group" aria-label="Piharakentaminen: esimerkkisivu Ahde Piharakennus" style="--pos:42% 60%">
-    <img class="poster" src="media/ahde.webp" alt="" width="1280" height="720" fetchpriority="high">
-    <video muted playsinline preload="none" data-src="media/ahde.mp4" data-src-sm="media/ahde-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <picture><source media="(max-width:760px)" srcset="media/ahde-p.webp" width="608" height="1080"><img class="poster" src="media/ahde.webp" alt="" width="1280" height="720" fetchpriority="high"></picture>
+    <video muted playsinline preload="none" data-src="media/ahde.mp4" data-src-sm="media/ahde-p.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="intro">
       <div class="copy"><div class="gut"><div class="copy-in">
@@ -388,8 +390,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="Maanrakennus" role="group" aria-label="Maanrakennus: esimerkkisivu Routa Maanrakennus" style="--pos:38% 55%">
-    <img class="poster" data-src="media/routa.webp" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/routa.mp4" data-src-sm="media/routa-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/routa.webp" data-src-p="media/routa-p.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/routa.mp4" data-src-sm="media/routa-p.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Maanrakennus</span>
@@ -401,8 +403,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="Autoteippaus" role="group" aria-label="Autoteippaus: esimerkkisivu Kuori Autostudio" style="--pos:50% 50%">
-    <img class="poster" data-src="media/kuori.webp" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/kuori.mp4" data-src-sm="media/kuori-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/kuori.webp" data-src-p="media/kuori-p.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/kuori.mp4" data-src-sm="media/kuori-p.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Autoteippaus</span>
@@ -414,8 +416,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="LVI-urakointi" role="group" aria-label="LVI-urakointi: esimerkkisivu Virtaus LVIA" style="--pos:45% 50%">
-    <img class="poster" data-src="media/virtaus.webp" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/virtaus.mp4" data-src-sm="media/virtaus-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/virtaus.webp" data-src-p="media/virtaus-p.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/virtaus.mp4" data-src-sm="media/virtaus-p.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">LVI-urakointi</span>
@@ -427,8 +429,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="Maalaus" role="group" aria-label="Maalaus: esimerkkisivu Sively Maalaus" style="--pos:50% 50%">
-    <img class="poster" data-src="media/sively.webp" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/sively.mp4" data-src-sm="media/sively-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/sively.webp" data-src-p="media/sively-p.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/sively.mp4" data-src-sm="media/sively-p.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Maalaus</span>
@@ -440,8 +442,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="Kylpyhuoneremontit" role="group" aria-label="Kylpyhuoneremontit: esimerkkisivu Kaste Kylpyhuoneet" style="--pos:42% 50%">
-    <img class="poster" data-src="media/kaste.webp" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/kaste.mp4" data-src-sm="media/kaste-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/kaste.webp" data-src-p="media/kaste-p.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/kaste.mp4" data-src-sm="media/kaste-p.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Kylpyhuoneremontit</span>
@@ -655,7 +657,8 @@ a{color:inherit}
   function hdState(){ var on = offer.getBoundingClientRect().top < 72; hd.classList.toggle('solid', on); hd.classList.toggle('light', on); }
 
   if (reduce){
-    [].forEach.call(story.querySelectorAll('img[data-src]'), function(im){ im.loading = 'lazy'; im.src = im.getAttribute('data-src'); });
+    var small = window.matchMedia('(max-width:760px)').matches;
+    [].forEach.call(story.querySelectorAll('img[data-src]'), function(im){ im.loading = 'lazy'; im.src = im.getAttribute(small && im.getAttribute('data-src-p') ? 'data-src-p' : 'data-src'); });
     addEventListener('scroll', hdState, {passive:true}); hdState(); return;
   }
 
@@ -686,7 +689,7 @@ a{color:inherit}
   });
   function load(sc){
     var im = sc._img; if (im.getAttribute('data-src') && !im.getAttribute('src')) im.src = im.getAttribute('data-src');
-    var po = sc._po; if (po.getAttribute('data-src') && !po.getAttribute('src')) po.src = po.getAttribute('data-src');
+    var po = sc._po; if (po.getAttribute('data-src') && !po.getAttribute('src')) po.src = po.getAttribute(SMALL && po.getAttribute('data-src-p') ? 'data-src-p' : 'data-src');
     if (sc._loading) return; sc._loading = true; sc._failed = false;
     var v = sc._v, src = v.getAttribute(SMALL ? 'data-src-sm' : 'data-src'), tok = sc._tok = (sc._tok || 0) + 1;
     v.addEventListener('loadeddata', function(){
