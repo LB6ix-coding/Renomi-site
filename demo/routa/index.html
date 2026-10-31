@@ -8,6 +8,7 @@
 <meta name="description" content="Routa Maanrakennus, Tuusula. Salaojat, routaeristykset, viemärit, perustusten pohjat ja pihatiet Keski-Uudellamaalla. Kiinteä urakkahinta. Kuvitteellinen demoyritys.">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#141615">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M0 0h32v22l-10 10H0z' fill='%23f2b705'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Arial,sans-serif' font-weight='900' font-size='19' fill='%23141615'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preload" as="image" href="img/build/l/00.webp" fetchpriority="high">
 <link rel="stylesheet" href="site.css">
 <script>document.documentElement.classList.add('js')</script>
@@ -53,6 +54,11 @@
           <span class="badge">Keski-Uusimaa · omat koneet</span>
           <h1 id="h1">Pohja kuntoon. <span class="y">Kerralla.</span></h1>
           <p class="lead">Salaojat, routaeristykset, viemärit ja pihat omakotitaloihin. Vieritä alas ja katso, miten tyhjästä tontista tulee koti.</p>
+          <form class="area-hero" id="area-check" novalidate>
+            <label class="ah-q" for="ap-pn">Tuletko alueelleni?</label>
+            <div class="ah-field"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><input id="ap-pn" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" placeholder="Postinumero" spellcheck="false"><button class="ah-go" type="submit" aria-label="Tarkista postinumero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button></div>
+            <div class="ap-res" id="ap-res" role="status" aria-live="polite"></div>
+          </form>
         </div>
         <div class="chap" data-c="1"><span class="num">02</span><h2>Kaivu.</h2><p>Pohja kaivetaan oikeaan syvyyteen. Pintamaa talteen, savi pois, kantava maa esiin.</p></div>
         <div class="chap" data-c="2"><span class="num">03</span><h2>Pohja <span class="y">ja salaojat.</span></h2><p>Murske, routaeristys ja salaojat tehdään ennen kuin talo nousee. Myöhemmin niihin ei enää pääse käsiksi.</p></div>
@@ -247,7 +253,7 @@
       <form class="f" id="f" novalidate>
         <label>Nimi<input name="nimi" autocomplete="name" required></label>
         <label>Puhelin<input name="puh" type="tel" autocomplete="tel" inputmode="tel" required></label>
-        <label>Kohteen osoite<input name="osoite" autocomplete="street-address"></label>
+        <label>Kohteen osoite<input name="osoite" id="fOsoite" autocomplete="street-address" placeholder="Esim. Koivutie 3, 04300 Tuusula"></label>
         <label>Työ<select name="tyo" id="fTyo"><option value="">Valitse</option><option>Salaojat</option><option>Routaeristys</option><option>Viemärit ja vesijohdot</option><option>Perustusten pohja</option><option>Pihatie tai kivetyksen pohja</option><option>Kaivinkonetyö</option><option>Pihan kunnostus tai nurmi</option></select></label>
         <label class="w">Kerro lisää<textarea name="viesti" id="fMsg" placeholder="Esim. 1970-luvun talo, kellarissa kosteutta"></textarea></label>
         <input class="trap" name="www" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -268,9 +274,42 @@
     <span>Routa Maanrakennus on kuvitteellinen demoyritys. Sivun teki <a href="https://marktic.fi" target="_blank" rel="noopener">Marktic</a>.</span>
   </div>
 </footer>
+<div class="ap-scrim" id="ap-scrim" hidden></div>
+<div class="area-panel" id="area-panel" role="dialog" aria-modal="true" aria-labelledby="ap-h2" hidden>
+  <button class="ap-close" type="button" aria-label="Sulje"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <form class="ap-step" data-step="2" id="ap-form" novalidate hidden>
+    <p class="ap-eb" id="ap-where"></p>
+    <h2 id="ap-h2">Pyydä katselmus.</h2>
+    <div class="ap-grid">
+      <label for="ap-nimi">Nimi<input id="ap-nimi" name="nimi" autocomplete="name" required></label>
+      <label for="ap-puh">Puhelin<input id="ap-puh" name="puhelin" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9 +\(\)\-]{6,}" required></label>
+    </div>
+    <fieldset class="ap-jobs"><legend>Mitä työ koskee?</legend>
+      <label><input type="checkbox" name="tyo" value="Salaojat"><span>Salaojat</span></label>
+      <label><input type="checkbox" name="tyo" value="Routaeristys"><span>Routaeristys</span></label>
+      <label><input type="checkbox" name="tyo" value="Viemärit ja vesijohdot"><span>Viemärit ja vesijohdot</span></label>
+      <label><input type="checkbox" name="tyo" value="Perustusten pohja"><span>Perustusten pohja</span></label>
+      <label><input type="checkbox" name="tyo" value="Pihatie tai kivetyksen pohja"><span>Pihatie tai kivetyksen pohja</span></label>
+      <label><input type="checkbox" name="tyo" value="Kaivinkonetyö"><span>Kaivinkonetyö</span></label>
+    </fieldset>
+    <label for="ap-viesti"><span>Kerro lisää <span class="opt">(vapaaehtoinen)</span></span><textarea id="ap-viesti" name="viesti" rows="2" placeholder="Esim. talon ikä ja mikä huolettaa"></textarea></label>
+    <div class="hp" aria-hidden="true"><label for="ap-www">Jätä tyhjäksi</label><input id="ap-www" name="www" tabindex="-1" autocomplete="off"></div>
+    <p class="ap-err" id="ap-err" role="alert" hidden></p>
+    <button class="btn btn-y ap-send" type="submit">Lähetä pyyntö <b aria-hidden="true">→</b></button>
+    <p class="ap-note">Demo: lomake ei lähetä tietoja mihinkään. <button type="button" class="ap-back">Vaihda postinumero</button></p>
+  </form>
+  <div class="ap-step ap-done" data-step="3" hidden>
+    <span class="ap-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="square"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <h2 id="ap-h3" tabindex="-1">Kiitos!</h2>
+    <p>Tämä on demosivu, joten pyyntö ei lähtenyt kenellekään, eikä tietojasi tallennettu minnekään tämän selaimen ulkopuolelle.</p>
+    <a class="btn btn-k" id="ap-crm" href="liidit/index.html">Katso, miten yrittäjä näkee pyynnön <b aria-hidden="true">→</b></a>
+  </div>
+</div>
+
 <div class="dock" id="dock"><a class="btn btn-o" href="tel:+358450000000">Soita</a><a class="btn btn-y" href="#yhteys">Tarjous</a></div>
 <script>window.BUILD_FRAMES=241;window.BUILD_CLIPS=4;window.BUILD_SEGMENTS=[0,30,85,135,205];</script>
 <script src="story.js" defer></script>
 <script src="site.js" defer></script>
+<script src="alue.js" defer></script>
 </body>
 </html>
