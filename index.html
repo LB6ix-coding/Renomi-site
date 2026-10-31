@@ -11,9 +11,9 @@
 <meta property="og:title" content="Marktic: kotisivut, jotka ovat työnne tasoa">
 <meta property="og:description" content="Kotisivut paikallisille yrityksille alkaen 490 €. Hinnat näkyvillä, laskutus vasta kun sivut ovat valmiit.">
 <meta property="og:url" content="https://marktic.fi/">
-<meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-v2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <link rel="preload" href="fonts/geist/Geist-Light.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="media/ahde.jpg">
+<link rel="preload" as="image" href="media/ahde.webp" fetchpriority="high">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -192,7 +192,7 @@ a{color:inherit}
   transform:translate3d(0,120vh,0);text-decoration:none;display:block}
 .phone .scr{display:block;position:relative;width:100%;height:100%;border-radius:37px;overflow:hidden;overflow:clip;background:#111}
 @media (min-width:761px){.phone .tap{display:none}}
-.phone img{position:absolute;left:0;top:0;width:100%;height:auto;will-change:transform}
+.phone img{position:absolute;left:0;top:0;width:100%;height:auto}
 .phone .isl{position:absolute;z-index:2;top:9px;left:50%;width:30%;height:22px;margin-left:-15%;border-radius:20px;background:#000}
 .phone .tap{position:absolute;z-index:2;left:50%;bottom:14px;transform:translateX(-50%);font-size:.74rem;padding:7px 12px;border-radius:999px;background:rgba(10,12,11,.72);color:var(--ink);white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 @media (max-width:760px){
@@ -243,7 +243,7 @@ a{color:inherit}
 @media (min-width:980px){#kysymykset .gut{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}#kysymykset .faq{max-width:none}}
 
 .demos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2vw,22px);list-style:none;margin:0;padding:0}
-@media (min-width:1180px){.demos{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media (min-width:1180px){.demos{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .demo a{display:flex;flex-direction:column;gap:12px;text-decoration:none}
 .demo .shot{display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#d9d5cc;box-shadow:0 0 0 1px var(--paper-line)}
 .demo img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
@@ -327,6 +327,14 @@ a{color:inherit}
 .hd.light .pill-ghost{color:var(--paper-ink);border-color:rgba(20,22,21,.3);background:transparent}
 .hd.light :focus-visible{outline-color:var(--paper-ink)}
 
+@media (hover:none),(pointer:coarse){
+  .pill-ghost,.hd.solid,.phone .tap{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .pill-ghost{background:rgba(10,12,11,.55)}
+  .hd.solid.light{background:rgba(241,238,231,.97)}
+  .hd.solid{background:rgba(10,12,11,.96)}
+  .phone .tap{background:rgba(10,12,11,.85)}
+  .phone{box-shadow:0 0 0 1px rgba(255,255,255,.12),0 18px 40px rgba(0,0,0,.45)}
+}
 @media (prefers-reduced-motion:reduce){
   .story{height:auto}
   .stage{position:relative;height:auto;background:none}
@@ -358,8 +366,8 @@ a{color:inherit}
 <section class="story" id="story" aria-label="Esimerkkisivuja eri aloilta">
   <div class="stage">
     <div class="scene" data-name="Piharakentaminen" role="group" aria-label="Piharakentaminen: esimerkkisivu Ahde Piharakennus" style="--pos:42% 60%">
-    <img class="poster" src="media/ahde.jpg" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/ahde.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" src="media/ahde.webp" alt="" width="1280" height="720" fetchpriority="high">
+    <video muted playsinline preload="none" data-src="media/ahde.mp4" data-src-sm="media/ahde-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="intro">
       <div class="copy"><div class="gut"><div class="copy-in">
@@ -376,12 +384,12 @@ a{color:inherit}
       <div class="row"><a class="demo-link" href="demo/ahde/" target="_blank" rel="noopener">Esimerkkisivu: Ahde Piharakennus <span aria-hidden="true">↗</span></a></div>
     </div></div></div>
     <a class="phone" tabindex="-1" aria-hidden="true" href="demo/ahde/" target="_blank" rel="noopener">
-      <span class="scr"><span class="isl"></span><img src="media/ahde-phone.webp" alt="Ahde Piharakennuksen esimerkkisivu puhelimen näytöllä" width="600" loading="eager"><span class="tap">Avaa sivu</span></span>
+      <span class="scr"><span class="isl"></span><img data-src="media/ahde-phone.webp" alt="Ahde Piharakennuksen esimerkkisivu puhelimen näytöllä" width="600"><span class="tap">Avaa sivu</span></span>
     </a>
     </div>
     <div class="scene" data-name="Maanrakennus" role="group" aria-label="Maanrakennus: esimerkkisivu Routa Maanrakennus" style="--pos:38% 55%">
-    <img class="poster" src="media/routa.jpg" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/routa.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/routa.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/routa.mp4" data-src-sm="media/routa-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Maanrakennus</span>
@@ -389,12 +397,12 @@ a{color:inherit}
       <div class="row"><a class="demo-link" href="demo/routa/" target="_blank" rel="noopener">Esimerkkisivu: Routa Maanrakennus <span aria-hidden="true">↗</span></a></div>
     </div></div></div>
     <a class="phone" tabindex="-1" aria-hidden="true" href="demo/routa/" target="_blank" rel="noopener">
-      <span class="scr"><span class="isl"></span><img src="media/routa-phone.webp" alt="Routa Maanrakennuksen esimerkkisivu puhelimen näytöllä" width="600" loading="eager"><span class="tap">Avaa sivu</span></span>
+      <span class="scr"><span class="isl"></span><img data-src="media/routa-phone.webp" alt="Routa Maanrakennuksen esimerkkisivu puhelimen näytöllä" width="600"><span class="tap">Avaa sivu</span></span>
     </a>
     </div>
     <div class="scene" data-name="Autoteippaus" role="group" aria-label="Autoteippaus: esimerkkisivu Kuori Autostudio" style="--pos:50% 50%">
-    <img class="poster" src="media/kuori.jpg" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/kuori.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/kuori.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/kuori.mp4" data-src-sm="media/kuori-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Autoteippaus</span>
@@ -406,8 +414,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="LVI-urakointi" role="group" aria-label="LVI-urakointi: esimerkkisivu Virtaus LVIA" style="--pos:45% 50%">
-    <img class="poster" src="media/virtaus.jpg" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/virtaus.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/virtaus.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/virtaus.mp4" data-src-sm="media/virtaus-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">LVI-urakointi</span>
@@ -419,8 +427,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="Maalaus" role="group" aria-label="Maalaus: esimerkkisivu Sively Maalaus" style="--pos:50% 50%">
-    <img class="poster" src="media/sively.jpg" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/sively.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/sively.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/sively.mp4" data-src-sm="media/sively-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Maalaus</span>
@@ -432,8 +440,8 @@ a{color:inherit}
     </a>
     </div>
     <div class="scene" data-name="Kylpyhuoneremontit" role="group" aria-label="Kylpyhuoneremontit: esimerkkisivu Kaste Kylpyhuoneet" style="--pos:42% 50%">
-    <img class="poster" src="media/kaste.jpg" alt="" width="1280" height="720">
-    <video muted playsinline preload="none" data-src="media/kaste.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
+    <img class="poster" data-src="media/kaste.webp" alt="" width="1280" height="720">
+    <video muted playsinline preload="none" data-src="media/kaste.mp4" data-src-sm="media/kaste-sm.mp4" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
     <div class="copy tcopy"><div class="gut"><div class="copy-in">
       <span class="eb">Kylpyhuoneremontit</span>
@@ -477,13 +485,21 @@ a{color:inherit}
   <div class="gut">
     <div class="sec-head">
       <span class="eb">Esimerkkisivut</span>
-      <h2 id="eh">Kymmenen esimerkkisivua eri aloille.</h2>
+      <h2 id="eh">Kaksitoista esimerkkisivua eri aloille.</h2>
       <p>Avatkaa mikä tahansa sivu ja kokeilkaa sitä myös puhelimella. Samalla tasolla teemme sivut teidän yrityksellenne.</p>
     </div>
     <ul class="demos">
       <li class="demo"><a href="demo/ahde/" target="_blank" rel="noopener">
         <span class="shot"><img src="media/demo/ahde.webp" srcset="media/demo/ahde.webp 720w, media/demo/ahde-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Ahde Piharakennus: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
         <span class="meta"><span class="trade">Piharakentaminen</span><span class="name">Ahde <span>Piharakennus</span> <span aria-hidden="true">↗</span></span></span>
+      </a></li>
+      <li class="demo"><a href="demo/routa/" target="_blank" rel="noopener">
+        <span class="shot"><img src="media/demo/routa.webp" srcset="media/demo/routa.webp 720w, media/demo/routa-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Routa Maanrakennus: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
+        <span class="meta"><span class="trade">Maanrakennus</span><span class="name">Routa <span>Maanrakennus</span> <span aria-hidden="true">↗</span></span></span>
+      </a></li>
+      <li class="demo"><a href="demo/sively/" target="_blank" rel="noopener">
+        <span class="shot"><img src="media/demo/sively.webp" srcset="media/demo/sively.webp 720w, media/demo/sively-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Sively Maalaus: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
+        <span class="meta"><span class="trade">Maalaus</span><span class="name">Sively <span>Maalaus</span> <span aria-hidden="true">↗</span></span></span>
       </a></li>
       <li class="demo"><a href="demo/kaste/" target="_blank" rel="noopener">
         <span class="shot"><img src="media/demo/kaste.webp" srcset="media/demo/kaste.webp 720w, media/demo/kaste-2x.webp 1200w" sizes="(min-width:1180px) 18vw, (min-width:641px) 47vw, 78vw" alt="Kaste Kylpyhuoneet: esimerkkisivun etusivu" width="720" height="450" loading="lazy" decoding="async"></span>
@@ -523,6 +539,7 @@ a{color:inherit}
       </a></li>
     </ul>
     <p class="fine">Esimerkkisivujen yritykset ovat kuvitteellisia.</p>
+    <p style="margin-top:18px"><a class="more" href="tyot.html">Kaikki esimerkkisivut kuvauksineen <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -596,9 +613,10 @@ a{color:inherit}
   <div class="gut">
     <div><b class="flogo" aria-label="Marktic"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></b><br>Markkinointitoimisto paikallisille yrityksille.<br>Toiminimi Marktic · Y-tunnus 3664036-8</div>
     <ul>
-      <li><a href="#palvelut">Palvelut ja hinnat</a></li>
-      <li><a href="#esimerkit">Esimerkkisivut</a></li>
+      <li><a href="palvelut.html">Palvelut ja hinnat</a></li>
+      <li><a href="tyot.html">Esimerkkisivut</a></li>
       <li><a href="meista.html">Meistä</a></li>
+      <li><a href="yhteys.html">Yhteys</a></li>
       <li><a href="tietosuoja.html">Tietosuojaseloste</a></li>
       <li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li>
     </ul>
@@ -637,7 +655,7 @@ a{color:inherit}
   function hdState(){ var on = offer.getBoundingClientRect().top < 72; hd.classList.toggle('solid', on); hd.classList.toggle('light', on); }
 
   if (reduce){
-    scenes.forEach(function(sc){ var im = sc.querySelector('.phone img[data-src]'); if (im) im.src = im.getAttribute('data-src'); });
+    [].forEach.call(story.querySelectorAll('img[data-src]'), function(im){ im.loading = 'lazy'; im.src = im.getAttribute('data-src'); });
     addEventListener('scroll', hdState, {passive:true}); hdState(); return;
   }
 
@@ -655,27 +673,58 @@ a{color:inherit}
   function measure(sc){ sc._scrH = sc._img.parentNode.clientHeight; sc._imgH = sc._img.clientHeight; }
   function set(sc, el, key, prop, val){ if (sc._st[key] !== val){ sc._st[key] = val; el.style[prop] = val; } }
 
-  function load(sc){
-    if (sc._loading) return; sc._loading = true;
-    var im = sc._img; if (im.getAttribute('data-src') && !im.getAttribute('src')) im.src = im.getAttribute('data-src');
-    var v = sc._v, src = v.getAttribute('data-src');
+  // Phones and tablets play each scene's video normally when it comes into view: scrubbing video by scroll
+  // is slow on them, and iPhones can only decode a few videos at a time (extra ones turn black).
+  // Desktops scrub the video with the scroll. Either way only the videos near the current scene stay loaded.
+  var PLAY = window.matchMedia('(hover:none),(pointer:coarse)').matches;
+  var SMALL = window.matchMedia('(max-width:760px)').matches;
+  scenes.forEach(function(sc){
+    var v = sc._v;
     v.addEventListener('error', function(){ sc._failed = true; });
     v.addEventListener('seeked', req);
+    v.addEventListener(PLAY ? 'playing' : 'seeked', function(){ if (sc._loading){ v.style.opacity = 1; } });
+  });
+  function load(sc){
+    var im = sc._img; if (im.getAttribute('data-src') && !im.getAttribute('src')) im.src = im.getAttribute('data-src');
+    var po = sc._po; if (po.getAttribute('data-src') && !po.getAttribute('src')) po.src = po.getAttribute('data-src');
+    if (sc._loading) return; sc._loading = true; sc._failed = false;
+    var v = sc._v, src = v.getAttribute(SMALL ? 'data-src-sm' : 'data-src'), tok = sc._tok = (sc._tok || 0) + 1;
     v.addEventListener('loadeddata', function(){
+      if (tok !== sc._tok) return;
       sc._ready = true;
-      // land on the right frame before revealing, so the picture does not jump
-      if (sc._want != null) v.currentTime = sc._want;
-      var show = function(){ v.style.opacity = 1; req(); };
-      if (v.seeking) v.addEventListener('seeked', show, {once:true}); else show();
+      if (PLAY){ if (sc._wantPlay) playScene(sc); return; }
+      if (sc._want != null) v.currentTime = sc._want; else v.currentTime = 0.001;   // paints the first frame, then 'seeked' reveals it
+      req();
     }, {once:true});
+    if (PLAY){ v.preload = 'auto'; v.src = src; v.load(); return; }
     fetch(src).then(function(r){ if (!r.ok) throw 0; return r.blob(); })
-      .then(function(b){ v.src = URL.createObjectURL(b); })
-      .catch(function(){ v.preload = 'auto'; v.src = src; v.load(); });
+      .then(function(b){ if (tok !== sc._tok) return; sc._url = URL.createObjectURL(b); v.src = sc._url; })
+      .catch(function(){ if (tok !== sc._tok) return; v.preload = 'auto'; v.src = src; v.load(); });
   }
-  load(scenes[0]);
-  addEventListener('scroll', function first(){ load(scenes[1]); removeEventListener('scroll', first); }, {passive:true});
+  function unload(sc){
+    if (!sc._loading) return;
+    sc._loading = false; sc._ready = false; sc._tok = (sc._tok || 0) + 1; sc._wantPlay = false; sc._played = false;
+    var v = sc._v; v.pause(); v.style.opacity = 0;
+    v.removeAttribute('src'); v.load();
+    if (sc._url){ URL.revokeObjectURL(sc._url); sc._url = null; }
+  }
+  function playScene(sc){
+    var v = sc._v; sc._played = true;
+    try { v.currentTime = 0; } catch(e){}
+    var p = v.play(); if (p && p.catch) p.catch(function(){ sc._played = false; });
+  }
+  // Nothing heavy loads until the visitor interacts: the first scene's still image is the first frame of its video.
+  var armed = false;
+  function arm(){
+    if (armed) return; armed = true;
+    ['scroll','wheel','touchstart','pointerdown','keydown'].forEach(function(t){ removeEventListener(t, arm, true); });
+    load(scenes[0]); load(scenes[1]); req();
+  }
+  ['scroll','wheel','touchstart','pointerdown','keydown'].forEach(function(t){ addEventListener(t, arm, {capture:true, passive:true}); });
+  if (scrollY > 0) arm();
 
   function scrub(sc, f){
+    if (PLAY) return;
     var v = sc._v;
     if (!sc._ready || sc._failed || !v.duration || isNaN(v.duration)) { sc._want = f * 5; return; }
     var t = Math.min(v.duration - 0.04, Math.max(0, f * v.duration));
@@ -693,7 +742,9 @@ a{color:inherit}
     var H = stage.clientHeight, mobile = window.innerWidth <= 760;
     for (var i = 0; i < scenes.length; i++){
       var sc = scenes[i], start = INTRO + i * SEG, local = (u - start) / SEG;
-      if (u > start - 1.6 * SEG) load(sc);
+      // keep only nearby videos in memory
+      var near = u > start - (PLAY ? 0.9 : 1.6) * SEG && u < start + SEG + (PLAY ? 0.15 : 0.6);
+      if (armed && near) load(sc); else if (!near) unload(sc);
 
       var op = i === 0 ? 1 : clamp((u - (start - XF)) / XF);
       var covered = i < LAST && u >= INTRO + (i + 1) * SEG;
@@ -702,6 +753,11 @@ a{color:inherit}
       set(sc, sc, 'pe', 'pointerEvents', vis && op > 0.5 ? 'auto' : 'none');
       set(sc, sc._v, 'vv', 'visibility', vis ? 'visible' : 'hidden');
       set(sc, sc._po, 'pv', 'visibility', vis ? 'visible' : 'hidden');
+      if (PLAY){
+        var active = vis && op >= 0.5;
+        if (active && !sc._played){ sc._wantPlay = true; if (sc._ready) playScene(sc); }
+        if (!vis && sc._played){ sc._v.pause(); sc._played = false; sc._wantPlay = false; }
+      }
       if (!vis) continue;
 
       // slight push-in while the scene fades in reads as a camera move, not a blend
@@ -741,7 +797,7 @@ a{color:inherit}
   }
   function tick(){
     var t = target();
-    if (uS === null) uS = t;
+    if (uS === null || PLAY) uS = t;
     uS += (t - uS) * 0.16;
     if (Math.abs(t - uS) < 0.0008) uS = t;
     render(uS);

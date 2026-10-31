@@ -19,7 +19,7 @@ Paikalliset yritykset, joita asiakkaat etsivät läheltä ja joilla ei ole omaa 
 - Some Perus: 249 €/kk. 1 kanava, 4 julkaisua/kk + storyt, kuukausiraportti.
 - Some Plus: 490 €/kk. 2 kanavaa, 8 julkaisua/kk, 1 lyhytvideo/kk, kommentteihin vastaaminen.
 - Videomainos: alkaen 290 €/video (10–30 s, valokuvista, animaationa tai 3D-mallista, pysty- ja vaakaversio). Kolmen videon sarja 690 €.
-- Mallikuvat: alkaen 190 € / 10 kuvaa. Henkilöt ja ympäristöt tuotetaan tekoälyllä, eivät ole oikeita ihmisiä; merkitään tekoälyllä tuotetuiksi, kun laki tai julkaisualusta edellyttää.
+- Mallikuvat: alkaen 190 € / 10 kuvaa. Henkilöt eivät ole oikeita ihmisiä; kuvat merkitään asianmukaisesti, kun laki tai julkaisualusta edellyttää.
 - Kotisivut: yksi sivu 490 €, viisi sivua 990 € (mobiili ensin, rakenteinen tieto). Ylläpito 20 €/kk, valinnainen.
 - Mainonnan hallinta (Google ja Meta): alkaen 249 €/kk, mainosbudjetti maksetaan suoraan alustoille.
 - Marktic Kumppani: 690 €/kk. Näkyvyyden aktiivinen kehitys + Some Perus + mainonnan hallinta.
@@ -32,9 +32,9 @@ Vantaa; koko Suomi etänä. Palvelu suomeksi.
 info@marktic.fi. Vastaamme kahden arkipäivän kuluessa.
 
 ## Sivut
-- [Etusivu](https://marktic.fi/): palvelut lyhyesti, raporttiesimerkki, usein kysytyt kysymykset
+- [Etusivu](https://marktic.fi/): kotisivut paikallisille yrityksille, esimerkkisivut, palvelut lyhyesti, usein kysytyt kysymykset
 - [Palvelut ja hinnat](https://marktic.fi/palvelut.html): kaikki hinnat ja sisällöt
-- [Työt](https://marktic.fi/tyot.html): konseptitöitä (kuvitteellisia asiakkaita; yritys on uusi)
+- [Esimerkkisivut](https://marktic.fi/tyot.html): esimerkkisivuja kahdelletoista alalle, mainosvideoita ja raporttiesimerkki (kuvitteellisia yrityksiä; Marktic on uusi toimisto)
 - [Meistä](https://marktic.fi/meista.html): tiimi ja periaatteet
 - [Ottakaa yhteyttä](https://marktic.fi/yhteys.html): sähköposti info@marktic.fi, vastaus kahden arkipäivän kuluessa
 - [Tietosuojaseloste](https://marktic.fi/tietosuoja.html)
