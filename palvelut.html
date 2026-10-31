@@ -154,15 +154,14 @@
   },
   {
    "@type": "Offer",
-   "name": "Putkiliikkeen kotisivut",
+   "name": "Aloittajan paketti",
    "itemOffered": {
     "@type": "Service",
-    "name": "Putkiliikkeen kotisivut"
+    "name": "Aloittajan paketti: valmis kotisivumalli omalle alalle"
    },
    "priceCurrency": "EUR",
-   "price": "390",
-   "description": "Kertamaksu. Esittelyhinta tilauksille 30.11.2026 asti, sen jälkeen 590 €. Ylläpito 20 €/kk.",
-   "priceValidUntil": "2026-11-30"
+   "price": "200",
+   "description": "Kertamaksu. Ylläpito 15 €/kk."
   },
   {
    "@type": "Offer",
@@ -172,7 +171,7 @@
     "name": "Sivujen ylläpito"
    },
    "priceCurrency": "EUR",
-   "price": "20",
+   "price": "15",
    "description": "Kuukausihinta, valinnainen, ei määräaikaa"
   },
   {
@@ -306,14 +305,14 @@
           <span class="pr"><b>990 €</b><small>kertamaksu</small></span>
           <div class="txt"><p>Enintään viisi sivua, mobiili ensin, Google-perusteet ja rakenteinen tieto, tietosuojaseloste, yhteydenottotavat. Laskutamme, kun sivut ovat valmiit.</p><p class="note"><a href="demo/lvi-nurmi/">Esimerkki: LVI Nurmi</a></p></div>
         </div><div class="plan">
-          <label class="pick"><input type="checkbox" data-name="Putkiliikkeen kotisivut" data-mo="20" data-once="390" aria-label="Valitkaa Putkiliikkeen kotisivut"><span></span></label>
-          <h3>Putkiliikkeen kotisivut<span class="tag">Esittelyhinta</span></h3>
-          <span class="pr"><b>390 €</b><small>kertamaksu</small></span>
-          <div class="txt"><p>Valmis putkiliikkeen sivumalli teidän nimellänne, logollanne, palveluillanne, hinnoillanne ja toimialueellanne. Valmis noin viikossa, laskutamme, kun olette hyväksyneet sivut.</p><p class="note">Esittelyhinta tilauksille 30.11.2026 asti, sen jälkeen 590 €. Ylläpito 20 €/kk (verkkotunnus ja palvelintila, päivitykset, varmuuskopiot, pienet tekstimuutokset), ei määräaikaa.</p><p class="note"><a href="demo/lvi-nurmi/">Katso malli: LVI Nurmi</a></p></div>
+          <label class="pick"><input type="checkbox" data-name="Aloittajan paketti" data-mo="15" data-once="200" aria-label="Valitkaa Aloittajan paketti"><span></span></label>
+          <h3>Aloittajan paketti<span class="tag">Edullisin</span></h3>
+          <span class="pr"><b>200 €</b><small>kertamaksu + 15 €/kk</small></span>
+          <div class="txt"><p>Valmis kotisivumalli omalle alallenne teidän nimellänne, logollanne, palveluillanne, hinnoillanne ja toimialueellanne. Valmis noin viikossa, laskutamme vasta, kun olette hyväksyneet sivut. Vastineeksi saamme esitellä sivunne referenssinä.</p><p class="note">Ylläpito 15 €/kk (verkkotunnus ja palvelintila, päivitykset, varmuuskopiot, pienet tekstimuutokset), ei määräaikaa.</p><p class="note"><a href="tyot.html">Katso alakohtaiset mallit</a></p></div>
         </div><div class="plan">
-          <label class="pick"><input type="checkbox" data-name="Sivujen ylläpito" data-mo="20" data-once="0" aria-label="Valitkaa Sivujen ylläpito"><span></span></label>
+          <label class="pick"><input type="checkbox" data-name="Sivujen ylläpito" data-mo="15" data-once="0" aria-label="Valitkaa Sivujen ylläpito"><span></span></label>
           <h3>Sivujen ylläpito</h3>
-          <span class="pr"><b>20 €</b><small>/kk</small></span>
+          <span class="pr"><b>15 €</b><small>/kk</small></span>
           <div class="txt"><p>Verkkotunnus ja palvelintila, päivitykset, varmuuskopiot, pienet tekstimuutokset. Valinnainen, ei määräaikaa.</p></div>
         </div><div class="plan">
           <label class="pick"><input type="checkbox" data-name="Mainonnan hallinta" data-mo="249" data-once="0" aria-label="Valitkaa Mainonnan hallinta"><span></span></label>
@@ -394,10 +393,10 @@ document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener
   var boxes = [].slice.call(document.querySelectorAll('.plan input[type=checkbox]'));
   var bar = document.getElementById('selbar'), sum = document.getElementById('sel-sum'), n = document.getElementById('sel-n'), send = document.getElementById('sel-send');
   var eur = function(x){ return x.toLocaleString('fi-FI') + ' €'; };
-  var putki = boxes.filter(function(b){ return b.dataset.name === 'Putkiliikkeen kotisivut'; })[0];
+  var putki = boxes.filter(function(b){ return b.dataset.name === 'Aloittajan paketti'; })[0];
   var upkeep = boxes.filter(function(b){ return b.dataset.name === 'Sivujen ylläpito'; })[0];
   function update(){
-    // Putkiliikkeen kotisivut already includes the 20 €/kk upkeep, so the separate upkeep cannot be added twice
+    // Aloittajan paketti already includes the 15 €/kk upkeep, so the separate upkeep cannot be added twice
     if (putki && upkeep){
       if (putki.checked) upkeep.checked = false;
       upkeep.disabled = putki.checked;
