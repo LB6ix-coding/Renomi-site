@@ -326,3 +326,12 @@ footer .logo{margin-right:0;color:var(--fg)}
 
 .feat-img{display:none}
 @media (min-width:1100px){.svc.feat{display:flex;flex-direction:column}.feat-img{display:block;margin-top:auto;width:100%;flex:1;min-height:150px;object-fit:cover;object-position:50% 45%;border-radius:12px}}
+
+/* touch screens: no blur over the moving hero video (lags on iPhone) */
+@media (hover:none),(pointer:coarse){
+  header.solid{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(12,12,13,.97)}
+  .nav-links{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(12,12,13,.99)}
+  .hero-kicker{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(12,12,13,.72)}
+  .callbar{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(12,12,13,.96)}
+  .brush .hint,.ex .meta span{-webkit-backdrop-filter:none;backdrop-filter:none}
+}
