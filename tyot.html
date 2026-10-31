@@ -2,135 +2,252 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Työt – Marktic</title>
-<meta name="description" content="Konseptitöitä ja esimerkkejä siitä, millaista jälkeä Marktic tekee: kotisivut, videomainokset ja näkyvyyden korjaukset.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Esimerkkisivut: kotisivuja eri aloille | Marktic</title>
+<meta name="description" content="Esimerkkisivuja kahdelletoista alalle putkiliikkeestä kauneushoitolaan, mainosvideoita ja esimerkki näkyvyyden korjauspaketin raportista.">
 <link rel="canonical" href="https://marktic.fi/tyot.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Työt – Marktic"><meta property="og:description" content="Konseptitöitä ja esimerkkejä siitä, millaista jälkeä Marktic tekee: kotisivut, videomainokset ja näkyvyyden korjaukset."><meta property="og:url" content="https://marktic.fi/tyot.html"><meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<link rel="stylesheet" href="site.css">
-<style>
-.cases{display:grid;gap:var(--s6)} .case{display:grid;grid-template-columns:1fr 1.2fr;gap:var(--s5);align-items:center;padding-top:var(--s5);border-top:1px solid var(--paper-line)} .case:first-child{border:0;padding-top:0} .case .ct p{color:var(--paper-mut);margin:var(--s2) 0 var(--s3)} .case .cv .shot{margin:0} .case .vidwrap{margin:0;justify-self:center} .case .rep{margin:0}
-@media (max-width:900px){.case{grid-template-columns:1fr;gap:var(--s4)}}
-.shot{display:block;margin-top:var(--s3);border-radius:var(--r2);overflow:hidden;border:1px solid var(--paper-line)} .shot img{width:100%;height:auto;display:block;transition:transform .3s var(--ease)} .shot:hover img{transform:scale(1.02)}
-.rh{display:flex;justify-content:space-between;align-items:center;font-size:var(--t-sm);margin-bottom:var(--s2)}
-.vidwrap{position:relative;max-width:260px;aspect-ratio:9/16;margin-top:var(--s3);border-radius:var(--r2);overflow:hidden;background:#000}
-.vid{width:100%;height:100%;object-fit:cover;display:block}
-.vidtxt{position:absolute;left:18px;top:24px;font-weight:900;font-size:32px;line-height:.95;letter-spacing:-.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.5)} .vidtxt em{font-style:normal;color:var(--lichen)}
-.ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
-
-
-/* hover preview: a short screen capture of the demo homepage plays over the screenshot */
-.shot[data-hover]{position:relative}
-.shot .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .35s ease;pointer-events:none}
-.shot.playing .hv{opacity:1}
-</style>
-
+<meta name="theme-color" content="#f1eee7">
+<meta property="og:title" content="Esimerkkisivut: kotisivuja eri aloille | Marktic">
+<meta property="og:description" content="Esimerkkisivuja kahdelletoista alalle putkiliikkeestä kauneushoitolaan, mainosvideoita ja esimerkki näkyvyyden korjauspaketin raportista.">
+<meta property="og:url" content="https://marktic.fi/tyot.html">
+<meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-v2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="preload" href="fonts/geist/Geist-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/v2.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "CollectionPage",
+ "url": "https://marktic.fi/tyot.html",
+ "name": "Esimerkkisivut – Marktic",
+ "inLanguage": "fi",
+ "about": {
+  "@id": "https://marktic.fi/#org"
+ },
+ "mainEntity": {
+  "@type": "ItemList",
+  "itemListElement": [
+   {
+    "@type": "ListItem",
+    "position": 1,
+    "url": "https://marktic.fi/demo/lvi-nurmi/",
+    "name": "LVI Nurmi, Vantaa"
+   },
+   {
+    "@type": "ListItem",
+    "position": 2,
+    "url": "https://marktic.fi/demo/kaarna/",
+    "name": "Leipomokahvila Kaarna, Tikkurila"
+   },
+   {
+    "@type": "ListItem",
+    "position": 3,
+    "url": "https://marktic.fi/demo/kuori/",
+    "name": "Kuori Autostudio, Vantaa"
+   },
+   {
+    "@type": "ListItem",
+    "position": 4,
+    "url": "https://marktic.fi/demo/routa/",
+    "name": "Routa Maanrakennus"
+   },
+   {
+    "@type": "ListItem",
+    "position": 5,
+    "url": "https://marktic.fi/demo/virtaus/",
+    "name": "Virtaus LVIA"
+   },
+   {
+    "@type": "ListItem",
+    "position": 6,
+    "url": "https://marktic.fi/demo/sively/",
+    "name": "Sively Maalaus"
+   },
+   {
+    "@type": "ListItem",
+    "position": 7,
+    "url": "https://marktic.fi/demo/siro/",
+    "name": "Siro Studio, Tapiola"
+   },
+   {
+    "@type": "ListItem",
+    "position": 8,
+    "url": "https://marktic.fi/demo/kaste/",
+    "name": "Kaste Kylpyhuoneet"
+   },
+   {
+    "@type": "ListItem",
+    "position": 9,
+    "url": "https://marktic.fi/demo/ahde/",
+    "name": "Ahde Piharakennus"
+   },
+   {
+    "@type": "ListItem",
+    "position": 10,
+    "url": "https://marktic.fi/demo/raikas/",
+    "name": "Raikas Siivouspalvelu"
+   },
+   {
+    "@type": "ListItem",
+    "position": 11,
+    "url": "https://marktic.fi/demo/raystas/",
+    "name": "Räystäs Kattoremontit"
+   },
+   {
+    "@type": "ListItem",
+    "position": 12,
+    "url": "https://marktic.fi/demo/savy/",
+    "name": "Sävy Sähkö"
+   }
+  ]
+ }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
-<header class="top"><div class="wrap">
-  <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
-  <nav class="nav" id="nav" aria-label="Päävalikko">
-    <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
-    <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
-  </nav>
-</div></header>
-
+<header class="hd">
+  <div class="gut wide row">
+    <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
+    <nav class="nav" aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html" aria-current="page">Esimerkkisivut</a><a href="palvelut.html">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a></nav>
+    <a class="pill pill-solid cta" href="yhteys.html">Ottakaa yhteyttä</a>
+    <details class="mnav"><summary><i></i>Valikko</summary><nav aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html" aria-current="page">Esimerkkisivut</a><a href="palvelut.html">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a><a href="mailto:info@marktic.fi">info@marktic.fi</a></nav></details>
+  </div>
+</header>
 <main id="main">
-<section class="ph1"><div class="wrap"><div class="head">
-<p class="eyebrow">Työt</p><h1>Mitä teemme ja miltä se näyttää.</h1>
-<p class="lead">Alla näette, millaista jälkeä teemme: kotisivut, mainosvideo ja näkyvyyden korjauspaketti raporttina. Työt ovat konseptitöitä kuvitteellisille yrityksille, koska Marktic on uusi toimisto. Ensimmäiset asiakkaat saavat perustajahinnan ja halutessaan paikan tällä sivulla.</p>
-</div></div></section>
-<section class="paper" style="padding-top:0"><div class="wrap cases">
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">LVI Nurmi, Vantaa: viiden sivun kotisivut</h2><p>Kotisivut kuvitteelliselle putkiliikkeelle. Hinnat näkyvät heti etusivulla, päivystyssivulla on ohjeet vesivahingon varalle, ja hintamittari näyttää, mitä tunti maksaa arkena, illalla ja yöllä. Puhelimella soittopainike on aina näkyvissä. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/lvi-nurmi/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/lvi-nurmi/index.html" data-hover="demo/lvi-nurmi-hover.mp4" aria-label="Avatkaa LVI Nurmi -demosivu"><img src="demo/lvi-nurmi.jpg" alt="LVI Nurmen kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Leipomokahvila Kaarna, Tikkurila: viiden sivun kotisivut</h2><p>Kotisivut kuvitteelliselle leipomokahvilalle. Avoinna-merkki ja uunivuorot seuraavat kelloa, viikon lounas näkyy päivämäärineen ja ruokavaliomerkinnöin, ja leivän voi tilata ennakkoon noutoajan kanssa. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/kaarna/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/kaarna/index.html" data-hover="demo/kaarna-hover.mp4" aria-label="Avatkaa Kaarna-demosivu"><img src="demo/kaarna.jpg" alt="Leipomokahvila Kaarnan kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kuori Autostudio, Vantaa: autoteippaamon ja maalaamon kotisivut</h2><p>Kotisivut kuvitteelliselle autoteippaamolle ja maalaamolle. Etusivun video näyttää, miten valkoinen auto saa uuden värin. Suunnittele omasi -työkalussa asiakas valitsee autotyypin ja kalvon ja vertaa sävyä alkuperäiseen. Valittu sävy ja hinta-arvio siirtyvät suoraan tarjouspyyntöön, ja työkaluun lisätään yrityksen omat kalvot ja sävyt.</p><a class="btn btn-ghost btn-sm" href="demo/kuori/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/kuori/index.html" data-hover="demo/kuori-hover.mp4" aria-label="Avatkaa Kuori Autostudio -demosivu"><img src="demo/kuori.jpg" alt="Kuori Autostudion kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Virtaus LVIA: ilmanvaihtoyrityksen kotisivut</h2><p>Yhden sivun kotisivut kuvitteelliselle LVIA-yritykselle. Referenssikohteet näkyvät heti etusivulla, oma peltipaja esitellään omana osionaan, ja soittopainike on aina näkyvissä. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/virtaus/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/virtaus/index.html" data-hover="demo/virtaus-hover.mp4" aria-label="Avatkaa Virtaus LVIA -demosivu"><img src="demo/virtaus.jpg" alt="Virtaus LVIA:n kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Siro Studio, Tapiola: kauneushoitolan kotisivut</h2><p>Yhden sivun kotisivut kuvitteelliselle kauneushoitolalle. Asiakas kokoaa hoidot ja näkee hinnan ja keston heti, ja kynsivärikokeilussa hän voi katsoa lakan sävyn ja pinnan oikean käden kuvassa ennen varausta. Kokeiluun lisätään salongin omat sävyt. Kuvat on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/siro/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/siro/index.html" data-hover="demo/siro-hover.mp4" aria-label="Avatkaa Siro Studio -demosivu"><img src="demo/siro.jpg" alt="Siro Studion kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kaste Kylpyhuoneet: kylpyhuoneremontoijan kotisivut</h2><p>Kotisivut kuvitteelliselle kylpyhuoneremontoijalle. Asiakas vetää ennen ja jälkeen -kuvaa, seuraa remontin vaiheet vierittämällä ja saa hintalaskurista suuntaa antavan hinnan, keston ja kotitalousvähennyksen. Kuvat ja videot on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/kaste/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/kaste/index.html" data-hover="demo/kaste-hover.mp4" aria-label="Avatkaa Kaste Kylpyhuoneet -demosivu"><img src="demo/kaste.jpg" alt="Kaste Kylpyhuoneiden kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Ahde Piharakennus: piharakentajan kotisivut</h2><p>Kotisivut kuvitteelliselle piharakentajalle. Pihasuunnittelijassa asiakas piirtää nurmen, kiveyksen ja istutukset ruudukkoon ja näkee neliöt ja hinta-arvion, ja liukusäädin näyttää saman pihan illalla valaistuna. Kuvat ja videot on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/ahde/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/ahde/index.html" data-hover="demo/ahde-hover.mp4" aria-label="Avatkaa Ahde Piharakennus -demosivu"><img src="demo/ahde.jpg" alt="Ahde Piharakennuksen kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Raikas Siivouspalvelu: siivousyrityksen kotisivut</h2><p>Kotisivut kuvitteelliselle siivousyritykselle. Asiakas pyyhkii likaisen ikkunan puhtaaksi sormella tai hiirellä, ja siivouslaskuri näyttää hinnan kerralta ja vuodessa kotitalousvähennyksen jälkeen. Kuvat ja videot on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/raikas/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/raikas/index.html" data-hover="demo/raikas-hover.mp4" aria-label="Avatkaa Raikas Siivouspalvelu -demosivu"><img src="demo/raikas.jpg" alt="Raikas Siivouspalvelun kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Räystäs Kattoremontit: kattoremontoijan kotisivut</h2><p>Kotisivut kuvitteelliselle kattoremontoijalle. 3D-kattovalitsimessa asiakas pyörittää esimerkkitaloa, vaihtaa katemateriaalin, värin ja sään, ja kattolaskuri laskee katon pinta-alan ja suuntaa antavan hinnan talon koon ja kaltevuuden mukaan. Kuvat ja videot on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/raystas/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/raystas/index.html" data-hover="demo/raystas-hover.mp4" aria-label="Avatkaa Räystäs Kattoremontit -demosivu"><img src="demo/raystas.jpg" alt="Räystäs Kattoremonttien kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Sävy Sähkö: sähköasennusyrityksen kotisivut</h2><p>Kotisivut kuvitteelliselle sähköasennusyritykselle. Asiakas sytyttää olohuoneen valot katkaisijasta ja säätää himmenintä ja värilämpötilaa, ja latauslaskuri kertoo sähköauton latausajan ja hinnan. Kuvat ja videot on tuotettu tekoälyllä esimerkkiä varten.</p><a class="btn btn-ghost btn-sm" href="demo/savy/index.html">Avatkaa demosivu →</a></div>
-<a class="cv shot" href="demo/savy/index.html" data-hover="demo/savy-hover.mp4" aria-label="Avatkaa Sävy Sähkö -demosivu"><img src="demo/savy.jpg" alt="Sävy Sähkön kotisivun etusivu" width="1200" height="750" loading="lazy"></a></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">Kaarna: Instagram-video</h2><p>11 sekunnin mainosvideo leipomon kotisivujen kuvista, tekstit mukana. Sopii Instagramiin ja Meta-mainontaan sellaisenaan. Sama kuvitteellinen kahvila kuin kotisivuilla.</p></div>
-<div class="cv vidwrap"><video class="vid" src="assets/kaarna-ad.mp4" poster="assets/kaarna-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div></article>
-<article class="case"><div class="ct"><p class="eyebrow">Konseptityö, kuvitteellinen asiakas</p><h2 class="h3">LVI-liike, Vantaa: näkyvyyden korjauspaketti</h2><p>Google-yritysprofiili, hakemistot ja palvelusivut, joista hakupalvelut löytävät yrityksen. Raportti näyttää tilanteen ennen ja 30 päivää korjausten jälkeen.</p></div>
-<div class="cv"><div class="rep" aria-label="Esimerkki korjauspaketin raportista ennen ja jälkeen">
-      <div class="rh"><div><span class="rlogo"><span aria-hidden="true">Markt<span class="i">ı</span>c</span><span class="sr">Marktic</span></span><br><b>Korjauspaketin raportti · 30 päivää</b><br><span class="rnote">Esimerkki raportin muodosta. Luvut eivät ole mittaustulos.</span></div><div class="rr">LVI-Esimerkki Oy, Vantaa<br><span class="tag" style="margin:0">Esimerkki</span></div></div>
-      <div class="tiles3">
-        <div><small>Google-yritysprofiili</small><b class="ok">Kunnossa</b><span>päivästä 2</span></div>
-        <div><small>Mainittu vastauksissa</small><b>2 / 3</b><span>kysymyksessä</span></div>
-        <div><small>Hakemistot oikein</small><b class="ok">5 / 5</b><span>kaikki korjattu</span></div>
+<section class="ph" aria-labelledby="h1">
+  <div class="gut wide">
+    <span class="eb">Esimerkkisivut</span>
+    <h1 id="h1">Esimerkkisivuja eri aloille.</h1>
+    <p class="lead">Alla näette, millaista jälkeä teemme: kotisivut, mainosvideot ja näkyvyyden korjauspaketti raporttina. Työt ovat konseptitöitä kuvitteellisille yrityksille, koska Marktic on uusi toimisto. Ensimmäiset asiakkaat saavat perustajahinnan ja halutessaan paikan tällä sivulla.</p>
+  </div>
+</section>
+<section class="sec" style="padding-top:8px" aria-labelledby="k-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Kotisivut</span><h2 id="k-h">Kaksitoista alaa, kaksitoista esimerkkisivua.</h2></div>
+  </div>
+  <div class="gut wide cases">
+    <article class="case">
+      <div class="ct"><span class="eb">Putkityöt · kuvitteellinen yritys</span><h3>LVI Nurmi, Vantaa: viiden sivun kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle putkiliikkeelle. Hinnat näkyvät heti etusivulla, päivystyssivulla on ohjeet vesivahingon varalle, ja hintamittari näyttää, mitä tunti maksaa arkena, illalla ja yöllä. Puhelimella soittopainike on aina näkyvissä.</p><a class="link" href="demo/lvi-nurmi/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/lvi-nurmi/" tabindex="-1" aria-hidden="true"><img src="demo/lvi-nurmi.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Leipomo ja kahvila · kuvitteellinen yritys</span><h3>Leipomokahvila Kaarna, Tikkurila: viiden sivun kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle leipomokahvilalle. Avoinna-merkki ja uunivuorot seuraavat kelloa, viikon lounas näkyy päivämäärineen ja ruokavaliomerkinnöin, ja leivän voi tilata ennakkoon noutoajan kanssa.</p><a class="link" href="demo/kaarna/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/kaarna/" tabindex="-1" aria-hidden="true"><img src="demo/kaarna.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Autoteippaus · kuvitteellinen yritys</span><h3>Kuori Autostudio, Vantaa: autoteippaamon ja maalaamon kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle autoteippaamolle ja maalaamolle. Etusivun video näyttää, miten auto saa uuden värin, ja suunnittelutyökalussa asiakas valitsee autotyypin ja kalvon ja vertaa sävyä alkuperäiseen.</p><a class="link" href="demo/kuori/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/kuori/" tabindex="-1" aria-hidden="true"><img src="demo/kuori.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Maanrakennus · kuvitteellinen yritys</span><h3>Routa Maanrakennus: maanrakennusyrityksen kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle maanrakennusyritykselle. Kun sivua vierittää, tyhjästä tontista tulee koti, kaivuosiossa asiakas näkee, mitä talon vierellä maan alla on, ja esimerkkihinnat kertovat, mitä salaojaremontti maksaa.</p><a class="link" href="demo/routa/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/routa/" tabindex="-1" aria-hidden="true"><img src="demo/routa.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">LVI-urakointi · kuvitteellinen yritys</span><h3>Virtaus LVIA: ilmanvaihtoyrityksen kotisivut</h3><p class="dim">Yhden sivun kotisivut kuvitteelliselle LVIA-yritykselle. Referenssikohteet näkyvät heti etusivulla, oma peltipaja esitellään omana osionaan, ja soittopainike on aina näkyvissä.</p><a class="link" href="demo/virtaus/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/virtaus/" tabindex="-1" aria-hidden="true"><img src="demo/virtaus.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Maalaus · kuvitteellinen yritys</span><h3>Sively Maalaus: maalausliikkeen kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle maalausliikkeelle. Asiakas kokeilee sävyä olohuoneen seinällä ennen maalausta, ja hinnat kertovat, mitä sisämaalaus, julkisivu tai keittiön kaapistot maksavat.</p><a class="link" href="demo/sively/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/sively/" tabindex="-1" aria-hidden="true"><img src="demo/sively.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Kynsi- ja kauneushoito · kuvitteellinen yritys</span><h3>Siro Studio, Tapiola: kauneushoitolan kotisivut</h3><p class="dim">Yhden sivun kotisivut kuvitteelliselle kauneushoitolalle. Asiakas kokoaa hoidot ja näkee hinnan ja keston heti, ja kynsivärikokeilussa hän voi katsoa lakan sävyn ja pinnan oikean käden kuvassa ennen varausta.</p><a class="link" href="demo/siro/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/siro/" tabindex="-1" aria-hidden="true"><img src="demo/siro.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Kylpyhuoneremontit · kuvitteellinen yritys</span><h3>Kaste Kylpyhuoneet: kylpyhuoneremontoijan kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle kylpyhuoneremontoijalle. Asiakas vetää ennen ja jälkeen -kuvaa, seuraa remontin vaiheet vierittämällä ja saa hintalaskurista suuntaa antavan hinnan, keston ja kotitalousvähennyksen.</p><a class="link" href="demo/kaste/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/kaste/" tabindex="-1" aria-hidden="true"><img src="demo/kaste.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Piharakentaminen · kuvitteellinen yritys</span><h3>Ahde Piharakennus: piharakentajan kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle piharakentajalle. Pihasuunnittelijassa asiakas piirtää nurmen, kiveyksen ja istutukset ruudukkoon ja näkee neliöt ja hinta-arvion, ja liukusäädin näyttää saman pihan illalla valaistuna.</p><a class="link" href="demo/ahde/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/ahde/" tabindex="-1" aria-hidden="true"><img src="demo/ahde.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Siivous · kuvitteellinen yritys</span><h3>Raikas Siivouspalvelu: siivousyrityksen kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle siivousyritykselle. Asiakas pyyhkii likaisen ikkunan puhtaaksi sormella tai hiirellä, ja siivouslaskuri näyttää hinnan kerralta ja vuodessa kotitalousvähennyksen jälkeen.</p><a class="link" href="demo/raikas/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/raikas/" tabindex="-1" aria-hidden="true"><img src="demo/raikas.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Kattoremontit · kuvitteellinen yritys</span><h3>Räystäs Kattoremontit: kattoremontoijan kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle kattoremontoijalle. 3D-kattovalitsimessa asiakas pyörittää esimerkkitaloa ja vaihtaa katemateriaalin, värin ja sään, ja kattolaskuri laskee suuntaa antavan hinnan talon koon ja kaltevuuden mukaan.</p><a class="link" href="demo/raystas/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/raystas/" tabindex="-1" aria-hidden="true"><img src="demo/raystas.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article><article class="case">
+      <div class="ct"><span class="eb">Sähköasennukset · kuvitteellinen yritys</span><h3>Sävy Sähkö: sähköasennusyrityksen kotisivut</h3><p class="dim">Kotisivut kuvitteelliselle sähköasennusyritykselle. Asiakas sytyttää olohuoneen valot katkaisijasta ja säätää himmenintä ja värilämpötilaa, ja latauslaskuri kertoo sähköauton latausajan ja hinnan.</p><a class="link" href="demo/savy/">Avatkaa esimerkkisivu <span aria-hidden="true">↗</span></a></div>
+      <a class="shot" href="demo/savy/" tabindex="-1" aria-hidden="true"><img src="demo/savy.jpg" alt="" width="1200" height="750" loading="lazy" decoding="async"></a>
+    </article>
+  </div>
+</section>
+<section class="sec alt" id="videot" aria-labelledby="v-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Videot</span><h2 id="v-h">Mainosvideot someen.</h2><p class="lead">Pystyvideot Instagramiin, TikTokiin ja Meta-mainontaan. Laskutamme vasta, kun video on hyväksytty.</p></div>
+    <div class="cases">
+      <article class="case">
+        <div class="ct"><span class="eb">Leipomo ja kahvila · kuvitteellinen yritys</span><h3>Kaarna: Instagram-video</h3><p class="dim">11 sekunnin mainosvideo leipomon kotisivujen kuvista, tekstit mukana. Sopii Instagramiin ja Meta-mainontaan sellaisenaan. Sama kuvitteellinen kahvila kuin kotisivuilla.</p><a class="link" href="palvelut.html#videot">Videomainos alk. 290 € <span aria-hidden="true">→</span></a></div>
+        <div class="shot" style="box-shadow:none;background:none"><video class="vid" src="assets/kaarna-ad.mp4" poster="assets/kaarna-ad-poster.jpg" muted loop playsinline controls preload="none" data-autoplay aria-label="Kaarnan mainosvideo"></video></div>
+      </article>
+      <article class="case">
+        <div class="ct"><span class="eb">Oma työ</span><h3>Marktic: oma mainosvideo</h3><p class="dim">Yhdeksän sekunnin pystyvideo someen. Samalla tavalla teemme videot asiakkaille ilman kuvauspäivää.</p>
+          <ul><li>Videoissanne ja kuvissanne voi näkyä oma logonne ja tuotemerkkinne</li><li>Ei oikeita henkilöitä eikä muiden yritysten merkkejä</li></ul></div>
+        <div class="shot" style="box-shadow:none;background:none"><video class="vid" src="assets/marktic-ad.mp4" poster="assets/marktic-ad-poster.jpg" muted loop playsinline controls preload="none" data-autoplay aria-label="Marktic-mainosvideo"></video></div>
+      </article>
+    </div>
+  </div>
+</section>
+<section class="sec" aria-labelledby="r-h">
+  <div class="gut wide case" style="align-items:start">
+    <div class="ct"><span class="eb">Näkyvyys · kuvitteellinen yritys</span><h2 id="r-h" class="h2" style="font-size:clamp(1.6rem,2.8vw,2.3rem)">LVI-liike, Vantaa: näkyvyyden korjauspaketti</h2><p class="dim">Google-yritysprofiili, hakemistot ja palvelusivut, joista hakupalvelut löytävät yrityksen. Raportti näyttää tilanteen ennen ja 30 päivää korjausten jälkeen.</p><a class="link" href="palvelut.html#nakyvyys">Korjauspaketti 190 € <span aria-hidden="true">→</span></a></div>
+    <div class="report" role="group" aria-label="Esimerkki korjauspaketin raportista">
+        <div class="rh"><div><span class="logo" style="min-height:0"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></span><br><b style="font-weight:500">Korjauspaketin raportti · 30 päivää</b><br><span class="dim">Esimerkki raportin muodosta. Luvut eivät ole mittaustulos.</span></div><div class="dim" style="text-align:right">LVI-Esimerkki Oy, Vantaa</div></div>
+        <div class="stats"><div><small class="dim">Google-yritysprofiili</small><b>Kunnossa</b><small class="dim">päivästä 2</small></div><div><small class="dim">Mainittu vastauksissa</small><b>2 / 3</b><small class="dim">kysymyksessä</small></div><div><small class="dim">Hakemistot oikein</small><b>5 / 5</b><small class="dim">kaikki korjattu</small></div></div>
+        <div class="tscroll"><table><thead><tr><th>Ennen ja jälkeen</th><th>ennen</th><th>päivä 30</th><th>muutos</th></tr></thead><tbody>
+          <tr><td>Google-yritysprofiili</td><td>puutteellinen</td><td>kunnossa</td><td>korjattu</td></tr>
+          <tr><td>Hakemistot, joita hakupalvelut käyttävät</td><td>1 / 5</td><td>5 / 5</td><td>+4</td></tr>
+          <tr><td>Hakupalvelut mainitsevat yrityksen</td><td>0 / 3</td><td>2 / 3</td><td>+2</td></tr>
+          <tr><td>Yritysprofiilin katselut</td><td>96</td><td>171</td><td>+78 %</td></tr>
+          <tr><td>Soitot profiilista</td><td>4</td><td>9</td><td>+5</td></tr>
+          <tr><td>Kotisivuilla rakenteinen tieto</td><td>ei</td><td>kyllä</td><td>lisätty</td></tr>
+        </tbody></table></div>
+        <div class="cols"><div><small class="dim">Tehty</small><ul><li>Päivä 2: Google-yritysprofiili täydennetty, 14 kuvaa</li><li>Päivä 5: Neljä hakemistoa korjattu</li><li>Päivä 9: Palvelusivut ja rakenteinen tieto</li></ul></div><div><small class="dim">Seuraavaksi</small><ul><li>Arvostelupyyntö asiakkaille</li><li>Usein kysytyt kysymykset sivuille</li><li>Mittaus jatkuu viikoittain</li></ul></div></div>
       </div>
-      <table class="mtr"><caption>Ennen ja jälkeen korjauspaketin</caption>
-        <thead><tr><th scope="col"></th><th scope="col">ennen</th><th scope="col">päivä 30</th><th scope="col">muutos</th></tr></thead>
-        <tbody>
-          <tr><th scope="row">Google-yritysprofiili</th><td class="down">puutteellinen</td><td class="ok">kunnossa</td><td class="up">korjattu</td></tr>
-          <tr><th scope="row">Hakemistot, joita hakupalvelut käyttävät</th><td>1 / 5</td><td>5 / 5</td><td class="up">+4</td></tr>
-          <tr><th scope="row">Hakupalvelut mainitsevat yrityksen</th><td>0 / 3</td><td>2 / 3</td><td class="up">+2</td></tr>
-          <tr><th scope="row">Sija kartalla, ”LVI Vantaa”</th><td class="rk">9.</td><td class="rk">5.</td><td class="up">+4</td></tr>
-          <tr><th scope="row">Yritysprofiilin katselut</th><td>96</td><td>171</td><td class="up">+78 %</td></tr>
-          <tr><th scope="row">Soitot profiilista</th><td>4</td><td>9</td><td class="up">+5</td></tr>
-          <tr><th scope="row">Kotisivuilla rakenteinen tieto</th><td>ei</td><td>kyllä</td><td class="up">lisätty</td></tr>
-        </tbody></table>
-      <div class="rcols">
-        <div><small>Tehty</small><ul><li>Päivä 2: Google-yritysprofiili täydennetty, 14 kuvaa</li><li>Päivä 5: Neljä hakemistoa korjattu</li><li>Päivä 9: Palvelusivut ja rakenteinen tieto</li></ul></div>
-        <div><small>Seuraavaksi</small><ul><li>Arvostelupyyntö asiakkaille</li><li>Usein kysytyt kysymykset sivuille</li><li>Mittaus jatkuu viikoittain</li></ul></div>
-      </div>
-    </div></div></article>
-<article class="case"><div class="ct"><p class="eyebrow">Oma työ</p><h2 class="h3">Marktic: oma mainosvideo</h2><p>Yhdeksän sekunnin pystyvideo someen: Aleksanterinkatu, matcha, silmälasit ja puhelin, jossa on nämä sivut. Henkilö on tuotettu tekoälyllä. Samalla tavalla teemme videot asiakkaille: ei kuvauspäiviä, ei näyttelijöitä, ei kuvauslupia.</p>
-<ul class="list" style="margin-top:var(--s3)"><li>Tehty yhdessä iltapäivässä</li><li>Videoissanne ja kuvissanne voi näkyä oma logonne ja tuotemerkkinne</li><li>Ei oikeita henkilöitä eikä muiden yritysten merkkejä</li><li>Palvelu: Videomainos, alkaen 290 €</li></ul></div>
-<div class="cv vidwrap"><video class="vid" src="assets/marktic-ad.mp4" poster="assets/marktic-ad-poster.jpg" autoplay muted loop playsinline preload="metadata" disablepictureinpicture controlslist="nodownload noplaybackrate" tabindex="-1" style="pointer-events:none" aria-hidden="true"></video></div></article>
-<article class="case"><div class="ct"><p class="eyebrow">Oma työ</p><h2 class="h3">Mallikuvat ilman kuvauspäivää</h2><p>Kolme esimerkkiä tekoälyllä tuotetuista malleista: muotikuva, työkuva korjaamosta ja katukuva. Lisää esimerkkejä on palvelusivulla. Samaa mallia voi käyttää kymmenissä kuvissa, ja tuotteenne voidaan lisätä kuvaan. Kuvissa ei ole oikeita ihmisiä.</p><p><a href="palvelut.html#video">Mallikuvat alkaen 190 € / 10 kuvaa</a></p></div>
-<div class="cv mg mg3"><figure><img src="assets/mallit/malli-1.jpg" alt="Nainen vaaleassa neuleessa ja farkuissa studiossa (tekoälyllä tuotettu)" width="720" height="900" loading="lazy" decoding="async"></figure><figure><img src="assets/mallit/malli-2.jpg" alt="Hymyilevä autokorjaamon mekaanikko (tekoälyllä tuotettu)" width="720" height="900" loading="lazy" decoding="async"></figure><figure><img src="assets/mallit/malli-3.jpg" alt="Nainen harmaassa toppatakissa kadulla (tekoälyllä tuotettu)" width="720" height="900" loading="lazy" decoding="async"></figure></div></article>
-<article class="case"><div class="ct"><p class="eyebrow">Oma työ</p><h2 class="h3">Tämä sivusto</h2><p>Marktic.fi on tehty samalla tavalla kuin asiakkaiden sivut: nopea, toimii puhelimessa, rakenteinen tieto hakupalveluille, ei seurantaevästeitä. Jos pidätte tästä, saatte samanlaisen.</p>
-<ul class="list" style="margin-top:var(--s3)"><li>Latautuu nopeasti myös puhelimessa</li><li>Toimii ilman evästeitä</li><li>Tiedot muodossa, jonka Google ja hakupalvelut ymmärtävät</li></ul></div>
-<div class="cv"><img src="demo/marktic-laitteet.jpg" style="display:block;width:100%;height:auto" alt="Marktic.fi tietokoneen ja puhelimen näytöllä" width="1400" height="1000" loading="lazy"></div></article>
-</div></section>
-<section class="close"><div class="wrap">
-  <h2>Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
-  <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A" data-mail>info@marktic.fi</a>
-  <p>Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
-</div></section>
+  </div>
+</section>
+<section class="sec alt" aria-labelledby="m-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Oma työ</span><h2 id="m-h">Mallikuvat ilman kuvauspäivää.</h2><p class="lead">Samaa mallia voi käyttää kymmenissä kuvissa, ja tuotteenne voidaan lisätä kuvaan. Kuvissa ei ole oikeita ihmisiä.</p></div>
+    <div class="mg"><figure><img src="assets/mallit/malli-1.jpg" alt="Nainen vaaleassa neuleessa ja farkuissa studiossa" width="720" height="900" loading="lazy" decoding="async"><figcaption><b>Vaatemerkki</b><span>Tuotekuva verkkokauppaan</span></figcaption></figure><figure><img src="assets/mallit/malli-2.jpg" alt="Hymyilevä autokorjaamon mekaanikko korjaamossa" width="720" height="900" loading="lazy" decoding="async"><figcaption><b>Autokorjaamo</b><span>Mainoskuva renkaskauteen</span></figcaption></figure><figure><img src="assets/mallit/malli-3.jpg" alt="Nainen harmaassa toppatakissa kaupungin kadulla" width="720" height="900" loading="lazy" decoding="async"><figcaption><b>Ulkovaatteet</b><span>Kampanjakuva someen</span></figcaption></figure></div>
+    <p style="margin-top:20px"><a class="link" href="palvelut.html#videot">Mallikuvat alk. 190 € <span aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+<section class="sec" aria-labelledby="s-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Oma työ</span><h2 id="s-h">Tämä sivusto.</h2><p class="lead">Marktic.fi on tehty samalla tavalla kuin asiakkaiden sivut. Jos pidätte tästä, saatte samanlaisen.</p></div>
+    <div class="three"><div><h3>Nopea</h3><p class="dim">Latautuu nopeasti myös puhelimessa.</p></div><div><h3>Ilman evästeitä</h3><p class="dim">Sivusto ei käytä seurantaevästeitä.</p></div><div><h3>Hakukoneille selkeä</h3><p class="dim">Tiedot muodossa, jonka Google ja hakupalvelut ymmärtävät.</p></div></div>
+  </div>
+</section>
+<section class="sec dark cta-band" aria-labelledby="cta-h">
+  <div class="gut wide">
+    <span class="eb">Maksuton kartoitus</span>
+    <h2 id="cta-h">Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
+    <a class="big-mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&amp;body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+    <p class="dim">Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
+  </div>
+</section>
 </main>
-<footer><div class="wrap">
-  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
-  <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
-  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
-</div></footer>
+<footer class="ft">
+  <div class="gut wide">
+    <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><br>Markkinointitoimisto paikallisille yrityksille.<br>Toiminimi Marktic · Y-tunnus 3664036-8</div>
+    <ul>
+      <li><a href="palvelut.html">Palvelut ja hinnat</a></li>
+      <li><a href="tyot.html">Esimerkkisivut</a></li>
+      <li><a href="meista.html">Meistä</a></li>
+      <li><a href="yhteys.html">Yhteys</a></li>
+      <li><a href="tietosuoja.html">Tietosuojaseloste</a></li>
+      <li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li>
+    </ul>
+  </div>
+</footer>
 <script>
-const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
-b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
-const here=location.pathname.split('/').pop()||'index.html';
-document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
-</script>
-<style>video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls{display:none!important;-webkit-appearance:none}</style><script>(function(){var vs=[].slice.call(document.querySelectorAll("video"));function go(v){v.muted=true;v.defaultMuted=true;v.playsInline=true;v.setAttribute("muted","");v.setAttribute("playsinline","");var p=v.play();if(p&&p.catch)p.catch(function(){});}vs.forEach(function(v){if(v.preload!=="auto")v.preload="auto";go(v);v.addEventListener("loadeddata",function(){go(v)});v.addEventListener("pause",function(){if(!document.hidden&&!v.ended)setTimeout(function(){go(v)},300)});});function kick(){vs.forEach(go);}["touchstart","touchend","click","scroll","keydown"].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});document.addEventListener("visibilitychange",function(){if(!document.hidden)kick()});if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting)go(x.target)})});vs.forEach(function(v){io.observe(v)})}})();</script>
-<script src="mail.js" defer></script>
-<script>(function(){
-if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var cards=[].slice.call(document.querySelectorAll('.shot[data-hover]'));
-function vid(a){var v=a.querySelector('.hv');if(!v){v=document.createElement('video');v.className='hv';v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.setAttribute('aria-hidden','true');v.preload='auto';v.src=a.getAttribute('data-hover');v.addEventListener('playing',function(){a.classList.add('playing')});a.appendChild(v)}return v}
-function play(a){var v=vid(a);var p=v.play();if(p&&p.catch)p.catch(function(){})}
-function stop(a){var v=a.querySelector('.hv');a.classList.remove('playing');if(v)v.pause()}
-if(matchMedia('(hover: hover) and (pointer: fine)').matches){
-  cards.forEach(function(a){a.addEventListener('mouseenter',function(){play(a)});a.addEventListener('mouseleave',function(){stop(a)});a.addEventListener('focus',function(){play(a)});a.addEventListener('blur',function(){stop(a)})});
-}else if('IntersectionObserver' in window){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?play(e.target):stop(e.target)})},{threshold:.6});
-  cards.forEach(function(a){io.observe(a)});
-}
+// close the mobile menu after a tap on a link
+document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener('click', function(){ a.closest('details').open = false; }); });
+(function(){ var m = document.querySelector('.mnav'); if (!m) return;
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.open){ m.open = false; m.querySelector('summary').focus(); } });
+  document.addEventListener('click', function(e){ if (m.open && !m.contains(e.target)) m.open = false; });
+})();
+// play the example videos only while they are on screen
+(function(){
+  var vids = [].slice.call(document.querySelectorAll('video[data-autoplay]'));
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function(es){ es.forEach(function(en){ var v = en.target; if (en.isIntersecting){ v.preload = 'auto'; var p = v.play(); if (p && p.catch) p.catch(function(){}); } else v.pause(); }); }, {threshold:.35});
+  vids.forEach(function(v){ io.observe(v); });
 })();</script>
 </body>
 </html>

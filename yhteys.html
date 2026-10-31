@@ -2,76 +2,114 @@
 <html lang="fi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ottakaa yhteyttä – Marktic</title>
-<meta name="description" content="Pyytäkää maksuton kartoitus sähköpostilla: lähettäkää yrityksen nimi ja paikkakunta. Vastaamme kahden arkipäivän kuluessa.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ottakaa yhteyttä: maksuton kartoitus | Marktic</title>
+<meta name="description" content="Pyytäkää maksuton kartoitus: lähettäkää yrityksen nimi ja paikkakunta. Vastaamme kahden arkipäivän kuluessa, ei myyntipuheluita.">
 <link rel="canonical" href="https://marktic.fi/yhteys.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Ottakaa yhteyttä – Marktic"><meta property="og:description" content="Pyytäkää maksuton kartoitus sähköpostilla. Vastaamme kahden arkipäivän kuluessa."><meta property="og:url" content="https://marktic.fi/yhteys.html"><meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<link rel="stylesheet" href="site.css">
-<style>
-@media (max-width:900px){.ways .btn{flex:1 1 100%}}
-.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s6);align-items:start} .contact h1{margin:var(--s2) 0 var(--s3)} .contact .mail{display:inline-block;padding:4px 0;margin-top:var(--s4);font-size:clamp(26px,3.6vw,44px);font-weight:700;letter-spacing:-.03em;text-decoration:none;border-bottom:3px solid var(--brand);line-height:1.2} .contact .mail:hover{color:var(--brand-2)}
-.ways{display:flex;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s4)}
-.facts{display:grid;grid-template-columns:auto 1fr;gap:var(--s2) var(--s4);padding-top:var(--s2);border-top:1px solid var(--line);font-size:var(--t-sm);margin-top:var(--s5)} .facts dt{color:var(--mut)} .facts a{color:var(--ink)}
-@media (max-width:900px){.contact{grid-template-columns:1fr} .facts{margin-top:var(--s3)}}
-.ph1{padding:var(--s6) 0 var(--s5)} .ph1 h1{margin:var(--s3) 0 var(--s4)}
-
-</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","url":"https://marktic.fi/yhteys.html","name":"Ottakaa yhteyttä – Marktic","about":{"@id":"https://marktic.fi/#org"}}</script>
+<meta name="theme-color" content="#f1eee7">
+<meta property="og:title" content="Ottakaa yhteyttä: maksuton kartoitus | Marktic">
+<meta property="og:description" content="Pyytäkää maksuton kartoitus: lähettäkää yrityksen nimi ja paikkakunta. Vastaamme kahden arkipäivän kuluessa, ei myyntipuheluita.">
+<meta property="og:url" content="https://marktic.fi/yhteys.html">
+<meta property="og:locale" content="fi_FI"><meta property="og:type" content="website"><meta property="og:image" content="https://marktic.fi/assets/og-v2.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="preload" href="fonts/geist/Geist-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/v2.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ContactPage",
+ "url": "https://marktic.fi/yhteys.html",
+ "name": "Ottakaa yhteyttä – Marktic",
+ "inLanguage": "fi",
+ "about": {
+  "@id": "https://marktic.fi/#org"
+ }
+}
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Siirry sisältöön</a>
-<header class="top"><div class="wrap">
-  <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
-  <button class="menu-btn" aria-expanded="false" aria-controls="nav">Valikko</button>
-  <nav class="nav" id="nav" aria-label="Päävalikko">
-    <a href="palvelut.html">Palvelut ja hinnat</a><a href="tyot.html">Työt</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a>
-    <a class="mail" href="mailto:info@marktic.fi" data-mail>info@marktic.fi</a>
-  </nav>
-</div></header>
-
-<main id="main">
-<section class="ph1"><div class="wrap contact">
-  <div>
-    <p class="eyebrow">Ottakaa yhteyttä</p>
-    <h1>Lähettäkää yrityksenne nimi ja paikkakunta.</h1>
-    <p class="lead">Muuta ei tarvita. Teemme maksuttoman kartoituksen ja vastaamme kahden arkipäivän kuluessa. Ei myyntipuheluita, ellette pyydä soittoa.</p>
-    <a class="mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A" data-mail>info@marktic.fi</a>
-    <div class="ways">
-      <!-- PUUTTUU: WhatsApp- ja puhelinpainikkeet lisätään, kun numero on -->
-    </div>
-    <p class="mut" style="margin-top:var(--s3);font-size:var(--t-sm)">Vastaamme arkisin. Jos haluatte, että soitamme, kirjoittakaa numeronne viestiin.</p>
+<header class="hd">
+  <div class="gut wide row">
+    <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
+    <nav class="nav" aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html">Esimerkkisivut</a><a href="palvelut.html">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html" aria-current="page">Yhteys</a></nav>
+    <a class="pill pill-solid cta" href="yhteys.html">Ottakaa yhteyttä</a>
+    <details class="mnav"><summary><i></i>Valikko</summary><nav aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html">Esimerkkisivut</a><a href="palvelut.html">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html" aria-current="page">Yhteys</a><a href="mailto:info@marktic.fi">info@marktic.fi</a></nav></details>
   </div>
-  <dl class="facts">
-    <dt>Sähköposti</dt><dd><a class="ilink" href="mailto:info@marktic.fi">info@marktic.fi</a></dd>
-    <dt>Kotipaikka</dt><dd>Vantaa. Palvelemme koko Suomea etänä.</dd>
-    <dt>Y-tunnus</dt><dd>3664036-8</dd>
-    <dt>Vastausaika</dt><dd>Kaksi arkipäivää</dd>
-    <dt>Hinnat</dt><dd><a class="ilink" href="palvelut.html">Samat kuin Palvelut ja hinnat -sivulla</a></dd>
-  </dl>
-</div></section>
-<section class="paper"><div class="wrap tl">
-  <div><p class="eyebrow">Mitä tapahtuu seuraavaksi</p><h2>Kartoituksesta tarjoukseen</h2></div>
-  <ol>
-    <li><b>Päivä 0</b><p><strong>Lähetätte nimen ja paikkakunnan.</strong> Jos teillä on kotisivut tai sometili, niistä on apua.</p></li>
-    <li><b>Päivä 1–2</b><p><strong>Saatte kartoituksen.</strong> Miten yrityksenne löytyy ja miltä se näyttää, ja mitä korjaisimme ensin.</p></li>
-    <li><b>Sen jälkeen</b><p><strong>Päätätte itse.</strong> Tarjous valitsemistanne palveluista, tai kartoitus jää teille ilman velvoitteita.</p></li>
-  </ol>
-</div></section>
+</header>
+<main id="main">
+<section class="ph" aria-labelledby="h1">
+  <div class="gut wide">
+    <span class="eb">Ottakaa yhteyttä</span>
+    <h1 id="h1">Lähettäkää yrityksenne nimi ja paikkakunta.</h1>
+    <p class="lead">Muuta ei tarvita. Teemme maksuttoman kartoituksen ja vastaamme kahden arkipäivän kuluessa. Ei myyntipuheluita, ellette pyydä soittoa.</p>
+  </div>
+</section>
+<section class="sec" style="padding-top:0" aria-label="Yhteydenotto">
+  <div class="gut wide split">
+    <form class="form" id="cform" novalidate>
+      <div class="two">
+        <label for="f-y">Yrityksen nimi<input id="f-y" name="y" autocomplete="organization" required aria-describedby="f-err" placeholder="Esim. LVI Virtanen Oy"></label>
+        <label for="f-p">Paikkakunta<input id="f-p" name="p" autocomplete="address-level2" required aria-describedby="f-err" placeholder="Esim. Vantaa"></label>
+      </div>
+      <label for="f-m"><span>Viesti <small>valinnainen</small></span><textarea id="f-m" name="m" rows="3" aria-describedby="f-m-hint"></textarea><small id="f-m-hint">Kotisivujen osoite tai Google-profiili, jos on. Jos haluatte, että soitamme, kirjoittakaa numeronne viestiin.</small></label>
+      <p class="err" id="f-err" role="alert" hidden>Kirjoittakaa yrityksen nimi ja paikkakunta.</p>
+      <div><button class="pill pill-solid" type="submit">Avatkaa valmis sähköposti</button></div>
+      <p class="fine">Painike avaa sähköpostiohjelmanne valmiilla viestillä. Tietoja ei lähetetä minnekään muualle.</p>
+    </form>
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <a class="big-mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&amp;body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+      <div class="facts" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        <div><small>Vastausaika</small><span>Kaksi arkipäivää</span></div>
+        <div><small>Kotipaikka</small><span>Vantaa, palvelemme koko Suomea etänä</span></div>
+        <div><small>Y-tunnus</small><span class="tab">3664036-8</span></div>
+        <div><small>Hinnat</small><a href="palvelut.html">Palvelut ja hinnat</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec alt" aria-labelledby="s-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Mitä tapahtuu seuraavaksi</span><h2 id="s-h">Kartoituksesta tarjoukseen.</h2></div>
+    <ol class="steps">
+      <li><span class="when">Päivä 0</span><p class="dim">Lähetätte nimen ja paikkakunnan. Jos teillä on kotisivut tai sometili, niistä on apua.</p></li>
+      <li><span class="when tab">Päivä 1–2</span><p class="dim">Saatte kartoituksen: miten yrityksenne löytyy, miltä se näyttää ja mitä korjaisimme ensin.</p></li>
+      <li><span class="when">Sen jälkeen</span><p class="dim">Päätätte itse. Saatte tarjouksen valitsemistanne palveluista, tai kartoitus jää teille ilman velvoitteita.</p></li>
+    </ol>
+  </div>
+</section>
 </main>
-<footer><div class="wrap">
-  <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><p style="margin-top:var(--s3)">Markkinointitoimisto paikallisille yrityksille. Vantaa, palvelemme koko Suomea etänä.</p><p style="margin-top:var(--s2)">Toiminimi Marktic · Y-tunnus 3664036-8</p></div>
-  <ul><li><a href="palvelut.html">Palvelut ja hinnat</a></li><li><a href="tyot.html">Työt</a></li><li><a href="meista.html">Meistä</a></li><li><a href="yhteys.html">Yhteys</a></li></ul>
-  <ul><li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li><li><a href="tietosuoja.html">Tietosuojaseloste</a></li></ul>
-</div></footer>
+<footer class="ft">
+  <div class="gut wide">
+    <div><a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><br>Markkinointitoimisto paikallisille yrityksille.<br>Toiminimi Marktic · Y-tunnus 3664036-8</div>
+    <ul>
+      <li><a href="palvelut.html">Palvelut ja hinnat</a></li>
+      <li><a href="tyot.html">Esimerkkisivut</a></li>
+      <li><a href="meista.html">Meistä</a></li>
+      <li><a href="yhteys.html">Yhteys</a></li>
+      <li><a href="tietosuoja.html">Tietosuojaseloste</a></li>
+      <li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li>
+    </ul>
+  </div>
+</footer>
 <script>
-const b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
-b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Sulje':'Valikko'});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!e.target.closest('dialog')&&n.classList.contains('open')){n.classList.remove('open');b.setAttribute('aria-expanded','false');b.textContent='Valikko';b.focus()}});
-const here=location.pathname.split('/').pop()||'index.html';
-document.querySelectorAll('.nav a:not(.btn)').forEach(a=>{if(a.getAttribute('href')===here)a.setAttribute('aria-current','page')});
-</script>
-<script src="mail.js" defer></script>
+// close the mobile menu after a tap on a link
+document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener('click', function(){ a.closest('details').open = false; }); });
+(function(){ var m = document.querySelector('.mnav'); if (!m) return;
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.open){ m.open = false; m.querySelector('summary').focus(); } });
+  document.addEventListener('click', function(e){ if (m.open && !m.contains(e.target)) m.open = false; });
+})();
+(function(){
+  var f = document.getElementById('cform'), err = document.getElementById('f-err');
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var y = f.y.value.trim(), p = f.p.value.trim(), m = f.m.value.trim();
+    f.y.setAttribute('aria-invalid', y ? 'false' : 'true'); f.p.setAttribute('aria-invalid', p ? 'false' : 'true');
+    if (!y || !p){ err.hidden = false; (y ? f.p : f.y).focus(); return; }
+    err.hidden = true;
+    var body = 'Hei,\n\npyydämme maksuttoman kartoituksen.\n\nYritys: ' + y + '\nPaikkakunta: ' + p + (m ? '\n\n' + m : '') + '\n';
+    location.href = 'mailto:info@marktic.fi?subject=' + encodeURIComponent('Maksuton kartoitus: ' + y) + '&body=' + encodeURIComponent(body);
+  });
+})();</script>
 </body>
 </html>
