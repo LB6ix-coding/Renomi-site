@@ -53,6 +53,14 @@
     res.className = 'ap-res ' + (cls || '');
     res.innerHTML = msg + (action ? `<button type="button" class="btn ${cls === 'ok' ? 'btn-volt' : 'btn-line'} ap-go">${action}<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>` : '');
     const go = $('.ap-go', res); if (go) go.addEventListener('click', toForm);
+    reveal();
+  }
+  /* on phones the answer can land below the fold or under the keyboard: scroll just enough to show it */
+  function reveal() {
+    requestAnimationFrame(() => {
+      const r = res.getBoundingClientRect(), vv = window.visualViewport, vh = vv ? vv.height : innerHeight, pad = innerWidth <= 760 ? 96 : 24;
+      if (r.height && r.bottom > vh - pad) scrollBy({top: Math.min(r.bottom - vh + pad, r.top - 90), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    });
   }
   async function doCheck() {
     const v = inp.value.replace(/\D/g, '').slice(0, 5);
