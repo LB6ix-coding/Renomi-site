@@ -36,7 +36,18 @@
   + '.pk .pk-done p{margin:6px 0 16px;color:rgba(20,22,21,.72);font-size:.92rem}'
   + '@media (max-width:600px){.pk{top:auto!important;right:0!important;left:0;bottom:0;width:100%;max-height:92vh;border-radius:20px 20px 0 0;padding:20px 16px calc(18px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}'
   +   '.pk .pk-two{grid-template-columns:minmax(0,1fr)}}'
-  + '@media (prefers-reduced-motion:reduce){.pk,.pk-scrim{transition:none}}';
+  + '.pk-fab{position:fixed;z-index:80;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 20px 0 16px;'
+  +   'border:0;border-radius:999px;background:#141615;color:#f1eee7;font:inherit;font-size:.95rem;font-weight:500;cursor:pointer;'
+  +   'box-shadow:0 0 0 1px rgba(241,238,231,.14),0 14px 34px rgba(10,12,11,.32);opacity:0;transform:translateY(16px) scale(.96);transition:opacity .35s,transform .35s cubic-bezier(.2,.7,.2,1)}'
+  + '.pk-fab.on{opacity:1;transform:none}'
+  + '.pk-fab:hover{background:#2a2d2b}'
+  + '.pk-fab:focus-visible{outline:2px solid #141615;outline-offset:3px}'
+  + '.pk-fab[hidden]{display:none}'
+  + '.pk-fab .pk-dot{position:relative;width:10px;height:10px;border-radius:50%;background:#cfe0a6;flex:none}'
+  + '.pk-fab .pk-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #cfe0a6;opacity:0;animation:pkPing 2.4s ease-out infinite}'
+  + '@keyframes pkPing{0%{transform:scale(.5);opacity:.8}70%,100%{transform:scale(1.5);opacity:0}}'
+  + '@media (max-width:600px){.pk-fab{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));min-height:50px;font-size:.92rem}}'
+  + '@media (prefers-reduced-motion:reduce){.pk,.pk-scrim,.pk-fab{transition:none}.pk-fab .pk-dot::after{animation:none}}';
   var st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   var scrim = document.createElement('div'); scrim.className = 'pk-scrim'; scrim.hidden = true;
@@ -61,22 +72,28 @@
   +   '<p class="pk-fine">Tai soittakaa <a href="tel:+358406759882">040 675 9882</a>. Käytämme tietoja vain vastaamiseen. <a href="tietosuoja.html">Tietosuojaseloste</a></p>'
   + '</div>'
   + '<div class="pk-done" hidden tabindex="-1"><p>Kiitos, pyyntö on perillä. Vastaamme kahden arkipäivän kuluessa.</p><button class="pk-send pk-close2" type="button">Sulje</button></div>';
-  document.body.appendChild(scrim); document.body.appendChild(box);
+  var fab = document.createElement('button');
+  fab.type = 'button'; fab.className = 'pk-fab'; fab.hidden = true;
+  fab.setAttribute('aria-haspopup', 'dialog');
+  fab.innerHTML = '<span class="pk-dot" aria-hidden="true"></span>Pyytäkää tarjous';
+  document.body.appendChild(scrim); document.body.appendChild(box); document.body.appendChild(fab);
 
   var f = box.querySelector('form'), err = box.querySelector('#pk-err'), btn = box.querySelector('.pk-send');
   var body = box.querySelector('.pk-body'), done = box.querySelector('.pk-done');
   var lastFocus = null, open = false;
   var small = window.matchMedia('(max-width:600px)');
 
+  var from = trig;
   function place(){
     if (small.matches) return;
-    var r = trig.getBoundingClientRect();
-    box.style.top = Math.round(Math.max(r.bottom, 56) + 10) + 'px';
-    box.style.right = Math.round(Math.max(16, document.documentElement.clientWidth - r.right)) + 'px';
+    var r = from.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+    box.style.right = Math.round(Math.max(16, vw - r.right)) + 'px';
+    if (from === fab){ box.style.top = 'auto'; box.style.bottom = Math.round(innerHeight - r.top + 12) + 'px'; }
+    else { box.style.bottom = 'auto'; box.style.top = Math.round(Math.max(r.bottom, 56) + 10) + 'px'; }
   }
-  function show(){
-    if (open) return; open = true; lastFocus = document.activeElement;
-    place(); scrim.hidden = false; box.hidden = false;
+  function show(src){
+    if (open) return; open = true; lastFocus = document.activeElement; from = src || trig;
+    place(); scrim.hidden = false; box.hidden = false; fabState();
     if (small.matches) document.documentElement.style.overflow = 'hidden';
     requestAnimationFrame(function(){ scrim.classList.add('on'); box.classList.add('on'); });
     trig.setAttribute('aria-expanded', 'true');
@@ -88,14 +105,32 @@
     document.documentElement.style.overflow = '';
     trig.setAttribute('aria-expanded', 'false');
     setTimeout(function(){ if (!open){ scrim.hidden = true; box.hidden = true; } }, 200);
+    fabState();
     if (lastFocus && lastFocus.focus) lastFocus.focus({preventScroll: true});
   }
 
   trig.setAttribute('aria-haspopup', 'dialog'); trig.setAttribute('aria-expanded', 'false');
   trig.addEventListener('click', function(e){
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.button > 0) return;
-    e.preventDefault(); e.stopPropagation(); open ? hide() : show();
+    e.preventDefault(); e.stopPropagation(); open ? hide() : show(trig);
   });
+  fab.addEventListener('click', function(e){ e.stopPropagation(); open ? hide() : show(fab); });
+
+  // Floating button: always within reach, but out of the way when a full contact form
+  // or the services-page selection bar is on screen, or when the panel is open.
+  var formInView = false, sent = false;
+  var page = document.getElementById('yhteys') || document.getElementById('cform');
+  if (page && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ formInView = en[0].isIntersecting; fabState(); }, {threshold: 0.15}).observe(page);
+  }
+  var bar = document.querySelector('.selbar');
+  if (bar && 'MutationObserver' in window) new MutationObserver(fabState).observe(bar, {attributes: true, attributeFilter: ['class']});
+  function fabState(){
+    var off = open || sent || formInView || (bar && bar.classList.contains('on'));
+    if (off){ fab.classList.remove('on'); clearTimeout(fab._t); fab._t = setTimeout(function(){ if (!fab.classList.contains('on')) fab.hidden = true; }, 350); }
+    else if (fab.hidden || !fab.classList.contains('on')){ fab.hidden = false; requestAnimationFrame(function(){ requestAnimationFrame(function(){ fab.classList.add('on'); }); }); }
+  }
+  setTimeout(fabState, 600);
   scrim.addEventListener('click', hide);
   box.querySelector('.pk-x').addEventListener('click', hide);
   box.querySelector('.pk-close2').addEventListener('click', hide);
@@ -129,7 +164,7 @@
     fetch(EP, {method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': KEY, 'Authorization': 'Bearer ' + KEY},
       body: JSON.stringify({p: {company: y, city: p, email: isMail ? c : '', phone: isMail ? '' : c, message: m, page: location.pathname + '#ylapalkki', www: f.www.value}})})
       .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j || !j.ok) throw new Error((j && j.error) || r.status); }); })
-      .then(function(){ body.hidden = true; done.hidden = false; done.focus(); })
+      .then(function(){ body.hidden = true; done.hidden = false; done.focus(); sent = true; })
       .catch(function(){
         btn.disabled = false; btn.textContent = 'Lähettäkää pyyntö';
         err.innerHTML = 'Lähetys ei onnistunut. <a href="' + mailto(y, p, c, m).replace(/"/g, '&quot;') + '">Lähettäkää sama viesti sähköpostilla</a> tai soittakaa 040 675 9882.';
