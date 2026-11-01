@@ -1,4 +1,4 @@
-/* Sävy Sähkö: "Tuletteko alueelleni?" postcode check in the hero + lead capture.
+/* Sävy Sähkö: "Tuletko alueelleni?" postcode check in the hero + lead capture.
    Demo only: a lead is kept in this browser (localStorage) so the visitor can open
    liidit/ and see how the business owner would receive it. Nothing is sent anywhere.
    On a real client site the save() call is replaced by a POST to the client's lead backend. */
