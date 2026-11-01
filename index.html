@@ -33,7 +33,7 @@
    },
    "availableLanguage": "fi",
    "description": "Kotisivut ja markkinointi paikallisille yrityksille: kotisivut, näkyvyys Googlessa ja hakupalveluissa, somen ylläpito, videot ja mainonta. Hinnat näkyvillä, kuukausipalveluissa ei määräaikaa.",
-   "priceRange": "149–990 €",
+   "priceRange": "149–2 900 €",
    "makesOffer": [
     {
      "@type": "Offer",
@@ -46,6 +46,13 @@
      "name": "Kotisivut, viisi sivua",
      "price": "990",
      "priceCurrency": "EUR"
+    },
+    {
+     "@type": "Offer",
+     "name": "Kotisivut Pro",
+     "price": "2900",
+     "priceCurrency": "EUR",
+     "description": "Alkaen, kertamaksu"
     }
    ]
   },
@@ -224,6 +231,11 @@ a{color:inherit}
 .pc b{font-weight:300;font-size:clamp(2.4rem,4.4vw,3.4rem);line-height:1.05;letter-spacing:-.035em;font-variant-numeric:tabular-nums}
 .pc-sub{font-size:.9rem;color:var(--paper-dim)}
 .pc p{margin:10px 0 0;color:var(--paper-dim);font-size:.96rem}
+.pc-pro{grid-column:1/-1;background:var(--paper-ink);color:var(--paper);box-shadow:none;text-decoration:none;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.pc-pro:hover{transform:translateY(-2px)}
+.pc-pro .pc-name,.pc-pro .pc-sub,.pc-pro p{color:rgba(241,238,231,.74)}
+.pc-more{margin-top:12px;font-size:.92rem;text-decoration:underline;text-underline-offset:3px}
+.offer .pc-pro:focus-visible{outline-color:var(--paper-ink)}
 .small{margin:18px 0 0;font-size:.86rem;color:var(--paper-dim)}
 .contact{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:30px}
 .mail{font-size:1.05rem;user-select:all}
@@ -487,6 +499,7 @@ a{color:inherit}
       <div class="prices">
         <div class="pc"><span class="pc-name">Yksi sivu</span><b>490 €</b><span class="pc-sub">kertamaksu</span><p>Yksi sivu, valmis käyttöön. Kirjoitamme tekstit puolestanne, ulkoasu suunnitellaan alallenne, ja Google-yritysprofiili laitetaan samalla kuntoon.</p></div>
         <div class="pc"><span class="pc-name">Viisi sivua</span><b>990 €</b><span class="pc-sub">kertamaksu</span><p>Enintään viisi sivua: oma sivu jokaiselle palvelulle ja yksi oma työkalu, esimerkiksi hintalaskuri.</p></div>
+        <a class="pc pc-pro" href="kotisivut-urakoitsijalle.html"><span class="pc-name">Kotisivut Pro · urakoitsijoille</span><b>2 900 €</b><span class="pc-sub">alkaen, kertamaksu</span><p>Isommille urakoitsijoille: teille tehty video sivujen alkuun, oma työkalu, kuten hintalaskuri tai valitsin, 3–4 hakusivua, oma yhteydenottolista ja Google-yritysprofiili. Kolme korjauskierrosta, valmis 2–3 viikossa.</p><span class="pc-more">Mitä Pro sisältää <span aria-hidden="true">→</span></span></a>
       </div>
       <div class="contact" style="margin-top:30px">
         <a class="pill pill-solid" href="#yhteys">Pyytäkää tarjous</a>
@@ -502,6 +515,7 @@ a{color:inherit}
       <li><span>Google-yritysprofiilin perustaminen tai haltuunotto, ja samat tiedot sivuille.</span></li>
       <li><span>Sivut tehdään ensin puhelimelle: soittopainike, Google-perusteet ja tietosuojaseloste ovat mukana. Valmis yleensä noin viikossa.</span></li>
       <li><span><b>Sivujen ylläpito 20 €/kk</b> on valinnainen, ja siinä ei ole määräaikaa. Kolme ensimmäistä kuukautta veloituksetta, ja verkkotunnus on aina yrityksenne nimissä.</span></li>
+      <li><span><b>Pro-ylläpito 49 €/kk</b> Pro-sivuille: kaikki, mitä ylläpidossa, ja lisäksi kuukausiraportti yhteydenotoista ja hauista, enintään tunti muutoksia kuukaudessa ja työkalun hintojen päivitys. Ei määräaikaa.</span></li>
       <li><span><b>Yhteydenotot suoraan omaan listaanne.</b> Jokainen sivujen kautta tullut pyyntö tallentuu listaan, jossa näette yhteystiedot ja merkitsette, missä vaiheessa asia on. Uudesta pyynnöstä tulee heti ilmoitus sähköpostiin. Kuuluu ylläpitoon. <a href="demo/ahde/" target="_blank" rel="noopener">Kokeilkaa esimerkkisivulla</a></span></li>
     </ul>
   </div>
@@ -685,6 +699,7 @@ a{color:inherit}
       <li><a href="paljonko-kotisivut-maksavat.html">Kotisivujen hinnat 2026</a></li>
     </ul>
     <ul aria-label="Alat">
+      <li><a href="kotisivut-urakoitsijalle.html">Kotisivut urakoitsijalle</a></li>
       <li><a href="kotisivut-putkimiehelle.html">Kotisivut putkimiehelle</a></li>
       <li><a href="kotisivut-lvi-yritykselle.html">Kotisivut LVI-yritykselle</a></li>
       <li><a href="kotisivut-sahkoasentajalle.html">Kotisivut sähköasentajalle</a></li>
