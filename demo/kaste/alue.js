@@ -64,7 +64,7 @@
     const k = kunta(v);
     if (!k) { result(`Postinumeroa ${v} ei löytynyt. Tarkistakaa numero.`, 'no'); return; }
     cur = {code: v, kunta: k, inArea: AREA.includes(k)};
-    if (cur.inArea) result(`<b>${v} · ${k}</b><span>Kuuluu toimialueeseemme. Kartoitus on maksuton.</span>`, 'ok', 'Varaa kartoitus');
+    if (cur.inArea) result(`<b>${v} · ${k}</b><span>Kuuluu toimialueeseemme. Kartoitus on maksuton.</span>`, 'ok', 'Varatkaa kartoitus');
     else result(`<b>${v} · ${k}</b><span>Tämä on toimialueemme ulkopuolella. Jättäkää silti yhteystiedot, niin kerromme, onnistuuko työ.</span>`, 'out', 'Jätä yhteystiedot');
   }
   inp.addEventListener('input', doCheck);

@@ -3,13 +3,13 @@
    liidit/ and see how the business owner would receive it. Nothing is sent anywhere.
    On a real client site the save() call is replaced by a POST to the client's lead backend.
    Service area: the site states "Helsinki" (JSON-LD, kicker) and "Helsinki ja lähialueet" (stats, contact).
-   "Lähialueet" is not defined anywhere, so only Helsinki is treated as certain; any other
-   postcode gets the "leave your details, we'll tell you if it works" answer. */
+   "Lähialueet" = Espoo, Vantaa and Kauniainen (decided 1.11.2026); any other postcode gets the
+   "leave your details, we'll tell you if it works" answer. */
 (() => {
   'use strict';
   const $ = (s, r = document) => r.querySelector(s);
   const KEY = 'raikas-demo-liidit-v1';
-  const AREA = ['Helsinki'];
+  const AREA = ['Helsinki', 'Espoo', 'Vantaa', 'Kauniainen'];
   const NB = ' ';
   const store = {
     read() { try { return JSON.parse(localStorage.getItem(KEY)) || {own: [], edits: {}}; } catch (e) { return {own: [], edits: {}}; } },
@@ -68,7 +68,7 @@
     const k = kunta(v);
     if (!k) { result(`Postinumeroa ${v} ei löytynyt. Tarkistakaa numero.`, 'no'); return; }
     cur = {code: v, kunta: k, inArea: AREA.includes(k)};
-    if (cur.inArea) result(`<b>${v} · ${k}</b><span>Kuuluu toimialueeseemme. Tutustumiskäynti on maksuton.</span>`, 'ok', 'Pyydä tarjous');
+    if (cur.inArea) result(`<b>${v} · ${k}</b><span>Kuuluu toimialueeseemme. Tutustumiskäynti on maksuton.</span>`, 'ok', 'Pyytäkää tarjous');
     else result(`<b>${v} · ${k}</b><span>Tämä on Helsingin ulkopuolella. Jättäkää silti yhteystiedot, niin kerromme, onnistuuko työ.</span>`, 'out', 'Jätä yhteystiedot');
   }
   inp.addEventListener('input', doCheck);
