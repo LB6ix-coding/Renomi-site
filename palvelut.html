@@ -173,7 +173,7 @@
    },
    "priceCurrency": "EUR",
    "price": "20",
-   "description": "Kuukausihinta, valinnainen, ei määräaikaa"
+   "description": "Kuukausihinta, valinnainen, ei määräaikaa. Sisältää yhteydenottolistan."
   },
   {
    "@type": "Offer",
@@ -211,7 +211,7 @@
   <div class="gut wide row">
     <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
     <nav class="nav" aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html">Esimerkkisivut</a><a href="palvelut.html" aria-current="page">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a></nav>
-    <a class="pill pill-solid cta" href="yhteys.html">Ottakaa yhteyttä</a>
+    <a class="pill pill-solid cta" href="yhteys.html" data-pika>Ottakaa yhteyttä</a>
     <details class="mnav"><summary><i></i>Valikko</summary><nav aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html">Esimerkkisivut</a><a href="palvelut.html" aria-current="page">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a><a href="mailto:info@marktic.fi">info@marktic.fi</a></nav></details>
   </div>
 </header>
@@ -314,7 +314,7 @@
           <label class="pick"><input type="checkbox" data-name="Sivujen ylläpito" data-mo="20" data-once="0" aria-label="Valitkaa Sivujen ylläpito"><span></span></label>
           <h3>Sivujen ylläpito</h3>
           <span class="pr"><b>20 €</b><small>/kk</small></span>
-          <div class="txt"><p>Verkkotunnus ja palvelintila, päivitykset, varmuuskopiot, pienet tekstimuutokset. Valinnainen, ei määräaikaa. Verkkotunnus on aina yrityksenne nimissä.</p><p class="note">Kotisivujen tilaajille kolme ensimmäistä kuukautta veloituksetta.</p></div>
+          <div class="txt"><p>Verkkotunnus ja palvelintila, päivitykset, varmuuskopiot, pienet tekstimuutokset ja oma yhteydenottolista, johon sivujen pyynnöt tallentuvat ja josta saatte ilmoituksen sähköpostiin. Valinnainen, ei määräaikaa. Verkkotunnus on aina yrityksenne nimissä.</p><p class="note">Kotisivujen tilaajille kolme ensimmäistä kuukautta veloituksetta.</p></div>
         </div><div class="plan">
           <label class="pick"><input type="checkbox" data-name="Mainonnan hallinta" data-mo="249" data-once="0" aria-label="Valitkaa Mainonnan hallinta"><span></span></label>
           <h3>Mainonnan hallinta</h3>
@@ -442,5 +442,6 @@ document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener
   document.getElementById('sel-clear').addEventListener('click', function(){ boxes.forEach(function(b){ b.checked = false; }); update(); boxes[0].focus(); });
   update();
 })();</script>
+<script src="assets/pika.js" defer></script>
 </body>
 </html>

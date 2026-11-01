@@ -116,7 +116,7 @@
   <div class="gut wide row">
     <a class="logo" href="index.html" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
     <nav class="nav" aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html" aria-current="page">Esimerkkisivut</a><a href="palvelut.html">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a></nav>
-    <a class="pill pill-solid cta" href="yhteys.html">Ottakaa yhteyttä</a>
+    <a class="pill pill-solid cta" href="yhteys.html" data-pika>Ottakaa yhteyttä</a>
     <details class="mnav"><summary><i></i>Valikko</summary><nav aria-label="Päävalikko"><a href="index.html#paketti">Kotisivut</a><a href="tyot.html" aria-current="page">Esimerkkisivut</a><a href="palvelut.html">Palvelut ja hinnat</a><a href="meista.html">Meistä</a><a href="yhteys.html">Yhteys</a><a href="mailto:info@marktic.fi">info@marktic.fi</a></nav></details>
   </div>
 </header>
@@ -288,5 +288,6 @@ document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener
   var io = new IntersectionObserver(function(es){ es.forEach(function(en){ var v = en.target; if (en.isIntersecting){ v.preload = 'auto'; var p = v.play(); if (p && p.catch) p.catch(function(){}); } else v.pause(); }); }, {threshold:.35});
   vids.forEach(function(v){ io.observe(v); });
 })();</script>
+<script src="assets/pika.js" defer></script>
 </body>
 </html>

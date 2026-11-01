@@ -67,7 +67,7 @@
      "name": "Mitä sivujen ylläpito sisältää?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Verkkotunnuksen ja palvelintilan, päivitykset, varmuuskopiot ja pienet tekstimuutokset. Verkkotunnus rekisteröidään yrityksenne nimiin, vaikka me hoidamme ylläpidon."
+      "text": "Verkkotunnuksen ja palvelintilan, päivitykset, varmuuskopiot ja pienet tekstimuutokset. Lisäksi oman yhteydenottolistan: sivujen lomakkeilta tulevat pyynnöt tallentuvat listaan, jonka näette kirjautumalla, ja uudesta pyynnöstä saatte ilmoituksen sähköpostiin. Verkkotunnus rekisteröidään yrityksenne nimiin, vaikka me hoidamme ylläpidon."
      }
     },
     {
@@ -322,6 +322,25 @@ a{color:inherit}
 .steps li::before{font-size:2.4rem;font-weight:300;line-height:1;color:var(--paper-ink);letter-spacing:-.03em}
 .contact-sec .wrap{grid-template-columns:minmax(0,1fr)}
 .contact-sec .facts{flex-direction:row;flex-wrap:wrap;gap:6px 28px;margin-top:22px}
+.contact-sec .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}
+.contact-sec .big-mail{font-size:clamp(2rem,4.2vw,3.6rem)}
+.contact-sec .facts{flex-direction:column;gap:8px}
+.contact-sec .facts a{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:860px){.contact-sec .wrap{grid-template-columns:minmax(0,1fr)}}
+.form{display:flex;flex-direction:column;gap:14px;padding:clamp(20px,3vw,32px);border-radius:16px;background:#fbfaf6;box-shadow:0 0 0 1px var(--paper-line)}
+.form label{display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+.form label small,.form .fine{color:var(--paper-dim);font-size:.84rem}
+.form .fine a{text-decoration:underline}
+.form input,.form textarea{font:inherit;font-size:1rem;color:var(--paper-ink);background:var(--paper);border:1px solid rgba(20,22,21,.24);border-radius:10px;padding:12px 14px;min-height:48px;width:100%}
+.form textarea{min-height:110px;resize:vertical}
+.form ::placeholder{color:rgba(20,22,21,.6)}
+.form input:focus,.form textarea:focus{outline:2px solid var(--paper-ink);outline-offset:1px}
+.form .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:560px){.form .two{grid-template-columns:minmax(0,1fr)}}
+.form .err{color:#9b2c1f;font-size:.88rem}.form .err a{color:inherit;text-decoration:underline}
+.form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form .pill{margin-left:0;border:0;cursor:pointer}.form .pill:disabled{opacity:.6;cursor:default}
+.form.sent{gap:8px}.form.sent h3{font-weight:400;font-size:clamp(1.4rem,2.4vw,1.9rem);letter-spacing:-.02em}.form.sent p{color:var(--paper-dim)}.form.sent:focus{outline:none}
 .hd.solid.light{background:rgba(241,238,231,.88);color:var(--paper-ink);border-bottom-color:var(--paper-line)}
 .hd.light .nav{color:var(--paper-dim)}
 .hd.light .nav a:hover{color:var(--paper-ink)}
@@ -359,7 +378,7 @@ a{color:inherit}
       <li><a href="#palvelut">Palvelut ja hinnat</a></li>
       <li><a href="#yhteys">Yhteys</a></li>
     </ul>
-    <a class="pill pill-ghost" href="#yhteys">Ottakaa yhteyttä</a>
+    <a class="pill pill-ghost" href="#yhteys" data-pika>Ottakaa yhteyttä</a>
   </div>
 </header>
 
@@ -466,7 +485,7 @@ a{color:inherit}
         <div class="pc"><span class="pc-name">Viisi sivua</span><b>990 €</b><span class="pc-sub">kertamaksu</span><p>Enintään viisi sivua: oma sivu jokaiselle palvelulle ja yksi oma työkalu, esimerkiksi hintalaskuri.</p></div>
       </div>
       <div class="contact" style="margin-top:30px">
-        <a class="pill pill-solid" href="mailto:info@marktic.fi?subject=Kotisivut">Pyytäkää tarjous</a>
+        <a class="pill pill-solid" href="#yhteys">Pyytäkää tarjous</a>
         <a class="mail" id="mail" href="mailto:info@marktic.fi?subject=Kotisivut">info@marktic.fi</a>
         <button class="copybtn" type="button" data-copy="mail" aria-live="polite">Kopioi osoite</button>
       </div>
@@ -479,6 +498,7 @@ a{color:inherit}
       <li><span>Google-yritysprofiilin perustaminen tai haltuunotto, ja samat tiedot sivuille.</span></li>
       <li><span>Sivut tehdään ensin puhelimelle: soittopainike, Google-perusteet ja tietosuojaseloste ovat mukana. Valmis yleensä noin viikossa.</span></li>
       <li><span><b>Sivujen ylläpito 20 €/kk</b> on valinnainen, ja siinä ei ole määräaikaa. Kolme ensimmäistä kuukautta veloituksetta, ja verkkotunnus on aina yrityksenne nimissä.</span></li>
+      <li><span><b>Yhteydenotot suoraan omaan listaanne.</b> Jokainen sivujen kautta tullut pyyntö tallentuu listaan, jossa näette yhteystiedot ja merkitsette, missä vaiheessa asia on. Uudesta pyynnöstä tulee heti ilmoitus sähköpostiin. Kuuluu ylläpitoon. <a href="demo/ahde/" target="_blank" rel="noopener">Kokeilkaa esimerkkisivulla</a></span></li>
     </ul>
   </div>
 </section>
@@ -589,7 +609,7 @@ a{color:inherit}
       <h2 id="qh">Usein kysyttyä kotisivuista.</h2>
     </div>
     <div class="faq">
-      <details><summary>Mitä sivujen ylläpito sisältää?</summary><p>Verkkotunnuksen ja palvelintilan, päivitykset, varmuuskopiot ja pienet tekstimuutokset. Verkkotunnus rekisteröidään yrityksenne nimiin, vaikka me hoidamme ylläpidon.</p></details>
+      <details><summary>Mitä sivujen ylläpito sisältää?</summary><p>Verkkotunnuksen ja palvelintilan, päivitykset, varmuuskopiot ja pienet tekstimuutokset. Lisäksi oman yhteydenottolistan: sivujen lomakkeilta tulevat pyynnöt tallentuvat listaan, jonka näette kirjautumalla, ja uudesta pyynnöstä saatte ilmoituksen sähköpostiin. Verkkotunnus rekisteröidään yrityksenne nimiin, vaikka me hoidamme ylläpidon.</p></details>
       <details><summary>Auttavatko sivut löytymään Googlesta?</summary><p>Sivuilla ovat Google-perusteet ja rakenteinen tieto, jotta hakukoneet ymmärtävät oikein, mitä teette ja millä alueella. Tiettyä sijoitusta hakutuloksissa emme lupaa, koska tulokset vaihtelevat.</p></details>
       <details><summary>Ovatko esimerkkisivujen yritykset oikeita?</summary><p>Eivät ole. Ne ovat kuvitteellisia yrityksiä, joiden sivuilla näytämme, millaisia sivuja teemme eri aloille.</p></details>
     </div>
@@ -600,12 +620,31 @@ a{color:inherit}
   <div class="gut">
     <div class="sec-head">
       <span class="eb">Yhteys</span>
-      <h2 id="ch">Lähettäkää yrityksenne nimi ja ala.</h2>
+      <h2 id="ch">Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
     </div>
     <div class="wrap">
+      <div class="formcol">
+        <form class="form" id="cform" novalidate data-endpoint="https://ocvargozhsgegbrfyiki.supabase.co/rest/v1/rpc/submit_website_lead" data-key="sb_publishable_nfdBMh1ufBL3uApkcU6cbw_x-7EpgdB">
+          <div class="two">
+            <label for="f-y">Yrityksen nimi<input id="f-y" name="y" autocomplete="organization" required aria-describedby="f-err" placeholder="Esim. LVI Virtanen Oy"></label>
+            <label for="f-p">Paikkakunta<input id="f-p" name="p" autocomplete="address-level2" required aria-describedby="f-err" placeholder="Esim. Vantaa"></label>
+          </div>
+          <label for="f-c">Sähköposti tai puhelin<input id="f-c" name="c" autocomplete="email" required aria-describedby="f-err" placeholder="Esim. nimi@yritys.fi tai 040 123 4567"></label>
+          <label for="f-m"><span>Viesti <small>valinnainen</small></span><textarea id="f-m" name="m" rows="3" aria-describedby="f-m-hint"></textarea><small id="f-m-hint">Mitä sivuja tarvitsette, tai nykyisten sivujen osoite.</small></label>
+          <div class="hp" aria-hidden="true"><label for="f-www">Jättäkää tyhjäksi<input id="f-www" name="www" tabindex="-1" autocomplete="off"></label></div>
+          <p class="err" id="f-err" role="alert" hidden>Kirjoittakaa yrityksen nimi, paikkakunta ja sähköposti tai puhelinnumero.</p>
+          <div><button class="pill pill-solid" type="submit" id="f-send">Lähettäkää pyyntö</button></div>
+          <p class="fine">Käytämme tietoja vain yhteydenottoonne vastaamiseen. Ne poistetaan 12 kuukauden kuluttua, ellei asiakassuhdetta synny. <a href="tietosuoja.html">Tietosuojaseloste</a></p>
+        </form>
+        <div class="form sent" id="f-done" hidden tabindex="-1">
+          <h3>Kiitos, pyyntö on perillä.</h3>
+          <p>Vastaamme kahden arkipäivän kuluessa. Pyyntö ei sido teitä mihinkään.</p>
+        </div>
+      </div>
       <div>
         <a class="big-mail" id="mail2" href="mailto:info@marktic.fi?subject=Kotisivut">info@marktic.fi</a>
         <div class="facts">
+          <span>Tai soittakaa <a href="tel:+358406759882">040 675 9882</a>.</span>
           <span>Vastaamme kahden arkipäivän kuluessa.</span>
           <span>Toimimme Vantaalta ja palvelemme koko Suomea etänä.</span>
         </div>
@@ -865,7 +904,37 @@ a{color:inherit}
   scenes.forEach(measure);
   render(target());
 })();
+(function(){
+  var f = document.getElementById('cform'), err = document.getElementById('f-err'), done = document.getElementById('f-done'), btn = document.getElementById('f-send');
+  function mailto(y, p, c, m){
+    var body = 'Hei,\n\npyydämme tarjousta kotisivuista.\n\nYritys: ' + y + '\nPaikkakunta: ' + p + (c ? '\nYhteystieto: ' + c : '') + (m ? '\n\n' + m : '') + '\n';
+    return 'mailto:info@marktic.fi?subject=' + encodeURIComponent('Kotisivut: ' + y) + '&body=' + encodeURIComponent(body);
+  }
+  f.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var y = f.y.value.trim(), p = f.p.value.trim(), c = f.c.value.trim(), m = f.m.value.trim();
+    var cOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c) || /^[0-9 +()\-]{6,}$/.test(c);
+    f.y.setAttribute('aria-invalid', y ? 'false' : 'true'); f.p.setAttribute('aria-invalid', p ? 'false' : 'true'); f.c.setAttribute('aria-invalid', cOk ? 'false' : 'true');
+    if (!y || !p || !cOk){ err.textContent = 'Kirjoittakaa yrityksen nimi, paikkakunta ja sähköposti tai puhelinnumero.'; err.hidden = false; (!y ? f.y : !p ? f.p : f.c).focus(); return; }
+    err.hidden = true;
+    var ep = f.getAttribute('data-endpoint'), key = f.getAttribute('data-key');
+    if (!ep || !key){ location.href = mailto(y, p, c, m); return; }
+    btn.disabled = true; btn.textContent = 'Lähetetään…';
+    var isMail = c.indexOf('@') > -1;
+    // Marktic CRM (Supabase): one database function that only accepts new requests; the publishable key can't read anything
+    fetch(ep, {method: 'POST', headers: {'Content-Type': 'application/json', 'apikey': key, 'Authorization': 'Bearer ' + key},
+      body: JSON.stringify({p: {company: y, city: p, email: isMail ? c : '', phone: isMail ? '' : c, message: m, page: location.pathname, www: f.www.value}})})
+      .then(function(r){ return r.json().then(function(j){ if (!r.ok || !j || !j.ok) throw new Error((j && j.error) || r.status); }); })
+      .then(function(){ f.hidden = true; done.hidden = false; done.focus(); })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Lähettäkää pyyntö';
+        err.innerHTML = 'Lähetys ei onnistunut. <a href="' + mailto(y, p, c, m).replace(/"/g, '&quot;') + '">Lähettäkää sama viesti sähköpostilla</a> tai soittakaa 040 675 9882.';
+        err.hidden = false;
+      });
+  });
+})();
 </script>
 
+<script src="assets/pika.js" defer></script>
 </body>
 </html>
