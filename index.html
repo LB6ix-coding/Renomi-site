@@ -146,6 +146,10 @@ a{color:inherit}
 .scene:first-child{opacity:1;pointer-events:auto}
 .scene picture{display:contents}
 .scene video,.scene .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transform-origin:50% 55%}
+/* if a phone refuses to play the video (e.g. iPhone low power mode), the still image moves slowly instead */
+.scene.kb .poster{animation:kbz 16s cubic-bezier(.25,.6,.3,1) forwards}
+@keyframes kbz{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-1.5%,-1%,0)}}
+@media (prefers-reduced-motion:reduce){.scene.kb .poster{animation:none}}
 .shade{position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(6,8,7,.5) 0,rgba(6,8,7,0) 150px),
              linear-gradient(90deg,rgba(6,8,7,.6) 0%,rgba(6,8,7,.24) 44%,rgba(6,8,7,0) 70%),
@@ -756,7 +760,7 @@ a{color:inherit}
   var SMALL = window.matchMedia('(max-width:760px)').matches;
   scenes.forEach(function(sc){
     var v = sc._v;
-    v.addEventListener('error', function(){ sc._failed = true; });
+    v.addEventListener('error', function(){ sc._failed = true; if (PLAY) sc.classList.add('kb'); });
     v.addEventListener('seeked', req);
     v.addEventListener(PLAY ? 'playing' : 'seeked', function(){ if (sc._loading){ v.style.opacity = 1; } });
   });
@@ -787,7 +791,7 @@ a{color:inherit}
   function playScene(sc){
     var v = sc._v; sc._played = true;
     try { v.currentTime = 0; } catch(e){}
-    var p = v.play(); if (p && p.catch) p.catch(function(){ sc._played = false; });
+    var p = v.play(); if (p && p.catch) p.catch(function(){ sc._played = false; sc.classList.add('kb'); });
   }
   // Nothing heavy loads until the visitor interacts: the first scene's still image is the first frame of its video.
   var armed = false;
@@ -798,6 +802,12 @@ a{color:inherit}
   }
   ['scroll','wheel','touchstart','pointerdown','keydown'].forEach(function(t){ addEventListener(t, arm, {capture:true, passive:true}); });
   if (scrollY > 0) arm();
+  // Phones: start the first video by itself shortly after the page has loaded, so the hero moves without a tap.
+  // The still image still paints first; nothing loads early when the visitor has asked to save data.
+  if (PLAY && !(navigator.connection && navigator.connection.saveData)){
+    var auto = function(){ setTimeout(arm, 700); };
+    if (document.readyState === 'complete') auto(); else addEventListener('load', auto, {once: true});
+  }
 
   function scrub(sc, f){
     if (PLAY) return;
