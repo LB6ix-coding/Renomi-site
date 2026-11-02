@@ -369,6 +369,24 @@ a{color:inherit}
   .offer{margin-top:0}
 }
 @media (prefers-reduced-motion:reduce) and (max-width:760px){.phone{transform:none}.scene:first-child .phone{display:none}}
+/* scroll hint: finger on touch screens, mouse on desktop; hides once the visitor scrolls */
+.svh{position:fixed;z-index:25;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 34px);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--ink);pointer-events:none;opacity:0;transform:translate(-50%,10px);transition:opacity .45s ease,transform .45s ease;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55)) drop-shadow(0 2px 14px rgba(0,0,0,.45))}
+.svh.on{opacity:1;transform:translate(-50%,0)}
+.svh svg{display:block;overflow:visible}
+.svh-t{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.85;line-height:1}
+.svh .svh-touch{display:none}
+@media (hover:none),(pointer:coarse){.svh .svh-touch{display:block}.svh .svh-mouse{display:none}.svh{bottom:calc(env(safe-area-inset-bottom,0px) + 112px)}}
+.svh-wheel{animation:svhWheel 1.7s cubic-bezier(.45,0,.2,1) infinite}
+.svh-chev{animation:svhChev 1.7s cubic-bezier(.45,0,.2,1) infinite}
+@keyframes svhWheel{0%{transform:translateY(0);opacity:0}15%{opacity:1}65%{transform:translateY(8px);opacity:0}100%{transform:translateY(8px);opacity:0}}
+@keyframes svhChev{0%,20%{transform:translateY(-3px);opacity:0}55%{transform:translateY(2px);opacity:.9}90%,100%{transform:translateY(5px);opacity:0}}
+.svh-hand{animation:svhHand 2.1s cubic-bezier(.5,0,.15,1) infinite}
+.svh-ring{transform-box:fill-box;transform-origin:center;animation:svhRing 2.1s ease-out infinite}
+.svh-trail{stroke-dasharray:26;animation:svhTrail 2.1s cubic-bezier(.5,0,.15,1) infinite}
+@keyframes svhHand{0%{transform:translateY(12px);opacity:0}12%{transform:translateY(12px);opacity:1}22%{transform:translateY(12px)}62%{transform:translateY(-10px);opacity:1}78%,100%{transform:translateY(-12px);opacity:0}}
+@keyframes svhRing{0%,10%{transform:scale(.4);opacity:0}16%{transform:scale(.6);opacity:.9}34%{transform:scale(1.6);opacity:0}100%{opacity:0}}
+@keyframes svhTrail{0%,22%{stroke-dashoffset:26;opacity:.7}62%{stroke-dashoffset:4;opacity:.55}80%,100%{stroke-dashoffset:4;opacity:0}}
+@media (prefers-reduced-motion:reduce){.svh-wheel,.svh-chev,.svh-hand,.svh-ring,.svh-trail{animation:none}.svh-ring,.svh-trail{opacity:0}.svh{transition:opacity .2s}}
 </style>
 </head>
 <body>
@@ -945,6 +963,29 @@ a{color:inherit}
 })();
 </script>
 
+<div class="svh" id="scrollvihje" aria-hidden="true">
+  <svg class="svh-mouse" width="26" height="46" viewBox="0 0 26 46" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="1.5" width="20" height="31" rx="10"/>
+    <rect class="svh-wheel" x="12" y="7" width="2" height="6" rx="1" fill="currentColor" stroke="none"/>
+    <path class="svh-chev" d="M9 39l4 3.5 4-3.5"/>
+  </svg>
+  <svg class="svh-touch" width="40" height="56" viewBox="0 0 40 56" fill="none">
+    <path class="svh-trail" d="M20 34V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <g class="svh-hand">
+      <circle class="svh-ring" cx="20" cy="31" r="7" stroke="var(--lichen)" stroke-width="1.6"/>
+      <path d="M17.2 30.5V19.8a2.8 2.8 0 0 1 5.6 0v9.4l1.2-.6a2.6 2.6 0 0 1 3.4 1.2l.4.8 1.1-.3a2.5 2.5 0 0 1 3 1.6l.2.6c1.6 0 2.6 1.3 2.4 2.8l-.9 6.2c-.6 4-3.6 6.8-7.6 6.8h-3.3c-2.4 0-4.6-1.1-6-3.1l-5.1-7a2.4 2.4 0 0 1 3.4-3.4l2.2 1.9z" fill="currentColor" stroke="rgba(10,12,11,.55)" stroke-width="1"/>
+      <path d="M23.9 32.2v3.6M28.4 32.9v3.2M32.2 34.4v2.6" stroke="rgba(10,12,11,.55)" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+  </svg>
+  <span class="svh-t">Vierittäkää</span>
+</div>
+<script>
+(()=>{const h=document.getElementById('scrollvihje');if(!h)return;let t=0;
+const show=d=>{clearTimeout(t);t=setTimeout(()=>{if(scrollY<40)h.classList.add('on')},d)};
+show(1300);
+addEventListener('scroll',()=>{if(scrollY>40){clearTimeout(t);h.classList.remove('on')}else if(scrollY<5&&!h.classList.contains('on'))show(3000)},{passive:true});
+})();
+</script>
 <script src="assets/pika.js" defer></script>
 </body>
 </html>
