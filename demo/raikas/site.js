@@ -394,4 +394,5 @@
   /* ---------- process steps light up ---------- */
   // handled by .reveal.in -> .step.in styles
 
+  document.documentElement.classList.add('ready');
 })();

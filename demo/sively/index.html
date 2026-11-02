@@ -10,7 +10,7 @@
 <meta name="theme-color" content="#1d1b19">
 <link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
 <link rel="stylesheet" href="site.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>/* reveal animations only when the page script really runs; on an old or strict browser the content stays visible */(function(d){d.classList.add('js');function off(){if(!d.classList.contains('ready'))d.classList.remove('js')}addEventListener('error',off);addEventListener('load',function(){setTimeout(off,1500)})})(document.documentElement)</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HousePainter","name":"Sively Maalaus","description":"Kuvitteellinen demoyritys: sisä- ja ulkomaalaus, keittiön kaapistot ja tapetointi Espoossa ja pääkaupunkiseudulla.","telephone":"+358440000000","email":"hei@sively.example","address":{"@type":"PostalAddress","streetAddress":"Esimerkkipolku 3","postalCode":"02100","addressLocality":"Espoo","addressCountry":"FI"},"areaServed":["Espoo","Helsinki","Vantaa","Kauniainen"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"16:00"}]}</script>
 </head>
 <body>

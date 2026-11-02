@@ -320,4 +320,5 @@
   form.addEventListener('submit', e => { if (!form.dataset.endpoint) { e.preventDefault(); status.hidden = false; status.focus(); } });
 
   onScroll();
+  document.documentElement.classList.add('ready');
 })();

@@ -325,4 +325,5 @@
     new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible && !ready) start(); upd(); }, {rootMargin: '200px'}).observe(fogSec);
     RM.addEventListener('change', upd);
   }
+  document.documentElement.classList.add('ready');
 })();

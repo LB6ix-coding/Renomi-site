@@ -56,7 +56,7 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
 .menu-btn[aria-expanded="true"] span:last-child{top:23px;transform:rotate(-45deg)}
 
 /* hero */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--night);color:#fff;overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--night);color:#fff;overflow:hidden;isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:-2}
 .hero-poster,.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 50%}
 .hero-video{opacity:0;transition:opacity .8s}.hero-video.on{opacity:1}
@@ -335,9 +335,9 @@ input.kelvin::-moz-range-progress{background:transparent}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:rgba(11,13,18,.97);backdrop-filter:blur(14px);padding:6px 16px 14px;gap:0;border-bottom:1px solid rgba(255,255,255,.08)}
   .nav-links.open a{display:block;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08)}
   .hero{min-height:auto;justify-content:flex-start}
-  .hero-media{position:relative;height:58svh;min-height:360px;inset:auto}
+  .hero-media{position:relative;height:58vh;height:58svh;min-height:360px;inset:auto}
   .hero-media::after{background:linear-gradient(0deg,var(--night) 2%,rgba(11,13,18,.15) 50%,rgba(11,13,18,.5) 100%)}
-  .hero-sparks{height:58svh}
+  .hero-sparks{height:58vh;height:58svh}
   .hero-copy{padding-top:0;margin-top:-120px;gap:18px}
   .hero h1{font-size:clamp(2.7rem,13.5vw,3.7rem)}
   .hero .lead{font-size:1.04rem}
@@ -428,7 +428,7 @@ input.kelvin::-moz-range-progress{background:transparent}
 .ap-scrim{position:fixed;inset:0;z-index:140;background:rgba(5,6,9,.66);opacity:0;transition:opacity .24s}
 .ap-scrim.in{opacity:1}
 html.ap-lock{overflow:hidden}
-.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(480px,calc(100vw - 32px));max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;border-radius:28px;background:radial-gradient(420px 180px at 0% 0%,rgba(255,207,122,.2),transparent 70%),#fff;color:var(--ink);padding:30px 30px 24px;box-shadow:0 50px 100px -30px rgba(0,0,0,.75),0 0 0 1px rgba(255,207,122,.25);opacity:0;transform:translate(-50%,-46%) scale(.98);transition:opacity .24s var(--ease),transform .3s var(--ease)}
+.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(480px,calc(100vw - 32px));max-height:calc(100vh - 48px);max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;border-radius:28px;background:radial-gradient(420px 180px at 0% 0%,rgba(255,207,122,.2),transparent 70%),#fff;color:var(--ink);padding:30px 30px 24px;box-shadow:0 50px 100px -30px rgba(0,0,0,.75),0 0 0 1px rgba(255,207,122,.25);opacity:0;transform:translate(-50%,-46%) scale(.98);transition:opacity .24s var(--ease),transform .3s var(--ease)}
 .area-panel.in{opacity:1;transform:translate(-50%,-50%)}
 .ap-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:50%;background:var(--paper);color:var(--ink-2);cursor:pointer;display:grid;place-items:center;transition:background .2s}
 .ap-close:hover{background:var(--paper-2)}
@@ -460,7 +460,7 @@ html.ap-lock{overflow:hidden}
 .ap-done .btn{white-space:normal;text-align:left;line-height:1.25;max-width:100%}
 @media (max-width:760px){
   .area-hero{max-width:none}
-  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100svh - 40px);border-radius:24px 24px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
+  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100vh - 40px);max-height:calc(100svh - 40px);border-radius:24px 24px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
   .area-panel.in{transform:none}
   .ap-grid{grid-template-columns:1fr}
   .ap-done .btn{width:100%;justify-content:space-between}
