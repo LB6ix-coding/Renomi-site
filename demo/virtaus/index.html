@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d1b26'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M7 12h11a3 3 0 1 0-3-3'/%3E%3Cpath d='M7 16h15a3 3 0 1 1-3 3'/%3E%3Cpath d='M7 20h6'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preload" as="image" href="img/v-poster.webp" fetchpriority="high" media="(min-width:761px)">
 <link rel="preload" as="image" href="img/v-poster-mobile.webp" fetchpriority="high" media="(max-width:760px)">
-<script>document.documentElement.classList.add('js')</script>
+<script>/* reveal animations only when the page script really runs; on an old or strict browser the content stays visible */(function(d){d.classList.add('js');function off(){if(!d.classList.contains('ready'))d.classList.remove('js')}addEventListener('error',off);addEventListener('load',function(){setTimeout(off,1500)})})(document.documentElement)</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HVACBusiness", "name": "Virtaus LVIA (kuvitteellinen demoyritys)", "foundingDate": "1998", "description": "Kuvitteellinen LVIA-yritys Markticin esimerkkisivulla."}</script>
 <style>
 @font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format('woff2')}
@@ -248,7 +248,7 @@ h2{font-weight:600}
 .vh-stats{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);margin-top:-110px;padding:24px 0 34px;border-top:1px solid rgba(255,255,255,.16)}
 .vh-stats b{display:block;font-family:Sora,sans-serif;font-size:1.6rem;font-weight:600;letter-spacing:-.04em}
 .vh-stats span{color:#8fa3ad;font-size:14px}
-@media (max-width:760px){.vh-media{height:56svh;min-height:380px}.vh-media::after{background:linear-gradient(0deg,#0a151c 0%,rgba(10,21,28,.1) 55%)}
+@media (max-width:760px){.vh-media{height:56vh;height:56svh;min-height:380px}.vh-media::after{background:linear-gradient(0deg,#0a151c 0%,rgba(10,21,28,.1) 55%)}
  .vh-copy{position:relative;top:auto;transform:none;margin-top:-80px}.vh-copy h1{font-size:clamp(2.8rem,13vw,3.6rem)}.vh-stats{grid-template-columns:1fr 1fr;gap:16px 0;margin-top:26px}.vh-stats b{font-size:1.2rem}}
 .vband{background:#0a151c;padding:0 0 clamp(64px,9vw,112px)}
 .vband-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -308,7 +308,7 @@ form.area-hero{display:grid;gap:10px;grid-template-columns:minmax(0,1fr);max-wid
 .ap-scrim.in{opacity:1}
 .ap-scrim[hidden],.area-panel[hidden],.ap-step[hidden]{display:none!important}
 html.ap-lock{overflow:hidden}
-.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(470px,calc(100vw - 32px));max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;background:var(--paper);color:var(--ink);border-radius:6px;padding:30px 28px 24px;box-shadow:0 50px 100px -30px rgba(10,21,28,.65),inset 0 3px 0 var(--accent);opacity:0;transform:translate(-50%,-46%);transition:opacity .22s ease,transform .28s cubic-bezier(.2,.7,.2,1)}
+.area-panel{position:fixed;z-index:150;left:50%;top:50%;width:min(470px,calc(100vw - 32px));max-height:calc(100vh - 48px);max-height:calc(100svh - 48px);overflow:auto;overscroll-behavior:contain;background:var(--paper);color:var(--ink);border-radius:6px;padding:30px 28px 24px;box-shadow:0 50px 100px -30px rgba(10,21,28,.65),inset 0 3px 0 var(--accent);opacity:0;transform:translate(-50%,-46%);transition:opacity .22s ease,transform .28s cubic-bezier(.2,.7,.2,1)}
 .area-panel.in{opacity:1;transform:translate(-50%,-50%)}
 .ap-close{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:4px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center}
 .ap-close svg{width:22px;height:22px}
@@ -343,7 +343,7 @@ form#ap-form{display:block;padding:0;margin:0}
 .form-status a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 @media (max-width:760px){
   form.area-hero{max-width:none;margin-top:2px}
-  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100svh - 40px);border-radius:14px 14px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
+  .area-panel{left:0;right:0;top:auto;bottom:0;width:auto;max-height:calc(100vh - 40px);max-height:calc(100svh - 40px);border-radius:14px 14px 0 0;padding:26px 18px calc(22px + env(safe-area-inset-bottom,0px));transform:translateY(24px)}
   .area-panel.in{transform:none}
   .ap-grid{grid-template-columns:1fr}
   .ap-done .btn{width:100%;justify-content:space-between}
@@ -574,7 +574,7 @@ form#ap-form{display:block;padding:0;margin:0}
   const mq = matchMedia('(prefers-reduced-motion: reduce)');
   let W = 0, H = 0, streaks = [], gust = 0, lastY = scrollY, running = false, visible = true, prev = 0, raf = 0;
   const rnd = (a, b) => a + Math.random() * (b - a);
-  const make = y => ({x: rnd(0, W), y: y ?? rnd(0, H), len: rnd(140, 320), amp: rnd(2, 6), ph: rnd(0, 6.28), sp: rnd(16, 34), w: rnd(1, 1.6), a: rnd(.08, .18)});
+  const make = y => ({x: rnd(0, W), y: y != null ? y : rnd(0, H), len: rnd(140, 320), amp: rnd(2, 6), ph: rnd(0, 6.28), sp: rnd(16, 34), w: rnd(1, 1.6), a: rnd(.08, .18)});
   function size() {
     const w = hero.clientWidth, h = hero.clientHeight, dpr = Math.min(devicePixelRatio || 1, 2);
     cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -622,8 +622,8 @@ form#ap-form{display:block;padding:0;margin:0}
     if (running) gust = Math.min(gust + Math.abs(dy) * .8, 600);
     applyLift();
   }, {passive: true});
-})();
-</script>
+  document.documentElement.classList.add('ready');
+})();</script>
 <script src="alue.js" defer></script>
 </body>
 </html>

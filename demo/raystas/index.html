@@ -17,7 +17,7 @@
 <link rel="preload" as="image" href="img/hero-poster.webp" fetchpriority="high" media="(min-width:761px)">
 <link rel="preload" as="image" href="img/hero-poster-mobile.webp" fetchpriority="high" media="(max-width:760px)">
 <link rel="stylesheet" href="site.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>/* reveal animations only when the page script really runs; on an old or strict browser the content stays visible */(function(d){d.classList.add('js');function off(){if(!d.classList.contains('ready'))d.classList.remove('js')}addEventListener('error',off);addEventListener('load',function(){setTimeout(off,1500)})})(document.documentElement)</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RoofingContractor","name":"Räystäs Kattoremontit (kuvitteellinen demoyritys)","areaServed":"Uusimaa","description":"Kuvitteellinen kattoremonttiyritys Markticin esimerkkisivulla."}</script>
 </head>
 <body>

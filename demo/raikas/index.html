@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='10' fill='%230f2a33'/%3E%3Cpath d='M16 6c4 5 7 8.6 7 12.2A7 7 0 0 1 9 18.2C9 14.6 12 11 16 6z' fill='%2340c9d6'/%3E%3Cpath d='M23.5 5.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z' fill='%23ffe36e'/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="img/hero-poster.webp" fetchpriority="high" media="(min-width:761px)">
 <link rel="preload" as="image" href="img/hero-poster-mobile.webp" fetchpriority="high" media="(max-width:760px)">
-<script>document.documentElement.classList.add('js')</script>
+<script>/* reveal animations only when the page script really runs; on an old or strict browser the content stays visible */(function(d){d.classList.add('js');function off(){if(!d.classList.contains('ready'))d.classList.remove('js')}addEventListener('error',off);addEventListener('load',function(){setTimeout(off,1500)})})(document.documentElement)</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HouseCleaningService","name":"Raikas Siivouspalvelu (kuvitteellinen demoyritys)","areaServed":"Helsinki","description":"Kuvitteellinen siivousyritys Markticin esimerkkisivulla."}</script>
 <link rel="stylesheet" href="site.css">
 </head>

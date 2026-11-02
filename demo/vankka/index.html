@@ -11,7 +11,7 @@
 <link rel="preload" as="image" href="video/hero-poster.jpg" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="fonts/big-shoulders-display-latin-900-normal.woff2" crossorigin>
 <link rel="stylesheet" href="site.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>/* reveal animations only when the page script really runs; on an old or strict browser the content stays visible */(function(d){d.classList.add('js');function off(){if(!d.classList.contains('ready'))d.classList.remove('js')}addEventListener('error',off);addEventListener('load',function(){setTimeout(off,1500)})})(document.documentElement)</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"Vankka Autokorjaamo","description":"Kuvitteellinen demoyritys: huollot, jarrut, renkaat, vikadiagnoosi ja pakoputkistot kaikille merkeille Vantaalla.","telephone":"+358400000000","email":"info@vankka.example","address":{"@type":"PostalAddress","streetAddress":"Esimerkkitie 12","postalCode":"01510","addressLocality":"Vantaa","addressCountry":"FI"},"areaServed":"Vantaa","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"17:00"}]}</script>
 </head>
 <body>

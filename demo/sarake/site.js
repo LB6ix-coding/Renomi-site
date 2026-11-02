@@ -659,4 +659,5 @@
   })();
 
   onScroll();
+  document.documentElement.classList.add('ready');
 })();
