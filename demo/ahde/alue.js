@@ -27,7 +27,7 @@
     lastFocus = document.activeElement;
     show(step); scrim.hidden = false; panel.hidden = false; document.documentElement.classList.add('ap-lock');
     requestAnimationFrame(() => { panel.classList.add('in'); scrim.classList.add('in'); });
-    setTimeout(() => (step === 2 ? $('#ap-nimi') : $('#ap-h3'))?.focus({preventScroll: true}), 80);
+    setTimeout(() => { const el = step === 2 ? $('#ap-nimi') : $('#ap-h3'); if (el) el.focus({preventScroll: true}); }, 80);
   }
   function close() {
     panel.classList.remove('in'); scrim.classList.remove('in'); document.documentElement.classList.remove('ap-lock');
@@ -100,15 +100,15 @@
   if (plCta && main) plCta.addEventListener('click', () => setTimeout(() => {
     const items = [...document.querySelectorAll('#pl-list li')].map(li => { const s = li.querySelector('span:not(.bar)'), b = li.querySelector('b'); return s && b ? `${s.textContent} ${b.textContent}` : ''; }).filter(Boolean);
     if (!items.length) return;
-    const tot = ($('#pl-total')?.textContent || '').trim();
+    const pt = $('#pl-total'), tot = ((pt && pt.textContent) || '').trim();
     const ta = $('#f-viesti');
     if (ta && (!ta.value.trim() || ta.dataset.auto === '1')) { ta.value = `Pihasuunnittelijan luonnos: ${items.join(', ')}. Hinta-arvio ${tot}.`; ta.dataset.auto = '1'; }
     main.dataset.src = 'Pihasuunnittelija';
   }, 650)); // after the price counter has settled
   if (main && fst) main.addEventListener('submit', async () => {
     if (main.dataset.endpoint) return;
-    const v = id => ($('#' + id)?.value || '').trim();
-    if ($('#f-www')?.value) return;
+    const v = id => { const el = $('#' + id); return ((el && el.value) || '').trim(); };
+    const hp = $('#f-www'); if (hp && hp.value) return;
     const code = v('f-pn').replace(/\D/g, '');
     if (code.length === 5) await loadPn();
     const k = code.length === 5 ? kunta(code) : null;

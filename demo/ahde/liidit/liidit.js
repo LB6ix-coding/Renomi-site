@@ -106,10 +106,10 @@
   $('#q').addEventListener('input', e => { q = e.target.value; render(); });
   const mobile = matchMedia('(max-width:1000px)');
   list.addEventListener('click', e => { const b = e.target.closest('.lead'); if (!b) return; sel = b.dataset.id; render();
-    if (mobile.matches) { det.classList.add('open'); document.body.classList.add('sheet'); setTimeout(() => $('#d-h')?.focus({preventScroll: true}), 320); }
-    else $('#d-h')?.focus({preventScroll: true}); });
+    if (mobile.matches) { det.classList.add('open'); document.body.classList.add('sheet'); setTimeout(() => { const h = $('#d-h'); if (h) h.focus({preventScroll: true}); }, 320); }
+    else { const h = $('#d-h'); if (h) h.focus({preventScroll: true}); } });
   det.addEventListener('click', e => {
-    if (e.target.closest('.d-close')) { det.classList.remove('open'); document.body.classList.remove('sheet'); list.querySelector(`[data-id="${sel}"]`)?.focus(); return; }
+    if (e.target.closest('.d-close')) { det.classList.remove('open'); document.body.classList.remove('sheet'); { const it = list.querySelector(`[data-id="${sel}"]`); if (it) it.focus(); } return; }
     const s = e.target.closest('[data-s]');
     if (s) { const l = all().find(x => x.id === sel); if (l && l.status !== s.dataset.s) { edit(sel, {status: s.dataset.s}, `Tila: ${SN[l.status]} → ${SN[s.dataset.s]}`); render(); } return; }
     const a = e.target.closest('[data-act]');
