@@ -22,18 +22,45 @@
  "@context": "https://schema.org",
  "@graph": [
   {
-   "@type": "ProfessionalService",
+   "@type": [
+    "Organization",
+    "ProfessionalService"
+   ],
    "@id": "https://marktic.fi/#org",
    "name": "Marktic",
    "url": "https://marktic.fi/",
    "email": "info@marktic.fi",
    "telephone": "+358406759882",
    "logo": "https://marktic.fi/assets/marktic-logo.png",
-   "sameAs": ["https://www.instagram.com/marktic.fi/", "https://www.tiktok.com/@marktic.fi", "https://maps.google.com/?cid=9019014633911368318"],
+   "sameAs": [
+    "https://www.instagram.com/marktic.fi/",
+    "https://www.tiktok.com/@marktic.fi",
+    "https://maps.google.com/?cid=9019014633911368318"
+   ],
    "image": "https://marktic.fi/assets/og-v2.jpg",
-   "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+358406759882", "email": "info@marktic.fi", "areaServed": "FI", "availableLanguage": "fi"},
-   "knowsAbout": ["kotisivut", "hakukoneoptimointi", "Google-yritysprofiili", "näkyvyys tekoälyhauissa", "somemarkkinointi", "videomainonta"],
-  "address": {"@type": "PostalAddress", "streetAddress": "Aitanavain 7", "postalCode": "01660", "addressLocality": "Vantaa", "addressCountry": "FI"},
+   "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+358406759882",
+    "email": "info@marktic.fi",
+    "areaServed": "FI",
+    "availableLanguage": "fi"
+   },
+   "knowsAbout": [
+    "kotisivut",
+    "hakukoneoptimointi",
+    "Google-yritysprofiili",
+    "näkyvyys tekoälyhauissa",
+    "somemarkkinointi",
+    "videomainonta"
+   ],
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Aitanavain 7",
+    "postalCode": "01660",
+    "addressLocality": "Vantaa",
+    "addressCountry": "FI"
+   },
    "areaServed": {
     "@type": "Country",
     "name": "Suomi"
@@ -54,7 +81,41 @@
      "price": "990",
      "priceCurrency": "EUR"
     }
+   ],
+   "founder": {
+    "@id": "https://marktic.fi/#leo"
+   },
+   "employee": [
+    {
+     "@id": "https://marktic.fi/#laura"
+    },
+    {
+     "@id": "https://marktic.fi/#leo"
+    }
    ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://marktic.fi/#leo",
+   "name": "Leo Bayanov",
+   "jobTitle": "Perustaja",
+   "worksFor": {
+    "@id": "https://marktic.fi/#org"
+   },
+   "knowsAbout": [
+    "kotisivut",
+    "videot",
+    "näkyvyyden mittaus"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://marktic.fi/#laura",
+   "name": "Laura Chache",
+   "jobTitle": "Yrittäjä ja markkinointipäällikkö",
+   "worksFor": {
+    "@id": "https://marktic.fi/#org"
+   }
   },
   {
    "@type": "WebSite",
@@ -65,6 +126,21 @@
    "publisher": {
     "@id": "https://marktic.fi/#org"
    }
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://marktic.fi/#webpage",
+   "url": "https://marktic.fi/",
+   "name": "Kotisivut paikallisille yrityksille | Marktic, Vantaa",
+   "inLanguage": "fi",
+   "isPartOf": {
+    "@id": "https://marktic.fi/#site"
+   },
+   "about": {
+    "@id": "https://marktic.fi/#org"
+   },
+   "datePublished": "2026-10-21",
+   "dateModified": "2026-11-03"
   },
   {
    "@type": "FAQPage",
@@ -338,6 +414,18 @@ a{color:inherit}
 .steps li::before{font-size:2.4rem;font-weight:300;line-height:1;color:var(--paper-ink);letter-spacing:-.03em}
 .contact-sec .wrap{grid-template-columns:minmax(0,1fr)}
 .contact-sec .facts{flex-direction:row;flex-wrap:wrap;gap:6px 28px;margin-top:22px}
+.figs-sec .figs-lead{max-width:720px;margin:0 0 34px;font-size:1.08rem;line-height:1.6;color:var(--paper-ink)}
+.figs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.figs li{padding:22px 20px;border-radius:16px;background:#fbfaf6;box-shadow:0 0 0 1px var(--paper-line);display:flex;flex-direction:column;gap:10px}
+.figs b{font-weight:300;font-size:clamp(2.2rem,3.6vw,3.2rem);line-height:1;letter-spacing:-.03em}
+.figs p{margin:0;font-size:.95rem;line-height:1.5;color:var(--paper-ink)}
+.figs small{margin-top:auto;font-size:.78rem;color:var(--paper-dim)}
+.figs-quote{margin:40px 0 0;padding:0 0 0 22px;border-left:2px solid var(--paper-ink);max-width:760px}
+.figs-quote p{margin:0;font-size:clamp(1.15rem,2vw,1.45rem);line-height:1.45;letter-spacing:-.01em}
+.figs-quote footer{margin-top:12px;font-size:.88rem;color:var(--paper-dim)}
+.figs-src{margin:26px 0 0;font-size:.8rem;color:var(--paper-dim)}.figs-src a{text-decoration:underline}
+@media (max-width:980px){.figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.figs{grid-template-columns:minmax(0,1fr)}}
 .contact-sec .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:start}
 .contact-sec .big-mail{font-size:clamp(2rem,4.2vw,3.6rem)}
 .contact-sec .facts{flex-direction:column;gap:8px}
@@ -638,6 +726,24 @@ a{color:inherit}
   </div>
 </section>
 
+<section class="paper sec figs-sec" id="lukuina" aria-labelledby="lh">
+  <div class="gut">
+    <div class="sec-head">
+      <span class="eb">Lukuina</span>
+      <h2 id="lh">Asiakkaanne etsivät teitä ensin netistä.</h2>
+    </div>
+    <p class="figs-lead">Lähes jokainen suomalainen käyttää internetiä, ja useampi kuin joka toinen ostaa sieltä. Kun asiakas etsii tekijää, hän vertaa sivuja: näkyykö hinta, näyttääkö työ laadukkaalta ja saako yhteyden heti. Siksi teemme sivut, joista nämä kolme asiaa löytyvät ensimmäisellä silmäyksellä, myös puhelimella.</p>
+    <ul class="figs">
+      <li><b>94 %</b><p>16–89-vuotiaista suomalaisista käytti internetiä viimeisen kolmen kuukauden aikana.</p><small>Tilastokeskus 2025</small></li>
+      <li><b>61 %</b><p>oli tilannut tai ostanut jotain internetistä. Vuonna 2020 osuus oli 54 %.</p><small>Tilastokeskus 2025</small></li>
+      <li><b>64 %</b><p>oli nähnyt verkossa harhaanjohtavaa sisältöä, ja 34 % tarkisti lähteen luotettavuuden. Selkeät hinnat ja yhteystiedot rakentavat luottamusta.</p><small>Tilastokeskus 2025</small></li>
+      <li><b>0,5 s</b><p>Näin nopeasti etusivumme pääsisältö näkyy puhelimella hitaalla 4G-yhteydellä. Teemme asiakkaidemme sivut samalla tavalla kevyiksi.</p><small>Marktic, mitattu 3.11.2026</small></li>
+    </ul>
+    <blockquote class="figs-quote"><p>”Asiakas päättää muutamassa sekunnissa, soittaako hän vai jatkaako hakua. Siksi teemme sivut, joista hinta, työn laatu ja yhteystiedot näkyvät heti, myös puhelimella.”</p><footer>Leo Bayanov, perustaja, Marktic</footer></blockquote>
+    <p class="figs-src">Lähde: Tilastokeskus, Väestön tieto- ja viestintätekniikan käyttö 2025 (julkaistu 12.11.2025). <a href="https://stat.fi/fi/julkaisu/cm17ljoxe8rp907w135dayxbu" rel="noopener" target="_blank">stat.fi</a></p>
+  </div>
+</section>
+
 <section class="paper sec" id="kysymykset" aria-labelledby="qh">
   <div class="gut">
     <div class="sec-head">
@@ -692,7 +798,7 @@ a{color:inherit}
 
 <footer class="ft">
   <div class="gut">
-    <div><b class="flogo" aria-label="Marktic"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></b><br>Markkinointitoimisto paikallisille yrityksille.<br>Toiminimi Marktic · Y-tunnus 3664036-8<br>Aitanavain 7, 01660 Vantaa · <a href="tel:+358406759882">040 675 9882</a></div>
+    <div><b class="flogo" aria-label="Marktic"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></b><br>Markkinointitoimisto paikallisille yrityksille.<br>Toiminimi Marktic · Y-tunnus 3664036-8<br>Aitanavain 7, 01660 Vantaa · <a href="tel:+358406759882">040 675 9882</a><br>Päivitetty <time datetime="2026-11-03">3.11.2026</time></div>
     <ul>
       <li><a href="palvelut.html">Palvelut ja hinnat</a></li>
       <li><a href="tyot.html">Esimerkkisivut</a></li>
