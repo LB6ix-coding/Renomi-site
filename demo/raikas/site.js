@@ -79,11 +79,10 @@
     });
   }
 
-  /* ---------- marquee skew with scroll velocity ---------- */
-  const mq = $('.marquee');
-  let mqRaf = 0;
-  const mqLoop = () => { const s = clamp(-vel * .25, -8, 8); mq.style.setProperty('--skew', s.toFixed(2) + 'deg'); vel *= .9; mqRaf = Math.abs(vel) > .05 ? requestAnimationFrame(mqLoop) : 0; if (!mqRaf) mq.style.setProperty('--skew', '0deg'); };
-  addEventListener('scroll', () => { if (!RM.matches && !mqRaf) mqRaf = requestAnimationFrame(mqLoop); }, { passive: true });
+  /* ---------- scroll speed settles back to zero (used by the window wipe effect) ---------- */
+  let vRaf = 0;
+  const vDecay = () => { vel *= .9; vRaf = Math.abs(vel) > .05 ? requestAnimationFrame(vDecay) : 0; };
+  addEventListener('scroll', () => { if (!vRaf) vRaf = requestAnimationFrame(vDecay); }, { passive: true });
 
   /* ---------- parallax fallback ---------- */
   if (!CSS.supports('animation-timeline: view()')) {

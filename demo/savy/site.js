@@ -87,19 +87,10 @@
   });
   $$('.glow').forEach(c => c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(); c.style.setProperty('--x', e.clientX - r.left + 'px'); c.style.setProperty('--y', e.clientY - r.top + 'px'); }));
 
-  /* ---------- marquee (speeds up with scroll velocity) ---------- */
-  const track = $('.marquee-track');
-  let mx = 0, mPrev = 0, mRun = false;
-  function marquee(now) {
-    if (!mRun) return;
-    const dt = Math.min((now - (mPrev || now)) / 1000, .05); mPrev = now;
-    vel *= Math.pow(.04, dt);
-    mx -= (60 + vel * 9) * dt;
-    const half = track.scrollWidth / 2; if (-mx >= half) mx += half;
-    track.style.transform = `translate3d(${mx}px,0,0)`;
-    requestAnimationFrame(marquee);
-  }
-  new IntersectionObserver(([e]) => { const want = e.isIntersecting && !reduced(); if (want && !mRun) { mRun = true; mPrev = 0; requestAnimationFrame(marquee); } else if (!want) mRun = false; }).observe($('.marquee'));
+  /* ---------- scroll speed settles back to zero (used by the canvas effects) ---------- */
+  let vPrev = 0, vRaf = 0;
+  const vDecay = now => { const dt = Math.min((now - (vPrev || now)) / 1000, .05); vPrev = now; vel *= Math.pow(.04, dt); if (vel > .05) vRaf = requestAnimationFrame(vDecay); else { vRaf = 0; vPrev = 0; vel = 0; } };
+  addEventListener('scroll', () => { if (!vRaf) vRaf = requestAnimationFrame(vDecay); }, { passive: true });
 
   /* ---------- canvas helper ---------- */
   function fitCanvas(cv, ctx) { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); cv.width = Math.max(1, r.width * d); cv.height = Math.max(1, r.height * d); ctx.setTransform(d, 0, 0, d, 0, 0); return [r.width, r.height]; }
