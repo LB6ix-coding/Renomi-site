@@ -44,7 +44,7 @@
   + '.pk-fab:focus-visible{outline:2px solid #141615;outline-offset:3px}'
   + '.pk-fab[hidden]{display:none}'
   + '.pk-fab .pk-dot{position:relative;width:10px;height:10px;border-radius:50%;background:#cfe0a6;flex:none}'
-  + '.pk-fab .pk-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #cfe0a6;opacity:0;animation:pkPing 2.4s ease-out infinite}'
+  + '.pk-fab .pk-dot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid #cfe0a6;opacity:0;animation:pkPing 2.4s ease-out 4}'
   + '@keyframes pkPing{0%{transform:scale(.5);opacity:.8}70%,100%{transform:scale(1.5);opacity:0}}'
   + '@media (max-width:600px){.pk-fab{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));min-height:50px;font-size:.92rem}}'
   + '@media (prefers-reduced-motion:reduce){.pk,.pk-scrim,.pk-fab{transition:none}.pk-fab .pk-dot::after{animation:none}}';
