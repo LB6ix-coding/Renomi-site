@@ -140,7 +140,10 @@ a{color:inherit}
 @media (max-width:860px){.nav{display:none}.hd .pill{margin-left:auto}}
 
 /* story: one pinned stage, scenes stacked and crossfaded */
-.story{position:relative;height:880svh}
+.story{position:relative;height:680vh;height:680svh}
+/* story: phones show four trades (Ahde, Routa, Kuori, Sively), desktop three (Ahde, Routa, Kuori). Virtaus and Kaste stay in the code but are not shown. */
+.scene[data-off]{display:none}
+@media (min-width:761px){.story{height:580vh;height:580svh}.scene[data-phone-only]{display:none}}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden;overflow:clip;background:#000}
 .scene{position:absolute;inset:0;opacity:0;pointer-events:none;overflow:hidden;overflow:clip;isolation:isolate}
 .scene:first-child{opacity:1;pointer-events:auto}
@@ -459,7 +462,7 @@ a{color:inherit}
       <span class="scr"><span class="isl"></span><img data-src="media/kuori-phone.webp" alt="Kuori Autostudion esimerkkisivu puhelimen näytöllä" width="600"><span class="tap">Avaa sivu</span></span>
     </a>
     </div>
-    <div class="scene" data-name="LVI-urakointi" role="group" aria-label="LVI-urakointi: esimerkkisivu Virtaus LVIA" style="--pos:45% 50%">
+    <div class="scene" data-name="LVI-urakointi" data-off role="group" aria-label="LVI-urakointi: esimerkkisivu Virtaus LVIA" style="--pos:45% 50%">
     <img class="poster" data-src="media/virtaus.webp" data-src-p="media/virtaus-p.webp" alt="" width="1920" height="1080">
     <video muted playsinline preload="none" data-src="media/virtaus.mp4" data-src-sm="media/virtaus-p.mp4" data-anim="media/virtaus-p-loop.webp" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
@@ -472,7 +475,7 @@ a{color:inherit}
       <span class="scr"><span class="isl"></span><img data-src="media/virtaus-phone.webp" alt="Virtaus LVIA:n esimerkkisivu puhelimen näytöllä" width="600"><span class="tap">Avaa sivu</span></span>
     </a>
     </div>
-    <div class="scene" data-name="Maalaus" role="group" aria-label="Maalaus: esimerkkisivu Sively Maalaus" style="--pos:50% 50%">
+    <div class="scene" data-name="Maalaus" data-phone-only role="group" aria-label="Maalaus: esimerkkisivu Sively Maalaus" style="--pos:50% 50%">
     <img class="poster" data-src="media/sively.webp" data-src-p="media/sively-p.webp" alt="" width="1920" height="1080">
     <video muted playsinline preload="none" data-src="media/sively.mp4" data-src-sm="media/sively-p.mp4" data-anim="media/sively-p-loop.webp" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
@@ -485,7 +488,7 @@ a{color:inherit}
       <span class="scr"><span class="isl"></span><img data-src="media/sively-phone.webp" alt="Sively Maalauksen esimerkkisivu puhelimen näytöllä" width="600"><span class="tap">Avaa sivu</span></span>
     </a>
     </div>
-    <div class="scene" data-name="Kylpyhuoneremontit" role="group" aria-label="Kylpyhuoneremontit: esimerkkisivu Kaste Kylpyhuoneet" style="--pos:42% 50%">
+    <div class="scene" data-name="Kylpyhuoneremontit" data-off role="group" aria-label="Kylpyhuoneremontit: esimerkkisivu Kaste Kylpyhuoneet" style="--pos:42% 50%">
     <img class="poster" data-src="media/kaste.webp" data-src-p="media/kaste-p.webp" alt="" width="1920" height="1080">
     <video muted playsinline preload="none" data-src="media/kaste.mp4" data-src-sm="media/kaste-p.mp4" data-anim="media/kaste-p-loop.webp" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
@@ -730,7 +733,7 @@ a{color:inherit}
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var story = document.getElementById('story'), stage = story.querySelector('.stage');
-  var scenes = [].slice.call(story.querySelectorAll('.scene'));
+  var scenes = [].slice.call(story.querySelectorAll('.scene')).filter(function(sc){ return getComputedStyle(sc).display !== 'none'; });
   var hd = document.querySelector('.hd'), offer = document.getElementById('paketti');
   var clamp = function(v){ return v < 0 ? 0 : v > 1 ? 1 : v; };
   var ease = function(t){ return 1 - Math.pow(1 - t, 3); };
