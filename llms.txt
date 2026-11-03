@@ -20,7 +20,7 @@ Paikalliset yritykset, joita asiakkaat etsivät läheltä ja joilla ei ole omaa 
 - Some Plus: 490 €/kk. 2 kanavaa, 8 julkaisua/kk, 1 lyhytvideo/kk, kommentteihin vastaaminen.
 - Videomainos: alkaen 290 €/video (10–30 s, valokuvista, animaationa tai 3D-mallista, pysty- ja vaakaversio). Kolmen videon sarja 690 €.
 - Mallikuvat: alkaen 190 € / 10 kuvaa. Henkilöt eivät ole oikeita ihmisiä; kuvat merkitään asianmukaisesti, kun laki tai julkaisualusta edellyttää.
-- Kotisivut: yksi sivu 490 €, viisi sivua 990 € (mobiili ensin, rakenteinen tieto). Ylläpito 20 €/kk, valinnainen.
+- Kotisivut: yksi sivu 490 €, viisi sivua 990 € (mobiili ensin, rakenteinen tieto). Ylläpito 20 €/kk, valinnainen, kolme ensimmäistä kuukautta veloituksetta. Ylläpitoon kuuluu oma yhteydenottolista: sivujen lomakkeiden pyynnöt tallentuvat listaan ja uudesta pyynnöstä tulee ilmoitus sähköpostiin.
 - Mainonnan hallinta (Google ja Meta): alkaen 249 €/kk, mainosbudjetti maksetaan suoraan alustoille.
 - Marktic Kumppani: 690 €/kk. Näkyvyyden aktiivinen kehitys + Some Perus + mainonnan hallinta.
 - Ehdot: ei aloitusmaksua, ei määräaikaa, ensimmäisen kuukauden maksu palautetaan, jos asiakas ei ole tyytyväinen.
@@ -46,3 +46,8 @@ info@marktic.fi. Vastaamme kahden arkipäivän kuluessa.
 - [Kotisivut Helsinki](https://marktic.fi/kotisivut-helsinki.html): kotisivut helsinkiläisille yrityksille
 - [Mainostoimisto Vantaa](https://marktic.fi/mainostoimisto-vantaa.html): kaikki palvelut hintoineen vantaalaisille ja muille pienille yrityksille
 - [Tietosuojaseloste](https://marktic.fi/tietosuoja.html)
+
+## Muualla
+- Instagram: https://www.instagram.com/marktic.fi/
+- TikTok: https://www.tiktok.com/@marktic.fi
+- Google-yritysprofiili: https://maps.google.com/?cid=9019014633911368318
