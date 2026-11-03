@@ -99,8 +99,8 @@
   }), { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
   all(".rv").forEach((e) => seen.observe(e));
   const LAYERS = [
-    { to: 12, m: [0, 0.1], name: "Nurmi", text: "Nurmikko kuoritaan talteen tai uusitaan kaivun jälkeen. Juurikerros on ohut, mutta sen alla alkaa työ.", job: "Nurmikon uusiminen", price: "Esim. 8–15 €/m²", time: "1–2 päivää", kv: "Kotitalousvähennys työn osuudesta, kun piha kuuluu olemassa olevaan omakotitaloon", form: "Pihan kunnostus tai nurmi" },
-    { to: 29, m: [0.1, 0.4], name: "Pintamaa", text: "Multaa ja kasvualustaa. Kaivun ajaksi se välivarastoidaan pihalle ja levitetään lopuksi takaisin.", job: "Pihan kunnostus ja kasvualusta", price: "Esim. 20–40 €/m²", time: "2–4 päivää", kv: "Kotitalousvähennys työn osuudesta olemassa olevan talon pihalla", form: "Pihan kunnostus tai nurmi" },
+    { to: 12, m: [0, 0.1], name: "Nurmi", text: "Nurmikko kuoritaan talteen tai uusitaan kaivuun jälkeen. Juurikerros on ohut, mutta sen alla alkaa työ.", job: "Nurmikon uusiminen", price: "Esim. 8–15 €/m²", time: "1–2 päivää", kv: "Kotitalousvähennys työn osuudesta, kun piha kuuluu olemassa olevaan omakotitaloon", form: "Pihan kunnostus tai nurmi" },
+    { to: 29, m: [0.1, 0.4], name: "Pintamaa", text: "Multaa ja kasvualustaa. Kaivuun ajaksi se välivarastoidaan pihalle ja levitetään lopuksi takaisin.", job: "Pihan kunnostus ja kasvualusta", price: "Esim. 20–40 €/m²", time: "2–4 päivää", kv: "Kotitalousvähennys työn osuudesta olemassa olevan talon pihalla", form: "Pihan kunnostus tai nurmi" },
     { to: 50, m: [0.4, 0.8], name: "Kantava murske", text: "Routimaton ja kantava kerros. Pihatien ja kivetyksen alla tämä ratkaisee, painuuko pinta muutamassa vuodessa.", job: "Pihatien pohja", price: "Esim. 35–60 €/m²", time: "3–5 päivää", kv: "Kotitalousvähennys työn osuudesta, kun kyse on korjauksesta eikä uudisrakentamisesta", form: "Pihatie tai kivetyksen pohja" },
     { to: 75, m: [0.8, 1.3], name: "Salaoja", text: "Salaoja kulkee anturan vierellä pestyssä sepelissä ja vie veden pois sokkelilta. Eristelevy sokkelissa pitää roudan loitolla.", job: "Salaojien uusiminen ja routaeristys", price: "Esim. 9 000–16 000 € / talo", time: "1–3 viikkoa", kv: "Kotitalousvähennys työn osuudesta olemassa olevassa talossa", form: "Salaojat" },
     { to: 100, m: [1.3, 1.8], name: "Savi", text: "Pohjamaa. Savi ei juuri läpäise vettä, joten savimaalla toimiva salaoja on välttämätön. Muuten vesi jää seisomaan sokkelin viereen.", job: "Salaojat savimaalle", price: "Esim. 9 000–16 000 € / talo", time: "1–3 viikkoa", kv: "Kotitalousvähennys työn osuudesta olemassa olevassa talossa", form: "Salaojat" }
@@ -228,7 +228,7 @@
   calc();
   one("#calcGo").addEventListener("click", () => {
     one("#fTyo").value = "Salaojat";
-    one("#fMsg").value = "Talon ympärysmitta noin " + per.value + " m, kaivusyvyys noin " + fi(one("input[name=sy]:checked").value) + " m. Laskurin arvio " + one("#tot").textContent + ".";
+    one("#fMsg").value = "Talon ympärysmitta noin " + per.value + " m, kaivuusyvyys noin " + fi(one("input[name=sy]:checked").value) + " m. Laskurin arvio " + one("#tot").textContent + ".";
   });
   const track = null, steps = all("#sSteps .s-st"), pics = all(".s-view img");
   let si = 0;
