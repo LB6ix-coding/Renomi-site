@@ -141,8 +141,8 @@ a{color:inherit}
 
 /* story: one pinned stage, scenes stacked and crossfaded */
 .story{position:relative;height:880svh}
-/* desktop shows three trades (Ahde, Routa, Kuori), phones all six */
-@media (min-width:761px){.story{height:580vh;height:580svh}.scene[data-phone-only]{display:none}}
+/* desktop shows four trades (Ahde, Routa, Kuori, Sively), phones all six */
+@media (min-width:761px){.story{height:680vh;height:680svh}.scene[data-phone-only]{display:none}}
 .stage{position:sticky;top:0;height:100svh;overflow:hidden;overflow:clip;background:#000}
 .scene{position:absolute;inset:0;opacity:0;pointer-events:none;overflow:hidden;overflow:clip;isolation:isolate}
 .scene:first-child{opacity:1;pointer-events:auto}
@@ -474,7 +474,7 @@ a{color:inherit}
       <span class="scr"><span class="isl"></span><img data-src="media/virtaus-phone.webp" alt="Virtaus LVIA:n esimerkkisivu puhelimen näytöllä" width="600"><span class="tap">Avaa sivu</span></span>
     </a>
     </div>
-    <div class="scene" data-name="Maalaus" data-phone-only role="group" aria-label="Maalaus: esimerkkisivu Sively Maalaus" style="--pos:50% 50%">
+    <div class="scene" data-name="Maalaus" role="group" aria-label="Maalaus: esimerkkisivu Sively Maalaus" style="--pos:50% 50%">
     <img class="poster" data-src="media/sively.webp" data-src-p="media/sively-p.webp" alt="" width="1280" height="720">
     <video muted playsinline preload="none" data-src="media/sively.mp4" data-src-sm="media/sively-p.mp4" data-anim="media/sively-p-loop.webp" style="opacity:0;transition:opacity .3s" aria-hidden="true"></video>
     <div class="shade"></div><div class="dim"></div>
