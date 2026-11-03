@@ -149,6 +149,7 @@ a{color:inherit}
 /* if a phone refuses to play the video (e.g. iPhone low power mode), the still image moves slowly instead */
 .scene .anim{opacity:0;transition:opacity .3s}
 .scene.kb .poster{animation:kbz 16s cubic-bezier(.25,.6,.3,1) forwards}
+.scene.kb .poster[style*="visibility: hidden"]{animation-play-state:paused}
 @keyframes kbz{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.14) translate3d(-1.5%,-1%,0)}}
 @media (prefers-reduced-motion:reduce){.scene.kb .poster{animation:none}}
 .shade{position:absolute;inset:0;pointer-events:none;
@@ -373,6 +374,8 @@ a{color:inherit}
 /* scroll hint: finger on touch screens, mouse on desktop; hides once the visitor scrolls */
 .svh{position:fixed;z-index:25;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 34px);display:flex;flex-direction:column;align-items:center;gap:9px;color:var(--ink);pointer-events:none;opacity:0;transform:translate(-50%,10px);transition:opacity .45s ease,transform .45s ease;filter:drop-shadow(0 1px 2px rgba(0,0,0,.55)) drop-shadow(0 2px 14px rgba(0,0,0,.45))}
 .svh.on{opacity:1;transform:translate(-50%,0)}
+.svh:not(.on){visibility:hidden;transition:opacity .2s,visibility 0s .2s}
+.svh:not(.on) *{animation-play-state:paused!important}
 .svh svg{display:block;overflow:visible}
 .svh-t{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);opacity:.85;line-height:1}
 .svh .svh-touch{display:none}
@@ -819,8 +822,8 @@ a{color:inherit}
   function useAnim(sc){
     sc._v.style.opacity = 0;
     if (sc._anim) return;
-    var src = sc._v.getAttribute('data-anim'); sc.classList.add('kb');
-    if (!src) return;
+    var src = sc._v.getAttribute('data-anim');
+    if (!src){ sc.classList.add('kb'); return; }
     var im = new Image(); im.className = 'anim'; im.alt = ''; im.setAttribute('aria-hidden', 'true'); im.decoding = 'async';
     im.onload = function(){ if (sc._anim === im){ im.style.opacity = 1; } };
     im.src = src; sc._v.parentNode.insertBefore(im, sc._v.nextSibling); sc._anim = im; sc._st = {}; req();
