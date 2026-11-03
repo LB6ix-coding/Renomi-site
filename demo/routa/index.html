@@ -9,7 +9,8 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#141615">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M0 0h32v22l-10 10H0z' fill='%23f2b705'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Arial,sans-serif' font-weight='900' font-size='19' fill='%23141615'%3ER%3C/text%3E%3C/svg%3E">
-<link rel="preload" as="image" href="img/build/l/00.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/build/l/00.webp" media="(min-width:900px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/build/s/00.webp" media="(max-width:899px)" fetchpriority="high">
 <link rel="stylesheet" href="site.css">
 <script>/* reveal animations only when the page script really runs; on an old or strict browser the content stays visible */(function(d){d.classList.add('js');function off(){if(!d.classList.contains('ready'))d.classList.remove('js')}addEventListener('error',off);addEventListener('load',function(){setTimeout(off,1500)})})(document.documentElement)</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"GeneralContractor","name":"Routa Maanrakennus","description":"Kuvitteellinen demoyritys: salaojat, routaeristykset, viemärit, perustusten pohjat ja pihatiet Keski-Uudellamaalla.","telephone":"+358450000000","email":"hei@routa.example","address":{"@type":"PostalAddress","streetAddress":"Esimerkkitie 9","postalCode":"04300","addressLocality":"Tuusula","addressCountry":"FI"},"areaServed":["Tuusula","Kerava","Järvenpää","Vantaa","Nurmijärvi"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:00","closes":"17:00"}]}</script>
@@ -43,10 +44,10 @@
     <div class="build-pin">
       <canvas id="buildCv" aria-hidden="true"></canvas>
       <img class="crisp" data-k="0" src="img/build/k1.webp" alt="" aria-hidden="true" fetchpriority="high">
-      <img class="crisp" data-k="1" src="img/build/k2.webp" alt="" aria-hidden="true" loading="lazy">
-      <img class="crisp" data-k="2" src="img/build/k3.webp" alt="" aria-hidden="true" loading="lazy">
-      <img class="crisp" data-k="3" src="img/build/k4.webp" alt="" aria-hidden="true" loading="lazy">
-      <img class="crisp" data-k="4" src="img/build/k5.webp" alt="" aria-hidden="true" loading="lazy">
+      <img class="crisp" data-k="1" data-src="img/build/k2.webp" alt="" aria-hidden="true">
+      <img class="crisp" data-k="2" data-src="img/build/k3.webp" alt="" aria-hidden="true">
+      <img class="crisp" data-k="3" data-src="img/build/k4.webp" alt="" aria-hidden="true">
+      <img class="crisp" data-k="4" data-src="img/build/k5.webp" alt="" aria-hidden="true">
       <img class="build-still" id="buildStill" src="img/build/k1.webp" alt="Ilmakuva metsän keskellä olevasta tontista, josta rakentuu vieritettäessä omakotitalo">
       <div class="build-shade" aria-hidden="true"></div>
       <div class="cnt build-copy">
@@ -110,7 +111,7 @@
     <div class="dig">
       <div class="rv">
         <div class="pit" id="pit" style="--dp:30%">
-          <img src="img/cutaway.webp" alt="Poikkileikkaus maaperästä talon sokkelin vierellä: nurmi, pintamaa, murske, routaeristys, salaoja ja savi" width="1344" height="752" draggable="false">
+          <img loading="lazy" decoding="async" src="img/cutaway.webp" alt="Poikkileikkaus maaperästä talon sokkelin vierellä: nurmi, pintamaa, murske, routaeristys, salaoja ja savi" width="1344" height="752" draggable="false">
           <div class="cover" aria-hidden="true"></div>
           <svg class="bucket" viewBox="0 0 96 80" aria-hidden="true"><g transform="rotate(-12 48 40)"><path d="M34 0h14v18H34z" fill="#1d1f1c"/><path d="M8 18h70c6 0 10 5 9 11l-6 30c-1 4-4 6-8 6H22C14 65 8 58 7 50L4 26c-1-5 0-8 4-8z" fill="#f2b705" stroke="#141615" stroke-width="3"/><path d="M14 30h62" stroke="#141615" stroke-width="2" opacity=".35"/><path d="M22 65l-2 12 8-12M38 65l-2 12 8-12M54 65l-2 12 8-12M70 65l-2 11 7-11" fill="#d9dbd6" stroke="#141615" stroke-width="2.5" stroke-linejoin="round"/></g></svg>
           <span class="depth" id="depth">0,1&nbsp;m</span>

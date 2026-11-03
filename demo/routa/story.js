@@ -7,6 +7,7 @@
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const KEYS = ['k1', 'k2', 'k3', 'k4', 'k5'];
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const crispLoad = () => crisp.forEach(im => { if (im.dataset.src) { im.src = im.dataset.src; im.removeAttribute('data-src'); } });
   let chap = -1;
   const setChap = i => {
     if (i === chap) return; chap = i;
@@ -16,7 +17,7 @@
   };
   const progress = () => { const r = track.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight), 0, 1); };
   if (calm || !N) {
-    sec.classList.add('static');
+    sec.classList.add('static'); crispLoad();
     const on = () => { const p = progress(); setChap(Math.min(4, Math.floor(p * 5))); };
     addEventListener('scroll', on, { passive: true }); on(); load.classList.add('done');
     return;
@@ -34,21 +35,25 @@
     const W = cv.width, H = cv.height, s = Math.max(W / fw, H / fh), w = fw * s, h = fh * s;
     ctx.drawImage(im, 0, row * fh, fw, fh, (W - w) / 2, (H - h) / 2, w, h);
   }
-  // load order: first sheet, the sheets holding each chapter start, then the rest outward
-  const order = []; const add = t => { if (t >= 0 && t < SH && !order.includes(t)) order.push(t); };
-  add(0); SEG.forEach(f => add(Math.floor(f / PER))); for (let t = 0; t < SH; t++) add(t);
-  let q = 0, active = 0;
+  // Load the image sheets only as they are needed: the first sheet right away, the next two once the
+  // visitor starts scrolling, then always two sheets ahead of where the story is. Before, all 25 sheets
+  // (about 13 MB on phones) downloaded at once, even if the visitor never scrolled.
+  let want = 0, q = 0, active = 0;
   const next = () => {
-    while (active < 3 && q < order.length) {
-      const t = order[q++]; active++;
+    while (active < 2 && q < SH && q <= want) {
+      const t = q++; active++;
       const im = new Image(); im.decoding = 'async';
       im.onload = () => { ok[t] = true; done(); };
       im.onerror = done;
-      function done() { active--; loaded++; load.firstElementChild.style.transform = 'scaleX(' + loaded / SH + ')'; if (loaded >= SH) load.classList.add('done'); shown = -1; draw(); next(); }
+      function done() { active--; loaded++; if (ok[0]) load.classList.add('done'); shown = -1; draw(); next(); }
       im.src = dir + String(t).padStart(2, '0') + '.webp'; sheets[t] = im;
     }
   };
+  const need = t => { if (t > want) { want = Math.min(SH - 1, t); next(); } };
   next();
+  let armed = false;
+  const arm = () => { armed = true; need(2); crispLoad(); ['scroll', 'touchstart', 'wheel', 'keydown', 'pointerdown'].forEach(e => removeEventListener(e, arm, true)); };
+  ['scroll', 'touchstart', 'wheel', 'keydown', 'pointerdown'].forEach(e => addEventListener(e, arm, { capture: true, passive: true }));
   addEventListener('resize', size); size();
   let target = 0;
   const tick = () => {
@@ -58,6 +63,7 @@
     let hold = -1;
     for (let k = 0; k <= C; k++) { if (u <= HOLD) { hold = k; break; } u -= HOLD; if (k === C) { hold = C; break; } if (u <= 1) { f += u * L; u = 0; break; } u -= 1; f += L; }
     target = clamp(f, 0, N - 1);
+    if (armed) need(Math.floor(target / PER) + 2);
     cur += (target - cur) * 0.18; if (Math.abs(target - cur) < 0.05) cur = target;
     draw();
     const settled = hold >= 0 && Math.abs(target - cur) < 0.6;
@@ -65,7 +71,10 @@
     let c = 0; for (let k = 0; k < SEG.length; k++) if (cur >= SEG[k] - 2) c = k;
     setChap(c);
     rail.forEach((r, k) => { const a = SEG[k] || 0, b = SEG[k + 1] || N - 1; r.firstElementChild.style.setProperty('--f', clamp((cur - a) / Math.max(1, b - a), 0, 1)); });
-    requestAnimationFrame(tick);
+    if (onScreen) requestAnimationFrame(tick); else running = false;
   };
-  setChap(0); requestAnimationFrame(tick);
+  let onScreen = true, running = false;
+  const start = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
+  new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; if (onScreen) start(); }).observe(track);
+  setChap(0); start();
 })();
