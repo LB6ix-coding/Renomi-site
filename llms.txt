@@ -21,6 +21,7 @@ Paikalliset yritykset, joita asiakkaat etsivät läheltä ja joilla ei ole omaa 
 - Videomainos: alkaen 290 €/video (10–30 s, valokuvista, animaationa tai 3D-mallista, pysty- ja vaakaversio). Kolmen videon sarja 690 €.
 - Mallikuvat: alkaen 190 € / 10 kuvaa. Henkilöt eivät ole oikeita ihmisiä; kuvat merkitään asianmukaisesti, kun laki tai julkaisualusta edellyttää.
 - Kotisivut: yksi sivu 490 €, viisi sivua 990 € (mobiili ensin, rakenteinen tieto). Ylläpito 20 €/kk, valinnainen, kolme ensimmäistä kuukautta veloituksetta. Ylläpitoon kuuluu oma yhteydenottolista: sivujen lomakkeiden pyynnöt tallentuvat listaan ja uudesta pyynnöstä tulee ilmoitus sähköpostiin.
+- Kotisivut Pro: alkaen 2 900 € (esimerkkisivujen taso: yritykselle tehty videotausta, oma interaktiivinen työkalu, 3–4 hakusivua alueelle, yhteydenottolista, kolme korjauskierrosta, valmis 2–3 viikossa). Pro-ylläpito 49 €/kk.
 - Mainonnan hallinta (Google ja Meta): alkaen 249 €/kk, mainosbudjetti maksetaan suoraan alustoille.
 - Marktic Kumppani: 690 €/kk. Näkyvyyden aktiivinen kehitys + Some Perus + mainonnan hallinta.
 - Ehdot: ei aloitusmaksua, ei määräaikaa, ensimmäisen kuukauden maksu palautetaan, jos asiakas ei ole tyytyväinen.
