@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>THE GOODFAT · Taliranskalaiset käsityönä Suomessa</title>
+<meta name="description" content="Pakasteranskalaiset kahdesta raaka-aineesta: luomuperuna ja ruoholla ruokitun naudan tali. Käsin tehty Suomessa. Kotiinkuljetus pääkaupunkiseudulle ti ja pe klo 18–21.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0c0b09">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/dmserif.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="site.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"#org","name":"THE GOODFAT","legalName":"ROOTE OY","vatID":"3567801-4","email":"don@thegoodfat.fi","telephone":"+358452063966","address":{"@type":"PostalAddress","streetAddress":"Vanha Kaarelantie 33 A","postalCode":"01610","addressLocality":"Vantaa","addressCountry":"FI"}},
+{"@type":"Product","name":"THE GOODFAT taliranskalaiset 500 g","description":"Pakastetut ranskalaiset, raaka-aineina luomuperuna ja naudantali. Käsin tehty Suomessa.","brand":{"@type":"Brand","name":"THE GOODFAT"},"image":"img/pack-1.webp","offers":[
+{"@type":"Offer","name":"Rookie, 1 × 500 g","price":"9.90","priceCurrency":"EUR","availability":"https://schema.org/InStock"},
+{"@type":"Offer","name":"Crew, 3 × 500 g","price":"26.90","priceCurrency":"EUR","availability":"https://schema.org/InStock"},
+{"@type":"Offer","name":"Family, 5 × 500 g","price":"39.90","priceCurrency":"EUR","availability":"https://schema.org/InStock"},
+{"@type":"Offer","name":"Don, 10 × 500 g","price":"72.90","priceCurrency":"EUR","availability":"https://schema.org/InStock"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Mitä taliranskalaiset ovat?","acceptedAnswer":{"@type":"Answer","text":"Ranskalaisia, jotka paistetaan naudan talissa. Raaka-aineina on vain luomuperuna ja ruoholla ruokitun naudan tali."}},
+{"@type":"Question","name":"Tarvitsenko rasvakeittimen?","acceptedAnswer":{"@type":"Answer","text":"Et tarvitse. Uunissa 200 °C:ssa 30 minuuttia tai airfryerissa 180 °C:ssa 18 minuuttia."}},
+{"@type":"Question","name":"Milloin tilaukseni tulee?","acceptedAnswer":{"@type":"Answer","text":"Kuljetukset ovat tiistaisin ja perjantaisin klo 18–21. Tilaa edeltävänä iltana klo 20.00 mennessä."}}]}
+]}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<canvas class="embers" id="embers" aria-hidden="true"></canvas>
+
+<header class="hdr" id="hdr">
+  <a class="hdr__logo" href="#top" aria-label="THE GOODFAT etusivu"><img src="img/logo-light.svg" alt="THE GOODFAT" width="89" height="34"></a>
+  <nav class="hdr__nav" aria-label="Päävalikko">
+    <a href="#kauppa">Kauppa</a>
+    <a href="#kuljetus">Kuljetus</a>
+    <a href="#tarina">Näin ne tehdään</a>
+    <a href="#paista">Paista</a>
+    <a href="#jalleenmyyjat">Myymälät</a>
+    <a href="#ukk">Kysymykset</a>
+  </nav>
+  <a class="hdr__tel" href="tel:+358452063966">045&nbsp;206&nbsp;3966</a>
+  <button class="cart-btn" id="cartBtn" aria-label="Ostoskori, 0 pussia" aria-controls="drawer" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
+    <span class="cart-btn__l">Kori</span><span class="cart-btn__n" id="cartN">0</span>
+  </button>
+  <button class="menu-btn" id="menuBtn" aria-label="Avaa valikko" aria-expanded="false" aria-controls="mnav"><span></span></button>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobiilivalikko">
+  <a href="#kauppa">Kauppa</a>
+  <a href="#kuljetus">Kuljetus</a>
+  <a href="#tarina">Näin ne tehdään</a>
+  <a href="#paista">Paista</a>
+  <a href="#jalleenmyyjat">Myymälät</a>
+  <a href="#ukk">Kysymykset</a>
+  <a class="mnav__tel" href="tel:+358452063966">045&nbsp;206&nbsp;3966 · don@thegoodfat.fi</a>
+</nav>
+
+<main id="main">
+<!-- HERO -->
+<section class="hero" id="top" aria-label="Esittely">
+  <div class="hero__media" id="heroMedia" aria-hidden="true">
+    <video muted playsinline preload="auto" poster="img/s-fall.webp" data-src="video/hero-1.mp4"></video>
+    <video muted playsinline preload="metadata" poster="img/s-tallow.webp" data-src="video/hero-2.mp4"></video>
+    <video muted playsinline preload="metadata" poster="img/s-split.webp" data-src="video/hero-3.mp4"></video>
+  </div>
+  <div class="hero__shade" aria-hidden="true"></div>
+  <div class="hero__gl" id="heroGL" aria-hidden="true"></div>
+  <div class="hero__bar" id="heroBar" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="drag-tip" id="dragTip" aria-hidden="true">
+    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 15V7.5a2 2 0 0 1 4 0V14m0-1.5a2 2 0 0 1 4 0V15m0-1a2 2 0 0 1 4 0v5.5A8.5 8.5 0 0 1 15.5 28h-1a7 7 0 0 1-5.6-2.8L5 20a2 2 0 0 1 3-2.6l4 3.6"/></svg>
+    Pyöritä pussia
+  </div>
+  <div class="hero__in">
+    <span class="eyebrow hero__kicker">Käsin tehty Suomessa</span>
+    <h1 class="hero__title split" data-split>Ranskalaiset ilman <em>kompromisseja.</em></h1>
+    <p class="hero__sub">Kaksi raaka-ainetta: luomuperuna ja ruoholla ruokitun naudan tali. Pakkasesta uuniin tai airfryeriin, ja pöydässä on rapeat ranskalaiset.</p>
+    <div class="hero__cta">
+      <a class="btn" href="#kauppa">Tilaa ranskalaiset <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#tarina">Näin ne tehdään</a>
+    </div>
+  </div>
+  <div class="hero__chips" aria-hidden="true">
+    <span class="chip"><i></i>Seuraava vapaa kuljetus <b id="chipSlot">pe 6.11.</b></span>
+    <span class="chip">Uuni <b>30&nbsp;min</b> · Airfryer <b>18&nbsp;min</b></span>
+  </div>
+  <div class="hero__hint" aria-hidden="true">Vieritä</div>
+</section>
+
+
+<!-- FACTS + EQUATION -->
+<section class="sec light" id="perhe" style="padding-bottom:clamp(70px,9vw,130px)">
+  <div class="wrap">
+    <span class="eyebrow rv">Tervetuloa perheeseen</span>
+    <h2 class="h2 split" data-split>Peruna. Tali. <em>Ei mitään muuta.</em></h2>
+    <p class="lede rv" style="--d:.1">Ei siemenöljyjä, ei lisäaineita, ei oikopolkuja. Teemme ranskalaiset käsin pieninä erinä, joten jokaisen viikon määrä on rajattu.</p>
+    <div class="eq">
+      <figure class="eq__card rv rv-img" style="--d:0" data-tilt><img src="img/s-potato.webp" alt="Multaisia luomuperunoita tummalla kivipinnalla" loading="lazy" width="1344" height="752"><figcaption><b>Luomuperuna</b><span>Huolella valitut lajikkeet</span></figcaption></figure>
+      <span class="eq__op rv" style="--d:.15" aria-hidden="true">+</span>
+      <figure class="eq__card rv rv-img" style="--d:.2" data-tilt><img src="img/s-tallow.webp" alt="Ranskalaiset kuplivassa naudan talissa" loading="lazy" width="1344" height="752"><figcaption><b>Naudan tali</b><span>Ruoholla ruokitusta naudasta</span></figcaption></figure>
+      <span class="eq__op eq__op--eq rv" style="--d:.35" aria-hidden="true">=</span>
+      <figure class="eq__card eq__card--hero rv rv-img" style="--d:.4" data-tilt><img src="img/s-golden.webp" alt="Kullanruskeat rapeat ranskalaiset ja suolahiutaleita" loading="lazy" width="1344" height="752"><figcaption><b>Täydellisyys</b><span>Rapea pinta, pehmeä sisus</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="facts-wrap" style="background:var(--night)" aria-label="Faktat">
+  <div class="facts wrap">
+    <div class="fact rv"><div class="fact__n" data-count="2">2</div><div class="fact__l">raaka-ainetta. Luomuperuna ja naudan tali.</div></div>
+    <div class="fact rv" style="--d:.08"><div class="fact__n"><span data-count="500">500</span><small>g</small></div><div class="fact__l">jokaisessa pakastepussissa.</div></div>
+    <div class="fact rv" style="--d:.16"><div class="fact__n"><span data-count="80">80</span></div><div class="fact__l">pussia viikossa. Käsityön kapasiteetti.</div></div>
+    <div class="fact rv" style="--d:.24"><div class="fact__n"><span data-count="18">18</span><small>min</small></div><div class="fact__l">airfryerissa. Uunissa 30&nbsp;min.</div></div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="sec shop light" id="kauppa">
+  <div class="wrap">
+    <div class="shop__head">
+      <div>
+        <span class="eyebrow rv">Kauppa</span>
+        <h2 class="h2 split" data-split>Valitse <em>pakettisi.</em></h2>
+        <p class="lede rv" style="--d:.1">Yksi pussi on 500&nbsp;g. Mitä isompi paketti, sitä edullisempi kilohinta.</p>
+      </div>
+      <div class="cap rv" style="--d:.2" id="capBox">
+        <div class="cap__ring" id="capRing" style="--p:.74" aria-hidden="true"></div>
+        <div><b id="capTxt">Tämän viikon erästä varattu 59 / 80 pussia.</b><br>Teemme ranskalaiset käsin, joten erät ovat rajattuja.</div>
+      </div>
+    </div>
+    <div class="packs" id="packs"></div>
+    <div class="ship rv" id="shipBox">
+      <div class="ship__txt" id="shipTxt">Kotiinkuljetus <b>6,90&nbsp;€</b>. Ilmainen, kun tuotteiden summa on yli 50&nbsp;€.</div>
+      <div class="ship__meta">Kuljetukset ti ja pe klo 18–21</div>
+      <div class="ship__bar" aria-hidden="true"><i id="shipBar"></i></div>
+    </div>
+    <div class="shop__fine rv">
+      <span>Pakaste · 500&nbsp;g / pussi · Maksu Stripen suojatulla maksusivulla</span>
+      <span>Maksuton nouto Vantaalta ma–la</span>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERY -->
+<section class="sec deliv" id="kuljetus">
+  <div class="wrap">
+    <span class="eyebrow rv">Käsityötä. Erä kerrallaan.</span>
+    <h2 class="h2 split" data-split>Seuraavat <em>kuljetukset.</em></h2>
+    <p class="lede rv" style="--d:.1">Hyvää kannattaa varata ajoissa. Tilaa kuljetusta edeltävänä iltana klo 20.00 mennessä. Varattavissa kaksi viikkoa kerrallaan.</p>
+    <div class="deliv__grid">
+      <div>
+        <div class="slots" id="slots" role="group" aria-label="Kuljetuspäivät"></div>
+        <p class="deliv__note rv">Yksi pussi on 500&nbsp;g. Valittu päivä siirtyy ostoskoriin.</p>
+      </div>
+      <div class="zip rv" style="--d:.15">
+        <h3>Kuuluuko kotisi reitin varrelle?</h3>
+        <p>Kuljetamme Helsinkiin, Espooseen, Vantaalle, Kauniaisiin ja Kirkkonummelle. Tarkista oma osoitteesi postinumerolla.</p>
+        <form id="zipForm" novalidate>
+          <label><span class="sr">Postinumero</span><input id="zipIn" inputmode="numeric" autocomplete="postal-code" maxlength="5" pattern="[0-9]{5}" placeholder="Postinumero, esim. 00530"></label>
+          <button class="btn" type="submit">Tarkista</button>
+        </form>
+        <div class="zip__city" id="zipCityBox"><label><span class="sr">Kunta</span><select id="zipCity"></select></label></div>
+        <div class="zip__res" id="zipRes" role="status" aria-live="polite"></div>
+        <div class="route" id="route" aria-hidden="true"><span>Helsinki</span><span>Espoo</span><span>Vantaa</span><span>Kauniainen</span><span>Kirkkonummi</span></div>
+        <p class="zip__src">Postinumerotiedot: Posti Oy, ladattu 15.9.2026. Postinumero voi kattaa useita kuntia; toimitus koskee ilmoitettujen kuntien katuosoitteita.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCROLL STORY -->
+<section class="scrub" id="tarina" aria-label="Perunasta pussiin">
+  <div class="scrub__pin">
+    <video class="scrub__vid" id="scrubVid" muted playsinline preload="auto" poster="img/s-potato.webp" data-src="video/story.mp4" aria-hidden="true"></video>
+    <div class="scrub__shade" aria-hidden="true"></div>
+    <div class="scrub__top">
+      <span class="eyebrow">Perunasta pussiin</span>
+      <span class="scrub__count" aria-hidden="true"><b id="scrubN">01</b> / 07</span>
+    </div>
+    <div class="scrub__rail" id="scrubRail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="scrub__steps" id="scrubSteps">
+      <div class="sstep"><small>01 · Lajikkeen valinta</small><h3>Kaikki alkaa perunasta.</h3><p>Valitsemme luomuperunat ja lajikkeet huolella. Hyvät ranskalaiset syntyvät jo raaka-aineesta.</p></div>
+      <div class="sstep"><small>02 · Tarkastus</small><h3>Käsin läpi.</h3><p>Käymme jokaisen perunan läpi käsin. Huonot yksilöt karsitaan ja pienet viat leikataan pois.</p></div>
+      <div class="sstep"><small>03 · Leikkaus</small><h3>Oman käden jälki.</h3><p>Leikkaamme perunat käsikäyttöisellä leikkurilla, yksi peruna kerrallaan.</p></div>
+      <div class="sstep"><small>04 · Keittäminen</small><h3>Hyvä ottaa aikansa.</h3><p>Ennen paistoa leikatut perunat keitetään. Jokaisella vaiheella on paikkansa.</p></div>
+      <div class="sstep"><small>05 · Talissa paistaminen</small><h3>Nyt tulee se hyvä rasva.</h3><p>Paistamme ranskalaiset ruoholla ruokitun naudan talissa. Peruna ja tali, täydellinen pari.</p></div>
+      <div class="sstep"><small>06 · Pikapakastus</small><h3>Rapeus talteen.</h3><p>Heti paistamisen jälkeen ranskalaiset pikapakastetaan.</p></div>
+      <div class="sstep"><small>07 · Pussitus</small><h3>Meiltä sinun pöytääsi.</h3><p>Pakkaamme ranskalaiset 500 gramman pusseihin. Sinulle jää viimeistely: uunissa 30&nbsp;min tai airfryerissa 18&nbsp;min.</p></div>
+    </div>
+    <div class="scrub__proof" id="scrubProof" aria-hidden="true">
+      <img src="img/step-1.webp" alt="" loading="lazy"><img src="img/step-2.webp" alt="" loading="lazy"><img src="img/step-3.webp" alt="" loading="lazy"><img src="img/step-4.webp" alt="" loading="lazy"><img src="img/step-5.webp" alt="" loading="lazy"><img src="img/step-6.webp" alt="" loading="lazy"><img src="img/step-7.webp" alt="" loading="lazy">
+      <span id="proofLbl">Vaihe 01</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="state" aria-label="Lupaus">
+  <div class="state__line" data-drift="-1">Two ingredients. <em>No funny business.</em></div>
+  <div class="state__line state__line--b" data-drift="1">Peruna. Tali. Ei mitään muuta.</div>
+</section>
+
+<!-- HOW TO ORDER -->
+<section class="sec light" id="tilaus">
+  <div class="wrap">
+    <span class="eyebrow rv">Näin se toimii</span>
+    <h2 class="h2 split" data-split>Sinä tilaat. <em>Me hoidamme loput.</em></h2>
+    <div class="order">
+      <div class="ostep rv" style="--d:0"><h3>Valitse paketti</h3><p>Lisää sopiva paketti ostoskoriin. Yksi pussi on 500&nbsp;g.</p></div>
+      <div class="ostep rv" style="--d:.1"><h3>Kerro, minne tuodaan</h3><p>Osoite, puhelinnumero ja sähköposti. Valitse toimituspäivä tai nouto.</p></div>
+      <div class="ostep rv" style="--d:.2"><h3>Maksa turvallisesti</h3><p>Maksat verkossa Stripen suojatulla maksusivulla. Korttitietoja ei tallenneta kauppaan.</p></div>
+      <div class="ostep rv" style="--d:.3"><h3>Ranskalaiset kotiovelle</h3><p>Toimitamme tiistaina tai perjantaina klo 18–21. Soitamme hetkeä ennen saapumista.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COOK TOOL -->
+<section class="sec cook" id="paista">
+  <div class="wrap cook__grid">
+    <div>
+      <span class="eyebrow rv">Viimeinen vaihe on sinun</span>
+      <h2 class="h2 split" data-split>Uuni päälle. <em>Perhe pöytään.</em></h2>
+      <p class="lede rv" style="--d:.1">Me teemme pohjatyön. Sinä viimeistelet rapeiksi. Valitse laite ja käynnistä ajastin, niin näet milloin ranskalaiset ovat valmiita.</p>
+      <div class="seg rv" role="group" aria-label="Valitse laite" style="--d:.15">
+        <button type="button" aria-pressed="true" data-mode="uuni">Uuni</button>
+        <button type="button" aria-pressed="false" data-mode="airfryer">Airfryer</button>
+      </div>
+      <div class="cook__spec rv" style="--d:.2"><div><b id="cTemp">200&nbsp;°C</b><span>Lämpötila</span></div><div><b id="cTime">30&nbsp;min</b><span>Paistoaika</span></div></div>
+      <div class="cook__btns rv" style="--d:.25">
+        <button class="btn" type="button" id="cStart">Käynnistä ajastin</button>
+        <button class="btn btn--ghost" type="button" id="cDemo">Katso 10 sekunnissa</button>
+      </div>
+      <p class="cook__msg" id="cMsg" role="status" aria-live="polite"></p>
+      <ol class="cook__steps rv" style="--d:.3">
+        <li><div><b>Avaa pussi.</b><span>Levitä pakasteranskalaiset uunipellille tai airfryerin koriin.</span></div></li>
+        <li><div><b>Paista rapeiksi.</b><span>Uuni 200&nbsp;°C 30&nbsp;min. Airfryer 180&nbsp;°C 18&nbsp;min. Noudata pakkauksen laitekohtaisia ohjeita.</span></div></li>
+        <li><div><b>Ja sitten: avot.</b><span>Mausta oman makusi mukaan ja tarjoa heti. Parhaimmillaan yhdessä jaettuna.</span></div></li>
+      </ol>
+    </div>
+    <div class="cook__stage rv" style="--d:.1">
+      <canvas id="cookCv" aria-hidden="true"></canvas>
+      <div class="dial"><div class="dial__t"><b id="cClock">30:00</b><span id="cState">Valmiina</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="sec ours light" id="meista">
+  <div class="wrap ours__grid">
+    <div class="ours__img rv rv-img"><img src="img/respect.webp" alt="Respect the fat, THE GOODFAT" loading="lazy" width="1200" height="670" data-par></div>
+    <div class="ours__txt">
+      <span class="eyebrow rv">Meidän tarinamme</span>
+      <h2 class="h2 split" data-split>Perheessä on <em>omat sääntönsä.</em></h2>
+      <p class="rv" style="--d:.1">THE GOODFAT syntyi oman perheen ruokapöydässä yhdestä kysymyksestä: miksi lempiherkkumme tehdään raaka-aineista, joita emme itse valitsisi? Halusimme ranskalaiset, joissa sekä maku että ainesosaluettelo ovat kunnossa.</p>
+      <p class="rv" style="--d:.15">Lähdimme liikkeelle yksinkertaisesta: luomuperuna ja ruoholla ruokitun naudan tali. Teemme kaiken käsin Suomessa, aikaa säästelemättä. Tuloksena rapea pinta, pehmeä sisus ja maku, jonka takia vadille kurkotetaan uudestaan.</p>
+      <div class="rule rv" style="--d:.2">”Tarjoaisimmeko tätä omalle perheellemme? Kun vastaus on kyllä, vedämme sinullekin tuolin esiin.”<small>Donin sääntö</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- RETAILERS -->
+<section class="sec shops light" id="jalleenmyyjat">
+  <div class="wrap">
+    <span class="eyebrow rv">Jälleenmyyjät</span>
+    <h2 class="h2 split" data-split>Hyvää löytyy <em>myös läheltä.</em></h2>
+    <p class="lede rv" style="--d:.1">Haluatko ranskalaiset mukaan kauppareissulta? THE GOODFATia myydään näissä liikkeissä Helsingissä ja Salossa.</p>
+    <div class="rgrid" id="rgrid"></div>
+    <p class="shops__fine rv">Saatavuus voi vaihdella myymälöittäin. Tarkista poikkeusaukioloajat liikkeen omilta sivuilta.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq" id="ukk">
+  <div class="wrap faq__grid">
+    <div>
+      <span class="eyebrow rv">Vielä mietityttää?</span>
+      <h2 class="h2 split" data-split>Hyvä kun <em>kysyit.</em></h2>
+      <div class="nutri rv" style="--d:.15">
+        <h3>Ravintoarvot / 100&nbsp;g</h3>
+        <dl>
+          <dt>Energia</dt><dd>590&nbsp;kJ / 141&nbsp;kcal</dd>
+          <dt>Rasva</dt><dd>8,2&nbsp;g</dd>
+          <dt>josta tyydyttynyttä</dt><dd>4,0&nbsp;g</dd>
+          <dt>Hiilihydraatit</dt><dd>14,7&nbsp;g</dd>
+          <dt>josta sokereita</dt><dd>0,6&nbsp;g</dd>
+          <dt>Ravintokuitu</dt><dd>0,9&nbsp;g</dd>
+          <dt>Proteiini</dt><dd>1,7&nbsp;g</dd>
+          <dt>Suola</dt><dd>0&nbsp;g</dd>
+        </dl>
+        <p>Ainesosat: luomuperuna, naudantali. Säilytys −18&nbsp;°C, parasta ennen -päivään asti. Ei saa jäädyttää uudelleen sulatuksen jälkeen.</p>
+      </div>
+    </div>
+    <div class="qas" id="qas">
+      <div class="qa"><button aria-expanded="false">Mitä taliranskalaiset ovat?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Ranskalaisia, jotka paistetaan naudan talissa. Meidän ranskalaisissamme on kaksi raaka-ainetta: luomuperuna ja ruoholla ruokitun naudan tali.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Ovatko ranskalaiset pakasteita?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Kyllä. Pikapakastamme ranskalaiset ennen pussitusta. Saat 500 gramman pakastepusseja, jotka viimeistelet kotona.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Tarvitsenko rasvakeittimen?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Et tarvitse. Uunissa 200&nbsp;°C:ssa 30 minuuttia tai airfryerissa 180&nbsp;°C:ssa 18 minuuttia.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Miten maksan tilaukseni?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Maksat Stripen suojatulla maksusivulla. Korttitietosi käsittelee Stripe, emmekä tallenna kortin numeroa verkkokauppaamme.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Milloin tilaukseni tulee?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Valitset kassalla tiistain tai perjantain kuljetuksen klo 18–21. Tiistain kuljetukseen tilataan maanantaina klo 20.00 mennessä ja perjantain kuljetukseen torstaina klo 20.00 mennessä.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Voinko noutaa itse?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Voit. Nouto on maksuton osoitteesta Vanha Kaarelantie 33 A, 01610 Vantaa, maanantaista lauantaihin. Valitse noutopäivä kassalla ja sovi kellonaika numerossa 045&nbsp;206&nbsp;3966. Nouto varataan viimeistään edellisenä päivänä.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Paljonko kuljetus maksaa?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Kotiinkuljetus maksaa 6,90&nbsp;€. Se on maksuton, kun tuotteiden summa alennusten jälkeen on yli 50&nbsp;€.</p></div></div></div>
+      <div class="qa"><button aria-expanded="false">Voinko peruuttaa tilaukseni?<i aria-hidden="true"></i></button><div class="qa__a"><div><p>Voit lähettää peruuttamisilmoituksen sivun alareunan toiminnolla tai sähköpostilla. Kerro nimesi, tilausnumerosi ja sähköpostiosoitteesi. Tarkemmat ohjeet löytyvät tilaus- ja toimitusehdoista.</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK + NEWSLETTER -->
+<section class="sec talk light" id="palaute">
+  <div class="wrap talk__grid">
+    <div class="panel rv">
+      <span class="eyebrow">Don kuuntelee</span>
+      <h3>Sano suoraan. Tehdään parempaa.</h3>
+      <p>Mikä maistui? Millainen rapeus? Miten valmistus tai toimitus sujui? Kerro kehut, ideat ja sekin, mikä ei mennyt nappiin. Luemme jokaisen palautteen.</p>
+      <form id="fbForm" novalidate>
+        <div class="stars" role="group" aria-label="Arvio tähdillä" id="stars"><button type="button" aria-label="1 tähti">★</button><button type="button" aria-label="2 tähteä">★</button><button type="button" aria-label="3 tähteä">★</button><button type="button" aria-label="4 tähteä">★</button><button type="button" aria-label="5 tähteä">★</button></div>
+        <label class="field"><span>Mitä haluaisit kertoa?</span><textarea name="msg" required></textarea></label>
+        <label class="field"><span>Sähköposti (vapaaehtoinen, jos toivot vastausta)</span><input type="email" name="email" autocomplete="email"></label>
+        <button class="btn btn--dark" type="submit" style="margin-top:16px">Lähetä palaute</button>
+        <p class="fine">Palaute tulee suoraan meille, eikä sitä julkaista sivuilla. Yhteystietoja käytetään vain vastaamiseen.</p>
+        <div class="ok-msg" id="fbOk" role="status">Kiitos! Palaute on vastaanotettu.</div>
+      </form>
+    </div>
+    <div class="panel panel--dark rv" style="--d:.1" id="uutiskirje">
+      <span class="eyebrow">Kirjeitä perheeltä</span>
+      <div class="big10">−10&nbsp;%</div>
+      <h3>Hyvän maun sisäpiiri.</h3>
+      <p>Liity uutiskirjeeseen ja saat −10&nbsp;% ensimmäisen tilauksesi tuotteista. Sen jälkeen kuulet keittiön kuulumiset ja perheen tarjoukset.</p>
+      <form id="nlForm" novalidate>
+        <label class="field"><span>Sähköpostiosoite</span><input type="email" name="email" required autocomplete="email"></label>
+        <label class="check"><input type="checkbox" required> Tilaan THE GOODFATin uutiskirjeen ja haluan uutiset sekä tarjoukset sähköpostiini.</label>
+        <button class="btn" type="submit" style="margin-top:16px">Tilaa ja saa −10&nbsp;%</button>
+        <p class="fine">Etu koskee ensimmäisen tilauksen tuotteita, ei toimituskuluja. Käytettävissä kerran sähköpostiosoitetta tai puhelinnumeroa kohti. Voit perua tilauksen jokaisen kirjeen lopusta.</p>
+        <div class="ok-msg" id="nlOk" role="status">Tervetuloa sisäpiiriin! Koodi lähtee sähköpostiisi.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="yhteys">
+  <div class="contact__glow" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <span class="eyebrow rv">The Goodfat family</span>
+    <h2 class="h2 split" data-split>Meidän pöydässä on <em>tilaa sinulle.</em></h2>
+    <p class="lede rv" style="margin-inline:auto;--d:.1">Kysyttävää ranskalaisista tai toimituksesta? Kuulemme sinusta mielellämme.</p>
+    <div class="contact__links rv" style="--d:.2">
+      <a class="btn" href="#kauppa">Löydä oma pakettisi</a>
+      <a class="btn btn--ghost" href="mailto:don@thegoodfat.fi">don@thegoodfat.fi</a>
+      <a class="btn btn--ghost" href="tel:+358452063966">045&nbsp;206&nbsp;3966</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__g">
+      <div><img class="ftr__logo" src="img/logo-light.svg" alt="THE GOODFAT" width="78" height="30" loading="lazy"><p>Real food is a family business.</p><p>Pakasteranskalaiset käsityönä Suomessa.</p></div>
+      <div><h4>Kauppa</h4><a href="#kauppa">Paketit</a><br><a href="#kuljetus">Kuljetukset</a><br><a href="#jalleenmyyjat">Jälleenmyyjät</a></div>
+      <div><h4>Tietoa</h4><a href="#ukk">Kysymykset</a><br><a href="https://thegoodfat.fi/" rel="noopener">Tilaus- ja toimitusehdot</a><br><a href="https://thegoodfat.fi/" rel="noopener">Tietosuoja</a></div>
+      <div><h4>Yhteys</h4><p>ROOTE OY / THE GOODFAT<br>Y-tunnus 3567801-4</p><p>Vanha Kaarelantie 33 A<br>01610 Vantaa</p><a href="mailto:don@thegoodfat.fi">don@thegoodfat.fi</a><br><a href="tel:+358452063966">045&nbsp;206&nbsp;3966</a></div>
+    </div>
+    <div class="ftr__b"><span>© 2026 ROOTE OY</span><span>Sivustoehdotus · Marktic</span></div>
+  </div>
+</footer>
+
+<!-- CART -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" aria-hidden="true">
+  <div class="drawer__h"><h2 id="dTitle">Ostoskori</h2><button class="x" id="dClose" aria-label="Sulje ostoskori"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="drawer__b" id="dBody"></div>
+  <div class="drawer__f" id="dFoot"></div>
+</aside>
+
+<!-- OFFER (opens only after first add to cart) -->
+<div class="offer" id="offer" role="dialog" aria-modal="false" aria-labelledby="ofT" aria-hidden="true">
+  <button class="offer__x" id="ofX" aria-label="Sulje tarjous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="offer__n">−10&nbsp;%</div>
+  <div>
+    <h3 id="ofT">Hyvä valinta. Otatko vielä −10&nbsp;%?</h3>
+    <p>Liity uutiskirjeeseen, niin ensimmäisen tilauksesi tuotteet ovat −10&nbsp;%.</p>
+    <form id="ofForm" novalidate>
+      <input type="email" required placeholder="Sähköpostiosoite" aria-label="Sähköpostiosoite" autocomplete="email">
+      <button class="btn btn--sm" type="submit">Haluan edun</button>
+      <label class="check"><input type="checkbox" required> Tilaan uutiskirjeen ja haluan uutiset sekä tarjoukset sähköpostiini.</label>
+    </form>
+  </div>
+  <p class="offer__fine">Etu koskee tuotteita, ei toimituskuluja. Kerran sähköpostiosoitetta tai puhelinnumeroa kohti.</p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="pv" aria-hidden="true">Sivustoehdotus · Marktic</div>
+
+<script src="site.js" defer></script>
+<script type="module" src="hero3d.js"></script>
+</body>
+</html>
