@@ -10,6 +10,7 @@
 <link rel="icon" href="img/icon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/dmserif.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/dmsans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/s-potato-m.webp" media="(max-width:760px)">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
@@ -61,9 +62,9 @@
 <!-- HERO -->
 <section class="hero" id="top" aria-label="Esittely">
   <div class="hero__media" id="heroMedia" aria-hidden="true">
-    <video muted playsinline preload="auto" poster="img/s-fall.webp" data-src="video/hero-1.mp4"></video>
-    <video muted playsinline preload="metadata" poster="img/s-tallow.webp" data-src="video/hero-2.mp4"></video>
-    <video muted playsinline preload="metadata" poster="img/s-split.webp" data-src="video/hero-3.mp4"></video>
+    <video muted playsinline preload="auto" data-poster="img/s-fall.webp" data-src="video/hero-1.mp4"></video>
+    <video muted playsinline preload="metadata" data-poster="img/s-tallow.webp" data-src="video/hero-2.mp4"></video>
+    <video muted playsinline preload="metadata" data-poster="img/s-split.webp" data-src="video/hero-3.mp4"></video>
   </div>
   <div class="hero__shade" aria-hidden="true"></div>
   <div class="hero__gl" id="heroGL" aria-hidden="true"></div>
@@ -80,6 +81,7 @@
       <a class="btn" href="#kauppa">Tilaa ranskalaiset <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn--ghost" href="#tarina">Näin ne tehdään</a>
     </div>
+    <span class="hero__cue" aria-hidden="true">Vieritä ja katso, miten ne tehdään</span>
   </div>
   <div class="hero__chips" aria-hidden="true">
     <span class="chip"><i></i>Seuraava vapaa kuljetus <b id="chipSlot">pe 6.11.</b></span>
@@ -96,11 +98,11 @@
     <h2 class="h2 split" data-split>Peruna. Tali. <em>Ei mitään muuta.</em></h2>
     <p class="lede rv" style="--d:.1">Ei siemenöljyjä, ei lisäaineita, ei oikopolkuja. Teemme ranskalaiset käsin pieninä erinä, joten jokaisen viikon määrä on rajattu.</p>
     <div class="eq">
-      <figure class="eq__card rv rv-img" style="--d:0" data-tilt><img src="img/s-potato.webp" alt="Multaisia luomuperunoita tummalla kivipinnalla" loading="lazy" width="1344" height="752"><figcaption><b>Luomuperuna</b><span>Huolella valitut lajikkeet</span></figcaption></figure>
+      <figure class="eq__card rv rv-img" style="--d:0" data-tilt><img src="img/s-potato.webp" srcset="img/s-potato-640.webp 640w, img/s-potato.webp 1344w" sizes="(max-width:760px) 50vw, 33vw" alt="Multaisia luomuperunoita tummalla kivipinnalla" loading="lazy" width="1344" height="752"><figcaption><b>Luomuperuna</b><span>Huolella valitut lajikkeet</span></figcaption></figure>
       <span class="eq__op rv" style="--d:.15" aria-hidden="true">+</span>
-      <figure class="eq__card rv rv-img" style="--d:.2" data-tilt><img src="img/s-tallow.webp" alt="Ranskalaiset kuplivassa naudan talissa" loading="lazy" width="1344" height="752"><figcaption><b>Naudan tali</b><span>Ruoholla ruokitusta naudasta</span></figcaption></figure>
+      <figure class="eq__card rv rv-img" style="--d:.2" data-tilt><img src="img/s-tallow.webp" srcset="img/s-tallow-640.webp 640w, img/s-tallow.webp 1344w" sizes="(max-width:760px) 50vw, 33vw" alt="Ranskalaiset kuplivassa naudan talissa" loading="lazy" width="1344" height="752"><figcaption><b>Naudan tali</b><span>Ruoholla ruokitusta naudasta</span></figcaption></figure>
       <span class="eq__op eq__op--eq rv" style="--d:.35" aria-hidden="true">=</span>
-      <figure class="eq__card eq__card--hero rv rv-img" style="--d:.4" data-tilt><img src="img/s-golden.webp" alt="Kullanruskeat rapeat ranskalaiset ja suolahiutaleita" loading="lazy" width="1344" height="752"><figcaption><b>Täydellisyys</b><span>Rapea pinta, pehmeä sisus</span></figcaption></figure>
+      <figure class="eq__card eq__card--hero rv rv-img" style="--d:.4" data-tilt><img src="img/s-golden.webp" srcset="img/s-golden-640.webp 640w, img/s-golden.webp 1344w" sizes="(max-width:760px) 50vw, 33vw" alt="Kullanruskeat rapeat ranskalaiset ja suolahiutaleita" loading="lazy" width="1344" height="752"><figcaption><b>Täydellisyys</b><span>Rapea pinta, pehmeä sisus</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -171,7 +173,8 @@
 <!-- SCROLL STORY -->
 <section class="scrub" id="tarina" aria-label="Perunasta pussiin">
   <div class="scrub__pin">
-    <video class="scrub__vid" id="scrubVid" muted playsinline preload="auto" poster="img/s-potato.webp" data-src="video/story.mp4" aria-hidden="true"></video>
+    <picture class="scrub__poster" aria-hidden="true"><source media="(max-width:760px)" srcset="img/s-potato-m.webp" width="424" height="752"><img src="img/s-potato.webp" alt="" width="1344" height="752"></picture>
+    <video class="scrub__vid" id="scrubVid" muted playsinline preload="none" data-src="video/story.mp4" data-src-m="video/story-m.mp4" aria-hidden="true"></video>
     <div class="scrub__shade" aria-hidden="true"></div>
     <div class="scrub__top">
       <span class="eyebrow">Perunasta pussiin</span>
@@ -391,6 +394,6 @@
 <div class="pv" aria-hidden="true">Sivustoehdotus · Marktic</div>
 
 <script src="site.js" defer></script>
-<script type="module" src="hero3d.js"></script>
+<script>if(matchMedia('(min-width:761px)').matches){var s3=document.createElement('script');s3.type='module';s3.src='hero3d.js';document.body.appendChild(s3)}</script>
 </body>
 </html>
