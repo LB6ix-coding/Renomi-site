@@ -4,6 +4,8 @@
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const PHONE = matchMedia('(max-width:760px)').matches; // phones open with the scroll story, no hero video/3D
+if (PHONE) { const z = document.getElementById('zipIn'); if (z) z.placeholder = 'esim. 00530'; }
 const _tv = document.createElement('video');
 const vsrc = u => _tv.canPlayType('video/mp4; codecs="avc1.640028"') ? u : u.replace(/\.mp4$/, '.webm');
 const eur = n => n.toFixed(2).replace('.', ',') + ' €';
@@ -31,6 +33,12 @@ const SLOTS = [
 ];
 const PICKUPS = ['2026-11-04', '2026-11-05', '2026-11-06', '2026-11-07', '2026-11-09', '2026-11-10'];
 const WEEK = { reserved: 59, cap: 80 };
+(function dropPast() {
+  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Helsinki' }).format(new Date());
+  const late = hkiNow().h >= 20;
+  for (let i = SLOTS.length - 1; i >= 0; i--) if (SLOTS[i].dl < today || (SLOTS[i].dl === today && late)) SLOTS.splice(i, 1);
+  for (let i = PICKUPS.length - 1; i >= 0; i--) if (PICKUPS[i] < today) PICKUPS.splice(i, 1);
+})();
 const SHOPS = [
   { city: 'Helsinki', name: 'Kotitila', addr: 'Haapaniemenkatu 7–9 B<br>00530 Helsinki<br>Merihaan Meritornin kansikerros',
     h: { 4: [10, 18], 5: [10, 18], 6: [10, 16] }, rows: [['Torstai–perjantai', '10–18'], ['Lauantai', '10–16'], ['Ma–ke, sunnuntai', 'Suljettu']],
@@ -103,7 +111,7 @@ const hdr = $('#hdr'); let lastY = 0, holdHdr = 0;
 function onHdr() {
   const y = scrollY;
   hdr.classList.toggle('is-solid', y > 40);
-  hdr.classList.toggle('is-hidden', y > 500 && y > lastY && !document.body.classList.contains('menu-open') && performance.now() > holdHdr);
+  hdr.classList.toggle('is-hidden', !PHONE && y > 500 && y > lastY && !document.body.classList.contains('menu-open') && performance.now() > holdHdr);
   lastY = y;
 }
 const menuBtn = $('#menuBtn');
@@ -118,9 +126,9 @@ const hero = $('.hero');
 requestAnimationFrame(() => setTimeout(() => { hero.classList.add('is-in'); $('.hero__title').classList.add('is-in'); }, 80));
 (function montage() {
   const vids = $$('#heroMedia video'), bars = $$('#heroBar span');
-  if (!vids.length) return;
+  if (!vids.length || PHONE) return;
   const SHOT = 2.7;
-  vids.forEach(v => { v.src = vsrc(v.dataset.src); });
+  vids.forEach(v => { if (v.dataset.poster) v.poster = v.dataset.poster; v.src = vsrc(v.dataset.src); });
   if (RM) { vids[0].classList.add('is-on'); return; }
   let cur = -1, timer;
   function go(n) {
@@ -145,7 +153,7 @@ requestAnimationFrame(() => setTimeout(() => { hero.classList.add('is-in'); $('.
 
 /* ---------- Ember canvas (fryer sparks) ---------- */
 (function embers() {
-  const c = $('#embers'); if (!c || RM) return;
+  const c = $('#embers'); if (!c || RM || PHONE) { if (c && PHONE) c.style.display = 'none'; return; }
   const x = c.getContext('2d'); let w, h, dpr, ps = [];
   function size() { dpr = Math.min(devicePixelRatio || 1, 2); w = innerWidth; h = innerHeight; c.width = w * dpr; c.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
   size(); addEventListener('resize', size);
@@ -264,20 +272,21 @@ function renderCart() {
   const left = FREE_OVER - sub;
   foot.innerHTML = `${fulfil.type === 'delivery' ? `<div class="mini-ship">${sub > FREE_OVER ? 'Kotiinkuljetus on ilmainen.' : `Ilmaiseen kuljetukseen puuttuu ${eur(Math.max(0.01, left + 0.01))}.`}<i style="--p:${p}"></i></div>` : ''}
     <dl class="sum"><dt>Tuotteet</dt><dd>${eur(sub)}</dd><dt>${fulfil.type === 'pickup' ? 'Nouto' : 'Kotiinkuljetus'}</dt><dd>${sh ? eur(sh) : 'Maksuton'}</dd><dt class="tot">Yhteensä</dt><dd class="tot">${eur(sub + sh)}</dd></dl>
-    <button class="btn" id="checkout" type="button" ${fulfil.date ? '' : 'disabled'}>${fulfil.date ? 'Siirry maksamaan' : 'Valitse ensin päivä'}</button>
+    <button class="btn" id="checkout" type="button" ${fulfil.date ? '' : 'aria-disabled="true"'}>${fulfil.date ? 'Siirry maksamaan' : 'Valitse ensin päivä'}</button>
     <p class="paynote">Maksu Stripen suojatulla maksusivulla. Tuotteet varataan maksun ajaksi noin 35 minuutiksi.</p>`;
+  if (PHONE) foot.querySelectorAll('.mini-ship,.paynote').forEach(el => body.appendChild(el));
 }
 renderCart();
 
 /* drawer */
 const drawer = $('#drawer');
 let lastFocus;
-function openCart() { lastFocus = document.activeElement; document.body.classList.add('cart-open'); drawer.setAttribute('aria-hidden', 'false'); $('#cartBtn').setAttribute('aria-expanded', 'true'); setTimeout(() => $('#dClose').focus(), 50); }
+function openCart() { if (offer.classList.contains('on')) hideOffer(); lastFocus = document.activeElement; document.body.classList.add('cart-open'); drawer.setAttribute('aria-hidden', 'false'); $('#cartBtn').setAttribute('aria-expanded', 'true'); setTimeout(() => $('#dClose').focus(), 50); }
 function closeCart() { document.body.classList.remove('cart-open'); drawer.setAttribute('aria-hidden', 'true'); $('#cartBtn').setAttribute('aria-expanded', 'false'); lastFocus && lastFocus.focus && lastFocus.focus(); }
 $('#cartBtn').addEventListener('click', openCart);
 $('#dClose').addEventListener('click', closeCart);
 $('#scrim').addEventListener('click', closeCart);
-document.addEventListener('click', e => { if (e.target.closest('[data-close]')) closeCart(); if (e.target.closest('#checkout')) toast('Esikatselu: tästä siirrytään Stripen maksusivulle.'); });
+document.addEventListener('click', e => { if (e.target.closest('[data-close]')) closeCart(); const co = e.target.closest('#checkout'); if (co) { if (co.getAttribute('aria-disabled') === 'true') { const d = $('#dBody [data-ful]'); if (d) d.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' }); toast('Valitse ensin kuljetus- tai noutopäivä.'); } else toast('Esikatselu: tästä siirrytään Stripen maksusivulle.'); } });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') { if (document.body.classList.contains('cart-open')) closeCart(); if (document.body.classList.contains('menu-open')) menuBtn.click(); hideOffer(); }
   if (e.key === 'Tab' && document.body.classList.contains('cart-open')) {
@@ -293,7 +302,7 @@ const offer = $('#offer');
 function maybeOffer() {
   if (store.sget('gf_offer_seen') || store.get('gf_nl', false)) return;
   store.sset('gf_offer_seen', '1');
-  setTimeout(() => { offer.classList.add('on'); offer.setAttribute('aria-hidden', 'false'); }, 1100);
+  setTimeout(() => { if (document.body.classList.contains('cart-open')) return; offer.classList.add('on'); offer.setAttribute('aria-hidden', 'false'); }, 1100);
 }
 function hideOffer() { offer.classList.remove('on'); offer.setAttribute('aria-hidden', 'true'); }
 $('#ofX').addEventListener('click', hideOffer);
@@ -358,13 +367,33 @@ const PC = {"00100":[["Helsinki"],0],"00120":[["Helsinki"],0],"00130":[["Helsink
 const scrub = (() => {
   const sec = $('#tarina'), v = $('#scrubVid'), steps = $$('.sstep'), rail = $$('#scrubRail i'), proofs = $$('#scrubProof img'), lbl = $('#proofLbl'), num = $('#scrubN');
   let loaded = false, target = 0, shown = 0, active = -1;
-  const lio = new IntersectionObserver(([e]) => { if (e.isIntersecting && !loaded) { loaded = true;
-    // Load the whole clip as a blob so seeking works on any host, even without range requests.
-    const url = vsrc(v.dataset.src);
-    fetch(url).then(r => r.ok ? r.blob() : Promise.reject(r.status))
-      .then(b => { v.src = URL.createObjectURL(b); v.load(); })
-      .catch(() => { v.src = url; v.load(); }); } }, { rootMargin: '150% 0px' });
-  lio.observe(sec);
+  function load() {
+    if (loaded) return; loaded = true;
+    const url = vsrc(PHONE && v.dataset.srcM ? v.dataset.srcM : v.dataset.src);
+    v.preload = 'auto'; v.src = url; v.load();
+    // Hosts without range requests silently reset seeks to 0: then load the clip as a blob instead.
+    v.addEventListener('loadedmetadata', () => {
+      const t = Math.min(1, v.duration / 4);
+      v.addEventListener('seeked', function chk() { v.removeEventListener('seeked', chk);
+        if (Math.abs(v.currentTime - t) > 0.3) fetch(url).then(r => r.ok ? r.blob() : Promise.reject(r.status)).then(b => { v.src = URL.createObjectURL(b); v.load(); }).catch(() => {});
+      });
+      try { v.currentTime = t; } catch (e) {}
+    }, { once: true });
+  }
+  if (PHONE) sec.classList.add('no-vid');
+  v.addEventListener('canplay', () => sec.classList.remove('no-vid'));
+  if (PHONE) {
+    // First screen on phones is the poster; fetch the clip on first touch/scroll, or soon after load on a fast connection.
+    const once = () => { load(); ['touchstart', 'scroll', 'pointerdown'].forEach(t => removeEventListener(t, once)); };
+    ['touchstart', 'scroll', 'pointerdown'].forEach(t => addEventListener(t, once, { passive: true }));
+    const cn = navigator.connection;
+    if (!(cn && (cn.saveData || /2g|3g/.test(cn.effectiveType || '')))) addEventListener('load', () => setTimeout(load, 2500));
+  } else {
+    const lio = new IntersectionObserver(([e]) => { if (e.isIntersecting) { load(); lio.disconnect(); } }, { rootMargin: '150% 0px' });
+    lio.observe(sec);
+  }
+  let near = true;
+  new IntersectionObserver(([e]) => { const was = near; near = e.isIntersecting; if (near && !was) requestAnimationFrame(tick); }, { rootMargin: '50% 0px' }).observe(sec);
   function setStep(i) {
     if (i === active) return; active = i;
     steps.forEach((s, k) => s.classList.toggle('on', k === i));
@@ -374,7 +403,9 @@ const scrub = (() => {
   setStep(0);
   function update() {
     const r = sec.getBoundingClientRect(), total = sec.offsetHeight - innerHeight;
-    const p = Math.min(1, Math.max(0, -r.top / total));
+    const intro = PHONE ? innerHeight * 0.7 : 0;
+    sec.classList.toggle('is-intro', PHONE && -r.top < intro);
+    const p = Math.min(1, Math.max(0, (-r.top - intro) / (total - intro)));
     const i = Math.min(6, Math.floor(p * 7)); setStep(i);
     rail.forEach((el, k) => el.style.setProperty('--f', Math.min(1, Math.max(0, p * 7 - k))));
     if (v.duration) target = p * (v.duration - 0.05);
@@ -384,7 +415,7 @@ const scrub = (() => {
       shown += (target - shown) * 0.18;
       if (Math.abs(v.currentTime - shown) > 0.012 && !v.seeking) { try { v.currentTime = shown; } catch (e) {} }
     }
-    requestAnimationFrame(tick);
+    if (near) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
   return update;
@@ -480,6 +511,7 @@ onHdr(); scrub(); onScrollFx();
     $('#cStart').textContent = 'Pysäytä';
     $('#cMsg').textContent = demo ? 'Pikaesikatselu: koko paistoaika kymmenessä sekunnissa.' : `Ajastin käynnissä. ${MODES[mode].t} °C, ${MODES[mode].m} min.`;
     raf = requestAnimationFrame(loop);
+    if (PHONE) $('.cook__stage').scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'center' });
   }
   function stop() { running = false; cancelAnimationFrame(raf); $('#cStart').textContent = 'Käynnistä ajastin'; }
   $$('.seg button').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
@@ -496,7 +528,7 @@ onHdr(); scrub(); onScrollFx();
   $('#rgrid').innerHTML = SHOPS.map((s, i) => {
     const t = s.h[now.wd], open = t && hm >= t[0] && hm < t[1];
     return `<article class="rcard rv" style="--d:${i * .08}"><span class="rcard__city">${s.city}</span><h3>${s.name}</h3><address>${s.addr}</address>
-      <span class="open ${open ? 'is-open' : ''}"><i></i>${open ? `Auki nyt, klo ${t[1]} asti` : 'Suljettu nyt'}</span>
+      <span class="opennow ${open ? 'is-open' : ''}"><i></i>${open ? `Auki nyt, klo ${t[1]} asti` : 'Suljettu nyt'}</span>
       <dl class="hours">${s.rows.map(r => `<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join('')}</dl>
       <div class="rcard__links"><a class="btn btn--sm btn--dark" href="${s.map}" target="_blank" rel="noopener">Avaa kartalla</a><a class="btn btn--sm btn--ghost" href="${s.web}" target="_blank" rel="noopener">Liikkeen sivuille</a></div></article>`;
   }).join('');
