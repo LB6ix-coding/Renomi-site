@@ -471,16 +471,16 @@ html:not(.js) .story-cup .frame:not([data-f="5"]){display:none}
 /* ---- phone first screen v2 (5.11): logo + words on top, the cup rises in from the bottom ---- */
 @media (max-width:760px){
   .hero{min-height:100vh;min-height:100svh;background:radial-gradient(85% 38% at 50% 92%,#6a2a5f 0%,#45173f 42%,#2c0c2b 75%)}
-  .hero-in{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;padding:80px 20px calc(68px + env(safe-area-inset-bottom,0px));gap:0}
+  .hero-in{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;padding:80px 20px 0;gap:0}
   .hero-copy{order:1}
   .hero-logo{width:72px;height:72px;margin:0 0 14px}
   .hero .hero-meta{display:none}
-  .hero-cup{display:block;order:2;flex:1 1 120px;min-height:120px;container-type:size;width:100%;max-width:none;margin:10px 0 0;position:relative;overflow:hidden;aspect-ratio:auto;justify-self:auto}
+  .hero-cup{display:block;order:2;flex:1 1 140px;min-height:140px;container-type:size;-webkit-mask-image:linear-gradient(#000 calc(100% - 118px - env(safe-area-inset-bottom,0px)),transparent calc(100% - 70px - env(safe-area-inset-bottom,0px)));mask-image:linear-gradient(#000 calc(100% - 118px - env(safe-area-inset-bottom,0px)),transparent calc(100% - 70px - env(safe-area-inset-bottom,0px)));width:100%;max-width:none;margin:10px 0 0;position:relative;overflow:hidden;aspect-ratio:auto;justify-self:auto}
   .hero-cup picture{position:absolute;left:50%;top:0;width:min(80vw,340px);margin-left:calc(min(80vw,340px) / -2);
     -webkit-mask-image:radial-gradient(closest-side,#000 64%,transparent 100%);mask-image:radial-gradient(closest-side,#000 64%,transparent 100%)}
   .hero-cup img{width:100%;height:auto}
   @supports (height:1cqh){
-    .hero-cup picture{left:0;right:0;margin:0 auto;height:min(205cqh,455px);width:auto;aspect-ratio:1080/1446}
+    .hero-cup picture{left:0;right:0;margin:0 auto;height:clamp(150px,calc((100cqh - 104px - env(safe-area-inset-bottom,0px)) * 2.15),470px);width:auto;aspect-ratio:1080/1446}
     .hero-cup img{height:100%;width:100%}
   }
   .js .hero-cup picture{opacity:0;transform:translateY(70px)}
