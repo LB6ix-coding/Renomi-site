@@ -25,7 +25,8 @@ def url_for(path: str) -> str:
         return f"https://{HOST}/"
     if p.endswith("/index.html"):
         return f"https://{HOST}/{p[:-len('index.html')]}"
-    return f"https://{HOST}/{p}"
+    # Cloudflare Pages serves /x.html as /x (and redirects the .html address there)
+    return f"https://{HOST}/{p[:-len('.html')] if p.endswith('.html') else p}"
 
 
 def main(argv: list[str]) -> int:
