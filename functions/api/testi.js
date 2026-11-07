@@ -226,8 +226,8 @@ export async function onRequestGet({ request, env, waitUntil }) {
 
   const httpFallback = !/^https:\/\//i.test(raw.trim());     // the visitor typed no scheme: try http if https fails
   const [page, score] = await Promise.all([readPage(target, httpFallback), readScore(target, env.PAGESPEED_API_KEY)]);
-  const body = { ok: true, url: target, checked: new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Helsinki' }),   // YYYY-MM-DD, Finnish date page, score,
-    scoreAvailable: !!env.PAGESPEED_API_KEY };
+  const checked = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Helsinki' });   // YYYY-MM-DD, Finnish date
+  const body = { ok: true, url: target, checked, page, score, scoreAvailable: !!env.PAGESPEED_API_KEY };
   if (page.reachable) {
     const ttl = score || !env.PAGESPEED_API_KEY ? 86400 : 600;   // a failed Google measurement is retried sooner
     waitUntil(cache.put(cacheKey, new Response(JSON.stringify(body), {
