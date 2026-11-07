@@ -219,7 +219,7 @@ export async function onRequestGet({ request, env, waitUntil }) {
 
   const cache = caches.default;
   // the key's presence is part of the cache key: adding the Google key must not serve old results without scores
-  const cacheKey = new Request('https://marktic.fi/api/testi-cache?k=' + (env.PAGESPEED_API_KEY ? 1 : 0) + '&u=' + encodeURIComponent(target.replace(/\/$/, '')));
+  const cacheKey = new Request('https://marktic.fi/api/testi-cache?v=2&k=' + (env.PAGESPEED_API_KEY ? 1 : 0) + '&u=' + encodeURIComponent(target.replace(/\/$/, '')));
   const hit = await cache.match(cacheKey);
   if (hit) return new Response(hit.body, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'x-cache': 'hit' } });
   if (await tooMany(request, cache)) return json({ ok: false, error: 'busy' }, 429);
