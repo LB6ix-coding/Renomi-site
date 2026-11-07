@@ -10,7 +10,10 @@ var PSI_FIELDS = [
   "lighthouseResult/audits/largest-contentful-paint/numericValue"
 ].join(",");
 var UA = "Mozilla/5.0 (compatible; MarkticTesti/1.0; +https://marktic.fi/yritys-ei-nay-googlessa)";
-var MAX_TEXT = 6e4;
+var MAX_BYTES = 512 * 1024;
+var MAX_TEXT = 3e4;
+var PER_MINUTE = 6;
+var BAD_HOSTS = /(^|\.)(localhost|nip\.io|sslip\.io|localtest\.me|lvh\.me)$/;
 var LOCAL_TYPES = /* @__PURE__ */ new Set([
   "localbusiness",
   "professionalservice",
@@ -24,32 +27,69 @@ var LOCAL_TYPES = /* @__PURE__ */ new Set([
   "autorepair",
   "accountingservice",
   "legalservice",
+  "attorney",
+  "notary",
   "dentist",
+  "physician",
+  "medicalclinic",
   "medicalbusiness",
+  "optician",
+  "pharmacy",
+  "veterinarycare",
   "realestateagent",
   "housekeepingservice",
   "beautysalon",
   "hairsalon",
   "nailsalon",
   "dayspa",
+  "tattooparlor",
+  "healthclub",
+  "exercisegym",
+  "sportsactivitylocation",
   "restaurant",
   "cafeorcoffeeshop",
+  "bakery",
+  "barorpub",
+  "fastfoodrestaurant",
+  "foodestablishment",
+  "hotel",
+  "lodgingbusiness",
+  "bedandbreakfast",
   "store",
+  "florist",
+  "autodealer",
+  "autobodyshop",
+  "autowash",
+  "autopartsstore",
+  "tirestore",
   "locksmith",
   "movingcompany",
-  "landscaping",
-  "gardenstore",
-  "healthandbeautybusiness",
+  "selfstorage",
+  "childcare",
+  "drycleaningorlaundry",
+  "travelagency",
+  "insuranceagency",
+  "financialservice",
+  "employmentagency",
+  "emergencyservice",
+  "entertainmentbusiness",
   "automotivebusiness",
-  "foodestablishment"
+  "healthandbeautybusiness",
+  "sportsclub",
+  "golfcourse",
+  "bowlingalley",
+  "skiresort"
 ]);
-var FI_PHONE = /(?:\+358[\s-]?\(?0?\)?|\(?\b0)\d{1,3}\)?[\s-]?\d{3}[\s-]?\d{2,4}/;
-var PRICE = /\d[\d\s .]*(?:,\d+)?\s?(?:€|eur\b|euroa\b)/i;
+var LOCAL_PATTERN = /(store|shop|business|contractor|salon|clinic|agency|service)$/;
+var FI_PHONE = /(?:\+358|\b0)[\s-]?\(?\d{1,3}\)?(?:[\s-]?\d){5,9}(?!\d)/;
+var Y_TUNNUS = /\b\d{7}-\d\b/g;
+var PRICE = /\d(?:[\d .]{0,10}\d)?(?:,\d{1,2})?\s?(?:€|eur\b|euroa\b)/i;
+var FORM_IFRAME = /forms\.gle|docs\.google\.com\/forms|typeform|jotform|tally\.so|hsforms|hubspot|webropol|cognitoforms|zohopublic|formstack|wufoo|calendly|timma|vello/i;
 var json = /* @__PURE__ */ __name((obj, status = 200, extra = {}) => new Response(JSON.stringify(obj), {
   status,
   headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", ...extra }
 }), "json");
-function cleanUrl(raw) {
+function cleanUrl(raw, keepQuery = false) {
   let s = String(raw || "").trim();
   if (!s || s.length > 200) return null;
   if (!/^https?:\/\//i.test(s)) s = "https://" + s;
@@ -60,55 +100,65 @@ function cleanUrl(raw) {
     return null;
   }
   if (!/^https?:$/.test(u.protocol) || u.username || u.password || u.port) return null;
-  const h = u.hostname.toLowerCase();
-  if (!h.includes(".") || h.endsWith(".local") || h.endsWith(".internal") || h.endsWith(".localhost")) return null;
-  if (/^[\d.]+$/.test(h) || h.includes(":") || h.startsWith("[")) return null;
+  const h = u.hostname.toLowerCase().replace(/\.$/, "");
+  if (!h.includes(".") || h.endsWith(".local") || h.endsWith(".internal") || BAD_HOSTS.test(h)) return null;
+  if (/^[\d.]+$/.test(h) || h.includes(":") || h.startsWith("[") || /^0x/i.test(h)) return null;
   if (!/^[a-z0-9.-]+$/.test(h)) return null;
+  u.hostname = h;
   u.hash = "";
+  if (!keepQuery) u.search = "";
   return u.toString();
 }
 __name(cleanUrl, "cleanUrl");
 function schemaTypes(blocks) {
   const types = /* @__PURE__ */ new Set();
-  const walk = /* @__PURE__ */ __name((n) => {
+  const walk = /* @__PURE__ */ __name((n, depth) => {
+    if (depth > 12) return;
     if (Array.isArray(n)) {
-      n.forEach(walk);
+      n.forEach((x) => walk(x, depth + 1));
       return;
     }
     if (n && typeof n === "object") {
       const t = n["@type"];
       (Array.isArray(t) ? t : [t]).forEach((x) => {
-        if (typeof x === "string") types.add(x.toLowerCase());
+        if (typeof x === "string") types.add(x.toLowerCase().replace(/^.*[/:]/, ""));
       });
-      Object.values(n).forEach(walk);
+      Object.values(n).forEach((x) => walk(x, depth + 1));
     }
   }, "walk");
   for (const b of blocks) {
     try {
-      walk(JSON.parse(b));
+      walk(JSON.parse(b), 0);
     } catch {
     }
   }
   return types;
 }
 __name(schemaTypes, "schemaTypes");
-async function readPage(url) {
+var decode = /* @__PURE__ */ __name((t) => t.replace(/&euro;|&#8364;|&#x20ac;/gi, "\u20AC").replace(/&nbsp;|&#160;|&#xa0;/gi, " ").replace(/&amp;/g, "&"), "decode");
+async function fetchPage(url) {
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 12e3);
-  let res;
   try {
-    res = await fetch(url, {
+    const res = await fetch(url, {
       redirect: "follow",
       signal: ctl.signal,
       headers: { "user-agent": UA, accept: "text/html,application/xhtml+xml", "accept-language": "fi,en;q=0.5" }
     });
+    return { res, timer };
   } catch {
     clearTimeout(timer);
-    return { reachable: false };
+    return { res: null, timer: null };
   }
+}
+__name(fetchPage, "fetchPage");
+async function readPage(url, httpFallback) {
+  let { res, timer } = await fetchPage(url);
+  if (!res && httpFallback) ({ res, timer } = await fetchPage(url.replace(/^https:/, "http:")));
+  if (!res) return { reachable: false };
   const finalUrl = res.url || url;
   const type = res.headers.get("content-type") || "";
-  if (!res.ok || !/html/i.test(type)) {
+  if (!res.ok || !/html/i.test(type) || !cleanUrl(finalUrl, true)) {
     clearTimeout(timer);
     return { reachable: false, status: res.status };
   }
@@ -119,8 +169,8 @@ async function readPage(url) {
     noindex: /noindex/i.test(res.headers.get("x-robots-tag") || ""),
     lang: "",
     h1: [],
-    forms: 0,
-    iframes: 0,
+    contactForm: false,
+    formIframe: false,
     tel: false,
     ld: [],
     text: ""
@@ -128,9 +178,9 @@ async function readPage(url) {
   let inTitle = false, h1 = null, skip = 0, ldBuf = null;
   const rw = new HTMLRewriter().on("html", { element(e) {
     st.lang = (e.getAttribute("lang") || "").toLowerCase();
-  } }).on("title", {
+  } }).on("head > title", {
     element(e) {
-      inTitle = true;
+      inTitle = !st.title;
       e.onEndTag(() => {
         inTitle = false;
       });
@@ -148,17 +198,17 @@ async function readPage(url) {
     element(e) {
       h1 = "";
       e.onEndTag(() => {
-        st.h1.push(h1.replace(/\s+/g, " ").trim());
+        st.h1.push(decode(h1).replace(/\s+/g, " ").trim());
         h1 = null;
       });
     },
     text(t) {
       if (h1 !== null && h1.length < 300) h1 += t.text;
     }
-  }).on("form", { element() {
-    st.forms++;
-  } }).on("iframe", { element() {
-    st.iframes++;
+  }).on('form textarea, form input[type="email"], form input[type="tel"]', { element() {
+    st.contactForm = true;
+  } }).on("iframe", { element(e) {
+    if (FORM_IFRAME.test(e.getAttribute("src") || "")) st.formIframe = true;
   } }).on('a[href^="tel:"]', { element() {
     st.tel = true;
   } }).on("script", { element(e) {
@@ -180,36 +230,49 @@ async function readPage(url) {
       skip--;
     });
   } }).on("body", { text(t) {
-    if (!skip && st.text.length < MAX_TEXT) st.text += t.text;
+    if (skip || st.text.length >= MAX_TEXT) return;
+    st.text += t.text;
+    if (t.lastInTextNode) st.text += " ";
   } });
+  let n = 0;
+  const capped = res.body.pipeThrough(new TransformStream({ transform(chunk, c) {
+    if (n >= MAX_BYTES) return;
+    n += chunk.byteLength;
+    c.enqueue(chunk);
+    if (n >= MAX_BYTES) c.terminate();
+  } }));
   try {
-    await rw.transform(res).arrayBuffer();
+    await rw.transform(new Response(capped, { headers: { "content-type": type } })).body.pipeTo(new WritableStream());
   } catch {
-    clearTimeout(timer);
-    return { reachable: false };
+    if (!n) {
+      clearTimeout(timer);
+      return { reachable: false };
+    }
   }
   clearTimeout(timer);
-  const text = st.text.replace(/&nbsp;|&#160;/g, " ").replace(/\s+/g, " ").trim();
+  const text = decode(st.text).replace(/\s+/g, " ").trim();
+  const forPhone = text.replace(Y_TUNNUS, " ");
   const types = schemaTypes(st.ld);
-  const years = [...text.matchAll(/(?:©|&copy;|copyright)\s*(?:\d{4}\s*[-–]\s*)?(20\d{2})/gi)].map((m) => +m[1]);
+  const years = [...text.slice(-4e3).matchAll(/(?:©|copyright)\s*(?:\d{4}\s*[-–]\s*)?(20\d{2})/gi)].map((m) => +m[1]);
   return {
     reachable: true,
     finalUrl,
     https: finalUrl.startsWith("https://"),
-    title: st.title.replace(/\s+/g, " ").trim().slice(0, 160),
+    title: decode(st.title).replace(/\s+/g, " ").trim().slice(0, 160),
     metaDescription: !!(st.desc && st.desc.trim()),
     viewport: st.viewport,
     noindex: st.noindex,
     finnish: st.lang.startsWith("fi"),
     h1: st.h1.filter(Boolean).slice(0, 5).map((h) => h.slice(0, 120)),
-    form: st.forms > 0,
-    iframe: st.iframes > 0,
-    phone: st.tel || FI_PHONE.test(text),
+    form: st.contactForm,
+    iframe: st.formIframe,
+    phone: st.tel || FI_PHONE.test(forPhone),
     price: PRICE.test(text),
     words: text ? text.split(" ").length : 0,
-    localSchema: [...types].some((t) => LOCAL_TYPES.has(t)),
+    localSchema: [...types].some((t) => LOCAL_TYPES.has(t) || LOCAL_PATTERN.test(t)),
     faq: types.has("faqpage"),
-    copyrightYear: years.length ? Math.max(...years) : null
+    copyrightYear: years.length ? Math.max(...years) : null,
+    truncated: n >= MAX_BYTES
   };
 }
 __name(readPage, "readPage");
@@ -240,15 +303,28 @@ async function readScore(url, key) {
   }
 }
 __name(readScore, "readScore");
+async function tooMany(request, cache) {
+  const ip = request.headers.get("cf-connecting-ip") || "x";
+  const key = new Request("https://marktic.fi/api/testi-rate?ip=" + encodeURIComponent(ip) + "&m=" + Math.floor(Date.now() / 6e4));
+  const hit = await cache.match(key);
+  const count = hit ? +await hit.text() || 0 : 0;
+  if (count >= PER_MINUTE) return true;
+  await cache.put(key, new Response(String(count + 1), { headers: { "cache-control": "public, max-age=120" } }));
+  return false;
+}
+__name(tooMany, "tooMany");
 async function onRequestGet({ request, env, waitUntil }) {
   if (request.headers.get("x-marktic") !== "1") return json({ ok: false, error: "forbidden" }, 403);
-  const target = cleanUrl(new URL(request.url).searchParams.get("url"));
+  const raw = new URL(request.url).searchParams.get("url") || "";
+  const target = cleanUrl(raw);
   if (!target) return json({ ok: false, error: "bad_url" }, 400);
   const cache = caches.default;
-  const cacheKey = new Request("https://marktic.fi/api/testi-cache?u=" + encodeURIComponent(target));
+  const cacheKey = new Request("https://marktic.fi/api/testi-cache?u=" + encodeURIComponent(target.replace(/\/$/, "")));
   const hit = await cache.match(cacheKey);
   if (hit) return new Response(hit.body, { headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store", "x-cache": "hit" } });
-  const [page, score] = await Promise.all([readPage(target), readScore(target, env.PAGESPEED_API_KEY)]);
+  if (await tooMany(request, cache)) return json({ ok: false, error: "busy" }, 429);
+  const httpFallback = !/^https:\/\//i.test(raw.trim());
+  const [page, score] = await Promise.all([readPage(target, httpFallback), readScore(target, env.PAGESPEED_API_KEY)]);
   const body = {
     ok: true,
     url: target,
@@ -258,8 +334,9 @@ async function onRequestGet({ request, env, waitUntil }) {
     scoreAvailable: !!env.PAGESPEED_API_KEY
   };
   if (page.reachable) {
+    const ttl = score || !env.PAGESPEED_API_KEY ? 86400 : 600;
     waitUntil(cache.put(cacheKey, new Response(JSON.stringify(body), {
-      headers: { "content-type": "application/json; charset=utf-8", "cache-control": "public, max-age=86400" }
+      headers: { "content-type": "application/json; charset=utf-8", "cache-control": "public, max-age=" + ttl }
     })));
   }
   return json(body);
@@ -480,7 +557,7 @@ function regexpToFunction(re, keys, options) {
   if (options === void 0) {
     options = {};
   }
-  var _a = options.decode, decode = _a === void 0 ? function(x) {
+  var _a = options.decode, decode2 = _a === void 0 ? function(x) {
     return x;
   } : _a;
   return function(pathname) {
@@ -495,10 +572,10 @@ function regexpToFunction(re, keys, options) {
       var key = keys[i2 - 1];
       if (key.modifier === "*" || key.modifier === "+") {
         params[key.name] = m[i2].split(key.prefix + key.suffix).map(function(value) {
-          return decode(value, key);
+          return decode2(value, key);
         });
       } else {
-        params[key.name] = decode(m[i2], key);
+        params[key.name] = decode2(m[i2], key);
       }
     }, "_loop_1");
     for (var i = 1; i < m.length; i++) {
@@ -794,7 +871,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-mJwxTM/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-aHImVY/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -826,7 +903,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-mJwxTM/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-aHImVY/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

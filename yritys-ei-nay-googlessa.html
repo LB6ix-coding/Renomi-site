@@ -43,6 +43,7 @@
    "inLanguage": "fi",
    "datePublished": "2026-11-08",
    "dateModified": "2026-11-08",
+   "image": "https://marktic.fi/assets/og-v2.jpg",
    "author": {
     "@type": "Organization",
     "@id": "https://marktic.fi/#org",
@@ -85,7 +86,7 @@
      "name": "Miksi yritykseni ei näy Google Mapsissa?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta."
+      "text": "Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen, jolloin se voi kadota kartalta. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta."
      }
     },
     {
@@ -93,7 +94,7 @@
      "name": "Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Googlen mukaan indeksointi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan."
+      "text": "Googlen mukaan sivujen läpikäynti indeksointipyynnön jälkeen voi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan."
      }
     },
     {
@@ -109,7 +110,7 @@
      "name": "Voiko Googlen hakutuloksen sijoituksen ostaa?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne näkyvät mainoksina erillään tavallisista tuloksista."
+      "text": "Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne merkitään hakutuloksissa sponsoroiduiksi."
      }
     },
     {
@@ -161,7 +162,7 @@
     <span class="eb">Opas ja testi · päivitetty 8.11.2026</span>
     <h1 id="h1">Miksi yritys ei näy Googlessa?</h1>
     <div class="answer">
-      <p><b>Lyhyt vastaus:</b> kun yritys ei näy Googlessa, syy löytyy yleensä yhdestä neljästä paikasta: Google-yritysprofiilia ei ole vahvistettu tai se on jäädytetty, Google ei ole vielä löytänyt sivuja tai ne on estetty hakukoneilta, sivulta puuttuu tieto siitä, mitä teette ja missä, tai hakijan lähellä on yrityksiä, jotka Google katsoo osuvammiksi tai tunnetummiksi. <a class="link" href="#testi">Testatkaa sivunne alla</a>, niin näette minuutissa, miten oma sivunne on tehty.</p>
+      <p><b>Lyhyt vastaus:</b> kun yritys ei näy Googlessa, syy löytyy yleensä yhdestä neljästä paikasta: Google-yritysprofiilia ei ole vahvistettu tai se on jäädytetty, Google ei ole vielä löytänyt sivuja tai ne on estetty hakukoneilta, sivulta puuttuu tieto siitä, mitä teette ja missä, tai hakijan lähellä on yrityksiä, jotka Google katsoo osuvammiksi tai tunnetummiksi. <a class="link" href="#testi">Testatkaa sivunne alla</a>, niin näette noin minuutissa, mitä sivultanne puuttuu.</p>
     </div>
     <p class="lead">Kävimme syyt läpi Googlen omien ohjeiden pohjalta 8.11.2026. Testi käyttää samoja tarkistuksia, joilla katsomme asiakkaidemme sivut, ja Googlen PageSpeed Insights -mittausta.</p>
   </div>
@@ -169,10 +170,10 @@
 
 <section class="sec alt" id="testi" aria-labelledby="t-h">
   <div class="gut wide">
-    <div class="head"><span class="eb">Maksuton testi</span><h2 id="t-h">Testatkaa sivunne.</h2><p class="lead">Kirjoittakaa sivunne osoite. Luemme sivun ja pyydämme Googlen oman PageSpeed-mittauksen puhelimelle. Näette, mitä löytyi, mitä se maksaa teille nyt ja mitä korjaus muuttaa.</p></div>
+    <div class="head"><span class="eb">Maksuton testi</span><h2 id="t-h">Testatkaa sivunne.</h2><p class="lead">Kirjoittakaa sivunne osoite. Luemme sivun ja pyydämme Googlen oman PageSpeed-mittauksen puhelimelle. Näette, mitä löytyi, mitä se tarkoittaa nyt ja mitä korjaus muuttaa.</p></div>
     <div class="testi">
       <form class="form" id="testi-form" novalidate>
-        <div class="row"><label>Sivunne osoite<input name="url" type="text" inputmode="url" autocomplete="url" placeholder="yrityksenne.fi" required spellcheck="false" autocapitalize="off"></label><button class="pill pill-solid" type="submit">Testaa sivu</button></div>
+        <div class="row"><label>Sivunne osoite<input name="url" type="text" inputmode="url" autocomplete="url" placeholder="yrityksenne.fi" required spellcheck="false" autocapitalize="off"></label><button class="pill pill-solid" type="submit">Testatkaa sivu</button></div>
         <p class="err" hidden></p>
         <p class="fine" style="margin:0">Testi on maksuton, eikä se tallenna tietoja teistä. Tulos ei kerro sijoitustanne Googlessa.</p>
       </form>
@@ -186,7 +187,7 @@
   <div class="gut wide local">
     <div class="head" style="margin:0"><span class="eb">1</span><h2 id="a-h">Profiili puuttuu kartalta.</h2></div>
     <div class="body">
-      <p>Google-yritysprofiili näkyy asiakkaille vasta, kun Google on vahvistanut sen. Jos vahvistus on kesken, profiili ei näy haussa eikä kartalla. Jos Google on jäädyttänyt profiilin ohjeiden vastaisena, kukaan muu ei näe sitä, ja syy näkyy Googlen valitustyökalussa.</p>
+      <p>Google-yritysprofiili näkyy asiakkaille vasta, kun Google on vahvistanut sen. Jos vahvistus on kesken, profiili ei näy haussa eikä kartalla. Jos Google on jäädyttänyt profiilin ohjeiden vastaisena, profiili voi kadota hausta ja kartalta, ja syy näkyy Googlen valitustyökalussa.</p>
       <p>Kartan tulokset riippuvat myös siitä, missä hakija on. Jos haette itse toiselta paikkakunnalta, näette eri tuloksen kuin asiakas palvelualueellanne.</p>
       <p><a class="link" href="/google-yritysprofiili">Google-yritysprofiili: luominen ja vahvistus <span aria-hidden="true">→</span></a></p>
     </div>
@@ -197,7 +198,7 @@
   <div class="gut wide local">
     <div class="head" style="margin:0"><span class="eb">2</span><h2 id="b-h">Google ei ole vielä löytänyt sivuja.</h2></div>
     <div class="body">
-      <p>Kirjoittakaa Googleen <b>site:yrityksenne.fi</b> omalla osoitteellanne. Jos tuloksia ei tule, Google ei ole lisännyt sivuja hakemistoonsa. Googlen mukaan indeksointi kestää muutamasta päivästä muutamaan viikkoon. Sitä voi nopeuttaa Google Search Consolessa: vahvistakaa sivusto, lähettäkää sivukartta ja pyytäkää tärkeimpien sivujen indeksointia. Google ei silti lupaa, että sivu lisätään nopeasti tai lainkaan.</p>
+      <p>Kirjoittakaa Googleen <b>site:yrityksenne.fi</b> omalla osoitteellanne. Jos tuloksia ei tule, Google ei ole lisännyt sivuja hakemistoonsa. Sivuja voi tarjota Googlelle Google Search Consolessa: vahvistakaa sivusto, lähettäkää sivukartta ja pyytäkää tärkeimpien sivujen indeksointia. Googlen mukaan läpikäynti pyynnön jälkeen voi kestää muutamasta päivästä muutamaan viikkoon. Google ei silti lupaa, että sivu lisätään nopeasti tai lainkaan.</p>
       <p>Toinen syy on, että sivu on estetty hakukoneilta noindex-merkinnällä tai robots.txt-tiedostolla. Esimerkiksi WordPressissä on asetus, joka pyytää hakukoneita jättämään sivuston huomiotta. Yllä oleva testi näyttää, onko sivulla noindex-merkintä.</p>
     </div>
   </div>
@@ -207,7 +208,7 @@
   <div class="gut wide local">
     <div class="head" style="margin:0"><span class="eb">3</span><h2 id="c-h">Sivu ei kerro, mitä teette ja missä.</h2></div>
     <div class="body">
-      <p>Google päättelee sivun aiheen sen otsikosta, pääotsikosta ja tekstistä. Jos etusivun otsikko on pelkkä yrityksen nimi ja tekstiä on muutama lause, Google ei näe, että sivu vastaa esimerkiksi hakuun "sähköasentaja Espoo".</p>
+      <p>Google päättelee sivun aiheen sen otsikosta, pääotsikosta ja tekstistä. Jos etusivun otsikko on pelkkä yrityksen nimi ja tekstiä on muutama lause, Google ei näe, että sivu vastaa esimerkiksi hakuun ”sähköasentaja Espoo”.</p>
       <p>Korjaus on yksinkertainen: palvelu ja paikkakunta otsikkoon ja pääotsikkoon, jokaiselle pääpalvelulle oma kappale tai sivu, palvelualue tekstinä, hinnat tai hintahaarukat ja yhteystiedot. Rakenteinen tieto (LocalBusiness) kertoo samat asiat hakukoneille koneluettavassa muodossa.</p>
     </div>
   </div>
@@ -218,7 +219,7 @@
     <div class="head" style="margin:0"><span class="eb">4</span><h2 id="d-h">Muut ovat tunnetumpia.</h2></div>
     <div class="body">
       <p>Googlen mukaan paikallisiin tuloksiin vaikuttavat osuvuus, etäisyys ja tunnettuus. Tunnettuuteen vaikuttavat esimerkiksi linkit muilta sivuilta sekä arvostelujen määrä ja arviot. Parempaa sijoitusta ei voi ostaa.</p>
-      <p>Tunnettuus kasvaa vähitellen: pyytäkää arvostelu jokaiselta asiakkaalta, vastatkaa arvosteluihin ja pitäkää samat yritystiedot kaikkialla, esimerkiksi Finderissä ja Bing Placesissa.</p>
+      <p>Oma suosituksemme: tunnettuus kasvaa vähitellen, joten pyytäkää arvostelu jokaiselta asiakkaalta, vastatkaa arvosteluihin ja pitäkää samat yritystiedot kaikkialla, esimerkiksi Finderissä ja Bing Placesissa.</p>
     </div>
   </div>
 </section>
@@ -228,7 +229,7 @@
     <div class="head" style="margin:0"><span class="eb">Meiltä</span><h2 id="m-h">Jos testi löytää korjattavaa.</h2></div>
     <div class="body">
       <p>Maksuttomassa kartoituksessa käymme läpi, mitä asiakkaat näkevät, kun he etsivät alanne yritystä: Google, kartta, hakemistot ja hakupalvelut. Saatte kirjallisena, mitä korjaisimme ensin. Kartoitus ei sido mihinkään.</p>
-      <p>Näkyvyyden korjauspaketti maksaa 190 € kertamaksuna, ja uudet kotisivut 490 € (yksi sivu) tai 990 € (enintään viisi sivua). Emme lupaa tiettyä sijaa, koska hakutulokset vaihtelevat.</p>
+      <p>Korjauspaketti maksaa 190 € kertamaksuna, ja uudet kotisivut 490 € (yksi sivu) tai 990 € (enintään viisi sivua). Emme lupaa tiettyä sijaa, koska hakutulokset vaihtelevat.</p>
       <p><a class="link" href="/palvelut">Palvelut ja hinnat <span aria-hidden="true">→</span></a></p>
     </div>
   </div>
@@ -237,7 +238,7 @@
 <section class="sec alt" aria-labelledby="q-h">
   <div class="gut wide qa">
     <div class="head"><span class="eb">Kysymykset</span><h2 id="q-h">Usein kysyttyä.</h2></div>
-    <div><div class="faq"><details><summary>Miksi yritykseni ei näy Google Mapsissa?</summary><p>Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta.</p></details><details><summary>Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?</summary><p>Googlen mukaan indeksointi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan.</p></details><details><summary>Miten saan yritykseni näkymään Googlessa?</summary><p>Luokaa ja vahvistakaa Google-yritysprofiili, tarkistakaa, ettei sivuja ole estetty hakukoneilta, lisätkää sivusto Google Search Consoleen ja kertokaa sivuilla selvästi, mitä teette, missä ja millä hinnalla. Pyytäkää arvostelu jokaiselta asiakkaalta.</p></details><details><summary>Voiko Googlen hakutuloksen sijoituksen ostaa?</summary><p>Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne näkyvät mainoksina erillään tavallisista tuloksista.</p></details><details><summary>Mitä sivutesti tarkistaa?</summary><p>Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa.</p></details></div></div>
+    <div><div class="faq"><details><summary>Miksi yritykseni ei näy Google Mapsissa?</summary><p>Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen, jolloin se voi kadota kartalta. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta.</p></details><details><summary>Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?</summary><p>Googlen mukaan sivujen läpikäynti indeksointipyynnön jälkeen voi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan.</p></details><details><summary>Miten saan yritykseni näkymään Googlessa?</summary><p>Luokaa ja vahvistakaa Google-yritysprofiili, tarkistakaa, ettei sivuja ole estetty hakukoneilta, lisätkää sivusto Google Search Consoleen ja kertokaa sivuilla selvästi, mitä teette, missä ja millä hinnalla. Pyytäkää arvostelu jokaiselta asiakkaalta.</p></details><details><summary>Voiko Googlen hakutuloksen sijoituksen ostaa?</summary><p>Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne merkitään hakutuloksissa sponsoroiduiksi.</p></details><details><summary>Mitä sivutesti tarkistaa?</summary><p>Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa.</p></details></div></div>
   </div>
 </section>
 

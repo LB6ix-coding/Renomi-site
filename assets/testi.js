@@ -20,44 +20,44 @@
   function fiDate(iso){ var p = String(iso).split('-'); return (+p[2]) + '.' + (+p[1]) + '.' + p[0]; }
   function num(x){ return String(x).replace('.', ','); }
 
-  function weakTitle(t){ return t.length < 20 || /^(etusivu|koti|kotisivu|home|front page|welcome|tervetuloa)$/i.test(t); }
-  // (fault, now, after) in formal Finnish, most harmful first
+  function weakTitle(t){ return t.length < 12 || /^(etusivu|koti|kotisivu|home|front page|welcome|tervetuloa)$/i.test(t); }
+  // (fault, now, after) in formal Finnish, most harmful first. Only what the check measured: one page, as the
+  // server read it, plus Google PageSpeed. Things a script could add later are said as "emme löytäneet".
   function findings(d){
     var p = d.page, s = d.score, f = [], content = p.words >= MIN_WORDS, y = new Date().getFullYear();
     if (p.noindex) f.push(['Sivu on estetty hakukoneilta (noindex-merkintä).', 'Google ei näytä sitä hakutuloksissa lainkaan.', 'näkyy hakukoneille']);
-    if (!p.viewport) f.push(['Sivua ei ole merkitty puhelimelle sopivaksi (viewport-merkintä puuttuu).', 'Puhelimella sivu näkyy pienennettynä tietokoneversiona, ja tekstiä pitää suurentaa sormilla.', 'toimii puhelimella']);
-    if (!p.https) f.push(['Sivu ei käytä suojattua https-yhteyttä.', 'Chrome-selain näyttää osoiterivillä merkinnän "Ei turvallinen".', 'on suojattu']);
-    if (s && s.performance < 50) f.push(['Googlen PageSpeed-mittari antaa sivulle puhelimella tehokkuudeksi ' + s.performance + '/100.',
-      (s.lcp_s && s.lcp_s >= 4 ? 'Sivun pääsisältö näkyy puhelimella vasta noin ' + num(s.lcp_s) + ' sekunnin kohdalla. Google pitää hyvänä alle 2,5 sekuntia.' : 'Sivu latautuu puhelimella hitaasti, ja asiakas joutuu odottamaan ennen kuin näkee sisällön.'),
-      'aukeaa puhelimella nopeasti']);
-    if (!p.title) f.push(['Sivulla ei ole otsikkoa, jonka Google näyttäisi hakutuloksissa.', 'Google ei näe otsikosta, mitä teette ja missä.', 'kertoo jo hakutuloksessa, mitä teette ja missä']);
-    else if (weakTitle(p.title)) f.push(['Sivun otsikko hakutuloksissa on vain "' + q(p.title) + '".', 'Otsikosta ei näe, mitä teette ja millä paikkakunnalla, joten Google ei yhdistä sivua sellaisiin hakuihin.', 'kertoo jo hakutuloksessa, mitä teette ja missä']);
-    if (content && !p.price) f.push(['Sivulla ei näy yhtään hintaa tai hintahaarukkaa.', 'Asiakas, joka haluaa hintaluokan ennen yhteydenottoa, ei löydä sitä sivultanne.', 'näyttää hintaluokan']);
-    if (content && !p.form && !p.iframe) f.push(['Sivulla ei ole yhteydenotto- tai tarjouspyyntölomaketta.', 'Illalla tai viikonloppuna selaava asiakas ei voi jättää pyyntöä suoraan sivulta, vaan hänen pitää muistaa soittaa tai kirjoittaa myöhemmin.', 'ottaa pyynnön vastaan suoraan']);
-    if (content && !p.phone) f.push(['Sivulla ei näy puhelinnumeroa.', 'Puhelimella selaava asiakas ei voi soittaa teille yhdellä painalluksella.', 'näyttää numeron, johon voi soittaa suoraan']);
-    if (content && !p.h1.length) f.push(['Sivulla ei ole pääotsikkoa (H1).', 'Pääotsikko on yksi tärkeimmistä kohdista, joista Google päättelee, mitä sivu tarjoaa.', 'kertoo pääotsikossa, mitä teette']);
-    else if (content && p.h1.length > 1) f.push(['Sivulla on ' + p.h1.length + ' pääotsikkoa (H1), kun niitä pitäisi olla yksi.', 'Google ei näe, mikä niistä kertoo sivun aiheen.', 'kertoo pääotsikossa, mitä teette']);
-    if (!p.metaDescription) f.push(['Sivulta puuttuu hakutulosten kuvausteksti (meta description).', 'Google poimii hakutulokseen jonkin kohdan sivulta itse, eikä se aina kerro, miksi juuri teille kannattaa soittaa.', 'näyttää hakutuloksessa oman kuvauksenne']);
-    if (s && s.seo < 80) f.push(['Googlen PageSpeed-mittari antaa hakukoneoptimoinnille ' + s.seo + '/100.', 'Mittari löysi sivulta perusasioita, jotka haittaavat hakukoneita.', 'täyttää Googlen perusvaatimukset']);
-    if (!p.localSchema) f.push(['Sivulla ei ole rakenteista yritystietoa (LocalBusiness-merkintä).', 'Google ja tekoälyhaut eivät saa yrityksenne alaa, aluetta ja yhteystietoja sivulta valmiissa, koneluettavassa muodossa.', 'kertoo yritystiedot koneluettavasti']);
-    if (content && p.words < 200) f.push(['Sivulla on vain noin ' + p.words + ' sanaa tekstiä.', 'Google ei saa sivulta tarpeeksi tietoa siitä, mitä palveluita tarjoatte ja millä alueella.', 'kertoo palvelunne ja alueenne']);
-    if (p.copyrightYear && p.copyrightYear <= y - 3) f.push(['Sivun alareunassa lukee © ' + p.copyrightYear + '.', 'Asiakkaalle se antaa kuvan, ettei sivuja ole päivitetty sen jälkeen.', 'on ajan tasalla']);
+    if (!p.viewport) f.push(['Sivua ei ole merkitty puhelimelle sopivaksi (viewport-merkintä puuttuu).', 'Puhelimella sivu näkyy pienennettynä tietokoneversiona, ja tekstiä pitää suurentaa sormilla.', 'mukautuu puhelimen näytölle']);
+    if (!p.https) f.push(['Sivu ei käytä suojattua https-yhteyttä.', 'Chrome-selain näyttää osoiterivillä merkinnän ”Ei turvallinen”.', 'on suojattu']);
+    if (s && s.performance < 50) f.push(['Google PageSpeed antaa sivulle puhelimella tehokkuudeksi ' + s.performance + '/100.',
+      (s.lcp_s && s.lcp_s >= 4 ? 'Sivun pääsisältö näkyy puhelimella vasta noin ' + num(s.lcp_s) + ' sekunnin kohdalla. Google pitää hyvänä 2,5 sekuntia tai alle.' : 'Mittaus löysi sivulta asioita, jotka hidastavat sen latautumista puhelimella.'),
+      'aukeaa puhelimella nopeammin']);
+    if (!p.title) f.push(['Sivulla ei ole otsikkoa (title), jonka Google näyttäisi hakutuloksissa.', 'Hakutuloksesta ei näe, mitä teette ja missä.', 'kertoo jo hakutuloksessa, mitä teette ja missä']);
+    else if (weakTitle(p.title)) f.push(['Sivun otsikko (title) on hyvin lyhyt: ”' + q(p.title) + '”.', 'Otsikosta ei näe, mitä teette ja millä paikkakunnalla.', 'kertoo jo hakutuloksessa, mitä teette ja missä']);
+    if (content && !p.price) f.push(['Emme löytäneet tältä sivulta yhtään hintaa tai hintahaarukkaa.', 'Asiakas, joka haluaa hintaluokan ennen yhteydenottoa, ei löydä sitä tältä sivulta.', 'näyttää hintaluokan']);
+    if (content && !p.form && !p.iframe) f.push(['Emme löytäneet tältä sivulta yhteydenotto- tai tarjouspyyntölomaketta.', 'Illalla tai viikonloppuna selaava asiakas ei voi jättää pyyntöä suoraan sivulta, vaan hänen pitää muistaa soittaa tai kirjoittaa myöhemmin.', 'ottaa pyynnön vastaan suoraan']);
+    if (content && !p.phone) f.push(['Emme löytäneet tältä sivulta puhelinnumeroa.', 'Puhelimella selaava asiakas ei voi soittaa teille yhdellä painalluksella.', 'näyttää numeron, johon voi soittaa suoraan']);
+    if (content && !p.h1.length) f.push(['Sivulla ei ole pääotsikkoa (H1).', 'Pääotsikko kertoo lukijalle ja hakukoneille, mitä sivu tarjoaa.', 'kertoo pääotsikossa, mitä teette']);
+    if (!p.metaDescription) f.push(['Sivulta puuttuu hakutulosten kuvausteksti (meta description).', 'Google poimii hakutulokseen jonkin kohdan sivulta itse, eikä se aina kerro, miksi juuri teille kannattaa soittaa.', 'antaa Googlelle valmiin kuvauksen hakutulokseen']);
+    if (s && s.seo < 80) f.push(['Google PageSpeedin hakukonetarkistus antaa sivulle ' + s.seo + '/100.', 'Tarkistus löysi sivulta perusasioita, jotka haittaavat hakukoneita.', 'läpäisee PageSpeedin hakukonetarkistukset']);
+    if (!p.localSchema) f.push(['Sivulla ei ole rakenteista yritystietoa (LocalBusiness, JSON-LD).', 'Hakukoneet joutuvat päättelemään yrityksenne alan, alueen ja yhteystiedot tekstistä, koska niitä ei ole kerrottu koneluettavassa muodossa.', 'kertoo yritystiedot koneluettavasti']);
+    if (content && p.words < 200) f.push(['Sivulla on vain noin ' + p.words + ' sanaa tekstiä.', 'Asiakas ja hakukoneet saavat sivulta vähän tietoa siitä, mitä palveluita tarjoatte ja millä alueella.', 'kertoo palvelunne ja alueenne']);
+    if (p.copyrightYear && p.copyrightYear <= y - 3) f.push(['Sivun alareunassa lukee © ' + p.copyrightYear + '.', 'Asiakkaalle se antaa kuvan, ettei sivuja ole päivitetty sen jälkeen.', 'ei näytä vanhentuneelta']);
     return f;
   }
   function good(d){
     var p = d.page, s = d.score, g = [];
     if (p.https) g.push('Suojattu https-yhteys');
     if (p.viewport) g.push('Merkitty puhelimelle sopivaksi');
-    if (p.title && !weakTitle(p.title)) g.push('Otsikko hakutuloksiin: "' + q(p.title) + '"');
+    if (p.title && !weakTitle(p.title)) g.push('Otsikko hakutuloksiin: ”' + q(p.title) + '”');
     if (p.metaDescription) g.push('Kuvausteksti hakutuloksiin');
-    if (p.h1.length === 1) g.push('Yksi pääotsikko: "' + q(p.h1[0], 60) + '"');
+    if (p.h1.length) g.push('Pääotsikko: ”' + q(p.h1[0], 60) + '”');
     if (p.phone) g.push('Puhelinnumero näkyy');
     if (p.form || p.iframe) g.push('Yhteydenottolomake');
     if (p.price) g.push('Hintoja näkyvillä');
     if (p.localSchema) g.push('Rakenteinen yritystieto');
     if (p.faq) g.push('Usein kysytyt kysymykset rakenteisena tietona');
-    if (s && s.performance >= 50) g.push('Googlen tehokkuus puhelimella ' + s.performance + '/100');
-    if (s && s.seo >= 80) g.push('Googlen hakukoneoptimointi ' + s.seo + '/100');
+    if (s && s.performance >= 50) g.push('Tehokkuus puhelimella ' + s.performance + '/100 (Google PageSpeed)');
+    if (s && s.seo >= 80) g.push('Hakukonetarkistus ' + s.seo + '/100 (Google PageSpeed)');
     return g;
   }
 
@@ -71,8 +71,8 @@
     h += '<div class="report" role="status" aria-live="polite">';
     h += '<div class="rh"><b>' + esc(host) + '</b><span class="dim">Tarkistettu ' + fiDate(d.checked) + '</span></div>';
     h += '<div class="stats">';
-    h += '<div><b>' + (s ? s.performance + '/100' : 'ei mitattu') + '</b><small>Tehokkuus puhelimella (Google)</small></div>';
-    h += '<div><b>' + (s ? s.seo + '/100' : 'ei mitattu') + '</b><small>Hakukoneoptimointi (Google)</small></div>';
+    h += '<div><b>' + (s ? s.performance + '/100' : 'ei mitattu') + '</b><small>Tehokkuus puhelimella (Google PageSpeed)</small></div>';
+    h += '<div><b>' + (s ? s.seo + '/100' : 'ei mitattu') + '</b><small>Hakukonetarkistus (Google PageSpeed)</small></div>';
     h += '<div><b>' + f.length + '</b><small>Korjattavaa asiaa</small></div>';
     h += '</div>';
     if (f.length){
@@ -80,12 +80,12 @@
       f.forEach(function(x){ h += '<li><b>' + esc(x[0]) + '</b><span><i>Nyt:</i> ' + esc(x[1]) + '</span><span><i>Korjattuna</i> sivu ' + esc(x[2]) + '.</span></li>'; });
       h += '</ol>';
     } else {
-      h += '<p>Emme löytäneet tarkistamistamme kohdista korjattavaa. Hyvä!</p>';
+      h += '<p>Emme löytäneet tarkistamistamme kohdista korjattavaa.</p>';
     }
     if (g.length){ h += '<h3>Kunnossa</h3><ul class="ticks">'; g.forEach(function(x){ h += '<li>' + esc(x) + '</li>'; }); h += '</ul>'; }
     if (!s) h += '<p class="fine">' + (d.scoreAvailable ? 'Googlen mittaus ei onnistunut tällä kertaa.' : 'Googlen mittaus ei ole juuri nyt käytössä.') + ' Voitte ajaa sen itse osoitteessa <a href="https://pagespeed.web.dev/" rel="noopener" target="_blank">pagespeed.web.dev</a>.</p>';
-    else h += '<p class="fine">Pisteet ovat Googlen PageSpeed Insights -mittauksesta puhelimella, ja ne vaihtelevat hieman mittauskerrasta toiseen. Voitte ajaa saman mittauksen itse osoitteessa <a href="https://pagespeed.web.dev/" rel="noopener" target="_blank">pagespeed.web.dev</a>.</p>';
-    h += '<p class="fine">Testi lukee vain sivun, jonka osoitteen annoitte. Se ei näe Google-yritysprofiilianne eikä sitä, miltä sijalta yrityksenne löytyy.</p>';
+    else h += '<p class="fine">Pisteet ovat Google PageSpeed Insights -mittauksesta puhelimella, ja ne vaihtelevat hieman mittauskerrasta toiseen. Voitte ajaa saman mittauksen itse osoitteessa <a href="https://pagespeed.web.dev/" rel="noopener" target="_blank">pagespeed.web.dev</a>.</p>';
+    h += '<p class="fine">Testi lukee vain sivun, jonka osoitteen annoitte, eikä se näe sisältöä, jonka sivun ohjelmakoodi lisää myöhemmin. Se ei myöskään näe Google-yritysprofiilianne eikä sitä, miltä sijalta yrityksenne löytyy.</p>';
     h += '</div>';
     h += '<form class="form" id="testi-lead" novalidate><h3 style="margin:0">Haluatteko korjausehdotuksen?</h3>'
       + '<p class="dim" style="margin:0">Lähetämme kirjallisen ehdotuksen siitä, mitä korjaisimme ensin ja mitä se maksaa. Maksuton, ei sido mihinkään.</p>'
@@ -126,15 +126,15 @@
     fetch('/api/testi?url=' + encodeURIComponent(v), {headers: {'x-marktic': '1'}})
       .then(function(r){ return r.json(); })
       .then(function(d){
-        if (!d || !d.ok){ throw new Error(d && d.error === 'bad_url' ? 'bad_url' : 'x'); }
+        if (!d || !d.ok){ throw new Error(d && (d.error === 'bad_url' || d.error === 'busy') ? d.error : 'x'); }
         render(d);
         if (window.matchMedia('(max-width: 760px)').matches) out.scrollIntoView({behavior: 'smooth', block: 'start'});
       })
       .catch(function(x){
         out.hidden = true;
-        err.textContent = x && x.message === 'bad_url' ? 'Osoite ei kelpaa. Kirjoittakaa se muodossa yrityksenne.fi.' : 'Tarkistus ei onnistunut juuri nyt. Yrittäkää hetken päästä uudelleen.';
+        err.textContent = x && x.message === 'bad_url' ? 'Osoite ei kelpaa. Kirjoittakaa se muodossa yrityksenne.fi.' : x && x.message === 'busy' ? 'Testejä tuli juuri liian monta peräkkäin. Odottakaa minuutti ja yrittäkää uudelleen.' : 'Tarkistus ei onnistunut juuri nyt. Yrittäkää hetken päästä uudelleen.';
         err.hidden = false;
       })
-      .then(function(){ btn.disabled = false; btn.textContent = 'Testaa sivu'; });
+      .then(function(){ btn.disabled = false; btn.textContent = 'Testatkaa sivu'; });
   });
 })();
