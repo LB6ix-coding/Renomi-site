@@ -621,6 +621,21 @@ a{color:inherit}
 @keyframes svhRing{0%,10%{transform:scale(.4);opacity:0}16%{transform:scale(.6);opacity:.9}34%{transform:scale(1.6);opacity:0}100%{opacity:0}}
 @keyframes svhTrail{0%,22%{stroke-dashoffset:26;opacity:.7}62%{stroke-dashoffset:4;opacity:.55}80%,100%{stroke-dashoffset:4;opacity:0}}
 @media (prefers-reduced-motion:reduce){.svh-wheel,.svh-chev,.svh-hand,.svh-ring,.svh-trail{animation:none}.svh-ring,.svh-trail{opacity:0}.svh{transition:opacity .2s}}
+/* videos and model photos teaser, after the other services */
+.mk{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:end}
+.mk-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.mk-g figure{margin:0}
+.mk-g img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:10px;background:#d9d5cc}
+.mk-g figcaption{display:flex;flex-direction:column;padding-top:8px;font-size:.84rem;line-height:1.35}
+.mk-g figcaption b{font-weight:500}.mk-g figcaption span{color:var(--paper-dim)}
+.mk-v{margin:0;justify-self:end;width:100%;max-width:340px}
+.mk-vb{position:relative;cursor:pointer}
+.mk-play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border:0;border-radius:50%;background:rgba(20,22,21,.62);color:#f4f1ea;display:grid;place-items:center;cursor:pointer}
+.mk-play svg{width:24px;height:24px;margin-left:3px}
+.mk-v video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:14px;background:#d9d5cc}
+.mk-v figcaption{padding-top:8px;font-size:.84rem;color:var(--paper-dim)}
+.mk .fine{margin:18px 0 0;font-size:.84rem;color:var(--paper-dim);max-width:36rem}
+@media (max-width:860px){.mk{grid-template-columns:minmax(0,1fr)}.mk-v{justify-self:start;max-width:300px;order:-1}.mk-g{gap:8px}}
 </style>
 </head>
 <body>
@@ -844,6 +859,31 @@ a{color:inherit}
   </div>
 </section>
 
+<section class="paper sec" id="mallikuvat" aria-labelledby="mh">
+  <div class="gut">
+    <div class="sec-head">
+        <span class="eb">Videot ja mallikuvat</span>
+        <h2 id="mh">Mainosvideot ja mallikuvat ilman kuvauspäivää.</h2>
+        <p>Teemme mainosvideot ja mallikuvat someen, mainoksiin ja kotisivuille. Lähettäkää tuotteenne kuvat, niin teemme loput. Kymmenen mallikuvaa maksaa 190&nbsp;€ ja mainosvideo alkaen 290&nbsp;€. Laskutamme vasta, kun olette hyväksyneet ne.</p>
+    </div>
+    <div class="mk">
+    <div>
+      <ul class="mk-g">
+        <li><figure><img src="assets/mallit/malli-1.jpg" alt="Nainen vaaleassa neuleessa ja farkuissa studiossa" width="720" height="900" loading="lazy" decoding="async"><figcaption><b>Vaatemerkki</b><span>Tuotekuva verkkokauppaan</span></figcaption></figure></li>
+        <li><figure><img src="assets/mallit/malli-3.jpg" alt="Nainen harmaassa toppatakissa kaupungin kadulla" width="720" height="900" loading="lazy" decoding="async"><figcaption><b>Ulkovaatteet</b><span>Kampanjakuva someen</span></figcaption></figure></li>
+        <li><figure><img src="assets/mallit/malli-6.jpg" alt="Tummahiuksinen malli farkuissa ja nahkatakissa moottoripyörän vieressä" width="720" height="900" loading="lazy" decoding="async"><figcaption><b>Muotiliike</b><span>Lookbook-kuva mallistoon</span></figcaption></figure></li>
+      </ul>
+      <p class="fine">Kuvien ja videoiden henkilöt ovat kuvitteellisia, eivät oikeita ihmisiä.</p>
+      <a class="more" href="/palvelut#videot">Videot ja mallikuvat <span aria-hidden="true">→</span></a>
+    </div>
+    <figure class="mk-v">
+      <div class="mk-vb"><video src="assets/marktic-ad.mp4" poster="assets/marktic-ad-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Markticin oma mainosvideo, 9 sekuntia"></video><button class="mk-play" type="button" aria-label="Toista video" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z" fill="currentColor"/></svg></button></div>
+      <figcaption>Oma työ: 9 sekunnin pystyvideo someen.</figcaption>
+    </figure>
+    </div>
+  </div>
+</section>
+
 <section class="paper sec" id="tyonkulku" aria-labelledby="th">
   <div class="gut">
     <div class="sec-head">
@@ -972,6 +1012,9 @@ a{color:inherit}
       <li><a href="/mainostoimisto-vantaa">Mainostoimisto Vantaa</a></li>
       <li><a href="/kotisivut-yritykselle#alat">Kotisivut aloittain</a></li>
       <li><a href="/paljonko-kotisivut-maksavat">Kotisivujen hinnat 2026</a></li>
+      <li><a href="/google-yritysprofiili">Google-yritysprofiili</a></li>
+      <li><a href="/yritys-ei-nay-googlessa">Yritys ei näy Googlessa: testi</a></li>
+      <li><a href="/tekoalyoptimointi">Tekoälyoptimointi</a></li>
     </ul>
     <ul aria-label="Alat">
       <li><a href="/kotisivut-putkimiehelle">Kotisivut putkimiehelle</a></li>
@@ -1280,5 +1323,25 @@ addEventListener('scroll',()=>{if(scrollY>40){clearTimeout(t);h.classList.remove
 })();
 </script>
 <script src="assets/pika.js" defer></script>
+<script>
+// the teaser video plays only while on screen. If the phone blocks autoplay (battery saving, data saver,
+// reduced motion) the still poster stays and a play button appears; a tap starts it, a tap on the video pauses or resumes.
+(function(){
+  var v = document.querySelector('#mallikuvat video[data-autoplay]'); if (!v) return;
+  var btn = v.parentNode.querySelector('.mk-play');
+  var manual = false;
+  function showBtn(){ btn.hidden = false; }
+  function start(){ v.preload = 'auto'; var p = v.play(); btn.hidden = true; if (p && p.catch) p.catch(function(e){ if (e && e.name === 'AbortError') return; manual = true; showBtn(); }); }
+  btn.addEventListener('click', function(e){ e.stopPropagation(); manual = true; start(); });
+  v.addEventListener('click', function(){ if (v.paused){ manual = true; start(); } else { v.pause(); manual = true; showBtn(); } });
+  var c = navigator.connection;
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches || (c && c.saveData)){ manual = true; showBtn(); return; }
+  new IntersectionObserver(function(es){ es.forEach(function(en){
+    if (en.isIntersecting){ if (!manual) start(); } else if (!v.paused){ v.pause(); if (manual) showBtn(); }
+  }); }, {threshold:.35}).observe(v);
+  // some phones never reject play() but never start either; show the button after a moment
+  v.addEventListener('play', function(){ setTimeout(function(){ if (!v.paused && v.currentTime < .05){ v.pause(); manual = true; showBtn(); } }, 2500); });
+})();
+</script>
 </body>
 </html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Miksi yritys ei näy Googlessa? Ilmainen testi | Marktic</title>
+<meta name="description" content="Yritys ei näy Googlessa tai kartalla? Käykää läpi syyt ja testatkaa sivunne maksutta: Googlen pisteet ja korjattavat asiat noin minuutissa.">
+<link rel="canonical" href="https://marktic.fi/yritys-ei-nay-googlessa">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#f1eee7">
+<meta property="og:title" content="Miksi yritys ei näy Googlessa? Ilmainen testi | Marktic">
+<meta property="og:description" content="Yritys ei näy Googlessa tai kartalla? Käykää läpi syyt ja testatkaa sivunne maksutta: Googlen pisteet ja korjattavat asiat noin minuutissa.">
+<meta property="og:url" content="https://marktic.fi/yritys-ei-nay-googlessa">
+<meta property="og:locale" content="fi_FI"><meta property="og:type" content="article"><meta property="og:image" content="https://marktic.fi/assets/og-v2.jpg">
+<meta name="twitter:card" content="summary_large_image"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="preload" href="fonts/geist/Geist-Light.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/v2.css">
+<style>
+.testi{display:grid;gap:20px;max-width:760px}
+.testi .row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}
+.testi .row label{flex:1 1 260px}
+.testi .row .pill{min-height:48px}
+#testi-tulos{display:grid;gap:20px}
+#testi-tulos h3{margin:6px 0 0;font-weight:400;font-size:1.15rem}
+#testi-tulos .stats small{display:block;color:var(--dim);font-size:.8rem;margin-top:4px}
+#testi-tulos .tl{margin:0;padding-left:20px;display:grid;gap:14px}
+#testi-tulos .tl li b{display:block;font-weight:500}
+#testi-tulos .tl li span{display:block;color:var(--dim)}
+#testi-tulos .tl i{font-style:normal;color:var(--ink)}
+#testi-tulos .ticks{margin:0;grid-template-columns:minmax(0,1fr)}
+#testi-tulos .fine{margin:0}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://marktic.fi/yritys-ei-nay-googlessa#article",
+   "headline": "Miksi yritys ei näy Googlessa?",
+   "description": "Yritys ei näy Googlessa tai kartalla? Käykää läpi syyt ja testatkaa sivunne maksutta: Googlen pisteet ja korjattavat asiat noin minuutissa.",
+   "inLanguage": "fi",
+   "datePublished": "2026-11-08",
+   "dateModified": "2026-11-08",
+   "author": {
+    "@type": "Organization",
+    "@id": "https://marktic.fi/#org",
+    "name": "Marktic",
+    "url": "https://marktic.fi/"
+   },
+   "publisher": {
+    "@id": "https://marktic.fi/#org"
+   },
+   "mainEntityOfPage": "https://marktic.fi/yritys-ei-nay-googlessa"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Etusivu",
+     "item": "https://marktic.fi/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Palvelut ja hinnat",
+     "item": "https://marktic.fi/palvelut"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Miksi yritys ei näy Googlessa",
+     "item": "https://marktic.fi/yritys-ei-nay-googlessa"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Miksi yritykseni ei näy Google Mapsissa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Googlen mukaan indeksointi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Miten saan yritykseni näkymään Googlessa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Luokaa ja vahvistakaa Google-yritysprofiili, tarkistakaa, ettei sivuja ole estetty hakukoneilta, lisätkää sivusto Google Search Consoleen ja kertokaa sivuilla selvästi, mitä teette, missä ja millä hinnalla. Pyytäkää arvostelu jokaiselta asiakkaalta."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Voiko Googlen hakutuloksen sijoituksen ostaa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne näkyvät mainoksina erillään tavallisista tuloksista."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Mitä sivutesti tarkistaa?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa."
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebApplication",
+   "@id": "https://marktic.fi/yritys-ei-nay-googlessa#testi",
+   "name": "Marktic sivutesti",
+   "url": "https://marktic.fi/yritys-ei-nay-googlessa#testi",
+   "applicationCategory": "BusinessApplication",
+   "operatingSystem": "Selain",
+   "inLanguage": "fi",
+   "isAccessibleForFree": true,
+   "provider": {
+    "@id": "https://marktic.fi/#org"
+   },
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Siirry sisältöön</a>
+<header class="hd">
+  <div class="gut wide row">
+    <a class="logo" href="/" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a>
+    <nav class="nav" aria-label="Päävalikko"><a href="/#paketti">Kotisivut</a><a href="/tyot">Esimerkkisivut</a><a href="/palvelut">Palvelut ja hinnat</a><a href="/meista">Meistä</a><a href="/yhteys">Yhteys</a></nav>
+    <a class="pill pill-solid cta" href="/yhteys" data-pika>Ottakaa yhteyttä</a>
+    <details class="mnav"><summary><i></i>Valikko</summary><nav aria-label="Päävalikko"><a href="/#paketti">Kotisivut</a><a href="/tyot">Esimerkkisivut</a><a href="/palvelut">Palvelut ja hinnat</a><a href="/meista">Meistä</a><a href="/yhteys">Yhteys</a><a href="mailto:info@marktic.fi">info@marktic.fi</a></nav></details>
+  </div>
+</header>
+<main id="main">
+<article>
+<section class="ph" aria-labelledby="h1">
+  <div class="gut wide">
+    <span class="eb">Opas ja testi · päivitetty 8.11.2026</span>
+    <h1 id="h1">Miksi yritys ei näy Googlessa?</h1>
+    <div class="answer">
+      <p><b>Lyhyt vastaus:</b> kun yritys ei näy Googlessa, syy löytyy yleensä yhdestä neljästä paikasta: Google-yritysprofiilia ei ole vahvistettu tai se on jäädytetty, Google ei ole vielä löytänyt sivuja tai ne on estetty hakukoneilta, sivulta puuttuu tieto siitä, mitä teette ja missä, tai hakijan lähellä on yrityksiä, jotka Google katsoo osuvammiksi tai tunnetummiksi. <a class="link" href="#testi">Testatkaa sivunne alla</a>, niin näette minuutissa, miten oma sivunne on tehty.</p>
+    </div>
+    <p class="lead">Kävimme syyt läpi Googlen omien ohjeiden pohjalta 8.11.2026. Testi käyttää samoja tarkistuksia, joilla katsomme asiakkaidemme sivut, ja Googlen PageSpeed Insights -mittausta.</p>
+  </div>
+</section>
+
+<section class="sec alt" id="testi" aria-labelledby="t-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Maksuton testi</span><h2 id="t-h">Testatkaa sivunne.</h2><p class="lead">Kirjoittakaa sivunne osoite. Luemme sivun ja pyydämme Googlen oman PageSpeed-mittauksen puhelimelle. Näette, mitä löytyi, mitä se maksaa teille nyt ja mitä korjaus muuttaa.</p></div>
+    <div class="testi">
+      <form class="form" id="testi-form" novalidate>
+        <div class="row"><label>Sivunne osoite<input name="url" type="text" inputmode="url" autocomplete="url" placeholder="yrityksenne.fi" required spellcheck="false" autocapitalize="off"></label><button class="pill pill-solid" type="submit">Testaa sivu</button></div>
+        <p class="err" hidden></p>
+        <p class="fine" style="margin:0">Testi on maksuton, eikä se tallenna tietoja teistä. Tulos ei kerro sijoitustanne Googlessa.</p>
+      </form>
+      <noscript><p>Testi tarvitsee JavaScriptin. Voitte myös lähettää osoitteen meille: <a href="mailto:info@marktic.fi">info@marktic.fi</a>.</p></noscript>
+      <div id="testi-tulos" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="a-h">
+  <div class="gut wide local">
+    <div class="head" style="margin:0"><span class="eb">1</span><h2 id="a-h">Profiili puuttuu kartalta.</h2></div>
+    <div class="body">
+      <p>Google-yritysprofiili näkyy asiakkaille vasta, kun Google on vahvistanut sen. Jos vahvistus on kesken, profiili ei näy haussa eikä kartalla. Jos Google on jäädyttänyt profiilin ohjeiden vastaisena, kukaan muu ei näe sitä, ja syy näkyy Googlen valitustyökalussa.</p>
+      <p>Kartan tulokset riippuvat myös siitä, missä hakija on. Jos haette itse toiselta paikkakunnalta, näette eri tuloksen kuin asiakas palvelualueellanne.</p>
+      <p><a class="link" href="/google-yritysprofiili">Google-yritysprofiili: luominen ja vahvistus <span aria-hidden="true">→</span></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" aria-labelledby="b-h">
+  <div class="gut wide local">
+    <div class="head" style="margin:0"><span class="eb">2</span><h2 id="b-h">Google ei ole vielä löytänyt sivuja.</h2></div>
+    <div class="body">
+      <p>Kirjoittakaa Googleen <b>site:yrityksenne.fi</b> omalla osoitteellanne. Jos tuloksia ei tule, Google ei ole lisännyt sivuja hakemistoonsa. Googlen mukaan indeksointi kestää muutamasta päivästä muutamaan viikkoon. Sitä voi nopeuttaa Google Search Consolessa: vahvistakaa sivusto, lähettäkää sivukartta ja pyytäkää tärkeimpien sivujen indeksointia. Google ei silti lupaa, että sivu lisätään nopeasti tai lainkaan.</p>
+      <p>Toinen syy on, että sivu on estetty hakukoneilta noindex-merkinnällä tai robots.txt-tiedostolla. Esimerkiksi WordPressissä on asetus, joka pyytää hakukoneita jättämään sivuston huomiotta. Yllä oleva testi näyttää, onko sivulla noindex-merkintä.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="c-h">
+  <div class="gut wide local">
+    <div class="head" style="margin:0"><span class="eb">3</span><h2 id="c-h">Sivu ei kerro, mitä teette ja missä.</h2></div>
+    <div class="body">
+      <p>Google päättelee sivun aiheen sen otsikosta, pääotsikosta ja tekstistä. Jos etusivun otsikko on pelkkä yrityksen nimi ja tekstiä on muutama lause, Google ei näe, että sivu vastaa esimerkiksi hakuun "sähköasentaja Espoo".</p>
+      <p>Korjaus on yksinkertainen: palvelu ja paikkakunta otsikkoon ja pääotsikkoon, jokaiselle pääpalvelulle oma kappale tai sivu, palvelualue tekstinä, hinnat tai hintahaarukat ja yhteystiedot. Rakenteinen tieto (LocalBusiness) kertoo samat asiat hakukoneille koneluettavassa muodossa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" aria-labelledby="d-h">
+  <div class="gut wide local">
+    <div class="head" style="margin:0"><span class="eb">4</span><h2 id="d-h">Muut ovat tunnetumpia.</h2></div>
+    <div class="body">
+      <p>Googlen mukaan paikallisiin tuloksiin vaikuttavat osuvuus, etäisyys ja tunnettuus. Tunnettuuteen vaikuttavat esimerkiksi linkit muilta sivuilta sekä arvostelujen määrä ja arviot. Parempaa sijoitusta ei voi ostaa.</p>
+      <p>Tunnettuus kasvaa vähitellen: pyytäkää arvostelu jokaiselta asiakkaalta, vastatkaa arvosteluihin ja pitäkää samat yritystiedot kaikkialla, esimerkiksi Finderissä ja Bing Placesissa.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="m-h">
+  <div class="gut wide local">
+    <div class="head" style="margin:0"><span class="eb">Meiltä</span><h2 id="m-h">Jos testi löytää korjattavaa.</h2></div>
+    <div class="body">
+      <p>Maksuttomassa kartoituksessa käymme läpi, mitä asiakkaat näkevät, kun he etsivät alanne yritystä: Google, kartta, hakemistot ja hakupalvelut. Saatte kirjallisena, mitä korjaisimme ensin. Kartoitus ei sido mihinkään.</p>
+      <p>Näkyvyyden korjauspaketti maksaa 190 € kertamaksuna, ja uudet kotisivut 490 € (yksi sivu) tai 990 € (enintään viisi sivua). Emme lupaa tiettyä sijaa, koska hakutulokset vaihtelevat.</p>
+      <p><a class="link" href="/palvelut">Palvelut ja hinnat <span aria-hidden="true">→</span></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" aria-labelledby="q-h">
+  <div class="gut wide qa">
+    <div class="head"><span class="eb">Kysymykset</span><h2 id="q-h">Usein kysyttyä.</h2></div>
+    <div><div class="faq"><details><summary>Miksi yritykseni ei näy Google Mapsissa?</summary><p>Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta.</p></details><details><summary>Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?</summary><p>Googlen mukaan indeksointi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan.</p></details><details><summary>Miten saan yritykseni näkymään Googlessa?</summary><p>Luokaa ja vahvistakaa Google-yritysprofiili, tarkistakaa, ettei sivuja ole estetty hakukoneilta, lisätkää sivusto Google Search Consoleen ja kertokaa sivuilla selvästi, mitä teette, missä ja millä hinnalla. Pyytäkää arvostelu jokaiselta asiakkaalta.</p></details><details><summary>Voiko Googlen hakutuloksen sijoituksen ostaa?</summary><p>Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne näkyvät mainoksina erillään tavallisista tuloksista.</p></details><details><summary>Mitä sivutesti tarkistaa?</summary><p>Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa.</p></details></div></div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="s-h">
+  <div class="gut wide">
+    <div class="head"><span class="eb">Lähteet</span><h2 id="s-h">Mihin tiedot perustuvat.</h2><p class="lead">Ohjeet ja luvut on tarkistettu lähteistä 8.11.2026. Palveluiden ohjeet muuttuvat, joten tarkistakaa ajantasainen tieto lähteestä.</p></div>
+    <ul class="srcs">
+      <li><a href="https://support.google.com/business/answer/10514137" rel="nofollow noopener">Google: Business Profile -profiilin luominen (Sign up for Business Profile)</a></li><li><a href="https://support.google.com/business/answer/7091" rel="nofollow noopener">Google: Paikallisen sijoituksen parantaminen (How to improve your local ranking)</a></li><li><a href="https://support.google.com/business/answer/4569145" rel="nofollow noopener">Google: Jäädytetyt profiilit ja valitukset</a></li><li><a href="https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl" rel="nofollow noopener">Google Search Central: Pyydä Googlea indeksoimaan sivut uudelleen</a></li><li><a href="https://pagespeed.web.dev/" rel="nofollow noopener">Google PageSpeed Insights</a></li>
+    </ul>
+  </div>
+</section>
+</article><section class="sec dark cta-band" aria-labelledby="cta-h">
+  <div class="gut wide">
+    <span class="eb">Maksuton kartoitus</span>
+    <h2 id="cta-h">Lähettäkää yrityksenne nimi ja paikkakunta.</h2>
+    <a class="big-mail" href="mailto:info@marktic.fi?subject=Maksuton%20kartoitus&amp;body=Yritys%3A%0APaikkakunta%3A%0AKotisivut%3A%0A">info@marktic.fi</a>
+    <p class="dim">Vastaamme kahden arkipäivän kuluessa. Kartoitus on maksuton eikä sido mihinkään.</p>
+  </div>
+</section>
+</main>
+<footer class="ft">
+  <div class="gut wide">
+    <div><a class="logo" href="/" aria-label="Marktic, etusivu"><span aria-hidden="true">Markt<span class="i">ı</span>c</span></a><br>Markkinointitoimisto paikallisille yrityksille.<br>Toiminimi Marktic · Y-tunnus 3664036-8<br>Aitanavain 7, 01660 Vantaa · <a href="tel:+358406759882">040 675 9882</a></div>
+    <ul>
+      <li><a href="/palvelut">Palvelut ja hinnat</a></li>
+      <li><a href="/tyot">Esimerkkisivut</a></li>
+      <li><a href="/meista">Meistä</a></li>
+      <li><a href="/yhteys">Yhteys</a></li>
+      <li><a href="/tietosuoja">Tietosuojaseloste</a></li>
+      <li><a href="mailto:info@marktic.fi">info@marktic.fi</a></li>
+      <li><a href="https://www.instagram.com/marktic.fi/" rel="me noopener" target="_blank">Instagram</a></li>
+      <li><a href="https://www.tiktok.com/@marktic.fi" rel="me noopener" target="_blank">TikTok</a></li>
+    </ul>
+    <ul aria-label="Alueet">
+      <li><a href="/kotisivut-yritykselle">Kotisivut yritykselle</a></li>
+      <li><a href="/kotisivut-helsinki">Kotisivut Helsinki</a></li>
+      <li><a href="/kotisivut-espoo">Kotisivut Espoo</a></li>
+      <li><a href="/kotisivut-vantaa">Kotisivut Vantaa</a></li>
+      <li><a href="/kotisivut-tampere">Kotisivut Tampere</a></li>
+      <li><a href="/kotisivut-turku">Kotisivut Turku</a></li>
+      <li><a href="/kotisivut-oulu">Kotisivut Oulu</a></li>
+      <li><a href="/kotisivut-jyvaskyla">Kotisivut Jyväskylä</a></li>
+      <li><a href="/kotisivut-kuopio">Kotisivut Kuopio</a></li>
+      <li><a href="/kotisivut-lahti">Kotisivut Lahti</a></li>
+      <li><a href="/mainostoimisto-vantaa">Mainostoimisto Vantaa</a></li>
+      <li><a href="/kotisivut-yritykselle#alat">Kotisivut aloittain</a></li>
+      <li><a href="/paljonko-kotisivut-maksavat">Kotisivujen hinnat 2026</a></li>
+      <li><a href="/google-yritysprofiili">Google-yritysprofiili</a></li>
+      <li><a href="/yritys-ei-nay-googlessa">Yritys ei näy Googlessa: testi</a></li>
+      <li><a href="/tekoalyoptimointi">Tekoälyoptimointi</a></li>
+    </ul>
+    <ul aria-label="Alat">
+      <li><a href="/kotisivut-putkimiehelle">Kotisivut putkimiehelle</a></li>
+      <li><a href="/kotisivut-lvi-yritykselle">Kotisivut LVI-yritykselle</a></li>
+      <li><a href="/kotisivut-sahkoasentajalle">Kotisivut sähköasentajalle</a></li>
+      <li><a href="/kotisivut-kattourakoitsijalle">Kotisivut kattourakoitsijalle</a></li>
+      <li><a href="/kotisivut-maanrakennusyritykselle">Kotisivut maanrakennusyritykselle</a></li>
+      <li><a href="/kotisivut-remonttiyritykselle">Kotisivut remonttiyritykselle</a></li>
+      <li><a href="/kotisivut-maalarille">Kotisivut maalarille</a></li>
+      <li><a href="/kotisivut-viherrakentajalle">Kotisivut viherrakentajalle</a></li>
+      <li><a href="/kotisivut-siivousyritykselle">Kotisivut siivousyritykselle</a></li>
+      <li><a href="/kotisivut-kauneushoitolalle">Kotisivut kauneushoitolalle</a></li>
+      <li><a href="/kotisivut-kahvilalle">Kotisivut kahvilalle</a></li>
+      <li><a href="/kotisivut-autokorjaamolle">Kotisivut autokorjaamolle</a></li>
+      <li><a href="/kotisivut-tilitoimistolle">Kotisivut tilitoimistolle</a></li>
+    </ul>
+  </div>
+</footer>
+<script>
+// close the mobile menu after a tap on a link
+document.querySelectorAll('.mnav nav a').forEach(function(a){ a.addEventListener('click', function(){ a.closest('details').open = false; }); });
+(function(){ var m = document.querySelector('.mnav'); if (!m) return;
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && m.open){ m.open = false; m.querySelector('summary').focus(); } });
+  document.addEventListener('click', function(e){ if (m.open && !m.contains(e.target)) m.open = false; });
+})();
+</script>
+<script src="assets/pika.js" defer></script>
+<script src="assets/testi.js" defer></script>
+</body>
+</html>
