@@ -175,6 +175,7 @@ async function readPage(url, httpFallback) {
   };
 }
 
+// Returns the scores, or { error } with Google's short reason (never the key) so a broken setup can be seen.
 export async function readScore(url, key) {
   if (!key) return null;
   const q = new URLSearchParams({ url, strategy: 'mobile', key, fields: PSI_FIELDS });
@@ -184,16 +185,20 @@ export async function readScore(url, key) {
   const timer = setTimeout(() => ctl.abort(), 75000);
   try {
     const r = await fetch(PSI + '?' + q, { signal: ctl.signal });
-    if (!r.ok) return null;
+    if (!r.ok) {
+      let msg = '';
+      try { msg = ((await r.json()).error || {}).message || ''; } catch { /* not JSON */ }
+      return { error: 'HTTP ' + r.status + (msg ? ': ' + msg.replace(key, '***').slice(0, 300) : '') };
+    }
     const lh = (await r.json()).lighthouseResult || {};
     const c = lh.categories || {};
     const perf = c.performance && c.performance.score, seo = c.seo && c.seo.score;
-    if (typeof perf !== 'number' || typeof seo !== 'number') return null;
+    if (typeof perf !== 'number' || typeof seo !== 'number') return { error: 'no score in the answer' };
     const lcp = ((lh.audits || {})['largest-contentful-paint'] || {}).numericValue;
     return { performance: Math.round(perf * 100), seo: Math.round(seo * 100),
       lcp_s: typeof lcp === 'number' ? Math.round(lcp / 100) / 10 : null };
-  } catch {
-    return null;
+  } catch (e) {
+    return { error: e && e.name === 'AbortError' ? 'timeout' : 'fetch failed' };
   } finally {
     clearTimeout(timer);
   }
@@ -225,9 +230,11 @@ export async function onRequestGet({ request, env, waitUntil }) {
   if (await tooMany(request, cache)) return json({ ok: false, error: 'busy' }, 429);
 
   const httpFallback = !/^https:\/\//i.test(raw.trim());     // the visitor typed no scheme: try http if https fails
-  const [page, score] = await Promise.all([readPage(target, httpFallback), readScore(target, env.PAGESPEED_API_KEY)]);
+  const [page, measured] = await Promise.all([readPage(target, httpFallback), readScore(target, env.PAGESPEED_API_KEY)]);
+  const score = measured && !measured.error ? measured : null;
+  const scoreError = measured && measured.error ? measured.error : undefined;
   const checked = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Helsinki' });   // YYYY-MM-DD, Finnish date
-  const body = { ok: true, url: target, checked, page, score, scoreAvailable: !!env.PAGESPEED_API_KEY };
+  const body = { ok: true, url: target, checked, page, score, scoreError, scoreAvailable: !!env.PAGESPEED_API_KEY };
   if (page.reachable) {
     const ttl = score || !env.PAGESPEED_API_KEY ? 86400 : 600;   // a failed Google measurement is retried sooner
     waitUntil(cache.put(cacheKey, new Response(JSON.stringify(body), {
