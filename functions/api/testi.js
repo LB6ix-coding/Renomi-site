@@ -176,9 +176,10 @@ async function readPage(url, httpFallback) {
 }
 
 // Returns the scores, or { error } with Google's short reason (never the key) so a broken setup can be seen.
-// Google answered "invalid argument" to the first field list on 8.11.2026, so smaller lists and finally the full
-// answer are tried in turn; `via` says which one worked (0 = all fields, 1 = no LCP, 2 = full answer).
-const PSI_FIELD_SETS = [PSI_FIELDS, PSI_FIELDS.split(',').slice(0, 3).join(','), null];
+// Live test 8.11.2026: Google refuses a field list naming the audit "largest-contentful-paint" (400 invalid
+// argument) and accepts the list without it, so that list goes first; the full answer is the last resort.
+// `via` says which one worked (0 = short list, 1 = full answer). Without the audit, lcp_s is null.
+const PSI_FIELD_SETS = [PSI_FIELDS.split(',').slice(0, 3).join(','), null];
 export async function readScore(url, key) {
   if (!key) return null;
   const ctl = new AbortController();
