@@ -88,6 +88,66 @@ async function fetchPage(url) {
   }
 }
 
+// robots.txt: which search robots may read the tested address. Only the file is seen; blocks set in a host's or
+// Cloudflare's firewall are not. No file (or an error) means everything is allowed, as for the robots themselves.
+export const SEARCH_BOTS = ['OAI-SearchBot', 'PerplexityBot', 'Googlebot', 'Bingbot'];
+export function robotsBlocked(txt, path, bots = SEARCH_BOTS) {
+  const groups = [];
+  let cur = null, lastWasAgent = false;
+  for (const raw of String(txt).slice(0, 64 * 1024).split(/\r?\n/).slice(0, 2000)) {
+    const line = raw.replace(/#.*/, '').trim();
+    const m = line.match(/^([a-z-]+)\s*:\s*(.*)$/i);
+    if (!m) continue;
+    const k = m[1].toLowerCase(), v = m[2].trim();
+    if (k === 'user-agent') {
+      if (!lastWasAgent) { cur = { agents: [], rules: [] }; groups.push(cur); }
+      cur.agents.push(v.toLowerCase());
+      lastWasAgent = true;
+    } else if ((k === 'allow' || k === 'disallow') && cur) {
+      lastWasAgent = false;
+      if (cur.rules.length < 500) cur.rules.push({ allow: k === 'allow', p: v });
+    } else {
+      lastWasAgent = false;
+    }
+  }
+  const matches = (pat, p) => {
+    if (!pat) return -1;                                   // empty Disallow allows everything
+    const anchored = pat.endsWith('$');
+    const body = (anchored ? pat.slice(0, -1) : pat).replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '.*');
+    return new RegExp('^' + body + (anchored ? '$' : '')).test(p) ? pat.length : -1;
+  };
+  const out = [];
+  for (const bot of bots) {
+    const b = bot.toLowerCase();
+    let gs = groups.filter((g) => g.agents.some((a) => a !== '*' && b.includes(a)));
+    if (!gs.length) gs = groups.filter((g) => g.agents.includes('*'));
+    let best = -1, allowed = true;
+    for (const g of gs) for (const r of g.rules) {
+      const len = matches(r.p, path);
+      if (len > best || (len === best && r.allow)) { best = len; allowed = r.allow; }
+    }
+    if (best >= 0 && !allowed) out.push(bot);
+  }
+  return out;
+}
+
+async function readRobots(url) {
+  const u = new URL(url);
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 6000);
+  try {
+    const r = await fetch(u.origin + '/robots.txt', { redirect: 'follow', signal: ctl.signal, headers: { 'user-agent': UA } });
+    if (!r.ok) return { found: false, blocked: [] };
+    const txt = (await r.text()).slice(0, 64 * 1024);
+    if (/<html/i.test(txt.slice(0, 500))) return { found: false, blocked: [] };   // a page, not a robots file
+    return { found: true, blocked: robotsBlocked(txt, u.pathname || '/') };
+  } catch {
+    return { found: false, blocked: [], error: true };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function readPage(url, httpFallback) {
   let { res, timer } = await fetchPage(url);
   if (!res && httpFallback) ({ res, timer } = await fetchPage(url.replace(/^https:/, 'http:')));
@@ -236,13 +296,14 @@ export async function onRequestGet({ request, env, waitUntil }) {
 
   const cache = caches.default;
   // the key's presence is part of the cache key: adding the Google key must not serve old results without scores
-  const cacheKey = new Request('https://marktic.fi/api/testi-cache?v=2&k=' + (env.PAGESPEED_API_KEY ? 1 : 0) + '&u=' + encodeURIComponent(target.replace(/\/$/, '')));
+  const cacheKey = new Request('https://marktic.fi/api/testi-cache?v=3&k=' + (env.PAGESPEED_API_KEY ? 1 : 0) + '&u=' + encodeURIComponent(target.replace(/\/$/, '')));
   const hit = await cache.match(cacheKey);
   if (hit) return new Response(hit.body, { headers: { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store', 'x-cache': 'hit' } });
   if (await tooMany(request, cache)) return json({ ok: false, error: 'busy' }, 429);
 
   const httpFallback = !/^https:\/\//i.test(raw.trim());     // the visitor typed no scheme: try http if https fails
-  const [page, measured] = await Promise.all([readPage(target, httpFallback), readScore(target, env.PAGESPEED_API_KEY)]);
+  const [page, measured, robots] = await Promise.all([readPage(target, httpFallback), readScore(target, env.PAGESPEED_API_KEY), readRobots(target)]);
+  if (page.reachable) page.robots = robots;
   const score = measured && !measured.error ? measured : null;
   const scoreError = measured && measured.error ? measured.error : undefined;
   const checked = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Helsinki' });   // YYYY-MM-DD, Finnish date

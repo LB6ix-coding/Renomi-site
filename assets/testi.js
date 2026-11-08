@@ -26,6 +26,11 @@
   function findings(d){
     var p = d.page, s = d.score, f = [], content = p.words >= MIN_WORDS, y = new Date().getFullYear();
     if (p.noindex) f.push(['Sivu on estetty hakukoneilta (noindex-merkintä).', 'Google ei näytä sitä hakutuloksissa lainkaan.', 'näkyy hakukoneille']);
+    var rb = (p.robots && p.robots.blocked) || [];
+    if (rb.indexOf('Googlebot') > -1) f.push(['Sivuston robots.txt estää Googlen hakurobotin (Googlebot).', 'Google ei voi lukea sivua, joten se ei näy kunnolla hakutuloksissa eikä Googlen tekoälyvastauksissa.', 'on Googlen luettavissa']);
+    if (rb.indexOf('OAI-SearchBot') > -1) f.push(['Sivuston robots.txt estää ChatGPT:n hakurobotin (OAI-SearchBot).', 'OpenAI:n mukaan estettyjä sivuja ei näytetä ChatGPT:n hakuvastauksissa.', 'on ChatGPT:n haun luettavissa']);
+    if (rb.indexOf('Bingbot') > -1) f.push(['Sivuston robots.txt estää Bingin hakurobotin (Bingbot).', 'Bing ei voi lukea sivua, joten se ei näy kunnolla Bingin hakutuloksissa.', 'on Bingin luettavissa']);
+    if (rb.indexOf('PerplexityBot') > -1) f.push(['Sivuston robots.txt estää Perplexityn hakurobotin (PerplexityBot).', 'Perplexity ei voi lukea sivua hakuvastauksiaan varten.', 'on Perplexityn luettavissa']);
     if (!p.viewport) f.push(['Sivua ei ole merkitty puhelimelle sopivaksi (viewport-merkintä puuttuu).', 'Puhelimella sivu näkyy pienennettynä tietokoneversiona, ja tekstiä pitää suurentaa sormilla.', 'mukautuu puhelimen näytölle']);
     if (!p.https) f.push(['Sivu ei käytä suojattua https-yhteyttä.', 'Chrome-selain näyttää osoiterivillä merkinnän ”Ei turvallinen”.', 'on suojattu']);
     if (s && s.performance < 50) f.push(['Google PageSpeed antaa sivulle puhelimella tehokkuudeksi ' + s.performance + '/100.',
@@ -61,6 +66,19 @@
     return g;
   }
 
+  // Our own AI-readiness checklist (there is no official GEO score): 5 points, each measured on the page or robots.txt
+  function aiReady(d){
+    var p = d.page, rb = (p.robots && p.robots.blocked) || [];
+    var items = [
+      [!rb.length, rb.length ? 'robots.txt estää ' + (rb.length > 1 ? 'hakurobotit: ' : 'hakurobotin: ') + rb.join(', ') : (p.robots && p.robots.found ? 'Hakurobotit sallittu robots.txt-tiedostossa (ChatGPT, Perplexity, Google, Bing)' : 'Ei robots.txt-estoja: hakurobotit saavat lukea sivun')],
+      [!p.noindex, p.noindex ? 'Sivu on estetty hakukoneilta (noindex)' : 'Sivu on hakukoneiden luettavissa (ei noindex-merkintää)'],
+      [!!p.localSchema, 'Rakenteinen yritystieto (LocalBusiness)'],
+      [!!p.faq, 'Usein kysytyt kysymykset rakenteisena tietona (FAQPage)'],
+      [p.phone && p.price && p.words >= 200, 'Perustiedot tekstinä: puhelinnumero, hinnat ja vähintään noin 200 sanaa']
+    ];
+    return { score: items.filter(function(x){ return x[0]; }).length, items: items };
+  }
+
   function render(d){
     var host = d.url.split('://')[1].split('/')[0].replace(/^www\./, '');
     if (!d.page.reachable){
@@ -73,6 +91,8 @@
     h += '<div class="stats">';
     h += '<div><b>' + (s ? s.performance + '/100' : 'ei mitattu') + '</b><small>Tehokkuus puhelimella (Google PageSpeed)</small></div>';
     h += '<div><b>' + (s ? s.seo + '/100' : 'ei mitattu') + '</b><small>Hakukonetarkistus (Google PageSpeed)</small></div>';
+    var ai = aiReady(d);
+    h += '<div><b>' + ai.score + '/5</b><small>Tekoälyvalmius (Marktic)</small></div>';
     h += '<div><b>' + f.length + '</b><small>Korjattavaa asiaa</small></div>';
     h += '</div>';
     if (f.length){
@@ -83,6 +103,9 @@
       h += '<p>Emme löytäneet tarkistamistamme kohdista korjattavaa.</p>';
     }
     if (g.length){ h += '<h3>Kunnossa</h3><ul class="ticks">'; g.forEach(function(x){ h += '<li>' + esc(x) + '</li>'; }); h += '</ul>'; }
+    h += '<h3>Tekoälyvalmius ' + ai.score + '/5</h3><ul class="ai">';
+    ai.items.forEach(function(x){ h += '<li class="' + (x[0] ? 'y' : 'n') + '"><span aria-hidden="true">' + (x[0] ? '✓' : '–') + '</span> ' + esc(x[1]) + (x[0] ? '' : ' <i>(korjattava)</i>') + '</li>'; });
+    h += '</ul><p class="fine">Tekoälyvalmius on oma tarkistuslistamme, koska virallista tekoälypistemäärää ei ole. Testi näkee robots.txt-tiedoston, mutta ei palveluntarjoajan tai Cloudflaren asetuksissa tehtyjä estoja. Hyväkään tulos ei takaa mainintaa tekoälyn vastauksissa.</p>';
     if (!s) h += '<p class="fine">' + (d.scoreAvailable ? 'Googlen mittaus ei onnistunut tällä kertaa.' : 'Googlen mittaus ei ole juuri nyt käytössä.') + ' Voitte ajaa sen itse osoitteessa <a href="https://pagespeed.web.dev/" rel="noopener" target="_blank">pagespeed.web.dev</a>.</p>';
     else h += '<p class="fine">Pisteet ovat Google PageSpeed Insights -mittauksesta puhelimella, ja ne vaihtelevat hieman mittauskerrasta toiseen. Voitte ajaa saman mittauksen itse osoitteessa <a href="https://pagespeed.web.dev/" rel="noopener" target="_blank">pagespeed.web.dev</a>.</p>';
     h += '<p class="fine">Testi lukee vain sivun, jonka osoitteen annoitte, eikä se näe sisältöä, jonka sivun ohjelmakoodi lisää myöhemmin. Se ei myöskään näe Google-yritysprofiilianne eikä sitä, miltä sijalta yrityksenne löytyy.</p>';

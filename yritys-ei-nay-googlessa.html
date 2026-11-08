@@ -30,6 +30,11 @@
 #testi-tulos .tl i{font-style:normal;color:var(--ink)}
 #testi-tulos .ticks{margin:0;grid-template-columns:minmax(0,1fr)}
 #testi-tulos .fine{margin:0}
+#testi-tulos .stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+#testi-tulos .ai{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+#testi-tulos .ai li span{display:inline-block;width:1.2em;font-weight:500}
+#testi-tulos .ai li.n{color:var(--dim)}
+#testi-tulos .ai li i{font-style:normal}
 </style>
 <script type="application/ld+json">
 {
@@ -118,7 +123,7 @@
      "name": "Mitä sivutesti tarkistaa?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa."
+      "text": "Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston sekä sen, estääkö robots.txt ChatGPT:n, Perplexityn, Googlen tai Bingin hakurobotin. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle ja laskee tekoälyvalmiuden omalla viiden kohdan tarkistuslistallamme, koska virallista tekoälypistemäärää ei ole. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa."
      }
     }
    ]
@@ -170,7 +175,7 @@
 
 <section class="sec alt" id="testi" aria-labelledby="t-h">
   <div class="gut wide">
-    <div class="head"><span class="eb">Maksuton testi</span><h2 id="t-h">Testatkaa sivunne.</h2><p class="lead">Kirjoittakaa sivunne osoite. Luemme sivun ja pyydämme Googlen oman PageSpeed-mittauksen puhelimelle. Näette, mitä löytyi, mitä se tarkoittaa nyt ja mitä korjaus muuttaa.</p></div>
+    <div class="head"><span class="eb">Maksuton testi</span><h2 id="t-h">Testatkaa sivunne.</h2><p class="lead">Kirjoittakaa sivunne osoite. Luemme sivun ja sen robots.txt-tiedoston ja pyydämme Googlen oman PageSpeed-mittauksen puhelimelle. Näette, mitä löytyi, mitä se tarkoittaa nyt ja mitä korjaus muuttaa, sekä sivun tekoälyvalmiuden.</p></div>
     <div class="testi">
       <form class="form" id="testi-form" novalidate>
         <div class="row"><label>Sivunne osoite<input name="url" type="text" inputmode="url" autocomplete="url" placeholder="yrityksenne.fi" required spellcheck="false" autocapitalize="off"></label><button class="pill pill-solid" type="submit">Testatkaa sivu</button></div>
@@ -238,7 +243,7 @@
 <section class="sec alt" aria-labelledby="q-h">
   <div class="gut wide qa">
     <div class="head"><span class="eb">Kysymykset</span><h2 id="q-h">Usein kysyttyä.</h2></div>
-    <div><div class="faq"><details><summary>Miksi yritykseni ei näy Google Mapsissa?</summary><p>Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen, jolloin se voi kadota kartalta. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta.</p></details><details><summary>Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?</summary><p>Googlen mukaan sivujen läpikäynti indeksointipyynnön jälkeen voi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan.</p></details><details><summary>Miten saan yritykseni näkymään Googlessa?</summary><p>Luokaa ja vahvistakaa Google-yritysprofiili, tarkistakaa, ettei sivuja ole estetty hakukoneilta, lisätkää sivusto Google Search Consoleen ja kertokaa sivuilla selvästi, mitä teette, missä ja millä hinnalla. Pyytäkää arvostelu jokaiselta asiakkaalta.</p></details><details><summary>Voiko Googlen hakutuloksen sijoituksen ostaa?</summary><p>Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne merkitään hakutuloksissa sponsoroiduiksi.</p></details><details><summary>Mitä sivutesti tarkistaa?</summary><p>Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa.</p></details></div></div>
+    <div><div class="faq"><details><summary>Miksi yritykseni ei näy Google Mapsissa?</summary><p>Yleensä siksi, että Google-yritysprofiilia ei ole vahvistettu tai Google on jäädyttänyt sen, jolloin se voi kadota kartalta. Vahvistettu profiili voi myös jäädä muiden alle, jos hakija on kaukana yrityksestä tai profiilin tiedot ovat puutteelliset. Kartan tulokset riippuvat Googlen mukaan osuvuudesta, etäisyydestä ja tunnettuudesta.</p></details><details><summary>Kuinka kauan kestää, että uudet sivut näkyvät Googlessa?</summary><p>Googlen mukaan sivujen läpikäynti indeksointipyynnön jälkeen voi kestää muutamasta päivästä muutamaan viikkoon. Search Consolessa voi lähettää sivukartan ja pyytää yksittäisen sivun indeksointia, mutta Google ei lupaa, että sivu lisätään nopeasti tai lainkaan.</p></details><details><summary>Miten saan yritykseni näkymään Googlessa?</summary><p>Luokaa ja vahvistakaa Google-yritysprofiili, tarkistakaa, ettei sivuja ole estetty hakukoneilta, lisätkää sivusto Google Search Consoleen ja kertokaa sivuilla selvästi, mitä teette, missä ja millä hinnalla. Pyytäkää arvostelu jokaiselta asiakkaalta.</p></details><details><summary>Voiko Googlen hakutuloksen sijoituksen ostaa?</summary><p>Ei voi. Googlen mukaan parempaa paikallista sijoitusta ei voi pyytää eikä ostaa. Google-mainoksia voi ostaa, mutta ne merkitään hakutuloksissa sponsoroiduiksi.</p></details><details><summary>Mitä sivutesti tarkistaa?</summary><p>Testi lukee antamanne sivun ja tarkistaa muun muassa otsikon, kuvaustekstin, pääotsikon, puhelinnumeron, lomakkeen, hinnat, rakenteisen tiedon ja hakukone-eston sekä sen, estääkö robots.txt ChatGPT:n, Perplexityn, Googlen tai Bingin hakurobotin. Lisäksi se pyytää Googlen PageSpeed-mittauksen puhelimelle ja laskee tekoälyvalmiuden omalla viiden kohdan tarkistuslistallamme, koska virallista tekoälypistemäärää ei ole. Testi ei näe Google-yritysprofiilianne eikä sijoitustanne hakutuloksissa.</p></details></div></div>
   </div>
 </section>
 
