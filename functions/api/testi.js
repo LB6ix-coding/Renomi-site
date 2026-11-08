@@ -176,27 +176,38 @@ async function readPage(url, httpFallback) {
 }
 
 // Returns the scores, or { error } with Google's short reason (never the key) so a broken setup can be seen.
+// Google answered "invalid argument" to the first field list on 8.11.2026, so smaller lists and finally the full
+// answer are tried in turn; `via` says which one worked (0 = all fields, 1 = no LCP, 2 = full answer).
+const PSI_FIELD_SETS = [PSI_FIELDS, PSI_FIELDS.split(',').slice(0, 3).join(','), null];
 export async function readScore(url, key) {
   if (!key) return null;
-  const q = new URLSearchParams({ url, strategy: 'mobile', key, fields: PSI_FIELDS });
-  q.append('category', 'performance');
-  q.append('category', 'seo');
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 75000);
+  let firstError = '';
   try {
-    const r = await fetch(PSI + '?' + q, { signal: ctl.signal });
-    if (!r.ok) {
-      let msg = '';
-      try { msg = ((await r.json()).error || {}).message || ''; } catch { /* not JSON */ }
-      return { error: 'HTTP ' + r.status + (msg ? ': ' + msg.replace(key, '***').slice(0, 300) : '') };
+    for (let via = 0; via < PSI_FIELD_SETS.length; via++) {
+      const q = new URLSearchParams({ url, strategy: 'mobile', key });
+      if (PSI_FIELD_SETS[via]) q.set('fields', PSI_FIELD_SETS[via]);
+      q.append('category', 'performance');
+      q.append('category', 'seo');
+      const r = await fetch(PSI + '?' + q, { signal: ctl.signal });
+      if (!r.ok) {
+        let msg = '';
+        try { const e = (await r.json()).error || {}; msg = (e.message || '') + (e.details ? ' ' + JSON.stringify(e.details) : ''); } catch { /* not JSON */ }
+        const err = 'HTTP ' + r.status + (msg ? ': ' + msg.split(key).join('***').slice(0, 400) : '');
+        if (!firstError) firstError = err;
+        if (r.status === 400) continue;          // maybe the field list: try the next one
+        return { error: firstError === err ? err : firstError + ' / then ' + err };
+      }
+      const lh = (await r.json()).lighthouseResult || {};
+      const c = lh.categories || {};
+      const perf = c.performance && c.performance.score, seo = c.seo && c.seo.score;
+      if (typeof perf !== 'number' || typeof seo !== 'number') return { error: 'no score in the answer' };
+      const lcp = ((lh.audits || {})['largest-contentful-paint'] || {}).numericValue;
+      return { performance: Math.round(perf * 100), seo: Math.round(seo * 100),
+        lcp_s: typeof lcp === 'number' ? Math.round(lcp / 100) / 10 : null, via };
     }
-    const lh = (await r.json()).lighthouseResult || {};
-    const c = lh.categories || {};
-    const perf = c.performance && c.performance.score, seo = c.seo && c.seo.score;
-    if (typeof perf !== 'number' || typeof seo !== 'number') return { error: 'no score in the answer' };
-    const lcp = ((lh.audits || {})['largest-contentful-paint'] || {}).numericValue;
-    return { performance: Math.round(perf * 100), seo: Math.round(seo * 100),
-      lcp_s: typeof lcp === 'number' ? Math.round(lcp / 100) / 10 : null };
+    return { error: firstError || 'no answer' };
   } catch (e) {
     return { error: e && e.name === 'AbortError' ? 'timeout' : 'fetch failed' };
   } finally {
