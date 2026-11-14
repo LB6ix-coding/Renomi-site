@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anfragen | Grünfuge Garten- und Landschaftsbau (Beispielansicht)</title>
+<meta name="description" content="Beispielansicht: So sieht ein Gartenbaubetrieb die Anfragen über seine Website. Fiktives Demo-Unternehmen.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f2d22">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231f2d22'/%3E%3Cpath d='M7 9h8v6H7zM17 9h8v6h-8zM7 17h4v6H7zM13 17h12v6H13z' fill='%23c9d77a'/%3E%3C/svg%3E">
+<link rel="preload" as="font" type="font/woff2" href="../fonts/manrope-latin-wght-normal.woff2" crossorigin>
+<link rel="stylesheet" href="anfragen.css">
+</head>
+<body>
+<a class="skip" href="#lista">Zu den Anfragen</a>
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="../index.html" aria-label="Grünfuge, zurück zur Website">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><path d="M7 9h8v6H7zM17 9h8v6h-8zM7 17h4v6H7zM13 17h12v6H13z" fill="#c9d77a"/></svg>
+      <span>Grünfuge<small>Anfragen</small></span>
+    </a>
+    <span class="demo-pill">Beispielansicht</span>
+    <a class="back" href="../index.html">Zurück zur Website</a>
+  </div>
+</header>
+
+<main class="app">
+  <section class="intro" aria-labelledby="intro-h">
+    <div>
+      <h1 id="intro-h">Anfragen.</h1>
+      <p>So sieht der Betrieb die Anfragen, die über die Website kommen: wer, woher, was im Garten gemacht werden soll und wie der Stand ist. <b>Dies ist ein Beispiel.</b> Ihre Anfrage ist nur in diesem Browser gespeichert und wurde nicht versendet.</p>
+    </div>
+    <button class="ghost" type="button" id="reset">Eigene Anfragen löschen</button>
+  </section>
+
+  <section class="kpis" aria-label="Übersicht">
+    <div class="kpi"><span>Neu</span><b id="k-new">0</b><small>warten auf Rückruf</small></div>
+    <div class="kpi"><span>Letzte 7 Tage</span><b id="k-week">0</b><small>Anfragen</small></div>
+    <div class="kpi"><span>Aus dem Einsatzgebiet</span><b id="k-area">0 %</b><small>Wiesbaden, Mainz und Umgebung</small></div>
+    <div class="kpi"><span>Offene Angebote</span><b id="k-open">0 €</b><small id="k-won">Beauftragt: 0 €</small></div>
+  </section>
+
+  <div class="board">
+    <section class="list-col" aria-labelledby="lista-h">
+      <h2 id="lista-h" class="sr-only">Anfragen</h2>
+      <div class="filters" role="tablist" aria-label="Nach Status filtern" id="filters"></div>
+      <label class="search"><span class="sr-only">Suche nach Name, PLZ oder Leistung</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Name, PLZ oder Leistung suchen" autocomplete="off"></label>
+      <ul class="leads" id="lista"></ul>
+    </section>
+    <section class="detail" id="detail" aria-live="polite" aria-label="Details zur Anfrage"></section>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="anfragen.js" defer></script>
+</body>
+</html>

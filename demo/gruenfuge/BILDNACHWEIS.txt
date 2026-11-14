@@ -1,0 +1,26 @@
+Pflasterfotos im Konfigurator: Pexels (Pexels-Lizenz, kostenlose kommerzielle Nutzung, Namensnennung freiwillig)
+pf-beton-fischgraet ............ https://www.pexels.com/photo/17366740/
+pf-beton-fischgraet-diagonal ... https://www.pexels.com/photo/17366741/
+pf-beton-laeufer ............... https://www.pexels.com/photo/11255189/
+pf-anthrazit-fischgraet ........ https://www.pexels.com/photo/17366769/
+pf-klinker-fischgraet-diagonal . https://www.pexels.com/photo/17366752/
+pf-klinker-fischgraet .......... https://www.pexels.com/photo/17366737/
+pf-klinkerbunt-fischgraet ...... https://www.pexels.com/photo/17366739/
+pf-granit-bogen ................ https://www.pexels.com/photo/9891098/
+pf-granit-reihe ................ https://www.pexels.com/photo/13778557/
+lp-pflaster-hero (Ausschnitt) ... https://www.pexels.com/photo/17366737/
+
+Fotos auf den Unterseiten, im Leistungsbereich, im Bildband und im Vorschaubild (Pexels-Lizenz):
+lp-mainz-hero, og-gruenfuge ...... https://www.pexels.com/photo/34087861/
+lp-terrasse-hero ................ https://www.pexels.com/photo/39009170/
+lp-gestaltung-hero .............. https://www.pexels.com/photo/35756189/
+g-mauersteine ................... https://www.pexels.com/photo/33966133/
+g-pflasterweg-mauer, band-pflasterweg https://www.pexels.com/photo/38297061/
+g-treppe-hang ................... https://www.pexels.com/photo/15551717/
+g-palisaden ..................... https://www.pexels.com/photo/38548344/
+g-pflasterkreis ................. https://www.pexels.com/photo/38220910/
+g-strandkorb .................... https://www.pexels.com/photo/39637139/
+g-sitzplatz ..................... https://www.pexels.com/photo/38220905/
+g-trittstufen ................... https://www.pexels.com/photo/39045225/
+g-trittsteine ................... https://www.pexels.com/photo/32959283/
+g-buchs ......................... https://www.pexels.com/photo/38843820/

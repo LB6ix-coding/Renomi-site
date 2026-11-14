@@ -1,0 +1,24 @@
+# Grünfuge Garten- und Landschaftsbau (fiktives Demo-Unternehmen)
+
+> Garten- und Landschaftsbau in Wiesbaden, Mainz und Umgebung: Pflasterarbeiten, Terrassen, Mauern, Bepflanzung und Gartenbeleuchtung. Demo-Website von Marktic.
+
+## Leistungen und Richtpreise (inkl. 19 % MwSt.)
+- Pflaster mit Unterbau: 60 bis 170 € pro m² (Betonstein 60 bis 95, Klinker 80 bis 125, Granit 110 bis 170), befahrbare Flächen etwa 15 % mehr
+- Terrassen: 150 bis 280 € pro m²
+- Rollrasen: 15 bis 30 € pro m²
+- Staudenbeete: 40 bis 90 € pro m²
+- Natursteinmauern bis etwa 80 cm Höhe: 250 bis 450 € pro laufendem Meter
+
+## Seiten
+- [Gartenbau Wiesbaden](https://marktic.fi/demo/gruenfuge/)
+- [Gartenbau Mainz](https://marktic.fi/demo/gruenfuge/gartenbau-mainz.html)
+- [Pflasterarbeiten Wiesbaden](https://marktic.fi/demo/gruenfuge/pflasterarbeiten-wiesbaden.html)
+- [Terrassenbau Wiesbaden](https://marktic.fi/demo/gruenfuge/terrassenbau-wiesbaden.html)
+- [Gartengestaltung Mainz](https://marktic.fi/demo/gruenfuge/gartengestaltung-mainz.html)
+
+## Ratgeber
+- [Was kostet Pflaster pro Quadratmeter?](https://marktic.fi/demo/gruenfuge/pflaster-kosten.html)
+
+## Kontakt
+- Telefon: 0611 000 0000
+- E-Mail: info@gruenfuge.example
